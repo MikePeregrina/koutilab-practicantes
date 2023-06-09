@@ -1,0 +1,93 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Ejecuta cierta accion mientras, una o varias condiciones se cumples.",
+        "incorrectAnswers": [
+            "Se ejecutan varios",
+            "Constantes",
+            "Todas las Anteriores"
+        ],
+        "question": "'While' ¿Para que se utiliza?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+"correctAnswer": " while( ){ }",
+        "incorrectAnswers": [
+            "while ()",
+            "while { }",
+            "while ( ) { };"
+        ],
+        "question": "¿Cuál es la estructura de 'While'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Son con lo que las computadoras pueden realizar acciones",
+        "incorrectAnswers": [
+            "Son los que reciben información",
+            "Son reguladores de las computadoras",
+            "No recuerdo"
+        ],
+        "question": "¿Qué son los actuadores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Outputs o Salidas",
+        "incorrectAnswers": [
+            "Inputs",
+            "Salidas",
+            "Sensores"
+        ],
+        "question": "Los actuadores ¿Qué son?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Monitores, Pulsadores, Calentadores, etc.",
+        "incorrectAnswers": [
+            "Sensores, LEDs, Pantallas",
+            "Motores, Cables, etc",
+            "No recuerdo"
+        ],
+        "question": "¿Cuales son los tipos de actuadores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

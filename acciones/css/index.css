@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-family: Tahoma;
+}
+
+/*-------------------------LOGIN-------------------------------*/
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body::after {
+  content: "";
+  background-image: url(../img/bg1.png);
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 700px;
+}
+
+.container .panel {
+  width: 80%;
+  height: 75%;
+  border-top-left-radius: 50%;
+  box-shadow: 0 0 20px 9px #e0e0e0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 65% 0%;
+  background: rgba(255, 255, 255, 0.6);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  
+}
+
+.liquid {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: 0px 0px 20px 9px #e0e0e0;
+}
+
+.liquid img {
+  width: 95%;
+}
+
+.owl-carousel {
+  width: 100%;
+  height: 300px;
+  max-height: 500px;
+}
+
+.owl-carousel .owl-item .login_img {
+  float: right;
+  width: 800px;
+  height: 518px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 3rem;
+}
+
+.form-box {
+  width: 419px;
+  height: 508px;
+  position: relative;
+  margin: 6% auto;
+  background: rgba(255, 255, 255, 1);
+  padding: 5px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  overflow: hidden;
+  box-shadow: 9px -9px 9px 0px #e0e0e0;
+}
+
+.button-box {
+  width: 240px;
+  margin: -20px auto;
+  position: relative;
+  box-shadow: 0 0 20px 9px #e0e0e0;
+  border-radius: 30px;
+}
+
+.toggle-btn {
+  padding: 10px 22px;
+  cursor: pointer;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  position: relative;
+}
+
+#elegir {
+  top: 0;
+  left: 0;
+  right: 120px;
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(129, 179, 243),
+    rgba(132, 196, 44)
+  );
+  border-radius: 30px;
+  transition: 0.8s;
+}
+
+.logop {
+  margin: 35px 0 0 0;
+  text-align: center;
+}
+
+.logop img {
+  width: 200px;
+  margin: 0 12px;
+  box-shadow: 0 0 20px 9px #e0e0e0;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.input-group {
+  top: 120px;
+  position: absolute;
+  width: 350px;
+  transition: 0.8s;
+}
+
+.input-field {
+  width: 92%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px solid #1c4c74;
+  outline: none;
+  background: transparent;
+}
+
+.submit-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(
+    to right,
+    rgba(129, 179, 243),
+    rgba(132, 196, 44)
+  );
+  border: 0px;
+  outline: none;
+  border-radius: 30px;
+}
+
+.check-box {
+  margin: 30px 10px 30px 0;
+}
+
+span {
+  color: #59819d;
+  font-size: 12px;
+  bottom: 64px;
+  position: absolute;
+}
+
+#Ingresar {
+  left: 50px;
+}
+
+#Registrarse {
+  left: 450px;
+}
+
+form .form-group {
+  text-align: center;
+  margin-top: 0.9rem;
+  margin-right: 2rem;
+  border-radius: 3rem;
+}
+
+form .form-group .form-input {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  font-family: Tahoma;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+form .input-icon {
+  display: inline;
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 390px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 0% 0%;
+  }
+
+  .form-box {
+    width: 300px;
+  }
+
+  .input-group {
+    top: 150px;
+    width: 280px;
+    margin: 0px;
+  }
+}
+
+.password-icon {
+  float: right;
+  position: sticky;
+  margin: -25px 10px 0 0;
+  cursor: pointer;
+  display: inline;
+}
+
+.remember {
+  margin: 28px 0 0 175px;
+  position: absolute;
+  color: #59819d;
+  text-decoration: none;
+}

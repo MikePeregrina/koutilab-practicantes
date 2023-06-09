@@ -1,0 +1,696 @@
+ /*---------------------------CSS GENERAL----------------------------*/
+ 
+ * {
+     padding: 0;
+     margin: 0;
+     text-decoration: none;
+     list-style: none;
+     box-sizing: border-box;
+ }
+ 
+ body {
+     background-color: white;
+     font-family: 'Comfortaa', cursive;
+ }
+ /*---------------------------MENU----------------------------*/
+ 
+ nav #icon {
+     color: rgb(0, 0, 0);
+     font-size: 30px;
+     line-height: 80px;
+     float: right;
+     margin-right: 40px;
+     cursor: pointer;
+     display: none;
+ }
+ 
+ @media (max-width: 1048px) {
+     label.logo {
+         font-size: 30px;
+         padding-left: 50px;
+     }
+     nav ul {
+         margin-right: 19px;
+     }
+     nav a {
+         font-size: 16px;
+     }
+ }
+ 
+ @media (max-width: 909px) {
+     nav #icon {
+         display: block;
+     }
+     nav ul {
+         position: fixed;
+         width: 100%;
+         height: 100vh;
+         top: 75px;
+         left: -100%;
+         text-align: center;
+         transition: all 0.5s;
+     }
+     nav li {
+         display: block;
+         margin: 45px 0;
+         line-height: 18px;
+     }
+     nav a {
+         font-size: 18px;
+     }
+     a.active,
+     a:hover {
+         border: none;
+         color: rgb(3, 10, 6);
+     }
+     nav ul.show {
+         left: 0;
+     }
+ }
+ 
+ nav {
+     background: white;
+     height: 60px;
+     width: 100%;
+     position: fixed;
+     z-index: 100;
+     align-items: center;
+ }
+ #Que{
+    background-image: url(../img/fondo.png);
+    width: 100%;
+    object-fit: none;
+ }
+ 
+ .enlace {
+     position: absolute;
+     padding: 20px 50px;
+ }
+ 
+ .logo {
+     height: 50px;
+     margin-left: 20px;
+     margin-top: 10px;
+ }
+ 
+ nav ul {
+     float: right;
+ }
+ 
+ nav ul li {
+     display: inline-block;
+     line-height: 75px;
+ }
+ 
+ nav ul li a {
+     color: black;
+     font-size: 20px;
+     padding: 6px 10px;
+     font-family: sans-serif;
+ }
+ 
+ .Rg {
+     color: #41A7F3;
+     margin-left: 40px;
+ }
+ 
+ .is {
+     background-color: black;
+     color: white;
+     border-radius: 50px;
+     margin-right: 40px;
+ }
+ 
+ li a.active,
+ li a:hover {
+     background: #9ACD32;
+     color: black;
+     border-radius: 50px;
+     text-decoration: none;
+ }
+ 
+ .ima {
+     height: 400px;
+     width: 400px;
+ }
+ 
+ .pl {
+     background-color: #99cd32c6;
+     border-radius: 50px;
+     color: black;
+ }
+ 
+ .g {
+     color: #605e5e;
+ }
+ 
+ .fon {
+     background: url('img/2023 koutilab web fondo-21.png');
+     width: 100%;
+     height: 500px;
+ }
+ 
+ .checkbtn {
+     font-size: 30px;
+     color: aliceblue;
+     float: right;
+     line-height: 80px;
+     margin-right: 40px;
+     cursor: pointer;
+     display: none;
+ }
+ 
+ #check {
+     display: none;
+ }
+ 
+ .img-fluid {
+     height: 900px;
+     width: 680px;
+     margin-top: -3%;
+     z-index: -1;
+     margin-left: 6%;
+     margin-right: 10%;
+ }
+ 
+ .img-fluid2 {
+     height: 180px;
+     width: 180px;
+     top: 0;
+     z-index: -1;
+     margin-left: 15%;
+     margin-right: 15%;
+ }
+ 
+ p {
+     text-align: center;
+ }
+ 
+ .img-fluid3 {
+     height: 300px;
+     width: 100%;
+     top: 0;
+     z-index: -1;
+ }
+ 
+ .img-fluid4 {
+     height: 800px;
+     width: 100%;
+     top: 0;
+     z-index: -1;
+ }
+ 
+ .img-fluid5 {
+     height: 725px;
+     width: 100%;
+ }
+ 
+ .uno {
+     position: relative;
+     align-items: center;
+ }
+ 
+ .dos {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     margin: 0 auto;
+ }
+ 
+ .fonV {
+     background: url(../img/fondov.png);
+     width: 100%;
+     height: 660px;
+ }
+ 
+ video {
+     margin-top: 4%;
+     width: 55%;
+     height: auto;
+     margin-left: 350px;
+     border: 10% solid white;
+     border-radius: 80px;
+     background-color: white;
+     box-shadow: 0 0 15px gray;
+ }
+ 
+ .ider {
+     float: right;
+     margin-right:-1.9% ;
+     height: 500px;
+     width: 538px;
+     display: block;
+ }
+ 
+ .ader {
+     height: 200px;
+     width: 700px;
+ }
+ 
+ .tit {
+     width: 25%;
+     position: absolute;
+     margin-left: 12%;
+     margin-top: 5%;
+     font-size: 20px;
+ }
+ 
+ h1 {
+     font-family: 'Lucida Sans Regular';
+     font-size: 30px;
+     color: rgb(83, 167, 252);
+ }
+ 
+ h2 {
+     font-family: 'Lucida Sans Regular';
+     font-size: 30px;
+     color: gray;
+ }
+ 
+ .imge {
+     border: 10px solid white;
+     float: right;
+     height: 400px;
+     width: 400px;
+     margin-right: 30%;
+     margin-top: 10%;
+     box-shadow: 0 0 15px gray;
+     border-radius: 30px;
+ }
+ 
+ .r {
+     float: left;
+     margin-left: 50px;
+ }
+ 
+ .ra {
+     float: left;
+     margin-left: 85px;
+ }
+ 
+ .rim {
+     float: left;
+     margin-left: 10px;
+ }
+ 
+ .ri {
+     float: left;
+     margin-left: 15%;
+ }
+ 
+ .ris {
+     float: left;
+     margin-left: 200px;
+ }
+ 
+ .rin {
+     float: left;
+     margin-left: 160px;
+ }
+ 
+ .c {
+     text-align: center;
+     align-items: center;
+     margin-left: 300px;
+     float: left;
+ }
+ 
+ .j {
+     text-align: justify;
+ }
+ 
+ .esc {
+     width: 100%;
+     margin-top: 2%;
+ }
+ 
+ .esc1 {
+     width: 100%;
+     margin-top: -1%;
+ }
+ 
+ span {
+     color: #41A7F3;
+     font-size: 15px;
+ }
+ 
+ .elemneto {
+     height: 120px;
+     width: 120px;
+ }
+ 
+#el3{
+    margin-left: 30px;
+}
+ .ru {
+     font-family: 1em Verdana, Geneva, sans-serif;
+     text-transform: none;
+     color: black;
+     background: #FFFFFF;
+     border: thin solid #33333379;
+     height: 150px;
+     width: 115%;
+     border-radius: 90px;
+     box-shadow: 0 0 10px #666;
+ }
+ 
+ fieldset img {
+     margin-top: 25px;
+ }
+ 
+ fieldset div {
+     float: right;
+     padding-right: 200px;
+     text-align: justify;
+ }
+ 
+ fieldset div p {
+     text-align: justify;
+     font-family: Arial;
+     font-size: 16px;
+     
+ }
+ 
+ .colin{
+    height: 30px;
+ }
+ 
+ .li {
+     border: 5px;
+     color: #41A7F3;
+     size: 10px;
+     width: 30px;
+ }
+ 
+ .rutas {
+     margin-left: 100px;
+     align-items: center;
+ }
+ 
+ hr {
+     width: 100%;
+     height: 15%;
+     background-color: #41A7F3;
+     margin-right: auto;
+     margin-left: auto;
+     margin-top: 638px;
+     margin-bottom: 20px;
+     border-width: 10px;
+     border-radius: 50px;
+     size: 20;
+ }
+ 
+ .nivel {
+     font: 1em Verdana, Geneva, sans-serif;
+     text-transform: none;
+     background: #41a6f34c;
+     border: thin solid #33333379;
+     height: 420px;
+     width: 300px;
+     border-radius: 50px;
+     box-shadow: 0 0 9px #666;
+ }
+ 
+ .fon2 {
+     background: url('img/2023 koutilab web fondo-21.png');
+     width: 1348px;
+     height: 580px;
+ }
+ 
+ .sec {
+     margin-top: 50px;
+ }
+
+ #Fonden{
+    background-image: url(../img/fondo.png);
+ }
+
+ footer{
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  footer .content{
+    max-width: 1350px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  footer .content p,a{
+    color: black;
+  }
+  footer .content .box{
+    width: 33%;
+    transition: all 0.4s ease;
+  }
+  footer .content .topic{
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 16px;
+  
+  }
+  footer .content p{
+    text-align: justify;
+    color: #000;
+  }
+  footer .content .lower .topic{
+    margin: 24px 0 5px 0;
+    color: #000;
+  }
+  footer .content .lower i{
+    padding-right: 16px;
+    color: #000;
+  }
+  footer .content .middle{
+    padding-left: 80px;
+    color: #000;
+  }
+  footer .content .middle a{
+    line-height: 32px;
+    color: #000;
+  }
+  footer .content .right input[type="text"]{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    color: black;
+    background: #000;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 17px;
+    
+  }
+
+  .button {
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    }
+  .button::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .button:hover, .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  .button:hover::before, .button:focus::before {
+    opacity: 1;
+  }
+  
+  .button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .button:hover::after, .button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+  
+ 
+  
+  .glow-on-hover {
+    width: 15%;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(90deg,rgba(61,172,244)19%, rgba(132,196,44)88%);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #84c42c, #00ffd5, #84c42c, #00ffd5, #84c42c, #00ffd5 , #84c42c, #00ffd5, #84c42c);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+  .btnt:hover{
+    background: linear-gradient(90deg,rgba(61,172,244,0.1)19%, rgba(132,196,44,0.1)88%);
+  }
+  .content .right input[type="submit"]:hover{
+    background: none;
+  }
+  footer .content .media-icons a{
+    font-size: 16px;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 5px;
+    border: 2px solid rgb(33, 33, 135);
+    margin: 30px 5px 0 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .content .media-icons a:hover{
+    border-color: black;
+    color: #000;
+  }
+  footer .bottom{
+    width: 100%;
+    text-align: right;
+    color: black;
+    padding: 0 40px 5px 0;
+  }
+  footer .bottom a{
+    color: black;
+  }
+  footer a{
+    transition: all 0.3s ease;
+    color: #000;
+  }
+  footer a:hover{
+    color: black;
+  }
+  @media (max-width:1100px) {
+    footer .content .middle{
+      padding-left: 50px;
+    }
+  }
+  @media (max-width:950px){
+    footer .content .box{
+      width: 50%;
+    }
+    .content .right{
+      margin-top: 40px;
+    }
+  }
+  @media (max-width:560px){
+    footer{
+      position: relative;
+    }
+    footer .content .box{
+      width: 100%;
+      margin-top: 30px;
+    }
+    footer .content .middle{
+      padding-left: 0;
+    }
+  }
+
+  .bottom{
+    background-color: #00FFCB;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }

@@ -1,0 +1,183 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "Falso",
+            "No recuerdo",
+            "Puede ser"
+        ],
+        "question": "Una página con extensión htm o html comienza por html (entre signos mayor y menor)",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "body",
+        "incorrectAnswers": [
+            "header",
+            "html",
+            "div"
+        ],
+        "question": "¿En donde se encuentra el title en una pagina web?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "hr",
+        "incorrectAnswers": [
+            "br",
+            "line",
+            "wbr"
+        ],
+        "question": "¿Qué etiqueta utilizamos para insertar una línea horizontal?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "<!--...-->",
+        "incorrectAnswers": [
+            "<¡--...--!>",
+            "<comment>",
+            "<meta>"
+        ],
+        "question": "¿Cuál es la forma correcta de insertar un comentario?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "<img src='foto.jpg'>",
+        "incorrectAnswers": [
+            "<imagen src='foto.jpg'> ",
+            "<img href='foto.jpg'>",
+            "<background src='foto.jpg'>"
+        ],
+        "question": "Elija la forma correcta de ingresar una imagen.",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "br",
+        "incorrectAnswers": [
+            "break",
+            "linebreak",
+            "p"
+        ],
+        "question": "¿Qué etiqueta define un salto de línea?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "h1",
+        "incorrectAnswers": [
+            "h6",
+            "head",
+            "big"
+        ],
+        "question": "Elija la etiqueta que nos da el título más grande",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "<body bg color=”#00ff00”>",
+        "incorrectAnswers": [
+            "<FONT COLOR='RED'>los guardianes azules </font> ",
+            "<FONT SIZE='1'>cada día seré mejor </FONT>",
+            "<p align='center'>la mejor musica</p>"
+        ],
+        "question": "Para definir el fondo de la página se utiliza:",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Insertar imágenes, texto, tablas y fondos",
+        "incorrectAnswers": [
+            "Generar solo formularios, enlaces y videos",
+            "Solamente se define el titulo",
+            "Respuestas a y b"
+        ],
+        "question": "En el body se puede:",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Permite centrar el texto.",
+        "incorrectAnswers": [
+            "Permite seleccionar el texto.",
+            "Permite insertar un texto como título.",
+            "Permite cambiar el tamaño del texto."
+        ],
+        "question": "La etiqueta center",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

@@ -1,0 +1,90 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Energia electrica --> Energia Mecanica",
+        "incorrectAnswers": [
+            "No tiene una funcion estable",
+            "Transforma energia"
+        ],
+        "question": "¿Qué es lo que hace cualquier motor DC?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Motor de Corriente Continua",
+        "incorrectAnswers": [
+            "Motor de Corriente",
+            "Motor Continuo"
+        ],
+        "question": "¿Comó es conocido el Motor DC?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Bateria 9v",
+        "incorrectAnswers": [
+            "Bateria AA",
+            "Bateria AAA",
+            "A la corriente directa"
+        ],
+        "question": "¿Qué se necesita para que tenga corriente un motor DC",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Para cablear",
+        "incorrectAnswers": [
+            "Son sensores",
+            "Son LEDs",
+            "No recuerdo"
+        ],
+        "question": "Los jumpers ¿Para que sirven?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Sensor ultra sonico",
+        "incorrectAnswers": [
+            "Mas motores",
+            "Jumpers",
+            "Sensores"
+        ],
+        "question": "¿Qué otro componente le podemos conectar al motor?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

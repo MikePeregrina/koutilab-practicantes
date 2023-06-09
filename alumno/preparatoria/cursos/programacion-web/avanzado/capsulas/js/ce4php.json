@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "+",
+        "incorrectAnswers": [
+            "%",
+            "/",
+            "-"
+        ],
+        "question": "¿Qué operador se utiliza en PHP para sumar dos valores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "$vector = array(1, 2, 3);",
+        "incorrectAnswers": [
+            "$vector = {1, 2, 3};",
+            "$vector = [1, 2, 3];",
+            "$vector = (1, 2, 3);"
+        ],
+        "question": "¿Cómo se declara un vector en PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "function nombre_de_la_funcion($parametro1, $parametro2) {};",
+        "incorrectAnswers": [
+            "function nombre_de_la_funcion();",
+            "function nombre_de_la_funcion($parametro1, $parametro2);",
+            "function(nombre_de_la_funcion, $parametro1, $parametro2);"
+        ],
+        "question": "¿Cómo se define una función en PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "require detiene la ejecución del script si el archivo no se encuentra, mientras que include no.",
+        "incorrectAnswers": [
+            "No hay diferencia, se pueden usar indistintamente.",
+            "require es más rápido que include.",
+            "include y require hacen lo mismo, pero con distintas sintaxis. "
+        ],
+        "question": "¿Cuál es la diferencia entre include y require en PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "POST",
+        "incorrectAnswers": [
+            "GET",
+            "SEND",
+            "DATA"
+        ],
+        "question": "¿Cuál es el método utilizado para enviar los datos de un formulario en PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "< ? y ? >",
+        "incorrectAnswers": [
+            "< php >< /php >",
+            "<# y #>",
+            "<php ?>"
+        ],
+        "question": "¿Cuáles de estas son marcas para la inserción del código PHP en las páginas HTML?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "if (a==0) echo “hola mundo”;",
+        "incorrectAnswers": [
+            "if (a=0) print a",
+            "if (a==0): print a;",
+            "if (a==0) { echo ok }"
+        ],
+        "question": "¿Cuál de estas instrucciones está correctamente escrita en PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "En PHP no se define el tipo de las variables explícitamente",
+        "incorrectAnswers": [
+            "char str;",
+            "string str;",
+            "char chr;"
+        ],
+        "question": "¿Cómo se define una variable de tipo string en PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Un conjunto de elementos",
+        "incorrectAnswers": [
+            "Un conjunto de caracteres alfanuméricos",
+            "Un sistema para convertir una variable de texto en un número",
+            "Ninguna de las anteriores"
+        ],
+        "question": "Un array es...",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Servidor",
+        "incorrectAnswers": [
+            "Cliente (ordenador propio)",
+            "Localmente",
+            "Desde la web"
+        ],
+        "question": "¿En qué lugar se ejecuta el código PHP?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

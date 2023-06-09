@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #404040;
+    font-family: Tahoma;
+    background-image: url(../../../../../img/bg1.png);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    text-align: center;
+}
+
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+body::-webkit-scrollbar-button:increment,body::-webkit-scrollbar-button {
+    display: none;
+} 
+
+body::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(129,179,243);
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+.container{
+    max-width: 90%;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background: rgba(255,255,255,.8);
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 12px rgba(61,172,244, .6);
+}
+
+.container .new-g{
+    font-size: 30px;
+    font-family: Tahoma;
+    font-weight: 500;
+}
+
+.container span{
+    font-size: 18px;
+    color: #1a3b54;
+    font-family: Tahoma;
+}
+
+.btn-b{
+    width: 5%;
+    padding: 5px 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border: 0px;
+    outline: none;
+    border-radius: 50%;
+    float: right;
+}
+
+@media (max-width: 750px) {
+    .btn-b {
+      width: 10%;
+    }
+  }
+
+@media (max-width: 750px) {
+    .container{
+      width: 90%;
+      margin-right: 150px;
+    }
+}
+
+.btne{
+    width: 100%;
+    padding: 5px 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    background: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border: 0px;
+    outline: none;
+    border-radius: 20px;
+}
+
+.btn-b i {
+    font-size: 25px;
+
+}
+
+
+.btn-grd{
+    width: 45%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border: 0px;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Tahoma;
+}
+
+a:link { text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+}
+
+.quiz-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+  
+  p.question-description {
+    color: #1a3b54;
+    padding: 25px 20px;
+    background: rgba(255,255,255,.1);
+    font-size: 20px;
+    font-family: Tahoma;
+  }
+  
+  ul.options {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 365px;
+    list-style: none;
+    box-shadow: 0 0 12px rgba(132,196,44, .8);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-family: Tahoma;
+    margin-left: 150px;
+  }
+  
+  li {
+    border: 1px solid transparent;
+    padding: 6px 8px;
+  }
+  
+  li.title {
+    background: rgba(132,196,44, .8);
+    color: black;
+  }
+  
+  li.option {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+    z-index: 50;
+    font-size: 20px;
+  }
+  
+  .answers {
+    box-shadow: 0 0 12px rgba(132,196,44, .8);
+    display: inline-block;
+    width: 535px;
+    height: auto;
+    font-size: 20px;
+    line-height: 20px;
+    margin-left: 150px;
+  }
+
+  .answers li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+  
+  .target {
+    display: inline-block;
+    width: 310px;
+    height: 26px;
+    background: rgba(129,179,243, .8);
+    margin: 0 3px;
+    text-align: center;
+  }
+  
+  button[type="submit"] {
+    width: 25%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border: 0px;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 40px;
+    float: right;
+    margin-right: 40px;
+    font-size: 20px;
+    font-family: Tahoma;
+  }
+  
+  .lightbox-bg {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .status {
+    box-shadow: 0 0 20px rgba(129,179,243);
+    border: 3px solid rgba(129,179,243, .8);
+    display: none;
+    position: absolute;
+    z-index: 110;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    margin-left: 25%;
+    background-color: rgba(255,255,255,1);
+  }
+
+  .status p {
+    background: white;
+    padding: 5px;
+    font-size: 20px;
+    font-family: Tahoma;
+    margin-top: 20px;
+  }
+
+  /*Quiz*/
+
+  #div1, #div2 {
+    box-sizing: border-box;
+    border: 2px dashed black;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+      width: 40%;
+    min-height: 50px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+  }
+  #div2 {
+    border: 2px dashed #ccc;
+  }
+  p { 
+      color: #4c4a37;  
+      font-size: 18px;
+    padding: 15px;
+    margin: 0px;
+  }
+  h1 { 
+    padding: 15px;
+      color: #7c795d; 
+      font-size: 45px; 
+      font-weight: normal; 
+      line-height: 48px; 
+      margin: 0; 
+  }
+  .button-15 {
+    /* background-image: linear-gradient(#42A1EC, #0070C9); */
+    background-image: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border: 1px solid rgba(129,179,243, .8);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 17px;
+    padding: 4px 15px;
+    text-align: center;
+    width: 25%;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: Tahoma;
+    cursor: pointer;
+  }
+  .button-15:hover {
+    background-image: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border-color: rgba(129,179,243, .8);
+    text-decoration: none;
+  }
+  .button-15:active {
+    background-image: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    border-color: rgba(129,179,243, .8);
+    outline: none;
+  }
+
+
+
+  

@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "def nombre_funcion(parametros):",
+        "incorrectAnswers": [
+            "function nombre_funcion(parametros):",
+            "define nombre_funcion(parametros):",
+            "variable nombre_funcion(parametros):"
+        ],
+        "question": "¿Cuál es la sintaxis correcta para definir una función en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Una instrucción que indica que una tarea debe ser ejecutada varias veces.",
+        "incorrectAnswers": [
+            "Un tipo de variable que almacena información.",
+            "Un tipo de estructura de control que permite tomar decisiones.",
+            "Una serie de operaciones que se realizan en un orden específico."
+        ],
+        "question": "¿Qué son las funciones en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "abs(-5)",
+        "incorrectAnswers": [
+            "print('Hola mundo!')",
+            "len('Python')",
+            "input('Ingrese su nombre:')"
+        ],
+        "question": "¿Cuál de las siguientes opciones contiene una función matemática en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Se ejecuta una tarea específica.",
+        "incorrectAnswers": [
+            "Se define una variable.",
+            "Se muestra un mensaje en pantalla.",
+            "Se toma una decisión basada en una condición."
+        ],
+        "question": "¿Qué se logra con una llamada de función en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Valores que se pasan a una función para que esta los use en su operación.",
+        "incorrectAnswers": [
+            "Variables globales que se pueden usar en cualquier parte del programa.",
+            "Operaciones matemáticas que se realizan dentro de una función.",
+            "Palabras clave que se utilizan para definir una función."
+        ],
+        "question": "¿Qué son los argumentos en una función de Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Variables que se pueden usar en cualquier parte del programa.",
+        "incorrectAnswers": [
+            "Variables que solo se pueden usar dentro de una función.",
+            "Variables que se declaran dentro de un ciclo o bucle.",
+            "Variables que solo se pueden usar en módulos externos."
+        ],
+        "question": "¿Qué son las variables globales en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Variables que se declaran dentro de una función y solo se pueden usar dentro de ella.",
+        "incorrectAnswers": [
+            "Variables que se pueden usar en cualquier parte del programa.",
+            "Variables que se declaran fuera de una función y se pueden usar en cualquier parte del programa.",
+            "Variables que se pueden usar en cualquier módulo externo."
+        ],
+        "question": "¿Qué son las variables locales en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Con la sintaxis nombre_lista[0]",
+        "incorrectAnswers": [
+            "Con la función append()",
+            "Con la función remove()",
+            "Con la función pop()"
+        ],
+        "question": "¿Cómo se accede al primer elemento de una lista en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Tuplas",
+        "incorrectAnswers": [
+            "Diccionarios",
+            "Conjuntos",
+            "Variables"
+        ],
+        "question": "¿Qué estructura de datos en Python es similar a las listas, pero no se puede modificar una vez creada?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Diccionarios",
+        "incorrectAnswers": [
+            "Listas",
+            "Tuplas",
+            "Conjuntos"
+        ],
+        "question": "¿Qué estructura de datos en Python permite almacenar valores asociados a una clave?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
