@@ -47,7 +47,8 @@ body::-webkit-scrollbar-track {
     margin-left: 40px;
     margin-top: 40px;
     margin-bottom: 40px;
-    box-shadow: 0 0 12px rgba(61,172,244, .6);
+    border: 2px solid rgba(129, 179, 243, 0.5);
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
 }
 
 .board{
@@ -167,23 +168,27 @@ form .user-details .input-box{
     box-shadow: 0 0 12px rgba(132,196,44, .8);
 }
 
-.btn-b{
+.btn-b {
     width: 5%;
     padding: 5px 5px;
     cursor: pointer;
     display: block;
-    margin: auto;
-    background: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
+    margin: 12px 0 0 12px;
+    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
     border: 0px;
     outline: none;
     border-radius: 50%;
-    float: right;
+    transition: 0.5s;
 }
 
 @media (max-width: 750px) {
     .btn-b {
       width: 10%;
     }
+  }
+
+  .btn-b:hover {
+    transform: scale(1.2);
   }
 
 @media (max-width: 750px) {
@@ -221,6 +226,11 @@ form .user-details .input-box{
     border: 0px;
     outline: none;
     border-radius: 30px;
+    transition: 0.5s;
+}
+
+.btn-grd:hover {
+    transform: scale(1.1);
 }
 
 h3{
