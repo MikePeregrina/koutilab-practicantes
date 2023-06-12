@@ -136,12 +136,40 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando existencia de atributos
+            if(csscode.toLowerCase().indexOf('font-family:georgia') !== -1 || csscode.toLowerCase().indexOf('font-family: georgia') !== -1) {
+                console.log("Si aparece font-family:georgia en CSS");
+            }else{
+                console.log("No hay font-family:georgia en CSS");
+            }
 
-            if (htmlcode == 'validar') {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            if(csscode.toLowerCase().indexOf('font-size:medium') !== -1 || csscode.toLowerCase().indexOf('font-size: medium') !== -1) {
+                console.log("Si aparece font-size:medium en CSS");
+            }else{
+                console.log("No hay font-size:medium en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('font-style:italic') !== -1 || csscode.toLowerCase().indexOf('font-style: italic') !== -1) {
+                console.log("Si aparece font-style:italic en CSS");
+            }else{
+                console.log("No hay font-style:italic en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('font-weight:bold') !== -1 || csscode.toLowerCase().indexOf('font-weight: bold') !== -1) {
+                console.log("Si aparece font-weight:bold en CSS");
+            }else{
+                console.log("No hay font-weight:bold en CSS");
+            }
+
+            if (htmlcode.length >10 && (csscode.toLowerCase().indexOf('font-family:georgia') !== -1 || csscode.toLowerCase().indexOf('font-family: georgia') !== -1) && (csscode.toLowerCase().indexOf('font-size:medium') !== -1 || csscode.toLowerCase().indexOf('font-size: medium') !== -1) && (csscode.toLowerCase().indexOf('font-style:italic') !== -1 || csscode.toLowerCase().indexOf('font-style: italic') !== -1) && (csscode.toLowerCase().indexOf('font-weight:bold') !== -1 || csscode.toLowerCase().indexOf('font-weight: bold') !== -1)) {
+               //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE

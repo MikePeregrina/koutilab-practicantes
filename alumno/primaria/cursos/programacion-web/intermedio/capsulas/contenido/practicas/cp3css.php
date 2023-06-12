@@ -136,11 +136,51 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando aparicion de atributos
+            let opacidad = contOcurrencias(csscode,'0.5');
+            let background = contOcurrencias(csscode,'background');
 
-            if (htmlcode == 'validar') {
+            if(csscode.indexOf('blue') !== -1) {
+                console.log("Si aparece blue en CSS");
+            }else{
+                console.log("No hay blue en CSS");
+            }
+
+            if(csscode.indexOf('#') !== -1) {
+                console.log("Si aparece #");
+            }else{
+                console.log("No hay #");
+            }
+
+            if(csscode.indexOf('rgb') !== -1) {
+                console.log("Si hay rgb");
+            }else{
+                console.log("No hay rgb");
+            }
+
+            if(csscode.indexOf('hsl') !== -1) {
+                console.log("Si hay hsl");
+            }else{
+                console.log("No hay hsl");
+            }
+
+            console.log("Opacity: "+opacidad);
+            console.log("Background: "+background);
+
+            if(csscode.indexOf('opacity') !== -1) {
+                console.log("Si hay opacity");
+            }else{
+                console.log("No hay opacity");
+            }
+
+            if (htmlcode.length >30 && csscode.indexOf('blue') !== -1 && csscode.indexOf('#') != -1 && csscode.indexOf('rgb') != -1 && csscode.indexOf('hsl') != -1 && csscode.indexOf('opacity') != -1 && opacidad >= 2 && background >=5) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -231,6 +271,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena){
+            let apariciones = 0;
+            let i = 0;
+            
+            while((i = cadena.indexOf(subcadena, i)) !== -1){
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+
         function copyToClipBoard() {
             var content = document.getElementById('editor');
             content.select();

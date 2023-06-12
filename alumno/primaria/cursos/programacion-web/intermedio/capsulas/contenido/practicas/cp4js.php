@@ -134,11 +134,37 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            let condicional = contOcurrencias(jscode,'if');
+            let alertas = contOcurrencias(jscode,'alert');
 
-            if (htmlcode == 'validar') {
+            //Validando existencia de operadores lógicos
+            if(jscode.indexOf('>') !== -1) {
+                console.log("Si aparece >");
+            }else{
+                console.log("No hay >");
+            }
+
+            if(jscode.indexOf('<') !== -1) {
+                console.log("Si aparece <");
+            }else{
+                console.log("No hay <");
+            }
+
+            if(jscode.indexOf('=') !== -1) {
+                console.log("Si hay =");
+            }else{
+                console.log("No hay =");
+            }
+
+            console.log("if: "+condicional);
+            console.log("alert: "+alertas);
+
+            if (jscode.indexOf('>') !== -1 && jscode.indexOf('<') !== -1 && jscode.indexOf('=') !== -1 && condicional >= 2 && alertas == 3) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -238,6 +264,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena){
+            let apariciones = 0;
+            let i = 0;
+            
+            while((i = cadena.indexOf(subcadena, i)) !== -1){
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+
         function disableIE() {
             if (document.all) {
                 return false;

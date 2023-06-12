@@ -135,11 +135,39 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            //Validando la existencia de la etiqueta <a>
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando etiquetas utilizadas
+            let ref = frame.querySelectorAll("a").length;
+            console.log("ref: "+ref);
+            if(csscode.indexOf('a:hover') !== -1) {
+                console.log("Si aparece a:hover");
+            }else{
+                console.log("No hay a:hover");
+            }
+            if(csscode.indexOf('a:active') !== -1) {
+                console.log("Si aparece a:active");
+            }else{
+                console.log("No hay a:active");
+            }
 
-            if (htmlcode != 'validar') {
+            if(csscode.indexOf('a:link') !== -1) {
+                console.log("Si hay a:link");
+            }else{
+                console.log("No hay a:link");
+            }
+            if(csscode.indexOf('a:visited') !== -1) {
+                console.log("Si hay a:visited");
+            }else{
+                console.log("No hay a:visited");
+            }
+
+            if (ref > 0 && csscode.indexOf('a:hover') == -1 || csscode.indexOf('a:active') == -1 || csscode.indexOf('a:link') == -1 || csscode.indexOf('a:visited') == -1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
                 Swal.fire({

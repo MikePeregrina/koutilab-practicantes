@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Crea una constante llamada "PI" y asigna el valor 3.1416.
-                                    Luego, calcula el diámetro de un círculo utilizando la constante "PI" y un radio cualquiera.
+                                    Luego, calcula el perímetro de un círculo utilizando la constante "PI" y un radio cualquiera.
                                     <br><br>
                                 </p>
                             </td>
@@ -133,11 +133,44 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando que exista la constante pi
+            if(jscode.indexOf('const') !== -1) {
+                console.log("Si aparece const");
+            }else{
+                console.log("No hay const");
+            }
+
+            if(jscode.toLowerCase().indexOf('pi') !== -1) {
+                console.log("Si aparece pi");
+            }else{
+                console.log("No hay pi");
+            }
+
+            if(jscode.indexOf('3.1416') !== -1) {
+                console.log("Si hay 3.1416");
+            }else{
+                console.log("No hay 3.1416");
+            }
+
+            if(jscode.indexOf('*2') !== -1 || jscode.indexOf('* 2') !== -1 ) {
+                console.log("Si hay *2");
+            }else{
+                console.log("No hay *2");
+            }
+
+            if(jscode.toLowerCase().indexOf('perimetro') !== -1) {
+                console.log("Si hay perimetro");
+            }else{
+                console.log("No hay perimetro");
+            }
+
+            if (jscode.indexOf('const') !== -1 && jscode.toLowerCase().indexOf('pi') !== -1 && jscode.indexOf('3.1416') !== -1 && (jscode.indexOf('*2') !== -1 || jscode.indexOf('* 2') !== -1 ) && jscode.toLowerCase().indexOf('perimetro') !== -1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

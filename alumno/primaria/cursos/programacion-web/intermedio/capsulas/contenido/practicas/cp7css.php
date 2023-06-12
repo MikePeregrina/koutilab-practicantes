@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -137,13 +137,46 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando etiquetas utilizadas
+            let div = frame.querySelectorAll("div").length;
+            console.log("div: "+div);
 
-            if (htmlcode == 'validar') {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            let px = contOcurrencias(csscode,'px');
+            console.log("px: "+px);//No validado ya que pueden usar distintas unidades de medida
+            //Validando existencia de atributos
+            if(csscode.toLowerCase().indexOf('grid-template-columns') !== -1) {
+                console.log("Si aparece grid-template-columns en CSS");
+            }else{
+                console.log("No hay grid-template-columns en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('grid-template-rows') !== -1) {
+                console.log("Si aparece grid-template-rows en CSS");
+            }else{
+                console.log("No hay grid-template-rows en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('display: grid')||csscode.toLowerCase().indexOf('display:grid') !== -1 || csscode.toLowerCase().indexOf('display: inline-grid')||csscode.toLowerCase().indexOf('display:inline-grid') !== -1) {
+                console.log("Si aparece display: grid en CSS");
+            }else{
+                console.log("No hay display: grid en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('grid-container') !== -1) {
+                console.log("Si aparece grid-container en CSS");
+            }else{
+                console.log("No hay grid-container en CSS");
+            }
+
+            if (div >= 7 && csscode.toLowerCase().indexOf('grid-template-columns') !== -1 && csscode.toLowerCase().indexOf('grid-template-rows') !== -1 && (csscode.toLowerCase().indexOf('display: grid')||csscode.toLowerCase().indexOf('display:grid') !== -1 || csscode.toLowerCase().indexOf('display: inline-grid')||csscode.toLowerCase().indexOf('display:inline-grid') !== -1) && csscode.toLowerCase().indexOf('grid-container') !== -1) {
+               //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -162,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -179,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -196,7 +229,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -213,29 +246,25 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
+            }else {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Incorrecto.play();
+
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 2 + '&practico=' + 10;
+                    }
+                });
             }
-            // fallo, quitar vidas
-            fail();
-        }
-
-        function fail() {
-            //se llama a "sonido" y reproducimos el sonido de que esta correcto
-            Incorrecto.play();
-
-            Swal.fire({
-                title: 'Oops...',
-                text: '¡Verifica tu respuesta!',
-                imageUrl: "../../../../../../img/signo.gif",
-                imageHeight: 350,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../../acciones/insertar_pd46.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
-                }
-            });
         }
     </script>
     <script>
@@ -246,6 +275,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena){
+            let apariciones = 0;
+            let i = 0;
+            
+            while((i = cadena.indexOf(subcadena, i)) !== -1){
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+
         function disableIE() {
             if (document.all) {
                 return false;

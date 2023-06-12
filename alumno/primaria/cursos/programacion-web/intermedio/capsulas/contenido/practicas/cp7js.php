@@ -137,11 +137,37 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            let condicional = contOcurrencias(jscode,'if');
+            let alertas = contOcurrencias(jscode,'alert');
 
-            if (htmlcode == 'validar') {
+            //Validando atributos, operadores y cuadros de diálogo
+            if(jscode.toLowerCase().indexOf('edad') !== -1) {
+                console.log("Si aparece edad");
+            }else{
+                console.log("No hay edad");
+            }
+
+            if(jscode.indexOf('>') !== -1) {
+                console.log("Si aparece >");
+            }else{
+                console.log("No hay >");
+            }
+
+            if(jscode.indexOf('prompt') !== -1) {
+                console.log("Si aparece prompt");
+            }else{
+                console.log("No hay prompt");
+            }
+
+            console.log("if: "+condicional);
+            console.log("alert: "+alertas);
+
+            if (jscode.toLowerCase().indexOf('edad') !== -1 && jscode.indexOf('>') !== -1 && jscode.indexOf('prompt') !== -1 && condicional >= 1 && alertas >= 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -216,9 +242,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
+            }else{
+                // fallo, quitar vidas
+                fail();
             }
-            // fallo, quitar vidas
-            fail();
+           
         }
 
         function fail() {
@@ -245,6 +273,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena){
+            let apariciones = 0;
+            let i = 0;
+            
+            while((i = cadena.indexOf(subcadena, i)) !== -1){
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+
         function disableIE() {
             if (document.all) {
                 return false;
