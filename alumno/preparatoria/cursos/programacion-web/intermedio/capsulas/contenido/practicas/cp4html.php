@@ -135,11 +135,24 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            let htmlcode = document.getElementById("html-code").value;
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando etiquetas utilizadas
+            let h1 = frame.querySelectorAll("h1").length;
+            console.log("h1: " + h1);
+            let table = frame.querySelectorAll("table").length;
+            console.log("table: " + table);
+            let tr = frame.querySelectorAll("tr").length;
+            console.log("tr: " + tr);
+            let th = frame.querySelectorAll("th").length;
+            console.log("th: " + th);
+            let td = frame.querySelectorAll("td").length;
+            console.log("td: " + td);
+
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            if (table == 1 && tr == 4 && th == 3 && td == 9 && h1 == 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

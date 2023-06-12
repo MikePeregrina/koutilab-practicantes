@@ -135,11 +135,31 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            let loopwhile = contOcurrencias(jscode, 'while');
+            let consola = contOcurrencias(jscode, 'console.log');
 
-            if (htmlcode == 'validar') {
+            //Validando variables, operadores y ciclos
+            if (jscode.indexOf('let') !== -1) {
+                console.log("Si aparece let");
+            } else {
+                console.log("No hay let");
+            }
+
+            if (jscode.indexOf('++') !== -1) {
+                console.log("Si aparece ++");
+            } else {
+                console.log("No hay ++");
+            }
+
+            console.log("loopwhile: " + loopwhile);
+            console.log("consola: " + consola);
+
+            if (loopwhile == 1 && consola >= 1 && jscode.indexOf('let') !== -1 && jscode.indexOf('++') !== -1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -239,6 +259,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena) {
+            let apariciones = 0;
+            let i = 0;
+
+            while ((i = cadena.indexOf(subcadena, i)) !== -1) {
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+
         function disableIE() {
             if (document.all) {
                 return false;

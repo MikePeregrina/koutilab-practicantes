@@ -4,7 +4,7 @@ const actualizar = () => {
     const cd2 = document.getElementById("js-code");
     const editor = document.getElementById("output");
     editor.srcdoc = cd.value;
-    if (cd.value == '' || cd1.value == '' || cd2.value == '') {
+    if (cd.value == '') {
         document.getElementById("update").disabled = true;
     } else {
         document.getElementById("update").disabled = false;

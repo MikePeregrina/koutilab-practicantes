@@ -4,9 +4,9 @@ const actualizar = () => {
     const cd2 = document.getElementById("js-code");
     const editor = document.getElementById("output");
     editor.srcdoc = cd.value;
-    if (cd.value == '' || cd1.value == '' || cd2.value == '') {
-        document.getElementById("update").disabled = true;
-    } else {
+    if (cd.value != '' || cd2.value != '') {
         document.getElementById("update").disabled = false;
+    }else{
+        document.getElementById("update").disabled = true;
     }
 }

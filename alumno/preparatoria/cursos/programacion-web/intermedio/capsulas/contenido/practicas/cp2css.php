@@ -136,11 +136,50 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            var frame = document.getElementById("output").contentWindow.document;
+
+            //Validando etiquetas utilizadas
+            let body = frame.querySelectorAll("body").length;
+            console.log("body: " + body);
+
+            if (csscode.indexOf('body') !== -1) {
+                console.log("Si aparece body en CSS");
+            } else {
+                console.log("No hay body en CSS");
+            }
+
+            if (csscode.indexOf('background') !== -1) {
+                console.log("Si aparece background");
+            } else {
+                console.log("No hay background");
+            }
+
+            if (csscode.indexOf('right repeat-y') !== -1) {
+                console.log("Si hay right repeat-y");
+            } else {
+                console.log("No hay right repeat-y");
+            }
+
+            if (csscode.indexOf('left repeat-y') !== -1) {
+                console.log("Si hay left repeat-y");
+            } else {
+                console.log("No hay left repeat-y");
+            }
+
+            if (csscode.indexOf('url') !== -1) {
+                console.log("Si hay url");
+            } else {
+                console.log("No hay url");
+            }
+
+            if (body > 0 && csscode.indexOf('body') !== -1 && csscode.indexOf('background') != -1 && csscode.indexOf('right repeat-y') != -1 && csscode.indexOf('left repeat-y') != -1 && csscode.indexOf('url') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
