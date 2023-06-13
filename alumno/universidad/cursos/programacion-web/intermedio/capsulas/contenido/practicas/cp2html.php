@@ -7,6 +7,23 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago2";
+
+if (isset($_GET['htmlcode'])) {
+    $htmlcode = $_GET['htmlcode'];
+} else {
+    $htmlcode = "";
+}
+if (isset($_GET['csscode'])) {
+    $csscode = $_GET['csscode'];
+} else {
+    $csscode = "";
+}
+if (isset($_GET['jscode'])) {
+    $jscode = $_GET['jscode'];
+} else {
+    $jscode = "";
+}
+
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
@@ -101,9 +118,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
-                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"></textarea> <br>
+                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 
@@ -135,11 +152,26 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+            let h1 = frame.querySelectorAll("h1").length;
+            console.log("h1: " + h1);
+            let h2 = frame.querySelectorAll("h2").length;
+            console.log("h2: " + h2);
+            let ol = frame.querySelectorAll("ol").length;
+            console.log("ol: " + ol);
+            let ul = frame.querySelectorAll("ul").length;
+            console.log("ul: " + ul);
+            let li = frame.querySelectorAll("li").length;
+            console.log("li: " + li);
+
+            if ((h1 > 0 || h2 > 0) && ol > 0 && ul > 0 && li == 7) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -225,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("html-code").value + '&csscode=' + document.getElementById("css-code").value + '&jscode=' + document.getElementById("js-code").value;
                     }
                 });
             }

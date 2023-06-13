@@ -15,7 +15,7 @@ if (empty($existe)) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 

@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea dos tablas como las de los ejemplos.
+                                <p> Crea una tabla como la del ejemplo.
                                     <br><br>
                                 </p>
                             </td>
@@ -136,11 +136,29 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando etiquetas utilizadas
+            let table = frame.querySelectorAll("table").length;
+            console.log("table: "+table);
+            let tr = frame.querySelectorAll("tr").length;
+            console.log("tr: "+tr);
+            let th = frame.querySelectorAll("th").length;
+            console.log("th: "+th);
+            let td = frame.querySelectorAll("td").length;
+            console.log("td: "+td);
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            if(htmlcode.indexOf('border') !== -1) {
+                console.log("Si aparece border");
+            }else{
+                console.log("No hay border");
+            }
+
+            if (table==1 && tr == 3 && th == 3 && td == 6 && htmlcode.indexOf('border') !== -1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -240,6 +258,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena){
+            let apariciones = 0;
+            let i = 0;
+            
+            while((i = cadena.indexOf(subcadena, i)) !== -1){
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+        
         function disableIE() {
             if (document.all) {
                 return false;

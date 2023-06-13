@@ -138,11 +138,42 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando existencia de etiqueta
+            let div = frame.querySelectorAll("div").length;
+            console.log("div: " + div);
+            //Validando existencia de atributos
+            if (csscode.toLowerCase().indexOf('background') !== -1) {
+                console.log("Si aparece background en CSS");
+            } else {
+                console.log("No hay background en CSS");
+            }
+
+            if (csscode.toLowerCase().indexOf('flex-direction: column') !== -1 || csscode.toLowerCase().indexOf('flex-direction:column') !== -1) {
+                console.log("Si aparece flex-direction: column en CSS");
+            } else {
+                console.log("No hay flex-direction: column en CSS");
+            }
+
+            if (csscode.toLowerCase().indexOf('flex-wrap: wrap') !== -1 || csscode.toLowerCase().indexOf('flex-wrap:wrap') !== -1) {
+                console.log("Si aparece flex-wrap: wrap en CSS");
+            } else {
+                console.log("No hay flex-wrap: wrap en CSS");
+            }
+
+            if (csscode.toLowerCase().indexOf('flex-flow: column nowrap') !== -1 || csscode.toLowerCase().indexOf('flex-flow:column nowrap') !== -1) {
+                console.log("Si aparece flex-flow: column nowrap en CSS");
+            } else {
+                console.log("No hay flex-flow: column nowrap en CSS");
+            }
+
+            if (div >= 6 && csscode.toLowerCase().indexOf('background') !== -1 && (csscode.toLowerCase().indexOf('flex-direction: column') !== -1 || csscode.toLowerCase().indexOf('flex-direction:column') !== -1) && (csscode.toLowerCase().indexOf('flex-wrap: wrap') !== -1 || csscode.toLowerCase().indexOf('flex-wrap:wrap') !== -1) && (csscode.toLowerCase().indexOf('flex-flow: column nowrap') !== -1 || csscode.toLowerCase().indexOf('flex-flow:column nowrap') !== -1)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

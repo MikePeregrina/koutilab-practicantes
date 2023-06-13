@@ -139,12 +139,52 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
+            
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando etiquetas utilizadas
+            let div = frame.querySelectorAll("div").length;
+            console.log("div: "+div);
+            //Validando aparición de atributos
+            let order = contOcurrencias(csscode,'order');
+            console.log("Order: "+order);
+            
+            if(csscode.toLowerCase().indexOf('order') !== -1) {
+                console.log("Si aparece order en CSS");
+            }else{
+                console.log("No hay order en CSS");
+            }
 
-            if (htmlcode == 'validar') {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            if(csscode.toLowerCase().indexOf('flex') !== -1) {
+                console.log("Si aparece flex en CSS");
+            }else{
+                console.log("No hay flex en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('flex-grow') !== -1) {
+                console.log("Si aparece flex-grow en CSS");
+            }else{
+                console.log("No hay flex-grow en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('flex-shrink') !== -1) {
+                console.log("Si aparece flex-shrink en CSS");
+            }else{
+                console.log("No hay flex-shrink en CSS");
+            }
+
+            if(csscode.toLowerCase().indexOf('flex-basis') !== -1) {
+                console.log("Si aparece flex-basis en CSS");
+            }else{
+                console.log("No hay flex-basis en CSS");
+            }
+
+            if (div >= 6 && order == 6 && csscode.toLowerCase().indexOf('flex') !== -1 && csscode.toLowerCase().indexOf('flex-grow') !== -1 && csscode.toLowerCase().indexOf('flex-shrink') !== -1 && csscode.toLowerCase().indexOf('flex-basis') !== -1) {
+               //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -243,6 +283,19 @@ if (isset($resultadoIntentos['intentos'])) {
         }
     </script>
     <script>
+        //Función para contar las veces que aparece una cadena dentro de otra
+        function contOcurrencias(cadena, subcadena){
+            let apariciones = 0;
+            let i = 0;
+            
+            while((i = cadena.indexOf(subcadena, i)) !== -1){
+                apariciones++;
+
+                i += subcadena.length;
+            }
+            return apariciones;
+        }
+
         function disableIE() {
             if (document.all) {
                 return false;

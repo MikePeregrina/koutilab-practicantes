@@ -414,7 +414,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
    
 
     <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556);">
-        <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
+        <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
         <div class="portada" style="width: 500px; height: 40px; margin: 10px 30px 10px 30px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8);">
             <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un nuevo fondo</h4>
         </div>
@@ -424,7 +424,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-1" value="portada-1">
                 <img src="img/portada-1.png" alt="" style="width: 450px; margin-left: 18px; margin-top: 15px; border-radius: 5px;"><br>
-                <button onclick="miPortada1(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada1(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada2" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
@@ -432,7 +432,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-2" value="portada-2">
                 <img src="img/portada-2.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                <button onclick="miPortada2(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada2(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada3" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
@@ -440,7 +440,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-3" value="portada-3">
                 <img src="img/portada-3.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                <button onclick="miPortada3(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada3(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada4" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
@@ -448,7 +448,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-4" value="portada-4">
                 <img src="img/portada-4.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                <button onclick="miPortada4(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada4(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada5" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
@@ -456,7 +456,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-5" value="portada-5">
                 <img src="img/portada-5.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                <button onclick="miPortada5(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada5(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada6" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
@@ -464,7 +464,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-6" value="portada-6">
                 <img src="img/portada-6.png" alt="" style="width: 450px; margin-left: 18px; "><br>
-                <button onclick="miPortada6(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada6(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada7" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
@@ -472,7 +472,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-7" value="portada-7">
                 <img src="img/portada-7.png" alt="" style="width: 450px; margin-left: 18px; "><br>
-                <button onclick="miPortada7(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada7(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
             <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
             <form id="cambiarportada8" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px; margin-bottom: 15px;">
@@ -480,7 +480,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="portada-8" value="portada-8">
                 <img src="img/portada-8.png" alt="" style="width: 450px; margin-left: 18px;"><br>
-                <button onclick="miPortada8(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;">Seleccionar</button>
+                <button onclick="miPortada8(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
             </form>
         </div>
     </dialog>
@@ -633,7 +633,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     </script>
 
     <dialog close id="modalFP" style="border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);">
-        <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
+        <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
         <div style="width: 500px; height: 40px; margin: 10px 30px 10px 30px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8);">
             <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un avatar</h4>
         </div>
@@ -644,7 +644,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-01" value="Mascota-Aerobot-01">
                     <img src="img/Mascota-Aerobot-01.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar1(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-01" name="Mascota-Aerobot-01">Seleccionar</button>
+                    <button onclick="miAvatar1(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-01" name="Mascota-Aerobot-01">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 20px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
                 <form id="cambiaravatar2" action="acciones/cambiaravatar.php" method="post">
@@ -652,7 +652,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-02" value="Mascota-Aerobot-02">
                     <img src="img/Mascota-Aerobot-02.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar2(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-02" name="Mascota-Aerobot-02">Seleccionar</button>
+                    <button onclick="miAvatar2(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-02" name="Mascota-Aerobot-02">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 20px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
                 <form id="cambiaravatar3" action="acciones/cambiaravatar.php" method="post">
@@ -660,7 +660,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-03" value="Mascota-Aerobot-03">
                     <img src="img/Mascota-Aerobot-03.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar3(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-03" name="Mascota-Aerobot-03">Seleccionar</button>
+                    <button onclick="miAvatar3(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-03" name="Mascota-Aerobot-03">Seleccionar</button>
                 </form>
             </div>
             <div>
@@ -669,7 +669,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-04" value="Mascota-Aerobot-04">
                     <img src="img/Mascota-Aerobot-04.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar4(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-04" name="Mascota-Aerobot-04">Seleccionar</button>
+                    <button onclick="miAvatar4(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-04" name="Mascota-Aerobot-04">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
                 <form id="cambiaravatar5" action="acciones/cambiaravatar.php" method="post">
@@ -677,7 +677,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-05" value="Mascota-Aerobot-05">
                     <img src="img/Mascota-Aerobot-05.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar5(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-05" name="Mascota-Aerobot-05">Seleccionar</button>
+                    <button onclick="miAvatar5(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-05" name="Mascota-Aerobot-05">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
                 <form id="cambiaravatar6" action="acciones/cambiaravatar.php" method="post">
@@ -685,7 +685,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-06" value="Mascota-Aerobot-06">
                     <img src="img/Mascota-Aerobot-06.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar6(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-06" name="Mascota-Aerobot-06">Seleccionar</button>
+                    <button onclick="miAvatar6(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-06" name="Mascota-Aerobot-06">Seleccionar</button>
                 </form>
             </div>
             <div>
@@ -694,7 +694,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-07" value="Mascota-Aerobot-07">
                     <img src="img/Mascota-Aerobot-07.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar7(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-07" name="Mascota-Aerobot-07">Seleccionar</button>
+                    <button onclick="miAvatar7(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-07" name="Mascota-Aerobot-07">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
                 <form id="cambiaravatar8" action="acciones/cambiaravatar.php" method="post">
@@ -702,7 +702,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-08" value="Mascota-Aerobot-08">
                     <img src="img/Mascota-Aerobot-08.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar8(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-08" name="Mascota-Aerobot-08">Seleccionar</button>
+                    <button onclick="miAvatar8(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-08" name="Mascota-Aerobot-08">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
                 <form id="cambiaravatar9" action="acciones/cambiaravatar.php" method="post">
@@ -710,8 +710,12 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-09" value="Mascota-Aerobot-09">
                     <img src="img/Mascota-Aerobot-09.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+<<<<<<< HEAD
                     <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
                  
+=======
+                    <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
+>>>>>>> b50030979bf861c7fbe60eec49ccdafd9d8b7d18
                 </form>
 
                 <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">

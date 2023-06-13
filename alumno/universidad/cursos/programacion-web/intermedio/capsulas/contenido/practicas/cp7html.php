@@ -134,12 +134,23 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+            //Validando etiquetas utilizadas
+            let inputText = frame.querySelectorAll("input[type='text']").length;
+            console.log("inputText: " + inputText);
+            let textarea = frame.querySelectorAll("textarea").length;
+            console.log("textarea: " + textarea);
+            let select = frame.querySelectorAll("select").length;
+            console.log("select: " + select);
+            let option = frame.querySelectorAll("option").length;
+            console.log("option: " + option);
 
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            if (inputText == 1 && textarea == 1 && select == 1 && option >= 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -214,9 +225,10 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
+            } else {
+                // fallo, quitar vidas
+                fail();
             }
-            // fallo, quitar vidas
-            fail();
         }
 
         function fail() {

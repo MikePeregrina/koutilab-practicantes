@@ -10,6 +10,9 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
+$htmlcode = $_GET['htmlcode'];
+$csscode = $_GET['csscode'];
+$jscode = $_GET['jscode'];
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_secundaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -36,7 +39,7 @@ if ($result_sql == 0) {
 if ($pregunta != 'correcto') {
     $sumaIntentos = ($totalIntentos) + 1;
     $insertarIntentos = mysqli_query($conexion, "UPDATE detalle_intentos_secundaria SET intentos = '$sumaIntentos' WHERE id_capsula = '$permiso' AND id_alumno = $id_user AND id_curso = '$id_curso'");
-    header('location: ../contenido/practicas/cp2html.php');
+    header('location: ../contenido/practicas/cp2html.php?htmlcode=' . $htmlcode . '&csscode=' . $csscode . '&jscode=' . $jscode . '');
 }
 
 if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0) {

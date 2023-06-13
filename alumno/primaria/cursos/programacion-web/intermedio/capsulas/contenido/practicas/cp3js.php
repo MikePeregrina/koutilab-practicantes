@@ -136,11 +136,38 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando que exista las operaciones solicitadas
+            if(jscode.indexOf('*3') !== -1 || jscode.indexOf('* 3') !== -1 ) {
+                console.log("Si aparece *3");
+            }else{
+                console.log("No hay *3");
+            }
+
+            if(jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) {
+                console.log("Si aparece +6");
+            }else{
+                console.log("No hay +6");
+            }
+
+            if(jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) {
+                console.log("Si hay /3");
+            }else{
+                console.log("No hay /3");
+            }
+
+            if(jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1) {
+                console.log("Si hay -2");
+            }else{
+                console.log("No hay -2");
+            }
+
+            if ((jscode.indexOf('*3') !== -1 || jscode.indexOf('* 3') !== -1 ) && (jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) && (jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) && (jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -160,7 +187,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd54.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -177,7 +204,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd54.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -194,7 +221,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd54.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -211,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd54.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
@@ -226,7 +253,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd54.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
                     }
                 });
             }

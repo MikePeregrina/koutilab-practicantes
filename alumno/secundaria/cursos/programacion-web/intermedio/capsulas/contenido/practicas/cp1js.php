@@ -131,11 +131,32 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode != 'validar') {
+            //Validando que exista la variable
+            if (jscode.indexOf('var') !== -1) {
+                console.log("Si aparece var");
+            } else {
+                console.log("No hay var");
+            }
+
+            if (jscode.toLowerCase().indexOf('nombre') !== -1) {
+                console.log("Si aparece nombre");
+            } else {
+                console.log("No hay nombre");
+            }
+
+            if (jscode.indexOf('"') !== -1) {
+                console.log("Si hay comillas");
+            } else {
+                console.log("No hay comillas");
+            }
+
+            if (jscode.indexOf('var') == -1 || jscode.toLowerCase().indexOf('nombre') == -1 || jscode.indexOf('"') == -1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
 

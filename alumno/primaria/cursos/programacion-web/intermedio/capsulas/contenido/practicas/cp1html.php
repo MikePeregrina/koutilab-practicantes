@@ -135,25 +135,28 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados;?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode != 'validar') {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                Incorrecto.play();
+            //Validando etiquetas utilizadas
+            let h1 = frame.querySelectorAll("h1").length;
+            console.log("h1: "+h1);
+            let ul = frame.querySelectorAll("p").length;
+            console.log("ul: "+ul);
+            let h2 = frame.querySelectorAll("h2").length;
+            console.log("h2: "+h2);
+            let italic2 = frame.querySelectorAll("i").length;
+            console.log("italic2: "+italic2);
+            let italic = frame.querySelectorAll("em").length;
+            console.log("italic: "+italic);
+            let blockquote = frame.querySelectorAll("blockquote").length;
+            console.log("blockquote: "+blockquote);
 
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
-                    }
-                });
-            } else {
+            if ((h1>0 || h2 > 0) && (italic > 0 || italic2>0 ) && blockquote > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -228,6 +231,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
+            } else {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Incorrecto.play();
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                    }
+                });
             }
         }
     </script>

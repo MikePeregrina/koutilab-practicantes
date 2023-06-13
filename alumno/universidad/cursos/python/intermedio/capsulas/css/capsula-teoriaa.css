@@ -6,7 +6,7 @@
   body {
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../../../../img/bg1.png);
+    background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
