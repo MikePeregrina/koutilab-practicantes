@@ -11,19 +11,19 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  /* */
-  body {
-   -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-family: sans-serif
-  }
-  .container-principal {
-    background: linear-gradient(to bottom, white 22%, #5afef4, #42fa8f, #0cfefd);
-    background-size: cover;
-    
-  }
+    /* */
+    body {
+        -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+         font-family: sans-serif
+       }
+       .container-principal {
+         background: linear-gradient(to bottom, white 22%, #5afef4, #42fa8f, #0cfefd);
+         background-size: cover;
+         
+       }
   
   /*Scrollball*/
   body::-webkit-scrollbar {
@@ -113,11 +113,7 @@ html {
   
   .boton-opciones:hover .links{
     display: block;
-    image-resolution: 0px;
-   
   }
-  
-  
    /* Foto de*/ 
   .seccion-perfil-usuario .perfil-usuario-avatar {
     display: flex;
@@ -434,7 +430,7 @@ html {
   }
   /*Titulo Estadisticas*/
   .titlec2{
-    width: 280px;
+    width: 300px;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -698,11 +694,9 @@ html {
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243, 0.8),
-    rgba(132, 196, 44, 0.8)
-  );
+  background-color: 
+    rgba(129, 179, 243, 0.8);
+  
   border: 0px;
   outline: none;
   border-radius: 50%;
@@ -788,7 +782,7 @@ html {
   font-size: 20px;
   border-radius: 20px;
   border: none;
-  box-shadow: 0 0 12px rgba(132, 196, 44, 0.8);
+  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   }
   
   .btn-grd {
@@ -798,10 +792,10 @@ html {
   display: block;
   margin: 0 0 0 130px;
   background: linear-gradient(
-    to right,
-    rgba(129, 179, 243, 0.8),
-    rgba(132, 196, 44, 0.8)
-  );
+  to right,
+  rgba(129, 179, 243),
+  rgba(132, 196,44,0.6)
+);
   border: 0px;
   outline: none;
   border-radius: 30px;
@@ -815,20 +809,21 @@ html {
   }
 /**CONTRASEÑA DEL PERFIL */
 /*<div class="dos1">
-              <ul class="lista-datos">
-                  <li><b>&nbsp;Contraseña:</b></li>
-                  <li>
-                      <form enctype="multipart/form-data" action="" method="post">
-                          <div class="user-details1">
-                              <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
-                                  <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                                  <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
-                              </div>
-                          </div>
-                      </form>
-                  </li>
-              </ul>
-          </div>*/
+            <div class="dos1">
+                <ul class="lista-datos">
+                    <li><b>&nbsp;Contraseña:</b></li>
+                    <li>
+                        <form enctype="multipart/form-data" action="" method="post">
+                            <div class="user-details1">
+                                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
+                                    <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+                                    <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>*/
 /**CAMBIO DE PERFIL */
 /*<button type="button" class="boton-portada" id="btn-abrir-modalP">
                     <i class="far fa-image"></i> Cambiar fondo
@@ -851,4 +846,3 @@ html {
     color: #fff;
     cursor: pointer;
   }
-/* Boton Opciones */
