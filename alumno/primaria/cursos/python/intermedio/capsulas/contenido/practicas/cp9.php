@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\nnumeros = []\nfor i in range(5):\n    numero = int(input("Ingresa un número entero: "))\n    numeros.append(numero)\nprint("La lista de números ingresados es:", numeros)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

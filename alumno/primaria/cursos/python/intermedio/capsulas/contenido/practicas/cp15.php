@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\nruta_archivo = os.path.join(carpeta, "operaciones.py")\ncontenido = """\ndef suma(a, b):\n    return a + b\ndef resta(a, b):\n    return a - b\n"""\nwith open(ruta_archivo, "w") as archivo:\n    archivo.write(contenido)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

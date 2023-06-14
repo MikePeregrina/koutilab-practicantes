@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\nconjunto1 = {1, 2, 3, 4, 5}\nconjunto2 = {4, 5, 6, 7, 8}\nprint("Conjunto 1:", conjunto1)\nprint("Conjunto 2:", conjunto2)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

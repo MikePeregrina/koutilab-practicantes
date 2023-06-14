@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\ncontenido_modulo1 = """\ndef saludar():\n    print("Hola desde el paquete 1!")\nmensaje = "Este es un mensaje desde el paquete 1"\n"""\nwith open(ruta_archivo_modulo, "w") as archivo_modulo1:\n    archivo_modulo.write(contenido_modulo1)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

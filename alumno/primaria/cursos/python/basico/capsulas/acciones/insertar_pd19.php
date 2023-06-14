@@ -37,7 +37,7 @@ if ($result_sql == 0) {
 if ($pregunta != 'correcto') {
     $sumaIntentos = ($totalIntentos) + 1;
     $insertarIntentos = mysqli_query($conexion, "UPDATE detalle_intentos_primaria SET intentos = '$sumaIntentos' WHERE id_capsula = '$permiso' AND id_alumno = $id_user AND id_curso = '$id_curso'");
-    header('location: ../contenido/juegos/cj6.php');
+    header('location: ../contenido/juegos/cj1.php');
 }
 
 if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0) {

@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\nnumero = input("Ingresa un número entero: ")\ntry:\n    numero = int(numero)\n    resultado = numero * 2\n    print("El doble del numero ingresado es:", resultado)\nexcept ValueError:\n    print("Error: Debes ingresar un número entero.")';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

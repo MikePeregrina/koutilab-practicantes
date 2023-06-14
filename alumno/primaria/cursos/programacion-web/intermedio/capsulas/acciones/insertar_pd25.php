@@ -1,4 +1,4 @@
-<!-- PERMISOS PARA JUEGOS -->
+<!-- PERMISOS PARA PRACTICA -->
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -7,10 +7,10 @@ if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$pregunta = $_POST['validar'];
-$permiso = $_POST['permiso'];
-$id_curso = $_POST['id_curso'];
-$puntos = $_POST['score'];
+$pregunta = $_GET['validar'];
+$permiso = $_GET['permiso'];
+$id_curso = $_GET['id_curso'];
+$puntos = $_GET['practico'];
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_primaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -37,14 +37,14 @@ if ($result_sql == 0) {
 if ($pregunta != 'correcto') {
     $sumaIntentos = ($totalIntentos) + 1;
     $insertarIntentos = mysqli_query($conexion, "UPDATE detalle_intentos_primaria SET intentos = '$sumaIntentos' WHERE id_capsula = '$permiso' AND id_alumno = $id_user AND id_curso = '$id_curso'");
-    header('location: ../contenido/juegos/cj8.php');
+    header('location: ../contenido/practicas/cp4css.php');
 }
 
 if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0) {
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_primaria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_primaria (progreso, trofeos, id_alumno, id_curso) VALUES ('2', $puntos, '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_primaria (progreso, practico, id_alumno, id_curso) VALUES ('2', $puntos, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
@@ -64,7 +64,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_primaria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_primaria (progreso, trofeos, id_alumno, id_curso) VALUES ('2', $puntos - 2, '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_primaria (progreso, practico, id_alumno, id_curso) VALUES ('2', $puntos - 2, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
@@ -77,14 +77,14 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_primaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-pw-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 3 && $result_sql_permisos == 0) {
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_primaria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_primaria (progreso, trofeos, id_alumno, id_curso) VALUES ('2', $puntos - 4, '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_primaria (progreso, practico, id_alumno, id_curso) VALUES ('2', $puntos - 4, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");

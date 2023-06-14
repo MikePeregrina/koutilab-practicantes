@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\npaises = {\n    "Mexico": "Ciudad de Mexico",\n    "Estados Unidos": "Washington D.C.",\n    "Canada": "Ottawa"\n}\nvalor_mexico = paises["Mexico"]\nvalor_estados_unidos = paises["Estados Unidos"]\nvalor_canada = paises["Canada"]';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
