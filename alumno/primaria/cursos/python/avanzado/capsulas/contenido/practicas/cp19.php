@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula48";
+$permiso = "capsula42";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -87,7 +87,7 @@ if (empty($existe) && $id_user != 1) {
                     text: '¡Verifica tu respuesta!',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 49 + '&id_curso=' + 6 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'incorrecto' + '&permiso=' + 43 + '&id_curso=' + 6 + '&practico=' + 10;
                     }
                 });
             } else {
@@ -103,7 +103,7 @@ if (empty($existe) && $id_user != 1) {
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 49 + '&id_curso=' + 6 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 43 + '&id_curso=' + 6 + '&practico=' + 10;
                 });
             }
         }
