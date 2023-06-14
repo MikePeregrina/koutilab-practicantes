@@ -16,12 +16,12 @@ if (empty($existe) && $id_user != 1) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -136,51 +136,51 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
-            
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
-            
+
             var frame = document.getElementById("output").contentWindow.document;
             //Validando aparicion de atributos
-            let opacidad = contOcurrencias(csscode,'0.5');
-            let background = contOcurrencias(csscode,'background');
+            let opacidad = contOcurrencias(csscode, '0.5');
+            let background = contOcurrencias(csscode, 'background');
 
-            if(csscode.indexOf('blue') !== -1) {
+            if (csscode.indexOf('blue') !== -1) {
                 console.log("Si aparece blue en CSS");
-            }else{
+            } else {
                 console.log("No hay blue en CSS");
             }
 
-            if(csscode.indexOf('#') !== -1) {
+            if (csscode.indexOf('#') !== -1) {
                 console.log("Si aparece #");
-            }else{
+            } else {
                 console.log("No hay #");
             }
 
-            if(csscode.indexOf('rgb') !== -1) {
+            if (csscode.indexOf('rgb') !== -1) {
                 console.log("Si hay rgb");
-            }else{
+            } else {
                 console.log("No hay rgb");
             }
 
-            if(csscode.indexOf('hsl') !== -1) {
+            if (csscode.indexOf('hsl') !== -1) {
                 console.log("Si hay hsl");
-            }else{
+            } else {
                 console.log("No hay hsl");
             }
 
-            console.log("Opacity: "+opacidad);
-            console.log("Background: "+background);
+            console.log("Opacity: " + opacidad);
+            console.log("Background: " + background);
 
-            if(csscode.indexOf('opacity') !== -1) {
+            if (csscode.indexOf('opacity') !== -1) {
                 console.log("Si hay opacity");
-            }else{
+            } else {
                 console.log("No hay opacity");
             }
 
-            if (htmlcode.length >30 && csscode.indexOf('blue') !== -1 && csscode.indexOf('#') != -1 && csscode.indexOf('rgb') != -1 && csscode.indexOf('hsl') != -1 && csscode.indexOf('opacity') != -1 && opacidad >= 2 && background >=5) {
+            if (htmlcode.length > 30 && csscode.indexOf('blue') !== -1 && csscode.indexOf('#') != -1 && csscode.indexOf('rgb') != -1 && csscode.indexOf('hsl') != -1 && csscode.indexOf('opacity') != -1 && opacidad >= 2 && background >= 5) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -272,11 +272,11 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script>
         //Función para contar las veces que aparece una cadena dentro de otra
-        function contOcurrencias(cadena, subcadena){
+        function contOcurrencias(cadena, subcadena) {
             let apariciones = 0;
             let i = 0;
-            
-            while((i = cadena.indexOf(subcadena, i)) !== -1){
+
+            while ((i = cadena.indexOf(subcadena, i)) !== -1) {
                 apariciones++;
 
                 i += subcadena.length;

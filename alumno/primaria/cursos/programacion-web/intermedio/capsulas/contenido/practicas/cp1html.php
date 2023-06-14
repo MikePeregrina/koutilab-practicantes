@@ -14,13 +14,13 @@ if (empty($existe) && $id_user != 1) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 3;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -135,7 +135,7 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
+            var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("output").contentWindow.document;
 
             let htmlcode = document.getElementById("html-code").value;
@@ -144,19 +144,19 @@ if (isset($resultadoIntentos['intentos'])) {
 
             //Validando etiquetas utilizadas
             let h1 = frame.querySelectorAll("h1").length;
-            console.log("h1: "+h1);
+            console.log("h1: " + h1);
             let ul = frame.querySelectorAll("p").length;
-            console.log("ul: "+ul);
+            console.log("ul: " + ul);
             let h2 = frame.querySelectorAll("h2").length;
-            console.log("h2: "+h2);
+            console.log("h2: " + h2);
             let italic2 = frame.querySelectorAll("i").length;
-            console.log("italic2: "+italic2);
+            console.log("italic2: " + italic2);
             let italic = frame.querySelectorAll("em").length;
-            console.log("italic: "+italic);
+            console.log("italic: " + italic);
             let blockquote = frame.querySelectorAll("blockquote").length;
-            console.log("blockquote: "+blockquote);
+            console.log("blockquote: " + blockquote);
 
-            if ((h1>0 || h2 > 0) && (italic > 0 || italic2>0 ) && blockquote > 0) {
+            if ((h1 > 0 || h2 > 0) && (italic > 0 || italic2 > 0) && blockquote > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -176,7 +176,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -193,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -210,7 +210,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -227,7 +227,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
@@ -241,7 +241,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'incorrecto' + '&permiso=' + 3 + '&id_curso=' + 2 + '&practico=' + 10;
                     }
                 });
             }

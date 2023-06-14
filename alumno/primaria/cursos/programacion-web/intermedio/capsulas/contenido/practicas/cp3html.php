@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula8";
+$permiso = "capsula5";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,13 +14,13 @@ if (empty($existe) && $id_user != 1) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 6;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -135,26 +135,26 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
+            var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("output").contentWindow.document;
             //Validando etiquetas utilizadas
             let h1 = frame.querySelectorAll("h1").length;
-            console.log("h1: "+h1);
+            console.log("h1: " + h1);
             let ul = frame.querySelectorAll("ul").length;
-            console.log("ul: "+ul);
+            console.log("ul: " + ul);
             let ol = frame.querySelectorAll("ol").length;
-            console.log("ol: "+ol);
+            console.log("ol: " + ol);
             let li = frame.querySelectorAll("li").length;
-            console.log("li: "+li);
+            console.log("li: " + li);
             let bold = frame.querySelectorAll("b").length;
-            console.log("bold: "+bold);
+            console.log("bold: " + bold);
             let italic = frame.querySelectorAll("u").length;
-            console.log("italic: "+italic);
+            console.log("italic: " + italic);
 
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (ul==2 && ol == 1 && li >= 11 && bold == 3 && italic > 0 && h1 == 1) {
+            if (ul == 2 && ol == 1 && li >= 11 && bold == 3 && italic > 0 && h1 == 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -174,7 +174,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -191,7 +191,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -208,7 +208,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -225,7 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
@@ -239,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'incorrecto' + '&permiso=' + 6 + '&id_curso=' + 2 + '&practico=' + 10;
                     }
                 });
             }

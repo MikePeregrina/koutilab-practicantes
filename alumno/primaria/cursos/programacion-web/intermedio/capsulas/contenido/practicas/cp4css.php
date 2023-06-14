@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula11";
+$permiso = "capsula24";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -15,13 +15,13 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 25;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -136,40 +136,40 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
-            
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
-            
+
             var frame = document.getElementById("output").contentWindow.document;
             //Validando existencia de atributos
-            if(csscode.toLowerCase().indexOf('font-family:georgia') !== -1 || csscode.toLowerCase().indexOf('font-family: georgia') !== -1) {
+            if (csscode.toLowerCase().indexOf('font-family:georgia') !== -1 || csscode.toLowerCase().indexOf('font-family: georgia') !== -1) {
                 console.log("Si aparece font-family:georgia en CSS");
-            }else{
+            } else {
                 console.log("No hay font-family:georgia en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('font-size:medium') !== -1 || csscode.toLowerCase().indexOf('font-size: medium') !== -1) {
+            if (csscode.toLowerCase().indexOf('font-size:medium') !== -1 || csscode.toLowerCase().indexOf('font-size: medium') !== -1) {
                 console.log("Si aparece font-size:medium en CSS");
-            }else{
+            } else {
                 console.log("No hay font-size:medium en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('font-style:italic') !== -1 || csscode.toLowerCase().indexOf('font-style: italic') !== -1) {
+            if (csscode.toLowerCase().indexOf('font-style:italic') !== -1 || csscode.toLowerCase().indexOf('font-style: italic') !== -1) {
                 console.log("Si aparece font-style:italic en CSS");
-            }else{
+            } else {
                 console.log("No hay font-style:italic en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('font-weight:bold') !== -1 || csscode.toLowerCase().indexOf('font-weight: bold') !== -1) {
+            if (csscode.toLowerCase().indexOf('font-weight:bold') !== -1 || csscode.toLowerCase().indexOf('font-weight: bold') !== -1) {
                 console.log("Si aparece font-weight:bold en CSS");
-            }else{
+            } else {
                 console.log("No hay font-weight:bold en CSS");
             }
 
-            if (htmlcode.length >10 && (csscode.toLowerCase().indexOf('font-family:georgia') !== -1 || csscode.toLowerCase().indexOf('font-family: georgia') !== -1) && (csscode.toLowerCase().indexOf('font-size:medium') !== -1 || csscode.toLowerCase().indexOf('font-size: medium') !== -1) && (csscode.toLowerCase().indexOf('font-style:italic') !== -1 || csscode.toLowerCase().indexOf('font-style: italic') !== -1) && (csscode.toLowerCase().indexOf('font-weight:bold') !== -1 || csscode.toLowerCase().indexOf('font-weight: bold') !== -1)) {
-               //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            if (htmlcode.length > 10 && (csscode.toLowerCase().indexOf('font-family:georgia') !== -1 || csscode.toLowerCase().indexOf('font-family: georgia') !== -1) && (csscode.toLowerCase().indexOf('font-size:medium') !== -1 || csscode.toLowerCase().indexOf('font-size: medium') !== -1) && (csscode.toLowerCase().indexOf('font-style:italic') !== -1 || csscode.toLowerCase().indexOf('font-style: italic') !== -1) && (csscode.toLowerCase().indexOf('font-weight:bold') !== -1 || csscode.toLowerCase().indexOf('font-weight: bold') !== -1)) {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -188,7 +188,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'correcto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'correcto' + '&permiso=' + 25 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -205,7 +205,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'correcto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'correcto' + '&permiso=' + 25 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -222,7 +222,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'correcto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'correcto' + '&permiso=' + 25 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -239,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'correcto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'correcto' + '&permiso=' + 25 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
@@ -254,7 +254,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'incorrecto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'incorrecto' + '&permiso=' + 25 + '&id_curso=' + 2 + '&practico=' + 10;
                     }
                 });
             }

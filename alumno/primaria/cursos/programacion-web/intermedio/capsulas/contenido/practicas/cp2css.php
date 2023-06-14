@@ -15,12 +15,12 @@ if (empty($existe)) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -136,50 +136,50 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
-            
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
-            
+
             var frame = document.getElementById("output").contentWindow.document;
 
             //Validando etiquetas utilizadas
             let body = frame.querySelectorAll("body").length;
-            console.log("body: "+body);
+            console.log("body: " + body);
 
-            if(csscode.indexOf('body') !== -1) {
+            if (csscode.indexOf('body') !== -1) {
                 console.log("Si aparece body en CSS");
-            }else{
+            } else {
                 console.log("No hay body en CSS");
             }
 
-            if(csscode.indexOf('background') !== -1) {
+            if (csscode.indexOf('background') !== -1) {
                 console.log("Si aparece background");
-            }else{
+            } else {
                 console.log("No hay background");
             }
 
-            if(csscode.indexOf('right repeat-y') !== -1) {
+            if (csscode.indexOf('right repeat-y') !== -1) {
                 console.log("Si hay right repeat-y");
-            }else{
+            } else {
                 console.log("No hay right repeat-y");
             }
 
-            if(csscode.indexOf('left repeat-y') !== -1) {
+            if (csscode.indexOf('left repeat-y') !== -1) {
                 console.log("Si hay left repeat-y");
-            }else{
+            } else {
                 console.log("No hay left repeat-y");
             }
 
-            if(csscode.indexOf('url') !== -1) {
+            if (csscode.indexOf('url') !== -1) {
                 console.log("Si hay url");
-            }else{
+            } else {
                 console.log("No hay url");
             }
 
             if (body > 0 && csscode.indexOf('body') !== -1 && csscode.indexOf('background') != -1 && csscode.indexOf('right repeat-y') != -1 && csscode.indexOf('left repeat-y') != -1 && csscode.indexOf('url') != -1) {
-                
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

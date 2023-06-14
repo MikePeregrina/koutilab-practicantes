@@ -10,17 +10,17 @@ $permiso = "capsulapago2";
 
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['jscode'])) {
     $jscode = $_GET['jscode'];
-}else{
+} else {
     $jscode = "";
 }
 
@@ -32,12 +32,12 @@ if (empty($existe)) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -152,7 +152,7 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
+            var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("output").contentWindow.document;
 
             let htmlcode = document.getElementById("html-code").value;
@@ -161,18 +161,18 @@ if (isset($resultadoIntentos['intentos'])) {
 
             //Validando etiquetas utilizadas
             let h1 = frame.querySelectorAll("h1").length;
-            console.log("h1: "+h1);
+            console.log("h1: " + h1);
             let h2 = frame.querySelectorAll("h2").length;
-            console.log("h2: "+h2);
+            console.log("h2: " + h2);
             let ol = frame.querySelectorAll("ol").length;
-            console.log("ol: "+ol);
+            console.log("ol: " + ol);
             let ul = frame.querySelectorAll("ul").length;
-            console.log("ul: "+ul);
+            console.log("ul: " + ul);
             let li = frame.querySelectorAll("li").length;
-            console.log("li: "+li);
+            console.log("li: " + li);
 
-            if ((h1>0 || h2 > 0) && ol > 0 && ul>0  && li == 7) {
-               //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            if ((h1 > 0 || h2 > 0) && ol > 0 && ul > 0 && li == 7) {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -257,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("html-code").value + '&csscode='+ document.getElementById("css-code").value + '&jscode='+ document.getElementById("js-code").value;
+                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("html-code").value + '&csscode=' + document.getElementById("css-code").value + '&jscode=' + document.getElementById("js-code").value;
                     }
                 });
             }

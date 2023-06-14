@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -136,38 +136,38 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
-            
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
             //Validando que exista las operaciones solicitadas
-            if(jscode.indexOf('*3') !== -1 || jscode.indexOf('* 3') !== -1 ) {
+            if (jscode.indexOf('*3') !== -1 || jscode.indexOf('* 3') !== -1) {
                 console.log("Si aparece *3");
-            }else{
+            } else {
                 console.log("No hay *3");
             }
 
-            if(jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) {
+            if (jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) {
                 console.log("Si aparece +6");
-            }else{
+            } else {
                 console.log("No hay +6");
             }
 
-            if(jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) {
+            if (jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) {
                 console.log("Si hay /3");
-            }else{
+            } else {
                 console.log("No hay /3");
             }
 
-            if(jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1) {
+            if (jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1) {
                 console.log("Si hay -2");
-            }else{
+            } else {
                 console.log("No hay -2");
             }
 
-            if ((jscode.indexOf('*3') !== -1 || jscode.indexOf('* 3') !== -1 ) && (jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) && (jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) && (jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1)) {
+            if ((jscode.indexOf('*3') !== -1 || jscode.indexOf('* 3') !== -1) && (jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) && (jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) && (jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

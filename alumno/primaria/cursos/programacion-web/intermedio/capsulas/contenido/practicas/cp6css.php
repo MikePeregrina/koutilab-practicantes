@@ -16,12 +16,12 @@ if (empty($existe)) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -139,52 +139,52 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados;?>;
-            
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
-            
+
             var frame = document.getElementById("output").contentWindow.document;
             //Validando etiquetas utilizadas
             let div = frame.querySelectorAll("div").length;
-            console.log("div: "+div);
+            console.log("div: " + div);
             //Validando aparición de atributos
-            let order = contOcurrencias(csscode,'order');
-            console.log("Order: "+order);
-            
-            if(csscode.toLowerCase().indexOf('order') !== -1) {
+            let order = contOcurrencias(csscode, 'order');
+            console.log("Order: " + order);
+
+            if (csscode.toLowerCase().indexOf('order') !== -1) {
                 console.log("Si aparece order en CSS");
-            }else{
+            } else {
                 console.log("No hay order en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('flex') !== -1) {
+            if (csscode.toLowerCase().indexOf('flex') !== -1) {
                 console.log("Si aparece flex en CSS");
-            }else{
+            } else {
                 console.log("No hay flex en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('flex-grow') !== -1) {
+            if (csscode.toLowerCase().indexOf('flex-grow') !== -1) {
                 console.log("Si aparece flex-grow en CSS");
-            }else{
+            } else {
                 console.log("No hay flex-grow en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('flex-shrink') !== -1) {
+            if (csscode.toLowerCase().indexOf('flex-shrink') !== -1) {
                 console.log("Si aparece flex-shrink en CSS");
-            }else{
+            } else {
                 console.log("No hay flex-shrink en CSS");
             }
 
-            if(csscode.toLowerCase().indexOf('flex-basis') !== -1) {
+            if (csscode.toLowerCase().indexOf('flex-basis') !== -1) {
                 console.log("Si aparece flex-basis en CSS");
-            }else{
+            } else {
                 console.log("No hay flex-basis en CSS");
             }
 
             if (div >= 6 && order == 6 && csscode.toLowerCase().indexOf('flex') !== -1 && csscode.toLowerCase().indexOf('flex-grow') !== -1 && csscode.toLowerCase().indexOf('flex-shrink') !== -1 && csscode.toLowerCase().indexOf('flex-basis') !== -1) {
-               //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -284,11 +284,11 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script>
         //Función para contar las veces que aparece una cadena dentro de otra
-        function contOcurrencias(cadena, subcadena){
+        function contOcurrencias(cadena, subcadena) {
             let apariciones = 0;
             let i = 0;
-            
-            while((i = cadena.indexOf(subcadena, i)) !== -1){
+
+            while ((i = cadena.indexOf(subcadena, i)) !== -1) {
                 apariciones++;
 
                 i += subcadena.length;

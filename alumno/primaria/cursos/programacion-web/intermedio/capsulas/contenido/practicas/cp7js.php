@@ -15,12 +15,12 @@ if (empty($existe)) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -137,35 +137,35 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
-            var puntos = <?php echo $puntosGanados;?>;
-            
+            var puntos = <?php echo $puntosGanados; ?>;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
-            let condicional = contOcurrencias(jscode,'if');
-            let alertas = contOcurrencias(jscode,'alert');
+            let condicional = contOcurrencias(jscode, 'if');
+            let alertas = contOcurrencias(jscode, 'alert');
 
             //Validando atributos, operadores y cuadros de diálogo
-            if(jscode.toLowerCase().indexOf('edad') !== -1) {
+            if (jscode.toLowerCase().indexOf('edad') !== -1) {
                 console.log("Si aparece edad");
-            }else{
+            } else {
                 console.log("No hay edad");
             }
 
-            if(jscode.indexOf('>') !== -1) {
+            if (jscode.indexOf('>') !== -1) {
                 console.log("Si aparece >");
-            }else{
+            } else {
                 console.log("No hay >");
             }
 
-            if(jscode.indexOf('prompt') !== -1) {
+            if (jscode.indexOf('prompt') !== -1) {
                 console.log("Si aparece prompt");
-            }else{
+            } else {
                 console.log("No hay prompt");
             }
 
-            console.log("if: "+condicional);
-            console.log("alert: "+alertas);
+            console.log("if: " + condicional);
+            console.log("alert: " + alertas);
 
             if (jscode.toLowerCase().indexOf('edad') !== -1 && jscode.indexOf('>') !== -1 && jscode.indexOf('prompt') !== -1 && condicional >= 1 && alertas >= 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
@@ -242,11 +242,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
-            }else{
+            } else {
                 // fallo, quitar vidas
                 fail();
             }
-           
+
         }
 
         function fail() {
@@ -274,11 +274,11 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script>
         //Función para contar las veces que aparece una cadena dentro de otra
-        function contOcurrencias(cadena, subcadena){
+        function contOcurrencias(cadena, subcadena) {
             let apariciones = 0;
             let i = 0;
-            
-            while((i = cadena.indexOf(subcadena, i)) !== -1){
+
+            while ((i = cadena.indexOf(subcadena, i)) !== -1) {
                 apariciones++;
 
                 i += subcadena.length;
