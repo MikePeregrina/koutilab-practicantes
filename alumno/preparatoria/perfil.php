@@ -122,7 +122,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 </head>
 
 <body>
-
+<div class="container-principal">
     <section class="seccion-perfil-usuario">
         <div class="perfil-usuario-header">
             <div class="perfil-usuario-portada">
@@ -138,43 +138,67 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                         <div class="upload" style="margin-right: 1px; margin-top: 0.5px;">
                             <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
                             <div class="round">
-                                <i class="fa fa-camera" style="color: rgba(61, 172, 244);"></i>
+                                <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px; margin-top:10px;"></i>
                             </div>
                         </div>
                     </form>
                 </div>
-                <button type="button" class="boton-portada" id="btn-abrir-modalP">
-                    <i class="far fa-image"></i> Cambiar fondo
-                </button>
+                
+                   <div class="Logo2">
+                <img src="../primaria/img/Bienvenida.png" style="height: 110px; width:170px;">
+                </div>
+                <div class="desplegable">
+                    
+                    <button type="button" class="boton-opciones" id="" placeholder="Opciones" >
+                      <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                       </div>
+                     
+                       <div class="textB">
+                        <p >Opciones</p>
+                       </div>
+                      <div class="links">
+                      
+                          
+                           <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                           
+                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                          
+                          
+                      
+                      </div>
+                      
+                    </button>
+                  </div>
             </div>
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
-                <button type="button" class="boton-avatar" id="btn-abrir-modalA">
-                    <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cerrar sesión</i></a>
-                </button>
+               
                 <?php
                 $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE id_alumno = '$id_user'");
                 while ($consulta = mysqli_fetch_array($data2)) {
                     echo " <h3 class='titulo'>" . $consulta['nombre'] . "</h3>";
                 }
                 ?>
+                <hr  style="background-color:rgba(0,201,255,2556); width: 500px; height:5px; border:none; margin-left:280px; margin-right: 280px; margin-bottom: 10px; ">
+                <ul class="lista-datos">
+                <p><b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?></li>
+                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?></li>
+                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profesor:</b><?php echo $user_escuela["cct"] ?></li>
+                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CCT:</b> <?php if (isset($user_docente)) echo $user_docente["nombre"]; ?></li>
+                </ul>
             </div>
         </div>
     </section>
 
     <div class="body">
         <div class="lati">
-            <div class="dos">
-                <ul class="lista-datos">
-                    <li><i class="fas fa-school"></i> <b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?></li>
-                    <li><i class="fas fa-graduation-cap"></i> <b>&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?></li>
-                    <li><i class="fas fa-fingerprint"></i> <b>&nbsp;&nbsp;CCT:</b> <?php echo $user_escuela["cct"] ?></li>
-                    <li><i class="fas fa-user-tie"></i> <b>&nbsp; Profesor:</b> <?php if (isset($user_docente)) echo $user_docente["nombre"]; ?></li>
-                </ul>
-            </div>
+  
 
-            <div class="dos1">
+            <div class="dos1" style="margin-bottom: 15px;">
+              <div class="titlec2">
+                <h2>Nuevo grupo</h2>
+              </div>
                 <ul class="lista-datos">
                     <li><b>&nbsp;Unirse a un grupo:</b></li>
                     <li>
@@ -182,15 +206,23 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                             <div class="user-details1">
                                 <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
                                     <input type="text" name="clavegrupo" value="" placeholder="Clave de grupo">
-                                    <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" style="scale: 80%; width: 60%;">
+                                    
+                                    <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" style="scale: 80%; width: 60%; margin-top:25px;">
                                 </div>
                             </div>
                         </form>
                     </li>
                 </ul>
             </div>
+           <br>
+           <br>
+           <br>
+
 
             <div class="dos1">
+            <div class="titlec2">
+                <h2>Estadísticas</h2>
+            </div>
                 <ul class="lista-datos">
                     <div class="val-box">
                         <canvas id="myChart1" style="margin-left: 5%;"></canvas>
@@ -199,100 +231,98 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             </div>
             <div class="dos1">
                 <ul class="lista-datos">
-                    <li><i class="fas fa-award"></i> &nbsp;<b>Trofeos:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
-                    <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Puntaje:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li><br>
-                    <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Práctico:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
-                    <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Teórico:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
+                    <li><i class="fas fa-award"></i> &nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
+                    <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li><br>
+                    <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Conocimientos:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
+                    <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
                 </ul>
             </div>
-            <div class="dos1">
-                <ul class="lista-datos">
-                    <li><b>&nbsp;Contraseña:</b></li>
-                    <li>
-                        <form enctype="multipart/form-data" action="" method="post">
-                            <div class="user-details1">
-                                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
-                                    <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                                    <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
-                                </div>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+
 
         </div>
         <div class="latd">
             <div class="titlec">
                 <h2>CURSOS</h2>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-pw-b.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Diseño web básico</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r2 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r2 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-pw-i.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Diseño web intermedio</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r3 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r3 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-pw-a.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Diseño web avanzado</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r4 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r4 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-py-b.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_python_basica)) echo $data_python_basica['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_python_basica)) echo $data_python_basica['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Python básico</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r5 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r5 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-py-i.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Python intermedio</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r6 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r6 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-py-a.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>        
                             <h2>Python avanzado</h2>
                         </div>
                     </div>
@@ -307,7 +337,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         new Chart(ctx1, {
             type: 'radar',
             data: {
-                labels: ['Trofeos', 'Puntos', 'Práctico', 'Teórico'],
+                labels: ['Logros', 'Destreza', 'Conocimiento', 'Coding'],
                 datasets: [{
                     label: 'Estadísticas',
                     data: [<?php echo $resultadoEstadistica["trofeos"] ?>, <?php echo $resultadoEstadistica["puntos"] ?>, <?php echo $resultadoEstadistica["practico"] ?>, <?php echo $resultadoEstadistica["teorico"] ?>],
@@ -424,7 +454,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         document.oncontextmenu = new Function("return false");
     </script>
 
-    <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/bg1.png);">
+    <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px;  background:url(../primaria/img/fondoPerfil.png);">
         <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
         <div class="portada" style="width: 500px; height: 40px; margin: 10px 30px 10px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8);">
             <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un nuevo fondo</h4>
@@ -631,7 +661,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         }
     </script>
 
-    <dialog close id="modalFP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/bg1.png);">
+    <dialog close id="modalFP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background:url(../primaria/img/fondoPerfil.png);">
         <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
         <div style="width: 500px; height: 40px; margin: 10px 30px 10px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8);">
             <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un avatar</h4>
@@ -980,5 +1010,12 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         }
     }
     ?>
-
+    <div class="pie-pagina">
+      <div class="imagenLogoF">
+        <br>
+         
+        <img src="../primaria/img/Bienvenida.png" width="270px" height="175px">
+      </div>
+    </div>
+</div>
 </body>

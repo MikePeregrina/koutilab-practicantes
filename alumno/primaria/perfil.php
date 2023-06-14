@@ -89,6 +89,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -97,6 +98,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <section class="seccion-perfil-usuario">
         <div class="perfil-usuario-header">
             <div class="perfil-usuario-portada">
+                
                 <?php
                 $id = $user["id_alumno"];
                 $name = $user["nombre"];
@@ -104,32 +106,47 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 $portada = $user["fondo"];
                 ?>
                 <img src="acciones/img/<?php echo $portada; ?>" class="fondo" id="imgchange">
+                
                 <div class="perfil-usuario-avatar">
+                    
                     <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
                         <div class="upload" style="margin-right: 1px; margin-top: 0.5px;">
                             <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
                             <div class="round">
                                 <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px; margin-top:10px;"></i>
+                           
                             </div>
                         </div>
                     </form>
                 </div>
-                <button type="button" class="boton-portada" id="btn-abrir-modalP">
-                    <i class="far fa-image"></i> Cambiar fondo
-                </button>
+
+                
+                   <div class="Logo2">
+                <img src="../primaria/img/Bienvenida.png" style="height: 110px; width:170px;">
+                </div>
+                
+                
                 <div class="desplegable">
                     
-                  <button type="button" class="boton-opciones" id="">
-                    <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" >
+                  <button type="button" class="boton-opciones" id="" placeholder="Opciones" >
+                    <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                     </div>
+                   
+                     <div class="textB">
+                      <p >Opciones</p>
+                     </div>
                     <div class="links">
+                    
                         
-                        <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cerrar sesión</i></a>
-                        <br>
-                        <a href=""><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cambiar contraseña</i></a>
+                         <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                         
+                        <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                        
+                        
                     
                     </div>
                     
-                </button>
+                 </button>
                 </div>
                
             </div>
@@ -143,7 +160,9 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     echo " <h3 class='titulo'>" . $consulta['nombre'] . "</h3>";
                 }
                 ?>
-                            <div class="dos">
+            
+                <div class="dos">
+                    <hr  style="background-color:rgba(0,201,255,2556); width: 500px; height:5px; border:none; margin-left:280px; margin-right: 280px; margin-bottom: 10px; ">
                 <ul class="lista-datos">
                     <p><b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?>
                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?>
@@ -173,86 +192,100 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             </div>
             <div class="dos1">
                 <ul class="lista-datos">
-                    <li>&nbsp;<b>Trofeos:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?></li>
-                    <li> &nbsp;<b>Puntaje:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
-                    <li>&nbsp; <b>Práctico:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li>
-                    <li>&nbsp;<b>Teórico:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
+                    <li><i class="fas fa-award"></i>&nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?></li>
+                    <li><i class='fas fa-chart-line'></i><b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
+                    <li><i class='fab fa-joomla'></i>&nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li>
+                    <li><i class='fas fa-file-alt'></i>&nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
                 </ul>
             </div>
-            
+               
 
         </div>
+
         <div class="latd">
             <div class="titlec">
                 <h2>Cursos</h2>
             </div>
-            <div class="card">
+            <div class="card" style="height: 300px;">
                 <a href="rutas/ruta-pw-b.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>%
                             </div>
+                            
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Diseño web básico</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" style="height: 300px;" >
                 <a href="rutas/ruta-pw-i.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Diseño web intermedio</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" style="height: 300px;">
                 <a href="rutas/ruta-pw-a.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Diseño web avanzado</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" style="height: 300px;">
                 <a href="rutas/ruta-py-b.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_python_basico)) echo $data_python_basico['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_python_basico)) echo $data_python_basico['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Python básico</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" style="height: 300px;">
                 <a href="rutas/ruta-py-i.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Python intermedio</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" style="height: 300px;">
                 <a href="rutas/ruta-py-a.php">
                     <div class="container">
                         <div class="box">
                             <div class="chart" data-percent="<?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>%
                             </div>
+                            <hr  style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+               <br>
                             <h2>Python avanzado</h2>
                         </div>
                     </div>
@@ -383,6 +416,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         }
         document.oncontextmenu = new Function("return false");
     </script>
+   
 
     <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556);">
         <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
@@ -681,14 +715,28 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-09" value="Mascota-Aerobot-09">
                     <img src="img/Mascota-Aerobot-09.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                    <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
-                </form>
+
+                    <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
+                 
+
+                 </form>
+
+                <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
             </div>
-        </div>
+     </div>
     </dialog>
 
     <script>
+       const btnAbrirModalFO = document.querySelector("#btn-abrir-modalFO");
+        const btnCerrarModalFO = document.querySelector("#btn-cerrar-modalFO");
+        const modalFO = document.querySelector("#modalFO");
+        btnAbrirModalFP.addEventListener("click", () => {
+            modalFP.showModal();
+        })
 
+        btnCerrarModalFP.addEventListener("click", () => {
+            modalFP.close();
+        })
     </script>
 
     <script>
@@ -865,6 +913,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         });
       </script>
         ";
+        
         } else {
             echo
             "
@@ -889,7 +938,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
       <div class="imagenLogoF">
         <br>
          
-        <img src="../primaria/img/koutilab.png" width="270px" height="80px">
+        <img src="../primaria/img/Bienvenida.png" width="270px" height="175px">
       </div>
     </div>
 </div>

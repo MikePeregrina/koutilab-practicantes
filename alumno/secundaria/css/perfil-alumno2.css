@@ -11,19 +11,19 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  /* */
-  body {
-   -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-family: sans-serif
-  }
-  .container-principal {
-    background: linear-gradient(to bottom, white 22%, #5afef4, #42fa8f, #0cfefd);
-    background-size: cover;
-    
-  }
+    /* */
+    body {
+        -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+         font-family: sans-serif
+       }
+       .container-principal {
+         background: linear-gradient(to bottom, white 22%, #5afef4, #42fa8f, #0cfefd);
+         background-size: cover;
+         
+       }
   
   /*Scrollball*/
   body::-webkit-scrollbar {
@@ -57,7 +57,6 @@ html {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-
   }
   .seccion-perfil-usuario .perfil-usuario-header {
     width: 100%;
@@ -164,7 +163,6 @@ html {
   .boton-opciones:active {
     transform: translate(2px ,2px);
   }
-  
    /* Foto de*/ 
   .seccion-perfil-usuario .perfil-usuario-avatar {
     display: flex;
@@ -706,124 +704,6 @@ html {
   /* Cambiar foto de perfil 
   
   .upload{
-=======
-  justify-content: center;
-  border: rgba(0,201,255,255);
-  background-color: rgba(0,201,255,255);
-  border-radius: 50%;
-  position: absolute;
-  bottom: -40px;
-  left: calc(20% - 90px);
-  z-index: 1;
-}
-.seccion-perfil-usuario .perfil-usuario-avatar img {
-  margin-top: 4px;
-  width: 135%;
-  height: 166px;
-  position: relative;
-  border-radius: 50%;
-  margin-left: -17%;
-}
-.seccion-perfil-usuario .perfil-usuario-footer .boton-avatar {
-  position: absolute;
-  right: 10px;
-  top: 20px;
-  border: 0;
-  background-color: #fff;
-  box-shadow: 0 0 12px rgba(0,201,255,2556);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-}
-/*FOTO DE PERFIL */ 
-.seccion-perfil-usuario .perfil-usuario-body .perfil-usuario-bio .boton-avatar {
-  position: absolute;
-  right: 10px;
-  top: 30px;
-  border: 0;
-  background-color: rgba(61, 172, 244);
-  width: 140px;
-  height: 35px;
-  border-radius: 40px;
-  cursor: pointer;
-  font-size: 17px;
-}
-.seccion-perfil-usuario .perfil-usuario-portada .boton-portada i {
-  margin-right: 1rem;
-}
-
-.boton-portada {
-  transition: 0.5s;
-}
-
-.boton-portada:hover {
-  transform: scale(1.1);
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
-}
-/*Tonos y posicion*/
-.seccion-perfil-usuario .perfil-usuario-avatar {
-  display: flex;
-  width: 250px;
-  height: 250px;
-  align-items: center;
-  justify-content: center;
-  border: 7px solid rgba(0,201,255,2556);
-  background-color: rgba(0,201,255,2556);
-  border-radius: 50%;
- position: absolute;
-  bottom: -40px;
-  left: calc(15% - 90px);
-  z-index: 1;
-}
-.seccion-perfil-usuario .perfil-usuario-avatar img {
-  margin-top: 4px;
-  width: 230px;
-  height: 230px;
-  position: relative;
-  border-radius: 50%;
-  margin-left: -42%;
-}
-.seccion-perfil-usuario .perfil-usuario-footer .boton-avatar {
-  position: absolute;
-  right: 10px;
-  top: 20px;
-  border: 0;
-  background-color: #fff;
-  box-shadow: 0 0 12px rgba(61, 172, 244);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-}
-.seccion-perfil-usuario .perfil-usuario-body .perfil-usuario-bio .boton-avatar {
-  position: absolute;
-  right: 10px;
-  top: 30px;
-  border: 0;
-  background-color: rgba(61, 172, 244);
-  width: 140px;
-  height: 35px;
-  border-radius: 40px;
-  cursor: pointer;
-  font-size: 17px;
-}
-.seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
-  position: absolute;
-  right: -2px;
-  top: 20px;
-  border: 0;
-  background-color: #fff;
-  box-shadow: 0 0 12px rgba(61, 172, 244);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.perfil-usuario-header .upload {
-
   width: 125px;
   position: relative;
   margin: auto;
@@ -851,7 +731,6 @@ html {
   position: absolute;
   transform: scale(2);
   opacity: 0;
-
   }
   
   input[type=file]::-webkit-file-upload-button{
@@ -861,23 +740,12 @@ html {
   .btn-b {
   width: 5%;
   padding: 5px 5px;
-
-}
-
-.round:hover {
-  cursor: pointer;
-}
-
-input[type="file"]::-webkit-file-upload-button {
-
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243, 0.8),
-    rgba(132, 196, 44, 0.8)
-  );
+  background-color: 
+    rgba(129, 179, 243, 0.8);
+  
   border: 0px;
   outline: none;
   border-radius: 50%;
@@ -963,7 +831,7 @@ input[type="file"]::-webkit-file-upload-button {
   font-size: 20px;
   border-radius: 20px;
   border: none;
-  box-shadow: 0 0 12px rgba(132, 196, 44, 0.8);
+  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   }
   
   .btn-grd {
@@ -973,10 +841,10 @@ input[type="file"]::-webkit-file-upload-button {
   display: block;
   margin: 0 0 0 130px;
   background: linear-gradient(
-    to right,
-    rgba(129, 179, 243, 0.8),
-    rgba(132, 196, 44, 0.8)
-  );
+  to right,
+  rgba(129, 179, 243, 0.8),
+  rgba(132, 196, 44, 0.8)
+);
   border: 0px;
   outline: none;
   border-radius: 30px;
@@ -990,20 +858,20 @@ input[type="file"]::-webkit-file-upload-button {
   }
 /**CONTRASEÑA DEL PERFIL */
 /*<div class="dos1">
-              <ul class="lista-datos">
-                  <li><b>&nbsp;Contraseña:</b></li>
-                  <li>
-                      <form enctype="multipart/form-data" action="" method="post">
-                          <div class="user-details1">
-                              <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
-                                  <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                                  <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
-                              </div>
-                          </div>
-                      </form>
-                  </li>
-              </ul>
-          </div>*/
+<ul class="lista-datos">
+    <li><b>&nbsp;Contraseña:</b></li>
+    <li>
+        <form enctype="multipart/form-data" action="" method="post">
+            <div class="user-details1">
+                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
+                    <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+                    <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
+                </div>
+            </div>
+        </form>
+    </li>
+</ul>
+</div>*/
 /**CAMBIO DE PERFIL */
 /*<button type="button" class="boton-portada" id="btn-abrir-modalP">
                     <i class="far fa-image"></i> Cambiar fondo
@@ -1026,4 +894,3 @@ input[type="file"]::-webkit-file-upload-button {
     color: #fff;
     cursor: pointer;
   }
-/* Boton Opciones */
