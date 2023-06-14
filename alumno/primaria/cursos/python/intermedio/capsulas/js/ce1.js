@@ -139,7 +139,7 @@ function fetchQuiz() {
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
                 //cambiar permiso y el id curso
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 5; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 23 + "&id_curso=" + 5; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -161,7 +161,7 @@ function fetchQuiz() {
                         });
                     }
                 }
-                xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
+                xmlhttp.open("POST", "../../acciones/insertar_pd23.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
             });
