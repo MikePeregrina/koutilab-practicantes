@@ -190,10 +190,10 @@ if (isset($resultadoIntentos['intentos'])) {
 		document.getElementById("moves").innerHTML = moves;
 		toggleVisablity("Message-Container");  
 		var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 50 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd50.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+		var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 50 + "&id_curso=" + 1; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_pd50.php", true);
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlhttp.send(param);
 		Swal.fire({
 			title: '¡Muy bien!',
 			text: 'Llegaste a la nave con éxito',

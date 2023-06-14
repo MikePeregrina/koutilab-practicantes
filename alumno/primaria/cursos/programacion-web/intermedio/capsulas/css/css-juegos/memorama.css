@@ -1,7 +1,9 @@
 body {
   color: #404040;
   font-family: Tahoma;
-  background-image: url(../../img/img_juegos/img/bg1.png);
+  background-image: url(../../img/img_juegos/bg.png);
+  background-repeat: no-repeat;/*el nuevo fondo no se repetira consecutivamente en el juego*/
+  background-size:cover;/*el nuevo fondo se acopalara al tamaño de la pantalla del juego*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -40,25 +42,27 @@ body::-webkit-scrollbar-track {
 .titulo-gen {
   margin: 10px auto 0 auto;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(129, 179, 243, 0.5);
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   line-height: 20px;
   width: 1200px;
-  height: 60px;
+  height: 60px; 
 }
 
 .titulo {
-  margin: 15px 0 5px 310px;
+  margin: 15px 0 3px 280px;
 }
 
 .contenido {
   margin: 20px auto 30px auto;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(129, 179, 243, 0.5);
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   line-height: 20px;
   width: 1200px;
-  height: 600px;
+  height: 550px;
 }
 
 .words {
@@ -88,7 +92,7 @@ body::-webkit-scrollbar-track {
 
 #juego {
   float: left;
-  margin: 20px 90px;
+  margin: 60px 100px;
 }
 
 #juego div {
@@ -110,7 +114,7 @@ body::-webkit-scrollbar-track {
 }
 
 button::-moz-focus-inner {
-  border: 0;
+  border: 3px;
 }
 
 #juego .selected {
@@ -118,8 +122,8 @@ button::-moz-focus-inner {
 }
 
 #juego .found {
-  background-color: rgba(61, 172, 244);
-  color: white;
+  background-color: rgba(132,196,44);
+  
 }
 
 #juego .solved {
@@ -128,25 +132,25 @@ button::-moz-focus-inner {
 }
 
 #juego .complete {
-  background-color: #85c42cbb;
+  background-color: rgba(132, 196, 44);
 }
 
 #Palabras {
   padding-top: 20px;
-  -moz-column-count: 2;
+  -moz-column-count: 4;
   -moz-column-gap: 20px;
-  -webkit-column-count: 2;
+  -webkit-column-count: 4;
   -webkit-column-gap: 20px;
-  column-count: 2;
-  column-gap: 20px;
-  width: 300px;
-  font-size: 150%;
-  margin-left: 45px;
+  column-count: 4;
+  column-gap: 40px;
+  width: 100px;
+  font-size: 100%;
+  margin-left: 75px;
   text-align: start;
 }
 
 #Palabras li {
-  padding: 5px 0;
+  padding: 8px 4px;
 }
 
 #Palabras .wordFound {
@@ -161,54 +165,89 @@ button::-moz-focus-inner {
 .timer {
   text-align: center;
   padding: 3%;
-  margin: 30px 0 0 1120px;
-  width: 150px;
-  height: 150px;
+  margin: 40px 0 0 1050px;
+  width: 160px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #85c42caf;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
-  border-radius: 80px;
+  border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
-  font-size: 130%;
+  font-size: 140%;
+}
+
+@keyframes animation1 {
+  0% {margin: 40px 0 0 1040px;}
+  20% {margin: 40px 0 0 1060px;}
+  40% {margin: 40px 0 0 1040px;} 
+  60% {margin: 40px 0 0 1060px;}
+  80% {margin: 40px 0 0 1040px;} 
+  100% {margin: 40px 0 0 1050px;}
+}
+
+@keyframes animation2 {
+  0% {margin: 40px 0 0 1040px;}
+  10% {margin: 40px 0 0 1060px;}
+  20% {margin: 40px 0 0 1040px;} 
+  30% {margin: 40px 0 0 1060px;}
+  40% {margin: 40px 0 0 1040px;} 
+  50% {margin: 40px 0 0 1060px;}
+  60% {margin: 40px 0 0 1040px;} 
+  70% {margin: 40px 0 0 1060px;} 
+  80% {margin: 40px 0 0 1040px;} 
+  90% {margin: 40px 0 0 1060px;} 
+  100% {margin: 40px 0 0 1050px;}
+}
+
+#timer {
+  background: rgba(129, 179, 243, 0.7);
+}
+
+#tiempo {
+  margin: 0 0 0 0;
 }
 
 .btn-b {
+  position: absolute;
   width: 5%;
   padding: 5px 5px;
   cursor: pointer;
   display: block;
-  margin: auto;
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243, 0.8),
-    rgba(132, 196, 44, 0.8)
-  );
+  margin: 12px 0 0 12px;
+  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));          
   border: 0px;
   outline: none;
   border-radius: 50%;
-  float: right;
+  float: left;
+  transition: 0.5s;
 }
 
 @media (max-width: 750px) {
   .btn-b {
-    width: 10%;
+      width: 15%;
   }
 }
 
 .btn-b i {
-  font-size: 25px;
+  font-size: 20px;
+}
+
+.btn-b:hover {
+  transform: scale(1.2);
 }
 
 :root {
-  --w: calc(70vw / 6);
-  --h: calc(70vh / 4);
+  --w: calc(80vw / 6); /*Se cambia la altura y el ancho de las tarjetas del juego*/
+  --h: calc(50vh / 4); /*Se cambia la altura y el ancho de las tarjetas del juego*/
 }
 
 * {
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 div {
@@ -222,49 +261,55 @@ div {
   width: var(--w);
   min-width: 100px;
   height: var(--h);
+  margin-top: 2px;
+  border-radius: 10px;
 }
 
 .tarjeta {
   position: relative;
   transform-style: preserve-3d;
-  animation: iniciar 5s;
+  animation: iniciar 3.5s;  /*Se cambia el tiempo que tiene cada tarjeta, antes de inicar el juego*/
 }
 
 .cara {
   position: absolute;
   backface-visibility: hidden;
-  box-shadow: inset 0 0 0 5px white;
-  font-size: 500%;
+  box-shadow: inset 0 0 0 6px, transparent;
+  font-size: 200%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .trasera {
-  background-color: #85c42c79;
+  background-color: rgba(129, 179, 243);
   transform: rotateY(180deg);
 }
 
 .superior {
-  background: linear-gradient(to bottom right, #84c42c, rgba(61, 172, 244));
+  background: linear-gradient(to bottom right, rgba(129,179,243),rgba(132,196,44,0.6));
+  margin-top: 2px;
 }
 
 .nuevo-juego {
   cursor: pointer;
-  background: linear-gradient(to bottom right, #84c42c, rgba(61, 172, 244));
-  padding: 20px;
+  color: black;
+  /*Se cambio el color del btn inciar juego*/
+  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  padding: 30px;
   border-radius: 50px;
-  border: white 5px solid;
-  font-size: 130%;
-position: absolute;
-margin: 210px 0 0 511px;
+  /*border: white 5px solid;*/
+  font-size: 160%;
+  position: absolute;
+  margin: 180px 0 0 515px; /*Se cambio el posicionamiento de el btn iniciar juego*/
 }
 
 #tablero {
 width: 1000px;
-height: 500px;
-padding: 25px 0 0 26px;
-margin: 0 0 0 100px;
+height: 280px;
+padding: 29px 0 0 32px;
+margin: 1rem 0 0 10rem;
+margin-top: -1.6rem;
 }
 
 @keyframes iniciar {

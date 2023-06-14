@@ -199,7 +199,7 @@
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = 'level-2.html';
+									window.location.href = 'level-2.php';
 								}
 							})
 						}, "800");
