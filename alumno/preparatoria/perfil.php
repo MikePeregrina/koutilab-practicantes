@@ -113,7 +113,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="img/lgk.png">
-    <link rel="stylesheet" href="css/perfil-alumno2.css">
+    <link rel="stylesheet" href="css/perfil-alumno.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
@@ -143,24 +143,31 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                         </div>
                     </form>
                 </div>
-                <button type="button" class="boton-portada" id="btn-abrir-modalP">
+                
                    <div class="Logo2">
                 <img src="../primaria/img/Bienvenida.png" style="height: 110px; width:170px;">
                 </div>
-                </button>
                 <div class="desplegable">
                     
-                    <button type="button" class="boton-opciones" id="">
-                      <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" >
+                    <button type="button" class="boton-opciones" id="" placeholder="Opciones" >
+                      <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                       </div>
+                     
+                       <div class="textB">
+                        <p >Opciones</p>
+                       </div>
                       <div class="links">
+                      
                           
-                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;</i></a>
-                          <br>
-                          <a href=""><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cambiar contraseña</i></a>
+                           <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                           
+                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                          
+                          
                       
                       </div>
                       
-                  </button>
+                    </button>
                   </div>
             </div>
         </div>

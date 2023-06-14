@@ -150,18 +150,26 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 </button>
                 <div class="desplegable">
                     
-                    <button type="button" class="boton-opciones" id="">
-                      <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" >
-                      <div class="links">
-                          
-                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;</i></a>
-                          <br>
-                          <a href=""><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cambiar contraseña</i></a>
-                      
-                      </div>
-                      
-                  </button>
-                  </div>
+                  <button type="button" class="boton-opciones" id="" placeholder="Opciones" >
+                    <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                     </div>
+                   
+                     <div class="textB">
+                      <p >Opciones</p>
+                     </div>
+                    <div class="links">
+                    
+                        
+                         <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                         
+                        <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                        
+                        
+                    
+                    </div>
+                    
+                 </button>
+                </div>
 
             </div>
         </div>

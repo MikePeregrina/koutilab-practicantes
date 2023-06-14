@@ -91,9 +91,19 @@ html {
     margin-right: 1rem;
   }*/
   /*Boton opciones*/
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sign svg {
+    width: 17px;
+  }  
   .seccion-perfil-usuario .perfil-usuario-portada .boton-opciones {
     position: absolute;
-    top: 14rem;
+    top: 12rem;
     right: 1rem;
     border: 0;
     border-radius: 180px;
@@ -110,9 +120,48 @@ html {
     width: 185px;
     display: none;
   }
-  
+  .boton-opciones:hover .sing{
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 10px;
+
+ }
   .boton-opciones:hover .links{
     display: block;
+    image-resolution: 0px;
+    padding-bottom: 10%;
+    margin-top: 2px;
+  }
+  .boton-opciones:hover .textB{
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    margin-top: -22px;
+    font-size: 1.2em;
+    padding-left: 43px;
+  }
+  .boton-opciones:hover a{
+    text-shadow: 2px 2px 2px #aaa;
+  }
+  .textB {
+    
+    right: 0px;
+    width: 0px;
+    opacity: 0;
+    color: white;
+    font-size: 0em;
+    font-weight: 0;
+    transition-duration: .1s;
+  }
+  .boton-opciones:hover{
+    width: 185px;
+    height: 70px;
+    border-radius: 5px;
+    transition-duration: .3s;
+    box-shadow: 0 0 12px rgba(0,201,255,2556);
+  }
+  .boton-opciones:active {
+    transform: translate(2px ,2px);
   }
    /* Foto de*/ 
   .seccion-perfil-usuario .perfil-usuario-avatar {

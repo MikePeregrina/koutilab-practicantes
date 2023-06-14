@@ -144,24 +144,32 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                         </div>
                     </form>
                 </div>
-                <button type="button" class="boton-portada" id="btn-abrir-modalP">
+                
                    <div class="Logo2">
                 <img src="../primaria/img/Bienvenida.png" style="height: 110px; width:170px;">
                 </div>
-                </button>
+                
                 <div class="desplegable">
                     
-                    <button type="button" class="boton-opciones" id="">
-                      <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" >
+                    <button type="button" class="boton-opciones" id="" placeholder="Opciones" >
+                      <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                       </div>
+                     
+                       <div class="textB">
+                        <p >Opciones</p>
+                       </div>
                       <div class="links">
-                      <a href=""><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cambiar contraseña</i></a>
-                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;</i></a>
-                          <br>
+                      
+                          
+                           <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                           
+                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                          
                           
                       
                       </div>
                       
-                  </button>
+                    </button>
                   </div>
             </div>
         </div>

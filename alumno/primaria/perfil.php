@@ -120,28 +120,33 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </form>
                 </div>
 
-                <button type="button" class="boton-portada" id="btn-abrir-modalP">
+                
                    <div class="Logo2">
                 <img src="../primaria/img/Bienvenida.png" style="height: 110px; width:170px;">
                 </div>
-                </button> 
+                
                 
                 <div class="desplegable">
                     
                   <button type="button" class="boton-opciones" id="" placeholder="Opciones" >
-                    <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" >
+                    <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                     </div>
+                   
+                     <div class="textB">
+                      <p >Opciones</p>
+                     </div>
                     <div class="links">
                     
-                         <p>Opciones</p>
-                         <a href=""><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cambiar contraseña</i></a>
-                         <br>
-                        <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;</i></a>
+                        
+                         <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                         
+                        <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
                         
                         
                     
                     </div>
                     
-                </button>
+                 </button>
                 </div>
                
             </div>
@@ -710,13 +715,11 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="Mascota-Aerobot-09" value="Mascota-Aerobot-09">
                     <img src="img/Mascota-Aerobot-09.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-<<<<<<< HEAD
+
                     <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
                  
-=======
-                    <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
->>>>>>> b50030979bf861c7fbe60eec49ccdafd9d8b7d18
-                </form>
+
+                 </form>
 
                 <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
             </div>
