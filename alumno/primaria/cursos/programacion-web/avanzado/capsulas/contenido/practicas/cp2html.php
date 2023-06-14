@@ -15,7 +15,7 @@ if (empty($existe) && $id_user != 1) {
 
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 3;
+$permiso_intento = 6;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -159,7 +159,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -176,7 +176,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -193,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -210,7 +210,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 }
@@ -225,7 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'incorrecto' + '&permiso=' + 6 + '&id_curso=' + 3 + '&practico=' + 10;
                     }
                 });
             }
