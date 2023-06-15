@@ -1027,3 +1027,12 @@ input[type="file"]::-webkit-file-upload-button {
     cursor: pointer;
   }
 /* Boton Opciones */
+.lineaTP{
+  background-color:rgba(0,201,255,2556);
+  width: 500px;
+  height:5px; 
+  border:none;
+  margin-left:280px; 
+  margin-right: 280px; 
+  margin-bottom: 10px;
+}

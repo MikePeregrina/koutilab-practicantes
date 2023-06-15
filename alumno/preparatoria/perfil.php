@@ -158,13 +158,10 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                        </div>
                       <div class="links">
                       
-                          
-                           <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
-                           
-                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
-                          
-                          
-                      
+                          <a href="" class="link1"><i class="fas fa-file-alt" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                         
+                         <a href="../../acciones/cerrarsesion.php" class="link2"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                         
                       </div>
                       
                     </button>

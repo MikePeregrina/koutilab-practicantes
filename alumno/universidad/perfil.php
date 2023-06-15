@@ -113,7 +113,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="img/lgk.png">
-    <link rel="stylesheet" href="css/perfil-alumno3.css">
+    <link rel="stylesheet" href="css/perfil-alumno.css">
     
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -159,13 +159,12 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                         <p >Opciones</p>
                        </div>
                       <div class="links">
-                      
                           
-                           <a href=""><i class="fas fa-file-alt" style="color: white;">&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
-                           
-                          <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
-                          
-                          
+                      <a href="" class="link1"><i class="fas fa-file-alt" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                         
+                         <a href="../../acciones/cerrarsesion.php" class="link2"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
+                         
+                         
                       
                       </div>
                       
