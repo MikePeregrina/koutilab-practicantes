@@ -73,6 +73,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		</b>
 	</div>
 
+	<div class="hola">Hola</div>
+
 	<div class="contenido">
 
 		<a href="#" onclick="history.back(); return false;"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
