@@ -124,7 +124,7 @@ align-items: center;
 }
 .boton-opciones:hover .svg{
   width: 0%;
-  transition-duration: .3s;
+  transition-duration: .5s;
   padding-left: 10px;
  
 }
@@ -138,7 +138,7 @@ align-items: center;
 .boton-opciones:hover .textB{
   opacity: 1;
   width: 70%;
-  transition-duration: .3s;
+  transition-duration: .5s;
   margin-top: -22px;
   font-size: 1.2em;
   padding-left: 43px;
@@ -159,13 +159,13 @@ align-items: center;
   color: white;
   font-size: 0em;
   font-weight: 0;
-  transition-duration: .1s;
+  transition-duration: .5s;
 }
 .boton-opciones:hover{
   width: 195px;
   height: 70px;
   border-radius: 1px;
-  transition-duration: .3s;
+  transition-duration: .5s;
   box-shadow: 0 0 12px rgba(0,201,255,2556);
   
 }
@@ -441,7 +441,7 @@ input[type="file"]::-webkit-file-upload-button {
 /*Contenedor de cursos*/
 .latd {
   position: relative;
-  width: 56%;
+  width: 49%;
   display: flex;
   flex-wrap: wrap;
   padding: 1.5rem 2rem;
