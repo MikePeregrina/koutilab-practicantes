@@ -129,7 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <p id="resultado"></p>
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
+        var segundos = 240;
 
         //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {

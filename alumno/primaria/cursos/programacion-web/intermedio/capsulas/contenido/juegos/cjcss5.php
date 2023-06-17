@@ -216,7 +216,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 	<script>
-		var segundos = 300;
+		var segundos = 240;
 		let puntos = 0;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
