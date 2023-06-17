@@ -182,7 +182,7 @@
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			if (segundos > 15) {
                 var div = document.getElementById("timer");
-                div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+                div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7);";
             }
 			if (segundos <= 15) {
                 var div = document.getElementById("timer");
@@ -196,7 +196,7 @@
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -241,7 +241,7 @@
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "img/loop.gif",
+						imageUrl: "../../img/img-juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -278,11 +278,11 @@
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "img/Thumbs-Up.gif",
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {

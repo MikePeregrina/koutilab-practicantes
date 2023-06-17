@@ -62,7 +62,7 @@
         <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="../../js/copy-code-1.js"></script>
 </body>
 
 </html>

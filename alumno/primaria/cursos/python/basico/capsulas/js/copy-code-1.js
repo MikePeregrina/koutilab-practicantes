@@ -49,7 +49,7 @@ function iniciarTiempo() {
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
         }).then((result) => {
             if (result.isConfirmed) {
@@ -76,11 +76,11 @@ function alertExcelent() {
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
-            imageUrl: "img/Thumbs-Up.gif",
+            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
@@ -94,11 +94,11 @@ function alertExcelent() {
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });

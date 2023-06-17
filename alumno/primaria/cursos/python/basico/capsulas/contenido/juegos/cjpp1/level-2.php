@@ -63,7 +63,7 @@
 			Swal.fire({
 				title: '¡Oh no!',
 				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
-				imageUrl: "img/loop.gif",
+				imageUrl: "../../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
 				confirmButtonColor: '#85c42c',
@@ -99,7 +99,7 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -191,7 +191,7 @@
 							Swal.fire({
 								title: '¡Muy bien!',
 								text: 'Ahora pasemos al siguiente nivel',
-								imageUrl: "img/Thumbs-Up.gif",
+								imageUrl: "../../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
