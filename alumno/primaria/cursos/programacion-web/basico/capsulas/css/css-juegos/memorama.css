@@ -271,7 +271,7 @@ div {
 .tarjeta {
   position: relative;
   transform-style: preserve-3d;
-  animation: iniciar 2.1s;  /*Se cambia el tiempo que tiene cada tarjeta, antes de inicar el juego*/
+  animation: iniciar 3.5s;  /*Se cambia el tiempo que tiene cada tarjeta, antes de inicar el juego*/
 }
 
 .cara {

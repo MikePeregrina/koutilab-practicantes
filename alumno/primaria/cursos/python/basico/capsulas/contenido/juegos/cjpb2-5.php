@@ -1,44 +1,3 @@
-<?php
-session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula31";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
-}
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 32;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
-} else {
-	$puntosGanados = 10;
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -74,10 +33,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<div class="contenido">
 
-		<a href="../../../../../../rutas/ruta-pw-i.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
+		<a href="#"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+				<i class="fas fa-reply"></i></button>
 		</a>
 
 		<!-- Titulo secundario -->
@@ -102,18 +59,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fas fa-coffee" style="color: #ffffff;"></i>',
-				'<i class="fas fa-mobile" style="color: black;"></i>',
-				'<i class="fas fa-tablet-alt" style="color: #8b16ca;"></i>',
-				'<i class="fas fa-keyboard" style="color: gray;"></i>',
-				'<i class="fab fa-html5" style="color: orange;"></i>',
-				'<i class="fab fa-css3-alt" style="color: blue;"></i>',
-				'<i class="fas fa-laptop" style="color: #808080;"></i>',
-				'<i class="fas fa-shield-alt" style="color: #8f5a00;"></i>',
-				'<i class="fas fa-folder" style="color: #ffdd00;"></i>',
-				'<i class="fas fa-bug" style="color: #00d12a;"></i>',
-				'<i class="fas fa-code" style="color: green;"></i>',
-				'<i class="far fa-file-code" style="color: white;"></i>'
+				'<i class="fas fa-image"></i>',
+				'<i class="fas fa-mouse-pointer"></i>',
+				'<i class="fas fa-user-secret"></i>',
+				'<i class="fas fa-keyboard"></i>',
+				'<i class="fas fa-coffee"></i>',
+				'<i class="far fa-folder"></i>',
+				'<i class="fas fa-shield-alt"></i>',
+				'<i class="fas fa-heading"></i>',
+				'<i class="fas fa-bug"></i>',
+				'<i class="fab fa-python"></i>',
+				'<i class="fas fa-code"></i>',
+				'<i class="far fa-file-code"></i>'
 			]
 		}
 
@@ -176,25 +133,20 @@ if (isset($resultadoIntentos['intentos'])) {
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
 				if (verificar()) {
-					var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("img/fondo.gif")
+									url("../../img/img-juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../rutas/ruta-pw-i.php';
+							window.location.href = '#';
 						}
 					});
 
@@ -216,36 +168,29 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 	<script>
-		var segundos = 240;
+		var segundos = 300;
 		let puntos = 0;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText =
-					"animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 30) {
-				var div = document.getElementById("timer");
-				div.style.cssText =
-					"animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
 			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.reload();
+						window.location.href = '#';
 					}
 				});
 			} else {
