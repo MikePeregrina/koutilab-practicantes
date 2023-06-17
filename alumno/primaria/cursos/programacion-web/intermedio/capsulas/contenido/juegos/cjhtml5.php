@@ -113,7 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
+        var segundos = 240;
 let puntos = 0;
 var count = 1000;
 //Agregando animacion a el timer

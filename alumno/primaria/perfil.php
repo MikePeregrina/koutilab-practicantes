@@ -115,7 +115,6 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                             <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
                             <div class="round">
                                 <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px; margin-top:10px;"></i>
-                           
                             </div>
                         </div>
                     </form>
@@ -138,8 +137,10 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                      </div>
                     <div class="links">
                     
-                        
-                         <a href="" class="link1"><i class="fas fa-file-alt" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar contraseña&nbsp;&nbsp;</i></a>
+                    <form class="form" id="btn-abrir-modalCC" enctype="multipart/form-data" method="">
+                         <i class="fas fa-file-alt" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar contraseña&nbsp;&nbsp;</i>
+                         </form>   
+                         
                          
                         <a href="../../acciones/cerrarsesion.php" class="link2"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
                         
@@ -418,6 +419,27 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         document.oncontextmenu = new Function("return false");
     </script>
    
+   <dialog close id="modalCC" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 40%; height: 30%;">
+      <div style="margin-top: 30px; margin-bottom: 30px;  margin-left: 110px;">
+        <ul class="lista-datos">
+                <b>&nbsp;Contraseña:</b>
+                
+                    <form enctype="multipart/form-data" action="" method="post">
+                        <div class="user-details1">
+                            <div class="input-box1" style="width: auto; scale: 80%; margin-top:-10px; margin-left: -25px;">
+                                <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+                                <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
+                            </div>
+                        </div>
+                    </form>
+                
+            </ul>
+      </div>
+            
+        
+    </dialog>
+
+
 
     <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556);">
         <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
@@ -509,11 +531,11 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         const btnCerrarModalC = document.querySelector("#btn-cerrar-modalC");
         const modalC = document.querySelector("#modalC");
         btnAbrirModalC.addEventListener("click", () => {
-            modalP.showModal();
+            modalC.showModal();
         })
 
         btnCerrarModalP.addEventListener("click", () => {
-            modalP.close();
+            modalC.close();
         })
     </script>
     <script>
@@ -740,6 +762,18 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         })
     </script>
 
+<script>
+       const btnAbrirModalCC = document.querySelector("#btn-abrir-modalCC");
+        const btnCerrarModalCC = document.querySelector("#btn-cerrar-modalCC");
+        const modalCC = document.querySelector("#modalCC");
+        btnAbrirModalCC.addEventListener("click", () => {
+            modalCC.showModal();
+        })
+
+        btnCerrarModalCC.addEventListener("click", () => {
+            modalCC.close();
+        })
+    </script>
     <script>
         const btnAbrirModalFP = document.querySelector("#btn-abrir-modalFP");
         const btnCerrarModalFP = document.querySelector("#btn-cerrar-modalFP");
