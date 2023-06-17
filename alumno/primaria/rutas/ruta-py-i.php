@@ -75,11 +75,11 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
             <h1>CURSO DE PHYTON INTERMEDIO DE KOUTILAB</h1>  
         </div>
         <aside class="sidebar">
-            <div class="circle" style="background-color: #ffc700; background-image:url(../img/BTNINTRO1.png); background-size:cover;background-position:center "><p>Introducción</p></div>
-            <div class="circle" style="background-color: #faff00 ; background-image:url(../img/BTNPRA1.png); background-size:cover;background-position:center "><p>Práctica</p></div>
-            <div class="circle" style="background-color: #96ff00; background-image:url(../img/BTNTEO1.png); background-size:cover;background-position:center "><p>Teórica</p></div>
-            <div class="circle" style="background-color: #00e8ff ; background-image:url(../img/BTNJU.png); background-size:cover;background-position:center "><p>Juegos</p></div>
-            <div class="circle" style="background-color: #eb00ff; background-image:url(../img/BTNEV1.png); background-size:cover;background-position:center "><p>Evaluativa</p></div>
+            <div class="circle" style="background-image:url(../img/BTNINTRO1.png); background-size:cover;background-position:center "><p>Introducción</p></div>
+            <div class="circle" style="background-image:url(../img/BTNPRA1.png); background-size:cover;background-position:center "><p>Práctica</p></div>
+            <div class="circle" style="background-image:url(../img/BTNTEO1.png); background-size:cover;background-position:center "><p>Teórica</p></div>
+            <div class="circle" style="background-image:url(../img/BTNJU.png); background-size:cover;background-position:center "><p>Juegos</p></div>
+            <div class="circle" style="background-image:url(../img/BTNEV1.png); background-size:cover;background-position:center "><p>Evaluativa</p></div>
         </aside>
         
         <section>
