@@ -108,7 +108,7 @@ section {
 }
 
 .label {
-  margin-top: 120px;
+  margin-top: 70px;
   right: 0px;
   background-color: #00c9ff;
   width: 250px;
@@ -183,7 +183,7 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 772px;
+  margin-top: 830px;
 }
 
 .container-premium2{
@@ -194,7 +194,7 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 1560px;
+  margin-top: 1610px;
 
 }
 
@@ -206,7 +206,7 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 3790px;
+  margin-top: 3840px;
 }
 
 .container-premium4{
@@ -218,7 +218,7 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 6140px;
+  margin-top: 6190px;
 
 }
 
