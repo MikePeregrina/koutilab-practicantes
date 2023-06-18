@@ -134,11 +134,8 @@ $existe_comprada_php2 = mysqli_num_rows($sql_comprada_php2);
                 <a href="../cursos/programacion-web/avanzado/capsulas/contenido/practicas/cp1html.php"><button class="btn3" id="prac" <?php echo 'style="' . (($existe_capsula2 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
                 <a href="../cursos/programacion-web/avanzado/capsulas/contenido/juegos/cjhtml1.php"><button class="btn4" id="game" <?php echo 'style="' . (($existe_capsula3 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
-                <!--ruta para teorica  -->
                 <a href="../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct2html.php"><button class="btn5" id="teoria" <?php echo 'style="' . (($existe_capsula4 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 2-->
-                <!-- ruta para practica -->
                 <a href="../cursos/programacion-web/avanzado/capsulas/contenido/practicas/cp2html.php"><button class="btn6" id="prac" <?php echo 'style="' . (($existe_capsula5 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 2-->
-                <!-- ruta para juego -->
                 <a href="../cursos/programacion-web/avanzado/capsulas/contenido/juegos/cjhtml2.php"><button class="btn7" id="game" <?php echo 'style="' . (($existe_capsula6 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 2-->
                 <!-- TEMA 3 -->
                 <a href="../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct3html.php"><button class="btn8" id="teoria" <?php echo 'style="' . (($existe_capsula7 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 3-->
