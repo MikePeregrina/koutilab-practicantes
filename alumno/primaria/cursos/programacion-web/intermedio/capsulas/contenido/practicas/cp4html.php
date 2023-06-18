@@ -7,6 +7,21 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula11";
+if (isset($_GET['htmlcode'])) {
+    $htmlcode = $_GET['htmlcode'];
+}else{
+    $htmlcode = "";
+}
+if (isset($_GET['csscode'])) {
+    $csscode = $_GET['csscode'];
+}else{
+    $csscode = "";
+}
+if (isset($_GET['jscode'])) {
+    $jscode = $_GET['jscode'];
+}else{
+    $jscode = "";
+}
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -101,9 +116,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
-                    <textarea onkeyup="actualizar()" id="html-code" class="cd" placeholder="Escribe el código HTML aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"></textarea> <br>
+                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 
@@ -238,7 +253,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd13.php?validar=' + 'incorrecto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd13.php?validar=' + 'incorrecto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("html-code").value + '&csscode='+ document.getElementById("css-code").value + '&jscode='+ document.getElementById("js-code").value;
+
                     }
                 });
             }

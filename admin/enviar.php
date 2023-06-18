@@ -118,6 +118,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                     </div>
                 </a>
             </div>
+            
             <div class="item separator"></div>
             <div class="item" style="background-color: rgba(61,172,244, .4);">
                 <a href="bandeja.php" class="">
@@ -141,7 +142,6 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                     </div>
                 </a>
             </div>
-            <div class="item separator"></div>
         </div>
     </div>
     <div id="interface">
@@ -156,69 +156,77 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             </div>
         </div>
     </div>
-    <div class="values ms-5 mt-4 pe-1">
-        <h3 class="i-name"> Bandeja de entrada</h3>
+    <div class="values ms-5 mt-3 pe-1">
+        <h3 class="i-name"> Bandeja de Salida </h3>
+    </div>
+    <div class="board" style="width: 95.7%; margin-left: 52px;">
+
+        <form id="contacto" method="POST" enctype="multipart/form-data" action="consulta.php">
+            <h2>Redaccion del Correo</h2>
+    
+            
+            <input type="text" name="asunto" placeholder="Asunto"><br> <br>
+
+            <textarea name="mensaje" id="contacto" placeholder="Escriba aqu&iacute; su mensaje" rows="5" cols="40"></textarea>
+            
+            <button type="submit" class="btn-grd">Enviar</button>
+        </form>
     </div>
 
-    <div class="board p-2" style="width: 92%; margin-left: 75px;">
-        <table id="bandeja" width="100%" class="table border-top">
-            <thead>
-                <tr>
-                    <td><b>Nombre</b></td>
-                    <td><b>Escuela</b></td>
-                    <td><b>Asunto</b></td>
-                    <td><b>Sugerencia</b></td>
-                    <td><b>Estado</b></td>
-                    <td><b>Acción</b></td>
-                </tr>
-            </thead>
-            <tbody>
-
-                <?php
-                include "../acciones/conexion.php";
-
-                $query_sugerencias = mysqli_query($conexion, "SELECT * FROM sugerencias ORDER BY estado DESC");
-                $result = mysqli_num_rows($query_sugerencias);
-                if ($result > 0) {
-                    while ($data = mysqli_fetch_assoc($query_sugerencias)) {
-                        if ($data['estado'] == 1) {
-                            $estado = '<span class="badge badge-pill badge-success">Pendiente</span>';
-                        } else {
-                            $estado = '<span class="badge badge-pill badge-danger">Completado</span>';
-                        }
-                ?>
-                        <tr>
-                            <td><?php echo $data['nombre_usuario']; ?></td>
-                            <td><?php echo $data['nombre_escuela']; ?></td>
-                            <td><?php echo $data['asunto']; ?></td>
-                            <td><?php echo $data['mensaje']; ?></td>
-                            <td><?php echo $estado; ?></td>
-
-                            <td>
-                                <?php if ($data['estado'] == 1) { ?>
-                                    <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" class="bandeja d-inline">
-                                        <button class="btn btn-danger" type="submit"><i class='fas fa-check'></i> </button>
-                                    </form>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                <?php }
-                } ?>
-
-            </tbody>
-        </table>
-    </div>
-
-
-    <dialog close id="modalV" style="background-image: url(img/bg1.png); border-radius: 20px; border: 2px solid #f1f2f3;">
+    <dialog close id="modalV" style="background-image: url(img/bg1.png); border-radius: 20px; border: 2px solid #f1f2f3; width: 50%;">
         <div>
-            <button style="float: right; background: white; width: 8%; scale: 70%;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-close"></i></button>
+            <button style="float: right; background: white; padding-left: 10px; padding-right: 9px; scale: 100%; border-radius: 50%; outline: none; border: 0px; margin-bottom: 5px;" class="" id="btn-cerrar-modalV"><i class="fas fa-close"></i></button>
             <br>
-            <video width="520" height="250" controls>
-                <source src="" type="video/mp4">
+            <video width="100%" height="100%" controls>
+                <source src="vid/Video explicativo_2.mp4" type="video/mp4">
             </video>
         </div>
     </dialog>
+
+    <?php
+    if (isset($_POST['enviarcorreo'])) {
+         //Datos contacto
+        $asunto = $_POST['asunto'];
+        $mensaje = $_POST['mensaje'];
+        $insertar_contacto = mysqli_query($conexion, "INSERT INTO sugerencias(asunto, mensaje,) VALUES ( '$asunto', '$mensaje', 1)");
+
+        if ($insertar_contacto) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Sugerencia enviada',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'contacto.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Tu sugerencia no fue enviada',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'contacto.php';
+          }
+        });
+      </script>
+        ";
+        }
+    }
+    ?>
 
     <script>
         const btnAbrirModalV = document.querySelector("#btn-abrir-modalV");
@@ -246,42 +254,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
         })
     </script>
 
-    <script>
-        const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
-        const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
-        const modalA = document.querySelector("#modalA");
-        btnAbrirModalA.addEventListener("click", () => {
-            modalA.showModal();
-        })
 
-        btnCerrarModalA.addEventListener("click", () => {
-            modalA.close();
-        })
-    </script>
-    <script>
-        const btnAbrirModalE = document.querySelector("#btn-abrir-modalE");
-        const btnCerrarModalE = document.querySelector("#btn-cerrar-modalE");
-        const modalE = document.querySelector("#modalE");
-        btnAbrirModalE.addEventListener("click", () => {
-            modalE.showModal();
-        })
-
-        btnCerrarModalE.addEventListener("click", () => {
-            modalE.close();
-        })
-    </script>
-    <script>
-        const btnAbrirModalEst = document.querySelector("#btn-abrir-modalEst");
-        const btnCerrarModalEst = document.querySelector("#btn-cerrar-modalEst");
-        const modalEst = document.querySelector("#modalEst");
-        btnAbrirModalEst.addEventListener("click", () => {
-            modalEst.showModal();
-        })
-
-        btnCerrarModalEst.addEventListener("click", () => {
-            modalEst.close();
-        })
-    </script>
     <script>
         const btn = document.querySelector('#menu-btn');
         const menu = document.querySelector('#sidemenu');
@@ -334,35 +307,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             }
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#bandeja').DataTable({
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-                }
-            });
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        document.querySelector('.campo span').addEventListener('click', e => {
-            const passwordInput = document.querySelector('#password');
-            if (e.target.classList.contains('show')) {
-                e.target.classList.remove('show');
-                e.target.textContent = 'Ocultar';
-                passwordInput.type = 'text';
-            } else {
-                e.target.classList.add('show');
-                e.target.textContent = 'Mostrar';
-                passwordInput.type = 'password';
-            }
-        });
-    </script>
-    <script src="js/bar.js"></script>
-    <script src="js/funciones.js"></script>
 </body>
+
+
+

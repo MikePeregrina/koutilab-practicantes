@@ -107,7 +107,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            //el split ayuda a dividir las cadenas de ahi tomo el nombre y lo meto a la condicion
+            //asi logra aceptar cualquier nombre
+            let val = ta.split(' ');
+            // para revisar que palabra manda y que posicion
+            //alert(val[2]+" "+val[3]+" "+val[4]+" "+val[5]);
+            let esCorrecto = ta == '1\n2\nfrutas = ' + val[2] + " " + val[3] + " " + val[4] + " " + val[5] + ' de frutas:", frutas)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
@@ -126,6 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+                let puntos = '<?php echo $puntosGanados; ?>';
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
