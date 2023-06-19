@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "aerobotp_beta";
+$database = "aerobotpasfsf_beta";
 $username = "root";
 $password = "";
 // Create connection
