@@ -53,7 +53,7 @@ h1 {
   padding: 20px;
   display: flex;
   align-items: center;
-  border: 2px solid cyan;
+  border: 3px solid rgba(0,201,255,2556);
   width: 79%;
   box-sizing: border-box;
   margin: 1% auto;
@@ -65,7 +65,7 @@ h1 {
   background-color: rgba(255, 255, 255, 0.723);
   border-radius: 45px;
   padding: 20px;
-  border: 2px solid cyan;
+  border: 3px solid rgba(0,201,255,2556);
   width: 8%;
   height: 93%;
   box-sizing: border-box;
@@ -97,7 +97,7 @@ section {
   background-color: rgba(255, 255, 255, 0.986);
   border-radius: 20px;
   padding: 0px;
-  border: 2px solid cyan;
+  border: 3px solid rgba(0,201,255,2556);
   box-sizing: border-box;
   width: 100%;
   height: 7000px;
@@ -108,7 +108,7 @@ section {
 }
 
 .label {
-  margin-top: 120px;
+  margin-top: 70px;
   right: 0px;
   background-color: #00c9ff;
   width: 250px;
@@ -135,7 +135,7 @@ section {
   align-items: center;
   justify-content: center;
   right: 0;
-  top: 2400px;
+  top: 2280px;
 }
 
 .label-css span {
@@ -146,15 +146,15 @@ section {
 
 .label-js {
   position: absolute;
+  margin-top: 4360px;
+  left: 0px;
   background-color: #00c9ff;
   width: 250px;
   height: 80px;
-  border-radius: 35px 0px 0px 35px;
+  border-radius: 0px 35px 35px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 0;
-  top: 4780px;
 }
 
 .label-js span {
@@ -172,7 +172,8 @@ section {
   transition:  0.5s; 
   cursor: pointer;
   background-color: #00c9ff;
-  /*background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));*/ 
+  /*background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));*/
+    
 }
 
 .btn-b:hover {
@@ -193,34 +194,18 @@ section {
 }
 
 .container-premium1{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: 58%;
+  margin-left: 51%;
   border-radius: 45px 0 0px 45px;
   width: 42%;
   height: 120px;
   display: flex;
   position: absolute;
-  justify-content: space-around;
-  margin-top: -10px;
-  overflow: hidden;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 4%;
 }
 
 .container-premium2{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
-  width: 42%;
-  height: 120px;  
-  display: flex;
-  position: absolute;
-  justify-content:space-evenly;
-  margin-top: 1620px;
-  overflow: hidden;
-  
-}
-
-.container-premium3{
-  border: 2px solid rgb(203, 203, 203);
   margin-left: -1%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
@@ -228,47 +213,59 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 2750px;
-  overflow: hidden;
+  margin-top: 134%;
+
 }
 
-.container-premium4{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: 58%;
+.container-premium3{
+  margin-left: 42%;
   border-radius: 45px 0 0px 45px;
   width: 42%;
   height: 120px;
   display: flex;
   position: absolute;
-  justify-content: space-around;
-  margin-top: 3580px;
-  overflow: hidden;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 2660px;
+}
+
+.container-premium4{
+  margin-left: 42%;
+  border-radius: 45px 0 0px 45px;
+  width: 480px;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 3447px;
+
 }
 
 .container-premium5{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
-  width: 42%;
-  height: 120px;  
+  margin-left: 42%;
+  border-radius: 45px 0 0px 45px;
+  width: 480px;
+  height: 120px;
   display: flex;
   position: absolute;
-  justify-content:space-evenly;
-  margin-top: 5110px;
-  overflow: hidden;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 4865px;
+
 }
 
 .container-premium6{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
-  width: 42%;
-  height: 120px;  
+  margin-left: 60%;
+  border-radius: 45px 0 0px 45px;
+  width: 480px;
+  height: 120px;
   display: flex;
   position: absolute;
-  justify-content:space-evenly;
-  margin-top: 6650px;
-  overflow: hidden;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 6043px;
+
 }
 
 @keyframes float {
@@ -304,14 +301,17 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNINTRO1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
+  margin-bottom: 53px;
   animation: float 3s infinite ease-in-out; 
 }
 #intro:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #teoria{
@@ -322,14 +322,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNTEO1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   animation: float 3s infinite ease-in-out; 
 }
 #teoria:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #prac{
@@ -340,14 +342,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNPRA1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #prac:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #game{
@@ -358,14 +362,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNJU.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #game:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #eva{
@@ -376,14 +382,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNEV1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #eva:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #teoriap{
@@ -394,14 +402,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNTEOP.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #teoriap:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #pracp{
@@ -412,14 +422,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNPRAP.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #pracp:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #gamep{
@@ -430,14 +442,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNJUP.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out;
 }
 #gamep:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 @keyframes float {
@@ -451,332 +465,211 @@ section {
     transform: translateY(0);
   }
 }
-
-
 .btn1 {
-  top: .6%;
-  margin-left: 9%;
+  top: 1%;
+  margin-left: 0%;
   cursor: pointer;
 }
 .btn2 {
-  top: 2.7%;
-  margin-left: -5%;
+  top: 2.8%;
+  margin-left: -9%;
 }
 .btn3 {
-  top: 4.4%;
-  margin-left: -15%;
+  top: 4.6%;
+  margin-left: -18%;
 }
 .btn4 {
-  top: 6.1%;
-  margin-left: -5%;
+  top: 6.6%;
+  margin-left: -18%;
 }
-
-.btn5 {
-  margin-left: -12%;
-  top: 7px;
-}
-
-.btn6 {
-  margin-left: -12%;
-  top: 7px;
-}
-
-.btn7 {
-  margin-left: -12%;
-  top: 7px;
-}
-
 .btn8 {
-  top: 8.1%;
-  margin-left: 5%;
+  top: 8.4%;
+  margin-left: -9%;
 }
 .btn9 {
   top: 10.2%;
-  margin-left: -5%;
+  margin-left: 0%;
 }
 .btn10 {
   top: 12.2%;
-  margin-left: -15%;
+  margin-left: 0%;
 }
 .btn11 {
-  top: 14.2%;
-  margin-left: -5%;
+  top: 14%;
+  margin-left: -9%;
 }
 .btn12 {
-  top: 16.2%;
-  margin-left: 5%;
+  top: 15.8%;
+  margin-left: -18%;
 }
 .btn13 {
-  top: 18.2%;
-  margin-left: -5%;
+  top: 17.8%;
+  margin-left: -18%;
 }
 .btn14 {
-  top: 20.2%;
-  margin-left: -15%;
+  top: 19.6%;
+  margin-left: -9%;
 }
 .btn15 {
-  top: 22.2%;
-  margin-left: -5%;
+  top: 21.4%;
+  margin-left: 0%;
 }
 .btn16 {
-  top: 24.2%;
-  margin-left: 5%;
+  top: 23.4%;
+  margin-left: 0%;
 }
-
-.btn17{
-  margin-left: -80px;
-  top: 7px;
-  
-}
-
-.btn18 {
-  margin-left: -50px;
-  top: 7px;
- 
-}
-
-.btn19 {
-  margin-left: -20px;
-  top: 7px;
-
-}
-
 .btn20 {
-  top: 26.2%;
-  margin-left: -5%;
+  top: 25.2%;
+  margin-left: -9%;
 }
 .btn21 {
-  top: 28.2%;
-  margin-left: -15%;
+  top: 27%;
+  margin-left: -18%;
 }
 .btn22 {
-  top: 30.2%;
-  margin-left: -5%;
+  top: 29%;
+  margin-left: -18%;
 }
 .btn23 {
-  top: 32.2%;
-  margin-left: 5%;
+  top: 30.8%;
+  margin-left: -9%;
 }
 .btn24 {
-  top: 34.2%;
-  margin-left: 5%;
+  top: 32.6%;
+  margin-left: 0%;
 }
-
-
-.btn25{
-  margin-left: -80px;
-  top: 7px;
- 
-}
-
-.btn26 {
-  margin-left: -50px;
-  top: 7px;
-
-}
-
-.btn27 {
-  margin-left: -25px;
-  top: 7px;
-
-}
-
 .btn28 {
-  top: 36.2%;
-  margin-left: -5%;
+  top: 34.6%;
+  margin-left: 0%;
 }
 .btn29 {
-  top: 38.2%;
-  margin-left: -15%;
+  top: 36.4%;
+  margin-left: -9%;
 }
 .btn30 {
-  top: 40.2%;
-  margin-left: -5%;
+  top: 38.2%;
+  margin-left: -18%;
 }
 .btn31 {
-  top: 42.2%;
-  margin-left: 5%;
+  top: 40.2%;
+  margin-left: -18%;
 }
-
 .btn32 {
-  top: 44.2%;
-  margin-left: -5%;
+  top: 42%;
+  margin-left: -9%;
 }
 .btn33 {
-  top: 46.2%;
-  margin-left: -15%;
+  top: 43.8%;
+  margin-left: 0%;
 }
 .btn34 {
-  top: 48.2%;
-  margin-left: -5%;
+  top: 45.8%;
+  margin-left: 0%;
 }
+
 .btn35 {
-  top: 50.2%;
-  margin-left: 5%;
+  top: 47.6%;
+  margin-left: -9%;
 }
 .btn36 {
-  top: 52.2%;
-  margin-left: -5%;
+  top: 49.4%;
+  margin-left: -18%;
 }
 .btn37 {
-  top: 54.2%;
-  margin-left: -15%;
+  top: 51.4%;
+  margin-left: -18%;
 }
 .btn38 {
-  top: 56.2%;
-  margin-left: -5%;
-}.btn39 {
-  top: 58.2%;
-  margin-left: 5%;
+  top: 53.2%;
+  margin-left: -9%;
 }
-
-.btn40 {
-  margin-left: -12%;
-  top: 7px;
+.btn39 {
+  top: 55%;
+  margin-left: 0%;
 }
-
-.btn41 {
-  margin-left: -12%;
-  top: 7px;
-}
-
-.btn42 {
-  margin-left: -12%;
-  top: 7px;
-}
-
 .btn43 {
-  top: 60.2%;
-  margin-left: -5%;
+  top: 57%;
+  margin-left: 0%;
 }
 .btn44 {
-  top: 62.2%;
-  margin-left: -15%;
-}
-.btn45 {
-  top: 64.2%;
-  margin-left: -5%;
+  top: 58.8%;
+  margin-left: -9%;
+}.btn45 {
+  top: 60.6%;
+  margin-left: -18%;
 }
 .btn46 {
-  top: 66.2%;
-  margin-left: 5%;
+  top: 62.6%;
+  margin-left: -18%;
 }
 .btn47 {
-  top: 68.2%;
-  margin-left: 5%;
+  top: 64.4%;
+  margin-left: -9%;
 }
 .btn48 {
-  top: 70.2%;
-  margin-left: -5%;
+  top: 66.2%;
+  margin-left: 0%;
 }
 .btn49 {
-  top: 72.2%;
-  margin-left: -15%;
+  top: 68.2%;
+  margin-left: 0%;
 }
 .btn50 {
-  top: 74.2%;
-  margin-left: -5%;
+  top: 70%;
+  margin-left: -9%;
 }
 .btn51 {
-  top: 75.9%;
-  margin-left: 5%;
+  top: 71.8%;
+  margin-left: -18%;
 }
-
 .btn52 {
-  top: 78.2%;
-  margin-left: -5%;
+  top: 73.8%;
+  margin-left: -18%;
 }
 .btn53 {
-  top: 79.9%;
-  margin-left: -15%;
+  top: 75.6%;
+  margin-left: -9%;
 }
 .btn54 {
-  top: 81.5%;
-  margin-left: -5%;
+  top: 77.4%;
+  margin-left: 0%;
 }
-
 .btn55 {
-  top: 83.1%;
-  margin-left: 5%;
+  top: 79.4%;
+  margin-left: 0%;
 }
-
 .btn56 {
-  top: 84.8%;
-  margin-left: -5%;
+  top: 81.2%;
+  margin-left: -9%;
 }
-
 .btn57 {
-  top: 86.5%;
-  margin-left: -15%;
+  top: 83%;
+  margin-left: -18%;
 }
 
 .btn58 {
-  top: 88.2%;
-  margin-left: -5%;
+  top: 85%;
+  margin-left: -18%;
 }
 .btn59 {
-  top: 90%;
-  margin-left: 5%;
+  top: 86.8%;
+  margin-left: -9%;
 }
-
 .btn60 {
-  top: 92%;
-  margin-left: -5%;
+  top: 88.6%;
+  margin-left: 0%;
 }
 
 .btn61 {
-  top: 94%;
-  margin-left: -15%;
+  top: 90.6%;
+  margin-left: 0%;
 }
-
 .btn62 {
-  top: 96%;
-  margin-left: -5%;
+  top: 92.4%;
+  margin-left: -9%;
 }
-
-.btn63{
-  margin-left: -80px;
-  top: 7px;
-  
-}
-
-.btn64 {
-  margin-left: -50px;
-  top: 7px;
- 
-}
-
-.btn65{
-  margin-left: -20px;
-  top: 7px;
-
-}
-
-/* Fin freemium */
-
-
-/* Freemium */
-
-.btn66{
-  margin-left: -80px;
-  top: 7px;
-
-}
-
-.btn67 {
-  margin-left: -50px;
-  top: 7px;
-
-}
-
-.btn68{
-  margin-left: -20px;
-  top: 7px;
- 
-}
-/* Fin freemium */
 
 .btn69 {
-  top: 98%;
-  margin-left: 5%;
+  top: 94.2%;
+  margin-left: -18%;
 }

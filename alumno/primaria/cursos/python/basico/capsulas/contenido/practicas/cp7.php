@@ -7,6 +7,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula14";
+if (isset($_GET['pythoncode'])) {
+    $pythoncode = $_GET['pythoncode'];
+} else {
+    $pythoncode = "";
+}
+
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -97,6 +103,11 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="../../js/codePy.js"></script>
     <script src="../../js/fund.js"></script>
     <script>
+        var editorP = ace.edit('editor');
+        editorP.setValue(`<?php echo urldecode($pythoncode); ?>`);
+    </script>
+
+    <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
@@ -107,12 +118,20 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            //el split ayuda a dividir las cadenas de ahi tomo el nombre y lo meto a la condicion
+            //asi logra aceptar cualquier nombre
+            let val = ta.split(' ');
+            // para revisar que palabra manda y que posicion
+            //alert(val[2]+" "+val[3]);
+            let esCorrecto = ta == '1\n2\n3\ntexto = ' + val[2] + " " + val[3] + ' texto es:", texto)\nprint("El tipo de datos de texto es:", type(texto))';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
+                var editorP = ace.edit("editor");
 
+                var myCode = editorP.getSession().getValue();
+                var encodeV = encodeURI(myCode);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -120,12 +139,13 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd15.php?validar=' + 'incorrecto' + '&permiso=' + 15 + '&id_curso=' + 4 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd15.php?validar=' + 'incorrecto' + '&permiso=' + 15 + '&id_curso=' + 4 + '&practico=' + 10 + '&pythoncode=' + encodeV;
                     }
                 });
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+                let puntos = '<?php echo $puntosGanados; ?>';
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

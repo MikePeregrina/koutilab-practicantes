@@ -151,6 +151,19 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
                 </a>
             </div>
             <div class="item separator"></div>
+            <div class="item" style="background-color: rgba(61,172,244, .4);">
+                <a href="enviar.php" class="">
+                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
+                    <i class="fa-regular fa-envelopes-bulk"></i>
+                    </div>
+                    <div class="title">
+                        <span>Enviar Email</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+            <div class="item separator"></div>
         </div>
     </div>
 

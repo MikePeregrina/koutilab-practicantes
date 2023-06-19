@@ -8,6 +8,11 @@ include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 //cambiar por el permiso que corresponde
 $permiso = "capsula2";
+if (isset($_GET['pythoncode'])) {
+    $pythoncode = $_GET['pythoncode'];
+} else {
+    $pythoncode = "";
+}
 //cambiar los id curso por 5
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5");
 $existe = mysqli_fetch_all($sql);
@@ -100,6 +105,10 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="../../js/codePy.js"></script>
     <script src="../../js/fund.js"></script>
     <script>
+        var editorP = ace.edit('editor');
+        editorP.setValue(`<?php echo urldecode($pythoncode); ?>`);
+    </script>
+    <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
@@ -110,11 +119,15 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\ndef multiplicar(a, b):\n    resultado = a * b\n    return resultado';//listo
+            let esCorrecto = ta == '1\n2\n3\ndef multiplicar(a, b):\n    resultado = a * b\n    return resultado'; //listo
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
+                var editorP = ace.edit("editor");
+
+                var myCode = editorP.getSession().getValue();
+                var encodeV = encodeURI(myCode);
 
                 Swal.fire({
                     title: 'Oops...',
@@ -123,12 +136,13 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'incorrecto' + '&permiso=' + 3 + '&id_curso=' + 5 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'incorrecto' + '&permiso=' + 3 + '&id_curso=' + 5 + '&practico=' + 10 + '&pythoncode=' + encodeV;
                     }
                 });
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+                let puntos = '<?php echo $puntosGanados; ?>';
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

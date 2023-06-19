@@ -1,0 +1,192 @@
+:root{
+    --blanco: #FFFFFF;
+    --oscurp: #212121;
+    --primario: #FFC107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --border:rgba(0,201,255,2556);
+  }
+  
+  *{
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      box-sizing: border-box;
+      
+    }
+    body{
+        background: linear-gradient(to bottom, white 15%, #5afef4, #42fa8f, #0cfefd);
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: sans-serif;
+    }
+  
+  /*-------------------------Pasarela-------------------------------*/
+  
+
+
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    max-height: 500px;
+   
+  }
+  
+  .container .panel {
+    width: 60%;
+    height: 70%; 
+    margin-right: 5%;
+    margin-left: 5%;
+    
+  }
+  
+  .row {
+    display: grid;
+    grid-template-columns: 55% 0%;
+    background: rgba(255, 255, 255, 1);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 2px solid var(--border);
+    border-radius: 40px;
+  }
+  
+  .liquid {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+  }
+  
+  .liquid img {
+    width: 100%;
+  }
+  
+  .form-box {
+    width: 419px;
+    position: relative;
+    margin: 6% auto;
+    background: rgba(255, 255, 255, 1);
+    padding: 0px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-left: -90px;
+  }
+  
+  
+  .toggle-btn {
+    padding: 10px 22px;
+    background: transparent;
+    border: 0px;
+    outline: none;
+    position: relative;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    transition: background-color 0.5s;
+  }
+  
+  .logop {
+    margin: 2px;
+    text-align: center;
+  }
+  
+  .logop img {
+    width: 340px;
+    margin: 0 12px;
+    box-shadow: 0 0 20px 9px #e0e0e0;
+    cursor: pointer;
+    border-radius: 25px;
+  }
+  
+  .input-group {
+    top: 180px;
+    position: absolute;
+    width: 350px;
+    transition: 0.8s;
+  }
+  
+  .input-field {
+    width: 92%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid #1c4c74;
+    outline: none;
+    background: transparent;
+  }
+  
+  span {
+    color: #59819d;
+    font-size: 12px;
+    bottom: 64px;
+    position: absolute;
+  }
+  
+  p {
+    font-size: 17px;
+  }
+  
+  .s {
+    margin-left: 5%;
+    text-align: center;
+    align-items: center;
+    margin-top: 13%;
+  }
+
+  .titlec {
+    width: 105%;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    background-color:rgba(0,201,255,2556);
+    border-radius: 0px 0px 25px 25px;
+    text-align: center;
+    margin-left: 0%;
+    padding: 24px;
+}
+  
+h1{
+    font-size: 28px;
+}
+
+footer {
+    position: relative;
+    height: 100px;
+}
+
+.image {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    top: 75%;
+    transform: translateX(-50%);
+}
+
+.back-button {
+    position: absolute;
+    margin-left: -25%;
+    margin-top: -30%;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 31px;
+    transition:  0.5s; 
+    cursor: pointer;
+    background-color: #00c9ff;
+    /*background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));*/
+      
+    
+}
