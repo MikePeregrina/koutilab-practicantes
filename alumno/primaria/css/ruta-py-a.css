@@ -181,7 +181,7 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 60px;
+  margin-top: 925px;
 }
 
 .container-premium2{
@@ -192,7 +192,7 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 493px;
+  margin-top: 1360px;
 }
 
 .container-premium3{
@@ -204,7 +204,7 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 2230px;
+  margin-top: 2665px;
 }
 
 .container-premium4{
@@ -215,7 +215,7 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 3390px;
+  margin-top: 5120px;
 }
 
 .container-premium5{
@@ -227,11 +227,11 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 3820px;
+  margin-top: 5565px;
 }
 
 .container-premium6{
-  margin-left: 42%;
+  margin-left: 9%;
   border-radius: 45px 0 0px 45px;
   width: 480px;
   height: 120px;
@@ -239,7 +239,7 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 5565px;
+  margin-top: 5990px;
 }
 
 @keyframes float {
@@ -518,15 +518,15 @@ section {
 }
 .btn20 {
   top: 40.2%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn21 {
   top: 42.2%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn22 {
   top: 44.4%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn23 {
   top: 46.4%;
@@ -599,27 +599,27 @@ section {
 }
 .btn40 {
   top: 81.6%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn41 {
   top: 83.6%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn42 {
   top: 85.6%;
-  margin-left: 50%;
+  margin-left: 0%;
 }
 .btn43 {
   top: 87.8%;
-  margin-left: 50%;
+  margin-left: 0%;
 }
 .btn44 {
   top: 89.8%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn45 {
   top: 91.8%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 
 .btn46 {
