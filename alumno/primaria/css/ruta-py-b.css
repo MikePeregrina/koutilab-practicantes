@@ -108,7 +108,7 @@ section {
 }
 
 .label {
-  margin-top: 120px;
+  margin-top: 70px;
   right: 0px;
   background-color: #00c9ff;
   width: 250px;
@@ -125,7 +125,7 @@ section {
   color: white;
 }
 
-.label-css {
+.label-2 {
   position: absolute;
   background-color: #00c9ff;
   width: 250px;
@@ -135,10 +135,10 @@ section {
   align-items: center;
   justify-content: center;
   right: 0;
-  top: 3280px;
+  top: 3400px;
 }
 
-.label-css span {
+.label-2 span {
   font-size: 40px;
   font-weight: bold;
   color: white;
@@ -173,10 +173,30 @@ section {
   margin: 20px;
   cursor: pointer;
 }
-
 .container-premium1{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: 58%;
+  margin-left: 51%;
+  border-radius: 0px 45px 45px 0px;
+  width: 42%;
+  height: 110px;  
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.container-premium2{
+  margin-left: -1%;
+  border-radius: 0px 45px 45px 0px;
+  width: 42%;
+  height: 110px;  
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  margin-top: 493px;
+}
+
+.container-premium3{
+  margin-left: 51%;
   border-radius: 45px 0 0px 45px;
   width: 42%;
   height: 120px;
@@ -184,38 +204,22 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 712px;
-}
-
-.container-premium2{
- 
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
-  width: 42%;
-  height: 110px;  
-  display: flex;
-  position: absolute;
-  justify-content: space-evenly;
-  margin-top: 1463px;
-
-}
-
-.container-premium3{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
-  width: 42%;
-  height: 110px;  
-  display: flex;
-  position: absolute;
-  justify-content: space-evenly;
-  margin-top: 3720px;
+  margin-top: 2230px;
 }
 
 .container-premium4{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: 56%;
+  margin-left: 8%;
+  border-radius: 0px 45px 45px 0px;
+  width: 42%;
+  height: 110px;  
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  margin-top: 3390px;
+}
+
+.container-premium5{
+  margin-left: 42%;
   border-radius: 45px 0 0px 45px;
   width: 480px;
   height: 120px;
@@ -223,8 +227,19 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 6232px;
+  margin-top: 3820px;
+}
 
+.container-premium6{
+  margin-left: 42%;
+  border-radius: 45px 0 0px 45px;
+  width: 480px;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 5565px;
 }
 
 @keyframes float {
@@ -430,210 +445,184 @@ section {
   cursor: pointer;
 }
 .btn2 {
-  top: 2.8%;
+  top: 3%;
   margin-left: -9%;
 }
 .btn3 {
-  top: 4.6%;
+  top: 5%;
   margin-left: -18%;
 }
 .btn4 {
-  top: 6.6%;
+  top: 7.2%;
   margin-left: -18%;
 }
 .btn5 {
-  top: 8.4%;
+  top: 9.2%;
   margin-left: -9%;
 }
 .btn6 {
-  top: 10.2%;
+  top: 11.2%;
   margin-left: 0%;
 }
 .btn7 {
-  top: 12.2%;
+  top: 13.4%;
   margin-left: 0%;
 }
 .btn8 {
-  top: 14%;
+  top: 15.4%;
   margin-left: -9%;
 }
 .btn9 {
-  top: 15.8%;
+  top: 17.4%;
   margin-left: -18%;
 }
 .btn10 {
-  top: 17.8%;
+  top: 19.6%;
   margin-left: -18%;
 }
 .btn11 {
-  top: 19.6%;
+  top: 21.6%;
   margin-left: -9%;
 }
 .btn12 {
-  top: 21.4%;
+  top: 23.6%;
   margin-left: 0%;
 }
 .btn13 {
-  top: 23.4%;
+  top: 25.8%;
   margin-left: 0%;
 }
 .btn14 {
-  top: 25.2%;
+  top: 27.8%;
   margin-left: -9%;
 }
 .btn15 {
-  top: 27%;
+  top: 29.8%;
   margin-left: -18%;
 }
 .btn16 {
-  top: 29%;
+  top: 32%;
   margin-left: -18%;
 }
 .btn17 {
-  top: 30.8%;
+  top: 34%;
   margin-left: -9%;
 }
 .btn18 {
-  top: 32.6%;
+  top: 36%;
   margin-left: 0%;
 }
 .btn19 {
-  top: 34.6%;
+  top: 38.2%;
   margin-left: 0%;
 }
 .btn20 {
-  top: 36.4%;
-  margin-left: -9%;
+  top: 40.2%;
+  margin-left: 41%;
 }
 .btn21 {
-  top: 38.2%;
-  margin-left: -18%;
+  top: 42.2%;
+  margin-left: 32%;
 }
 .btn22 {
-  top: 40.2%;
-  margin-left: -18%;
+  top: 44.4%;
+  margin-left: 32%;
 }
 .btn23 {
-  top: 42%;
+  top: 46.4%;
   margin-left: -9%;
 }
 .btn24 {
-  top: 43.8%;
+  top: 48.4%;
   margin-left: 0%;
 }
 .btn25 {
-  top: 45.8%;
+  top: 50.6%;
   margin-left: 0%;
 }
 
+.btn26 {
+  top: 52.6%;
+  margin-left: -9%;
+}
+.btn27 {
+  top: 54.6%;
+  margin-left: -18%;
+}
+.btn28 {
+  top: 56.8%;
+  margin-left: -18%;
+}
+.btn29 {
+  top: 58.8%;
+  margin-left: -9%;
+}
+.btn30 {
+  top: 60.8%;
+  margin-left: 0%;
+}
+.btn31 {
+  top: 63%;
+  margin-left: 0%;
+}
 .btn32 {
-  top: 47.6%;
+  top: 65%;
   margin-left: -9%;
 }
 .btn33 {
-  top: 49.4%;
+  top: 67%;
   margin-left: -18%;
 }
 .btn34 {
-  top: 51.4%;
+  top: 69.2%;
   margin-left: -18%;
 }
 .btn35 {
-  top: 53.2%;
+  top: 71.2%;
   margin-left: -9%;
 }
 .btn36 {
-  top: 55%;
+  top: 73.2%;
   margin-left: 0%;
 }
 .btn37 {
-  top: 57%;
+  top: 75.4%;
   margin-left: 0%;
 }
 .btn38 {
-  top: 58.8%;
+  top: 77.4%;
   margin-left: -9%;
-}.btn39 {
-  top: 60.6%;
+}
+.btn39 {
+  top: 79.4%;
   margin-left: -18%;
 }
 .btn40 {
-  top: 62.6%;
-  margin-left: -18%;
+  top: 81.6%;
+  margin-left: 32%;
 }
 .btn41 {
-  top: 64.4%;
-  margin-left: -9%;
+  top: 83.6%;
+  margin-left: 41%;
 }
 .btn42 {
-  top: 66.2%;
-  margin-left: 0%;
+  top: 85.6%;
+  margin-left: 50%;
 }
 .btn43 {
-  top: 68.2%;
-  margin-left: 0%;
+  top: 87.8%;
+  margin-left: 50%;
 }
 .btn44 {
-  top: 70%;
-  margin-left: -9%;
+  top: 89.8%;
+  margin-left: 41%;
 }
 .btn45 {
-  top: 71.8%;
-  margin-left: -18%;
+  top: 91.8%;
+  margin-left: 32%;
 }
+
 .btn46 {
-  top: 73.8%;
-  margin-left: -18%;
-}
-.btn47 {
-  top: 75.6%;
-  margin-left: -9%;
-}
-.btn48 {
-  top: 77.4%;
-  margin-left: 0%;
-}
-.btn49 {
-  top: 79.4%;
-  margin-left: 0%;
-}
-.btn50 {
-  top: 81.2%;
-  margin-left: -9%;
-}
-.btn51 {
-  top: 83%;
-  margin-left: -18%;
-}
-
-.btn52 {
-  top: 85%;
-  margin-left: -18%;
-}
-.btn53 {
-  top: 86.8%;
-  margin-left: -9%;
-}
-.btn54 {
-  top: 88.6%;
-  margin-left: 0%;
-}
-
-.btn58 {
-  top: 90.6%;
-  margin-left: 0%;
-}
-.btn59 {
-  top: 92.4%;
-  margin-left: -9%;
-}
-
-.btn60 {
-  top: 94.2%;
-  margin-left: -18%;
-}
-
-.btn64 {
-  top: 96%;
+  top: 94%;
   margin-left: -18%;
 }
