@@ -84,7 +84,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="img/lgk.png">
 
-    <link rel="stylesheet" href="css/perfil-alumno.css">
+    <link rel="stylesheet" href="css/perfil-alumno2.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
@@ -110,14 +110,23 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 
                 <div class="perfil-usuario-avatar">
                     
-                    <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
+                
                         <div class="upload" style="margin-right: 1px; margin-top: 0.5px;">
                             <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
-                            <div class="round">
-                                <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px; margin-top:10px;"></i>
-                            </div>
+                            <div class="dropdown">
+                         <button class="dropdown-btn">
+                        <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px; margin-top:3px; margin-left: -6px;" ></i></button>
+                         <div class="dropdown-content">
+                         <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
+                         <i class="fa fa-camera" style="color: white; text-decoration: none;">&nbsp;&nbsp;Seleccionar Avatar</i>
+                         </form> 
+                         <form class="form" id="btn-abrir-modalP" enctype="multipart/form-data" method="">
+                         <i class="far fa-image" style="color: white; text-decoration: none;">&nbsp;&nbsp;Fondo de Portada</i>
+                         </form>
                         </div>
-                    </form>
+                       </div>
+                         </div>
+                    
                 </div>
 
                 
@@ -192,7 +201,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </ul>
             </div>
-            <div class="dos1">
+            <div class="dos1" style="margin-top:5px;">
                 <ul class="lista-datos">
                     <li><i class="fas fa-award"></i>&nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?></li>
                     <li><i class='fas fa-chart-line'></i><b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
@@ -419,14 +428,15 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         document.oncontextmenu = new Function("return false");
     </script>
    
-   <dialog close id="modalCC" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 40%; height: 30%;">
-      <div style="margin-top: 30px; margin-bottom: 30px;  margin-left: 110px;">
+   <dialog close id="modalCC" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 45%; height: 30%; box-shadow: 0 0 12px rgba(0,201,255,2556);">
+   <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 6px; padding-right: 9px; padding-top: 4px; padding-bottom: px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer; " id="btn-cerrar-modalCC"><i class="fas fa-close"></i></button><br>
+   <div class="portada" style="width: 450px; height: 140px;border-radius: 10px; margin-top: 0px; margin-left: 60px;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); box-shadow: 0 0 12px rgba(0,201,255,2556); ">
         <ul class="lista-datos">
                 <b>&nbsp;Contraseña:</b>
                 
                     <form enctype="multipart/form-data" action="" method="post">
-                        <div class="user-details1">
-                            <div class="input-box1" style="width: auto; scale: 80%; margin-top:-10px; margin-left: -25px;">
+                        <div class="user-details1" style="margin-left:65px;">
+                            <div class="input-box1" style="width: auto; scale: 80%; margin-top:5px; margin-left: -15px;">
                                 <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
                                 <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
                             </div>
@@ -526,18 +536,6 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         })
     </script>
 
-<script>
-        const btnAbrirModalC = document.querySelector("#btn-abrir-modalC");
-        const btnCerrarModalC = document.querySelector("#btn-cerrar-modalC");
-        const modalC = document.querySelector("#modalC");
-        btnAbrirModalC.addEventListener("click", () => {
-            modalC.showModal();
-        })
-
-        btnCerrarModalP.addEventListener("click", () => {
-            modalC.close();
-        })
-    </script>
     <script>
         function miPortada1() {
             modalP.close();
@@ -973,7 +971,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
       <div class="imagenLogoF">
         <br>
          
-        <img src="../primaria/img/Bienvenida.png" width="270px" height="175px">
+        <img src="../primaria/img/Bienvenida.png" width="270px" height="185px">
       </div>
     </div>
 </div>
