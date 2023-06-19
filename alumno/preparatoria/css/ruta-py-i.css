@@ -53,7 +53,7 @@ h1 {
   padding: 20px;
   display: flex;
   align-items: center;
-  border: 2px solid cyan;
+  border: 3px solid rgba(0,201,255,2556);
   width: 79%;
   box-sizing: border-box;
   margin: 1% auto;
@@ -65,7 +65,7 @@ h1 {
   background-color: rgba(255, 255, 255, 0.723);
   border-radius: 45px;
   padding: 20px;
-  border: 2px solid cyan;
+  border: 3px solid rgba(0,201,255,2556);
   width: 8%;
   height: 93%;
   box-sizing: border-box;
@@ -97,7 +97,7 @@ section {
   background-color: rgba(255, 255, 255, 0.986);
   border-radius: 20px;
   padding: 0px;
-  border: 2px solid cyan;
+  border: 3px solid rgba(0,201,255,2556);
   box-sizing: border-box;
   width: 100%;
   height: 7000px;
@@ -108,7 +108,7 @@ section {
 }
 
 .label {
-  margin-top: 120px;
+  margin-top: 70px;
   right: 0px;
   background-color: #00c9ff;
   width: 250px;
@@ -125,7 +125,7 @@ section {
   color: white;
 }
 
-.label-css {
+.label-2 {
   position: absolute;
   background-color: #00c9ff;
   width: 250px;
@@ -135,48 +135,10 @@ section {
   align-items: center;
   justify-content: center;
   right: 0;
-  top: 1980px;
+  top: 3400px;
 }
 
-.label-css span {
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-
-.label-js {
-  position: absolute;
-  background-color: #00c9ff;
-  width: 250px;
-  height: 80px;
-  border-radius: 35px 0px 0px 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-  top: 3710px;
-}
-
-.label-js span {
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-
-.label-php {
-  position: absolute;
-  background-color: #00c9ff;
-  width: 250px;
-  height: 80px;
-  border-radius: 35px 0px 0px 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-  top: 5350px;
-}
-
-.label-php span {
+.label-2 span {
   font-size: 40px;
   font-weight: bold;
   color: white;
@@ -192,6 +154,7 @@ section {
   cursor: pointer;
   background-color: #00c9ff;
   /*background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));*/
+    
 }
 
 .btn-b:hover {
@@ -210,61 +173,74 @@ section {
   margin: 20px;
   cursor: pointer;
 }
-
 .container-premium1{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: 58%;
-  border-radius: 45px 0 0px 45px;
+  margin-left: 51%;
+  border-radius: 0px 45px 45px 0px;
   width: 42%;
-  height: 120px;
+  height: 110px;  
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 780px;
-  overflow: hidden;
+  margin-top: 493px;
 }
 
 .container-premium2{
-  border: 2px solid rgb(203, 203, 203);
   margin-left: -1%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
-  height: 120px;  
+  height: 110px;  
   display: flex;
   position: absolute;
-  justify-content:space-evenly;
-  margin-top: 1620px;
-  overflow: hidden;
-  
+  justify-content: space-evenly;
+  margin-top: 925px;
 }
 
 .container-premium3{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: 58%;
+  margin-left: 51%;
   border-radius: 45px 0 0px 45px;
   width: 42%;
   height: 120px;
   display: flex;
   position: absolute;
+  align-items: center;
   justify-content: space-evenly;
-  margin-top: 4010px;
-  overflow: hidden;
+  margin-top: 2230px;
 }
 
 .container-premium4{
-  border: 2px solid rgb(203, 203, 203);
-  margin-left: -1%;
+  margin-left: 8%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
-  height: 120px;  
+  height: 110px;  
   display: flex;
   position: absolute;
-  justify-content:space-evenly;
-  margin-top: 6300px;
-  overflow: hidden;
+  justify-content: space-evenly;
+  margin-top: 5120px;
 }
 
+.container-premium5{
+  margin-left: 42%;
+  border-radius: 45px 0 0px 45px;
+  width: 480px;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 5565px;
+}
 
+.container-premium6{
+  margin-left: 9%;
+  border-radius: 45px 0 0px 45px;
+  width: 480px;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 5990px;
+}
 
 @keyframes float {
   0% {
@@ -299,14 +275,17 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNINTRO1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
+  margin-bottom: 53px;
   animation: float 3s infinite ease-in-out; 
 }
 #intro:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #teoria{
@@ -317,14 +296,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNTEO1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   animation: float 3s infinite ease-in-out; 
 }
 #teoria:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #prac{
@@ -335,14 +316,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNPRA1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #prac:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #game{
@@ -353,14 +336,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNJU.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #game:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #eva{
@@ -371,14 +356,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNEV1.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #eva:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #teoriap{
@@ -389,14 +376,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNTEOP.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #teoriap:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #pracp{
@@ -407,14 +396,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNPRAP.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out; 
 }
 #pracp:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 #gamep{
@@ -425,14 +416,16 @@ section {
   color: transparent;
   border: none;
   background-image: url(../img/BTNJUP.png);
+  background-color: rgba(255, 255, 255, 0.583);
   background-position: center;
-  background-size: cover;
+  background-size: 110%;
   animation: float 3s infinite ease-in-out;
 }
 #gamep:hover {
   animation-play-state: paused; 
-  box-shadow: 0 10px 10px rgba(129, 179, 243);
-  transform: scale(1.05);
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
 }
 
 @keyframes float {
@@ -446,281 +439,190 @@ section {
     transform: translateY(0);
   }
 }
-
-
 .btn1 {
   top: 1%;
-  margin-left: 9%;
+  margin-left: 0%;
   cursor: pointer;
 }
 .btn2 {
-  top: 2.7%;
-  margin-left: -5%;
+  top: 3%;
+  margin-left: -9%;
 }
 .btn3 {
-  top: 4.4%;
-  margin-left: -15%;
+  top: 5%;
+  margin-left: -18%;
 }
 .btn4 {
-  top: 6.1%;
-  margin-left: -5%;
+  top: 7.2%;
+  margin-left: -18%;
 }
-
 .btn5 {
-  top: 8.1%;
-  margin-left: 5%;
+  top: 9.2%;
+  margin-left: -9%;
 }
-
 .btn6 {
-  top: 10.2%;
-  margin-left: -5%;
+  top: 11.2%;
+  margin-left: 0%;
 }
-
 .btn7 {
-  top: 12.2%;
-  margin-left: -15%;
+  top: 13.4%;
+  margin-left: 0%;
 }
-
 .btn8 {
-  top: 14.2%;
-  margin-left: -5%;
+  top: 15.4%;
+  margin-left: -9%;
 }
 .btn9 {
-  top: 16.2%;
-  margin-left: 5%;
+  top: 17.4%;
+  margin-left: -18%;
 }
 .btn10 {
-  top: 18.2%;
-  margin-left: -5%;
+  top: 19.6%;
+  margin-left: -18%;
 }
-
 .btn11 {
-  top: 20.2%;
-  margin-left: -15%;
+  top: 21.6%;
+  margin-left: -9%;
 }
-
 .btn12 {
-  top: 22.2%;
-  margin-left: -5%;
+  top: 23.6%;
+  margin-left: 0%;
 }
-
-.btn13{
-  top: 24.2%;
-  margin-left: 5%;
+.btn13 {
+  top: 25.8%;
+  margin-left: 0%;
 }
-
 .btn14 {
-  top: 26.2%;
-  margin-left: -5%;
+  top: 27.8%;
+  margin-left: -9%;
 }
 .btn15 {
-  top: 28.2%;
-  margin-left: -15%;
+  top: 29.8%;
+  margin-left: -18%;
 }
 .btn16 {
-  top: 30.2%;
-  margin-left: -5%;
+  top: 32%;
+  margin-left: -18%;
 }
-
-.btn17{
-  top: 32.2%;
-  margin-left: 5%;
+.btn17 {
+  top: 34%;
+  margin-left: -9%;
 }
-
 .btn18 {
-  top: 34.2%;
-  margin-left: -5%;
+  top: 36%;
+  margin-left: 0%;
 }
-
 .btn19 {
-  top: 36.2%;
-  margin-left: -15%;
-}
-
-.btn20 {
   top: 38.2%;
-  margin-left: -5%;
+  margin-left: 0%;
+}
+.btn20 {
+  top: 40.2%;
+  margin-left: 41%;
 }
 .btn21 {
-  top: 40.2%;
-  margin-left: 5%;
-}
-
-.btn22 {
   top: 42.2%;
-  margin-left: -5%;
- }
- 
- .btn23 {
-  top: 44.2%;
-  margin-left: -15%;
- }
- 
- .btn24{
-  top: 46.2%;
-  margin-left: -5%;
- }
-
-
-.btn25{
-  top: 48.2%;
-  margin-left: 5%;
+  margin-left: 32%;
+}
+.btn22 {
+  top: 44.4%;
+  margin-left: 32%;
+}
+.btn23 {
+  top: 46.4%;
+  margin-left: -9%;
+}
+.btn24 {
+  top: 48.4%;
+  margin-left: 0%;
+}
+.btn25 {
+  top: 50.6%;
+  margin-left: 0%;
 }
 
 .btn26 {
-  top: 7%;
-   margin-left: -12%;
- }
- 
- .btn27{
-   margin-left: -12%;
-   top: 7px;
- }
- 
- .btn28{
-   margin-left: -12%;
-   top: 7px;
- }
-
-
-
-
+  top: 52.6%;
+  margin-left: -9%;
+}
+.btn27 {
+  top: 54.6%;
+  margin-left: -18%;
+}
+.btn28 {
+  top: 56.8%;
+  margin-left: -18%;
+}
+.btn29 {
+  top: 58.8%;
+  margin-left: -9%;
+}
+.btn30 {
+  top: 60.8%;
+  margin-left: 0%;
+}
+.btn31 {
+  top: 63%;
+  margin-left: 0%;
+}
 .btn32 {
-  top: 50.3%;
-  margin-left: -5%;
+  top: 65%;
+  margin-left: -9%;
 }
 .btn33 {
-  top: 52.3%;
-  margin-left: -15%;
+  top: 67%;
+  margin-left: -18%;
 }
 .btn34 {
-  top: 54.3%;
-  margin-left: -5%;
+  top: 69.2%;
+  margin-left: -18%;
 }
 .btn35 {
-  top: 56.3%;
-  margin-left: 5%;
+  top: 71.2%;
+  margin-left: -9%;
 }
 .btn36 {
-  top: 58.3%;
-  margin-left: -5%;
+  top: 73.2%;
+  margin-left: 0%;
 }
 .btn37 {
-  top: 60.3%;
-  margin-left: -15%;
+  top: 75.4%;
+  margin-left: 0%;
 }
 .btn38 {
-  top: 62.3%;
-  margin-left: -5%;
-
-}.btn39 {
-  top: 64.3%;
-  margin-left: 5%;
+  top: 77.4%;
+  margin-left: -9%;
 }
-
+.btn39 {
+  top: 79.4%;
+  margin-left: -18%;
+}
 .btn40 {
-  top: 66.3%;
-  margin-left: -5%;
+  top: 81.6%;
+  margin-left: -18%;
 }
-
 .btn41 {
-  top: 68.3%;
-  margin-left: -15%;
+  top: 83.6%;
+  margin-left: -9%;
 }
-
 .btn42 {
-  top: 70.3%;
-  margin-left: -5%;
+  top: 85.6%;
+  margin-left: 0%;
 }
-
 .btn43 {
-  top: 72.3%;
-  margin-left: 5%;
+  top: 87.8%;
+  margin-left: 0%;
 }
 .btn44 {
-  top: 74.3%;
-  margin-left: -5%;
+  top: 89.8%;
+  margin-left: -9%;
 }
 .btn45 {
-  top: 76.3%;
-  margin-left: -15%;
+  top: 91.8%;
+  margin-left: -18%;
 }
+
 .btn46 {
-  top: 77.9%;
-  margin-left: -5%;
+  top: 94%;
+  margin-left: -18%;
 }
-.btn47 {
-  top: 79.6%;
-  margin-left: 5%;
-}
-
-.btn48 {
-  top: 81.3%;
-  margin-left: -5%;
- }
- 
- .btn49{
-  top: 83%;
-  margin-left: -15%;
- }
- 
- .btn50{
-  top: 84.7%;
-  margin-left: -5%;
- }
-
-.btn51 {
-  top: 86.4%;
-  margin-left: 5%;
-}
-
-.btn52 {
-  top: 88.1%;
-  margin-left: -5%;
-}
-.btn53 {
-  top: 89.8%;
-  margin-left: -15%;
-}
-.btn54 {
-  top: 91.5%;
-  margin-left: -5%;
-}
-
-.btn55 {
-  margin-left: -12%;
-  top: 7px;
-}
-
-.btn56 {
-  margin-left: -12%;
-  top: 7px;
-}
-
-.btn57 {
-  margin-left: -12%;
-  top: 7px;
-}
-
-.btn58 {
-  top: 93.2%;
-  margin-left: 5%;
-}
-
-
-.btn59{
-  top: 94.9%;
-  margin-left: -5%;
-}
-
-.btn60 {
-  top: 96.6%;
-  margin-left: -15%;
-}
-
-
-.btn64 {
-  top: 98.3%;
-  margin-left: -5%;
-}
-
