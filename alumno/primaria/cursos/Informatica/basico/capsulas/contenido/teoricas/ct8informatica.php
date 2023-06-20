@@ -39,7 +39,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 ?>
 
-<!DOCTYPE informatica>
+<!DOCTYPE html>
 
 <head>
     <meta charset="UTF-8" />
