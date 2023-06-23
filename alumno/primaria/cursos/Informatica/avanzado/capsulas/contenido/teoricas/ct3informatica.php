@@ -90,32 +90,32 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T3/30.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T3/27.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T3/28.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T3/29.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T3/30.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T3/31.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T3/32.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T3/33.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T3/34.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T3/35.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd8.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué estudia la ciencia de la informática o ciencia de la computación?</h1>
+                                    <h1>¿Qué herramienta en PowerPoint permite alinear y distribuir objetos de manera uniforme automáticamente?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">Los límites físicos y teóricos de las computadoras</label>
+                                        <label for="checkbox1">Cuadrículas.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Los límites físicos y teóricos de las computadoras</label>
+                                        <label for="checkbox2">Reglas.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">El almacenamiento de la información y la inteligencia artificial</label>
+                                        <label for="checkbox3">Guías.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">La aplicación práctica de la informática en diferentes disciplinas</label>
+                                        <label for="checkbox4">Ninguna de las anteriores.</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="8">
                                     <input type="hidden" name="teorico" value="10">

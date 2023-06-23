@@ -82,42 +82,49 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T18/135.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T18/136.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/136.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T18/137.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T18/138.gif');"></li>
-                      
+                        <li style="background-image: url('../../img/informatica/T18/139.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/140.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/141.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué significa que Linux es un sistema operativo de software libre?</h1>
+                                    <h1>¿Cuál de las siguientes acciones no está relacionada con trabajar con datos en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        El código fuente es visible para cualquiera y puede ser modificado.
+                                        Realizar cálculos y análisis de datos.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Pertenece a una empresa específica.
+                                        Ingresar datos en las celdas.
 
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Solo se puede utilizar en una plataforma específica.
+                                        Copiar y pegar datos.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Solo se puede utilizar de forma gratuita para uso personal.
+                                        Seleccionar y editar datos.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

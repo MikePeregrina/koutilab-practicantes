@@ -90,39 +90,39 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T10/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T10/77.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/77.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T10/78.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T10/79.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T10/80.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T10/81.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/82.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es una ventaja del archivo digital?</h1>
+                                    <h1>¿Cuál es una ventaja de descargar plantillas y temas para PowerPoint desde sitios web?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Mayor seguridad de acuerdo a las garantías técnicas vigentes.
+                                        Mejora el diseño visual de la presentación.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Pérdida de información y difusión de documentos legales.
+                                        Permite insertar enlaces a sitios web relevantes.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Mayor dificultad para acceder a la información desde diferentes lugares y dispositivos.
+                                        Permite incorporar contenido de redes sociales.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Menor capacidad de almacenamiento en comparación con otros formatos.
+                                        Facilita la colaboración y el intercambio de presentaciones.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

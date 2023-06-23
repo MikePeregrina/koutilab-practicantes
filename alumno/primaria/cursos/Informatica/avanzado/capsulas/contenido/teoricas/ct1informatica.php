@@ -85,9 +85,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
+                        
                     </ul>
                     <ul id="slider">
                         <li style="background-image: url('../../img/informatica/T1/13.gif'); z-index:0; opacity: 1;"></li>
@@ -95,27 +93,27 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/informatica/T1/15.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T1/16.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T1/17.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T1/18.gif');"></li>
+                        
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd2.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué es la computación en relación con la informática?</h1>
+                                    <h1>¿Qué se entiende por el manejo de diapositivas en PowerPoint?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">La tecnología para el tratamiento automático de la información</label>
+                                        <label for="checkbox1">La creación, edición y presentación de presentaciones de diapositivas.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Una rama de la física</label>
+                                        <label for="checkbox2">La organización de archivos en carpetas.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">El desarrollo de sistemas operativos</label>
+                                        <label for="checkbox3">La impresión de diapositivas en papel.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">El estudio de los lenguajes de programación</label>
+                                        <label for="checkbox4">La selección de plantillas de diseño en PowerPoint.</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">

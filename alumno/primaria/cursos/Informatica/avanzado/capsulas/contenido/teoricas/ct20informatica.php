@@ -85,42 +85,44 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                      
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T20/144.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T20/145.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/146.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/147.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/148.gif');"></li>
-                       
+                        <li style="background-image: url('../../img/informatica/T20/151.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T20/152.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T20/153.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T20/154.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T20/155.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T20/156.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál de las siguientes afirmaciones es verdadera sobre Windows?</h1>
+                                    <h1>¿Cómo se puede exportar datos desde Excel a la web?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Es uno de los sistemas operativos menos populares.
+                                        Guardando la hoja de cálculo como un archivo en formato HTML o CSV.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Es compatible con programas y dispositivos limitados.
+                                        Copiando y pegando los datos en un sitio web.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Es uno de los sistemas operativos menos populares.
+                                        Utilizando la función "Exportar a la web" en la pestaña "Datos".
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Tiene un soporte técnico deficiente.
+                                        Enviando los datos por correo electrónico a través de Excel.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

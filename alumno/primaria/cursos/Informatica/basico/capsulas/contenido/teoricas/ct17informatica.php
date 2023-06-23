@@ -102,7 +102,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Dispositivos primarios.
+                                        Todos los anteriores.
                                         </label>
                                     </div>
                                     <div>
@@ -120,7 +120,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Unidades Zip.
+                                        Weareables y auriculares.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

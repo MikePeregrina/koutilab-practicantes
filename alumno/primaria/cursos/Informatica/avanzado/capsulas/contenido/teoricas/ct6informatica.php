@@ -85,42 +85,45 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-            
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                         
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T6/51.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T6/47.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T6/48.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T6/49.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T6/50.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T6/51.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T6/52.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/53.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/54.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/55.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué función cumple un periférico de entrada en una computadora?</h1>
+                                    <h1>¿Qué se debe tener en cuenta al seleccionar una plantilla en PowerPoint?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Captar y digitalizar los datos introducidos por el usuario
+                                        La combinación de colores armoniosa y fuentes legibles.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Mostrar imágenes y textos en pantalla
+                                        La inclusión de animaciones y transiciones predefinidas.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Enviar la información al exterior de la computadora
+                                        La combinación de colores armoniosa y fuentes legibles.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Procesar y ordenar la información
+                                        La búsqueda en línea de plantillas predefinidas.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

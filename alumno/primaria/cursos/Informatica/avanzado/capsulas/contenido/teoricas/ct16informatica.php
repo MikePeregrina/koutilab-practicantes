@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 4.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -91,39 +91,39 @@ if (isset($resultadoIntentos['intentos'])) {
                        
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T16/122.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T16/123.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/123.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T16/124.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T16/125.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T16/126.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T16/127.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/128.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué tipo de dispositivos de almacenamiento guarda información en la memoria del computador de manera continua?</h1>
+                                    <h1>¿Qué elementos gráficos ofrece Excel para representar visualmente los datos?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Gestionar los recursos de hardware y proporcionar servicios a los programas de aplicación.
+                                        Gráficos y tipos de gráficos.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Manejar archivos de datos multimedia.
+                                        Fórmulas y funciones.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Manejar archivos de datos multimedia.
+                                        Estilos predefinidos.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Generar salidas y resultados del sistema.
+                                        Tablas y filtros.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

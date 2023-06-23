@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 4 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 5 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,39 +88,39 @@ if (isset($resultadoIntentos['intentos'])) {
                        
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T15/116.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T15/117.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T15/117.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T15/118.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T15/119.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T15/120.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T15/121.gif');"></li>
                         
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la función principal del puerto USB en una computadora?</h1>
+                                    <h1>¿Cuál es la función que combina múltiples cadenas de texto en una sola en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Conectar periféricos a la computadora.
+                                        CONCATENAR.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Realizar copias de seguridad de archivos.
+                                        BUSCARV.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Almacenar datos de forma permanente.
+                                        SUMA.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Transferir energía a la computadora.
+                                        CONTAR.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 3.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 4 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -90,38 +90,38 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T4/37.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T4/34.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T4/35.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T4/36.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T4/37.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T4/38.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T4/39.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T4/40.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T4/41.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T4/42.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd11.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué se entiende por red informática en el contexto de la informática?</h1>
+                                    <h1>¿Qué son los temas en PowerPoint?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        La interconexión de computadoras mediante dispositivos alámbricos o inalámbricos.
+                                        Conjuntos predefinidos de diseños, colores, fuentes y efectos de estilo aplicados a todas las diapositivas.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        La compartición de recursos entre computadoras sin interconexión física.
+                                        Imágenes de fondo utilizadas en las diapositivas.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        El envío y recepción de información por medio de ondas electromagnéticas exclusivamente
+                                        Herramientas para organizar y presentar información de manera visualmente atractiva.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">La comunicación de datos a través de impulsos eléctricos únicamente</label>
+                                        <label for="checkbox4">Recursos multimedia insertados en las diapositivas.</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="11">
                                     <input type="hidden" name="teorico" value="10">

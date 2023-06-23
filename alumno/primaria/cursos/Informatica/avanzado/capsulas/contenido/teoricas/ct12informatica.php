@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 1.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 2 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,50 +88,42 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_9" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T12/94.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T12/95.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/96.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/97.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/97.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T12/98.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T12/99.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T12/100.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T12/101.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/102.gif');"></li>
+                        
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál de los siguientes no es un tipo de conector analógico mencionado en el texto?</h1>
+                                    <h1>¿Qué es una referencia mixta en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Cables HDMI.
+                                        Una combinación de partes relativas y partes absolutas en una referencia.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Cables TS.
+                                        Una referencia que se utiliza para vincular celdas entre diferentes hojas de cálculo.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Cables XLR.
+                                        Una referencia que se ajusta automáticamente al copiar una fórmula.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Cables RCA.
+                                        Una referencia que no cambia al copiar una fórmula.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

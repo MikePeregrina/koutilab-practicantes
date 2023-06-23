@@ -81,39 +81,44 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T11/89.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T11/90.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T11/91.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T11/91.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T11/92.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T11/93.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T11/94.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T11/95.gif');"></li>
+                       
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la importancia del botón de Encender en una torre de computadora?</h1>
+                                    <h1>¿Qué función principal cumple Excel en el entorno empresarial, educativo y personal?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Proporcionar energía a todos los componentes de la computadora.
+                                        Almacenar y manejar datos.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Controlar la temperatura interna de la computadora.
+                                        Crear presentaciones visuales.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Proteger los datos almacenados en el disco duro.
+                                        Administrar redes y servidores.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Establecer la conexión con dispositivos periféricos.
+                                        Realizar edición y diseño de imágenes.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

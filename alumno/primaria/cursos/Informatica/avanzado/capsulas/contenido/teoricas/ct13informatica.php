@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 2 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 3 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,41 +88,46 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T13/103.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T13/104.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T13/104.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T13/105.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T13/106.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T13/107.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T13/108.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T13/109.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T13/110.gif');"></li>
+                        
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿En cuántas áreas se clasifican las teclas del teclado mencionadas en el texto?</h1>
+                                    <h1>¿Qué es un formato de texto en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        6 áreas.
+                                        La forma en que se muestra el contenido de una celda.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        4 áreas.
+                                        El proceso de llenar una columna o fila con valores consecutivos.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        3 áreas.
+                                        El conjunto de reglas o criterios para resaltar automáticamente valores.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        5 áreas.
+                                        La secuencia de valores que siguen un patrón específico.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

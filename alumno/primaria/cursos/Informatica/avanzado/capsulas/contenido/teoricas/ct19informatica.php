@@ -79,40 +79,60 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_4" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_5" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
+                       
                        
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T19/140.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T19/141.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T19/143.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T19/142.gif');"></li>
-                       
+                        <li style="background-image: url('../../img/informatica/T19/144.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T19/145.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T19/146.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T19/147.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T19/148.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T19/149.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la principal diferencia entre el código de iOS y Android?</h1>
+                                    <h1>¿Cómo se crea una macro en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        El código de iOS es cerrado y el de Android es abierto.
+                                        Utilizando la función "Grabar macro" para registrar las acciones realizadas en la hoja de cálculo.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        El código de iOS es abierto y el de Android es cerrado.
+                                        Importando una macro desde otro archivo de Excel.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        El código de iOS es abierto y el de Android es cerrado.
+                                        Utilizando una función predefinida de Excel para crear la macro.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        El código de iOS es abierto y el de Android es cerrado.
+                                        Escribiendo directamente el código VBA en la hoja de cálculo.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 5.5 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,41 +88,49 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T7/57.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T7/54.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T7/55.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T7/56.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T7/57.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T7/58.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T7/59.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T7/60.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T7/61.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/62.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la función principal de los dispositivos de salida en un sistema informático?</h1>
+                                    <h1>¿Qué es el formato de diapositivas en PowerPoint?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Presentar la información al usuario de forma comprensible
+                                        La forma en que se presenta y organiza el contenido visual en cada diapositiva.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Enviar la información al exterior de la computadora
+                                        Los colores, fuentes y efectos de estilo aplicados a todas las diapositivas.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Procesar y ordenar la información
+                                        Los diferentes diseños predefinidos disponibles en PowerPoint.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Captar y digitalizar los datos introducidos por el usuario
+                                        La selección de temas y formatos de fondo para personalizar las diapositivas.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

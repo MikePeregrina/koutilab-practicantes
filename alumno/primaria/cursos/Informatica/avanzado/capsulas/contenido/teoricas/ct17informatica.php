@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 7 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,39 +88,39 @@ if (isset($resultadoIntentos['intentos'])) {
                         
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T17/129.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T17/130.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/130.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T17/131.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T17/132.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T17/133.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/134.gif');"></li>
                         
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué tipo de dispositivos pueden utilizar el sistema operativo Android?</h1>
+                                    <h1>¿Cuál es la forma correcta de cambiar el nombre de una hoja de cálculo en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Dispositivos primarios.
+                                        Todas las opciones anteriores.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Teléfonos inteligentes y televisión de Google.
+                                        Haciendo doble clic en la pestaña de la hoja y escribiendo el nuevo nombre.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Weareables y auriculares.
+                                        Haciendo clic con el botón derecho del ratón en la pestaña de la hoja y seleccionando "Cambiar nombre".
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Unidades Zip.
+                                        Utilizando la función "Renombrar hoja" en la pestaña "Inicio".
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

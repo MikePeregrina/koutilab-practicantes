@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 4 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 4.5 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -85,44 +85,42 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
+                        
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T5/44.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T5/41.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T5/42.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T5/43.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T5/44.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T5/45.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/46.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/47.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/48.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/49.gif');"></li>
+                        
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la función principal de una computadora?</h1>
+                                    <h1>¿Qué tipos de animaciones puedes seleccionar en PowerPoint?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Procesar información en código
+                                        Efectos de entrada, énfasis, salida y movimiento de trayectoria.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Realizar operaciones simples y complejas
+                                        Efectos de desvanecimiento, deslizamiento, barrido y rotac
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Conectar dispositivos periféricos
+                                        Efectos de zoom, volteo, reflejo y resaltado.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Funcionar de forma interactiva y autónoma
+                                        Efectos de fundido, escalado, desplazamiento y explosión.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

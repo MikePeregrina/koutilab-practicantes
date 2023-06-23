@@ -90,43 +90,37 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_8" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_9" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_10" href="#"></a>
-                        </li>
+                        
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T2/20.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T2/19.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T2/20.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T2/21.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T2/22.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T2/23.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T2/24.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T2/25.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T2/26.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T2/27.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T2/28.gif');"></li>
+                       
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál fue uno de los avances importantes de la segunda generación de computadoras?</h1>
+                                    <h1>¿Qué tipos de objetos se pueden insertar en PowerPoint para mejorar la visualización y presentación?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">Programación en lenguajes de alto nivel.</label>
+                                        <label for="checkbox1">Imágenes, gráficos, tablas, formas y vídeos.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Reducción del tamaño de las máquinas.</label>
+                                        <label for="checkbox2">Solo imágenes y gráficos.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">Uso de circuitos integrados.</label>
+                                        <label for="checkbox3">Solo tablas y formas.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Implementacion de la inteligencia artificial.</label>
+                                        <label for="checkbox4">Solo vídeos y formas.</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="5">
                                     <input type="hidden" name="teorico" value="10">

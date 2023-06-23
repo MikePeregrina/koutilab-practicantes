@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 7 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -85,43 +85,45 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                       
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T8/64.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T8/63.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T8/64.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T8/65.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T8/66.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T8/67.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T8/68.gif');"></li>
-                      
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué característica define a los periféricos mixtos o dispositivos de entrada/salida (E/S)?</h1>
+                                    <h1>¿Qué se debe revisar y corregir en el texto de cada diapositiva en PowerPoint?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Son dispositivos que pueden ingresar información desde el exterior y mostrar resultados al usuario.
+                                        Los errores gramaticales, ortográficos y de formato.
 
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Son dispositivos que solo ingresan información desde el exterior.
+                                        Los tiempos y la duración de las animaciones.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Son dispositivos que solo envían información al software.
+                                        La posición y el tamaño de las imágenes.
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Son dispositivos que solo muestran al usuario los resultados de las operaciones.
+                                        La resolución adecuada de las imágenes y gráficos.
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">

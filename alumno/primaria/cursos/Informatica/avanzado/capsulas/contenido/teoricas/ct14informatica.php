@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 3 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 4 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -82,45 +82,42 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_6" href="#"></a>
-                        </li>
+                       
                        
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T14/110.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T14/111.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/112.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T14/112.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/informatica/T14/113.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T14/114.gif');"></li>
-                        
+                        <li style="background-image: url('../../img/informatica/T14/115.gif');"></li>
+                       
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la función principal del mouse en una computadora?</h1>
+                                    <h1>¿Cuál es el operador utilizado para multiplicar dos o más valores en Excel?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Interactuar con objetos en la pantalla.
+                                        *
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Mostrar imágenes en la pantalla.
+                                        +
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Mostrar imágenes en la pantalla.
+                                        /
                                         </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Controlar el volumen del sonido.
+                                        !
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="14">
