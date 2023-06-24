@@ -1,6 +1,14 @@
 <?php
 
+include('../../../acciones/conexion.php');
+session_start();
+$id_user = $_SESSION['id_alumno_personal'];
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE id_alumno = $id_user"));
 
+$id = $user["id_alumno"];
+$name = $user["nombre"];
+$image = $user["image"];
+$portada = $user["fondo"];
 
 if (isset($_POST['Mascota-Aerobot-01'])) {
     $portada = 1;
