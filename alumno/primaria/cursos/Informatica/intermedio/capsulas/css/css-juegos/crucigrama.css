@@ -1,7 +1,8 @@
 body {
   color: #404040;
   font-family: Tahoma;
-  background-image: url(../../img/img_juegos/fondo.png);  background-size: cover;
+  background-image: url(../../img/img-juegos/bg.png);
+  background-size: cover;
   background-repeat: no-repeat;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -221,29 +222,6 @@ th {
   border-radius: 90px;
   z-index: 5;
   font-size: 150%;
-  
-}
-@keyframes animation1 {
-  0% {margin: 40px 0 0 1100px;}
-  20% {margin: 40px 0 0 1110px;}
-  40% {margin: 40px 0 0 1100px;} 
-  60% {margin: 40px 0 0 1110px;}
-  80% {margin: 40px 0 0 1100px;} 
-  100% {margin: 40px 0 0 1110px;}
-}
-
-@keyframes animation2 {
-  0% {margin: 40px 0 0 1120px;}
-  10% {margin: 40px 0 0 1130px;}
-  20% {margin: 40px 0 0 1120px;} 
-  30% {margin: 40px 0 0 1130px;}
-  40% {margin: 40px 0 0 1120px;} 
-  50% {margin: 40px 0 0 1130px;}
-  60% {margin: 40px 0 0 1120px;} 
-  70% {margin: 40px 0 0 1130px;} 
-  80% {margin: 40px 0 0 1120px;} 
-  90% {margin: 40px 0 0 1130px;} 
-  100% {margin: 40px 0 0 1120px;}
 }
 
 .btn-b {
@@ -263,15 +241,6 @@ th {
   float: right;
 }
 
-.btn-b:hover {
-  scale: 130%;
-  transition: scale 0.35s;
-}
-
-.btn-b:hover::after {
-  scale: 100%;
-  transition: scale 0.35s;
-}
 @media (max-width: 750px) {
   .btn-b {
     width: 10%;
