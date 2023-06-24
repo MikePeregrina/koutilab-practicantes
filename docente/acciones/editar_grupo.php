@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../img/lgk.png">
-    <link rel="stylesheet" href="../css/alumnos.css">
-    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body style="background-image: url(../img/bg1.png); padding-top: 0px; padding-bottom: 160px;">
-    <?php
+<?php
     require "../../acciones/conexion.php";
 
     if (!empty($_POST)) {
@@ -62,13 +43,31 @@
     }
     ?>
 
-    <div class="row">
-        <div class="col-md-7 mx-auto">
-            <div class="container1" style="margin-top: 30px;">
-                <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                    <h3 class="i-name">Editar grupo</h3>
-                </div>
-                <form class="" action="" method="post">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../img/lgk.png">
+    <link rel="stylesheet" href="css/editar.css">
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="container-titulo">
+    <h1>Editar grupos</h1>  
+  </div>
+
+
+  <section>
+  <form class="" action="" method="post">
                     <div class="user-details1">
 
                         <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idgrupo; ?>">
@@ -99,13 +98,16 @@
                     </div>
 
                     <br>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
-                    <a href="../grupos.php" class="btn btn-danger">Atrás</a>
+                    <div style="display: flex; text-align: center; justify-content: center; gap: 20px;">
+                        <button type="submit" class="btn btn-success" style="width: 15%; height:40px; margin-top:0%"><i class="fas fa-check"></i></button>
+                        <a href="../grupos.php" class="btn btn-danger" style="width: 15%; height:40px; padding:1%">Atrás</a>    
+                    </div>
                 </form>
-
-            </div>
-
-        </div>
+  </section>
+    
+  <footer>
+    <div class="imagen-footer">
+        <img src="img/Bienvenida.png" >
     </div>
-
+</footer>
 </body>

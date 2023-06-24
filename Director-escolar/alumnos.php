@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/nav-barra.css">
   <link rel="stylesheet" href="css/alumnos.css">
+  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Document</title>
@@ -32,30 +33,7 @@
     
   </section>
 
-  <script>
-    const data = [30, 50, 70, 40, 90];
+  <?php include 'footer.php'; ?>
 
-    function createChart() {
-        const chart = document.getElementById("chart");
-        const labelsContainer = document.createElement("div");
-        labelsContainer.classList.add("chart-labels");
-        chart.appendChild(labelsContainer);
-
-        data.forEach((value, index) => {
-          const bar = document.createElement("div");
-          bar.classList.add("bar");
-          bar.style.height = `${value}px`;
-
-          const label = document.createElement("span");
-          label.textContent = value;
-
-          chart.appendChild(bar);
-          labelsContainer.appendChild(label);
-      });
-    }
-
-    createChart();
-
-  </script>
 </body>
 </html>
