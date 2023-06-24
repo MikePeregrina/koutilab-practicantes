@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../img/lgk.png">
-    <link rel="stylesheet" href="../css/alumnos.css">
-    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bulma.min.css">
-</head>
-
-<body style="background-image: url(../img/bg1.png); padding-top: 10px; padding-bottom: 300px;">
-    <?php
+<?php
     require "../../acciones/conexion.php";
     session_start();
     $id_user = $_SESSION['id_docente_primaria'];
@@ -36,54 +16,76 @@
     }
 
     ?>
-    <div class="d-flex justify-content-center" style="margin-bottom: 35px;">
-        <div class="values" style="width: 98%; margin-left: 52px;">
-            <h3 class="i-name">Lista de alumnos y puntajes</h3>
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../img/lgk.png">
+    <link rel="stylesheet" href="css/showgroup.css">
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bulma.min.css">
+</head>
+
+<body>
+    <div class="container-titulo">
+    <h1>Lista de alumnos y puntajes</h1>  
+  </div>
+
+
+  <section>
+    <div class="d-flex justify-content-center" style="margin-top: 2%;">
+            <div class="board p-2" style="width: 95%;">
+                <table id="alumnos" width="100%" class="table border-top">
+                    <thead>
+                        <tr>
+                            <td><b>Nombre</b></td>
+                            <td><b>Nivel educativo</b></td>
+                            <td><b>Grado escolar</b></td>
+                            <td><b>Grupo</b></td>
+                            <td><b>Trofeos</b></td>
+                            <td><b>Puntaje</b></td>
+                            <td><b>Práctico</b></td>
+                            <td><b>Teorico</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include "../../acciones/conexion.php";
+                        $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.grado_escolar, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas_primaria e
+                    JOIN alumnos_primaria a
+                    ON e.id_alumno = a.id_alumno
+                    JOIN detalle_grupos_primaria dg
+                    ON dg.id_alumno = a.id_alumno
+                    WHERE dg.id_grupo = '$idgrupo';");
+                        $result = mysqli_num_rows($query_grupo);
+                        if ($result > 0) {
+                            while ($data = mysqli_fetch_assoc($query_grupo)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $data['nombre']; ?></td>
+                                    <td><?php echo $data['grado_escolar']; ?></td>
+                                    <td><?php echo $data['trofeos']; ?></td>
+                                    <td><?php echo $data['puntos']; ?></td>
+                                    <td><?php echo $data['practico']; ?></td>
+                                    <td><?php echo $data['teorico']; ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
+                <a href="../grupos.php" class="btn btn-danger">Atrás</a>
+            </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-center" style="margin-top: -50px;">
-        <div class="board p-2" style="width: 90%;">
-            <table id="alumnos" width="100%" class="table border-top">
-                <thead>
-                    <tr>
-                        <td><b>Nombre</b></td>
-                        <td><b>Nivel educativo</b></td>
-                        <td><b>Grado escolar</b></td>
-                        <td><b>Grupo</b></td>
-                        <td><b>Trofeos</b></td>
-                        <td><b>Puntaje</b></td>
-                        <td><b>Práctico</b></td>
-                        <td><b>Teorico</b></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    include "../../acciones/conexion.php";
-                    $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.grado_escolar, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas_primaria e
-                JOIN alumnos_primaria a
-                ON e.id_alumno = a.id_alumno
-                JOIN detalle_grupos_primaria dg
-                ON dg.id_alumno = a.id_alumno
-                WHERE dg.id_grupo = '$idgrupo';");
-                    $result = mysqli_num_rows($query_grupo);
-                    if ($result > 0) {
-                        while ($data = mysqli_fetch_assoc($query_grupo)) {
-                    ?>
-                            <tr>
-                                <td><?php echo $data['nombre']; ?></td>
-                                <td><?php echo $data['grado_escolar']; ?></td>
-                                <td><?php echo $data['trofeos']; ?></td>
-                                <td><?php echo $data['puntos']; ?></td>
-                                <td><?php echo $data['practico']; ?></td>
-                                <td><?php echo $data['teorico']; ?></td>
-                            </tr>
-                    <?php }
-                    } ?>
-                </tbody>
-            </table>
-            <a href="../grupos.php" class="btn btn-danger">Atrás</a>
-        </div>
-    </div>
+  </section>
 
     <script>
         $(document).ready(function() {

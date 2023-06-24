@@ -59,51 +59,30 @@
       display: flex;
      }
   
-      .left-student{
-          background-color: rgba(255, 255, 255, 0.519);
-          border-radius: 30px;
-          padding: 0px;
-          border: 3px solid var(--border);
-          box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-          box-sizing: border-box;
-          width: 50%;
-          height: 100%;
-          display: flex;
-          cursor: pointer;
-          
-      }
-  
-      .left-student i{
-          margin-left: 15%;
-          font-size: 30px;
-      }
-  
-      .left-student h2{
-          margin-left: 10%;
-      }
-  
-      .right-student{
-          background-color: rgba(255, 255, 255, 0.519);
-          border-radius: 30px;
-          padding: 0px;
-          border: 3px solid var(--border);
-          box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-          box-sizing: border-box;
-          width: 50%;
-          height: 100%;
-          margin-left: 10%;
-          display: flex;
-          cursor: pointer;
-      }
-  
-      .right-student i{
-          margin-left: 15%;
-          font-size: 30px;
-      }
-  
-      .right-student h2{
-          margin-left: 10%;
-      }
+     .left-student{
+      background-color: rgba(255, 255, 255, 0.519);
+      border-radius: 30px;
+      padding: 0px;
+      border: 3px solid var(--border);
+      box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      cursor: pointer;
+      text-align: center;
+      justify-content: center;
+      
+  }
+
+  .left-student i{
+      margin-left: 5%;
+      font-size: 30px;
+  }
+
+  .left-student h2{
+      margin-left: 5%;
+  }
       
   
       section{

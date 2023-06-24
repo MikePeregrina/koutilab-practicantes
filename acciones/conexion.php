@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$database = "aerobotbeta";
+$database = "aerobotp_beta";
 $username = "root";
-$password = "Computadoras3";
+$password = "tiburon2014";
 // Create connection
 $conexion = mysqli_connect($servername, $username, $password, $database);
 // Check connection
