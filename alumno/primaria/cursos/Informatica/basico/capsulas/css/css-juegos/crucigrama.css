@@ -272,6 +272,8 @@ th {
   scale: 100%;
   transition: scale 0.35s;
 }
+
+
 @media (max-width: 750px) {
   .btn-b {
     width: 10%;

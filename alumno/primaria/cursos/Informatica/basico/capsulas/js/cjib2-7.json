@@ -1,0 +1,53 @@
+[
+    {
+        "categoria": "web basico-cssq",
+        "pregunta": "Se conoce como Windows, MS Windows o Microsoft Windows a una familia de sistemas _______ ",
+        "respuesta": "Operativos",
+        "incorrecta1": "Electricos",
+        "incorrecta2": "Digitales",
+        "incorrecta3": "Aereo",
+        "imagen": "",
+        "objectFit" : "cover"  
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Creados y comercializados por la empresa norteamericana ",
+        "respuesta": "Microsoft",
+        "incorrecta1": "Apple",
+        "incorrecta2": "Android",
+        "incorrecta3": "Samsung",
+        "imagen": "",
+        "objectFit" : "cover"   
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "La función básica de Windows es proveer al _________  del sistema operativo de un entorno visual atractivo, ameno e intuitivo, en el que las operaciones básicas de uso del computador están representadas gráficamente a través de íconos ",
+        "respuesta": "Nucleo",
+        "incorrecta1": "CPU",
+        "incorrecta2": "Hardware",
+        "incorrecta3": "Disco Duro",
+        "imagen": "",
+        "objectFit" : "cover"
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Empleando el mouse y el _______ el usuario puede así acceder a todas las funciones del computador",
+        "respuesta": "Teclado",
+        "incorrecta1": "CPU",
+        "incorrecta2": "Microporcesador",
+        "incorrecta3": "Disco Duro",
+        "imagen": "",
+        "objectFit" : "cover"  
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Windows 1.0. La versión inicial fue lanzada en noviembre de ____",
+        "respuesta": "1985",
+        "incorrecta1": "1895",
+        "incorrecta2": "1988",
+        "incorrecta3": "1898",
+        "imagen": "",
+        "objectFit" : "cover"    
+    }
+    
+    ]
