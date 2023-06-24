@@ -33,7 +33,7 @@
 
 	<div class="contenido">
 
-		<a href="#"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+		<a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
 				<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -136,17 +136,17 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("img/fondo.gif")
+									url("../../img/img-juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '#';
+                            window.location.href = "../../../../../../rutas/ruta-in-i.php";
 						}
 					});
 
@@ -178,11 +178,11 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.href = '#';
+						window.location.reload();
 					}
 				});
 			} else {

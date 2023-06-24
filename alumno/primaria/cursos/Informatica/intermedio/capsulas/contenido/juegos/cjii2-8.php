@@ -28,7 +28,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
+		<a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
 				id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i>
 			</button>
@@ -182,7 +182,7 @@
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -227,7 +227,7 @@
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "img/loop.gif",
+						imageUrl: "../../img/img-juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -264,16 +264,16 @@
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "img/Thumbs-Up.gif",
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = "../../../../../../rutas/ruta-in-i.php";
 				}
 			});
 		}
