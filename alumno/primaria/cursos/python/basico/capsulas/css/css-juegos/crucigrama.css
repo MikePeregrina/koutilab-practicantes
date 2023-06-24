@@ -79,7 +79,7 @@ body::-webkit-scrollbar-track {
 .words {
   padding: 2%;
   margin-left: 35px;
-  width: 600px;
+  width: 300px;
   height: 400px;
   position: absolute;
 }
