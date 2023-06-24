@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/cursos.css">
   <link rel="stylesheet" href="css/nav-barra.css">
+  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Document</title>
@@ -30,58 +31,61 @@
     </div>
 </div>
 
-<!-- Contenido de la pantalla emergente -->
-<div class="popup-container" id="popupContainer">
-    <div class="popup-content">
-        <div class="titlec">
-            <h2>Adquirir curso</h2>
+    <!-- Contenido de la pantalla emergente -->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+            <div class="titlec">
+                <h2>Adquirir curso</h2>
+            </div>
+            <br>
+            <div class="search">
+                <div class="category"><h4>Todos</h4></div>
+                <div class="category"><h4>Programaciòn</h4></div>
+                <div class="category"><h4>Arduino</h4></div>
+                <div class="category"><h4>Bàsico</h4></div>
+                <div class="category"><h4>Intermedio</h4></div>
+                <div class="category"><h4>Avanzado</h4></div>
+
+                <div class="box">
+                    <input type="text" placeholder="Search">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                </div>
+            </div>
+
+            <div class="content-popup">
+                <div class="container1">
+                    <h2>Programacion Web Basico</h2>
+                    <img src="R.jpg" alt="">
+                    <button><h3>Adquirir</h3></button>
+                </div>
+
+                <div class="container2">
+                    <h2>Programacion Web Intermedio</h2>
+                    <img src="R.jpg" alt="">
+                    <button><h3>Adquirir</h3></button>
+                </div>
+
+                <div class="container3">
+                    <h2>Programacion Web Avanzado</h2>
+                    <img src="R.jpg" alt="">
+                    <button><h3>Adquirir</h3></button>
+                </div>
+            </div>
+
+            <button id="closeButton"><i class="fas fa-times"></i></button>
+        
         </div>
-        <br>
-        <div class="search">
-            <div class="category"><h4>Todos</h4></div>
-            <div class="category"><h4>Programaciòn</h4></div>
-            <div class="category"><h4>Arduino</h4></div>
-            <div class="category"><h4>Bàsico</h4></div>
-            <div class="category"><h4>Intermedio</h4></div>
-            <div class="category"><h4>Avanzado</h4></div>
-
-            <div class="box">
-                <input type="text" placeholder="Search">
-                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-            </div>
-        </div>
-
-        <div class="content-popup">
-            <div class="container1">
-                <h2>Programacion Web Basico</h2>
-                <img src="R.jpg" alt="">
-                <button><h3>Adquirir</h3></button>
-            </div>
-
-            <div class="container2">
-                <h2>Programacion Web Intermedio</h2>
-                <img src="R.jpg" alt="">
-                <button><h3>Adquirir</h3></button>
-            </div>
-
-            <div class="container3">
-                <h2>Programacion Web Avanzado</h2>
-                <img src="R.jpg" alt="">
-                <button><h3>Adquirir</h3></button>
-            </div>
-        </div>
-
-        <button id="closeButton"><i class="fas fa-times"></i></button>
-       
     </div>
-</div>
 
 <section>
 
     
     
 </section>
-<script></script>
+
+
+<?php include 'footer.php'; ?>
+
 <script>
     const addCourseButton = document.getElementById('addCourseButton');
     const popupContainer = document.getElementById('popupContainer');

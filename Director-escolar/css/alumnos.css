@@ -66,46 +66,24 @@
           border: 3px solid var(--border);
           box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
           box-sizing: border-box;
-          width: 50%;
+          width: 100%;
           height: 100%;
           display: flex;
           cursor: pointer;
+          text-align: center;
+          justify-content: center;
           
       }
   
       .left-student i{
-          margin-left: 15%;
-          font-size: 30px;
-      }
+        margin-left: 5%;
+        font-size: 30px;
+    }
   
-      .left-student h2{
-          margin-left: 10%;
-      }
-  
-      .right-student{
-          background-color: rgba(255, 255, 255, 0.519);
-          border-radius: 30px;
-          padding: 0px;
-          border: 3px solid var(--border);
-          box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-          box-sizing: border-box;
-          width: 50%;
-          height: 100%;
-          margin-left: 10%;
-          display: flex;
-          cursor: pointer;
-      }
-  
-      .right-student i{
-          margin-left: 15%;
-          font-size: 30px;
-      }
-  
-      .right-student h2{
-          margin-left: 10%;
-      }
-      
-  
+    .left-student h2{
+        margin-left: 5%;
+    }
+
       section{
         padding: 0px;
         width: 86%;
@@ -121,30 +99,7 @@
       }
 
 
-      #chart {
-        width: 400px;
-        height: 300px;
-        border: 1px solid #ccc;
-      }
-      
-      .bar {
-        width: 20px;
-        background-color: #007bff;
-        margin: 0 5px;
-        display: inline-block;
-        transition: height 0.3s ease;
-      }
-      
-      .chart-labels {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-      }
-      
-      .chart-labels span {
-        margin: 0 20px;
-      }
-      
+    
   
   
          @media (max-width: 1120px) {

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/nav-barra.css">
+  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Document</title>
@@ -37,6 +38,8 @@
     <button class="btn-submit" type="submit"><h3>Enviar</h3></button>
     </div>
   </section>
+
+  <?php include 'footer.php'; ?>
   
 
 </body>

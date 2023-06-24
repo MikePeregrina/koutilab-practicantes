@@ -141,12 +141,12 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
                      </div>
                    
-                     <div class="textB">
+                     <div class="textB" >
                       <p >Opciones</p>
                      </div>
                     <div class="links">
                     
-                    <form class="form" id="btn-abrir-modalCC" enctype="multipart/form-data" method="">
+                    <form class="form" id="btn-abrir-modalCC" enctype="multipart/form-data" method="" >
                          <i class="fas fa-file-alt" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar contraseña&nbsp;&nbsp;</i>
                          </form>   
                          
