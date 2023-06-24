@@ -2,7 +2,7 @@ body{
     color: #404040;
     font-family: Tahoma;
     /*background-image: url(../img/bg1.png);/*Se cambio el fondo que tenia el juego*/
-    background-image: url(../../img/img_juegos/fondo.png);    
+    background-image: url(../../img/img-juegos/bg.png); /*se coloco el nuevo fondo del juego*/
     background-repeat: no-repeat;/*Se dio la opcion de que no se repita el nuevo fondo en la pantalla del juego*/
     background-size: cover;/*el fondo del juego se ajustará a la pantalla total*/
     -webkit-user-select: none;
@@ -75,29 +75,6 @@ body::-webkit-scrollbar-track {
     font-size: 170%;
 }
 
-@keyframes animation1 {
-    0% {margin: 40px 0 0 1100px;}
-    20% {margin: 40px 0 0 1110px;}
-    40% {margin: 40px 0 0 1100px;} 
-    60% {margin: 40px 0 0 1110px;}
-    80% {margin: 40px 0 0 1100px;} 
-    100% {margin: 40px 0 0 1110px;}
-  }
-  
-  @keyframes animation2 {
-    0% {margin: 40px 0 0 1120px;}
-    10% {margin: 40px 0 0 1130px;}
-    20% {margin: 40px 0 0 1120px;} 
-    30% {margin: 40px 0 0 1130px;}
-    40% {margin: 40px 0 0 1120px;} 
-    50% {margin: 40px 0 0 1130px;}
-    60% {margin: 40px 0 0 1120px;} 
-    70% {margin: 40px 0 0 1130px;} 
-    80% {margin: 40px 0 0 1120px;} 
-    90% {margin: 40px 0 0 1130px;} 
-    100% {margin: 40px 0 0 1120px;}
-  }
-
 .contenido {
     margin: 20px auto 30px auto;
     border-radius: 5px;
@@ -144,15 +121,6 @@ body::-webkit-scrollbar-track {
     border-radius: 50%;
     float: right;
 }
-.btn-b:hover {
-    scale: 130%;
-    transition: scale 0.35s;
-  }
-  
-  .btn-b:hover::after {
-    scale: 100%;
-    transition: scale 0.35s;
-  }
 
 @media (max-width: 750px) {
     .btn-b {
