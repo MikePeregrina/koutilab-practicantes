@@ -1,7 +1,7 @@
 //Apartado de canvas para trazar lineas
 
 //variables para la medida del canvas
-const ALTURA_CANVAS = 270,
+const ALTURA_CANVAS = 290,
     ANCHURA_CANVAS = 535;
 
 // Obtener el elemento del DOM
@@ -36,11 +36,11 @@ function selectWord() {
     }
     palabraseleccionada = this;
     if (
-        palabraseleccionada.id !== 'archivo' &&
-        palabraseleccionada.id !== 'contenido' &&
-        palabraseleccionada.id !== 'data' &&
-        palabraseleccionada.id !== 'desplazamiento' &&
-        palabraseleccionada.id !== 'incompatibilidad'
+        palabraseleccionada.id !== 'borrar' &&
+        palabraseleccionada.id !== 'recuperar' &&
+        palabraseleccionada.id !== 'mover' &&
+        palabraseleccionada.id !== 'portapapeles' &&
+        palabraseleccionada.id !== 'copiar'
     ) {
         palabraseleccionada.classList.add('seleccionado');
     } else {
@@ -56,7 +56,7 @@ function checkAnswer(respuesta) {
     //validamos que ya haya seleccionado una palabra
     if (palabraseleccionada) {
         //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
-        if (respuesta === 'incompatibilidad' && idPalabraSeleccionada === 'embed') {
+        if (respuesta === 'copiar' && idPalabraSeleccionada === 'atajo') {
             palabraseleccionada.classList.add('correcto');
             // Comenzar
             contexto.beginPath();
@@ -65,55 +65,55 @@ function checkAnswer(respuesta) {
             // Color de línea 
             contexto.strokeStyle = "#84c42c";
             // Comenzamos en 0, 0
-            contexto.moveTo(0, 20);
+            contexto.moveTo(40, 20);
             // Hacemos una línea hasta 48, 48
-            contexto.lineTo(590, 20);
+            contexto.lineTo(580, 285);
             contexto.stroke(); // "Guardar" cambios
             //sumamos al contador
             respuestasCorrectas++;
-        } else if (respuesta === 'desplazamiento' && idPalabraSeleccionada === 'iframe') {
+        } else if (respuesta === 'portapapeles' && idPalabraSeleccionada === 'temporal') {
             palabraseleccionada.classList.add('correcto');
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 105);
-            contexto.lineTo(2100, 765);
+            contexto.moveTo(40, 90); //recorta las lineas
+            contexto.lineTo(540, 215);
             contexto.stroke();
             respuestasCorrectas++;
         }
         else if (
-            respuesta === 'data' && idPalabraSeleccionada === 'object'
+            respuesta === 'borrar' && idPalabraSeleccionada === 'mensaje'
         ) {
             palabraseleccionada.classList.add('correcto');
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 150);
-            contexto.lineTo(575, 230);
+            contexto.moveTo(40, 150);
+            contexto.lineTo(560, 15);
             contexto.stroke();
             respuestasCorrectas++;
         } else if (
-            respuesta === 'contenido' && idPalabraSeleccionada === 'header'
+            respuesta === 'recuperar' && idPalabraSeleccionada === 'renviar'
         ) {
             palabraseleccionada.classList.add('correcto');
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 215);
-            contexto.lineTo(560, 170);
+            contexto.moveTo(40, 210);
+            contexto.lineTo(560, 70);
             contexto.stroke();
             respuestasCorrectas++;
 
 
         } else if (
-            respuesta === 'archivo' && idPalabraSeleccionada === 'readfile'
+            respuesta === 'mover' && idPalabraSeleccionada === 'arrastrar'
         ) {
             palabraseleccionada.classList.add('correcto');
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 260);
-            contexto.lineTo(560, 75);
+            contexto.moveTo(40, 280);
+            contexto.lineTo(560, 140);
             contexto.stroke();
             respuestasCorrectas++;
         } else {
@@ -152,20 +152,15 @@ function mostrarResultados() {
     //validamos que ya se hizo intento de resolver todo el juego
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 1; //cancatenation
-		    xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
-		    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		    xmlhttp.send(param);
             Swal.fire({
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../../img/img_juegos/img/loop.gif',
+                imageUrl: 'img/loop.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../img/img_juegos/img/fondo.gif")`,
+                    url("img/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -174,26 +169,21 @@ function mostrarResultados() {
                 }
             });
         } else {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 1; //cancatenation
-		    xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
-		    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		    xmlhttp.send(param);
             //llamamos a la alerta
             Swal.fire({
                 //estrucutra de la alerta
                 title: 'Resultados',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../../img/img_juegos/img/Thumbs-Up.gif',
+                imageUrl: 'img/Thumbs-Up.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../img/img_juegos/img/fondo.gif")`,
+                    url("img/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                    window.location.reload();
                 }
             });
         }
@@ -203,7 +193,7 @@ function mostrarResultados() {
         Swal.fire({
             title: 'Oops...',
             text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-            imageUrl: '../../img/img_juegos/img/loop.gif',
+            imageUrl: 'img/loop.gif',
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)

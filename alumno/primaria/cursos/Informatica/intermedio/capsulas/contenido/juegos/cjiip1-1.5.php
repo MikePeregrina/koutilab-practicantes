@@ -9,14 +9,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="shortcut icon" href="img/lgk.png">
 	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="img/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
 	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>SINTAXIS BÁSICA</b></h2>
+		<h2 class="titulo"><b>PREGUNTAS ÁGILES</b></h2>
 	</div>
 
 	<!-- Timer -->
@@ -29,7 +29,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
+		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
 				id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i>
 			</button>
@@ -55,54 +55,103 @@
 			{
 				num: 1,
 				pregunta:
-					"Cuando hablamos de la sintaxis en Python, nos referimos como en todo lenguaje al correcto _____ y orden de las palabras que utilizamos para comunicarnos.",
-				opA: "Color",
-				opB: "Uso",
-				opC: "Parametro",
+					"¿Por qué es importante mantener seguro nuestro correo electrónico?",
+				opA: "Por qué dan alamacenamiento en la nube de manera gratuito",
+				opB: "Por qué en el correo electrónico se suele manejar información delicada",
+				opC: "Por qué me fácilita la navegación en páginas desconocidas",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 2,
 				pregunta:
-					"Por ello, en Python también es necesario cumplir ciertos requisitos a la hora de expresarnos.esta manera, se evitan _________",
-				opA: "Errores",
-				opB: "Saltos de linea",
-				opC: "Codigo",
+					"Selecciona las características de una contraseña segura",
+				opA: "Mayores a 8 carácteres, Mayúsculas, Mínusculas, Símbolos, Números",
+				opB: "Mayores a 5 carácteres, Mínusculas",
+				opC: "Números, Menores a 6 carácteres",
 				correcta: "A",
-				tiempo: "20",
+				tiempo: "30",
 			},
 			{
 				num: 3,
 				pregunta:
-					"Parte esencial de la sintaxis en Python son los __________ que sirven para describir una variable",
-				opA: "Codigos",
-				opB: "Etiquetas",
-				opC: "Identificadores",
+					"¿Por qué no se recomienda usar contraseñas poco seguras?",
+				opA: "No existe la probabilidad del desiframiento de la clave",
+				opB: "Por que suelen ser contraseñas menos populares",
+				opC: "Por qué suele ser muy fácil de decifrar por personal no autorizado",
 				correcta: "C",
 				tiempo: "30",
 			},
 			{
 				num: 4,
 				pregunta:
-					"Python diferencia entre mayúsculas y minúsculas y no admite caracteres de puntuación como @, $ o %.",
-				opA: "Falso",
-				opB: "Cierto ",
-				opC: "No se",
+					"¿Qué es la autenticación en dos pasos?",
+				opA: "Compartir de manera fácil la contraseña a personal diferente",
+				opB: "Medida de seguridad adicional",
+				opC: "Es una aplicación que permite colocar un pin al momento de ingresar a la cuenta",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 5,
 				pregunta:
-					"Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
-				opA: "Minuscula",
-				opB: "Mayuscula",
-				opC: "Ambas",
+					"¿Cuál es la característica de la autenticación en dos pasos?",
+				opA: "Genera QR fáciles de compartir",
+				opB: "Genera un código de verificación",
+				opC: "Permite restaurar la contraseña",
 				correcta: "B",
 				tiempo: "30",
 			},
-			
+			{
+				num: 6,
+				pregunta:
+					"¿Por qué es importante tener la autenticación en dos pasos en nuestras cuentas de correo?",
+				opA: "Para recordar fácilmente la contraseña",
+				opB: "Para compartir la contraseña de manera rápida con personal ajeno",
+				opC: "Para evitar ser hakeado por personas no autorizadas",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 7,
+				pregunta:
+					"¿Qué es el uso del cifrado en el correo?",
+				opA: "Es un permiso que se le da a la empresa de correo para crear la cuenta",
+				opB: "Es el cifrado de extremo a extremo",
+				opC: "Es la autorización de lectura a terceros",
+				correcta: "B",
+				tiempo: "30",
+			},
+			{
+				num: 8,
+				pregunta:
+					"¿Cómo cuidar la seguridad del correo?",
+				opA: "Actualizando el programa de correo, sitema operativo, cambio frecuente de contraseña",
+				opB: "Compartiendo el usuario y la contraseña a amigos",
+				opC: "Compartiendo la información de seguridad a terceros (teléfono, correos de recuperación, etc.)",
+				correcta: "A",
+				tiempo: "30",
+			},
+			{
+				num: 9,
+				pregunta:
+					"¿Cuál es el uso adecuado del correo educativo y personal?",
+				opA: "Compartir mis cuentas de correo a personas ajenas",
+				opB: "Usar la misma cuenta para evitar el cambio de sesión",
+				opC: "Usar cuentas de correo diferentes",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 10,
+				pregunta:
+					"¿Cuántas medidas de seguridad se pueden implementar en el correo electrónico?",
+				opA: "1 medida de seguridad",
+				opB: "4 medidas de seguridad",
+				opC: "2 medidas de seguridad",
+				correcta: "B",
+				tiempo: "30",
+			},
 		];
 
 		var puntos = 0; //Leva el conteo de puntos/aciertos
@@ -146,7 +195,7 @@
 			document.getElementById("main-ctn").innerHTML =
 				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
 				this.contador +
-				"/5</p>" +
+				"/10</p>" +
 				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
 				"<p>" +
 				this.preguntas[this.random].pregunta +
@@ -175,28 +224,27 @@
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
-				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
+				this.random = getRandomInt(10); //Elige la primera pregunta a mostrar
 				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos > 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7);";
-            }
-			if (segundos <= 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            } 
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
+        if (segundos <= 10) {
+          var div = document.getElementById("timer");
+          div.style.cssText =
+		  "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos <= 5) {
+          var div = document.getElementById("timer");
+          div.style.cssText =
+            "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
 			if (segundos == 0) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "../../img/img-juegos/loop.gif",
+					imageUrl: "img/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -215,15 +263,15 @@
 				this.puntos = this.puntos + 1;
 				this.contador = this.contador + 1;
 
-				if (this.puntos == 5) {
+				if (this.puntos == 10) {
 					//Cuando haya acertado las 10 preguntas
 					alertExcelent();
 				} else {
-					this.random = getRandomInt(5);
+					this.random = getRandomInt(10);
 					let found = prePas.find((element) => element == this.random);
 					while (found == this.random) {
 						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
-						this.random = getRandomInt(5);
+						this.random = getRandomInt(10);
 						found = prePas.find((element) => element == this.random);
 					}
 					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
@@ -241,7 +289,7 @@
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "../../img/img-juegos/loop.gif",
+						imageUrl: "img/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -278,11 +326,11 @@
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+				imageUrl: "img/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
+						url("img/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
@@ -318,7 +366,3 @@
 </body>
 
 </html>
-
-
-
-

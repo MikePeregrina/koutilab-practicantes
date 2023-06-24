@@ -82,28 +82,7 @@ body::-webkit-scrollbar-track {
     z-index: 5;
     font-size: 150%;
 }
-@keyframes animation1 {
-    0% {margin: 40px 0 0 1040px;}
-    20% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    60% {margin: 40px 0 0 1060px;}
-    80% {margin: 40px 0 0 1040px;} 
-    100% {margin: 40px 0 0 1060px;}
-}
 
-  @keyframes animation2 {
-    0% {margin: 40px 0 0 1040px;}
-    10% {margin: 40px 0 0 1060px;}
-    20% {margin: 40px 0 0 1040px;} 
-    30% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    50% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    70% {margin: 40px 0 0 1060px;} 
-    80% {margin: 40px 0 0 1040px;} 
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050;}
-  }
 .contenido {
     margin: 20px auto 30px auto;
     border-radius: 5px;
@@ -191,7 +170,7 @@ body {
 .left-column {
     position: relative;
     float: left;
-    width: 33%;
+    width: 30%;
     margin-left: 90px;
     margin-right: 0;
     display: flex;
@@ -203,10 +182,10 @@ body {
 
 .right-column {
     position: relative;
-    margin-top: -803px;    
-    margin-left: 50px;
+    margin-top: -303px;    
+    margin-left: 90px;
     float: right;
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -229,24 +208,12 @@ body {
     text-align: center;
     border: 2px solid rgba(61, 172, 244, 0.6); 
     border-radius: 10px;
-    width: 135px;
+    width: 180px;
+    font-size: 14px;
 }
-.word-box1 {
-    display: inline-block;
-    margin: 10px;
-    padding: 6px;
-    background: rgba(61, 172, 244);
-    cursor: pointer;
-    text-align: center;
-    border: 2px solid rgba(61, 172, 244, 0.6); 
-    border-radius: 10px;
-    width: 190px;
-}
+
+
 .word-box:hover{
-    background: linear-gradient(45deg, rgba(129, 179, 244));
-    box-shadow: 0px 2px 12px 2px #3dacf4;
-}
-.word-box1:hover{
     background: linear-gradient(45deg, rgba(129, 179, 244));
     box-shadow: 0px 2px 12px 2px #3dacf4;
 }
