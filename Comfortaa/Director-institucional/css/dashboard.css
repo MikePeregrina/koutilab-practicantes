@@ -174,7 +174,6 @@ section{
     font-size: 19px;
 }
 
-
 @media (max-width: 1120px) {
     
     h1 {
@@ -321,7 +320,19 @@ section{
 }
   
   
+#graficaContainer{
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  margin: 10px;
+  margin-top: 15%;
+}
 
+canvas{
+  max-width: 100%;
+  margin: 0 auto;
+  /*max-height: 70%;*/
+}
 
 
 

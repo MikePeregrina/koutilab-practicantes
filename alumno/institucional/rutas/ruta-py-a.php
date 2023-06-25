@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_personal'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_personal'])) {
+$id_user = $_SESSION['id'];
+if (empty($_SESSION['active']) || empty($_SESSION['id'])) {
     header('location: ../../../acciones/cerrarsesion.php');
 }
 include "../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_personal'];
+
 $permiso = "6";
 $sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_personal a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
@@ -37,6 +37,7 @@ if (empty($existe)) {
             <img class="gif" src="../img/loop.gif">
             <img class="gif1" src="../img/foco.gif">
             <div class="ruta">
+                <!-- Agregar documentos que si existan  -->
                 <a href="../cursos/python/avanzado/capsulas/contenido/introduccion/ci1.php"><button class="btn1"></button></a>
                 <a href="../cursos/python/avanzado/capsulas/contenido/teoricas/ct1.php"><button class="btn2"></button></a>
                 <a href="../cursos/python/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn3"></button></a>

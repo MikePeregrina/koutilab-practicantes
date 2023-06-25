@@ -77,6 +77,14 @@ if (isset($_POST['iniciar_sesion'])) {
         $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$user'");
         $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
 
+        //Validar inicio de sesión de director institucional
+        $query_validar_director_institucional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$user'");
+        $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_institucional);
+
+        //Validar inicio de sesión de cuentas temporales
+        $query_validar_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user'");
+        $result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
+
         if ($result_validar_admin > 0) {
             $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_admin = mysqli_num_rows($query_admin);
@@ -138,7 +146,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_director_primaria'] = $dato_director['id_director'];
                 $_SESSION['nombre'] = $dato_director['nombre'];
                 $_SESSION['user'] = $dato_director['usuario'];
-                header('location: director/perfil.php');
+                header('location: director/primaria/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -189,7 +197,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_director_secundaria'] = $dato_director['id_director'];
                 $_SESSION['nombre'] = $dato_director['nombre'];
                 $_SESSION['user'] = $dato_director['usuario'];
-                header('location: director/perfil.php');
+                header('location: director/secundaria/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -240,7 +248,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_director_preparatoria'] = $dato_director['id_director'];
                 $_SESSION['nombre'] = $dato_director['nombre'];
                 $_SESSION['user'] = $dato_director['usuario'];
-                header('location: director/perfil.php');
+                header('location: director/preparatoria/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -291,7 +299,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_director_universidad'] = $dato_director['id_director'];
                 $_SESSION['nombre'] = $dato_director['nombre'];
                 $_SESSION['user'] = $dato_director['usuario'];
-                header('location: director/perfil.php');
+                header('location: director/universidad/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -347,6 +355,50 @@ if (isset($_POST['iniciar_sesion'])) {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_institucional > 0) {
+            $query_director_inst = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director_inst = mysqli_num_rows($query_director_inst);
+            if ($resultado_director_inst > 0) {
+                $dato_director = mysqli_fetch_array($query_director_inst);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 18;
+                $_SESSION['id_director'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: ../koutilab-practicantes/Director-institucional/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_temp_account > 0) {
+            $query_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user' AND password = '$contrasena' ");
+            $resultado_temp_account = mysqli_num_rows($query_temp_account);
+            if ($resultado_temp_account > 0) {
+
+                $temp_account = mysqli_fetch_array($query_temp_account);
+
+                if ($temp_account['status'] == 0) {
+                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                            Cuenta vencida
+                     </div>';
+                    session_destroy();
+                } else {
+                    $_SESSION['active'] = true;
+                    $_SESSION['rol'] = 19;
+                    $_SESSION['id'] = $temp_account['id'];
+                    $_SESSION['nombre'] = $temp_account['nombre'];
+                    $_SESSION['username'] = $temp_account['username'];
+                    $_SESSION['fechaRegistro'] = $temp_account['fechaRegistro'];
+                    header('location: ../koutilab-practicantes/alumno/institucional/perfil.php');
+                }
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                Usuario o contraseña incorrecta
+                </div>';
                 session_destroy();
             }
         }
@@ -603,6 +655,14 @@ if (isset($_POST['iniciar_sesion'])) {
         //Validar inicio de sesión de un director de personal
         $query_validar_director_personal_correo = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE email = '$email_registrar'");
         $result_validar_director_personal_correo = mysqli_fetch_array($query_validar_director_personal_correo);
+
+        //Validar creacion para cuenta temporal 
+        //validar la clave del paquete en todos los paquetes que existan
+        //si existe entonces genera el usuario y contraseña en la tabla temp_account con los respectivos datos
+        //posteriormente llenar la relacion de cuenta temporal con director llamada UserDirector solo con el id_de la cuenta temporal y del director al que pertenece la clave del paquete
+
+        //si no encuentra una clave registrada en la tabla de paquetes_director entonces mandar alerta clave no valida
+
 
         //Buscar si la clave pertenece a un alumno
         $query_clave_alumno = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'");
