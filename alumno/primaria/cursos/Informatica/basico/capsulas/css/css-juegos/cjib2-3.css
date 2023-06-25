@@ -2,7 +2,7 @@
 body{
     color: #404040;
     font-family: Tahoma;
-    background-image: url(v../../img/img_juegos/bg.png); 
+    background-image: url(../../img/img_juegos/bg.png); 
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-user-select: none;
