@@ -367,7 +367,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_director'] = $dato_director['id_director'];
                 $_SESSION['nombre'] = $dato_director['nombre'];
                 $_SESSION['user'] = $dato_director['usuario'];
-                header('location: ../koutilab-practicantes/Director-institucional/dashboard.php');
+                header('location: Director-institucional/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -393,7 +393,7 @@ if (isset($_POST['iniciar_sesion'])) {
                     $_SESSION['nombre'] = $temp_account['nombre'];
                     $_SESSION['username'] = $temp_account['username'];
                     $_SESSION['fechaRegistro'] = $temp_account['fechaRegistro'];
-                    header('location: ../koutilab-practicantes/alumno/institucional/perfil.php');
+                    header('location: alumno/institucional/perfil.php');
                 }
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
