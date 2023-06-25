@@ -224,11 +224,6 @@
 
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
-					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 + "&id_curso=" + 1; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
-					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
@@ -242,7 +237,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+							window.location.href = '#';
 						}
 					});
 				}

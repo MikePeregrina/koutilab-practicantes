@@ -5,7 +5,8 @@ html, body {
     height: 100vh;
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../img/img_juegos/fondo.png);    background-size: cover;
+    background-image: url(../../img/img-juegos/bg.png);
+    background-size: cover;
     background-repeat: no-repeat;
     -webkit-user-select: none;
     -moz-user-select: none;

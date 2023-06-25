@@ -2,7 +2,7 @@ body {
   color: #404040;
   font-family: Tahoma;
   /*background-image: url(../img/bg1.png);*/
-  background-image: url(../../img/img_juegos/fondo.png);  background-repeat: no-repeat; /*no repite la imagen*/
+  background-image: url(../../img/img-juegos/bg.png);  background-repeat: no-repeat; /*no repite la imagen*/
   background-size: cover;/*distribuye la imagen a toda la pantalla*/
   -webkit-user-select: none;
   -moz-user-select: none;
