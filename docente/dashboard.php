@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_docente_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
-    header('location: ../acciones/cerrarsesion.php');
+  header('location: ../acciones/cerrarsesion.php');
 }
 
 include('../acciones/conexion.php');
@@ -10,6 +10,11 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_prima
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
+
+//Contador de conexiones
+$cont = intval($user['conexiones'] + 1);
+$sql_cont = "UPDATE `docentes_primaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_user'";
+$query_cont = mysqli_query($conexion, $sql_cont);
 ?>
 
 <!DOCTYPE html>
@@ -20,125 +25,126 @@ WHERE d.id_docente = $id_user"));
   <link rel="stylesheet" href="css/nav-barra.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
 
     <!-- Header nav -->
     <?php include 'header-nav.php'; ?>
 
-  <div class="containers">
-    <h1>DASHBOARD</h1>  
-  </div>
+    <div class="containers">
+      <h1>DASHBOARD</h1>
+    </div>
 
- <section>
-    <div class="left-content">
+    <section>
+      <div class="left-content">
         <div class="titlec">
-            <h2>Usuario</h2>
+          <h2>Usuario</h2>
         </div><br>
 
         <div class="subtitle-perfil">
-            <h3>Foto de Perfil</h3>
+          <h3>Foto de Perfil</h3>
         </div>
 
-        
+
         <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
-            <div class="perfil-usuario-avatar">
-            
-                <div class="avatar-img">
-                    <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
-                </div>
-       
+          <div class="perfil-usuario-avatar">
+
+            <div class="avatar-img">
+              <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
+            </div>
+
             <div class="camera-icon">
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
-                <input type="hidden" name="name" value="<?php echo $name; ?>">
-                <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
-                <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px;"></i>
+              <input type="hidden" name="id" value="<?php echo $id; ?>">
+              <input type="hidden" name="name" value="<?php echo $name; ?>">
+              <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
+              <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px;"></i>
             </div>
         </form>
-    </div>
+      </div>
 
-        <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
+      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
 
-        <div class="container-info">
-          <h3>Nombre: <span><?php echo $name?></span></h3>
-          <br>
-          <h3>Usuario: <span><?php echo $username ?></span></h3>
-          <br>
-          <h3>Escuela: <span><?php echo $user["nombre_escuela"]?></span></h3>
-          <br>
-          <h3>CCT: <span><?php echo $user["cct"]?></span></h3>
-        </div>
+      <div class="container-info">
+        <h3>Nombre: <span><?php echo $name ?></span></h3>
+        <br>
+        <h3>Usuario: <span><?php echo $username ?></span></h3>
+        <br>
+        <h3>Escuela: <span><?php echo $user["nombre_escuela"] ?></span></h3>
+        <br>
+        <h3>CCT: <span><?php echo $user["cct"] ?></span></h3>
+      </div>
 
-        <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-37%;">
-      
-        <div class="change-password">
-            <h3>Contraseña:</h3>
-            <form enctype="multipart/form-data" action="" method="post">
-                <div class="user-details1">
-                    <div class="input-box1">
-                        <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                        <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-37%;">
 
-    <div class="right-content">
+      <div class="change-password">
+        <h3>Contraseña:</h3>
+        <form enctype="multipart/form-data" action="" method="post">
+          <div class="user-details1">
+            <div class="input-box1">
+              <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+              <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+
+      <div class="right-content">
         <div class="titlec">
           <h2>Cursos</h2>
         </div>
-      
+
         <div class="card-cursos" style="scale: 80%;">
-            <a href="img/temario-pw-b.pdf" target="_blank">
-                <div><i class="fab fa-html5 fa-6x"></i></div>
-                <h2>Programación web básico</h2>
-            </a>
+          <a href="img/temario-pw-b.pdf" target="_blank">
+            <div><i class="fab fa-html5 fa-6x"></i></div>
+            <h2>Programación web básico</h2>
+          </a>
         </div>
 
         <div class="card-cursos" style="scale: 80%;">
-            <a href="img/temario-pw-i.pdf" target="_blank">
-                <div><i class="fab fa-html5 fa-6x"></i></div>
-                <h2>Programación web intermedio</h2>
-            </a>
+          <a href="img/temario-pw-i.pdf" target="_blank">
+            <div><i class="fab fa-html5 fa-6x"></i></div>
+            <h2>Programación web intermedio</h2>
+          </a>
         </div>
-     
-    </div>
-   
-  </section>
+
+      </div>
+
+    </section>
 
 
-  <?php include 'footer.php'; ?>
- 
-  
-  <!-- Biblioteca Swal para pantalla emergente que jale -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php include 'footer.php'; ?>
 
-  <!-- Cambiar foto de perfil -->
-  <script type="text/javascript">
-        document.getElementById("image").onchange = function() {
-            document.getElementById("form").submit();
-        };
+
+    <!-- Biblioteca Swal para pantalla emergente que jale -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Cambiar foto de perfil -->
+    <script type="text/javascript">
+      document.getElementById("image").onchange = function() {
+        document.getElementById("form").submit();
+      };
     </script>
     <?php
     if (isset($_FILES["image"]["name"])) {
-        $id = $_POST["id"];
-        $name = $_POST["name"];
+      $id = $_POST["id"];
+      $name = $_POST["name"];
 
-        $imageName = $_FILES["image"]["name"];
-        $imageSize = $_FILES["image"]["size"];
-        $tmpName = $_FILES["image"]["tmp_name"];
+      $imageName = $_FILES["image"]["name"];
+      $imageSize = $_FILES["image"]["size"];
+      $tmpName = $_FILES["image"]["tmp_name"];
 
-        // Image validation
-        $validImageExtension = ['jpg', 'jpeg', 'png'];
-        $imageExtension = explode('.', $imageName);
-        $imageExtension = strtolower(end($imageExtension));
-        if (!in_array($imageExtension, $validImageExtension)) {
-            echo
-            "
+      // Image validation
+      $validImageExtension = ['jpg', 'jpeg', 'png'];
+      $imageExtension = explode('.', $imageName);
+      $imageExtension = strtolower(end($imageExtension));
+      if (!in_array($imageExtension, $validImageExtension)) {
+        echo
+        "
       <script>
       Swal.fire({
           title: '¡Advertencia!',
@@ -153,9 +159,9 @@ WHERE d.id_docente = $id_user"));
         });
       </script>
         ";
-        } elseif ($imageSize > 1200000) {
-            echo
-            "
+      } elseif ($imageSize > 1200000) {
+        echo
+        "
       <script>
       Swal.fire({
           title: '¡Advertencia!',
@@ -172,14 +178,14 @@ WHERE d.id_docente = $id_user"));
         
       </script>
         ";
-        } else {
-            $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
-            $newImageName .= '.' . $imageExtension;
-            $query = "UPDATE docentes_primaria SET image = '$newImageName' WHERE id_docente = $id";
-            mysqli_query($conexion, $query);
-            move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
-            echo
-            "
+      } else {
+        $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
+        $newImageName .= '.' . $imageExtension;
+        $query = "UPDATE docentes_primaria SET image = '$newImageName' WHERE id_docente = $id";
+        mysqli_query($conexion, $query);
+        move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
+        echo
+        "
       <script>
       Swal.fire({
           title: 'Excelente!',
@@ -194,20 +200,20 @@ WHERE d.id_docente = $id_user"));
         });
       </script>
         ";
-        }
+      }
     }
     ?>
 
     <?php
     if (isset($_POST['enviarcontrasena'])) {
-        $iddocente = $_SESSION['id_docente_primaria'];
-        $contrasena = md5($_POST['contrasena']);
+      $iddocente = $_SESSION['id_docente_primaria'];
+      $contrasena = md5($_POST['contrasena']);
 
-        $sql_update = mysqli_query($conexion, "UPDATE docentes_primaria SET contrasena = '$contrasena' WHERE id_docente = '$iddocente'");
+      $sql_update = mysqli_query($conexion, "UPDATE docentes_primaria SET contrasena = '$contrasena' WHERE id_docente = '$iddocente'");
 
-        if ($sql_update) {
-            echo
-            "
+      if ($sql_update) {
+        echo
+        "
       <script>
       Swal.fire({
           title: 'Excelente!',
@@ -222,9 +228,9 @@ WHERE d.id_docente = $id_user"));
         });
       </script>
         ";
-        } else {
-            echo
-            "
+      } else {
+        echo
+        "
       <script>
       Swal.fire({
           title: '¡Advertencia!',
@@ -239,9 +245,10 @@ WHERE d.id_docente = $id_user"));
         });
       </script>
         ";
-        }
+      }
     }
     ?>
 
-</body>
+  </body>
+
 </html>

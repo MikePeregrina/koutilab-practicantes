@@ -47,7 +47,7 @@ $result = mysqli_num_rows($alumnos);
       <h2 class="subtitulos">Usuarios(s)</h2>
     </div>
   </div>
-    <!-- <div class="right-student">
+  <!-- <div class="right-student">
       <i class="fas fa-user-plus"></i>
       <h2 class="subtitulos">Añadir usuario</h2>
     </div>
@@ -64,7 +64,6 @@ $result = mysqli_num_rows($alumnos);
             <td><b>clave</b></td>
             <td><b>Dias restantes</b></td>
             <td><b>N° conexiones</b></td>
-            <td><b>Acción</b></td>
           </tr>
         </thead>
         <tbody>
@@ -92,14 +91,6 @@ $result = mysqli_num_rows($alumnos);
                 <td><?php echo $data['clave']; ?></td>
                 <td><?php echo $resta; ?></td>
                 <td><?php echo $data['conexiones']; ?></td>
-
-                <td>
-                  <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id']; ?>" class="btn btn-info" style="margin-right: 5px; --bs-btn-padding-y: -0.625rem;"><i class='fas fa-chart-line' style="color: white;"></i></a>
-                  <a href="acciones/editar_alumno.php?id=<?php echo $data['id']; ?>" class="btn btn-success" style="margin-right: 5px; --bs-btn-padding-y: -0.625rem;"><i class='fas fa-edit'></i></a>
-                  <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
-                    <button style="margin-right: 5px; --bs-btn-padding-y: -10px; " class="btn btn-danger" type="submit"><i class='fas fa-trash-alt' ></i> </button>
-                  </form>
-                </td>
               </tr>
           <?php }
           } ?>

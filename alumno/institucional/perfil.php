@@ -50,12 +50,12 @@ $query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_in
 $data_arduino_avanzado = mysqli_fetch_assoc($query_arduino_avanzado);
 
 //Información solo de alumno
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM temp_account a JOIN escuelas e ON a.clave = e.clave_alumno WHERE id = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM temp_account a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id = $id_user"));
 
 //Información para alumno - escuela
 $user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM temp_account a
 JOIN escuelas e 
-ON a.clave = e.clave_alumno
+ON a.id_escuela = e.id_escuela
 WHERE a.id = $id_user"));
 
 // //Información para alumno - docente
@@ -69,7 +69,7 @@ WHERE a.id = $id_user"));
 // WHERE id = $id_user"));
 
 //consulta que regresa los datos de la cuenta temporal y de la institucion a la que pertenence
-$query = "SELECT e.nombre_escuela, e.clave_alumno, ta.conexiones, ta.id, ta.nombre, ta.fechaRegistro, ta.image, ta.fondo, ta.status FROM temp_account as ta inner JOIN escuelas as e on ta.clave = e.clave_alumno where ta.id = $id_user";
+$query = "SELECT e.nombre_escuela, e.clave_alumno, ta.conexiones, ta.id, ta.nombre, ta.fechaRegistro, ta.image, ta.fondo, ta.status FROM temp_account as ta inner JOIN escuelas as e on ta.id_escuela = e.id_escuela where ta.id = $id_user";
 
 $user_temp = mysqli_fetch_assoc(mysqli_query($conexion, $query));
 

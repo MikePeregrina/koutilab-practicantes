@@ -9,9 +9,9 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director'])) {
 //concetamos con la base de datos
 include('../acciones/conexion.php');
 //variables para los nombres de paquetes
-$namePaquete1 = "Paquete1";
-$namePaquete2 = "Paquete2";
-$namePaquete3 = "Paquete3";
+$namePaquete1 = "Paquete 1";
+$namePaquete2 = "Paquete 2";
+$namePaquete3 = "Paquete 3";
 $resta = 0;
 //imagen por defecto
 $image = "brandon - 2023.06.23 - 06.22.19am.jpg";
@@ -44,7 +44,7 @@ $adquirido2 = false;
 $adquirido3 = false;
 // Consulta para conocer los datos para fichas de paquetes comprados
 $query = "SELECT * FROM paquete_director WHERE id_director = '$id_user'";
-$paquetes = mysqli_query($conexion, $query);
+$paquetes = mysqli_query($conexion, $query) or die(mysqli_error($db));
 $result = mysqli_num_rows($paquetes);
 
 if ($result > 0) {
@@ -141,6 +141,7 @@ if (!empty($paquetes['fechaRegistro'])) {
                 <div class="content-popup">
                     <div class="container1">
                         <h2>Paquete 1</h2>
+                        <h2>25 cupos</h2>
                         <?php
                         if ($resta <= 1) {
                             $adquirido = false;
@@ -172,6 +173,7 @@ if (!empty($paquetes['fechaRegistro'])) {
 
                     <div class="container2">
                         <h2><?php echo ($namePaquete2); ?></h2>
+                        <h2>50 cupos</h2>
                         <?php
                         if ($resta <= 1) {
                             $adquirido = false;
@@ -203,6 +205,7 @@ if (!empty($paquetes['fechaRegistro'])) {
 
                     <div class="container3">
                         <h2><?php echo ($namePaquete3); ?></h2>
+                        <h2>100 cupos</h2>
                         <?php
                         if ($resta <= 1) {
                             $adquirido = false;
@@ -261,9 +264,15 @@ if (!empty($paquetes['fechaRegistro'])) {
             }
         </style>
         <section>
+
             <?php
+            // Consulta para conocer los datos para fichas de paquetes comprados
+            $query = "SELECT * FROM paquete_director WHERE id_director = '$id_user'";
+            $paquetes = mysqli_query($conexion, $query) or die(mysqli_error($db));
+            $result = mysqli_num_rows($paquetes);
             if ($result > 0) {
                 while ($data = mysqli_fetch_array($paquetes)) {
+
             ?>
                     <div class="target">
                         <br>

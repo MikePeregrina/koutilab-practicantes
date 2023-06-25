@@ -18,7 +18,7 @@ if (!empty($_GET['payment_id']) && !empty($_GET['item_number']) && !empty($_GET[
 	$id = trim($_GET['id_director']);
 	$cupo = trim($_GET['cupo']);
 	$clave = trim($_GET['clave']);
-	$nombrePaquete = trim($_GET['nombrePaquete']);
+	$nombrePaquete = ($_GET['nombrePaquete']);
 	$image = trim($_GET['image']);
 	$query_insert = mysqli_query($conexion, "INSERT INTO payment_institucional(payment_id, item_number, item_name, payment_amount, payment_currency,id, create_at) VALUES ('$payment_id', '$item_number', '$item_name', '$payment_amount', '$payment_currency',$id, current_timestamp())");
 	if ($query_insert) {

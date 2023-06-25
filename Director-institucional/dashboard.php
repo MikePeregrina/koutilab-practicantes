@@ -7,13 +7,6 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director'])) {
 
 include('../acciones/conexion.php');
 
-/*$conexion = new mysqli("localhost", "root", "", "aerobotp_beta");
-
-// Verificar si hay errores en la conexión
-if ($conexion->connect_error) {
-  die("Error de conexión: " . $conexion->connect_error);
-}*/
-//obtener los datos del director
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM director_institucional WHERE id_director = '$id_user'"));
 
 //obtener datos d la escuela
@@ -95,7 +88,8 @@ function actualizarGrafica()
 
   /* PARA LOS DATOS DE LA GRÁFICA */
 
-  $conexion = new mysqli("localhost", "root", "", "aerobotp_beta");
+  include('../acciones/conexion.php');
+
 
   // Verificar si hay errores en la conexión
   if ($conexion->connect_error) {
@@ -186,7 +180,7 @@ function actualizarGrafica()
   <div class="containers">
     <h1>DASHBOARD</h1>
   </div>
- 
+
   <section>
     <div class="left-content">
       <div class="titlec">
