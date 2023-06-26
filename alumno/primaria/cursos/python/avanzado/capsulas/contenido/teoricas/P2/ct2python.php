@@ -120,7 +120,6 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="6">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <button onclick="miFunc(); return false;" type="submit" class="btn-grd" id="update" disabled>Evaluar</button>
                                 </form>
                             </div>
                         </li>
