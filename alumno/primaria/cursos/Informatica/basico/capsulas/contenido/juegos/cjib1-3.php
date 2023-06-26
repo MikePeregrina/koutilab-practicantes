@@ -73,8 +73,8 @@
 		});
 	</script>
 	<script>
-	//Se esta llamando los sonidos de la carpeta "sonidos"
-	var incorrecto = document.createElement("audio");
+        //Se esta llamando los sonidos de la carpeta "sonidos"
+	    var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         var segundos = 240;

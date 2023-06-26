@@ -33,14 +33,14 @@
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../juegos/cjibp2-1/lvl1-2/s8.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s4.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s5.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s6.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s7.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s8.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -80,8 +80,13 @@
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -111,6 +116,7 @@
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -208,6 +214,7 @@
 									window.location.href = 'level-2.php';
 								}
 							})
+							correcto.play(); //agregando sonido al juego completado
 						}, "800");
 					}
 				}

@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -205,7 +206,11 @@
             }
         }
 
-
+        //Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 
         // Agregar evento de clic al botón de comprobar respuestas
@@ -229,11 +234,11 @@
                         //estrucutra de la alerta
                         title: '!Puedes seguir mejorado!',
                         html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                        imageUrl: 'img/loop.gif',
+                        imageUrl: '../../img/img-juegos/loop.gif',
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
@@ -247,11 +252,11 @@
                         //estrucutra de la alerta
                         title: 'Resultados',
                         html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                        imageUrl: 'img/Thumbs-Up.gif',
+                        imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
@@ -259,6 +264,7 @@
                             window.location.reload();
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 }
             }
             //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
@@ -266,11 +272,11 @@
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-                    imageUrl: 'img/loop.gif',
+                    imageUrl: '../../img/img-juegos/loop.gif',
                     imageHeight: 350,
                     backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: '¡Genial!',
                 });
@@ -283,8 +289,8 @@
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
-
+        var segundos = 120
+        ;
         let puntos = 0;
 
         function iniciarTiempo() {
@@ -301,13 +307,14 @@
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "img/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

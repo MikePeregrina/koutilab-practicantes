@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLIDE PUZZLE</title>
+	<link rel="shortcut icon" href="../../../img/img-juegos/lgk.png">
     <link rel="stylesheet" href="css/slide.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -62,7 +63,7 @@
 			Swal.fire({
 				title: '¡Oh no!',
 				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
-				imageUrl: "img/loop.gif",
+				imageUrl: "../../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
 				confirmButtonColor: '#85c42c',
@@ -86,8 +87,13 @@
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -98,13 +104,14 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completadp
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -190,11 +197,11 @@
 							Swal.fire({
 								title: '¡Muy bien!',
 								text: 'Ayudaste a Koubot a pasar ambos niveles',
-								imageUrl: "img/Thumbs-Up.gif",
+								imageUrl: "../../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
-								url("img/fondo.gif")`,
+								url("../../../img/img-juegos/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
@@ -202,6 +209,7 @@
 									window.location.href = '#';
 								}
 							})
+							correcto.play(); //agregando sonido al juego completado
 						}, "800");
 					}
 				}

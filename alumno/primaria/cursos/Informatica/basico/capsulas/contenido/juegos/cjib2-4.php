@@ -67,100 +67,27 @@
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
-		//Arreglo de preguntas
-		var preguntas = [
-			{
-				num: 1,
-				pregunta:
-					"Android es el sistema operativo que utilizan algunos dispositivos ________",
-				opA: "Computacionales",
-				opB: "Moviles",
-				opC: "Inteligentes",
-				correcta: "B",
-				tiempo: "30",
-			},
-			{
-				num: 2,
-				pregunta:
-					"Android es el sistema operativo que utilizan algunos dispositivos móviles para poder ______",
-				opA: "Funcionar",
-				opB: "Hablar",
-				opC: "Comunicarse",
-				correcta: "A",
-				tiempo: "20",
-			},
-			{
-				num: 3,
-				pregunta:
-					"Es decir, se trata de todo aquello que puedes _________",
-				opA: "Oler",
-				opB: "Tocar",
-				opC: "Ver",
-				correcta: "C",
-				tiempo: "30",
-			},
-			{
-				num: 4,
-				pregunta:
-					"El hecho de que convierta cualquier teléfono en prácticamente un ordenador de bolsillo lo hace ",
-				opA: "Gratis",
-				opB: "Comodo",
-				opC: "Bonito",
-				correcta: "B",
-				tiempo: "30",
-			},
-			{
-				num: 5,
-				pregunta:
-					"Por lo que lanzar un teléfono o aplicación con Android tiene un bajo",
-				opA: "Rendimiento",
-				opB: "Coste",
-				opC: "Tamaño",
-				correcta: "B",
-				tiempo: "30",
-			},
-			
-		];
-
-		var puntos = 0; //Leva el conteo de puntos/aciertos
-		var seleccion; //Guarda la respuesta elegida
-		var contador = 1; //Lleva el conteo de preguntas
-		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
-
-		function getRandomInt(max) {
-			//para generar números random enteros
-			return Math.floor(Math.random() * max);
-		}
-
-		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
-		var random; //para el index de la pregunta a mostrar
-
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
-		var randomRes; //para el index de la respuesta a mostrar
-
-
-		function ponerRespuesta() {
-			if (randomRes == 0) {
-				document.getElementById("opt-ctn").innerHTML +=
-					'<button class="btn-opt" value="A" onClick="guardarRespuestaA()" id="optA">' +
-					this.preguntas[this.random].opA +
-					"</button>";
-			} else if (randomRes == 1) {
-				document.getElementById("opt-ctn").innerHTML +=
-					'<button class="btn-opt" value="B" onClick="guardarRespuestaB()" id="optB">' +
-					this.preguntas[this.random].opB +
-					"</button>";
-			} else if (randomRes == 2) {
-				document.getElementById("opt-ctn").innerHTML +=
-					'<button class="btn-opt" value="C" onClick="guardarRespuestaC()" id="optC">' +
-					this.preguntas[this.random].opC +
-					"</button>";
+		Swal.fire({
+			title: '¡Oh no!',
+			text: 'Kobot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
+			imageUrl: "../../img/img_juegos/loop.gif",
+			imageHeight: 320,
+			confirmButtonText: '¡Vamos!',
+			confirmButtonColor: '#85c42c',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				iniciarTiempo();
 			}
 		});
 	</script>
 	<script>
-		var segundos = 240;
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+		var segundos = 240;
 		let puntos = 0;
 
 		function iniciarTiempo() {
@@ -172,13 +99,17 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img_juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando el sonido del juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -226,11 +157,11 @@
 		Swal.fire({
 			title: '¡Muy bien!',
 			text: 'Ahora pasemos al siguiente nivel',
-			imageUrl: "img/Thumbs-Up.gif",
+			imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 			imageHeight: 350,
 			backdrop: `
 			rgba(0,143,255,0.6)
-			url("img/fondo.gif")`,
+			url("../../img/img_juegos/fondo.gif")`,
 			confirmButtonColor: '#a14cd9',
 			confirmButtonText: '¡Vamos!',
 			}).then((result) => {
@@ -238,6 +169,7 @@
 				window.location.href = 'level-2.html';
 			}
 		})
+		correcto.play(); //agregando el sonido del juego completado
 	}
 	
 	function toggleVisablity(id) {
@@ -593,24 +525,56 @@
 			cellSize - offsetRight
 		);
 		}
-
-		//Alerta muestra que el juego fue completado
-		function alertExcelent() {
-			Swal.fire({
-				title: "Excelente",
-				text: "¡Buen trabajo!",
-				imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
-				imageHeight: 350,
-				backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
-				confirmButtonColor: "#a14cd9",
-				confirmButtonText: "¡Genial!",
-			}).then((result) => {
-				if (result.isConfirmed) {
-					window.location.reload();
-				}
-			});
+	
+		function check(e) {
+		var cell = map[cellCoords.x][cellCoords.y];
+		moves++;
+		switch (e.keyCode) {
+			case 65:
+			case 37: // west
+			if (cell.w == true) {
+				removeSprite(cellCoords);
+				cellCoords = {
+				x: cellCoords.x - 1,
+				y: cellCoords.y
+				};
+				drawSprite(cellCoords);
+			}
+			break;
+			case 87:
+			case 38: // north
+			if (cell.n == true) {
+				removeSprite(cellCoords);
+				cellCoords = {
+				x: cellCoords.x,
+				y: cellCoords.y - 1
+				};
+				drawSprite(cellCoords);
+			}
+			break;
+			case 68:
+			case 39: // east
+			if (cell.e == true) {
+				removeSprite(cellCoords);
+				cellCoords = {
+				x: cellCoords.x + 1,
+				y: cellCoords.y
+				};
+				drawSprite(cellCoords);
+			}
+			break;
+			case 83:
+			case 40: // south
+			if (cell.s == true) {
+				removeSprite(cellCoords);
+				cellCoords = {
+				x: cellCoords.x,
+				y: cellCoords.y + 1
+				};
+				drawSprite(cellCoords);
+			}
+			break;
+		}
 		}
 	
 		this.bindKeyDown = function() {

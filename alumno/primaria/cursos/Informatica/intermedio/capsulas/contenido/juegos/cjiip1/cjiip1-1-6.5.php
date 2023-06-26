@@ -85,7 +85,7 @@
 		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		
-		var segundos = 1000;
+		var segundos = 240;
 
 		let puntos = 0;
 
@@ -204,11 +204,11 @@
 							Swal.fire({
 								title: '¡Muy bien!',
 								text: 'Ahora pasemos al siguiente nivel',
-								imageUrl: "img/Thumbs-Up.gif",
+								imageUrl: "../../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
-								url("img/fondo.gif")`,
+								url("../../../img/img-juegos/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
@@ -216,6 +216,7 @@
 									window.location.href = 'level-2.html';
 								}
 							})
+							correcto.play(); //asignando sonido al juego completado
 						}, "800");
 						correcto.play(); //asignando sonido al juego conmpletado
 					}

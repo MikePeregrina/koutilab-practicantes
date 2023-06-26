@@ -121,6 +121,11 @@
 		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function ponerRespuesta() {
 			if (randomRes == 0) {
@@ -141,52 +146,37 @@
 			}
 		}
 
-		//Quitar seleccion y verificar que la tarjeta sea identica a su par
-		function deseleccionar(selecciones) {
-			setTimeout(() => {
-				let trasera1 = document.getElementById("trasera" + selecciones[0])
-				let trasera2 = document.getElementById("trasera" + selecciones[1])
-				if (trasera1.innerHTML != trasera2.innerHTML) {
-					let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
-					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
-					tarjeta1.style.transform = "rotateY(0deg)"
-					tarjeta2.style.transform = "rotateY(0deg)"
-				} else {
-					trasera1.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
-					trasera2.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
-				}
-				if (verificar()) {
-					Swal.fire({
-						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
-						imageHeight: 300,
-						backdrop: `
-									rgba(0,143,255,0.6)
-									url("../../img/img_juegos/loop.gif")
-									`,
-						confirmButtonColor: '#a14cd9',
-						confirmButtonText: 'Aceptar',
-					}).then((result) => {
-						if (result.isConfirmed) {
-							window.location.href = '#';
-						}
-					});
+		function ponerPregunta() {
+			//Actualiza las preguntas
+			document.getElementById("main-ctn").innerHTML =
+				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
+				this.contador +
+				"/5</p>" +
+				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
+				"<p>" +
+				this.preguntas[this.random].pregunta +
+				"</p>" +
+				"</div></div>" +
+				'<div class="opt-ctn" id="opt-ctn"></div>';
 
+			this.randomRes = getRandomInt(3); //Genera el index de respuesta random para cambiar el orden de las respuestas
+			this.resPas.push(randomRes); //agrega el primer index al arreglo
+			ponerRespuesta(); //muestra la respuesta
 
+			while (this.resPas.length < 3) { //para desordenar las 2 respuestas restantes
+				this.randomRes = getRandomInt(3);
+				let found2 = resPas.find((element) => element == this.randomRes);
+				while (found2 == this.randomRes) {
+					//Si el random corresponde a una respuesta ya mostrada, se genera un nuevo random
+					this.randomRes = getRandomInt(3);
+					found2 = resPas.find((element) => element == this.randomRes);
 				}
 				ponerRespuesta();
 				this.resPas.push(randomRes); //Se agrega el random al arreglo para evitar repetir la respuesta
 			}
 			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 		}
-	</script>
-
-	<script>
-		var segundos = 300;//tiempo original 300s
-		let puntos = 0;
-
-		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
+		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
@@ -306,6 +296,7 @@
 					window.location.reload();
 				}
 			});
+			correcto.play();
 		}
 
 		//Alerta, muestra que la respuesta fue correcta

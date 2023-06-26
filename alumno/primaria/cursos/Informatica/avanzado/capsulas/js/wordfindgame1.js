@@ -211,6 +211,12 @@
 		* resets the game state to start a new word.
 		*
 		*/
+
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var endTurn = function () {
 
 			// see if we formed a valid word
@@ -227,11 +233,11 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
 							rgba(0,143,255,0.6)
-							url("img/fondo.gif")
+							url("../../img/img-juegos/fondo.gif")
 							`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -240,6 +246,7 @@
 							window.location.href = '#';
 						}
 					});
+					correcto.play(); //agregando sonido del juego completado
 				}
 			}
 
