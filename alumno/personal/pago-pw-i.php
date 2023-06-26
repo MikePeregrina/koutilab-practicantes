@@ -15,20 +15,17 @@ define('ProPayPal', 0);
 if (ProPayPal) {
     define("PayPalClientId", "*********************");
     define("PayPalSecret", "*********************");
-    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/primaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/Koutilab-practicantes/alumno/personal/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
     define("PayPalSecret", "EAOYI052iYSGGT2592LeeXNvDbCq9tArRGqgWRVCAxQwf55u-wHx3VVxePzGD2j-9F29mEcbXL12mPFR");
-    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/primaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/Koutilab-practicantes/alumno/personal/");
     define("PayPalENV", "sandbox");
 }
-$productName = "Cápsula de prueba";
 $currency = "USD";
 $productPrice = 2;
-$productId = 1;
-$orderNumber = 1;
-$id_curso = 1;
+$id_curso = 2;
 $id_capsula = 1;
 ?>
 <!DOCTYPE html>
@@ -36,7 +33,7 @@ $id_capsula = 1;
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="pagos cursos.css">
+    <link rel="stylesheet" href="pagos-cursos.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- jQuery -->
@@ -54,7 +51,7 @@ $id_capsula = 1;
                 <div class="form-box">
                     <div class="button-box">
                         <button type="button" class="toggle-btn">
-                            <p>Pago Curso Programacion Web Avanzado </p>
+                            <p>Pago curso programacion web intermedio</p>
                         </button>
                     </div>
                     <div class="logop">
@@ -89,7 +86,7 @@ $id_capsula = 1;
                                 onAuthorize: function(data, actions) {
                                     return actions.payment.execute()
                                         .then(function() {
-                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&id_alumno=<?php echo $id_user; ?>" + "&id_capsula=<?php echo $id_capsula; ?>" + "&id_curso=<?php echo $id_curso; ?>";
+                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?id_alumno=<?php echo $id_user; ?>" + "&id_curso=<?php echo $id_curso; ?>";
                                         });
                                 },
                                 style: {
@@ -104,7 +101,7 @@ $id_capsula = 1;
             </div>
             <div class="button-box">
                 <button type="button" class="toggle-btn">
-                    <a href="#" onclick="history.back(); return false;" type="button">Regresar a la ruta</a>
+                    <a href="perfil.php" return false;" type="button">Regresar a perfil</a>
                 </button>
             </div>
         </div>
