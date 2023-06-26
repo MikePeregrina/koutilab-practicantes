@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img//img_juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -85,7 +86,13 @@
     </div>
     <p id="resultado"></p>
     <script>
-        var segundos = 120;
+        		    //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+        var segundos = 2400;
 
         let puntos = 0;
 
@@ -111,13 +118,14 @@
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
+                    imageUrl: "../../img/img_juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = 'cj3.php';
                     }
                 });
+                incorrecto.play(); //asignacion de sonido al juego no completado
                 xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -133,11 +141,11 @@
             Swal.fire({
                 title: "¡Oh no!",
                 text: "Comprueba tus respuestas, e intentalo nuevamente",
-                imageUrl: "img/loop.gif",
+                imageUrl: "../../img/img_juegos/loop.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img_juegos/fondo.gif")`,
                 confirmButtonColor: "#a14cd9",
                 confirmButtonText: "¡Sigue intentando",
             }).then((result) => {
@@ -152,11 +160,11 @@
             Swal.fire({
                 title: "¡Felicidades!",
                 text: "¡Buen trabajo!",
-                imageUrl: "img/Thumbs-Up.gif",
+                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img_juegos/fondo.gif")`,
                 confirmButtonColor: "#a14cd9",
                 confirmButtonText: "¡Genial!",
             }).then((result) => {
@@ -164,6 +172,7 @@
                     window.location.reload();
                 }
             });
+            correcto.play(); //asignando sonido al juego completado
         }
 
         //funcion de validar respuestas

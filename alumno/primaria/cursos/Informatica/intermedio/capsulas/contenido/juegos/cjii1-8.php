@@ -72,11 +72,17 @@
     <script src="../../js/seleccionador-p.js"></script>
 
     <script>
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
 
         let puntos = 0;
-
+        
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             	/*declarando condiciones que permiten cambiar el color de fondo del timer*/
@@ -96,13 +102,14 @@
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "img/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -126,7 +133,7 @@
         //             window.location.reload();
         //         }
         //     });
-
+        
         // }
 
 

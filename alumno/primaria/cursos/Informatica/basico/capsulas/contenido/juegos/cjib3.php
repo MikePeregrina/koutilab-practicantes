@@ -3,7 +3,7 @@
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../img//img_juegos/lgk.png">
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/sopa-letras.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -73,6 +73,10 @@
 		});
 	</script>
 	<script>
+	//Se esta llamando los sonidos de la carpeta "sonidos"
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         var segundos = 240;
 
         let puntos = 0;
@@ -106,6 +110,7 @@
                         window.location.href = 'cj3.php';
                     }
                 });
+				incorrecto.play(); //asignando sonido al juego no completado
                 xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

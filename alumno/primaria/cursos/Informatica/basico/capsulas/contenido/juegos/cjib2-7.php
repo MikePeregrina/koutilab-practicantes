@@ -79,6 +79,12 @@
 
     <script>
 
+        		    //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
@@ -118,7 +124,7 @@
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../../capsulas/img/img_juegos/Thumbs-Up copy.gif",
+                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
@@ -165,6 +171,7 @@
                         // window.location.reload();
                     }
                 });
+                incorrecto.play(); //asignando sonido al jeugo no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -188,6 +195,7 @@
                     window.location.reload();
                 }
             });
+            correcto.play(); //asignando sonido al juego completado
         }
     </script>
 

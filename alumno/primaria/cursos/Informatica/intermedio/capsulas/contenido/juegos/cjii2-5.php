@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
@@ -77,6 +78,12 @@
     <!-- Tenoch Moises -->
 
     <script>
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         /* Ambos */
         let preguntas_aleatorias = true;
         let mostrar_pantalla_juego_términado = true;
@@ -295,6 +302,7 @@
                     window.location.reload();
                 }
             });
+            
         }
         //ambos
 
@@ -318,6 +326,7 @@
                         // window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -341,6 +350,7 @@
                     window.location.href = "../../../../../../rutas/ruta-in-i.php";
                 }
             });
+            correcto.play(); //asignado sonido al juego completado
         }
     </script>
 

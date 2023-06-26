@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="img/lgk.png">  <!--icono de koutilab al comienzo de la página-->
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">  <!--icono de koutilab al comienzo de la página-->
 </head>
 
 <body onload="iniciarTiempo()">
@@ -95,8 +95,15 @@
     </div>
     <p id="resultado"></p>
     <script>
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
+        var segundos = 240
+        0;
 
         //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {
@@ -118,13 +125,14 @@
                 Swal.fire({
                     title: "Oops...Intentalo nuevamente, te has quedado sin tiempo",
                     text: "",
-                    imageUrl: "img/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido del juego perdido
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -155,7 +163,7 @@
             Swal.fire({
                 title: "¡Felicidades!",
                 text: "¡Buen trabajo!",
-                imageUrl: "img/Thumbs-Up.gif",
+                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
@@ -167,6 +175,7 @@
                     window.location.reload();
                 }
             });
+            correcto.play(); //agregando sonido de juego completado
         }
 
         //funcion de validar respuestas

@@ -3,7 +3,7 @@
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css"> <!--Linkeo de la hoja de estilos-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -52,6 +52,12 @@
 	</div>
 
 	<script>
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		let cantidadTarjetas = 24;
 		let iconos = []
 		let selecciones = []
@@ -149,8 +155,7 @@
                             window.location.href = "../../../../../../rutas/ruta-in-i.php";
 						}
 					});
-
-
+					correcto.play(); //agregando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -185,6 +190,7 @@
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //ajustando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

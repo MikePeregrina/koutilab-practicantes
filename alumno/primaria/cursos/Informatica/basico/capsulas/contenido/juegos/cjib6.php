@@ -3,7 +3,7 @@
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../img//img_juegos/lgk.png">
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/sopa-letras.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -56,6 +56,12 @@
 	</div>
 
 	<script>
+				    //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
 		var words = ['MONITOR', 'AUDIFONOS', 'BOCINAS', 'PROYECTOR', 'IMPRESORA', 'USB', 'MODEM', 'PLOTTERS'];
@@ -106,6 +112,7 @@
                         window.location.href = 'cj3.php';
                     }
                 });
+				incorrecto.play(); //adjuntando sonido al juego no completado
                 xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

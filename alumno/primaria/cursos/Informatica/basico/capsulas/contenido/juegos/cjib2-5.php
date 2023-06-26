@@ -137,11 +137,11 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("../../img/img_juegos/loop.gif")
+									url("../../img/img_juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -150,8 +150,7 @@
 							window.location.href = '#';
 						}
 					});
-
-
+					correcto.play(); //asignando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -169,7 +168,13 @@
 	</script>
 
 	<script>
-		var segundos = 300;//tiempo original 300s
+		    //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+		var segundos = 10;//tiempo original 300s
 		let puntos = 0;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
@@ -200,6 +205,7 @@
 						window.location.href = '#';
 					}
 				});
+				incorrecto.play(); //asignando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

@@ -3,7 +3,7 @@
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css"> <!--Linkeo de la hoja de estilos-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -136,11 +136,11 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("img/fondo.gif")
+									url("../../img/img_juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -149,8 +149,7 @@
 							window.location.href = '#';
 						}
 					});
-
-
+					correcto.play(); //asignado sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -168,6 +167,12 @@
 	</script>
 
 <script>
+			    //Se esta llamando los sonidos de la carpeta "sonidos"
+				var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 	var segundos = 240;
 
 	let puntos = 0;
@@ -201,6 +206,7 @@
 					window.location.href = 'cj3.php';
 				}
 			});
+			incorrecto.play(); //asignando sonido al juego no completado
 			xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);

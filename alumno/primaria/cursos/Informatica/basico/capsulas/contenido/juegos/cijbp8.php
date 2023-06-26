@@ -270,7 +270,6 @@
 			seleccion = res;
 			evaluarRespuesta();
 		}
-
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			Swal.fire({

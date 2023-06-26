@@ -12,8 +12,9 @@ canvas.height = ALTURA_CANVAS;
 // Del canvas, obtener el contexto para poder dibujar
 const contexto = canvas.getContext("2d");
 
-
-
+		    //Se esta llamando los sonidos de la carpeta "sonidos"
+            var correcto = document.createElement("audio");
+            correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 
 // Apartado para seleccinador para relacionar columas
 const palabras = document.querySelectorAll('.word-box');
@@ -156,11 +157,11 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: 'img/loop.gif',
+                imageUrl: '../../img/img_juegos/loop.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img_juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -174,11 +175,11 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: 'Resultados',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: 'img/Thumbs-Up.gif',
+                imageUrl: '../../img/img_juegos/Thumbs-Up.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img_juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -186,6 +187,7 @@ function mostrarResultados() {
                     window.location.reload();
                 }
             });
+            correcto.play(); //asignando sonido al juego completado
         }
     }
     //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
@@ -193,11 +195,11 @@ function mostrarResultados() {
         Swal.fire({
             title: 'Oops...',
             text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-            imageUrl: 'img/loop.gif',
+            imageUrl: '../../img/img_juegos/loop.gif',
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img_juegos/fondo.gif")`,
             confirmButtonColor: '#a14cd9',
             confirmButtonText: '¡Genial!',
         });

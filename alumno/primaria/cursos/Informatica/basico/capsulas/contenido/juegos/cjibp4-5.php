@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css"> <!---linkeo de la hoja de estilos-->
     <title>KOUTILAB</title><!--titulo del proyecto-->
-    <link rel="shortcut icon" href="img/lgk.png">
+    <link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo();">
@@ -162,6 +162,12 @@
     </div>
 
     <script>
+        //Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
          var segundos = 240;
 
 let puntos = 0;
@@ -195,6 +201,7 @@ if (segundos <= 10) {
                 window.location.href = 'cj3.php';
             }
         });
+        incorrecto.play(); //agregando sonido del juego no completado
         xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send(param);
@@ -238,11 +245,11 @@ if (segundos <= 10) {
                         Swal.fire({
                             title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
                             text: '¡Puntuación guardada con éxito!',
-                            imageUrl: "img/Thumbs-Up.gif",
+                            imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
                             imageHeight: 350,
                             backdrop: `
                         rgba(0,143,255,0.6)
-                        url("../../../../../../img/fondo.gif")
+                        url("../../img/img_juegos/fondo.gif)
                         `,
                             confirmButtonColor: '#a14cd9',
                             confirmButtonText: 'Aceptar',
@@ -251,6 +258,7 @@ if (segundos <= 10) {
                                 window.location.href = '../../../../../../rutas/ruta-pw-b.php';
                             }
                         });
+                        correcto.play(); //agregando sonido del juego completado
                 } else {
                     Swal.fire({
                         title: 'Oops...',

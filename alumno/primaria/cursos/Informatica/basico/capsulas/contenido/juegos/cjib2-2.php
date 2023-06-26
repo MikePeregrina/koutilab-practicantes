@@ -72,6 +72,12 @@
     <script src="../../js/cjib2-2.js"></script>
 
     <script>
+        //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
 
@@ -102,6 +108,7 @@
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); // adjuntando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

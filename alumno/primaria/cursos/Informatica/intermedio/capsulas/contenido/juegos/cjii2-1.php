@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -85,8 +86,14 @@
     </div>
     <p id="resultado"></p>
     <script>
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
+        var segundos = 10;
 
         //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {
@@ -102,6 +109,7 @@
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido del juego perdido
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -123,7 +131,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.reload();
-                }
+                } 
             });
         }
 
@@ -144,6 +152,7 @@
                     window.location.href = "../../../../../../rutas/ruta-in-i.php";
                 }
             });
+            correcto.play(); //agregando sonido al juego completado
         }
 
         //funcion de validar respuestas

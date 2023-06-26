@@ -50,6 +50,12 @@
 	</div>
 
 	<script>
+		    //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		//Arreglo de preguntas
 		var preguntas = [
 			{
@@ -203,6 +209,7 @@
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //asignando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -290,6 +297,7 @@
 					window.location.reload();
 				}
 			});
+			correcto.play(); //asignando sonido al juego completado
 		}
 
 		//Alerta, muestra que la respuesta fue correcta

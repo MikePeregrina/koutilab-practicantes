@@ -3,7 +3,7 @@
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css"> <!--Linkeo de la hoja de estilos-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -55,6 +55,12 @@
 		let cantidadTarjetas = 24;
 		let iconos = []
 		let selecciones = []
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
@@ -136,7 +142,7 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
@@ -149,8 +155,7 @@
 							window.location.href = '#';
 						}
 					});
-
-
+					correcto.play();  // se manda a traer la variable del sonido declarada en la linea 61
 				}
 			}, 1000);
 		}
@@ -191,13 +196,14 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.href = '#';
 					}
 				});
+				incorrecto.play(); //sonido agregado por perder el juego
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

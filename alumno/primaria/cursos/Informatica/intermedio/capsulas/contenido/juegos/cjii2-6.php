@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -69,6 +70,12 @@
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script>
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //Apartado de canvas para trazar lineas
 
         //variables para la medida del canvas
@@ -257,7 +264,9 @@
                             window.location.href = "../../../../../../rutas/ruta-in-i.php";
                         }
                     });
+                    
                 }
+                correcto.play(); //agregando sonido al juego completado
             }
             //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
             else {
@@ -298,6 +307,7 @@
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

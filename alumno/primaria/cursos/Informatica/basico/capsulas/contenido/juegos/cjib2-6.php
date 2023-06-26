@@ -56,9 +56,15 @@
 	</div>
 
 	<script>
+				    //Se esta llamando los sonidos de la carpeta "sonidos"
+	var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
-		var words = ['OPERATIVO', 'SISTEMA', 'MOVILES', 'ANDROID', 'SELECTORES', 'APPLE', '!PAD', '!POD'];
+		var words = ['OPERATIVO', 'SISTEMA', 'MOVILES', 'ANDROID', 'SELECTORES', 'APPLE', 'iPAD', 'iPOD'];
 		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
 		var puzzle = wordfind.newPuzzle(words, {
@@ -101,7 +107,9 @@
 					if (result.isConfirmed) {
 						window.location.href = '#';
 					}
+					
 				});
+				incorrecto.play(); 
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
