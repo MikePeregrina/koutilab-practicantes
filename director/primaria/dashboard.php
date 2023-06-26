@@ -98,7 +98,8 @@ function actualizarGrafica()
 
   /* PARA LOS DATOS DE LA GRÁFICA */
 
-  $conexion = new mysqli("localhost", "root", "", "aerobotp_beta");
+  include('../../acciones/conexion.php');
+
 
   // Verificar si hay errores en la conexión
   if ($conexion->connect_error) {
@@ -152,7 +153,6 @@ function actualizarGrafica()
 
   // Convertir los datos a formato JSON
   $datosJSON = json_encode($datosGrafica);
-
 }
 ?>
 
@@ -258,10 +258,10 @@ function actualizarGrafica()
               labels: labels,
               datasets: [{
                 label: 'Ganancias',
-                    data: datos,
-                    //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
-                    //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
-                    //borderWidth: 1, // Cambia el ancho del borde
+                data: datos,
+                //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                //borderWidth: 1, // Cambia el ancho del borde
                 backgroundColor: [
                   'rgba(255,99,132,0.2)',
                   'rgba(54,162,235,0.2)',
@@ -294,12 +294,12 @@ function actualizarGrafica()
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <h4>Filtro </h4><br>
           <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-          <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio;?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+          <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
           <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-          <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin;?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+          <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
           <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
           <br><br>
-          <input  name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px">
+          <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px">
         </form>
       </div>
   </section>
