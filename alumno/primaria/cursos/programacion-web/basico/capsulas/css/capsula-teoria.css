@@ -183,7 +183,11 @@ form .user-details .input-box {
   cursor: pointer;
   display: block;
   margin: 12px 0 0 12px;
-  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  background: linear-gradient(
+    to right,
+    rgb(61, 172, 244),
+    rgba(132, 196, 44, 0.6)
+  );
   border: 0px;
   outline: none;
   border-radius: 50%;
@@ -193,7 +197,7 @@ form .user-details .input-box {
 
 @media (max-width: 750px) {
   .btn-b {
-      width: 15%;
+    width: 15%;
   }
 }
 
