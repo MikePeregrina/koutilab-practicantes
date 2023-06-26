@@ -64,7 +64,7 @@
 			{
 				num: 2,
 				pregunta:
-					"Practicamente, un decorador es una función que manda a llamar otra función como parámetro",
+					"Prácticamente, un decorador es una función que manda a llamar otra función como parámetro",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
