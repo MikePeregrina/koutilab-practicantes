@@ -13,7 +13,7 @@ WHERE d.id_docente = $id_user"));
 
 //Contador de conexiones
 $cont = intval($user['conexiones'] + 1);
-$sql_cont = "UPDATE `docentes_preparatoria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_user'";
+$sql_cont = "UPDATE `docentes_preparatoria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_user'";
 $query_cont = mysqli_query($conexion, $sql_cont);
 ?>
 

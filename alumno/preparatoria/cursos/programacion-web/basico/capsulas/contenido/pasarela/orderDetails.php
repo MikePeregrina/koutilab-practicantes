@@ -17,8 +17,8 @@ if (!empty($_GET['payment_id']) && !empty($_GET['item_number']) && !empty($_GET[
 	$id_alumno = $_GET['id_alumno'];
 	$id_capsula = $_GET['id_capsula'];
 	$id_curso = $_GET['id_curso'];
-	$query_insert = mysqli_query($conexion, "INSERT INTO payment(payment_id, item_number, item_name, payment_amount, payment_currency, create_at) VALUES ('$payment_id', '$item_number', '$item_name', '$payment_amount', '$payment_currency', current_timestamp())");
-	$query_insert_permiso = mysqli_query($conexion, "INSERT INTO detalle_capsulas_pago(id_capsula, id_alumno, id_curso) VALUES ('$id_capsula', '$id_alumno', '$id_curso')");
+	$query_insert = mysqli_query($conexion, "INSERT INTO payment_preparatoria(payment_id, item_number, item_name, payment_amount, payment_currency, create_at, id_alumno) VALUES ('$payment_id', '$item_number', '$item_name', '$payment_amount', '$payment_currency', current_timestamp(), '$id_alumno')");
+	$query_insert_permiso = mysqli_query($conexion, "INSERT INTO detalle_capsulas_pago_preparatoria(id_capsula, id_alumno, id_curso) VALUES ('$id_capsula', '$id_alumno', '$id_curso')");
 	if ($query_insert && $query_insert_permiso) {
 		header("Location: orderCompleted.php");
 	}

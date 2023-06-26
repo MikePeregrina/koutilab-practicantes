@@ -1,52 +1,52 @@
 [
-{
-    "categoria": "web basico-css",
-    "pregunta": "Cuál de los siguientes operadores NO es aritmético",
-    "respuesta": "=",
-    "incorrecta1": "+",
-    "incorrecta2": "-",
-    "incorrecta3": "/",
-    "imagen": "",
-    "objectFit" : "cover"  
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Cuál de los siguientes operadores NO es aritmético",
-    "respuesta": ">=",
-    "incorrecta1": "+",
-    "incorrecta2": "-",
-    "incorrecta3": "*",
-    "imagen": "",
-    "objectFit" : "cover"   
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Cuál de los siguientes operadores es aritmético",
-    "respuesta": "+",
-    "incorrecta1": "=",
-    "incorrecta2": ">=",
-    "incorrecta3": "<>",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Cual de los siguientes operadores NO es de comparación",
-    "respuesta": "*",
-    "incorrecta1": "<>",
-    "incorrecta2": "=",
-    "incorrecta3": ">=",
-    "imagen": "",
-    "objectFit" : "cover"  
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Cual de los siguientes operadores NO es de comparación",
-    "respuesta": "^",
-    "incorrecta1": "<>",
-    "incorrecta2": "=",
-    "incorrecta3": "<=",
-    "imagen": "",
-    "objectFit" : "cover"    
-}
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Cuál de los siguientes operadores NO es aritmético",
+        "respuesta": "=",
+        "incorrecta1": "+",
+        "incorrecta2": "-",
+        "incorrecta3": "/",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Cuál de los siguientes operadores NO es aritmético",
+        "respuesta": ">=",
+        "incorrecta1": "+",
+        "incorrecta2": "-",
+        "incorrecta3": "*",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Cuál de los siguientes operadores es aritmético",
+        "respuesta": "+",
+        "incorrecta1": "=",
+        "incorrecta2": ">=",
+        "incorrecta3": "<>",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Cual de los siguientes operadores NO es de comparación",
+        "respuesta": "*",
+        "incorrecta1": "<>",
+        "incorrecta2": "=",
+        "incorrecta3": ">=",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Cual de los siguientes operadores NO es de comparación",
+        "respuesta": "^",
+        "incorrecta1": "<>",
+        "incorrecta2": "=",
+        "incorrecta3": "<=",
+        "imagen": "",
+        "objectFit": "cover"
+    }
 ]

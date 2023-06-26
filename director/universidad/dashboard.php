@@ -197,6 +197,7 @@ function actualizarGrafica()
       </div>
       <br>
 
+
       <div class="perfil-usuario-avatar">
         <div class="avatar-img">
           <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
@@ -221,6 +222,21 @@ function actualizarGrafica()
           echo "  <h3 class='info-heading'>CCT: <span>" . $consulta['nombre'] . "</h3>";
         }
         ?>
+
+      </div>
+
+      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-37%;">
+
+      <div class="change-password">
+        <h3>Contraseña:</h3>
+        <form enctype="multipart/form-data" action="" method="post">
+          <div class="user-details1">
+            <div class="input-box1">
+              <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+              <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
+            </div>
+          </div>
+        </form>
       </div>
 
     </div>
@@ -258,6 +274,9 @@ function actualizarGrafica()
               datasets: [{
                 label: 'Ganancias',
                 data: datos,
+                //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                //borderWidth: 1, // Cambia el ancho del borde
                 backgroundColor: [
                   'rgba(255,99,132,0.2)',
                   'rgba(54,162,235,0.2)',
@@ -496,6 +515,51 @@ function actualizarGrafica()
             }
           });
         </script>
+        ";
+    }
+  }
+  ?>
+
+  <?php
+  if (isset($_POST['enviarcontrasena'])) {
+    $iddirector = $_SESSION['id_director_universidad'];
+    $contrasena = md5($_POST['contrasena']);
+
+    $sql_update = mysqli_query($conexion, "UPDATE directores_universidad SET contrasena = '$contrasena' WHERE id_director = '$iddirector'");
+
+    if ($sql_update) {
+      echo
+      "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Cambio de contraseña exitosa',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'dashboard.php';
+          }
+        });
+      </script>
+        ";
+    } else {
+      echo
+      "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Cambio de contraseña no exitosa',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'dashboard.php';
+          }
+        });
+      </script>
         ";
     }
   }
