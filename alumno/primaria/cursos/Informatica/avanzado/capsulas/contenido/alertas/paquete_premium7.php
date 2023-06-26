@@ -15,6 +15,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css">
+    <link rel="stylesheet" href="../../css/carrusel.css" />
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -23,10 +24,9 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula de Pago</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula de pago</div><br>
             <section id="container-slider">
-                <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
-                <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
+
                 <ul class="listslider">
                     <!-- Agregar linea de código <li><a itlist="itList_X" href="#"></a></li> cada que se agrega una imagen más-->
                     <li>
@@ -36,10 +36,10 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                 </ul>
                 <ul id="slider">
                     <li style="background-image: url('../../img/Alertas.gif'); z-index:0; opacity: 1;">
-                        <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd56.php">
-                            <input type="hidden" name="permiso" value="26">
-                            <input type="hidden" name="id_curso" value="1">
-                            <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
+                        <form id="pregunta" method="POST" enctype="multipart/form-data" action="../pasarela/orderPasarela.php">
+                            <input type="hidden" name="id_capsula" value="7">
+                            <input type="hidden" name="id_curso" value="9">
+                            <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Comprar!</button>
                         </form>
                     </li>
                 </ul>
