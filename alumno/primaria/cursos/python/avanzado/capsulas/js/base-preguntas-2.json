@@ -1,0 +1,52 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Qué método podemos ocupar para remover espacios vacios?",
+    "respuesta": "remove()",
+    "incorrecta1": "len()",
+    "incorrecta2": "random()",
+    "incorrecta3": "int()",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuál de las siguientes respuestas es un arreglo",
+    "respuesta": "numeros = [1, 4, 5, 7]",
+    "incorrecta1": "palabra = 'Hola'",
+    "incorrecta2": "numero = 1",
+    "incorrecta3": "print('Hola')",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Podemos borrar espacios vacíos de una arreglo de datos?",
+    "respuesta": "¡Verdadero!",
+    "incorrecta1": "¡Falso!",
+    "incorrecta2": "Claro que no",
+    "incorrecta3": "No tengo idea",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Puedo eliminar espacios vacios de un arreglo como este? <br> nombres = ['Rafa', 'Jaime', '', 'karla', '']",
+    "respuesta": "¡Verdadero!",
+    "incorrecta1": "¡Imposible!",
+    "incorrecta2": "Claro que no",
+    "incorrecta3": "No tengo idea",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿remove() es la única forma de eliminar espacios vacios de un conjunto de datos?",
+    "respuesta": "¡No! existen muchos más",
+    "incorrecta1": "¡Si! es la única forma",
+    "incorrecta2": "Tal vez, aunque lo dudo",
+    "incorrecta3": "Tengo hambre",
+    "imagen": "",
+    "objectFit" : "cover"    
+}
+]

@@ -91,6 +91,8 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script> <!--Libreria de javaScript para consultas dinámicas-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
 
     <script type="text/javascript">
         //Función que realiza la busqueda mediante campo de texto, búsqueda por proximidad
@@ -231,6 +233,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
 
                     <div class="container-slider">
+                        <img oncli src="" alt="">
 
                         <div class="row">
                             <div class="photo-slider">
@@ -240,15 +243,17 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                                 $resultado = mysqli_query($conexion, $consulta);
                                 $contador = 0;
 
-                                while ($curso = mysqli_fetch_assoc($resultado)) { //Agregando cada curso de la BD
-                                    $contador++; ?>
+                                while ($curso = mysqli_fetch_assoc($resultado)) {
+                                    $contador++;
+                                ?>
                                     <div class="photo-slider-img <?php if ($contador == 1) {
                                                                         echo "NOW";
                                                                     } ?> carrusel-cursos">
-                                        <h5 style="display: none;"><?php echo $curso["curso"] ?></h5>
-                                        <img onclick="redireccionar()" id="slider-img-<?php echo $contador; ?>" src="img/curso<?php echo $contador; ?>.png" alt="<?php echo $curso["curso"] ?>" style="width: 100%; object-fit: cover; height: 320px; left: 100%; border-radius: 10px;">
+                                        <h5 style="display: block;"><?php echo $curso["curso"] ?></h5>
+                                        <img onclick="redireccionar(<?php echo $contador; ?>)" id="slider-img-<?php echo $contador; ?>" src="img/curso<?php echo $contador; ?>.png" alt="<?php echo $curso["curso"] ?>" style="width: 100%; object-fit: cover; height: 320px; left: 100%; border-radius: 10px;">
                                     </div>
                                 <?php } ?>
+
                                 <!--FIN TEST-->
                                 <!--<img onclick="redireccionar()" id="slider-img-1" src="img/pwB.jpg" alt="programación web básico" class="photo-slider-img NOW">
                                 <img id="slider-img-2" src="img/pwI.avif" alt="programación web intermedio" class="photo-slider-img">
@@ -281,8 +286,20 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                             </div>
                         </div>
                         <script>
-                            function redireccionar() {
-                                location.href = 'https://www.google.com';
+                            function redireccionar(contador) {
+                                if (contador == 1) {
+                                    window.location.href = "pago-pw-b.php";
+                                } else if (contador == 2) {
+                                    window.location.href = "pago-pw-i.php";
+                                } else if (contador == 3) {
+                                    window.location.href = "pago-pw-a.php";
+                                } else if (contador == 4) {
+                                    window.location.href = "pago-py-b.php";
+                                } else if (contador == 5) {
+                                    window.location.href = "pago-py-i.php";
+                                } else if (contador == 6) {
+                                    window.location.href = "pago-py-a.php";
+                                }
                             }
                         </script>
                     </div>
@@ -414,16 +431,16 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 <?php
                     }
                 }
-                ?> 
+                ?>
                 <?php
-                                $sql = "SELECT * FROM acceso_cursos_personal
+                $sql = "SELECT * FROM acceso_cursos_personal
                     WHERE id_alumno = $id_user AND id_curso = 5";
-                                $result = mysqli_query($conexion, $sql);
-                                $fila = mysqli_fetch_assoc($result);
+                $result = mysqli_query($conexion, $sql);
+                $fila = mysqli_fetch_assoc($result);
 
-                                if ($fila != null) {
-                                    if ($fila['id_curso'] == 5) {
-                                ?>
+                if ($fila != null) {
+                    if ($fila['id_curso'] == 5) {
+                ?>
                         <div class="card" style="height: 300px; margin-left:5%">
                             <a href=" rutas/ruta-py-i.php">
                                 <div class="container">
@@ -439,18 +456,18 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                             </a>
                         </div>
                 <?php
-                                    }
-                                }
-                ?> 
+                    }
+                }
+                ?>
                 <?php
-                            $sql = "SELECT * FROM acceso_cursos_personal
+                $sql = "SELECT * FROM acceso_cursos_personal
                     WHERE id_alumno = $id_user AND id_curso = 6";
-                            $result = mysqli_query($conexion, $sql);
-                            $fila = mysqli_fetch_assoc($result);
+                $result = mysqli_query($conexion, $sql);
+                $fila = mysqli_fetch_assoc($result);
 
-                            if ($fila != null) {
-                                if ($fila['id_curso'] == 6) {
-                            ?>
+                if ($fila != null) {
+                    if ($fila['id_curso'] == 6) {
+                ?>
                         <div class="card" style="height: 300px; margin-left:5%"">
                 <a href=" rutas/ruta-py-a.php">
                             <div class="container">
@@ -466,8 +483,8 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                             </a>
                         </div>
                 <?php
-                                }
-                            }
+                    }
+                }
                 ?>
 
 

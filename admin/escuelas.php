@@ -138,7 +138,7 @@ $fila = mysqli_fetch_assoc($result);
             <div class="item" style="background-color: rgba(61,172,244, .4);">
                 <a href="enviar.php" class="">
                     <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                    <i class="fa-regular fa-envelopes-bulk"></i>
+                        <i class="fa-regular fa-envelopes-bulk"></i>
                     </div>
                     <div class="title">
                         <span>Enviar Email</span>
@@ -147,8 +147,8 @@ $fila = mysqli_fetch_assoc($result);
             </div>
         </div>
     </div>
-            <div class="item separator"></div>
-        </div>
+    <div class="item separator"></div>
+    </div>
     </div>
     <div id="interface">
         <div class="navigation">
@@ -275,6 +275,7 @@ $fila = mysqli_fetch_assoc($result);
                             <option value="Secundaria">Secundaria</option>
                             <option value="Preparatoria">Preparatoria</option>
                             <option value="Universidad">Universidad</option>
+                            <option value="Institucion">Institución</option>
                         </select>
                     </div>
                     <!-- <input type="hidden" name="rol_alumno" id="rol_alumno" required>

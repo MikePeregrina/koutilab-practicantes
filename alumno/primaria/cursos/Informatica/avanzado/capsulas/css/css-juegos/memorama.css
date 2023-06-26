@@ -2,7 +2,7 @@ body {
   color: #404040;
   font-family: Tahoma;
   /*background-image: url(../img/bg1.png);/*Se cambio el fondo principal del juego*/
-  background-image: url(../../img/img_juegos/fondo.png);  
+  background-image: url(../../img/img-juegos/bg.png);/*Se anexa nuevo fondo del juego*/
   background-repeat: no-repeat;/*el nuevo fondo no se repetira consecutivamente en el juego*/
   background-size:cover;/*el nuevo fondo se acopalara al tamaño de la pantalla del juego*/
   -webkit-user-select: none;
@@ -165,83 +165,81 @@ button::-moz-focus-inner {
 
 .timer {
   text-align: center;
-  padding: 2%;
-  margin: 30px 0 0 68.2rem; /*Se cambio el pocisionamiento del timer*/
-  width: 180px;
-  height: 180px;
+  padding: 3%;
+  margin: 40px 0 0 1050px;
+  width: 160px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(129,179,243,0.7); /*Se cambio el fondo del timer*/
-  box-shadow: 0 0 12px rgba(129,179,243);
-  border-color: rgba(129, 178, 243, 0.9);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
   border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
-  font-size: 170%;
+  font-size: 140%;
 }
-/*Generando animaciones del timer*/
+
 @keyframes animation1 {
-  0% {margin: 30px 0 0 68.2rem;}
-  20% {margin: 30px 0 0 69.2rem;}
-  40% {margin: 30px 0 0 68.2rem;} 
-  60% {margin: 30px 0 0 69.2rem;}
-  80% {margin: 30px 0 0 68.2rem;} 
-  100% {margin: 30px 0 0 69.2rem;}
+  0% {margin: 40px 0 0 1040px;}
+  20% {margin: 40px 0 0 1060px;}
+  40% {margin: 40px 0 0 1040px;} 
+  60% {margin: 40px 0 0 1060px;}
+  80% {margin: 40px 0 0 1040px;} 
+  100% {margin: 40px 0 0 1050px;}
 }
 
 @keyframes animation2 {
-  0% {margin: 30px 0 0 68.2rem;}
-  10% {margin: 30px 0 0 69.2rem;}
-  20% {margin: 30px 0 0 68.2rem;;} 
-  30% {margin: 30px 0 0 69.2rem;}
-  40% {margin: 30px 0 0 68.2rem;;} 
-  50% {margin: 30px 0 0 69.2rem;}
-  60% {margin: 30px 0 0 68.2rem;;} 
-  70% {margin: 30px 0 0 69.2rem;} 
-  80% {margin: 30px 0 0 68.2rem;;} 
-  90% {margin: 30px 0 0 69.2rem;} 
-  100% {margin: 30px 0 0 68.2rem;}
+  0% {margin: 40px 0 0 1040px;}
+  10% {margin: 40px 0 0 1060px;}
+  20% {margin: 40px 0 0 1040px;} 
+  30% {margin: 40px 0 0 1060px;}
+  40% {margin: 40px 0 0 1040px;} 
+  50% {margin: 40px 0 0 1060px;}
+  60% {margin: 40px 0 0 1040px;} 
+  70% {margin: 40px 0 0 1060px;} 
+  80% {margin: 40px 0 0 1040px;} 
+  90% {margin: 40px 0 0 1060px;} 
+  100% {margin: 40px 0 0 1050px;}
 }
 
 #timer {
   background: rgba(129, 179, 243, 0.7);
 }
 
+#tiempo {
+  margin: 0 0 0 0;
+}
+
 .btn-b {
+  position: absolute;
   width: 5%;
   padding: 5px 5px;
   cursor: pointer;
   display: block;
-  margin: auto;
-  /*Se cambio el fondo del btn regresar*/
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243),
-    rgba(132, 196, 44,0.6)
-  );
+  margin: 12px 0 0 12px;
+  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));          
   border: 0px;
   outline: none;
   border-radius: 50%;
-  float: right;
+  float: left;
+  transition: 0.5s;
 }
-/*Se agrego la animacion del btn regresar*/
-.btn-b:hover{
-  scale: 130%;
-  transition: scale 0.35s;
-}
-.btn-b :hover::after{
-  scale: 100%;
-  transition: scale 0.35s;
-}
+
 @media (max-width: 750px) {
   .btn-b {
-    width: 15%;
+      width: 15%;
   }
 }
 
 .btn-b i {
-  font-size: 29px;
+  font-size: 20px;
+}
+
+.btn-b:hover {
+  transform: scale(1.2);
 }
 
 :root {
@@ -271,7 +269,7 @@ div {
 .tarjeta {
   position: relative;
   transform-style: preserve-3d;
-  animation: iniciar 2.1s;  /*Se cambia el tiempo que tiene cada tarjeta, antes de inicar el juego*/
+  animation: iniciar 3.5s;  /*Se cambia el tiempo que tiene cada tarjeta, antes de inicar el juego*/
 }
 
 .cara {
@@ -296,18 +294,15 @@ div {
 
 .nuevo-juego {
   cursor: pointer;
+  color: black;
   /*Se cambio el color del btn inciar juego*/
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243),
-    rgba(132, 196, 44,0.6)
-  );
+  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
   padding: 30px;
   border-radius: 50px;
   /*border: white 5px solid;*/
   font-size: 160%;
-position: absolute;
-margin: 142px 0 0 515px; /*Se cambio el posicionamiento de el btn iniciar juego*/
+  position: absolute;
+  margin: 180px 0 0 515px; /*Se cambio el posicionamiento de el btn iniciar juego*/
 }
 
 #tablero {

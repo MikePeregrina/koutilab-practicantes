@@ -1,121 +1,143 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
-
-	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/cjib2-5.css"> <!--Linkeo de la hoja de estilos-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<script language="javascript" type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../../css/css-juegos/cjib2-4.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
+	<title>KOUTILAB</title>
 </head>
 
-<body>
-
-	<!-- Titulo general -->
+<body onload="iniciarTiempo()">
+	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 240px;"><b>LOCALIZACIÓN DE LOS BOTONES DE ENCENDIDO</b></h2>
-        
+		<h2 class="titulo"><b>ANDROID</b></h2>
 	</div>
 
-	<!-- Tiempo -->
+	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b style="margin-top: 10px;">Tiempo: <br>
-			<p id="tiempo"></p>
+		<b>Tiempo: <br />
+			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
 	</div>
 
+	<!-- Contenedor principal -->
 	<div class="contenido">
-
-		<a href="#"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-				<i class="fas fa-reply"></i></button>
+		<!-- Boton para regresar -->
+		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
+				id="btn-cerrar-modalV">
+				<i class="fas fa-reply"></i>
+			</button>
 		</a>
 
 		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
-
-		<!-- Boton de iniciar juego, al iniciar, desaparece -->
-		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
-			Iniciar juego
+		<h4 class="titulo">
+			<b>Selecciona la opción que corresponda a la línea en blanco o que
+				encaje con la definición dada.</b>
+		</h4>
+		<br />
+		<!--Contenedor de las preguntas y respuestas-->
+		<div class="main-ctn" id="main-ctn">
+			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
-
-		<!-- Generador del tablero -->
-		<div id="tablero"></div>
-
+		<!-- boton de verificar respuestas - No necesario para la sección-->
+		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
 	</div>
 
 	<script>
-		let cantidadTarjetas = 24;
-		let iconos = []
-		let selecciones = []
+		//Arreglo de preguntas
+		var preguntas = [
+			{
+				num: 1,
+				pregunta:
+					"Android es el sistema operativo que utilizan algunos dispositivos ________",
+				opA: "Computacionales",
+				opB: "Moviles",
+				opC: "Inteligentes",
+				correcta: "B",
+				tiempo: "30",
+			},
+			{
+				num: 2,
+				pregunta:
+					"Android es el sistema operativo que utilizan algunos dispositivos móviles para poder ______",
+				opA: "Funcionar",
+				opB: "Hablar",
+				opC: "Comunicarse",
+				correcta: "A",
+				tiempo: "20",
+			},
+			{
+				num: 3,
+				pregunta:
+					"Es decir, se trata de todo aquello que puedes _________",
+				opA: "Oler",
+				opB: "Tocar",
+				opC: "Ver",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 4,
+				pregunta:
+					"El hecho de que convierta cualquier teléfono en prácticamente un ordenador de bolsillo lo hace ",
+				opA: "Gratis",
+				opB: "Comodo",
+				opC: "Bonito",
+				correcta: "B",
+				tiempo: "30",
+			},
+			{
+				num: 5,
+				pregunta:
+					"Por lo que lanzar un teléfono o aplicación con Android tiene un bajo",
+				opA: "Rendimiento",
+				opB: "Coste",
+				opC: "Tamaño",
+				correcta: "B",
+				tiempo: "30",
+			},
+			
+		];
 
-		//Iconos pertenecientes a las tarjetas
-		function cargarIconos() {
-			iconos = [
-				'<i><img src="../::/../../img/img_juegos/l1.png" width= "50px"></i>',
-				'<i ><img src="../::/../../img/img_juegos/l2.png" width= "50px"></i>',
-				'<i><img src="../::/../../img/img_juegos/l3.png" width= "50px" ></i>',
-				'<i><img src="../::/../../img/img_juegos/l4.png" width= "50px" ></i></i>',
-				'<i><img src="../::/../../img/img_juegos/l5.png" width= "50px" ></i>',
-				'<i ><img src="../::/../../img/img_juegos/l6.png" width= "50px"  ></i>',
-				'<i><img src="../::/../../img/img_juegos/l7.png" width= "50px" ></i>',
-				'<i ><img src="../::/../../img/img_juegos/l8.png" width= "50px"  ></i>',
-				'<i><img src="../::/../../img/img_juegos/l9.png" width= "50px"  ></i>',
-				'<i><img src="../::/../../img/img_juegos/l10.png" width= "50px"></i>',
-				'<i><img src="../::/../../img/img_juegos/l11.png" width= "50px"></i>',
-				'<i><img src="../::/../../img/img_juegos/l12.png" width= "50px"></i>'
-			]
+		var puntos = 0; //Leva el conteo de puntos/aciertos
+		var seleccion; //Guarda la respuesta elegida
+		var contador = 1; //Lleva el conteo de preguntas
+		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
+
+		function getRandomInt(max) {
+			//para generar números random enteros
+			return Math.floor(Math.random() * max);
 		}
 
-		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
-		function generarTablero() {
-			iniciarTiempo()
-			cargarIconos()
-			$('#generar').remove();
-			let len = iconos.length
-			selecciones = []
-			let tablero = document.getElementById("tablero")
-			let tarjetas = []
+		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
+		var random; //para el index de la pregunta a mostrar
 
-			for (let i = 0; i < cantidadTarjetas; i++) {
-				tarjetas.push(`
-                <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
-                    <div class="tarjeta" id="tarjeta${i}">
-                        <div class="cara trasera" id="trasera${i}">
-                            ${iconos[0]}
-                        </div>
-                        <div class="cara superior">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </div>
-                </div>        
-                `)
-				if (i % 2 == 1) {
-					iconos.splice(0, 1)
-				}
-			}
-			tarjetas.sort(() => Math.random() - 0.5)
-			tablero.innerHTML = tarjetas.join(" ")
-		}
+		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var randomRes; //para el index de la respuesta a mostrar
 
-		//Selecionador de tarjetas
-		function seleccionarTarjeta(i) {
-			let tarjeta = document.getElementById("tarjeta" + i)
-			if (tarjeta.style.transform != "rotateY(180deg)") {
-				tarjeta.style.transform = "rotateY(180deg)"
-				selecciones.push(i)
-			}
-			if (selecciones.length == 2) {
-				deseleccionar(selecciones)
-				selecciones = []
+
+		function ponerRespuesta() {
+			if (randomRes == 0) {
+				document.getElementById("opt-ctn").innerHTML +=
+					'<button class="btn-opt" value="A" onClick="guardarRespuestaA()" id="optA">' +
+					this.preguntas[this.random].opA +
+					"</button>";
+			} else if (randomRes == 1) {
+				document.getElementById("opt-ctn").innerHTML +=
+					'<button class="btn-opt" value="B" onClick="guardarRespuestaB()" id="optB">' +
+					this.preguntas[this.random].opB +
+					"</button>";
+			} else if (randomRes == 2) {
+				document.getElementById("opt-ctn").innerHTML +=
+					'<button class="btn-opt" value="C" onClick="guardarRespuestaC()" id="optC">' +
+					this.preguntas[this.random].opC +
+					"</button>";
 			}
 		}
 
@@ -137,11 +159,11 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+						imageUrl: "img/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("../../img/img_juegos/fondo.gif")
+									url("../../img/img_juegos/loop.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -150,59 +172,50 @@
 							window.location.href = '#';
 						}
 					});
-					correcto.play(); //asignando sonido al juego completado
-				}
-			}, 1000);
-		}
 
-		//Verificar si ambas son iguales
-		function verificar() {
-			for (let i = 0; i < cantidadTarjetas; i++) {
-				let trasera = document.getElementById("trasera" + i);
-				if (trasera.style.background != "rgba(149, 255, 0, 0.45)") {
-					return false;
+
 				}
+				ponerRespuesta();
+				this.resPas.push(randomRes); //Se agrega el random al arreglo para evitar repetir la respuesta
 			}
-			return true;
+			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 		}
 	</script>
 
 	<script>
-		    //Se esta llamando los sonidos de la carpeta "sonidos"
-	var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
-		var segundos = 10;//tiempo original 300s
+		var segundos = 300;//tiempo original 300s
 		let puntos = 0;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
-			document.getElementById("tiempo").innerHTML =
-                    segundos + " segundos";
-                if (segundos <= 60) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			noRepeat++;
+			if (noRepeat < 2) {
+				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
+				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
+				ponerPregunta(); //Muestra la pregunta
+			}
+			document.getElementById("tiempo").innerHTML = segundos + " segundos";
+			if (segundos > 15) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+            }
+			if (segundos <= 15) {
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            } 
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
 			if (segundos == 0) {
 				Swal.fire({
-					title: 'Oops...',
-					text: '¡Verifica tu respuesta!',
+					title: "Oops... Te has quedado sin tiempo",
+					text: "¡Intentalo de nuevo!",
 					imageUrl: "../../img/img_juegos/loop.gif",
-					imageHeight: 300,
+					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.href = '#';
+						window.location.reload();
 					}
 				});
 				incorrecto.play(); //asignando sonido al juego no completado
@@ -212,14 +225,116 @@
 			}
 		}
 
-		
+		//Función para verificar la respuesta correcta
+		function evaluarRespuesta() {
+			if (this.seleccion == this.preguntas[random].correcta) {
+				this.puntos = this.puntos + 1;
+				this.contador = this.contador + 1;
 
+				if (this.puntos == 5) {
+					//Cuando haya acertado las 10 preguntas
+					alertExcelent();
+				} else {
+					this.random = getRandomInt(5);
+					let found = prePas.find((element) => element == this.random);
+					while (found == this.random) {
+						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
+						this.random = getRandomInt(5);
+						found = prePas.find((element) => element == this.random);
+					}
+					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
+					this.resPas = [];
+					ponerPregunta(); //Muestra la pregunta
+					this.errores = 0; //Inicializa errores
+					this.segundos = this.preguntas[random].tiempo; //fijando nuevo tiempo por pregunta
+					console.log("Correcto");
+					alertGood();
+				}
+			} else {
+				console.log("Incorrecto");
+				this.errores = this.errores + 1;
+				if (this.errores > 1) {
+					Swal.fire({
+						title: "Oops... Has perdido el juego",
+						text: "¡Inténtalo de nuevo!",
+						imageUrl: "../../img/img_juegos/loop.gif",
+						imageHeight: 350,
+					}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.reload();
+						}
+					});
+				} else {
+					alertBad();
+				}
+			}
+		}
 
+		//Funciones para guardar la respuesta elegida
+		function guardarRespuestaA() {
+			let res = document.getElementById("optA").value;
+			seleccion = res;
+			evaluarRespuesta();
+		}
+
+		function guardarRespuestaB() {
+			let res = document.getElementById("optB").value;
+			seleccion = res;
+			evaluarRespuesta();
+		}
+
+		function guardarRespuestaC() {
+			let res = document.getElementById("optC").value;
+			seleccion = res;
+			evaluarRespuesta();
+		}
+
+		//Alerta muestra que el juego fue completado
+		function alertExcelent() {
+			Swal.fire({
+				title: "Excelente",
+				text: "¡Buen trabajo!",
+				imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+				imageHeight: 350,
+				backdrop: `
+						rgba(0,143,255,0.6)
+						url("../../img/img_juegos/fondo.gif")`,
+				confirmButtonColor: "#a14cd9",
+				confirmButtonText: "¡Genial!",
+			}).then((result) => {
+				if (result.isConfirmed) {
+					window.location.reload();
+				}
+			});
+		}
+
+		//Alerta, muestra que la respuesta fue correcta
+		function alertGood() {
+			Swal.fire({
+				position: "center",
+				icon: "success",
+				title: "¡Respuesta Correcta!",
+				//background: '#fff url(/img/fondo.gif)',
+				showConfirmButton: false,
+				timer: 1500,
+			});
+		}
+
+		//Alerta, muestra que la respuesta fue incorrecta
+		function alertBad() {
+			Swal.fire({
+				position: "center",
+				icon: "error",
+				title: "Incorrecto, te queda una oportunidad",
+				showConfirmButton: false,
+				timer: 1800,
+			});
+		}
 	</script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-		crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+
+
+

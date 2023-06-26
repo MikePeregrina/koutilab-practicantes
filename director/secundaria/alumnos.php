@@ -16,65 +16,244 @@ JOIN escuelas e
 ON a.id_escuela = e.id_escuela
 WHERE a.id_director = $id_user"));
 
+/* PARA LOS DATOS DE LA GRÁFICA */
+if (isset($_POST['submitFecha'])) {
+  //echo "La fecha de inicio fue: " . $_POST['fechaInicio'];
+  if (isset($_POST['fechaFin'])) {
+    //echo "La fecha de Fin fue: " . $_POST['fechaFin'];
+    //echo "El id de usuario es :" . $_POST['id_user'];
+    $fechaInicio = $_POST['fechaInicio'];
+    $fechaFin = $_POST['fechaFin'];
+
+    $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from alumnos_secundaria as pp INNER JOIN directores_secundaria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND fecha_registro BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+  }
+} else {
+
+  // Consulta para obtener los datos de ganancias
+  $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from alumnos_secundaria as pp INNER JOIN directores_secundaria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
+}
+
+
+// Ejecutar la consulta
+$resultado = $conexion->query($consulta);
+
+// Crear un arreglo para almacenar los datos
+$datos = array();
+
+// Recorrer los resultados y almacenarlos en el arreglo
+while ($fila = $resultado->fetch_assoc()) {
+  $datos[] = $fila;
+}
+
+// Cerrar la conexión a la base de datos
+$conexion->close();
+
+// Crear un arreglo para almacenar las ganancias por mes
+$gananciasPorMes = array();
+
+// Recorrer los datos y agrupar las ganancias por mes
+foreach ($datos as $dato) {
+  $fecha = strtotime($dato['mes']);
+  $mes = date('Y-m', $fecha);
+  $monto = floatval($dato['total']);
+
+  if (isset($gananciasPorMes[$mes])) {
+    $gananciasPorMes[$mes] += $monto;
+  } else {
+    $gananciasPorMes[$mes] = $monto;
+  }
+}
+
+// Crear un arreglo para almacenar los datos de la gráfica
+$datosGrafica = array();
+
+// Recorrer las ganancias por mes y generar los datos para la gráfica
+foreach ($gananciasPorMes as $mes => $ganancia) {
+  // Obtener el nombre del mes y año a partir del formato Y-m
+  $nombreMes = date('F Y', strtotime($mes));
+  $datosGrafica[] = array(
+    'label' => $nombreMes,
+    'data' => $ganancia
+  );
+}
+
+// Convertir los datos a formato JSON
+$datosJSON = json_encode($datosGrafica);
+//echo "Datos recuperados de la bd" . $datosJSON;
+
+?>
+<?php
+function actualizarGrafica()
+{
+  $id_user = $_POST['id_user'];
+  $fechaInicio = $_POST['fechaInicio'];
+  $fechaFin = $_POST['fechaFin'];
+
+  /* PARA LOS DATOS DE LA GRÁFICA */
+  include('../../acciones/conexion.php');
+
+  // Verificar si hay errores en la conexión
+  if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+  }
+
+  // Consulta para obtener los datos de ganancias
+  $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from alumnos_secundaria as pp INNER JOIN directores_secundaria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND fecha_registro BETWEEN '.$fechaInicio.' and '.$fechaFin.' GROUP BY(mes) ORDER BY (mes)DESC";
+  // Ejecutar la consulta
+  $resultado = $conexion->query($consulta);
+
+  // Crear un arreglo para almacenar los datos
+  $datos = array();
+
+  // Recorrer los resultados y almacenarlos en el arreglo
+  while ($fila = $resultado->fetch_assoc()) {
+    $datos[] = $fila;
+  }
+
+  // Cerrar la conexión a la base de datos
+  $conexion->close();
+
+  // Crear un arreglo para almacenar las ganancias por mes
+  $gananciasPorMes = array();
+
+  // Recorrer los datos y agrupar las ganancias por mes
+  foreach ($datos as $dato) {
+    $fecha = strtotime($dato['mes']);
+    $mes = date('Y-m', $fecha);
+    $monto = floatval($dato['total']);
+
+    if (isset($gananciasPorMes[$mes])) {
+      $gananciasPorMes[$mes] += $monto;
+    } else {
+      $gananciasPorMes[$mes] = $monto;
+    }
+  }
+
+  // Crear un arreglo para almacenar los datos de la gráfica
+  $datosGrafica = array();
+
+  // Recorrer las ganancias por mes y generar los datos para la gráfica
+  foreach ($gananciasPorMes as $mes => $ganancia) {
+    // Obtener el nombre del mes y año a partir del formato Y-m
+    $nombreMes = date('F Y', strtotime($mes));
+    $datosGrafica[] = array(
+      'label' => $nombreMes,
+      'data' => $ganancia
+    );
+  }
+
+  // Convertir los datos a formato JSON
+  $datosJSON = json_encode($datosGrafica);
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/nav-barra.css">
-  <link rel="stylesheet" href="css/alumnos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/alumnos.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Document</title>
 </head>
+
 <body>
-  
-    <!-- Header nav -->
-    <?php include 'header-nav.php'; ?>
+
+  <!-- Header nav -->
+  <?php include 'header-nav.php'; ?>
 
   <div class="containers">
-    <h1>ALUMNOS</h1>  
+    <h1>ALUMNOS</h1>
   </div>
 
   <div class="studens-add-bar">
     <div class="left-student">
-        <i class="fas fa-users"></i><h2>Alumno(s)</h2>
+      <i class="fas fa-users"></i>
+      <h2>Alumno(s)</h2>
     </div>
   </div>
 
- <section>
+  <section>
 
- <div id="chart"></div>
+    <div id="graficaContainer">
+      <canvas id="grafica"></canvas>
+    </div>
+    <div align="center">
+      <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <h4>Filtro </h4><br>
+        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+        <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+        <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+        <br><br>
+        <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px">
+      </form>
+    </div>
 
-    
+
   </section>
 
   <script>
-    const data = [30, 50, 70, 40, 90];
+    document.addEventListener('DOMContentLoaded', function() {
+      // Código de inicialización de la gráfica
+      console.log(<?php echo $datosJSON; ?>);
+      // Obtener el elemento canvas
+      var canvas = document.getElementById('grafica');
 
-    function createChart() {
-        const chart = document.getElementById("chart");
-        const labelsContainer = document.createElement("div");
-        labelsContainer.classList.add("chart-labels");
-        chart.appendChild(labelsContainer);
-
-        data.forEach((value, index) => {
-          const bar = document.createElement("div");
-          bar.classList.add("bar");
-          bar.style.height = `${value}px`;
-
-          const label = document.createElement("span");
-          label.textContent = value;
-
-          chart.appendChild(bar);
-          labelsContainer.appendChild(label);
+      // Obtener los datos JSON y procesarlos
+      var datosJSON = JSON.parse('<?php echo $datosJSON; ?>');
+      var labels = datosJSON.map(function(dato) {
+        return dato.label;
       });
-    }
+      var datos = datosJSON.map(function(dato) {
+        return dato.data;
+      });
 
-    createChart();
-
+      // Crear la instancia de la gráfica
+      var grafica = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Conexiones',
+            data: datos,
+            //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+            //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+            //borderWidth: 1, // Cambia el ancho del borde
+            backgroundColor: [
+              'rgba(255,99,132,0.2)',
+              'rgba(54,162,235,0.2)',
+              'rgba(255,206,86,0.2)',
+              'rgba(75,192,192,0.2)',
+              'rgba(255,159,64,0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54,162,235,1)',
+              'rgba(255,206,86,1)',
+              'rgba(75,192,192,1)',
+              'rgba(255,159,64,1)'
+            ],
+            borderWidth: 1.5
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
   </script>
 </body>
+
 </html>

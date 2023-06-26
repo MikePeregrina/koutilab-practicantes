@@ -1,90 +1,62 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/cjib2-7.1.css">
-    <link rel="stylesheet" href="../../css/css-juegos/cjib2-7.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
-    <title>KOUTILAB</title>
+	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
+
+	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/sopa-letras.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/wordfind.js"></script>
+	<script type="text/javascript" src="../../js/wordfindgame1.js"></script>
+	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body onload="iniciarTiempo(), iniciar() ">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h1 class="titulo"><b>WINDOWS</b></h1>
-    </div>
-
-    <!-- Timer -->
-    <div class="timer" id="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+<body onload="iniciarTiempo();">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>IOS</b></h2>
+	</div>
 
 
-    <!-- Contenedor principal -->
-    <div class="contenido">
+	<div class="timer" id="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p>
+		</b>
+	</div>
 
-        <!-- Boton para regresar -->
-        <a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
+	<div class="contenido">
 
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
-                tiempo o responde mal</b></h4>
-        <br>
+		<a href="#"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+			<i class="fas fa-reply"></i></button>
+		</a>
 
+		<!-- Titulo secundario -->
+		<h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
+		<br>
 
-        <!-- Tenoch Moises -->
-        <!--contenedor principal-->
-        <div class="contenedor">
-            <!--para mostrar la puntuacion-->
-            <div class="puntaje" id="puntaje"></div>
-            <!--es el encabezado donde se muestra la categoria, numero, pregunta e imagen-->
-            <div class="encabezado">
-                <!--es opcional la parte de mostrar categoria y esta implementado para funcionar sin ella tambien-->
-                <div class="categoria" id="categoria"></div>
-                <!--No se muestra en la pantalla pero permite que se generen las preguntas "NO MOVER" -->
-                <div class="numero" id="numero"></div>
-                <!--es donde se muestra la pregunta-->
-                <h3><b><div class="pregunta" id="pregunta">
-                </div></b></h3>
-                <!--muestra una imagen ilustrativa para dar pista de la respuesta pero igual es implementado para  funcionar sin la imagen-->
-                <img src="#" class="imagen" id="imagen">
-            </div>
-            <!--Funcionan con un "onclick" y solo tiene una respuesta correcta-->
+		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+		<div class="words">
+			<h6><b>Palabras a buscar:</b></h6>
+			<div id='Palabras' style="font-size: 120%;"></div>
+		</div>
 
-            <div class="btn" id="btn1" onclick="oprimir_btn(0)"></div>
-            <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
-            <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
-            <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
-            <!--script donde se le da funcionalidad al juego-->
-            <script src="../../js/cjib2-7.js"></script>
-        
-        </div>
-        <!-- boton de verificar respuestas-->
-        <!-- NOTA: SE MANDO A LLAMAR LA FUNCION "marcador()" DONDE SE LLEVA LA PUNTUACION
-            EN ESA FUNCION SE MANDA A LLAMAR LA FUNCION ORIGINAL "alertExcelent()" -->
-        <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
-    </div>
-    <!-- Tenoch Moises -->
+		<div class="linea"></div>
+
+		<!-- Sección donde se agrega la sopa de letras -->
+		<div class="soup">
+			<div id='juego' style="margin: 0 0 0 40px;"></div>
+		</div>
+
+	</div>
 
     <script>
 
-        		    //Se esta llamando los sonidos de la carpeta "sonidos"
-	var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-        
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
@@ -124,7 +96,7 @@
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                imageUrl: "../../../capsulas/img/img_juegos/Thumbs-Up copy.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
@@ -143,11 +115,11 @@
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
 
-        let puntos = 0;
+		let puntos = 0;
 
-        function iniciarTiempo() {
-            document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            if (segundos <= 60) {
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos <= 60) {
                     var div = document.getElementById("timer");
                     div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
@@ -171,7 +143,6 @@
                         // window.location.reload();
                     }
                 });
-                incorrecto.play(); //asignando sonido al jeugo no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -195,7 +166,6 @@
                     window.location.reload();
                 }
             });
-            correcto.play(); //asignando sonido al juego completado
         }
     </script>
 

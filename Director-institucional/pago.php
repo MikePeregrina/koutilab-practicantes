@@ -5,8 +5,8 @@
 //define('ProPayPal', 1); // El 1 simboliza entorno de producción
 
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_director'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_director'])) {
     header('location: ../acciones/cerrarsesion.php');
 }
 include "../acciones/conexion.php";
@@ -15,21 +15,29 @@ define('ProPayPal', 0);
 if (ProPayPal) {
     define("PayPalClientId", "*********************");
     define("PayPalSecret", "*********************");
-    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/primaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/Koutilab-practicantes/Director-institucional/pasarela/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
     define("PayPalSecret", "EAOYI052iYSGGT2592LeeXNvDbCq9tArRGqgWRVCAxQwf55u-wHx3VVxePzGD2j-9F29mEcbXL12mPFR");
-    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/primaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/Koutilab-practicantes/Director-institucional/pasarela/");
     define("PayPalENV", "sandbox");
 }
-$productName = "Cápsula de prueba";
+$productName = "Paquete de prueba";
 $currency = "USD";
 $productPrice = 2;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = 1;
 $id_capsula = 1;
+
+$id=trim($_POST['id']);
+$cupo=trim($_POST['cupo']);
+$clave= trim($_POST['acceso']);
+$nombrePaquete=$_POST['nombrePaquete'];
+$image=trim($_POST['image']);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,7 +104,7 @@ $id_capsula = 1;
                                 onAuthorize: function(data, actions) {
                                     return actions.payment.execute()
                                         .then(function() {
-                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&id_alumno=<?php echo $id_user; ?>" + "&id_capsula=<?php echo $id_capsula; ?>" + "&id_curso=<?php echo $id_curso; ?>";
+                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>"  + "&id_director=<?php echo $id; ?> " + "&cupo=<?php echo $cupo; ?> "+ "&image=<?php echo $image; ?>" + "&nombrePaquete=<?php echo $nombrePaquete; ?>"+ "&clave=<?php echo $clave; ?>";
                                         });
                                 },
                                 style: {

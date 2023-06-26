@@ -1,61 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/cjib2-4.css" /><!--Linkeo de la hoja de estilos-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Maze</title>
+	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
-	<title>KOUTILAB</title>
 </head>
-
-<body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
+<body>
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>ANDROID</b></h2>
+		<h2 class="titulo"><b>LABERINTO</b></h2>
 	</div>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo" style="margin: 0 0 0 0"></p>
+	<div class="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
 	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
+		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+			<i class="fas fa-reply"></i></button>
 		</a>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
-		<!--Contenedor de las preguntas y respuestas-->
-		<div class="main-ctn" id="main-ctn">
-			<div class="opt-ctn" id="opt-ctn"></div>
-		</div>
-		<!-- boton de verificar respuestas - No necesario para la sección-->
-		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
+		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+		<br>
+
+		<div id="page">
+
+			<div id="Message-Container">
+				<div id="message">
+					<p id="moves"></p>
+				</div>
+			</div>
+	
+			<br>
+			<div id="menu" style="margin-top: -500px; position: absolute;">
+				<div class="custom-select">
+					<select id="diffSelect">
+						<option value="10">Easy</option>
+						<option value="15">Medium</option>
+						<option value="25">Hard</option>
+						<option value="38">Extreme</option>                                      
+					</select>
+				</div>
+				<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+			</div>
+	
+			<div class="maze-contenedor">
+				<div id="view">
+					<div id="mazeContainer">
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+					</div>
+				</div>
+			</div>
+	
+			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
+	
+		  </div>
 	</div>
 
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
-		    //Se esta llamando los sonidos de la carpeta "sonidos"
-	var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
 		//Arreglo de preguntas
 		var preguntas = [
 			{
@@ -145,139 +156,442 @@
 					this.preguntas[this.random].opC +
 					"</button>";
 			}
-		}
+		});
+	</script>
+	<script>
+		var segundos = 240;
 
-		function ponerPregunta() {
-			//Actualiza las preguntas
-			document.getElementById("main-ctn").innerHTML =
-				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
-				this.contador +
-				"/5</p>" +
-				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
-				"<p>" +
-				this.preguntas[this.random].pregunta +
-				"</p>" +
-				"</div></div>" +
-				'<div class="opt-ctn" id="opt-ctn"></div>';
+		let puntos = 0;
 
-			this.randomRes = getRandomInt(3); //Genera el index de respuesta random para cambiar el orden de las respuestas
-			this.resPas.push(randomRes); //agrega el primer index al arreglo
-			ponerRespuesta(); //muestra la respuesta
-
-			while (this.resPas.length < 3) { //para desordenar las 2 respuestas restantes
-				this.randomRes = getRandomInt(3);
-				let found2 = resPas.find((element) => element == this.randomRes);
-				while (found2 == this.randomRes) {
-					//Si el random corresponde a una respuesta ya mostrada, se genera un nuevo random
-					this.randomRes = getRandomInt(3);
-					found2 = resPas.find((element) => element == this.randomRes);
-				}
-				ponerRespuesta();
-				this.resPas.push(randomRes); //Se agrega el random al arreglo para evitar repetir la respuesta
-			}
-			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-		}
-		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
 		function iniciarTiempo() {
-			noRepeat++;
-			if (noRepeat < 2) {
-				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
-				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
-				ponerPregunta(); //Muestra la pregunta
-			}
-			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos > 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-            }
-			if (segundos <= 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            } 
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
-					title: "Oops... Te has quedado sin tiempo",
-					text: "¡Intentalo de nuevo!",
-					imageUrl: "../../img/img_juegos/loop.gif",
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
+					imageUrl: "img/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //asignando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
-
-		//Función para verificar la respuesta correcta
-		function evaluarRespuesta() {
-			if (this.seleccion == this.preguntas[random].correcta) {
-				this.puntos = this.puntos + 1;
-				this.contador = this.contador + 1;
-
-				if (this.puntos == 5) {
-					//Cuando haya acertado las 10 preguntas
-					alertExcelent();
-				} else {
-					this.random = getRandomInt(5);
-					let found = prePas.find((element) => element == this.random);
-					while (found == this.random) {
-						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
-						this.random = getRandomInt(5);
-						found = prePas.find((element) => element == this.random);
-					}
-					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
-					this.resPas = [];
-					ponerPregunta(); //Muestra la pregunta
-					this.errores = 0; //Inicializa errores
-					this.segundos = this.preguntas[random].tiempo; //fijando nuevo tiempo por pregunta
-					console.log("Correcto");
-					alertGood();
-				}
-			} else {
-				console.log("Incorrecto");
-				this.errores = this.errores + 1;
-				if (this.errores > 1) {
-					Swal.fire({
-						title: "Oops... Has perdido el juego",
-						text: "¡Inténtalo de nuevo!",
-						imageUrl: "../../img/img_juegos/loop.gif",
-						imageHeight: 350,
-					}).then((result) => {
-						if (result.isConfirmed) {
-							window.location.reload();
-						}
-					});
-				} else {
-					alertBad();
-				}
+	</script>
+  	<script>
+		function rand(max) {
+		return Math.floor(Math.random() * max);
+	}
+	
+	function shuffle(a) {
+		for (let i = a.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
+	}
+	
+	function changeBrightness(factor, sprite) {
+		var virtCanvas = document.createElement("canvas");
+		virtCanvas.width = 500;
+		virtCanvas.height = 500;
+		var context = virtCanvas.getContext("2d");
+		context.drawImage(sprite, 0, 0, 500, 500);
+	
+		var imgData = context.getImageData(0, 0, 500, 500);
+	
+		for (let i = 0; i < imgData.data.length; i += 4) {
+		imgData.data[i] = imgData.data[i] * factor;
+		imgData.data[i + 1] = imgData.data[i + 1] * factor;
+		imgData.data[i + 2] = imgData.data[i + 2] * factor;
+		}
+		context.putImageData(imgData, 0, 0);
+	
+		var spriteOutput = new Image();
+		spriteOutput.src = virtCanvas.toDataURL();
+		virtCanvas.remove();
+		return spriteOutput;
+	}
+	
+	function displayVictoryMess(moves) {
+		document.getElementById("moves").innerHTML = moves;
+		toggleVisablity("Message-Container");  
+		Swal.fire({
+			title: '¡Muy bien!',
+			text: 'Ahora pasemos al siguiente nivel',
+			imageUrl: "img/Thumbs-Up.gif",
+			imageHeight: 350,
+			backdrop: `
+			rgba(0,143,255,0.6)
+			url("img/fondo.gif")`,
+			confirmButtonColor: '#a14cd9',
+			confirmButtonText: '¡Vamos!',
+			}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = 'level-2.html';
+			}
+		})
+	}
+	
+	function toggleVisablity(id) {
+		if (document.getElementById(id).style.visibility == "visible") {
+		document.getElementById(id).style.visibility = "hidden";
+		} else {
+		document.getElementById(id).style.visibility = "visible";
+		}
+	}
+	
+	function Maze(Width, Height) {
+		var mazeMap;
+		var width = Width;
+		var height = Height;
+		var startCoord, endCoord;
+		var dirs = ["n", "s", "e", "w"];
+		var modDir = {
+		n: {
+			y: -1,
+			x: 0,
+			o: "s"
+		},
+		s: {
+			y: 1,
+			x: 0,
+			o: "n"
+		},
+		e: {
+			y: 0,
+			x: 1,
+			o: "w"
+		},
+		w: {
+			y: 0,
+			x: -1,
+			o: "e"
+		}
+		};
+	
+		this.map = function() {
+		return mazeMap;
+		};
+		this.startCoord = function() {
+		return startCoord;
+		};
+		this.endCoord = function() {
+		return endCoord;
+		};
+	
+		function genMap() {
+		mazeMap = new Array(height);
+		for (y = 0; y < height; y++) {
+			mazeMap[y] = new Array(width);
+			for (x = 0; x < width; ++x) {
+			mazeMap[y][x] = {
+				n: false,
+				s: false,
+				e: false,
+				w: false,
+				visited: false,
+				priorPos: null
+			};
 			}
 		}
-
-		//Funciones para guardar la respuesta elegida
-		function guardarRespuestaA() {
-			let res = document.getElementById("optA").value;
-			seleccion = res;
-			evaluarRespuesta();
 		}
-
-		function guardarRespuestaB() {
-			let res = document.getElementById("optB").value;
-			seleccion = res;
-			evaluarRespuesta();
+	
+		function defineMaze() {
+		var isComp = false;
+		var move = false;
+		var cellsVisited = 1;
+		var numLoops = 0;
+		var maxLoops = 0;
+		var pos = {
+			x: 0,
+			y: 0
+		};
+		var numCells = width * height;
+		while (!isComp) {
+			move = false;
+			mazeMap[pos.x][pos.y].visited = true;
+	
+			if (numLoops >= maxLoops) {
+			shuffle(dirs);
+			maxLoops = Math.round(rand(height / 8));
+			numLoops = 0;
+			}
+			numLoops++;
+			for (index = 0; index < dirs.length; index++) {
+			var direction = dirs[index];
+			var nx = pos.x + modDir[direction].x;
+			var ny = pos.y + modDir[direction].y;
+	
+			if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+				//Check if the tile is already visited
+				if (!mazeMap[nx][ny].visited) {
+				//Carve through walls from this tile to next
+				mazeMap[pos.x][pos.y][direction] = true;
+				mazeMap[nx][ny][modDir[direction].o] = true;
+	
+				//Set Currentcell as next cells Prior visited
+				mazeMap[nx][ny].priorPos = pos;
+				//Update Cell position to newly visited location
+				pos = {
+					x: nx,
+					y: ny
+				};
+				cellsVisited++;
+				//Recursively call this method on the next tile
+				move = true;
+				break;
+				}
+			}
+			}
+	
+			if (!move) {
+			//  If it failed to find a direction,
+			//  move the current position back to the prior cell and Recall the method.
+			pos = mazeMap[pos.x][pos.y].priorPos;
+			}
+			if (numCells == cellsVisited) {
+			isComp = true;
+			}
 		}
-
-		function guardarRespuestaC() {
-			let res = document.getElementById("optC").value;
-			seleccion = res;
-			evaluarRespuesta();
+		}
+	
+		function defineStartEnd() {
+		switch (rand(4)) {
+			case 0:
+			startCoord = {
+				x: 0,
+				y: 0
+			};
+			endCoord = {
+				x: height - 1,
+				y: width - 1
+			};
+			break;
+			case 1:
+			startCoord = {
+				x: 0,
+				y: width - 1
+			};
+			endCoord = {
+				x: height - 1,
+				y: 0
+			};
+			break;
+			case 2:
+			startCoord = {
+				x: height - 1,
+				y: 0
+			};
+			endCoord = {
+				x: 0,
+				y: width - 1
+			};
+			break;
+			case 3:
+			startCoord = {
+				x: height - 1,
+				y: width - 1
+			};
+			endCoord = {
+				x: 0,
+				y: 0
+			};
+			break;
+		}
+		}
+	
+		genMap();
+		defineStartEnd();
+		defineMaze();
+	}
+	
+	function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
+		var map = Maze.map();
+		var cellSize = cellsize;
+		var drawEndMethod;
+		ctx.lineWidth = cellSize / 40;
+	
+		this.redrawMaze = function(size) {
+		cellSize = size;
+		ctx.lineWidth = cellSize / 50;
+		drawMap();
+		drawEndMethod();
+		};
+	
+		function drawCell(xCord, yCord, cell) {
+		var x = xCord * cellSize;
+		var y = yCord * cellSize;
+	
+		if (cell.n == false) {
+			ctx.beginPath();
+			ctx.moveTo(x, y);
+			ctx.lineTo(x + cellSize, y);
+			ctx.stroke();
+		}
+		if (cell.s === false) {
+			ctx.beginPath();
+			ctx.moveTo(x, y + cellSize);
+			ctx.lineTo(x + cellSize, y + cellSize);
+			ctx.stroke();
+		}
+		if (cell.e === false) {
+			ctx.beginPath();
+			ctx.moveTo(x + cellSize, y);
+			ctx.lineTo(x + cellSize, y + cellSize);
+			ctx.stroke();
+		}
+		if (cell.w === false) {
+			ctx.beginPath();
+			ctx.moveTo(x, y);
+			ctx.lineTo(x, y + cellSize);
+			ctx.stroke();
+		}
+		}
+	
+		function drawMap() {
+		for (x = 0; x < map.length; x++) {
+			for (y = 0; y < map[x].length; y++) {
+			drawCell(x, y, map[x][y]);
+			}
+		}
+		}
+	
+		function drawEndFlag() {
+		var coord = Maze.endCoord();
+		var gridSize = 4;
+		var fraction = cellSize / gridSize - 2;
+		var colorSwap = true;
+		for (let y = 0; y < gridSize; y++) {
+			if (gridSize % 2 == 0) {
+			colorSwap = !colorSwap;
+			}
+			for (let x = 0; x < gridSize; x++) {
+			ctx.beginPath();
+			ctx.rect(
+				coord.x * cellSize + x * fraction + 4.5,
+				coord.y * cellSize + y * fraction + 4.5,
+				fraction,
+				fraction
+			);
+			if (colorSwap) {
+				ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+			} else {
+				ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+			}
+			ctx.fill();
+			colorSwap = !colorSwap;
+			}
+		}
+		}
+	
+		function drawEndSprite() {
+		var offsetLeft = cellSize / 50;
+		var offsetRight = cellSize / 25;
+		var coord = Maze.endCoord();
+		ctx.drawImage(
+			endSprite,
+			2,
+			2,
+			endSprite.width,
+			endSprite.height,
+			coord.x * cellSize + offsetLeft,
+			coord.y * cellSize + offsetLeft,
+			cellSize - offsetRight,
+			cellSize - offsetRight
+		);
+		}
+	
+		function clear() {
+		var canvasSize = cellSize * map.length;
+		ctx.clearRect(0, 0, canvasSize, canvasSize);
+		}
+	
+		if (endSprite != null) {
+		drawEndMethod = drawEndSprite;
+		} else {
+		drawEndMethod = drawEndFlag;
+		}
+		clear();
+		drawMap();
+		drawEndMethod();
+	}
+	
+	function Player(maze, c, _cellsize, onComplete, sprite = null) {
+		var ctx = c.getContext("2d");
+		var drawSprite;
+		var moves = 0;
+		drawSprite = drawSpriteCircle;
+		if (sprite != null) {
+		drawSprite = drawSpriteImg;
+		}
+		var player = this;
+		var map = maze.map();
+		var cellCoords = {
+		x: maze.startCoord().x,
+		y: maze.startCoord().y
+		};
+		var cellSize = _cellsize;
+		var halfCellSize = cellSize / 2;
+	
+		this.redrawPlayer = function(_cellsize) {
+		cellSize = _cellsize;
+		drawSpriteImg(cellCoords);
+		};
+	
+		function drawSpriteCircle(coord) {
+		ctx.beginPath();
+		ctx.fillStyle = "yellow";
+		ctx.arc(
+			(coord.x + 1) * cellSize - halfCellSize,
+			(coord.y + 1) * cellSize - halfCellSize,
+			halfCellSize - 2,
+			0,
+			2 * Math.PI
+		);
+		ctx.fill();
+		if (coord.x === maze.endCoord().x && coord.y === maze.endCoord().y) {
+			onComplete(moves);
+			player.unbindKeyDown();
+		}
+		}
+	
+		function drawSpriteImg(coord) {
+		var offsetLeft = cellSize / 50;
+		var offsetRight = cellSize / 25;
+		ctx.drawImage(
+			sprite,
+			0,
+			0,
+			sprite.width,
+			sprite.height,
+			coord.x * cellSize + offsetLeft,
+			coord.y * cellSize + offsetLeft,
+			cellSize - offsetRight,
+			cellSize - offsetRight
+		);
+		if (coord.x === maze.endCoord().x && coord.y === maze.endCoord().y) {
+			onComplete(moves);
+			player.unbindKeyDown();
+		}
+		}
+	
+		function removeSprite(coord) {
+		var offsetLeft = cellSize / 50;
+		var offsetRight = cellSize / 25;
+		ctx.clearRect(
+			coord.x * cellSize + offsetLeft,
+			coord.y * cellSize + offsetLeft,
+			cellSize - offsetRight,
+			cellSize - offsetRight
+		);
 		}
 
 		//Alerta muestra que el juego fue completado
@@ -297,36 +611,149 @@
 					window.location.reload();
 				}
 			});
-			correcto.play(); //asignando sonido al juego completado
 		}
-
-		//Alerta, muestra que la respuesta fue correcta
-		function alertGood() {
-			Swal.fire({
-				position: "center",
-				icon: "success",
-				title: "¡Respuesta Correcta!",
-				//background: '#fff url(/img/fondo.gif)',
-				showConfirmButton: false,
-				timer: 1500,
-			});
+	
+		this.bindKeyDown = function() {
+		window.addEventListener("keydown", check, false);
+	
+		$("#view").swipe({
+			swipe: function(
+			event,
+			direction,
+			distance,
+			duration,
+			fingerCount,
+			fingerData
+			) {
+			console.log(direction);
+			switch (direction) {
+				case "up":
+				check({
+					keyCode: 38
+				});
+				break;
+				case "down":
+				check({
+					keyCode: 40
+				});
+				break;
+				case "left":
+				check({
+					keyCode: 37
+				});
+				break;
+				case "right":
+				check({
+					keyCode: 39
+				});
+				break;
+			}
+			},
+			threshold: 0
+		});
+		};
+	
+		this.unbindKeyDown = function() {
+		window.removeEventListener("keydown", check, false);
+		$("#view").swipe("destroy");
+		};
+	
+		drawSprite(maze.startCoord());
+	
+		this.bindKeyDown();
+	}
+	
+	var mazeCanvas = document.getElementById("mazeCanvas");
+	var ctx = mazeCanvas.getContext("2d");
+	var sprite;
+	var finishSprite;
+	var maze, draw, player;
+	var cellSize;
+	var difficulty;
+	// sprite.src = 'media/sprite.png';
+	
+	window.onload = function() {
+		let viewWidth = $("#view").width();
+		let viewHeight = $("#view").height();
+		if (viewHeight < viewWidth) {
+		ctx.canvas.width = viewHeight - viewHeight / 100;
+		ctx.canvas.height = viewHeight - viewHeight / 100;
+		} else {
+		ctx.canvas.width = viewWidth - viewWidth / 100;
+		ctx.canvas.height = viewWidth - viewWidth / 100;
 		}
-
-		//Alerta, muestra que la respuesta fue incorrecta
-		function alertBad() {
-			Swal.fire({
-				position: "center",
-				icon: "error",
-				title: "Incorrecto, te queda una oportunidad",
-				showConfirmButton: false,
-				timer: 1800,
-			});
+	
+		//Load and edit sprites
+		var completeOne = false;
+		var completeTwo = false;
+		var isComplete = () => {
+		if(completeOne === true && completeTwo === true)
+			{
+			console.log("Runs");
+			setTimeout(function(){
+				makeMaze();
+			}, 500);         
+			}
+		};
+		sprite = new Image();
+		sprite.src =
+		"../../img/img_juegos/mascota-1.png" +
+		"?" +
+		new Date().getTime();
+		sprite.setAttribute("crossOrigin", " ");
+		sprite.onload = function() {
+		sprite = changeBrightness(1.2, sprite);
+		completeOne = true;
+		console.log(completeOne);
+		isComplete();
+		};
+	
+		finishSprite = new Image();
+		finishSprite.src = "../../img/img_juegos/cohete.png"+
+		"?" +
+		new Date().getTime();
+		finishSprite.setAttribute("crossOrigin", " ");
+		finishSprite.onload = function() {
+		finishSprite = changeBrightness(1.1, finishSprite);
+		completeTwo = true;
+		console.log(completeTwo);
+		isComplete();
+		};
+		
+	};
+	
+	window.onresize = function() {
+		let viewWidth = $("#view").width();
+		let viewHeight = $("#view").height();
+		if (viewHeight < viewWidth) {
+		ctx.canvas.width = viewHeight - viewHeight / 100;
+		ctx.canvas.height = viewHeight - viewHeight / 100;
+		} else {
+		ctx.canvas.width = viewWidth - viewWidth / 100;
+		ctx.canvas.height = viewWidth - viewWidth / 100;
 		}
-	</script>
+		cellSize = mazeCanvas.width / difficulty;
+		if (player != null) {
+		draw.redrawMaze(cellSize);
+		player.redrawPlayer(cellSize);
+		}
+	};
+	
+	function makeMaze() {
+		if (player != undefined) {
+		player.unbindKeyDown();
+		player = null;
+		}
+		var e = document.getElementById("diffSelect");
+		difficulty = e.options[e.selectedIndex].value;
+		cellSize = mazeCanvas.width / difficulty;
+		maze = new Maze(difficulty, difficulty);
+		draw = new DrawMaze(maze, ctx, cellSize, finishSprite);
+		player = new Player(maze, mazeCanvas, cellSize, displayVictoryMess, sprite);
+		if (document.getElementById("mazeContainer").style.opacity < "100") {
+		document.getElementById("mazeContainer").style.opacity = "100";
+		}
+	}
+  	</script>
 </body>
-
 </html>
-
-
-
-
