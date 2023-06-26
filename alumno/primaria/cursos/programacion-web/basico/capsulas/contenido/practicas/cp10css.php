@@ -5,17 +5,18 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsulapago4";
+
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-}else{
+} else {
     $htmlcode = "";
 }
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago4";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula2css.php");
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -196,7 +197,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_cp11.php?validar=' + 'incorrecto' + '&permiso=' + 11 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("cd").value;
+                        window.location.href = '../../acciones/insertar_cp11.php?validar=' + 'incorrecto' + '&permiso=' + 11 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("cd").value;
                     }
                 });
             }

@@ -5,27 +5,27 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula11";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['jscode'])) {
     $jscode = $_GET['jscode'];
-}else{
+} else {
     $jscode = "";
 }
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
@@ -253,7 +253,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd13.php?validar=' + 'incorrecto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("html-code").value + '&csscode='+ document.getElementById("css-code").value + '&jscode='+ document.getElementById("js-code").value;
+                        window.location.href = '../../acciones/insertar_pd13.php?validar=' + 'incorrecto' + '&permiso=' + 13 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("html-code").value + '&csscode=' + document.getElementById("css-code").value + '&jscode=' + document.getElementById("js-code").value;
 
                     }
                 });
