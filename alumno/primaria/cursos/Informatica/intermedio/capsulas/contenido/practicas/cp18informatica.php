@@ -6,21 +6,21 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$permiso = "capsula42";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula1css.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //VERIFICAR QUE PERMISO INTENTO SEA EL CORRECTO
-$permiso_intento = 24;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 43;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -58,7 +58,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <a href="../../../../../../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct8css.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
+            <a href="../../../../../../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct8css.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
             <div class="new-g" style="text-align: center;">Cápsula práctica 8 CSS</div><br>
             <div class="board">
                 <table width="100%">
@@ -135,7 +135,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp8.php?validar=' + 'correcto' + '&permiso=' + 8 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 43 + '&id_curso=' + 8 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -153,7 +153,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }).then((result) => {
 
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp8.php?validar=' + 'correcto' + '&permiso=' + 8 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 43 + '&id_curso=' + 8 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -169,7 +169,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
-                        window.location.href = '../../acciones/insertar_cp8.php?validar=' + 'correcto' + '&permiso=' + 8 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 43 + '&id_curso=' + 8 + '&practico=' + 10;
 
                     });
                 } else if (puntos == 10) {
@@ -186,7 +186,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp8.php?validar=' + 'correcto' + '&permiso=' + 8 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 43 + '&id_curso=' + 8 + '&practico=' + 10;
                         }
                     });
                 }
@@ -201,7 +201,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_cp8.php?validar=' + 'incorrecto' + '&permiso=' + 8 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'incorrecto' + '&permiso=' + 43 + '&id_curso=' + 8 + '&practico=' + 10;
 
                     }
                 });
