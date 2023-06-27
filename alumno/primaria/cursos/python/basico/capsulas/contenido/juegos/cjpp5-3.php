@@ -1,3 +1,11 @@
+<?php 
+$permiso = "capsulapago5";
+$sql = mysqli_query($conexion, "SELECT c., d. FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium5.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +30,7 @@
 	</div>
     
     <div class="contenido" style="height: 650px;">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -71,7 +79,7 @@
 			Swal.fire({
 				title: '¡Oh no!',
 				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
-				imageUrl: "img/loop.gif",
+				imageUrl: "../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
 				confirmButtonColor: '#85c42c',
@@ -80,7 +88,7 @@
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "IMG1/Return3.png",
+					imageUrl: "../../img/img-juegos/Return3.png",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -120,7 +128,7 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -212,16 +220,16 @@
 							Swal.fire({
 								title: '¡Excelente!',
 								text: 'Haz completado todos los niveles',
-								imageUrl: "img/Thumbs-Up.gif",
+								imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
-								url("img/fondo.gif")`,
+								url("../../img/img-juegos/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = '#';
+									window.location.href = '../../../../../../rutas/ruta-py-b.php';
 								}
 							})
 						}, "800");

@@ -1,3 +1,43 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula40";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 41;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
+} else {
+	$puntosGanados = 10;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,8 +68,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i>
 			</button>
 		</a>
@@ -50,11 +89,9 @@
 
 	<script>
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"¿Qué tipo de estructura podemos ocupar si queremos usar código de forma repetida?",
+				pregunta: "¿Qué tipo de estructura podemos ocupar si queremos usar código de forma repetida?",
 				opA: "Estructura iterativa",
 				opB: "Estructura condicional",
 				opC: "Estructura de datos",
@@ -63,8 +100,7 @@
 			},
 			{
 				num: 2,
-				pregunta:
-					"Los bucles son una forma de crear estructuras iterativas, ¿sabes cuántos tipos de bucles hay?",
+				pregunta: "Los bucles son una forma de crear estructuras iterativas, ¿sabes cuántos tipos de bucles hay?",
 				opA: "3",
 				opB: "2",
 				opC: "5",
@@ -73,8 +109,7 @@
 			},
 			{
 				num: 3,
-				pregunta:
-					"Se trata de tipo de bucle que queremos que se repita un número definido de veces, ya sea establecido por el programador o por el usuario",
+				pregunta: "Se trata de tipo de bucle que queremos que se repita un número definido de veces, ya sea establecido por el programador o por el usuario",
 				opA: "For",
 				opB: "While",
 				opC: "If",
@@ -83,8 +118,7 @@
 			},
 			{
 				num: 4,
-				pregunta:
-					"Se trata del tipo de bucle que se va a repetir siempre y cuando se cumpla una condición sin importar cuantas veces sea necesario repetirse",
+				pregunta: "Se trata del tipo de bucle que se va a repetir siempre y cuando se cumpla una condición sin importar cuantas veces sea necesario repetirse",
 				opA: "For",
 				opB: "While",
 				opC: "If",
@@ -93,8 +127,7 @@
 			},
 			{
 				num: 5,
-				pregunta:
-					"No es un bucle, pero nos ayuda a crear una mejor estructura y poder ayudarnos a crear mejores sistemas de condición",
+				pregunta: "No es un bucle, pero nos ayuda a crear una mejor estructura y poder ayudarnos a crear mejores sistemas de condición",
 				opA: "For",
 				opB: "While",
 				opC: "If",
@@ -116,7 +149,7 @@
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -179,14 +212,19 @@
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 5) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 5) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
@@ -232,6 +270,11 @@
 				console.log("Incorrecto");
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
@@ -269,6 +312,11 @@
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
@@ -281,7 +329,7 @@
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = '../../../../../../rutas/ruta-py-b.php';
 				}
 			});
 		}

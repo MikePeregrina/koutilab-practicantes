@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
         </a>
 
         <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
+        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas, pierde si se acaba el
                 tiempo o responde mal</b></h4>
         <br>
 
