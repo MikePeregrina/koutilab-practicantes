@@ -11,7 +11,7 @@
 },
 {
     "categoria": "web basico-css",
-    "pregunta": "¿Cuál de las siguientes respuestas es un arreglo",
+    "pregunta": "¿Cuál de las siguientes respuestas es un arreglo?",
     "respuesta": "numeros = [1, 4, 5, 7]",
     "incorrecta1": "palabra = 'Hola'",
     "incorrecta2": "numero = 1",
@@ -31,7 +31,7 @@
 },
 {
     "categoria": "web basico-css",
-    "pregunta": "¿Puedo eliminar espacios vacios de un arreglo como este? <br> nombres = ['Rafa', 'Jaime', '', 'karla', '']",
+    "pregunta": "¿Puedo eliminar espacios vacíos de un arreglo como este? <br> nombres = ['Rafa', 'Jaime', '', 'karla', '']",
     "respuesta": "¡Verdadero!",
     "incorrecta1": "¡Imposible!",
     "incorrecta2": "Claro que no",

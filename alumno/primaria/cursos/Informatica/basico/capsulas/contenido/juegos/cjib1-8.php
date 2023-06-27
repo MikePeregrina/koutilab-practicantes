@@ -75,7 +75,7 @@
 			{
 				num: 3,
 				pregunta:
-					"¿Cual de las siguentes es una ventajas del archivo electrónico?",
+					"¿Cuál de las siguientes es una ventajas del archivo electrónico?",
 				opA: "Graficos",
 				opB: "Gestión",
 				opC: "Mayor seguridad",
@@ -95,7 +95,7 @@
 			{
 				num: 5,
 				pregunta:
-					"Los archivos digitales para la gestion de informacion son...",
+					"Los archivos digitales para la gestión de información son...",
 				opA: "CSS",
 				opB: "PDF y Word",
 				opC: "Sonido y voz",

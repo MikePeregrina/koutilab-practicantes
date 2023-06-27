@@ -46,6 +46,11 @@ function iniciarTiempo() {
     if (segundos == 0) {
         //Borra el texto escrito
         escrito.value = "";
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 4; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlhttp.send(param);
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
@@ -73,6 +78,11 @@ function alertExcelent() {
     var text2 = textoejemplof.replace(/\s/g, "");
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 4; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
@@ -87,7 +97,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.reload();
+                window.location.href = '../../../../../../rutas/ruta-py-b.php';
             }
         });
     } else {

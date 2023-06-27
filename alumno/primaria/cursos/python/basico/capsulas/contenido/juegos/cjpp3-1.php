@@ -1,3 +1,11 @@
+<?php 
+$permiso = "capsulapago3";
+$sql = mysqli_query($conexion, "SELECT c., d. FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium3.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +30,7 @@
 	</div>
     
     <div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -55,7 +63,7 @@
 			Swal.fire({
 				title: '¡Oh no!',
 				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
-				imageUrl: "img/loop.gif",
+				imageUrl: "../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
 				confirmButtonColor: '#85c42c',
@@ -64,7 +72,7 @@
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "img/juego1.jpeg",
+					imageUrl: "../../img/img-juegos/juego1.jpeg",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -101,7 +109,7 @@ function iniciarTiempo() {
             Swal.fire({
                 title: "Oops...",
                 text: "Se acabó el tiempo",
-                imageUrl: "img/loop.gif",
+                imageUrl: "../../img/img-juegos/loop.gif",
                 imageHeight: 350,
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -196,11 +204,11 @@ function iniciarTiempo() {
 							Swal.fire({
 								title: '¡Muy bien!',
 								text: 'Ahora pasemos al siguiente nivel',
-								imageUrl: "img/Thumbs-Up.gif",
+								imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
-								url("img/fondo.gif")`,
+								url("../../img/img-juegos/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {

@@ -87,7 +87,7 @@
 				pregunta:
 					"El hecho de que convierta cualquier teléfono en prácticamente un ordenador de bolsillo lo hace ",
 				opA: "Gratis",
-				opB: "Comodo",
+				opB: "Cómodo",
 				opC: "Bonito",
 				correcta: "B",
 				tiempo: "30",
