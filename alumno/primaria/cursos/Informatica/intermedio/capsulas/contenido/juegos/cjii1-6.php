@@ -300,9 +300,14 @@
 
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
-
+        var segundos = 10;
         let puntos = 0;
+
+        //Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -318,6 +323,7 @@
                         // window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -341,6 +347,7 @@
                     window.location.href = "../../../../../../rutas/ruta-in-i.php";
                 }
             });
+            correcto.play(); //agregando sonido al juego completado
         }
     </script>
 

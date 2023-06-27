@@ -8,11 +8,11 @@ let puntos = 0;
 document.getElementById(
     "textoej"
 ).innerHTML =
-        `.main { <br><br>
-          width:500px; <br><br>
-          height:500px;<br> <br>
-          margin:0 auto;<br><br>
-          background-color:grey;}`;
+        `.main { 
+          width:500px; <br> 
+          height:500px; <br>
+          margin:0 auto; <br>
+          background-color:grey;} <br>`; 
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).
