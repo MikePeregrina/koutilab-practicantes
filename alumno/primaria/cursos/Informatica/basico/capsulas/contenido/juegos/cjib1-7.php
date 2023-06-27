@@ -57,7 +57,7 @@
             <!-- columna de lado derecho -->
             <div class="right-column">
                 <!-- Respuestas -->
-                <div class="word-box" id="audifonos" onclick="checkAnswer('audifonos')">Audifonos</div>
+                <div class="word-box" id="audifonos" onclick="checkAnswer('audifonos')">Audífonos</div>
                 <div class="word-box" id="mixto" onclick="checkAnswer('mixto')">Mixto</div>
                 <div class="word-box" id="teclado" onclick="checkAnswer('teclado')">Teclado</div>
                 <div class="word-box" id="audio" onclick="checkAnswer('audio')">Audio</div>
