@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../img/lgk.png" />
     <link rel="stylesheet" href="../css/phaser.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -72,6 +73,12 @@
 
         var count = 1000;
 
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
@@ -93,6 +100,7 @@
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 loseText.setText("Juego terminado");
                 player.setTint(0xff0000);
                 player.anims.play("turn");
@@ -422,6 +430,7 @@
                             window.location.href = '../../../../../../../../rutas/ruta-pw-i.php';
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 }
             });
         }
