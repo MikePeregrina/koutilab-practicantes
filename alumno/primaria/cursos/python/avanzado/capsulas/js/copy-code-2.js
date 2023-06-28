@@ -38,10 +38,15 @@ function iniciarTiempo() {
     if (segundos == 0) {
         //Borra el texto escrito
         escrito.value = "";
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 6; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send(param);
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
         }).then((result) => {
             if (result.isConfirmed) {
@@ -65,32 +70,37 @@ function alertExcelent() {
     var text2 = textoejemplof.replace(/\s/g, "");
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 6; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
-            imageUrl: "img/Thumbs-Up.gif",
+            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.reload();
+                window.location.href = '../../../../../../rutas/ruta-py-a.php';
             }
         });
     } else {
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });

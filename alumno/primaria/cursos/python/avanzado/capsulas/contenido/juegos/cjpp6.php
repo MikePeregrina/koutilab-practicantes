@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago6";
+$sql = mysqli_query($conexion, "SELECT c., d. FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium6.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <!-- 
@@ -67,7 +82,7 @@
 
     <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
     <div class="contenido">
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="
+        <a href="../../../../../../rutas/ruta-py-a.php"><button style="
                         float: left;
                         position: relative;
                         margin: 10px 0 0 10px;
@@ -516,11 +531,11 @@
                 Swal.fire({
                     title: "Oops...",
                     text: "¡Verifica tu respuesta!",
-                    imageUrl: "../../../../../../img/signo.gif",
+                    imageUrl: "../../img/img-juegos/",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "cj18.php";
+                        window.location.reload();
                     }
                 });
                 xmlhttp.open(
@@ -744,18 +759,17 @@
                     Swal.fire({
                         title: "¡Bien hecho!",
                         text: "¡Puntuación guardada con éxito!",
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                         imageHeight: 350,
                         backdrop: `
 					rgba(0,143,255,0.6)
-					url("../../../../../../img/fondo.gif")
+					url("../../img/img-juegos/fondo.gif")
 					`,
                         confirmButtonColor: "#a14cd9",
                         confirmButtonText: "Aceptar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href =
-                                "../../../../../../rutas/ruta-pw-b.php";
+                            window.location.href = '../../../../../../rutas/ruta-py-a.php';
                         }
                     });
                 };
