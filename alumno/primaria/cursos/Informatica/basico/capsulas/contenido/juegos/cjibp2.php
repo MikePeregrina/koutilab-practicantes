@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium2.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +46,7 @@
 
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <div class="contenido">
-        <a href="#">
+        <a href="../../../../../../rutas/ruta-in-b.php">
             <button class="btn-b" style="float: left; position: relative; margin: 10px 0 0 10px;" >
                 <i class="fas fa-reply"></i>
             </button>
@@ -194,11 +209,11 @@ if (segundos <= 10) {
         Swal.fire({
             title: 'Oops...',
             text: '¡Verifica tu respuesta!',
-            imageUrl: "../../../../../../img/signo.gif",
+            imageUrl: "../../img/img_juegos/loop.gif",
             imageHeight: 350,
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'cj3.php';
+                window.location.reload();
             }
         });
         incorrecto.play(); //agregando sonido del juego no completado
@@ -255,7 +270,7 @@ if (segundos <= 10) {
                             confirmButtonText: 'Aceptar',
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                                window.location.href = '../../../../../../rutas/ruta-in-b.php';
                             }
                         });
                         correcto.play(); //agregando sonido del juego completado
@@ -263,11 +278,11 @@ if (segundos <= 10) {
                     Swal.fire({
                         title: 'Oops...',
                         text: '¡Verifica tu respuesta!',
-                        imageUrl: "../../../../../../img/signo.gif",
+                        imageUrl: "../../img/img_juegos/loop.gif",
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                            window.location.reload();
                         }
                     });
                 }

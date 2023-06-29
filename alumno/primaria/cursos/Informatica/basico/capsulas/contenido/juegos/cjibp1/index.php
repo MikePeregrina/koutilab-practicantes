@@ -1,10 +1,25 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium1.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLIDE PUZZLE</title>
+    <title>KOUTILAB</title>
     <link rel="stylesheet" href="../../../css/css-juegos/slide.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -16,14 +31,14 @@
 		<h2 class="titulo"><b>CONECTORES PRINCIPALES</b></h2>
 	</div>
 
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
     
     <div class="contenido">
-		<a href="../../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -32,22 +47,15 @@
 		<br>
 
 		<div class="slide-contenedor">
-			<div id="puzzle_container" style="width: 412px; height: 412px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s8.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s9.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s10.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s11.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s12.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s13.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s14.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s15.png" class="contenedor-img" alt=""></div>
+			<div id="puzzle_container">
+				<div class="puzzle_block"><img src="lvl1-2/s1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s4.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s5.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s6.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s7.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="lvl1-2/s8.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -72,7 +80,7 @@
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "../../../img/img_juegos/slid22.png",
+					imageUrl: "../../../img/img_juegos/slide1.png",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -88,15 +96,27 @@
 	<script>
 		var segundos = 240;
 		let puntos = 0;
-
 		//Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 	    var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos <= 60) {
+        var div = document.getElementById("timer");
+        div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    	}
+    	if (segundos <= 30) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    	}
+    	if (segundos <= 10) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    	}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
@@ -111,7 +131,7 @@
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando el sonido del juego no completado 
+				incorrecto.play(); //agregando sonido al juego no completado
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -125,11 +145,11 @@
 		const GameDifficulty=[20,50,70];
 		class Game{
 			difficulty;//difficulty based on GameDifficulty array
-			cols=4;//how many colomns
-			rows=4;//how many rows
+			cols=3;//how many colomns
+			rows=3;//how many rows
 			count;//cols*rows
 			blocks;//the html elements with className="puzzle_block"
-			emptyBlockCoords=[3,3];//the coordinates of the empty block
+			emptyBlockCoords=[2,2];//the coordinates of the empty block
 			indexes=[];//keeps track of the order of the blocks
 	
 			constructor(difficultyLevel=1){
@@ -206,7 +226,7 @@
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = 'level-final.php';
+									window.location.href = './level2.php';
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado
