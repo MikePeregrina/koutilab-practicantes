@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium1.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +37,8 @@
 		</b>
 	</div>
     
-    <div class="contenido" style="height: 650px;">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+    <div class="contenido">
+		<a href="../../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -31,36 +46,27 @@
 		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
 		<br>
 
-		<div class="slide-contenedor" style="margin-top: 70px;">
-			<div id="puzzle_container" style="width: 515px; height: 515px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-3-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-4-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-5-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-6-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-7-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-8-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-9-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-10-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-11-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-12-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-13-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-14-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-15-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-16-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-17-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-18-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-19-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-20-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-21-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-22-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-23-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv3/Configuracion3-24-0.png" class="contenedor-img" alt=""></div>
+		<div class="slide-contenedor">
+			<div id="puzzle_container" style="width: 412px; height: 412px;">
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-4-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-5-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-6-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-7-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-8-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-9-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-10-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-11-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-12-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-13-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-14-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="Imagenes/lv2/configuracion2-15-0.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
-		<!-- <div id="difficulty_container">
+		<!-- <div id="difficulty_containerpn
 			<div class="difficulty_button active">EASY</div>
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
@@ -81,7 +87,7 @@
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "Imagenes/configuracion3.jpg",
+					imageUrl: "Imagenes/configuracion2.jpg",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -103,6 +109,7 @@
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 	    var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -147,11 +154,11 @@
 		const GameDifficulty=[20,50,70];
 		class Game{
 			difficulty;//difficulty based on GameDifficulty array
-			cols=5;//how many colomns
-			rows=5;//how many rows
+			cols=4;//how many colomns
+			rows=4;//how many rows
 			count;//cols*rows
 			blocks;//the html elements with className="puzzle_block"
-			emptyBlockCoords=[4,4];//the coordinates of the empty block
+			emptyBlockCoords=[3,3];//the coordinates of the empty block
 			indexes=[];//keeps track of the order of the blocks
 	
 			constructor(difficultyLevel=1){
@@ -217,8 +224,8 @@
 					if(this.checkPuzzleSolved()){
 						setTimeout(() => {
 							Swal.fire({
-								title: '¡Excelente!',
-								text: 'Haz completado todos los niveles',
+								title: '¡Muy bien!',
+								text: 'Ahora pasemos al siguiente nivel',
 								imageUrl: "../../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
@@ -228,7 +235,7 @@
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = '#';
+									window.location.href = './level3.php';
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado

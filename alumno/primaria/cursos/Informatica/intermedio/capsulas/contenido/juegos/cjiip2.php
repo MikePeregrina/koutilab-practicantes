@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium2.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,7 +44,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
+		<a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
 				id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i>
 			</button>
@@ -237,13 +252,13 @@
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
         if (segundos <= 10) {
-          var div = document.getElementById("timer");
-          div.style.cssText =
-		  "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            var div = document.getElementById("timer");
+            div.style.cssText =
+		    "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
         }
         if (segundos <= 5) {
-          var div = document.getElementById("timer");
-          div.style.cssText =
+            var div = document.getElementById("timer");
+            div.style.cssText =
             "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
         }
 			if (segundos == 0) {
@@ -342,7 +357,7 @@
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = '../../../../../../rutas/ruta-in-i.php';
 				}
 			});
 			correcto.play(); //agregando sonido añ juego completado

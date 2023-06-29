@@ -228,6 +228,11 @@
 
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 8; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
@@ -241,7 +246,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '#';
+							window.location.href = '../../../../../../rutas/ruta-in-i.php';
 						}
 					});
 					correcto.play(); //agregando el sonido de juego ganado
