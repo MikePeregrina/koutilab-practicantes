@@ -73,18 +73,8 @@ if (isset($_POST['iniciar_sesion'])) {
         $query_validar_docente_personal = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$user'");
         $result_validar_docente_personal = mysqli_fetch_array($query_validar_docente_personal);
 
-        //Validar inicio de sesión de un director de personal
-        $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$user'");
-        $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
-
-        //Validar inicio de sesión de director institucional
-        $query_validar_director_institucional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$user'");
-        $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_institucional);
-
-        //Validar inicio de sesión de cuentas temporales
-        $query_validar_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user'");
-        $result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
-
+       
+        
         if ($result_validar_admin > 0) {
             $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_admin = mysqli_num_rows($query_admin);

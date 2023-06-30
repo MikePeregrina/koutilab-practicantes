@@ -17,7 +17,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../img/lgk.png">
-    <link rel="stylesheet" href="../css/escuelas.css">
+    <link rel="stylesheet" href="css/mostrar-info.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
@@ -28,7 +28,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="background-image: url(../img/bg1.png); padding-top: 10px; padding-bottom: 30px;">
+<body>
     <?php
     require "../../acciones/conexion.php";
 
@@ -88,13 +88,14 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
         }
     }
     ?>
-    <div class="row">
-        <div class="col-md-9 mx-auto">
-            <div class="container" style="margin-top: -40px;">
-                <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                    <h3 class="i-name">Datos de escuela</h3>
-                </div>
-                <form class="" action="" method="post">
+       
+<div class="container-titulo">
+    <h1>Datos de escuela</h1>  
+  </div>
+
+
+  <section> 
+  <form class="" action="" method="post">
                     <div class="user-details">
                         <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idescuela; ?>">
                         <div class="input-box">
@@ -155,7 +156,11 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                     <br>
                     <a href="../escuelas.php" class="btn btn-danger">Atrás</a>
                 </form>
-            </div>
+ </section>
+
+    <footer>
+        <div class="imagen-footer">
+            <img src="img/Bienvenida.png" >
         </div>
-    </div>
+    </footer>
 </body>
