@@ -336,7 +336,6 @@ if (isset($resultadoIntentos['intentos'])) {
         //ambos
 
 
-<<<<<<< HEAD
            //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
            var segundos = 240;//240
             let puntos = 0;
@@ -376,61 +375,6 @@ if (isset($resultadoIntentos['intentos'])) {
         } else {
             segundos--;
             setTimeout("iniciarTiempo()", count);
-=======
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
-        let puntos = 0;
-        var count = 1000;
-
-        //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
-        //Agregando animacion a el timer
-        function iniciarTiempo() {
-            document.getElementById("tiempo").innerHTML =
-                segundos + " segundos";
-            if (segundos <= 30) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos == 0) {
-                var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 4; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);
-                Swal.fire({
-                    title: "Oops...",
-                    text: "Se acabó el tiempo",
-                    imageUrl: "../../img/img-juegos/loop.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.reload();
-                    }
-                });
-                incorrecto.play(); //agregando sonido al juego no completado
-                loseText.setText("Juego terminado");
-                player.setTint(0xff0000);
-                player.anims.play("turn");
-                gameoverSound();
-                gameOver = true;
-            } else {
-                segundos--;
-                setTimeout("iniciarTiempo()", count);
-            }
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
         }
 
 
@@ -457,7 +401,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 }
             });
             correcto.play(); //agregando sonido al juego completado
-        }
+        }}
     </script>
 
 

@@ -213,11 +213,6 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<script>
 	    //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-<<<<<<< HEAD
-        var segundos = 240;//240
-let puntos = 0;
-var count = 1000;
-=======
         var segundos = 240;
 		let puntos = 0;
 		var count = 1000;
@@ -228,7 +223,6 @@ var count = 1000;
 		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 //Agregando animacion a el timer
 function iniciarTiempo() {
     document.getElementById("tiempo").innerHTML =
