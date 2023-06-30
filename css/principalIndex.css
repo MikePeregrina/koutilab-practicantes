@@ -1,0 +1,902 @@
+ /*---------------------------CSS GENERAL----------------------------*/
+ 
+ * {
+ padding: 0;
+ margin: 0;
+ text-decoration: none;
+ list-style: none;
+ box-sizing: border-box;
+}
+
+body {
+ background-color: white;
+ font-family: 'Comfortaa', cursive;
+}
+/*---------------------------MENU----------------------------*/
+
+nav #icon {
+ color: rgb(0, 0, 0);
+ font-size: 30px;
+ line-height: 80px;
+ float: right;
+ margin-right: 40px;
+ cursor: pointer;
+ display: none;
+}
+
+@media (max-width: 1048px) {
+ label.logo {
+     font-size: 30px;
+     padding-left: 50px;
+ }
+ nav ul {
+     margin-right: 19px;
+ }
+ nav a {
+     font-size: 16px;
+ }
+}
+
+@media (max-width: 909px) {
+ nav #icon {
+     display: block;
+ }
+ nav ul {
+     position: fixed;
+     width: 100%;
+     height: 100vh;
+     top: 75px;
+     left: -100%;
+     text-align: center;
+     transition: all 0.5s;
+ }
+ nav li {
+     display: block;
+     margin: 45px 0;
+     line-height: 18px;
+ }
+ nav a {
+     font-size: 18px;
+ }
+ a.active,
+ a:hover {
+     border: none;
+     color: rgb(3, 10, 6);
+ }
+ nav ul.show {
+     left: 0;
+ }
+}
+
+nav {
+ background: white;
+ height: 75px;
+ width: 100%;
+ position: fixed;
+ z-index: 100;
+ align-items: center;
+}
+#Que{
+background-image: url(../img/fondo.png);
+width: 100%;
+object-fit: none;
+}
+
+
+.enlace {
+ position: absolute;
+ padding: 20px 50px;
+}
+
+.logo {
+ height: 80px;
+ margin-left: 23px;
+ margin-top: -50px;
+}
+
+nav ul {
+ float: right;
+ margin-top: -80px;
+}
+
+nav ul li {
+ display: inline-block;
+ line-height: 75px;
+}
+
+nav ul li a {
+ color: rgba(67, 62, 62, 0.731);
+ font-size: 22px;
+ padding: 20px 4px;
+ font-family: sans-serif;
+ font-weight: bold;
+
+}
+.barra-inferior{
+    width: 1264px;
+    height: 125px;
+    background-color: rgb(255, 255, 255);
+    margin-top: -48px;
+    margin-left:-15px;
+    }
+.Rg {
+ color: #41A7F3;
+ margin-left: 40px;
+}
+
+.is {
+ color: rgba(67, 62, 62, 0.731);
+ border-radius: 50px;
+ margin-right: 40px;
+}
+
+li a.active,
+li a:hover {
+ background-color: #38b6ff ;
+ color: rgb(255, 255, 255);
+ text-decoration: none;
+ border-radius: 0px 0px 25px 25px;
+ height: 80px;
+
+}
+
+.ima {
+ height: 400px;
+ width: 400px;
+}
+
+.pl {
+ height: 85px;   
+ width: 380px;
+ background-color: white ;
+ border-radius: 0px 50px 50px 0px;;
+ color: #38b6ff ;
+ font-weight: bold;
+ margin-left: -15px;
+ margin-top: -15px;
+}
+
+.g {
+ color: black;
+ padding-left: 5px;
+}
+.tN{
+ color: rgba(7, 7, 7, 0.731);
+ text-align: center;
+ font-weight: bold;
+ padding-left: 70px;
+}
+.tK{
+    padding-left: 150px;
+
+}
+/*Contenedor caracteristicas */
+.container-caracteristicas{
+    width: 1450px;
+    height: 270px;
+    background-color: #38b6ff;
+}
+
+.fon {
+ background: url('img/2023 koutilab web fondo-21.png');
+ width: 100%;
+ height: 500px;
+}
+.fon2{
+    background: url('img/2023 koutilab web fondo-21.png');
+    
+   }
+.checkbtn {
+ font-size: 30px;
+ color: aliceblue;
+ float: right;
+ line-height: 80px;
+ margin-right: 40px;
+ cursor: pointer;
+ display: none;
+}
+
+#check {
+ display: none;
+}
+
+.img-fluid {
+    height: 900px;
+    width: 680px;
+    margin-top: 0%;
+    z-index: -1;
+    margin-left: 1%;
+}
+
+.img-fluid2 {
+ height: 180px;
+ width: 180px;
+ top: 0;
+ z-index: -1;
+ margin-left: 15%;
+ margin-right: 15%;
+}
+
+p {
+ text-align: center;
+}
+
+.img-fluid3 {
+ height: 300px;
+ width: 100%;
+ top: 0;
+ z-index: -1;
+}
+
+.img-fluid4 {
+ height: 800px;
+ width: 100%;
+ top: 0;
+ z-index: -1;
+}
+
+.img-fluid5 {
+ height: 725px;
+ width: 100%;
+}
+
+.uno {
+ position: relative;
+ align-items: center;
+}
+
+.dos {
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ margin: 0 auto;
+}
+
+.fonV {
+ background: url(../img/fondov.png);
+ width: 100%;
+ height: 660px;
+}
+
+video {
+ margin-top: 4%;
+ width: 55%;
+ height: auto;
+ margin-left: 350px;
+ border: 10% solid white;
+ border-radius: 80px;
+ background-color: white;
+ box-shadow: 0 0 15px gray;
+}
+
+.ider {
+ float: right;
+ margin-right:-1.9% ;
+ height: 500px;
+ width: 538px;
+ display: block;
+}
+
+.ader {
+ height: 200px;
+ width: 700px;
+}
+
+.tit {
+ width: 25%;
+ position: absolute;
+ margin-left: 12%;
+ margin-top: 5%;
+ font-size: 20px;
+}
+
+h1 {
+ font-family: 'Lucida Sans Regular';
+ font-size: 30px;
+ color: rgb(83, 167, 252);
+}
+
+h2 {
+ font-family: 'Lucida Sans Regular';
+ font-size: 30px;
+ color: gray;
+}
+
+.imge {
+ border: 10px solid white;
+ float: right;
+ height: 400px;
+ width: 400px;
+ margin-right: 30%;
+ margin-top: 10%;
+ box-shadow: 0 0 15px gray;
+ border-radius: 30px;
+}
+
+.r {
+ font-size: 50px;
+ font-weight: bold;
+ color: rgba(7, 7, 7, 0.731);
+ margin-left: -900px;
+}
+
+.ra {
+ float: left;
+ margin-left: 85px;
+}
+
+.rim {
+ float: left;
+ margin-left: 10px;
+}
+
+.ri {
+ float: left;
+ margin-left: 15%;
+}
+
+.ris {
+ float: left;
+ margin-left: 200px;
+}
+
+.rin {
+ float: left;
+ margin-left: 160px;
+}
+
+.c {
+ text-align: center;
+ align-items: center;
+ margin-left: 300px;
+ float: left;
+}
+.t {
+ text-align: center;
+ align-items: center;
+ float: left;
+margin-bottom: 10px;
+background: url('img/2023 koutilab web fondo-21.png');
+
+}
+
+.j {
+ text-align: justify;
+}
+
+.esc {
+ width: 100%;
+ margin-top: 2%;
+}
+
+.esc1 {
+ width: 100%;
+ margin-top: -1%;
+}
+
+span {
+ color: #41A7F3;
+ font-size: 15px;
+}
+
+.elemneto {
+ height: 120px;
+ width: 120px;
+}
+
+#el3{
+margin-left: 30px;
+}
+.ru {
+ font-family: 1em Verdana, Geneva, sans-serif;
+ text-transform: none;
+ color: black;
+ background: #FFFFFF;
+ border: thin solid #33333379;
+ height: 150px;
+ width: 115%;
+ border-radius: 90px;
+ box-shadow: 0 0 10px #666;
+}
+
+fieldset img {
+ margin-top: 25px;
+}
+
+fieldset div {
+ float: right;
+ padding-right: 200px;
+ text-align: justify;
+}
+
+fieldset div p {
+ text-align: justify;
+ font-family: Arial;
+ font-size: 16px;
+ 
+}
+
+.colin{
+height: 30px;
+}
+
+.li {
+ border: 5px;
+ color: #41A7F3;
+ size: 10px;
+ width: 30px;
+}
+
+.rutas {
+ margin-left: 100px;
+ align-items: center;
+}
+
+hr {
+ width: 100%;
+ height: 15%;
+ background-color: #41A7F3;
+ margin-right: auto;
+ margin-left: auto;
+ margin-top: 638px;
+ margin-bottom: 20px;
+ border-width: 10px;
+ border-radius: 50px;
+ size: 20;
+}
+
+.nivel {
+ font: 1em Verdana, Geneva, sans-serif;
+ text-transform: none;
+ background: #41a6f34c;
+ border: thin solid #33333379;
+ height: 420px;
+ width: 300px;
+ border-radius: 50px;
+ box-shadow: 0 0 9px #666;
+}
+
+.fon2 {
+ background: url('img/2023 koutilab web fondo-21.png');
+ width: 1348px;
+ height: 580px;
+}
+
+.sec {
+ margin-top: 50px;
+}
+
+#Fonden{
+background-image: url(../img/fondo.png);
+}
+
+footer{
+width: 100%;
+bottom: 0;
+left: 0;
+}
+footer .content{
+max-width: 1350px;
+margin: auto;
+padding: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+footer .content p,a{
+color: black;
+}
+footer .content .box{
+width: 33%;
+transition: all 0.4s ease;
+}
+footer .content .topic{
+font-size: 22px;
+font-weight: 600;
+color: black;
+margin-bottom: 16px;
+
+}
+footer .content p{
+text-align: justify;
+color: #000;
+}
+footer .content .lower .topic{
+    margin-top: -183px;
+    margin-left: 230px;
+color: #000;
+}
+footer .content .lower i{
+margin-top: -115px;
+margin-left: 220px;
+padding-right: 5px;
+color: #000;
+}
+footer .content .middle{
+padding-left: 80px;
+color: #000;
+}
+footer .content .middle a{
+line-height: 32px;
+color: #000;
+}
+footer .content .right input[type="text"]{
+height: 45px;
+width: 100%;
+outline: none;
+color: black;
+background: #000;
+border-radius: 5px;
+padding-left: 10px;
+font-size: 17px;
+
+}
+
+.button {
+min-width: 300px;
+min-height: 60px;
+font-family: 'Nunito', sans-serif;
+font-size: 22px;
+text-transform: uppercase;
+letter-spacing: 1.3px;
+font-weight: 700;
+color: #313133;
+background: #4FD1C5;
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+border: none;
+border-radius: 1000px;
+box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+transition: all 0.3s ease-in-out 0s;
+cursor: pointer;
+outline: none;
+position: relative;
+padding: 10px;
+}
+.button::before {
+content: '';
+border-radius: 1000px;
+min-width: calc(300px + 12px);
+min-height: calc(60px + 12px);
+border: 6px solid #00FFCB;
+box-shadow: 0 0 60px rgba(0,255,203,.64);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0;
+transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, .button:focus {
+color: #313133;
+transform: translateY(-6px);
+}
+
+.button:hover::before, .button:focus::before {
+opacity: 1;
+}
+
+.button::after {
+content: '';
+width: 30px; height: 30px;
+border-radius: 100%;
+border: 6px solid #00FFCB;
+position: absolute;
+z-index: -1;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+animation: ring 1.5s infinite;
+}
+
+.button:hover::after, .button:focus::after {
+animation: none;
+display: none;
+}
+
+@keyframes ring {
+0% {
+  width: 30px;
+  height: 30px;
+  opacity: 1;
+}
+100% {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+}
+
+
+
+
+
+@keyframes glowing {
+0% { background-position: 0 0; }
+50% { background-position: 400% 0; }
+100% { background-position: 0 0; }
+}
+
+.btnt:hover{
+background: linear-gradient(90deg,rgba(61,172,244,0.1)19%, rgba(132,196,44,0.1)88%);
+}
+.content .right input[type="submit"]:hover{
+background: none;
+}
+footer .content .media-icons a{
+font-size: 16px;
+height: 45px;
+width: 45px;
+display: inline-block;
+text-align: center;
+line-height: 43px;
+border-radius: 5px;
+border: 2px solid rgb(33, 33, 135);
+margin: 30px 5px 0 0;
+transition: all 0.3s ease;
+text-decoration: none;
+}
+.content .media-icons a:hover{
+border-color: black;
+color: #000;
+}
+footer .bottom{
+width: 100%;
+text-align: right;
+color: black;
+padding: 0 40px 5px 0;
+}
+footer .bottom a{
+color: black;
+}
+footer a{
+transition: all 0.3s ease;
+color: #000;
+}
+footer a:hover{
+color: black;
+}
+@media (max-width:1100px) {
+footer .content .middle{
+  padding-left: 50px;
+}
+}
+@media (max-width:950px){
+footer .content .box{
+  width: 50%;
+}
+.content .right{
+  margin-top: 40px;
+}
+}
+@media (max-width:560px){
+footer{
+  position: relative;
+}
+footer .content .box{
+  width: 100%;
+  margin-top: 30px;
+}
+footer .content .middle{
+  padding-left: 0;
+}
+}
+
+.bottom{
+background-color: #6cd1e1;
+display: flex;
+justify-content: center;
+text-align: center;
+}
+.resaltado {
+    color:#38b6ff; /* Cambia el color según tus necesidades */
+    font-size: 25px;
+  }
+.cantidades{
+color: white;
+font-size: 35px;
+font-weight: bold;
+}
+.titulosC{
+color: white;
+font-size: 30px;
+}
+.containerText{
+    margin-top: -250px;
+}
+/*Capsulas */
+.capsula1{
+    width: 320px;
+    height: 160px;
+    border-radius: 25px;
+    border: 3.5px solid #38b6ff;
+    margin-left: 80px;
+    font-size: 30px;
+    color: #413a84;
+}
+.capsula2{
+    width: 320px;
+    height: 160px;
+    border-radius: 25px;
+    border: 3.5px solid #38b6ff;
+    margin-left: 450px;
+    margin-top: 550;
+    font-size: 30px;
+    color: #413a84;
+}
+.capsula3{
+    width: 320px;
+    height: 160px;
+    border-radius: 25px;
+    margin-left: 820px;
+    margin-top: 550;
+    border: 3.5px solid #38b6ff;
+    font-size: 30px;
+    color: #413a84;
+}
+.capsula4{
+    width: 320px;
+    height: 160px;
+    border-radius: 25px;
+    border: 3.5px solid #38b6ff;
+    margin-left: 300px;
+    font-size: 30px;
+    color: #413a84;
+}
+.capsula5{
+    width: 320px;
+    height: 160px;
+    border-radius: 25px;
+    border: 3.5px solid #38b6ff;
+    margin-left: 670px;
+    font-size: 30px;
+    color: #413a84;
+}
+.cp{
+    width: 55px;
+    margin-left: -10px;
+}
+.tiTU{
+    font-weight: bold;
+    color: rgba(7, 7, 7, 0.731);
+    text-align: center;
+}
+/*Contenedores Tipos de usuario */
+.contEscolar{
+    width: 300px;
+    height: 430px;
+    border-radius: 25px;
+    border: 3.5px solid #38b6ff;
+    margin-left: 80px;
+    font-size: 30px;
+    color: #413a84;
+    background-color: white;
+}
+.contInstitu{
+    width: 300px;
+    height: 430px;
+    border-radius: 25px;
+    border: 3.5px solid #38b6ff;
+    margin-left: 450px;
+    margin-top: -430px;
+    font-size: 30px;
+    color: #413a84;
+    background-color: white;
+}
+.contPersonal{
+    width: 300px;
+    height: 430px;
+    border-radius: 25px;
+    margin-left: 820px;
+    margin-top: -430px;
+    border: 3.5px solid #38b6ff;
+    font-size: 30px;
+    color: #413a84;
+    background-color: white;
+}
+/*Circulos de tipos */
+.circle{
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+    background-color:#38b6ff ;
+    margin-left: 70px;
+    margin-top: 15px;
+}
+.tituT{
+    color: rgba(7, 7, 7, 0.731);
+    text-align: center;
+    margin-top: 2px;
+    font-weight: bolder;
+}
+.lineC{
+    width: 190px;
+    height: 4px;
+    background-color:#38b6ff ;
+    margin-left:55px;
+    border-radius: 0%;
+    margin-top: 5px;
+
+}
+.textDes{
+    color: #000;
+    font-size: 18px;
+    
+}
+/**
+ * 
+ */
+.buttonR{
+    width: 170px;
+    height: 56px;
+    background-color:#38b6ff ;
+    margin-left:55px;
+    border-radius: 0%;
+    font-size: 18px;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    margin-top: -95px;
+    margin-left: -15px;
+    font-weight: bold;
+}
+.buttonR2{
+    width: 180px;
+    height: 55px;
+    background-color:#38b6ff ;
+    margin-left:55px;
+    border-radius: 0%;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    margin-top: -15px;
+    margin-left: -3px;
+}
+.buttonR:hover{
+    box-shadow: 0 0 60px rgba(135, 155, 151, 0.64);
+}
+.buttonR2:hover{
+    box-shadow: 0 0 60px rgba(135, 155, 151, 0.64);
+}
+.botones{
+   background-color: white;
+   border-color: white;
+   border-style: none;
+   margin-top: 3px;
+    
+}
+.fondow{
+    background-image: url(../img/fondo-21.png);
+    width: 1261px;
+    margin-left: -5px;
+    
+}
+/**Scrollball */
+/*Scrollball*/
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  body::-webkit-scrollbar:vertical {
+    width: 10px;
+  }
+  body::-webkit-scrollbar-button:increment,
+  body::-webkit-scrollbar-button {
+  display: none;
+  }
+  
+  body::-webkit-scrollbar:horizontal {
+  height: 10px;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: rgba(0,201,255,2556);
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+  
+  body::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }

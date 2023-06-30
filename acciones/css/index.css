@@ -4,22 +4,22 @@
   font-size: 13px;
   font-family: Tahoma;
 }
-
 /*-------------------------LOGIN-------------------------------*/
 
 html,
 body {
-  height: 100%;
-  overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+height: 100%;
 
+overflow: hidden;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
 body::after {
   content: "";
-  background-image: url(../img/bg1.png);
+  /*background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);*/
+  background: url(../img/fondo-21.png);
   opacity: 0.6;
   top: 0;
   left: 0;
@@ -28,7 +28,6 @@ body::after {
   position: absolute;
   z-index: -1;
 }
-
 .container {
   display: flex;
   justify-content: center;
@@ -38,16 +37,15 @@ body::after {
 }
 
 .container .panel {
-  width: 80%;
-  height: 75%;
+  width: 1500px;
+  height: 650px;
   border-top-left-radius: 50%;
-  box-shadow: 0 0 20px 9px #e0e0e0;
+  padding-top: 110px;   
+  padding-right: 20px;
 }
-
 .row {
   display: grid;
   grid-template-columns: 65% 0%;
-  background: rgba(255, 255, 255, 0.6);
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   
@@ -55,18 +53,15 @@ body::after {
 
 .liquid {
   background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 1);
+  background-repeat: no-repeat; 
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  box-shadow: 0px 0px 20px 9px #e0e0e0;
-}
+  border: none;
+  }
 
 .liquid img {
-  width: 95%;
+  width: 80%;
 }
 
 .owl-carousel {
@@ -83,30 +78,29 @@ body::after {
   background-size: cover;
   padding-left: 3rem;
 }
-
 .form-box {
-  width: 419px;
-  height: 508px;
+  width: 400px;
+  height: 430px;
   position: relative;
-  margin: 6% auto;
   background: rgba(255, 255, 255, 1);
-  padding: 5px;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  box-shadow: 0 0 20px 9px #7c7878;
+  border-radius: 35px;
   overflow: hidden;
-  box-shadow: 9px -9px 9px 0px #e0e0e0;
+  padding-bottom: -95px;
 }
 
 .button-box {
   width: 240px;
-  margin: -20px auto;
+  margin: 10px auto;
+  background-color: black;
   position: relative;
-  box-shadow: 0 0 20px 9px #e0e0e0;
   border-radius: 30px;
 }
-
+.button-box button{
+color: white;
+}
 .toggle-btn {
-  padding: 10px 22px;
+  padding: 15px 22px;
   cursor: pointer;
   background: transparent;
   border: 0px;
@@ -121,13 +115,10 @@ body::after {
   position: absolute;
   width: 120px;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243),
-    rgba(132, 196, 44)
-  );
+  background: #0cfefd;
   border-radius: 30px;
   transition: 0.8s;
+
 }
 
 .logop {
@@ -136,50 +127,44 @@ body::after {
 }
 
 .logop img {
-  width: 200px;
+  width: 250px;
   margin: 0 12px;
-  box-shadow: 0 0 20px 9px #e0e0e0;
   cursor: pointer;
   border-radius: 25px;
 }
 
 .input-group {
-  top: 120px;
+  top: 100px;
   position: absolute;
   width: 350px;
   transition: 0.8s;
 }
-
 .input-field {
   width: 92%;
   padding: 10px 0;
   margin: 5px 0;
-  border-left: 0;
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 2px solid #1c4c74;
+  border: none;
   outline: none;
-  background: transparent;
+  background: #e6e3e1;
+  border-radius: 20px;
+  
 }
 
 .submit-btn {
-  width: 85%;
-  padding: 10px 30px;
+  width: 200px;
+  padding: 5px 20px;
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(
-    to right,
-    rgba(129, 179, 243),
-    rgba(132, 196, 44)
-  );
+  background:
+  #0cfefd;
   border: 0px;
   outline: none;
   border-radius: 30px;
 }
-
 .check-box {
-  margin: 30px 10px 30px 0;
+  margin: 39px 10px 30px 0;
+  font-size: 25px;
 }
 
 span {
@@ -199,18 +184,19 @@ span {
 
 form .form-group {
   text-align: center;
-  margin-top: 0.9rem;
+  margin-top: 0.2rem;
   margin-right: 2rem;
-  border-radius: 3rem;
+  border-radius: 5rem;
 }
 
 form .form-group .form-input {
   padding: 0.5rem 1rem;
   background: transparent;
   border: none;
-  font-family: Tahoma;
+  font-family: sans-serif;
   font-size: 0.9rem;
   overflow: hidden;
+
 }
 
 form .input-icon {
@@ -229,7 +215,7 @@ form .input-icon {
   }
 
   .form-box {
-    width: 300px;
+    width: 200px;
   }
 
   .input-group {
@@ -242,7 +228,7 @@ form .input-icon {
 .password-icon {
   float: right;
   position: sticky;
-  margin: -25px 10px 0 0;
+  margin: -25px 25px 0 0;
   cursor: pointer;
   display: inline;
 }
