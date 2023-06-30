@@ -52,12 +52,13 @@ if (isset($resultadoIntentos['intentos'])) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
 	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>PREGUNTAS ÁGILES</b></h2>
+		<h2 class="titulo"><b>FORMULARIOS</b></h2>
 	</div>
 
 	<!-- Timer -->
@@ -91,6 +92,12 @@ if (isset($resultadoIntentos['intentos'])) {
 	</div>
 
 	<script>
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		//Arreglo de preguntas
 		var preguntas = [
 			{
@@ -251,6 +258,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -352,6 +360,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					window.location.href = '../../../../../../rutas/ruta-pw-a.php';
 				}
 			});
+			correcto.play(); //agregando sonido al juego completado
 		}
 
 		//Alerta, muestra que la respuesta fue correcta

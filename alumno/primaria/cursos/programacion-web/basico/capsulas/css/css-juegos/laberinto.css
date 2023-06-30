@@ -81,6 +81,40 @@ body::-webkit-scrollbar-track {
     font-size: 150%;
 }
 
+@keyframes animation1 {
+    0% {margin: 40px 0 0 1040px;}
+    20% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    80% {margin: 40px 0 0 1040px;} 
+    100% {margin: 40px 0 0 1060px;}
+}
+
+  @keyframes animation2 {
+    0% {margin: 40px 0 0 1040px;}
+    15% {margin: 40px 0 0 1060px;}
+    30% {margin: 40px 0 0 1040px;} 
+    45% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    75% {margin: 40px 0 0 1060px;}
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
+  @keyframes animation3 {
+    0% {margin: 40px 0 0 1040px;}
+    10% {margin: 40px 0 0 1060px;}
+    20% {margin: 40px 0 0 1040px;} 
+    30% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    50% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    70% {margin: 40px 0 0 1060px;} 
+    80% {margin: 40px 0 0 1040px;} 
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
 .titulo-gen {
     margin: 10px auto 0 auto;
     border-radius: 5px;
@@ -114,6 +148,15 @@ body::-webkit-scrollbar-track {
     border-radius: 50%;
     float: right;
 }
+.btn-b:hover {
+    scale: 130%;
+    transition: scale 0.35s;
+  }
+  
+  .btn-b:hover::after {
+    scale: 100%;
+    transition: scale 0.35s;
+  }
 
 @media (max-width: 750px) {
     .btn-b {

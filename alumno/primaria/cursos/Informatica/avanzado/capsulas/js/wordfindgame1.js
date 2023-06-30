@@ -230,6 +230,11 @@
 
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 9; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
@@ -243,7 +248,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '#';
+							window.location.href = '../../../../../../rutas/ruta-in-a.php';
 						}
 					});
 					correcto.play(); //agregando sonido del juego completado

@@ -52,12 +52,13 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h1>
+        <h2 class="titulo"><b>PROCESAMIENTO DE FORMULARIOS</b></h2>
     </div>
 
     <!-- Timer -->
@@ -116,8 +117,13 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 120;
-
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -145,6 +151,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

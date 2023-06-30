@@ -1,6 +1,13 @@
 <?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c., d. FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../../alertas/paquete_premium4.php");
@@ -29,7 +36,7 @@ if (empty($existe)) {
     <div class="instrucciones"></div>
 
     <div class="titulo-gen1">
-        <h2>Capitulo 4: Espacio exterior</h2>
+        <h2>FUNCIONES</h2>
     </div>
     <div class="titulo-gen3">
         <h5>
@@ -75,11 +82,14 @@ if (empty($existe)) {
     </script>
     <script>
         var segundos = 120;
-
         let puntos = 0;
-
         var count = 1000;
 
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
@@ -102,6 +112,7 @@ if (empty($existe)) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 loseText.setText("Juego terminado");
                 player.setTint(0xff0000);
                 player.anims.play("turn");
@@ -1119,6 +1130,7 @@ if (empty($existe)) {
                     });
                 }
             });
+            correcto.play(); //agregando sonido al juego completado
         }
 
         function alertQuestion() {

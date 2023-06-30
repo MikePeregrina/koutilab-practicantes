@@ -51,12 +51,13 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>SELECCIONA LA RESPUESTA CORRECTA</b></h1>
+        <h1 class="titulo"><b>OPERADORES RELACIONALES</b></h1>
     </div>
 
     <!-- Timer -->
@@ -335,51 +336,45 @@ if (isset($resultadoIntentos['intentos'])) {
         //ambos
 
 
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
-        let puntos = 0;
-        var count = 1000;
+           //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+           var segundos = 240;//240
+            let puntos = 0;
+            var count = 1000;
         //Agregando animacion a el timer
         function iniciarTiempo() {
-            document.getElementById("tiempo").innerHTML =
-                segundos + " segundos";
-            if (segundos <= 30) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos == 0) {
-                var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 4; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);
-                Swal.fire({
-                    title: "Oops...",
-                    text: "Se acabó el tiempo",
-                    imageUrl: "img/loop.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.reload();
-                    }
-                });
-                loseText.setText("Juego terminado");
-                player.setTint(0xff0000);
-                player.anims.play("turn");
-                gameoverSound();
-                gameOver = true;
-            } else {
-                segundos--;
-                setTimeout("iniciarTiempo()", count);
-            }
+        document.getElementById("tiempo").innerHTML =
+        segundos + " segundos";
+        if (segundos <= 60) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos <= 30) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos <= 10) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos == 0) {
+            Swal.fire({
+                title: "Oops...",
+                text: "Se acabó el tiempo",
+                imageUrl: "img/loop.gif",
+                imageHeight: 350,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.reload();
+                }
+            });
+            loseText.setText("Juego terminado");
+            player.setTint(0xff0000);
+            player.anims.play("turn");
+            gameoverSound();
+            gameOver = true;
+        } else {
+            segundos--;
+            setTimeout("iniciarTiempo()", count);
         }
 
 
@@ -405,7 +400,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     window.location.href = '../../../../../../rutas/ruta-py-b.php';
                 }
             });
-        }
+            correcto.play(); //agregando sonido al juego completado
+        }}
     </script>
 
 

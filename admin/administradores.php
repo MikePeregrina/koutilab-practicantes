@@ -15,173 +15,92 @@ $fila = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
+<>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/lgk.png">
+  <link rel="stylesheet" href="css/nav-barra.css">
+  <link rel="stylesheet" href="css/administradores.css">
+  <link rel="stylesheet" href="css/footer.css">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="img/lgk.png">
-    <link rel="stylesheet" href="css/administradores.css">
-    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.4/css/buttons.bulma.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" type="text/css" href="acciones/Exportacion/datatables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  
+  <title>Document</title>
 </head>
-
 <body>
-    <div id="sidemenu" class="menu-collapsed">
+  
+    <!-- Header nav -->
+    <?php include 'header-nav.php'; ?>
 
-        <div id="header">
-            <div id="title"><img src="img/koutilab3.png" alt=""></div>
-            <div id="menu-btn">
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-            </div>
-        </div>
-        <div class="item separator"></div>
+  <div class="containers">
+    <h1>ADMINISTRADORES</h1>  
+  </div>
 
-        <?php
-        $id = $user["id_admin"];
-        $name = $user["nombre"];
-        $image = $user["image"];
-        $username = $user["usuario"];
-        ?>
-        <div id="profile">
-            <div id="photo"><img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>"></div>
-            <div id="name"><span><?php echo $name; ?></span></div>
-        </div>
-
-        <div id="menu-items">
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="dashboard.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="title">
-                        <span>Dashboard</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="estadisticas.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="title">
-                        <span>Estadísticas</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="ingresos.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class="fas fa-money-check-alt"></i>
-                    </div>
-                    <div class="title">
-                        <span>Ingresos</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item" style="background-color: rgba(61,172,244, .4);">
-                <a href="administradores.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div class="title">
-                        <span>Agregar administrador</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="escuelas.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class='fa-solid fa-school'></i>
-                    </div>
-                    <div class="title">
-                        <span>Escuelas</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="preregistros.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class='fa-solid fa-clipboard'></i>
-                    </div>
-                    <div class="title">
-                        <span>Pre-registros</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="bandeja.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class='fas fa-envelope'></i>
-                    </div>
-                    <div class="title">
-                        <span>Bandeja</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item" style="background-color: rgba(61,172,244, .4);">
-                <a href="enviar.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                    <i class="fa-regular fa-envelopes-bulk"></i>
-                    </div>
-                    <div class="title">
-                        <span>Enviar Email</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-            <div class="item separator"></div>
-
-        </div>
-    </div>
-    <div id="interface">
-        <div class="navigation">
-            <div class="n1" style="margin-left: 460px;">
-                <img src="img/koutilab0.png">
-            </div>
-            <div class="perfil">
-                <a href="../acciones/cerrarsesion.php"><i class="fa fa-sign-out"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="values ms-5 mt-4 pe-1">
-        <h3 class="i-name"> Administradores</h3>
-    </div>
-    <div class="values ms-5">
-        <div class="val-box pe-2">
-            <i class="fas fa-user-shield"></i>
-            <div>
-                <h3><?php echo $fila['id_admin']; ?><span> Administradores</span></h3>
-            </div>
-        </div>
-        <div class="val-box ps-2">
-            <i class="fas fa-user-shield"></i>
-            <div>
-                <button id="btn-abrir-modalG" class="submit-btn">Añadir administrador</button>
-            </div>
-        </div>
+  <div class="studens-add-bar">
+    <div class="left-student">
+        <i class="fas fa-user-shield"></i><h2><?php echo $fila['id_admin']; ?> Administrador(s)</h2>
     </div>
 
-    <div class="board p-2" style="width: 92%; margin-left: 75px;">
-        <table id="admins" width="100%" class="table border-top">
+    <div class="right-student" id="addCourseButton">
+        <i class="fas fa-user-shield"></i><h2>Añadir administrador</h2>
+    </div>
+  </div>
+
+    <!-- Contenido de la pantalla emergente -->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+            <div class="titlec">
+                <h2>Nuevo grupo</h2>
+            </div>
+           
+            <div class="contenedor-emergente">
+            <form id="admin" method="POST" enctype="multipart/form-data" action="acciones/insertar_admin.php">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Usuario:</span>
+                        <input type="text" placeholder="Usuario" name="usuario" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nombre:</span>
+                        <input type="text" placeholder="Nombre" name="nombre" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contraseña:</span>
+                        <input type="text" placeholder="Contraseña" name="contrasena" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">País:</span>
+                        <select name="pais" style="height: 44px;" type="select" required>
+                            <option value="">Eliga un país</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="México">México</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Perú">Perú</option>
+                        </select>
+                    </div>
+
+                </div>
+                <button class="btn-grd" type="submit" style="width: 40%;">Registrar</button>
+            </form>
+            </div>
+
+            <button id="closeButton"><i class="fas fa-times"></i></button>
+        
+        </div>
+    </div> <!-- Cierre de la pantalla emergente -->
+  <section>
+
+  <div class="board p-2">
+        <table id="admins" width="100%" class="table border-top" style="z-index: 1;">
             <thead>
                 <tr>
                     <td><b>Usuario</b></td>
@@ -217,67 +136,33 @@ $fila = mysqli_fetch_assoc($result);
         </table>
     </div>
 
-    <dialog close id="modalV" style="background-image: url(img/bg1.png); border-radius: 20px; border: 2px solid #f1f2f3;">
-        <div>
-            <button style="float: right; background: white; width: 8%; scale: 70%;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-close"></i></button>
-            <br>
-            <video width="520" height="250" controls>
-                <source src="" type="video/mp4">
-            </video>
-        </div>
-    </dialog>
+  </section>
 
-    <script>
-        const btnAbrirModalV = document.querySelector("#btn-abrir-modalV");
-        const btnCerrarModalV = document.querySelector("#btn-cerrar-modalV");
-        const modalV = document.querySelector("#modalV");
-        btnAbrirModalV.addEventListener("click", () => {
-            modalV.showModal();
-        })
+            
+  <?php include 'footer.php'; ?>
 
-        btnCerrarModalV.addEventListener("click", () => {
-            modalV.close();
-        })
-    </script>
+  
+  <script>
+    const addCourseButton = document.getElementById('addCourseButton');
+    const popupContainer = document.getElementById('popupContainer');
+    const closeButton = document.getElementById('closeButton');
 
-    <dialog close id="modalG" style="width: 70%;">
-        <div class="container" style="margin-top: -30px;">
-            <button style="float: right; margin-bottom: -30px; margin-top: 10px;" class="btn-b" id="btn-cerrar-modalG"><i class="fas fa-close"></i></button>
-            <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                <h3 class="i-name">Registrar administrador</h3>
-            </div>
-            <form id="admin" method="POST" enctype="multipart/form-data" action="acciones/insertar_admin.php">
-                <div class="user-details">
-                    <div class="input-box">
-                        <span class="details">Usuario:</span>
-                        <input type="text" placeholder="Usuario" name="usuario" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Nombre:</span>
-                        <input type="text" placeholder="Nombre" name="nombre" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Contraseña:</span>
-                        <input type="text" placeholder="Contraseña" name="contrasena" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">País:</span>
-                        <select name="pais" style="height: 44px;" type="select" required>
-                            <option value="">Eliga un país</option>
-                            <option value="Estados Unidos">Estados Unidos</option>
-                            <option value="México">México</option>
-                            <option value="Costa Rica">Costa Rica</option>
-                            <option value="Perú">Perú</option>
-                        </select>
-                    </div>
+    addCourseButton.addEventListener('click', function() {
+        popupContainer.style.display = 'block';
+    });
 
-                </div>
-                <button class="btn-grd" type="submit" style="width: 40%;">Registrar</button>
-            </form>
-        </div>
-    </dialog>
+    closeButton.addEventListener('click', function() {
+        popupContainer.style.display = 'none';
+    });
 
-    <script>
+    popupContainer.addEventListener('click', function(event) {
+        if (event.target === popupContainer) {
+            popupContainer.style.display = 'none';
+        }
+    });
+  </script>
+  
+  <script>
         const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
         const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
         const modalA = document.querySelector("#modalA");
@@ -392,21 +277,17 @@ $fila = mysqli_fetch_assoc($result);
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.bulma.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.colVis.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#admins').DataTable({
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-                }
-            });
+        $('#admins').DataTable({
+            language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+            }
+        });
         });
     </script>
     <script>
@@ -429,4 +310,6 @@ $fila = mysqli_fetch_assoc($result);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="js/funciones.js"></script>
+
 </body>
+</html>

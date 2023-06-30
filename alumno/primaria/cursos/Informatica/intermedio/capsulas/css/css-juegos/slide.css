@@ -206,7 +206,8 @@ body::-webkit-scrollbar-track {
     scale: 130%;
     transition: scale 0.35s;
   }
-  .btn-b :hover::after{
+  
+  .btn-b:hover::after{
     scale: 100%;
     transition: scale 0.35s;}
 

@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium1.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,7 +32,7 @@
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h1>
+        <h2 class="titulo"><b>ANIMACIONES Y TRANSICIONES</b></h2>
     </div>
 
     <!-- Timer -->
@@ -30,7 +45,7 @@
     <!-- Contenedor principal -->
     <div class="contenido">
         <!-- Boton para regresar -->
-        <a href="#">
+        <a href="../../../../../../rutas/ruta-in-a.php">
             <button class="btn-b">
                 <i class="fas fa-reply"></i>
             </button>
@@ -261,7 +276,7 @@
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.reload();
+                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
                         }
                     });
                     correcto.play(); //agregando sonido al juego completado

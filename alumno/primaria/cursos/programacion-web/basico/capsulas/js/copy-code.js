@@ -1,7 +1,17 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-var segundos = 240;
+<<<<<<< HEAD
+var segundos = 240;//240
 
+=======
+var segundos = 240;
+>>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 let puntos = 0;
+
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
@@ -46,7 +56,7 @@ function iniciarTiempo() {
 		}
 		if (segundos <= 10) {
 			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 		}
     if (segundos == 0) {
         var xmlhttp = new XMLHttpRequest();
@@ -59,13 +69,14 @@ function iniciarTiempo() {
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
-            imageUrl: "../../img/img_juegos/img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.reload();
             }
         });
+        incorrecto.play(); //agregando sonido al juego no completado
     } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -91,11 +102,11 @@ function alertExcelent() {
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
-            imageUrl: "../../img/img_juegos/img/Thumbs-Up.gif",
+            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../../img/img_juegos/img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
@@ -105,15 +116,16 @@ function alertExcelent() {
                 window.location.href = '../../../../../../rutas/ruta-pw-b.php';
             }
         });
+        correcto.play(); //agrengando sonido al juego completado
     } else {
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",
-            imageUrl: "../../img/img_juegos/img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../../img/img_juegos/img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });

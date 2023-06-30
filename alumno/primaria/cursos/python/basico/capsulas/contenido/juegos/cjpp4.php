@@ -1,6 +1,13 @@
 <?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c., d. FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../alertas/paquete_premium4.php");
@@ -21,12 +28,13 @@ if (empty($existe)) {
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
   </head>
 
   <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-      <h2 class="titulo"><b>PREGUNTAS ÁGILES</b></h2>
+      <h2 class="titulo"><b>OPERADORES DE ASIGNACIÓN</b></h2>
     </div>
 
     <!-- Timer -->
@@ -67,6 +75,12 @@ if (empty($existe)) {
     </div>
 
     <script>
+      //Funcion que agrega el sonido al juego
+      var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
       //Arreglo de preguntas
       var preguntas = [
         {
@@ -270,6 +284,7 @@ if (empty($existe)) {
               window.location.reload();
             }
           });
+          incorrecto.play(); //agregando sonido al juego no completado
         } else {
           segundos--;
           setTimeout("iniciarTiempo()", 1000);
@@ -357,6 +372,7 @@ if (empty($existe)) {
             window.location.href = '../../../../../../rutas/ruta-py-b.php';
           }
         });
+        correcto.play(); //agregando sonido al juego completado
       }
 
       //Alerta, muestra que la respuesta fue correcta

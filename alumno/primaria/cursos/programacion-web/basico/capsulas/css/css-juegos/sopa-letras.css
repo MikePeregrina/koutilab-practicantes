@@ -181,26 +181,37 @@ button::-moz-focus-inner {
 }
 /*Generando animaciones del timer*/
 @keyframes animation1 {
-  0% {margin: 30px 0 0 68.2rem;}
-  20% {margin: 30px 0 0 69.2rem;}
-  40% {margin: 30px 0 0 68.2rem;} 
-  60% {margin: 30px 0 0 69.2rem;}
-  80% {margin: 30px 0 0 68.2rem;} 
-  100% {margin: 30px 0 0 69.2rem;}
+  0% {margin: 30px 0 0 65.2rem;}
+  20% {margin: 30px 0 0 67.2rem;}
+  40% {margin: 30px 0 0 65.2rem;} 
+  60% {margin: 30px 0 0 67.2rem;}
+  80% {margin: 30px 0 0 65.2rem;} 
+  100% {margin: 30px 0 0 66.2rem;}
 }
 
 @keyframes animation2 {
-  0% {margin: 30px 0 0 68.2rem;}
-  10% {margin: 30px 0 0 69.2rem;}
-  20% {margin: 30px 0 0 68.2rem;;} 
-  30% {margin: 30px 0 0 69.2rem;}
-  40% {margin: 30px 0 0 68.2rem;;} 
-  50% {margin: 30px 0 0 69.2rem;}
-  60% {margin: 30px 0 0 68.2rem;;} 
-  70% {margin: 30px 0 0 69.2rem;} 
-  80% {margin: 30px 0 0 68.2rem;;} 
-  90% {margin: 30px 0 0 69.2rem;} 
-  100% {margin: 30px 0 0 68.2rem;}
+  0% {margin: 30px 0 0 65.2rem;}
+  15% {margin: 30px 0 0 67.2rem;}
+  30% {margin: 30px 0 0 65.2rem;} 
+  45% {margin: 30px 0 0 67.2rem;}
+  60% {margin: 30px 0 0 65.2rem;} 
+  75% {margin: 30px 0 0 67.2rem;}
+  90% {margin: 30px 0 0 67.2rem;} 
+  100% {margin: 30px 0 0 66.2rem;}
+}
+
+@keyframes animation3 {
+  0% {margin: 30px 0 0 65.2rem;}
+  10% {margin: 30px 0 0 67.2rem;}
+  20% {margin: 30px 0 0 65.2rem;} 
+  30% {margin: 30px 0 0 67.2rem;}
+  40% {margin: 30px 0 0 65.2rem;} 
+  50% {margin: 30px 0 0 67.2rem;}
+  60% {margin: 30px 0 0 65.2rem;} 
+  70% {margin: 30px 0 0 67.2rem;} 
+  80% {margin: 30px 0 0 65.2rem;} 
+  90% {margin: 30px 0 0 67.2rem;} 
+  100% {margin: 30px 0 0 66.2rem;}
 }
 .btn-b {
   width: 5%;
@@ -219,11 +230,12 @@ button::-moz-focus-inner {
   float: right;
 }
 /*Se agrego la animacion del btn regresar*/
-.btn-b:hover{
+.btn-b:hover {
   scale: 130%;
   transition: scale 0.35s;
 }
-.btn-b :hover::after{
+
+.btn-b:hover::after {
   scale: 100%;
   transition: scale 0.35s;
 }

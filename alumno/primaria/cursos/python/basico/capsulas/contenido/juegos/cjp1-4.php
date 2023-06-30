@@ -93,7 +93,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 480px"><b>CRUCIGRAMA</b></h2>
+        <h2 class="titulo" style="margin-left: 480px"><b>DATOS</b></h2>
     </div>
 
     <!-- Alerta -->
@@ -478,19 +478,31 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <script>
-        var segundos = 240;
+        var segundos = 240;//240
 
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
-            if (segundos <= 30) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            document.getElementById("tiempo").innerHTML =
-                segundos + " segundos";
+                if (segundos <= 60) {
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
 
@@ -513,6 +525,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
                     "../../acciones/insertar_cp13.php",
@@ -719,6 +732,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 };
                 xmlhttp.open(
                     "POST",

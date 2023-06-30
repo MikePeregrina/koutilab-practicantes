@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium2.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +31,7 @@
 <body onload="iniciarTiempo()">
 	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>PREGUNTAS ÁGILES</b></h2>
+		<h2 class="titulo"><b>SEGURIDAD</b></h2>
 	</div>
 
 	<!-- Timer -->
@@ -29,7 +44,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
+		<a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
 				id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i>
 			</button>
@@ -62,9 +77,9 @@
 				num: 1,
 				pregunta:
 					"¿Por qué es importante mantener seguro nuestro correo electrónico?",
-				opA: "Por qué dan alamacenamiento en la nube de manera gratuito",
-				opB: "Por qué en el correo electrónico se suele manejar información delicada",
-				opC: "Por qué me fácilita la navegación en páginas desconocidas",
+				opA: "Porque dan almacenamiento en la nube de manera gratuita",
+				opB: "Porque en el correo electrónico se suele manejar información delicada",
+				opC: "Porque me facilita la navegación en páginas desconocidas",
 				correcta: "B",
 				tiempo: "30",
 			},
@@ -72,9 +87,9 @@
 				num: 2,
 				pregunta:
 					"Selecciona las características de una contraseña segura",
-				opA: "Mayores a 8 carácteres, Mayúsculas, Mínusculas, Símbolos, Números",
-				opB: "Mayores a 5 carácteres, Mínusculas",
-				opC: "Números, Menores a 6 carácteres",
+				opA: "Mayores a 8 caracteres, mayúsculas, minúsculas, símbolos, números",
+				opB: "Mayores a 5 caracteres, minúsculas",
+				opC: "Números, menores a 6 carácteres",
 				correcta: "A",
 				tiempo: "30",
 			},
@@ -83,8 +98,8 @@
 				pregunta:
 					"¿Por qué no se recomienda usar contraseñas poco seguras?",
 				opA: "No existe la probabilidad del desiframiento de la clave",
-				opB: "Por que suelen ser contraseñas menos populares",
-				opC: "Por qué suele ser muy fácil de decifrar por personal no autorizado",
+				opB: "Porque suelen ser contraseñas menos populares",
+				opC: "Porque suele ser muy fácil de descifrar por personal no autorizado",
 				correcta: "C",
 				tiempo: "30",
 			},
@@ -114,7 +129,7 @@
 					"¿Por qué es importante tener la autenticación en dos pasos en nuestras cuentas de correo?",
 				opA: "Para recordar fácilmente la contraseña",
 				opB: "Para compartir la contraseña de manera rápida con personal ajeno",
-				opC: "Para evitar ser hakeado por personas no autorizadas",
+				opC: "Para evitar ser hackeado por personas no autorizadas",
 				correcta: "C",
 				tiempo: "30",
 			},
@@ -132,7 +147,7 @@
 				num: 8,
 				pregunta:
 					"¿Cómo cuidar la seguridad del correo?",
-				opA: "Actualizando el programa de correo, sitema operativo, cambio frecuente de contraseña",
+				opA: "Actualizando el programa de correo, sistema operativo, cambio frecuente de contraseña",
 				opB: "Compartiendo el usuario y la contraseña a amigos",
 				opC: "Compartiendo la información de seguridad a terceros (teléfono, correos de recuperación, etc.)",
 				correcta: "A",
@@ -237,13 +252,13 @@
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
         if (segundos <= 10) {
-          var div = document.getElementById("timer");
-          div.style.cssText =
-		  "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            var div = document.getElementById("timer");
+            div.style.cssText =
+		    "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
         }
         if (segundos <= 5) {
-          var div = document.getElementById("timer");
-          div.style.cssText =
+            var div = document.getElementById("timer");
+            div.style.cssText =
             "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
         }
 			if (segundos == 0) {
@@ -342,7 +357,7 @@
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = '../../../../../../rutas/ruta-in-i.php';
 				}
 			});
 			correcto.play(); //agregando sonido añ juego completado

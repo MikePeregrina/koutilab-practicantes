@@ -1,3 +1,43 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula40";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 41;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 9");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +56,7 @@
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>SELECCION DE RESPUESTA PARA UN ENUNCIADO</b></h2>
+        <h2 class="titulo"><b>FÓRMULAS</b></h2>
     </div>
 
     <!-- Timer -->
@@ -29,7 +69,7 @@
     <!-- Contenedor principal -->
     <div class="contenido">
         <!-- Boton para regresar -->
-        <a href="#">
+        <a href="../../../../../../rutas/ruta-in-a.php">
             <button class="btn-b">
                 <i class="fas fa-reply"></i>
             </button>
@@ -42,8 +82,7 @@
                 <!--Generando pregunta 1-->
                 <h3>
                     1. La formula de
-                    <select class="select"
-                        id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
+                    <select class="select" id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
                         <option value="----">...</option>
                         <option value="incorrecto">max y min</option>
                         <option value="correcto">suma</option>
@@ -54,8 +93,7 @@
                 </h3> <br>
                 <!--Generando pregunta 2-->
                 <h3>2. La formula de
-                    <select class="select"
-                        id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
+                    <select class="select" id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
                         <option value="----">...</option>
                         <option value="correcto">max y min</option>
                         <option value="incorrecto">suma</option>
@@ -66,8 +104,7 @@
                 </h3> <br>
                 <!--Generando pregunta 3-->
                 <h3>3. La formula de
-                    <select class="select"
-                        id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
+                    <select class="select" id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
                         <option value="----">...</option>
                         <option value="incorrecto">max y min</option>
                         <option value="incorrecto">suma</option>
@@ -91,7 +128,7 @@
         </div>
 
         <!--Boton para verificar la respuesta-->
-    <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
+        <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
     </div>
     <p id="resultado"></p>
     <script>
@@ -100,23 +137,28 @@
 
         //Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	    var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 
         //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 30) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 9; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: "Oops...Intentalo nuevamente, te has quedado sin tiempo",
                     text: "",
@@ -136,6 +178,11 @@
 
         //funcion Error, determina que las respuestas sean correctas
         function error() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 9; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: "¡Oh no!",
                 text: "Comprueba tus respuestas, e intentalo nuevamente",
@@ -155,6 +202,11 @@
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 +"&id_curso=" + 9; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: "¡Felicidades!",
                 text: "¡Buen trabajo!",
@@ -167,7 +219,7 @@
                 confirmButtonText: "¡Genial!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.reload();
+                    window.location.href = '../../../../../../rutas/ruta-in-a.php';
                 }
             });
             correcto.play(); //agregando sonido al juego completado

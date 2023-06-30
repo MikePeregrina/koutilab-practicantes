@@ -39,6 +39,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +47,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Maze</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -53,7 +55,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 <body>
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>LABERINTO</b></h2>
+		<h2 class="titulo"><b>COLOR</b></h2>
 	</div>
 
 	<div class="timer">
@@ -63,7 +65,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</div>
 
 	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -111,7 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		Swal.fire({
 			title: '¡Oh no!',
 			text: 'Kobot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
-			imageUrl: "img/loop.gif",
+			imageUrl: "../../img/img-juegos/loop.gif",
 			imageHeight: 320,
 			confirmButtonText: '¡Vamos!',
 			confirmButtonColor: '#85c42c',
@@ -123,26 +125,32 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 23 + "&id_curso=" + 2; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
-				xmlhttp.open("POST", "../../acciones/insertar_pd23.php", true);
+				incorrecto.play(); //agregando sonido al juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -189,26 +197,22 @@ if (isset($resultadoIntentos['intentos'])) {
 	function displayVictoryMess(moves) {
 		document.getElementById("moves").innerHTML = moves;
 		toggleVisablity("Message-Container");  
-		var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 23 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd23.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
 		Swal.fire({
 			title: '¡Muy bien!',
-			text: 'Pudiste resolver el laberinto',
-			imageUrl: "img/Thumbs-Up.gif",
+			text: 'Ahora pasemos al siguiente nivel',
+			imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 			imageHeight: 350,
 			backdrop: `
 			rgba(0,143,255,0.6)
-			url("img/fondo.gif")`,
+			url("../../img/img-juegos/fondo.gif")`,
 			confirmButtonColor: '#a14cd9',
 			confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = '../../../../../rutas/ruta-pw-i.php';
+				window.location.href = 'level-2.html';
 			}
 		})
+		correcto.play(); //agregando sonido al juego completado
 	}
 	
 	function toggleVisablity(id) {
@@ -700,7 +704,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 		sprite = new Image();
 		sprite.src =
-		"../../img/img_juegos/mascota-1.png" +
+		"../../img/img-juegos/mascota-1.png" +
 		"?" +
 		new Date().getTime();
 		sprite.setAttribute("crossOrigin", " ");
@@ -712,7 +716,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 	
 		finishSprite = new Image();
-		finishSprite.src = "../../img/img_juegos/cohete.png"+
+		finishSprite.src = "../../img/img-juegos/cohete.png"+
 		"?" +
 		new Date().getTime();
 		finishSprite.setAttribute("crossOrigin", " ");

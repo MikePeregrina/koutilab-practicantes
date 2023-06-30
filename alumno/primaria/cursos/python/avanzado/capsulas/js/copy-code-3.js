@@ -1,7 +1,12 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-
 let puntos = 0;
+
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
@@ -11,8 +16,7 @@ import re <br><br>
 
 texto = "Ana tiene una manzana y un abanico" <br>
 patron = r"/ba/w*" <br>
-resultado = re.findall(patron, texto) <br> <br>
-
+resultado = re.findall(patron, texto) <br>
 print(resultado)
 `;
 //Entidades para que html no reconosca las etiquetas
@@ -42,6 +46,11 @@ function iniciarTiempo() {
     if (segundos == 0) {
         //Borra el texto escrito
         escrito.value = "";
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 6; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send(param);
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
@@ -52,6 +61,7 @@ function iniciarTiempo() {
                 window.location.reload();
             }
         });
+        incorrecto.play(); //agregando sonido al juego no completado
     } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -69,32 +79,38 @@ function alertExcelent() {
     var text2 = textoejemplof.replace(/\s/g, "");
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 6; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
-            imageUrl: "img/Thumbs-Up.gif",
+            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.reload();
+                window.location.href = '../../../../../../rutas/ruta-py-a.php';
             }
         });
+        correcto.play(); //agregando sonido al juego completado
     } else {
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });
