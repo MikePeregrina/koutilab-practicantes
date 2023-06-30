@@ -58,7 +58,7 @@ if (isset($resultadoIntentos['intentos'])) {
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <a href="../../../../../../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct1html.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 1 HTML</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 1 PowerPoint</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
@@ -71,35 +71,27 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
 
                             <td class="nombre">
-                                <p> Agregar un párrafo con su título dentro de un div (todas las etiquetas se deben de cerrar).
-                                    < div>
-                                        < h1>
-                                            /
-                                            < /div>
-                                                < /h1>
-
+                                <p> Explora diferentes diseños y estilos de diapositivas. Experimenta con diferentes diseños y estilos de diapositivas para agregar variedad y creatividad a tu presentación. Utiliza las herramientas de diseño disponibles en PowerPoint para cambiar los fondos, las fuentes y los colores. Puedes probar diferentes combinaciones de diseño y estilo en diferentes diapositivas.
                                                     <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica1html.png" style="height: 100px; width: 500px;">
+                                <img src="../../../../../../img/avanzadoinf/prac1.PNG" style="height: auto; width: 70%;">
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="">
-                <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
-                <iframe class="editor" id="editor" srcdoc=" "></iframe>
-            </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+            
+            <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
+                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
+            </form>
         </div>
     </div>
     <script src="../../js/fund.js"></script>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
-        var Correcto = document.createElement("audio");
+        /*var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
@@ -202,7 +194,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             }
-        }
+        }*/
     </script>
     <script>
         function disableIE() {
@@ -246,4 +238,96 @@ if (isset($resultadoIntentos['intentos'])) {
             }
         }
     </script>
+    <dialog close id="modalFP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/bg1.png); text-align: center;">
+        <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
+        <div style="color:darkslategray; width: 500px; height: 40px; margin: 10px 30px 10px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8);">
+            <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Adjuntar Archivo</h4>
+        </div>
+        <div class="portada" style="width: 500px; height: 300px; margin: 0px 30px 30px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8); overflow-y: scroll; display: flex; justify-content: space-between;">
+            <div class="upload-img">
+                <form id="subirArchivo" enctype="multipart/form-data" action="" method="POST">
+                    <input type="hidden" name="id_alumno" value="<?php echo $id_user; ?>">
+                    <input type="hidden" name="id_curso" value="9">
+                    <input type="hidden" name="id_capsula" value="<?php echo $permiso_intento; ?>">
+                    <input type="file" name="archivo" id="inputArchivos" style="margin-left: 20%;" required>
+                    <button type="submit" style="width: 150px; margin-left: 27px; border: none; background-color: #85c32e; color:white; font-size: 15px;" id="btnEnviar" name="btnEnviar">Subir Archivo</button>
+                </form>
+                <div id="estado"></div>
+            </div>
+        </div>
+    </dialog>
+    <script>
+        const btnAbrirModalFP = document.querySelector("#btn-abrir-modalFP");
+        const btnCerrarModalFP = document.querySelector("#btn-cerrar-modalFP");
+        const modalFP = document.querySelector("#modalFP");
+        btnAbrirModalFP.addEventListener("click", () => {
+            modalFP.showModal();
+        })
+
+        btnCerrarModalFP.addEventListener("click", () => {
+            modalFP.close();
+        })
+    </script>
+    
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
+        echo "We are here";
+        $nombreArchivo = $_FILES['archivo']['name'];
+        $archivoTemporal = $_FILES['archivo']['tmp_name'];
+        $id_alumno = $_POST['id_alumno'];
+        $id_curso = $_POST['id_curso'];
+        $id_capsula = $_POST['id_capsula'];
+        // Leer el contenido del archivo
+        $archivoData = file_get_contents($archivoTemporal);
+    
+        // Conectar a la base de datos
+        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        if ($conexion->connect_error) {
+            die('Error de conexión: ' . $conexion->connect_error);
+        }
+    
+        // Preparar la consulta SQL para insertar el archivo en la base de datos
+        $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
+        $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
+        if ($consulta->execute()) {
+        echo
+                "
+      <script>
+      Swal.fire({
+        title: '¡Excelente!',
+        text: '¡Archivo enviado con éxito!',
+          imageUrl: '../../../../../../img/Thumbs-Up.gif', imageHeight: 350,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              //window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+        title: 'Error subiendo archivo',
+        text: 'Inténtalo de nuevo más tarde.',
+          imageUrl: '../../../../../../img/Thumbs-Up.gif', imageHeight: 350,
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              //window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+            }
+        
+        // Cerrar la conexión y liberar recursos
+        $consulta->close();
+        $conexion->close();
+    }
+    ?>
 </body>
