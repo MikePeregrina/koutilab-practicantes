@@ -12,8 +12,8 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-edad = 9 <br>
-nombre = "Hanna" <br>
+edad = 9 <br/>
+nombre = "Hanna" <br/>
 print("Hola, mi nombre es " + nombre + " y tengo " + edad + " años")
 `;
 //Entidades para que html no reconosca las etiquetas

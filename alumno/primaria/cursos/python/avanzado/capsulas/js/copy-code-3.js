@@ -12,11 +12,11 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-import re <br><br>
+import re <br/><br/>
 
-texto = "Ana tiene una manzana y un abanico" <br>
-patron = r"/ba/w*" <br>
-resultado = re.findall(patron, texto) <br>
+texto = "Ana tiene una manzana y un abanico" <br/>
+patron = r"/ba/w*" <br/>
+resultado = re.findall(patron, texto) <br/>
 print(resultado)
 `;
 //Entidades para que html no reconosca las etiquetas

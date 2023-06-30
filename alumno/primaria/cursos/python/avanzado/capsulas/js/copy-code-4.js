@@ -12,7 +12,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-nombre, edad, ciudad = "Luis", 12, "Puebla" <br>
+nombre, edad, ciudad = "Luis", 12, "Puebla" <br/>
 nombre, edad, ciudad = "Marcela", 11, "Puebla"
 `;
 //Entidades para que html no reconosca las etiquetas

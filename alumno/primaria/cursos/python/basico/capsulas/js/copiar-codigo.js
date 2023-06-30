@@ -11,10 +11,10 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML =  `a = 1 <br>
-b = 2 <br>
-if a < b: <br>
-&nbsp;&nbsp;&nbsp;print(" b es mayor que a ") <br> else: <br> &nbsp;&nbsp;&nbsp;print(" a es mayor que b")`;
+).innerHTML =  `a = 1 <br/>
+b = 2 <br/>
+if a < b: <br/>
+&nbsp;&nbsp;&nbsp;print(" b es mayor que a ") <br/> else: <br/> &nbsp;&nbsp;&nbsp;print(" a es mayor que b")`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).

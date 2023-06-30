@@ -12,9 +12,9 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-def sumar_numeros(num1, num2): <br>
-resultado = num1 + num2 <br>
-return resultado <br>
+def sumar_numeros(num1, num2): <br/>
+resultado = num1 + num2 <br/>
+return resultado <br/>
 `;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
