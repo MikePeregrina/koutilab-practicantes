@@ -5,18 +5,18 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/cjib2-4.css" /><!--Linkeo de la hoja de estilos-->
+	<link rel="stylesheet" href="../../css/css-juegos/preguntas-agiles.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
+	<link rel="shortcut icon" href="../../img/img-juegos">
 	<title>KOUTILAB</title>
 </head>
 
 <body onload="iniciarTiempo()">
 	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>ANDROID</b></h2>
+		<h2 class="titulo"><b>SINTAXIS BÁSICA</b></h2>
 	</div>
 
 	<!-- Timer -->
@@ -55,57 +55,56 @@
 			{
 				num: 1,
 				pregunta:
-					"Android es el sistema operativo que utilizan algunos dispositivos ________",
-				opA: "Computacionales",
-				opB: "Moviles",
-				opC: "Inteligentes",
+					"Cuando hablamos de la sintaxis en Python, nos referimos como en todo lenguaje al correcto _____ y orden de las palabras que utilizamos para comunicarnos.",
+				opA: "Color",
+				opB: "Uso",
+				opC: "Parametro",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 2,
 				pregunta:
-					"Android es el sistema operativo que utilizan algunos dispositivos móviles para poder ______",
-				opA: "Funcionar",
-				opB: "Hablar",
-				opC: "Comunicarse",
+					"Por ello, en Python también es necesario cumplir ciertos requisitos a la hora de expresarnos esta manera, se evitan _________",
+				opA: "Errores",
+				opB: "Saltos de linea",
+				opC: "Codigo",
 				correcta: "A",
 				tiempo: "20",
 			},
 			{
 				num: 3,
 				pregunta:
-					"Es decir, se trata de todo aquello que puedes _________",
-				opA: "Oler",
-				opB: "Tocar",
-				opC: "Ver",
+					"Parte esencial de la sintaxis en Python son los __________ que sirven para describir una variable",
+				opA: "Codigos",
+				opB: "Etiquetas",
+				opC: "Identificadores",
 				correcta: "C",
 				tiempo: "30",
 			},
 			{
 				num: 4,
 				pregunta:
-					"El hecho de que convierta cualquier teléfono en prácticamente un ordenador de bolsillo lo hace ",
-				opA: "Gratis",
-				opB: "Comodo",
-				opC: "Bonito",
+					"Python diferencia entre mayúsculas y minúsculas y no admite caracteres de puntuación como @, $ o %.",
+				opA: "Falso",
+				opB: "Cierto ",
+				opC: "No se",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 5,
 				pregunta:
-					"Por lo que lanzar un teléfono o aplicación con Android tiene un bajo",
-				opA: "Rendimiento",
-				opB: "Coste",
-				opC: "Tamaño",
+					"Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
+				opA: "Minuscula",
+				opB: "Mayuscula",
+				opC: "Ambas",
 				correcta: "B",
 				tiempo: "30",
 			},
 			
 		];
-
-		var puntos = 0; //Leva el conteo de puntos/aciertos
+        var puntos = 0; //Leva el conteo de puntos/aciertos
 		var seleccion; //Guarda la respuesta elegida
 		var contador = 1; //Lleva el conteo de preguntas
 		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
@@ -180,23 +179,27 @@
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos > 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-            }
-			if (segundos <= 15) {
-                var div = document.getElementById("timer");
-                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            } 
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+			//Permite que el timer se vuelva a cambiar de color a azul.
+		if(segundos > 15){
+			var div = document.getElementById("timer");
+			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+		}else if(segundos < 10){
+			var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}else if (segundos == 15) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -238,10 +241,15 @@
 				console.log("Incorrecto");
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "img/loop.gif",
+						imageUrl: "../../img/img-juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -275,19 +283,24 @@
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "img/Thumbs-Up.gif",
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = '../../../../../../rutas/ruta-py-b.php';
 				}
 			});
 		}
@@ -315,10 +328,6 @@
 			});
 		}
 	</script>
+    
 </body>
-
 </html>
-
-
-
-

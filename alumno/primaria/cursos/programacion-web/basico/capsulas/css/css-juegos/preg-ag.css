@@ -76,26 +76,40 @@ body::-webkit-scrollbar-track {
 }
 
 @keyframes animation1 {
-    0% {margin: 40px 0 0 1100px;}
-    20% {margin: 40px 0 0 1110px;}
-    40% {margin: 40px 0 0 1100px;} 
-    60% {margin: 40px 0 0 1110px;}
-    80% {margin: 40px 0 0 1100px;} 
-    100% {margin: 40px 0 0 1110px;}
+    0% {margin: 20px 0 0 1100px;}
+    20% {margin: 20px 0 0 1110px;}
+    40% {margin: 20px 0 0 1100px;} 
+    60% {margin: 20px 0 0 1110px;}
+    80% {margin: 20px 0 0 1100px;} 
+    100% {margin: 20px 0 0 1110px;}
+  }
+
+  @keyframes animation2 {
+    0% {margin: 20px 0 0 1120px;}
+    10% {margin: 20px 0 0 1130px;}
+    20% {margin: 20px 0 0 1120px;} 
+    30% {margin: 20px 0 0 1130px;}
+    40% {margin: 20px 0 0 1120px;} 
+    50% {margin: 20px 0 0 1130px;}
+    60% {margin: 20px 0 0 1120px;} 
+    70% {margin: 20px 0 0 1130px;} 
+    80% {margin: 20px 0 0 1120px;} 
+    90% {margin: 20px 0 0 1130px;} 
+    100% {margin: 20px 0 0 1120px;}
   }
   
-  @keyframes animation2 {
-    0% {margin: 40px 0 0 1120px;}
-    10% {margin: 40px 0 0 1130px;}
-    20% {margin: 40px 0 0 1120px;} 
-    30% {margin: 40px 0 0 1130px;}
-    40% {margin: 40px 0 0 1120px;} 
-    50% {margin: 40px 0 0 1130px;}
-    60% {margin: 40px 0 0 1120px;} 
-    70% {margin: 40px 0 0 1130px;} 
-    80% {margin: 40px 0 0 1120px;} 
-    90% {margin: 40px 0 0 1130px;} 
-    100% {margin: 40px 0 0 1120px;}
+  @keyframes animation3 {
+    0% {margin: 20px 0 0 1120px;}
+    10% {margin: 20px 0 0 1130px;}
+    20% {margin: 20px 0 0 1120px;} 
+    30% {margin: 20px 0 0 1130px;}
+    40% {margin: 20px 0 0 1120px;} 
+    50% {margin: 20px 0 0 1130px;}
+    60% {margin: 20px 0 0 1120px;} 
+    70% {margin: 20px 0 0 1130px;} 
+    80% {margin: 20px 0 0 1120px;} 
+    90% {margin: 20px 0 0 1130px;} 
+    100% {margin: 20px 0 0 1120px;}
   }
 
 .contenido {

@@ -15,7 +15,7 @@
 <body onload="iniciarTiempo()">
 	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>PREGUNTAS ÁGILES</b></h2>
+		<h2 class="titulo"><b>DECORADORES</b></h2>
 	</div>
 
 	<!-- Timer -->

@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
     <div class="titulo-gen1">
         <h2 class="titulo">
-            Capitulo 6: Planeta espejo
+          CUADROS DE DIÁLOGO
         </h2>
     </div>
     <div class="titulo-gen3">

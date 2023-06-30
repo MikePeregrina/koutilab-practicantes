@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
 
     <div class="titulo-gen1">
-        <h2>Capitulo 4: Espacio exterior</h2>
+        <h2>FUNCIONES</h2>
     </div>
     <div class="titulo-gen3">
         <h5>

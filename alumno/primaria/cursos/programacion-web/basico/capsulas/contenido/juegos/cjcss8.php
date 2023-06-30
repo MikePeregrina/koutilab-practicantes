@@ -53,7 +53,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 <body>
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>LABERINTO</b></h2>
+		<h2 class="titulo"><b>BORDES</b></h2>
 	</div>
 
 	<div class="timer">
@@ -122,7 +122,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		var segundos = 240;
+		var segundos = 240;//240
 
 		let puntos = 0;
 

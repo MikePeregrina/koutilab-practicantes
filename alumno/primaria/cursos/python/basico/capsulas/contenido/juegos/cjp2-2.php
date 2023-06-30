@@ -15,7 +15,7 @@
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>SELECCION DE RESPUESTA PARA UN ENUNCIADO</b></h2>
+        <h2 class="titulo"><b>OPERADORES DE IDENTIDAD</b></h2>
     </div>
 
     <!-- Timer -->
@@ -95,20 +95,24 @@
     <p id="resultado"></p>
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
+        var segundos = 240;//240
 
         //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
              /*declarando condiciones que permiten cambiar el color de fondo del timer*/
-		if (segundos <= 60) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 30) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
+             if (segundos <= 60) {
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
 		if (segundos <= 10) {
 			var div = document.getElementById("timer");
 			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";

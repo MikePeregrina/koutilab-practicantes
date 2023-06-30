@@ -173,9 +173,12 @@ body {
     justify-content: center;
     align-items: center;
     background: rgba(129,179,243,0.7); /*Se cambio el fondo del timer*/
-    box-shadow: 0 0 12px rgba(129,179,243);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
     border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
     font-size: 170%;
   }

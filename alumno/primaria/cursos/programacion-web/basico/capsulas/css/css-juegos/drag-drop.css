@@ -343,26 +343,36 @@ body::-webkit-scrollbar-track {
 }
 /*Generando animaciones del timer*/
 @keyframes animation1 {
-  0% {margin: 30px 0 0 68rem;}
-  20% {margin: 30px 0 0 70rem;}
-  40% {margin: 30px 0 0 68rem;} 
-  60% {margin: 30px 0 0 70rem;}
-  80% {margin: 30px 0 0 68rem;} 
-  100% {margin: 30px 0 0 70rem;}
+  0% {margin: 2rem 0 0 68rem;}
+  20% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;} 
+  60% {margin: 2rem 0 0 70rem;}
+  80% {margin: 2rem 0 0 68rem;} 
+  100% {margin: 2rem 0 0 70rem;}
 }
 
 @keyframes animation2 {
-  0% {margin: 30px 0 0 68rem;}
-  10% {margin: 30px 0 0 70rem;}
-  20% {margin: 30px 0 0 68rem;;} 
-  30% {margin: 30px 0 0 70rem;}
-  40% {margin: 30px 0 0 68rem;;} 
-  50% {margin: 30px 0 0 70rem;}
-  60% {margin: 30px 0 0 68rem;;} 
-  70% {margin: 30px 0 0 70rem;} 
-  80% {margin: 30px 0 0 68rem;;} 
-  90% {margin: 30px 0 0 70rem;} 
-  100% {margin: 30px 0 0 69rem;}
+  0% {margin: 2rem 0 0 68rem;}
+  15% {margin: 2rem 0 0 70rem;}
+  30% {margin: 2rem 0 0 68rem;;} 
+  45% {margin: 2rem 0 0 70rem;}
+  60% {margin: 2rem 0 0 68rem;} 
+  75% {margin: 2rem 0 0 70rem;}
+  90% {margin: 2rem 0 0 70rem;} 
+  100% {margin: 2rem 0 0 69rem;}
+}
+@keyframes animation3 {
+  0% {margin: 2rem 0 0 68rem;}
+  10% {margin: 2rem 0 0 70rem;}
+  20% {margin: 2rem 0 0 68rem;} 
+  30% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;} 
+  50% {margin: 2rem 0 0 70rem;}
+  60% {margin: 2rem 0 0 68rem;} 
+  70% {margin: 2rem 0 0 70rem;} 
+  80% {margin: 2rem 0 0 68rem;} 
+  90% {margin: 2rem 0 0 70rem;} 
+  100% {margin: 2rem 0 0 69rem;}
 }
 .btn-b {
   width: 5%;

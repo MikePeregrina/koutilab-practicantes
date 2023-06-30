@@ -53,7 +53,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 <body>
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>LABERINTO</b></h2>
+		<h2 class="titulo"><b>COLOR</b></h2>
 	</div>
 
 	<div class="timer">

@@ -15,7 +15,7 @@
 
 <body onload="alert1()">
     <div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE ACOMODAR</b></h2>
+		<h2 class="titulo"><b>BOX MODEL</b></h2>
 	</div>
 
 	<div class="timer">

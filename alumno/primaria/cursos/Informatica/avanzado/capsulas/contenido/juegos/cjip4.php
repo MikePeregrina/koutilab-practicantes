@@ -53,7 +53,7 @@
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 480px"><b>CRUCIGRAMA</b></h2>
+        <h3 class="titulo" style="margin-left: 550px"><b>MACROS</b></h3>
     </div>
 
     <!-- Alerta -->

@@ -87,6 +87,18 @@ body::-webkit-scrollbar-track {
 
 @keyframes animation2 {
     0% {margin: 40px 0 0 1040px;}
+    15% {margin: 40px 0 0 1060px;}
+    30% {margin: 40px 0 0 1040px;} 
+    30% {margin: 40px 0 0 1060px;}
+    45% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    75% {margin: 40px 0 0 1040px;} 
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+}
+
+@keyframes animation3 {
+    0% {margin: 40px 0 0 1040px;}
     10% {margin: 40px 0 0 1060px;}
     20% {margin: 40px 0 0 1040px;} 
     30% {margin: 40px 0 0 1060px;}

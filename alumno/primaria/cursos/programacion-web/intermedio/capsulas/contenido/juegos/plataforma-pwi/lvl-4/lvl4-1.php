@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
     <div class="titulo-gen1">
         <h2>
-            Capitulo 4: Cruzando el muro
+            FLEX ITEMS
         </h2>
     </div>
     <div class="titulo-gen3">

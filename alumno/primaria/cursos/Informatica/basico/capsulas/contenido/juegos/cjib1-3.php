@@ -20,7 +20,7 @@
 <body onload="iniciarTiempo();">
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>ASPECTOS GENERALES DE LA INFORMATICA</b></h2>
+		<h4 class="titulo"><b>ASPECTOS GENERALES DE LA INFORMATICA</b></h4>
 	</div>
 
 
@@ -77,7 +77,7 @@
 	var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-        var segundos = 240;
+        var segundos = 240;//240
 
         let puntos = 0;
 
@@ -94,7 +94,7 @@
 		}
 		if (segundos <= 10) {
 			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 		}
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();

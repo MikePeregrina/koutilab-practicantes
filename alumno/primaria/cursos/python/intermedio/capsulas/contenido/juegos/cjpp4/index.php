@@ -12,7 +12,7 @@
 </head>
 <body onload="alert1()">
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>PAQUETES EN MULTIPLES DIRECTORIOS</b></h2>
 	</div>
 
 	<div class="timer">

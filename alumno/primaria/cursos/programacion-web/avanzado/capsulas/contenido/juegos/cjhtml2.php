@@ -62,7 +62,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+		<h4 class="titulo" style="margin-left: 450px;"><b>BARRAS DE PROGRESO</b></h4>
 	</div>
 
 	<!-- Tiempo -->

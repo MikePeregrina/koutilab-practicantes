@@ -52,7 +52,7 @@
     <body onload="iniciarTiempo();">
         <!-- Titulo general -->
         <div class="titulo-gen">
-            <h2 class="titulo" style="margin-left: 480px"><b>SISTEMAS OPERATIVOS</b></h2>
+            <h4 class="titulo" style="margin-left: 420px"><b>SISTEMAS OPERATIVOS</b></h4>
         </div>
 
         <!-- Alerta -->
@@ -590,7 +590,7 @@
 	        var incorrecto = document.createElement("audio");
 		    incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-            var segundos = 240;
+            var segundos = 65;//240
             let puntos = 0;
 
             function iniciarTiempo() {

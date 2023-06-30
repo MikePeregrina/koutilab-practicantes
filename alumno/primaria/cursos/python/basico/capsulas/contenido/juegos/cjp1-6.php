@@ -21,7 +21,7 @@
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+		<h2 class="titulo" style="margin-left: 490px;"><b>OPERADORES ARITMÉTICOS</b></h2>
 	</div>
 
 	<!-- Tiempo -->
@@ -169,7 +169,7 @@
 
 	<script>
 	    //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
+        var segundos = 240;//240
 let puntos = 0;
 var count = 1000;
 //Agregando animacion a el timer
@@ -186,7 +186,7 @@ function iniciarTiempo() {
     }
     if (segundos <= 10) {
         var div = document.getElementById("timer");
-        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
     }
     if (segundos == 0) {
             Swal.fire({

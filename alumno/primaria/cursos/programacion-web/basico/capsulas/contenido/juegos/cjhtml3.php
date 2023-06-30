@@ -56,7 +56,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>COPIAR CÓDIGO EN UN CIERTO TIEMPO</b></h2>
+        <h2 class="titulo"><b>LISTAS ORDENADAS Y NO ORDENADAS </b></h2>
     </div>
 
     <!-- Timer -->

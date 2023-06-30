@@ -57,7 +57,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo(), iniciar() ">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>SELECCIONA LA RESPUESTA CORRECTA</b></h1>
+        <h2 class="titulo"><b>TABLAS CON ENCABEZADOS</b></h2>
     </div>
 
     <!-- Timer -->

@@ -20,7 +20,7 @@
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 465px;"><b>ARRASTRAR Y SOLTAR</b></h2> <!--Titulo del juego-->
+        <h2 class="titulo" style="margin-left: 465px;"><b>MENÚ</b></h2> <!--Titulo del juego-->
     </div>
 
     <!-- Alerta -->
@@ -44,7 +44,7 @@
         <div class="div-horizontal"></div>
 
         <!-- Descripcion del juego -->
-        <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+        <h2 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h2>
         <br>
 
         <!-- Area donde se encuentran las imagenes inicialmente -->
@@ -179,7 +179,7 @@
 		}
 		if (segundos <= 10) {
 			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 		}
             if (segundos == 0) {
                 Swal.fire({

@@ -20,7 +20,7 @@
 <body onload="iniciarTiempo();">
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>SOPA DE LETRAS</b></h2>
+		<h3 class="titulo"><b>SERIES Y FORMATO DE TEXTO</b></h3>
 	</div>
 
 

@@ -17,7 +17,7 @@
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h1>
+        <h2 class="titulo"><b>IMAGENES Y OBJETOS DE DIBUJO</b></h2>
     </div>
 
     <!-- Timer -->

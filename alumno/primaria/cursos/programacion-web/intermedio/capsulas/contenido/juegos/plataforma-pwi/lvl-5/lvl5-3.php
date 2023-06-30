@@ -19,7 +19,7 @@
     <div class="instrucciones"></div>
     <div class="titulo-gen1">
         <h2 class="titulo">
-            Capitulo 5: Reinos paralelos
+           LOOPS
         </h2>
     </div>
     <div class="titulo-gen3" style="top: 30%">

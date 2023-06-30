@@ -21,7 +21,7 @@
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+		<h3 class="titulo" style="margin-left: 380px;"><b>ELEMENTOS GRÁFICOS DE EXCEL</b></h3>
 	</div>
 
 	<!-- Tiempo -->

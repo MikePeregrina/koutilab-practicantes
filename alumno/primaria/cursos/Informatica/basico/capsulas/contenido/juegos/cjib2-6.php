@@ -21,7 +21,7 @@
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 240px;"><b>LOCALIZACIÓN DE LOS BOTONES DE ENCENDIDO</b></h2>
+		<h4 class="titulo" style="margin-left: 550px;"><b>LINUX</b></h4>
         
 	</div>
 
@@ -53,10 +53,71 @@
 	</div>
 
 	<script>
-		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
-		// para mantener proporcion
-		var words = ['OPERATIVO', 'SISTEMA', 'MOVILES', 'ANDROID', 'SELECTORES', 'APPLE', '!PAD', '!POD'];
-		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
+		let cantidadTarjetas = 24;
+		let iconos = []
+		let selecciones = []
+
+		//Iconos pertenecientes a las tarjetas
+		function cargarIconos() {
+			iconos = [
+				'<i><img src="../::/../../img/img_juegos/l1.png" width= "50px"></i>',
+				'<i ><img src="../::/../../img/img_juegos/l2.png" width= "50px"></i>',
+				'<i><img src="../::/../../img/img_juegos/l3.png" width= "50px" ></i>',
+				'<i><img src="../::/../../img/img_juegos/l4.png" width= "50px" ></i></i>',
+				'<i><img src="../::/../../img/img_juegos/l5.png" width= "50px" ></i>',
+				'<i ><img src="../::/../../img/img_juegos/l6.png" width= "50px"  ></i>',
+				'<i><img src="../::/../../img/img_juegos/l7.png" width= "50px" ></i>',
+				'<i ><img src="../::/../../img/img_juegos/btnE10.png" width= "50px"  ></i>',
+				'<i><img src="../::/../../img/img_juegos/l9.png" width= "50px"  ></i>',
+				'<i><img src="../::/../../img/img_juegos/l10.png" width= "50px"></i>',
+				'<i><img src="../::/../../img/img_juegos/l11.png" width= "50px"></i>',
+				'<i><img src="../::/../../img/img_juegos/l12.png" width= "50px"></i>'
+			]
+		}
+
+		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
+		function generarTablero() {
+			iniciarTiempo()
+			cargarIconos()
+			$('#generar').remove();
+			let len = iconos.length
+			selecciones = []
+			let tablero = document.getElementById("tablero")
+			let tarjetas = []
+
+			for (let i = 0; i < cantidadTarjetas; i++) {
+				tarjetas.push(`
+                <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
+                    <div class="tarjeta" id="tarjeta${i}">
+                        <div class="cara trasera" id="trasera${i}">
+                            ${iconos[0]}
+                        </div>
+                        <div class="cara superior">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>        
+                `)
+				if (i % 2 == 1) {
+					iconos.splice(0, 1)
+				}
+			}
+			tarjetas.sort(() => Math.random() - 0.5)
+			tablero.innerHTML = tarjetas.join(" ")
+		}
+
+		//Selecionador de tarjetas
+		function seleccionarTarjeta(i) {
+			let tarjeta = document.getElementById("tarjeta" + i)
+			if (tarjeta.style.transform != "rotateY(180deg)") {
+				tarjeta.style.transform = "rotateY(180deg)"
+				selecciones.push(i)
+			}
+			if (selecciones.length == 2) {
+				deseleccionar(selecciones)
+				selecciones = []
+			}
+		}
 
 		//Quitar seleccion y verificar que la tarjeta sea identica a su par
 		function deseleccionar(selecciones) {
@@ -76,11 +137,11 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("../../img/img_juegos/loop.gif")
+									url("../../img/img_juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -89,8 +150,7 @@
 							window.location.href = '#';
 						}
 					});
-
-
+					correcto.play(); //asignando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -125,7 +185,7 @@
                 }
                 if (segundos <= 10) {
                     var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
 			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {

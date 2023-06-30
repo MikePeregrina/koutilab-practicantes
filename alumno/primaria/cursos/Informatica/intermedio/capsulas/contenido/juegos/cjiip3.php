@@ -53,7 +53,7 @@
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 480px"><b>CRUCIGRAMA</b></h2>
+        <h2 class="titulo" style="margin-left: 310px"><b>PLANTILLAS, SECCIONES Y ESTILOS</b></h2>
     </div>
 
     <!-- Alerta -->

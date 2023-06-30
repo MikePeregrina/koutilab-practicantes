@@ -22,7 +22,7 @@
 
     <div class="titulo-gen1">
         <h2>
-            Capitulo 1: ¡Bienvenida!        
+            ESTRUCTURA DE DIRECTORIOS           
         </h2>
     </div>
     <div class="titulo-gen3">

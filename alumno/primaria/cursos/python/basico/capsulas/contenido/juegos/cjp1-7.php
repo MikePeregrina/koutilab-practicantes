@@ -16,7 +16,7 @@
 <body onload="iniciarTiempo(), iniciar() ">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>SELECCIONA LA RESPUESTA CORRECTA</b></h1>
+        <h1 class="titulo"><b>OPERADORES RELACIONALES</b></h1>
     </div>
 
     <!-- Timer -->
@@ -301,26 +301,26 @@
 
 
            //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-           var segundos = 240;
-let puntos = 0;
-var count = 1000;
-//Agregando animacion a el timer
-function iniciarTiempo() {
-    document.getElementById("tiempo").innerHTML =
+           var segundos = 240;//240
+            let puntos = 0;
+            var count = 1000;
+        //Agregando animacion a el timer
+        function iniciarTiempo() {
+        document.getElementById("tiempo").innerHTML =
         segundos + " segundos";
-    if (segundos <= 30) {
+        if (segundos <= 60) {
         var div = document.getElementById("timer");
         div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    }
-    if (segundos <= 15) {
+        }
+        if (segundos <= 30) {
         var div = document.getElementById("timer");
         div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    }
-    if (segundos <= 10) {
+        }
+        if (segundos <= 10) {
         var div = document.getElementById("timer");
-        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    }
-    if (segundos == 0) {
+        div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos == 0) {
             Swal.fire({
                 title: "Oops...",
                 text: "Se acabó el tiempo",

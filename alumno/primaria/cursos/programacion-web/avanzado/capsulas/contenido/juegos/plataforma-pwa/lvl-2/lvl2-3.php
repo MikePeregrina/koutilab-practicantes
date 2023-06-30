@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
 
     <div class="titulo-gen1">
-        <h2>Capitulo 2: ¡Lluvia de asteroides!</h2>
+        <h2>TIPOS DE POSICIONAMIENTO</h2>
     </div>
     <div class="titulo-gen3">
         <h5>

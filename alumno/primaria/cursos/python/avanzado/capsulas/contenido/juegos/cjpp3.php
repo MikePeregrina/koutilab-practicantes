@@ -53,7 +53,7 @@
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 480px"><b>CRUCIGRAMA</b></h2>
+        <h4 class="titulo" style="margin-left: 350px"><b>ANALIZANDO EXPRESIONES REGULARES</b></h4>
     </div>
 
     <!-- Alerta -->

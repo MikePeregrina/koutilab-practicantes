@@ -21,7 +21,7 @@
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+		<h3 class="titulo" style="margin-left: 420px;"><b>REFERENCIA A UNA CELDA</b></h3>
 	</div>
 
 	<!-- Tiempo -->

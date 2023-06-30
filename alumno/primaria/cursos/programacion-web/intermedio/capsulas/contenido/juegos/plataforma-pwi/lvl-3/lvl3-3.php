@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
     <div class="titulo-gen1">
         <h2 class="titulo">
-            Capitulo 3: ¡Nubes mágicas!
+           PSEUDO CLASES
         </h2>
     </div>
     <div class="titulo-gen3">

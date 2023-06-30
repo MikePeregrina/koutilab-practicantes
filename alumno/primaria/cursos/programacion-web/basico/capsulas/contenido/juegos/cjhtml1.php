@@ -62,7 +62,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+		<h4 class="titulo" style="margin-left: 450px;"><b>TITULOS Y DIVISORES</b></h4>
 	</div>
 
 	<!-- Tiempo -->
@@ -212,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 <script>
-	var segundos = 240; /*indicador de los segundos que se presentara en el timer*/
+	var segundos = 240; /* 240indicador de los segundos que se presentara en el timer*/
 	let puntos = 0;
 	var count = 1000;
 
@@ -230,7 +230,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
 		if (segundos <= 10) {
 			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 		}
 		if (segundos == 0) {
 			var xmlhttp = new XMLHttpRequest();

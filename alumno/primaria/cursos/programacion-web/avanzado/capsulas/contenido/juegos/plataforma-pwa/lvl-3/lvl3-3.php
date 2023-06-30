@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
 
     <div class="titulo-gen1">
-        <h2>Capitulo 3: Gravedad invertida</h2>
+        <h2>EVENTOS 2</h2>
     </div>
     <div class="titulo-gen3">
         <h5>

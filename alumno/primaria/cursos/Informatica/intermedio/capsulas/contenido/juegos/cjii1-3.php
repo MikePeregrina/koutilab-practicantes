@@ -20,7 +20,7 @@
 <body onload="iniciarTiempo();">
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>SOPA DE LETRAS</b></h2>
+		<h4 class="titulo"><b>ACCESO A UNA DIRECCIÓN EN LA WEB</b></h4>
 	</div>
 
 

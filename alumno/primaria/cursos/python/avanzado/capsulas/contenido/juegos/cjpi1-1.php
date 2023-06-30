@@ -15,7 +15,7 @@
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>COPIAR CÓDIGO EN UN CIERTO TIEMPO</b></h2>
+        <h2 class="titulo"><b>VARIABLES 2.0</b></h2>
     </div>
 
     <!-- Timer -->

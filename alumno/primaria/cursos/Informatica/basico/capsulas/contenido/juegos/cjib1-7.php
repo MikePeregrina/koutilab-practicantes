@@ -17,7 +17,7 @@
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h1 class="titulo"><b>DISPOSITIVOS MIXTOS</b></h1>
+        <h2 class="titulo"><b>DISPOSITIVOS MIXTOS</b></h2>
     </div>
 
     <!-- Timer -->
@@ -79,14 +79,14 @@
         var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-        var segundos = 240;
+        var segundos = 240;//240
 
         let puntos = 0;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             /declarando condiciones que permiten cambiar el color de fondo del timer/
-            if (segundos <= 40) {
+            if (segundos <= 60) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
@@ -96,7 +96,7 @@
             }
             if (segundos <= 10) {
                 var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();

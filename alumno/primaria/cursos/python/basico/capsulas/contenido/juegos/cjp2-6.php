@@ -15,7 +15,7 @@
 <body onload="iniciarTiempo()">
 	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>PREGUNTAS ÁGILES</b></h2>
+		<h2 class="titulo"><b>ESTRUCTURAS ITERATIVAS</b></h2>
 	</div>
 
 	<!-- Timer -->
@@ -178,7 +178,11 @@
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos <= 10) {
+			if(segundos > 15){
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+
+			}else if (segundos <= 10) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }

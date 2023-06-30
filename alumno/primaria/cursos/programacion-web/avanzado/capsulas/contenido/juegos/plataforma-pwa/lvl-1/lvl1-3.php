@@ -25,7 +25,7 @@
         <div class="instrucciones"></div>
 
         <div class="titulo-gen1">
-            <h2>Capitulo 1: ¡Gravedad!</h2>
+            <h2>GRÁFICOS VECTORIALES</h2>
         </div>
         <div class="titulo-gen3">
             <h5>

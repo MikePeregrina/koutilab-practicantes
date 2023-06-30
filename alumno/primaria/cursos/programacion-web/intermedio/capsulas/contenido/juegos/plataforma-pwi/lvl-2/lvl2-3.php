@@ -21,7 +21,7 @@
     <div class="instrucciones"></div>
     <div class="titulo-gen1">
         <h2>
-            Capitulo 2: Entre muros y gravedad
+             TABLA CON COMBINACIÓN DE CELDAS
         </h2>
     </div>
     <div class="titulo-gen3">

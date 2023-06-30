@@ -20,7 +20,7 @@
 <body onload="iniciarTiempo();">
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>IOS</b></h2>
+		<h4 class="titulo"><b>IOS</b></h4>
 	</div>
 
 
@@ -57,63 +57,26 @@
 
     <script>
 
-        //ambos
-        //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
-        function marcador() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        alertExcelent();
-                    }
-                });
-            }
-        }
-        //funciona para mostrar el resultado al agotarse el tiempo
-        function marcadorTiempoAgotado() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        tiempoAgotado();
-                    }
-                });
-            }
-        }
+       // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
+		// para mantener proporcion
+		var words = ['WINDOWS', 'LINUX', 'SISTEMAS', 'OPERATIVOS', 'MOVIL', '!PAD', '!POD', 'MACOS'];
+		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
-        //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
-        function tiempoAgotado() {
-            Swal.fire({
-                title: 'Mala Suerte',
-                text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../../capsulas/img/img_juegos/Thumbs-Up copy.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../../capsulas/img/img_juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
-        }
-        //ambos
+		var puzzle = wordfind.newPuzzle(words, {
+			height: 18,
+			width: 18,
+			fillBlanks: false
+		});
+		wordfind.print(puzzle);
 
+		$('#solve').click(function() {
+			wordfindgame.solve(gamePuzzle, words);
+		});
+	</script>
+	<script>
 
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
+		
+			var segundos = 240;//240
 
 		let puntos = 0;
 
@@ -129,47 +92,31 @@
                 }
                 if (segundos <= 10) {
                     var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
-            if (segundos == 0) {
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡El tiempo se acabo!',
-                    imageUrl: "../../../capsulas/img/img_juegos/loop.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        marcadorTiempoAgotado();
-                        // window.location.reload();
-                    }
-                });
-            } else {
-                segundos--;
-                setTimeout("iniciarTiempo()", 1000);
-            }
-        }
-
-        //Alerta muestra de que el juego fue completado
-        function alertExcelent() {
-            Swal.fire({
-                title: 'Excelente',
-                text: '¡Buen trabajo!',
-                imageUrl: "../../../capsulas/img/img_juegos/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../../capsulas/img/img_juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
-        }
+			if (segundos == 0) {
+				Swal.fire({
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
+					imageUrl: "img/loop.gif",
+					imageHeight: 350,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = '#';
+					}
+				});
+			} else {
+				segundos--;
+				setTimeout("iniciarTiempo()", 1000);
+			}
+		}
+    
+        
     </script>
 
-
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
+
 
 </html>

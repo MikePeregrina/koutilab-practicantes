@@ -52,7 +52,7 @@
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 480px"><b>CRUCIGRAMA</b></h2>
+        <h2 class="titulo" style="margin-left: 480px"><b>DATOS</b></h2>
     </div>
 
     <!-- Alerta -->
@@ -437,19 +437,25 @@
     </div>
 
     <script>
-        var segundos = 240;
+        var segundos = 240;//240
 
         let puntos = 0;
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
-            if (segundos <= 30) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            document.getElementById("tiempo").innerHTML =
-                segundos + " segundos";
+                if (segundos <= 60) {
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
 
