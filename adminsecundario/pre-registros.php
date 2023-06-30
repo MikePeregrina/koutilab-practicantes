@@ -5,13 +5,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
     header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
-
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
-
-$sql = "SELECT COUNT(*) id_admin FROM admin";
-$result = mysqli_query($conexion, $sql);
-$fila = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +23,11 @@ $fila = mysqli_fetch_assoc($result);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   
   <title>Document</title>
 </head>
@@ -42,70 +37,26 @@ $fila = mysqli_fetch_assoc($result);
     <?php include 'header-nav.php'; ?>
 
   <div class="containers">
-    <h1>ADMINISTRADORES</h1>  
+    <h1>PRE-REGISTROS</h1>  
   </div>
 
-  <div class="studens-add-bar">
-    <div class="left-student">
-        <i class="fas fa-user-shield"></i><h2><?php echo $fila['id_admin']; ?> Administrador(s)</h2>
-    </div>
-
-    <div class="right-student" id="addCourseButton">
-        <i class="fas fa-user-shield"></i><h2>Añadir administrador</h2>
-    </div>
-  </div>
-
-    <!-- Contenido de la pantalla emergente -->
-    <div class="popup-container" id="popupContainer">
-        <div class="popup-content">
-            <div class="titlec">
-                <h2>Nuevo grupo</h2>
-            </div>
-           
-            <div class="contenedor-emergente">
-            <form id="admin" method="POST" enctype="multipart/form-data" action="acciones/insertar_admin.php">
-                <div class="user-details">
-                    <div class="input-box">
-                        <span class="details">Usuario:</span>
-                        <input type="text" placeholder="Usuario" name="usuario" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Nombre:</span>
-                        <input type="text" placeholder="Nombre" name="nombre" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Contraseña:</span>
-                        <input type="text" placeholder="Contraseña" name="contrasena" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">País:</span>
-                        <select name="pais" style="height: 44px;" type="select" required>
-                            <option value="">Eliga un país</option>
-                            <option value="Estados Unidos">Estados Unidos</option>
-                            <option value="México">México</option>
-                            <option value="Costa Rica">Costa Rica</option>
-                            <option value="Perú">Perú</option>
-                        </select>
-                    </div>
-
-                </div>
-                <button class="btn-grd" type="submit" style="width: 40%;">Registrar</button>
-            </form>
-            </div>
-
-            <button id="closeButton"><i class="fas fa-times"></i></button>
-        
-        </div>
-    </div> <!-- Cierre de la pantalla emergente -->
+    
   <section>
 
-  <div class="board p-2">
-        <table id="admins" width="100%" class="table border-top" style="z-index: 1;">
+    <div class="board p-2">
+        <table id="preregistros" width="100%" class="table border-top">
             <thead>
                 <tr>
-                    <td><b>Usuario</b></td>
                     <td><b>Nombre</b></td>
+                    <td><b>Cargo</b></td>
+                    <td><b>WhatsApp</b></td>
+                    <td><b>Correo</b></td>
+                    <td><b>Escuela</b></td>
                     <td><b>País</b></td>
+                    <td><b>Estado</b></td>
+                    <td><b>Grado</b></td>
+                    <td><b>Total alumnos</b></td>
+                    <td><b>Otro</b></td>
                     <td><b>Acción</b></td>
                 </tr>
             </thead>
@@ -113,19 +64,26 @@ $fila = mysqli_fetch_assoc($result);
                 <?php
                 include "../acciones/conexion.php";
 
-                $query_escuelas = mysqli_query($conexion, "SELECT * FROM admin");
-                $result = mysqli_num_rows($query_escuelas);
+                $query_formulario = mysqli_query($conexion, "SELECT * FROM formulario");
+                $result = mysqli_num_rows($query_formulario);
                 if ($result > 0) {
-                    while ($data = mysqli_fetch_assoc($query_escuelas)) {
+                    while ($data = mysqli_fetch_assoc($query_formulario)) {
 
                 ?>
                         <tr>
-                            <td><?php echo $data['usuario']; ?></td>
-                            <td><?php echo $data['nombre']; ?></td>
+                            <td><?php echo $data['nombre_r']; ?></td>
+                            <td><?php echo $data['cargo']; ?></td>
+                            <td><?php echo $data['contacto']; ?></td>
+                            <td><?php echo $data['email']; ?></td>
+                            <td><?php echo $data['nombre_e']; ?></td>
                             <td><?php echo $data['pais']; ?></td>
+                            <td><?php echo $data['estado']; ?></td>
+                            <td><?php echo $data['grado']; ?></td>
+                            <td><?php echo $data['numero_a']; ?></td>
+                            <td><?php echo $data['otro_c']; ?></td>
                             <td>
-                                <a href="acciones/editar_admin.php?id=<?php echo $data['id_admin']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-edit'></i></a>
-                                <form style="padding: 0px 0px;" action="acciones/eliminar_admin.php?id=<?php echo $data['id_admin']; ?>" method="post" class="confirmar d-inline">
+                                <a href="acciones/preregistrar.php?id=<?php echo $data['id']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-check'></i></a>
+                                <form style="padding: 0px 0px;" action="acciones/eliminar_preregistro.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                                 </form>
                             </td>
@@ -141,27 +99,6 @@ $fila = mysqli_fetch_assoc($result);
             
   <?php include 'footer.php'; ?>
 
-  
-  <script>
-    const addCourseButton = document.getElementById('addCourseButton');
-    const popupContainer = document.getElementById('popupContainer');
-    const closeButton = document.getElementById('closeButton');
-
-    addCourseButton.addEventListener('click', function() {
-        popupContainer.style.display = 'block';
-    });
-
-    closeButton.addEventListener('click', function() {
-        popupContainer.style.display = 'none';
-    });
-
-    popupContainer.addEventListener('click', function(event) {
-        if (event.target === popupContainer) {
-            popupContainer.style.display = 'none';
-        }
-    });
-  </script>
-  
   <script>
         const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
         const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
@@ -277,17 +214,21 @@ $fila = mysqli_fetch_assoc($result);
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.bulma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.colVis.min.js"></script>
     <script>
         $(document).ready(function() {
-        $('#admins').DataTable({
-            language: {
-            url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-            }
-        });
+            $('#escuelas').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+                }
+            });
         });
     </script>
     <script>

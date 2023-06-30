@@ -1,9 +1,4 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_director'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_director'])) {
-  header('location: ../../acciones/cerrarsesion.php');
-}
 
 include('../acciones/conexion.php');
 

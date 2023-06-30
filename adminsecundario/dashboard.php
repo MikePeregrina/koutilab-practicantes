@@ -1,11 +1,17 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_admin_secundario'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
-  header('location: ../acciones/cerrarsesion.php');
+$id_user = $_SESSION['id_admin'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
+
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
+
+
+$sql = "SELECT COUNT(*) id_admin FROM admin";
+$result = mysqli_query($conexion, $sql);
+$fila = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -15,173 +21,93 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOUTILAB</title>
   <link rel="shortcut icon" href="img/lgk.png">
-  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/nav-barra.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-  <div id="sidemenu" class="menu-collapsed">
-    <div id="header">
-      <div id="title"><img src="img/koutilab3.png" alt="" /></div>
-      <div id="menu-btn">
-        <div class="btn-hamburger"></div>
-        <div class="btn-hamburger"></div>
-        <div class="btn-hamburger"></div>
-      </div>
-    </div>
-    <div class="item separator"></div>
-    <?php
-    $id = $user["id_admin"];
-    $name = $user["nombre"];
-    $image = $user["image"];
-    $username = $user["usuario"];
-    ?>
-    <div id="profile">
-      <div id="photo"><img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>"></div>
-      <div id="name"><span><span><?php echo $name; ?></span></div>
+ 
+   <!-- Header nav -->
+   <?php include 'header-nav.php'; ?>
+
+<div class="containers">
+  <h1>DASHBOARD</h1>
+</div>
+
+<section>
+  <div class="left-content">
+    <div class="titlec">
+      <h2>Usuario</h2>
+    </div><br>
+
+    <div class="subtitle-perfil">
+      <h3>Foto de Perfil</h3>
     </div>
 
-    <div id="menu-items">
-      <div class="item separator"></div>
-      <div class="item" style="background-color: rgba(61,172,244, .4);">
-        <a href="dashboard.php" class="">
-          <div class="icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <div class="title">
-            <span>Dashboard</span>
-          </div>
-        </a>
-      </div>
-      <div class="item separator"></div>
-      <div class="item">
-        <a href="escuelas.php" class="">
-          <div class="icon">
-            <i class='fa-solid fa-school'></i>
-          </div>
-          <div class="title">
-            <span>Escuelas</span>
-          </div>
-        </a>
-      </div>
-      <div class="item separator"></div>
-      <div class="item">
-        <a href="bandeja.php" class="">
-          <div class="icon">
-            <i class='fas fa-envelope'></i>
-          </div>
-          <div class="title">
-            <span>Bandeja</span>
-          </div>
-        </a>
-      </div>
-      <div class="item separator"></div>
-      <div class="item">
-        <a href="preregistros.php" class="">
-          <div class="icon" style="padding-bottom: 30px;">
-            <i class='fa-solid fa-clipboard'></i>
-          </div>
-          <div class="title">
-            <span>Pre-Registros</span>
-          </div>
-        </a>
-      </div>
-      <div class="item separator"></div>
-      <div class="item" style="margin-top: 183px;">
-        <div class="item separator"></div>
-        <a id="btn-abrir-modalA" class="">
-          <div class="icon">
-            <i class="fa fa-question-circle" aria-hidden="true"></i>
-          </div>
-          <div class="title">
-            <span>Ayuda</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div id="interface">
-    <div class="navigation">
-      <div class="n1" style="margin-left: 460px;">
-        <img src="img/koutilab0.png">
-      </div>
-      <div class="perfil">
-        <a href="../acciones/cerrarsesion.php"><i class="fa fa-sign-out"></i></a>
-      </div>
-    </div>
-  </div>
-  <div class="values ms-5 mt-3 pe-1">
-    <h3 class="i-name">Dashboard</h3>
-  </div>
-  <div class="body">
-    <div class="latd" style="width: 33%; margin-left: 77px; margin-right: 40px">
-      <div class="dos1">
-        <div class="titlec" style="margin-left: 60px;">
-          <h4 class="i-name">Datos de usuario</h4>
+
+    <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
+      <div class="perfil-usuario-avatar">
+
+        <div class="avatar-img">
+          <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
         </div>
-        <ul class="lista-datos">
-          <li><b>Foto de perfil:</b> </li>
-          <li>
-            <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
-              <div class="upload">
-                <?php
-                $id = $user["id_admin"];
-                $name = $user["nombre"];
-                $image = $user["image"];
-                $pais = $user["pais"];
-                ?>
-                <div id="photo"><img style="width: 160px; height: 160px; border-radius: 50%; margin-top:10px; margin-left:30%;  object-fit: cover;" src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>"></div>
-                <div class="round" style="margin-right: 165px; margin-bottom: 375px; scale: 90%;">
-                  <input type="hidden" name="id" value="<?php echo $id; ?>">
-                  <input type="hidden" name="name" value="<?php echo $name; ?>">
-                  <input type="file" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
-                  <i class="fa fa-camera" style="color: rgba(61, 172, 244);"></i>
-                </div>
-              </div>
-            </form>
-          </li>
-          <hr style="width: auto">
-          <li><b>Nombre:</b> <?php echo $name; ?></li><br>
-          <li><b>Usuario:</b> <?php echo $username ?></li><br>
-          <li><b>País:</b> <?php echo $pais ?></li><br>
-          <hr style="width: auto">
-          <li><b>Contraseña:</b> </li><br>
-          <li>
-            <form enctype="multipart/form-data" action="" method="post">
-              <div class="user-details1">
-                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
-                  <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                  <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
-                </div>
-              </div>
-            </form>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="latd" style="height: 500px; display: flex; justify-content: center; align-items: center;">
-      <div class="titlec">
-        <h4 class="i-name">Escuelas</h4>
 
+        <div class="camera-icon">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
+          <input type="hidden" name="name" value="<?php echo $name; ?>">
+          <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
+          <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px;"></i>
+        </div>
+    </form>
+  </div>
+
+  <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
+
+  <div class="container-info">
+    <h3>Nombre:<span><?php echo $name; ?></span></h3>
+    <br>
+    <h3>Usuario:<span><?php echo $username ?></span></h3>
+    <br>
+    <h3>Pais:<span><?php echo $pais ?></span></h3>
+  </div>
+
+  <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
+
+  <div class="change-password">
+    <h3>Contraseña:</h3>
+    <form enctype="multipart/form-data" action="" method="post">
+      <div class="user-details1">
+        <div class="input-box1">
+          <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+          <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
+        </div>
       </div>
+    </form>
+    </div>
+  </div>
+
+  <div class="right-content">
+    <div class="titlec">
+      <h2>Cursos</h2>
+    </div>
+
+    <div class="latd" style="scale:100%;justify-content: center; align-items: center;">
+
       <canvas id="myChart" width="30px !important" height="30px !important"></canvas>
     </div>
-  </div>
+  
+</section>
 
-  <dialog close id="modalA" style="background-image: url(img/bg1.png); border-radius: 20px; border: 2px solid #f1f2f3;">
-    <div>
-      <button style="float: right; background: white; width: 8%; scale: 70%;" class="btn-b" id="btn-cerrar-modalA"><i class="fas fa-close"></i></button>
-      <br>
-      <video width="520" height="250" controls>
-        <source src="" type="video/mp4">
-      </video>
-    </div>
-  </dialog>
 
-  <script>
+<?php include 'footer.php'; ?>
+
+
+<script>
     const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
     const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
     const modalA = document.querySelector("#modalA");
@@ -472,4 +398,5 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     }
   }
   ?>
+
 </body>

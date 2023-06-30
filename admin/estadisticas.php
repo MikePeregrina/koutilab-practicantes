@@ -36,153 +36,36 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
+<>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/lgk.png">
+  <link rel="stylesheet" href="css/nav-barra.css">
+  <link rel="stylesheet" href="css/estadisticas.css">
+  <link rel="stylesheet" href="css/footer.css">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="img/lgk.png">
-    <link rel="stylesheet" href="css/estadisticas.css" />
-    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
-    <!-- Sidemenu -->
-    <div id="sidemenu" class="menu-collapsed">
-        <div id="header">
-            <div id="title"><img src="img/koutilab3.png" alt="" /></div>
-            <div id="menu-btn">
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-            </div>
-        </div>
-        <div class="item separator"></div>
-        <?php
-        $id = $user["id_admin"];
-        $name = $user["nombre"];
-        $image = $user["image"];
-        $username = $user["usuario"];
-        ?>
-        <div id="profile">
-            <div id="photo"><img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>"></div>
-            <div id="name"><span><?php echo $name; ?></span></div>
-        </div>
+    <!-- Header nav -->
+    <?php include 'header-nav.php'; ?>
 
-        <div id="menu-items">
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="dashboard.php" class="">
-                    <div class="icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="title">
-                        <span>Dashboard</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item" style="background-color: rgba(61,172,244, .4);">
-                <a href="estadisticas.php" class="">
-                    <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="title">
-                        <span>Estadísticas</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="ingresos.php" class="">
-                    <div class="icon">
-                        <i class="fas fa-money-check-alt"></i>
-                    </div>
-                    <div class="title">
-                        <span>Ingresos</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="administradores.php" class="">
-                    <div class="icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div class="title">
-                        <span>Agregar administrador</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="escuelas.php" class="">
-                    <div class="icon">
-                        <i class='fa-solid fa-school'></i>
-                    </div>
-                    <div class="title">
-                        <span>Escuelas</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="preregistros.php" class="">
-                    <div class="icon">
-                        <i class='fa-solid fa-clipboard'></i>
-                    </div>
-                    <div class="title">
-                        <span>Pre-registros</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item">
-                <a href="bandeja.php" class="">
-                    <div class="icon">
-                        <i class='fas fa-envelope'></i>
-                    </div>
-                    <div class="title">
-                        <span>Bandeja</span>
-                    </div>
-                </a>
-            </div>
-            <div class="item separator"></div>
-            <div class="item" style="background-color: rgba(61,172,244, .4);">
-                <a href="enviar.php" class="">
-                    <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                    <i class="fa-regular fa-envelopes-bulk"></i>
-                    </div>
-                    <div class="title">
-                        <span>Enviar Email</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-            <div class="item separator"></div>
-        </div>
-    </div>
+  <div class="containers">
+    <h1>Estadisticas</h1>  
+  </div>
 
-    <div id="interface">
-        <div class="navigation">
-            <div class="n1" style="margin-left: 460px;">
-                <img src="img/koutilab0.png">
-            </div>
-            <div class="perfil">
-                <a href="../acciones/cerrarsesion.php"><i class="fa fa-sign-out"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="values ms-5 mt-3 pe-1">
-        <h3 class="i-name">Estadísticas</h3>
-    </div>
+ 
 
-    <!-- Graficas -->
 
+  <section>
     <div class="body">
         <div class="latd">
             <div class="grafica">
@@ -252,7 +135,7 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
     <div class="body" style="margin-top: -20px;">
         <div class="latd">
             <div class="grafica">
-                <canvas id="G-Familias" width="450" height="280"></canvas>
+                <canvas id="G-Familias" width="470" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
                     <li><i class='fa-solid fa-school me-3'></i><b>Total de planes familiares: </b>0</li> <!--Esta grafica aun no-->
@@ -271,19 +154,14 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
         </div>
     </div>
 
-    <!-- Fin graficas -->
+        <!-- Fin graficas -->
+  </section>
 
-    <dialog close id="modalA" style="background-image: url(img/bg1.png); border-radius: 20px; border: 2px solid #f1f2f3;">
-        <div>
-            <button style="float: right; background: white; width: 8%; scale: 70%;" class="btn-b" id="btn-cerrar-modalA"><i class="fas fa-close"></i></button>
-            <br>
-            <video width="520" height="250" controls>
-                <source src="" type="video/mp4">
-            </video>
-        </div>
-    </dialog>
-
-    <script>
+            
+  <?php include 'footer.php'; ?>
+   
+ 
+  <script>
         const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
         const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
         const modalA = document.querySelector("#modalA");
@@ -593,3 +471,4 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+</html>
