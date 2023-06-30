@@ -48,23 +48,6 @@ if (empty($existe)) {
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container" style="width: 412px; height: 412px;">
-<<<<<<< HEAD:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/cjibp1-2-3.5.php
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s8.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s9.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s10.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s11.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s12.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s13.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s14.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../cjibp3/lvl2-2/s15.png" class="contenedor-img" alt=""></div>
-=======
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s1.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s2.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s3.png" class="contenedor-img" alt=""></div>
@@ -80,7 +63,6 @@ if (empty($existe)) {
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s13.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s14.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl2-2/s15.png" class="contenedor-img" alt=""></div>
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/level2.php
 			</div>
 		</div>
 
@@ -119,12 +101,7 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
-<<<<<<< HEAD:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/cjibp1-2-3.5.php
-		var segundos = 240;//240
-
-=======
 		var segundos = 240;
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/level2.php
 		let puntos = 0;
 
 		//Se esta llamando los sonidos de la carpeta "sonidos"
