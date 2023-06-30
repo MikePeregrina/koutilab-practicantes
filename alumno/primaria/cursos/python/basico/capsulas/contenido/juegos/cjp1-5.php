@@ -1,3 +1,44 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula15";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 16;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
+} else {
+	$puntosGanados = 10;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,6 +52,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
@@ -29,7 +71,7 @@
     <!-- Contenedor principal -->
     <div class="contenido">
         <!-- Boton para regresar -->
-        <a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
+        <a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
                 id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
@@ -223,15 +265,20 @@
             //validamos que ya se hizo intento de resolver todo el juego
             if (todasSeleccionadas) {
                 if (respuestasCorrectas < 3) {
+                    var xmlhttp = new XMLHttpRequest();
+                    var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 4; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                     Swal.fire({
                         //estrucutra de la alerta
                         title: '!Puedes seguir mejorado!',
                         html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                        imageUrl: 'img/loop.gif',
+                        imageUrl: '../../img/img-juegos/loop.gif',
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
@@ -240,23 +287,29 @@
                         }
                     });
                 } else {
+                    var xmlhttp = new XMLHttpRequest();
+                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 16 + "&id_curso=" + 4; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                     //llamamos a la alerta
                     Swal.fire({
                         //estrucutra de la alerta
                         title: 'Resultados',
                         html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                        imageUrl: 'img/Thumbs-Up.gif',
+                        imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.reload();
+                            window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 }
             }
             //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
@@ -264,11 +317,11 @@
                 Swal.fire({
                     title: 'Oops...',
                     text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-                    imageUrl: 'img/loop.gif',
+                    imageUrl: '../../img/img-juegos/loop.gif',
                     imageHeight: 350,
                     backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: '¡Genial!',
                 });
@@ -281,9 +334,19 @@
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+<<<<<<< HEAD
         var segundos = 240;//240
 
+=======
+        var segundos = 240;
+>>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -300,16 +363,22 @@
                     div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
             if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 4; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "img/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

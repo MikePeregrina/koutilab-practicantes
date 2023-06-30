@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula18";
+$permiso = "capsula49";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 19;
+$permiso_intento = 50;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -46,6 +46,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Maze</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -82,7 +83,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			<div id="menu" style="margin-top: -500px; position: absolute;">
 				<div class="custom-select">
 					<select id="diffSelect">
-						<option value="12">Easy</option>
+						<option value="10">Easy</option>
 						<option value="15">Medium</option>
 						<option value="25">Hard</option>
 						<option value="38">Extreme</option>                                      
@@ -111,7 +112,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		Swal.fire({
 			title: '¡Oh no!',
 			text: 'Kobot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
-			imageUrl: "../../img/img_juegos/loop.gif",
+			imageUrl: "../../img/img-juegos/loop.gif",
 			imageHeight: 320,
 			confirmButtonText: '¡Vamos!',
 			confirmButtonColor: '#85c42c',
@@ -122,9 +123,19 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
+<<<<<<< HEAD
 		var segundos = 240;//240
 
+=======
+		var segundos = 240;
+>>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 		let puntos = 0;
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -143,18 +154,19 @@ if (isset($resultadoIntentos['intentos'])) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 1; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../img/img_juegos/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
-				xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
+				incorrecto.play(); //agregando sonido al juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -201,26 +213,22 @@ if (isset($resultadoIntentos['intentos'])) {
 	function displayVictoryMess(moves) {
 		document.getElementById("moves").innerHTML = moves;
 		toggleVisablity("Message-Container");  
-		var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 1; //cancatenation
-		xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
-		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xmlhttp.send(param);
 		Swal.fire({
 			title: '¡Muy bien!',
-			text: 'Llegaste a la nave con éxito',
-			imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+			text: 'Ahora pasemos al siguiente nivel',
+			imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 			imageHeight: 350,
 			backdrop: `
 			rgba(0,143,255,0.6)
-			url("../../img/img_juegos/fondo.gif")`,
+			url("../../img/img-juegos/fondo.gif")`,
 			confirmButtonColor: '#a14cd9',
 			confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+				window.location.href = 'level-2.html';
 			}
 		})
+		correcto.play(); //agregando sonido al juego completado
 	}
 	
 	function toggleVisablity(id) {
@@ -712,7 +720,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 		sprite = new Image();
 		sprite.src =
-		"../../img/img_juegos/mascota-1.png" +
+		"../../img/img-juegos/mascota-1.png" +
 		"?" +
 		new Date().getTime();
 		sprite.setAttribute("crossOrigin", " ");
@@ -724,7 +732,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 	
 		finishSprite = new Image();
-		finishSprite.src = "../../img/img_juegos/cohete.png"+
+		finishSprite.src = "../../img/img-juegos/cohete.png"+
 		"?" +
 		new Date().getTime();
 		finishSprite.setAttribute("crossOrigin", " ");

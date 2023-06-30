@@ -1,3 +1,18 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago3";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium3.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <!-- 
@@ -40,8 +55,7 @@
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -67,7 +81,7 @@
 
     <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
     <div class="contenido">
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="
+        <a href="../../../../../../rutas/ruta-py-i.php"><button style="
                         float: left;
                         position: relative;
                         margin: 10px 0 0 10px;
@@ -410,8 +424,13 @@
 
     <script>
         var segundos = 240;
-
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
@@ -431,13 +450,14 @@
                 Swal.fire({
                     title: "Oops...",
                     text: "¡Verifica tu respuesta!",
-                    imageUrl: "../../../../../../img/signo.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "cj18.php";
+                        window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
                     "../../acciones/insertar_cp9.php",
@@ -534,7 +554,7 @@
             for (columna = 1; columna <= 8; columna++) {
                 if (
                     document.getElementById("fila" + fila + "C" + columna)
-                        .readOnly == false
+                    .readOnly == false
                 ) {
                     document.getElementById(
                         "fila" + fila + "C" + columna
@@ -620,24 +640,24 @@
                     "&id_curso=" +
                     1; //cancatenation
 
-                xmlhttp.onreadystatechange = function () {
+                xmlhttp.onreadystatechange = function() {
                     Swal.fire({
                         title: "¡Bien hecho!",
                         text: "¡Puntuación guardada con éxito!",
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                         imageHeight: 350,
                         backdrop: `
 					rgba(0,143,255,0.6)
-					url("../../../../../../img/fondo.gif")
+					url("../../img/img-juegos/fondo.gif")
 					`,
                         confirmButtonColor: "#a14cd9",
                         confirmButtonText: "Aceptar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href =
-                                "../../../../../../rutas/ruta-pw-b.php";
+                            window.location.href = "../../../../../../rutas/ruta-py-i.php";
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 };
                 xmlhttp.open(
                     "POST",
@@ -718,7 +738,7 @@
             var inputs = document.querySelectorAll("#crucigrama input");
 
             for (var i = 0; i < inputs.length; i++) {
-                inputs[i].addEventListener("input", function (e) {
+                inputs[i].addEventListener("input", function(e) {
                     var maxLength = parseInt(
                         e.target.getAttribute("maxlength")
                     );
@@ -783,9 +803,7 @@
 
                 // Verificar si hay inputs disponibles en la misma fila (horizontal)
                 for (
-                    var i = tdIndex + 1;
-                    i < trParent.children.length;
-                    i++
+                    var i = tdIndex + 1; i < trParent.children.length; i++
                 ) {
                     var input = trParent.children[i].querySelector("input");
                     if (
@@ -799,9 +817,7 @@
 
                 // Verificar si hay inputs disponibles en la misma columna (vertical)
                 for (
-                    var i = trIndex + 1;
-                    i < trParent.parentElement.children.length;
-                    i++
+                    var i = trIndex + 1; i < trParent.parentElement.children.length; i++
                 ) {
                     var input =
                         trParent.parentElement.children[i].children[
@@ -828,9 +844,7 @@
                 // Mover horizontalmente
                 if (direction === "horizontal") {
                     for (
-                        var i = tdIndex + 1;
-                        i < trParent.children.length;
-                        i++
+                        var i = tdIndex + 1; i < trParent.children.length; i++
                     ) {
                         var nextInput =
                             trParent.children[i].querySelector("input");
@@ -860,9 +874,7 @@
                 );
 
                 for (
-                    var i = trIndex + 1;
-                    i < trParent.parentElement.children.length;
-                    i++
+                    var i = trIndex + 1; i < trParent.parentElement.children.length; i++
                 ) {
                     var nextInput =
                         trParent.parentElement.children[i].children[
@@ -884,9 +896,7 @@
         habilitarMovimiento();
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>

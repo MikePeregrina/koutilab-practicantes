@@ -211,6 +211,12 @@
 		* resets the game state to start a new word.
 		*
 		*/
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		var endTurn = function () {
 
 			// see if we formed a valid word
@@ -232,7 +238,7 @@
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
 							rgba(0,143,255,0.6)
@@ -245,6 +251,7 @@
 							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
 						}
 					});
+					correcto.play(); //agregando sonido al juego completado
 				}
 			}
 

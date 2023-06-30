@@ -156,6 +156,11 @@ function mostrarResultados() {
     //validamos que ya se hizo intento de resolver todo el juego
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 7; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
@@ -174,6 +179,11 @@ function mostrarResultados() {
             });
         } else {
             //llamamos a la alerta
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 7; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 //estrucutra de la alerta
                 title: 'Resultados',

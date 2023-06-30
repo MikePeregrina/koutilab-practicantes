@@ -41,7 +41,7 @@
     },
     {
         "categoria": "web intermedio-css",
-        "pregunta": "Puedo agregar más de un control de formulario?",
+        "pregunta": "¿Puedo agregar más de un control de formulario?",
         "respuesta": "¡Si! es posible",
         "incorrecta1": "¡Imposible!",
         "incorrecta2": "No lo se",

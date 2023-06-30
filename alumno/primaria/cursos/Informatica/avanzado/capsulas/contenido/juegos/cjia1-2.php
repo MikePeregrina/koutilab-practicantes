@@ -1,9 +1,49 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula6";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 7;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 9");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
+} else {
+	$puntosGanados = 10;
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../img//img-juegos/lgk.png">
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/sopa-letras.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -32,7 +72,7 @@
 
 	<div class="contenido">
 
-		<a href="#">
+		<a href="../../../../../../rutas/ruta-in-a.php">
 			<button class="btn-b">
 				<i class="fas fa-reply"></i>
 			</button>
@@ -75,8 +115,13 @@
 		});
 	</script>
 	<script>
-		var segundos = 240;
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+		var segundos = 240;
 		let puntos = 0;
 
 		function iniciarTiempo() {
@@ -90,16 +135,22 @@
 				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 +"&id_curso=" + 9; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img//img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.href = '#';
+						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

@@ -10,8 +10,9 @@ $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/pasarela/capsula5js.php");
+    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
 }
+
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 3;

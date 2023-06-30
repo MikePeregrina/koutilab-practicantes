@@ -1,12 +1,19 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240 ; //tiempo oficial es 240
-
 let puntos = 0;
+
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML = `mensaje = &quot;Mensaje en una variable&quot;<br><br> nombre = "Tenoch Moises Vazquez"<br><br> telefono_personal = 2223252728`;
+).innerHTML = `mensaje = "Mensaje en una variable" <br> 
+nombre = "Tenoch Moises Vazquez" <br> 
+telefono_personal = 2223252728`
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).
@@ -46,6 +53,11 @@ function iniciarTiempo() {
     if (segundos == 0) {
         //Borra el texto escrito
         escrito.value = "";
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 4; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlhttp.send(param);
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
@@ -56,6 +68,7 @@ function iniciarTiempo() {
                 window.location.reload();
             }
         });
+        incorrecto.play(); //agregando sonido al juego no completado
     } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -73,6 +86,11 @@ function alertExcelent() {
     var text2 = textoejemplof.replace(/\s/g, "");
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 4; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
@@ -87,9 +105,10 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.reload();
+                window.location.href = '../../../../../../rutas/ruta-py-b.php';
             }
         });
+        correcto.play(); //agregando sonido al juego completado
     } else {
         Swal.fire({
             title: "Oops...",

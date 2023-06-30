@@ -52,6 +52,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
@@ -114,9 +115,19 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+<<<<<<< HEAD
         var segundos = 240 ;//240
 
+=======
+        var segundos = 240;
+>>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -141,13 +152,14 @@ if (isset($resultadoIntentos['intentos'])) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "../../img/img_juegos/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

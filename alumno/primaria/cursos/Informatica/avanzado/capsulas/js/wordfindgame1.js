@@ -211,6 +211,12 @@
 		* resets the game state to start a new word.
 		*
 		*/
+
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var endTurn = function () {
 
 			// see if we formed a valid word
@@ -224,22 +230,28 @@
 
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 9; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "img/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
 							rgba(0,143,255,0.6)
-							url("img/fondo.gif")
+							url("../../img/img-juegos/fondo.gif")
 							`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '#';
+							window.location.href = '../../../../../../rutas/ruta-in-a.php';
 						}
 					});
+					correcto.play(); //agregando sonido del juego completado
 				}
 			}
 

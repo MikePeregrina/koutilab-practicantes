@@ -53,7 +53,12 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 <body>
 	<div class="titulo-gen">
+<<<<<<< HEAD
 		<h2 class="titulo"><b>LINEAS SVG</b></h2>
+=======
+		<h2 class="titulo"><b>LABERINTO</b></h2>
+		<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
+>>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 	</div>
 
 	<div class="timer">
@@ -123,8 +128,13 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -142,6 +152,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 				xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -209,6 +220,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				window.location.href = '../../../../../../rutas/ruta-pw-a.php';
 			}
 		})
+		correcto.play(); //agregando sonido al juego completado
 	}
 	
 	function toggleVisablity(id) {

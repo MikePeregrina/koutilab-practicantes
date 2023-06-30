@@ -155,15 +155,20 @@ function mostrarResultados() {
     //validamos que ya se hizo intento de resolver todo el juego
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 8; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../img/img-juegos/loop.gif',
+                imageUrl: '../../img/img-juegos/loop.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("/img/img-juegos/loop.gif")`,
+                    url("../../img/img-juegos/loop.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -174,20 +179,25 @@ function mostrarResultados() {
             
         } else {
             //llamamos a la alerta
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 + "&id_curso=" + 8; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 //estrucutra de la alerta
                 title: 'Resultados',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../img/img-juegos/Thumbs-Up.gif',
+                imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../img/img-juegos/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.reload();
+                    window.location.href = '../../../../../../rutas/ruta-in-i.php';
                 }
             });
             
@@ -199,11 +209,11 @@ function mostrarResultados() {
         Swal.fire({
             title: 'Oops...',
             text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-            imageUrl: '../img/img-juegos/loop.gif',
+            imageUrl: '../../img/img-juegos/loop.gif',
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../img/img-juegos/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: '#a14cd9',
             confirmButtonText: '¡Genial!',
         });

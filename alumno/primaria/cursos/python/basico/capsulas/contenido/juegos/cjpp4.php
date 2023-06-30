@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium4.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -13,6 +28,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
   </head>
 
   <body onload="iniciarTiempo()">
@@ -32,7 +48,7 @@
     <!-- Contenedor principal -->
     <div class="contenido">
       <!-- Boton para regresar -->
-      <a href="#"
+      <a href="../../../../../../rutas/ruta-py-b.php"
         ><button
           style="float: left; position: absolute; margin: 10px 0 0 10px"
           class="btn-b"
@@ -59,6 +75,12 @@
     </div>
 
     <script>
+      //Funcion que agrega el sonido al juego
+      var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
       //Arreglo de preguntas
       var preguntas = [
         {
@@ -255,13 +277,14 @@
           Swal.fire({
             title: "Oops... Te has quedado sin tiempo",
             text: "¡Intentalo de nuevo!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
           }).then((result) => {
             if (result.isConfirmed) {
               window.location.reload();
             }
           });
+          incorrecto.play(); //agregando sonido al juego no completado
         } else {
           segundos--;
           setTimeout("iniciarTiempo()", 1000);
@@ -300,7 +323,7 @@
             Swal.fire({
               title: "Oops... Has perdido el juego",
               text: "¡Inténtalo de nuevo!",
-              imageUrl: "img/loop.gif",
+              imageUrl: "../../img/img-juegos/loop.gif",
               imageHeight: 350,
             }).then((result) => {
               if (result.isConfirmed) {
@@ -337,18 +360,19 @@
         Swal.fire({
           title: "Excelente",
           text: "¡Buen trabajo!",
-          imageUrl: "img/Thumbs-Up.gif",
+          imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
           imageHeight: 350,
           backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
           confirmButtonColor: "#a14cd9",
           confirmButtonText: "¡Genial!",
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.reload();
+            window.location.href = '../../../../../../rutas/ruta-py-b.php';
           }
         });
+        correcto.play(); //agregando sonido al juego completado
       }
 
       //Alerta, muestra que la respuesta fue correcta

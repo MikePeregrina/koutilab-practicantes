@@ -1,3 +1,43 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula24";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 25;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 7");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
+} else {
+	$puntosGanados = 10;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,8 +69,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i>
 			</button>
 		</a>
@@ -51,11 +90,9 @@
 
 	<script>
 		//Arreglo de preguntas
-		var preguntas = [
-		{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"¿Qué  es un archivo?",
+				pregunta: "¿Qué  es un archivo?",
 				opA: "Formato",
 				opB: "Contenedor de información",
 				opC: "Gráfico",
@@ -64,8 +101,7 @@
 			},
 			{
 				num: 2,
-				pregunta:
-					"Para que son los archivos digitales",
+				pregunta: "Para que son los archivos digitales",
 				opA: "Gestión de información escrita, como archivos en Word o PDF",
 				opB: "Gráfico",
 				opC: "Position",
@@ -74,8 +110,7 @@
 			},
 			{
 				num: 3,
-				pregunta:
-					"¿Cual de las siguentes es una ventajas del archivo electrónico?",
+				pregunta: "¿Cuál de las siguientes es una ventajas del archivo electrónico?",
 				opA: "Graficos",
 				opB: "Gestión",
 				opC: "Mayor seguridad",
@@ -84,8 +119,7 @@
 			},
 			{
 				num: 4,
-				pregunta:
-					"Los archivos digitales de imagen son...",
+				pregunta: "Los archivos digitales de imagen son...",
 				opA: "Sonido y voz",
 				opB: "Fotos y videos",
 				opC: "Informacion escrita",
@@ -94,8 +128,7 @@
 			},
 			{
 				num: 5,
-				pregunta:
-					"Los archivos digitales para la gestion de informacion son...",
+				pregunta: "Los archivos digitales para la gestión de información son...",
 				opA: "CSS",
 				opB: "PDF y Word",
 				opC: "Sonido y voz",
@@ -117,7 +150,7 @@
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -180,21 +213,26 @@
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
-        if (segundos <= 10) {
-          var div = document.getElementById("timer");
-          div.style.cssText =
-		  "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
-        if (segundos <= 5) {
-          var div = document.getElementById("timer");
-          div.style.cssText =
-            "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText =
+					"animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 5) {
+				var div = document.getElementById("timer");
+				div.style.cssText =
+					"animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img_juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -236,10 +274,15 @@
 				console.log("Incorrecto");
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "img/loop.gif",
+						imageUrl: "../../img/img_juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -272,19 +315,24 @@
 		}
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "img/Thumbs-Up.gif",
+				imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img_juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = '../../../../../../rutas/ruta-in-b.php';
 				}
 			});
 		}

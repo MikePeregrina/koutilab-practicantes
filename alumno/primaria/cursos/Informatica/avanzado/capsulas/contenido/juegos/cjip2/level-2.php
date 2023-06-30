@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium2.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLIDE PUZZLE</title>
+	<link rel="shortcut icon" href="../../../img/img-juegos/lgk.png">
     <link rel="stylesheet" href="css/slide.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -22,7 +38,7 @@
 	</div>
     
     <div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../../rutas/ruta-in-a.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -62,7 +78,7 @@
 			Swal.fire({
 				title: '¡Oh no!',
 				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
-				imageUrl: "img/loop.gif",
+				imageUrl: "../../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
 				confirmButtonColor: '#85c42c',
@@ -86,8 +102,13 @@
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -98,13 +119,14 @@
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completadp
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -190,18 +212,19 @@
 							Swal.fire({
 								title: '¡Muy bien!',
 								text: 'Ayudaste a Koubot a pasar ambos niveles',
-								imageUrl: "img/Thumbs-Up.gif",
+								imageUrl: "../../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
-								url("img/fondo.gif")`,
+								url("../../../img/img-juegos/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = '#';
+									window.location.href = '../../../../../../../rutas/ruta-in-a.php';
 								}
 							})
+							correcto.play(); //agregando sonido al juego completado
 						}, "800");
 					}
 				}

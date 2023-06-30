@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago3";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../alertas/paquete_premium3.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,6 +26,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -29,7 +45,7 @@
 	<!-- Contenedor principal -->
 	<div class="contenido">
 		<!-- Boton para regresar -->
-		<a href="#">
+		<a href="../../../../../../rutas/ruta-in-a.php">
 			<button class="btn-b">
 				<i class="fas fa-reply"></i>
 			</button>
@@ -50,6 +66,12 @@
 	</div>
 
 	<script>
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	    var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		//Arreglo de preguntas
 		var preguntas = [
 			{
@@ -248,13 +270,14 @@
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -297,7 +320,7 @@
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "img/loop.gif",
+						imageUrl: "../../img/img-juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -334,18 +357,19 @@
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "img/Thumbs-Up.gif",
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.reload();
+					window.location.href = '../../../../../../rutas/ruta-in-a.php';
 				}
 			});
+			correcto.play(); //agregando sonido al juego completado
 		}
 
 		//Alerta, muestra que la respuesta fue correcta

@@ -1,3 +1,18 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../alertas/paquete_premium4.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
     <link rel="stylesheet" href="css/slide.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -22,7 +38,7 @@
 	</div>
     
     <div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
@@ -79,8 +95,13 @@
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		//Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -98,6 +119,7 @@
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -195,6 +217,7 @@
 									window.location.href = 'level-2.php';
 								}
 							})
+							correcto.play(); //agregando sonido al juego completado
 						}, "800");
 					}
 				}
