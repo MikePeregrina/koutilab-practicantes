@@ -48,16 +48,6 @@ if (empty($existe)) {
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container">
-<<<<<<< HEAD:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/cjibp1-1-3.5.php
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../cjibp3/lvl1-2/s8.png" class="contenedor-img" alt=""></div>
-=======
 				<div class="puzzle_block"><img src="lvl1-2/s1.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block"><img src="lvl1-2/s2.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block"><img src="lvl1-2/s3.png" class="contenedor-img" alt=""></div>
@@ -66,7 +56,6 @@ if (empty($existe)) {
 				<div class="puzzle_block"><img src="lvl1-2/s6.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block"><img src="lvl1-2/s7.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block"><img src="lvl1-2/s8.png" class="contenedor-img" alt=""></div>
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/index.php
 			</div>
 		</div>
 
@@ -105,12 +94,7 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
-<<<<<<< HEAD:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/cjibp1-1-3.5.php
-		var segundos = 240;//240
-
-=======
 		var segundos = 240;
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a:alumno/primaria/cursos/Informatica/basico/capsulas/contenido/juegos/cjibp3/index.php
 		let puntos = 0;
 		//Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");

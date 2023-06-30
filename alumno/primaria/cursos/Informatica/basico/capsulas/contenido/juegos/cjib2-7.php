@@ -58,17 +58,10 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
-<<<<<<< HEAD
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo"><b>IOS</b></h4>
-	</div>
-=======
     <!-- Titulo general -->
     <div class="titulo-gen">
         <h2 class="titulo"><b>IOS</b></h2>
     </div>
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 
 
     <div class="timer" id="timer">
@@ -103,20 +96,6 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <script>
-<<<<<<< HEAD
-
-       // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
-		// para mantener proporcion
-		var words = ['WINDOWS', 'LINUX', 'SISTEMAS', 'OPERATIVOS', 'MOVIL', '!PAD', '!POD', 'MACOS'];
-		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
-
-		var puzzle = wordfind.newPuzzle(words, {
-			height: 18,
-			width: 18,
-			fillBlanks: false
-		});
-		wordfind.print(puzzle);
-=======
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
@@ -173,7 +152,6 @@ if (isset($resultadoIntentos['intentos'])) {
             });
         }
         //ambos
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 
 		$('#solve').click(function() {
 			wordfindgame.solve(gamePuzzle, words);
@@ -186,40 +164,6 @@ if (isset($resultadoIntentos['intentos'])) {
 
         let puntos = 0;
 
-<<<<<<< HEAD
-		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
-			if (segundos <= 60) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-			if (segundos == 0) {
-				Swal.fire({
-					title: 'Oops...',
-					text: '¡Verifica tu respuesta!',
-					imageUrl: "img/loop.gif",
-					imageHeight: 350,
-				}).then((result) => {
-					if (result.isConfirmed) {
-						window.location.href = '#';
-					}
-				});
-			} else {
-				segundos--;
-				setTimeout("iniciarTiempo()", 1000);
-			}
-		}
-    
-        
-=======
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
@@ -276,7 +220,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }
             });
         }
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
     </script>
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
