@@ -79,9 +79,9 @@ if (isset($resultadoIntentos['intentos'])) {
         <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h4>
 
         <br>
-        <!-- contenido del juego -->
+        <!-- contenido del juego --1
         <div class="container-all">
-            <!-- Columna de lado izquierdo -->
+            <!Columna de lado izquierdo -->
             <div class="left-column">
                 <!-- opciones estas son las principales -->
                 <div class="word-box" id="css">INT</div>
