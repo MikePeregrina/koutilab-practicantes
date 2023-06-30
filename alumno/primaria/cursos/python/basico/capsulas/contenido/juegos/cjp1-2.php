@@ -123,12 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-<<<<<<< HEAD
-		var segundos = 240;//240
-
-=======
-		var segundos = 5;
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
+		var segundos = 240;
 		let puntos = 0;
 
 		//Funcion que agrega el sonido al juego
