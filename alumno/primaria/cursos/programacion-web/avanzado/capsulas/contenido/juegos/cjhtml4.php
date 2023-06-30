@@ -53,12 +53,8 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 <body>
 	<div class="titulo-gen">
-<<<<<<< HEAD
-		<h2 class="titulo"><b>LINEAS SVG</b></h2>
-=======
 		<h2 class="titulo"><b>LABERINTO</b></h2>
 		<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 	</div>
 
 	<div class="timer">
