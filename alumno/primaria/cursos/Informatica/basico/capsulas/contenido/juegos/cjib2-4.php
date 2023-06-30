@@ -123,15 +123,11 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-<<<<<<< HEAD
-		var segundos = 240;//240
-=======
 		//Se esta llamando los sonidos de la carpeta "sonidos"
 		var correcto = document.createElement("audio");
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 
 		var segundos = 240;
 		let puntos = 0;
