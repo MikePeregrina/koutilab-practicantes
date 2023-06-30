@@ -443,8 +443,13 @@ if (empty($existe)) {
 
     <script>
         var segundos = 240;
-
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
@@ -471,6 +476,7 @@ if (empty($existe)) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
                     "../../acciones/insertar_cp9.php",
@@ -681,6 +687,7 @@ if (empty($existe)) {
                             window.location.href = "../../../../../../rutas/ruta-py-i.php";
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 };
                 xmlhttp.open(
                     "POST",

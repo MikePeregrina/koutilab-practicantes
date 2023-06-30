@@ -49,7 +49,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
     <title>KOUTILAB</title>
 </head>
 
@@ -305,6 +305,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 }
             }
             //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
@@ -327,8 +328,13 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
-
         let puntos = 0;
+
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -348,6 +354,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

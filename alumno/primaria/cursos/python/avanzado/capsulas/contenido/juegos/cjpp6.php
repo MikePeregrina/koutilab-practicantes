@@ -538,6 +538,7 @@ if (empty($existe)) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
                     "../../acciones/insertar_cp9.php",
@@ -772,6 +773,7 @@ if (empty($existe)) {
                             window.location.href = '../../../../../../rutas/ruta-py-a.php';
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 };
                 xmlhttp.open(
                     "POST",

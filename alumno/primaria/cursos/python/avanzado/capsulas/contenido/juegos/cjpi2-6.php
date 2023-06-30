@@ -122,8 +122,13 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		 //Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -141,6 +146,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 				xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -208,6 +214,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				window.location.href = '../../../../../../rutas/ruta-py-a.php';
 			}
 		})
+		correcto.play(); //agregando sonido al juego completado
 	}
 	
 	function toggleVisablity(id) {

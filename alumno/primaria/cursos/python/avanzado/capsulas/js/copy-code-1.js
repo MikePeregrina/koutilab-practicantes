@@ -1,16 +1,19 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-
 let puntos = 0;
+
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-edad = 9
-<br><br>
-nombre = "Hanna"
-<br><br>
+edad = 9 <br>
+nombre = "Hanna" <br>
 print("Hola, mi nombre es " + nombre + " y tengo " + edad + " años")
 `;
 //Entidades para que html no reconosca las etiquetas
@@ -55,6 +58,7 @@ function iniciarTiempo() {
                 window.location.reload();
             }
         });
+        incorrecto.play(); //agregando sonido al juego no completado
     } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -94,6 +98,7 @@ function alertExcelent() {
                 window.location.href = '../../../../../../rutas/ruta-py-a.php';
             }
         });
+        correcto.play(); //agregando sonido al juego completado
     } else {
         Swal.fire({
             title: "Oops...",

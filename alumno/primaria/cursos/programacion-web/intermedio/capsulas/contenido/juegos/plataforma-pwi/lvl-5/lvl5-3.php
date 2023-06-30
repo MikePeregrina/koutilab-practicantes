@@ -479,9 +479,9 @@
                             window.location.href = '../../../../../../../../rutas/ruta-pw-i.php';
                         }
                     });
-                    correcto.play(); //agregando sonido al juego completado
                 }
             });
+            correcto.play(); //agregando sonido al juego completado
         }
 
         function alertQuestion() {

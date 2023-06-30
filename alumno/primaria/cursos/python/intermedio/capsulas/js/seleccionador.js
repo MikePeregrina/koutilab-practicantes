@@ -12,9 +12,6 @@ canvas.height = ALTURA_CANVAS;
 // Del canvas, obtener el contexto para poder dibujar
 const contexto = canvas.getContext("2d");
 
-
-
-
 // Apartado para seleccinador para relacionar columas
 const palabras = document.querySelectorAll('.word-box');
 
@@ -133,7 +130,11 @@ function checkAnswer(respuesta) {
 }
 
 
-
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 // Agregar evento de clic al botón de comprobar respuestas
 const botonComprobar = document.querySelector('.verificar');
@@ -197,6 +198,7 @@ function mostrarResultados() {
                     window.location.href = "../../../../../../rutas/ruta-py-i.php";
                 }
             });
+            correcto.play(); //agregando sonido al juego completado
         }
     }
     //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas

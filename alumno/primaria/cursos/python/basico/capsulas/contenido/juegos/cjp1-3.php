@@ -50,7 +50,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="shortcut icon" href="img/lgk.png">
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
     <title>KOUTILAB</title>
 </head>
 
@@ -85,25 +85,19 @@ if (isset($resultadoIntentos['intentos'])) {
 
             <!--EJEMPLO DE CODIGO-->
             <div class="ejemplo">
-
-                
                 <p id="textoej" >
                 </p>
             </div>
-
+            
             <!--CCUADRO DE TEXTO DONDE SE COPIARA EL CODIGO-->
             <div class="copia">
                 <textarea id="escrito" oncontextmenu="return false"></textarea>
             </div>
-
         </div>
-
 
         <!-- boton de verificar respuestas -->
         <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
     </div>
-
     <script src="../../js/copiar-codigo.js"></script>
 </body>
-
 </html>

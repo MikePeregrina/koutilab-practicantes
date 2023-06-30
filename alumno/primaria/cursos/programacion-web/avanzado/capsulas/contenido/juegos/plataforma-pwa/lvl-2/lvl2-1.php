@@ -82,10 +82,14 @@ if (empty($existe)) {
     </script>
     <script>
         var segundos = 120;
-
         let puntos = 0;
-
         var count = 1000;
+
+        //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
@@ -109,6 +113,7 @@ if (empty($existe)) {
                         window.location.reload();
                     }
                 });
+                incorrecto.play(); //agregando sonido al juego no completado
                 loseText.setText("Juego terminado");
                 player.setTint(0xff0000);
                 player.anims.play("turn");
@@ -1114,6 +1119,7 @@ if (empty($existe)) {
                     });
                 }
             });
+            correcto.play(); //agregando sonido al juego completado
         }
 
         function alertQuestion() {

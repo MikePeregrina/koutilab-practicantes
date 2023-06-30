@@ -1,7 +1,12 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-
 let puntos = 0;
+
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
@@ -11,8 +16,7 @@ import re <br><br>
 
 texto = "Ana tiene una manzana y un abanico" <br>
 patron = r"/ba/w*" <br>
-resultado = re.findall(patron, texto) <br> <br>
-
+resultado = re.findall(patron, texto) <br>
 print(resultado)
 `;
 //Entidades para que html no reconosca las etiquetas
@@ -57,6 +61,7 @@ function iniciarTiempo() {
                 window.location.reload();
             }
         });
+        incorrecto.play(); //agregando sonido al juego no completado
     } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -96,6 +101,7 @@ function alertExcelent() {
                 window.location.href = '../../../../../../rutas/ruta-py-a.php';
             }
         });
+        correcto.play(); //agregando sonido al juego completado
     } else {
         Swal.fire({
             title: "Oops...",

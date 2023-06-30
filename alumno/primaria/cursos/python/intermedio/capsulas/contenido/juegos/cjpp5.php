@@ -25,6 +25,7 @@ if (empty($existe)) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
@@ -64,6 +65,12 @@ if (empty($existe)) {
 	</div>
 
 	<script>
+		//Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		//Arreglo de preguntas
 		var preguntas = [
 			{
@@ -204,6 +211,7 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -291,6 +299,7 @@ if (empty($existe)) {
 					window.location.href = "../../../../../../rutas/ruta-py-i.php";
 				}
 			});
+			correcto.play(); //agregando sonido al juego completado
 		}
 
 		//Alerta, muestra que la respuesta fue correcta

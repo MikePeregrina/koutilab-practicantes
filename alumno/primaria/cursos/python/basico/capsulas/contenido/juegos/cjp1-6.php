@@ -43,7 +43,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css"> <!--Linkeo de la hoja de estilos-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -194,8 +194,7 @@ if (isset($resultadoIntentos['intentos'])) {
 							window.location.href = '../../../../../../rutas/ruta-py-b.php';
 						}
 					});
-
-
+					correcto.play(); //agregando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -215,8 +214,15 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 	    //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
-let puntos = 0;
-var count = 1000;
+		let puntos = 0;
+		var count = 1000;
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		
 //Agregando animacion a el timer
 function iniciarTiempo() {
     document.getElementById("tiempo").innerHTML =
@@ -249,6 +255,7 @@ function iniciarTiempo() {
                     window.location.reload();
                 }
             });
+			incorrecto.play(); //agregando sonido al juego no completado
             loseText.setText("Juego terminado");
             player.setTint(0xff0000);
             player.anims.play("turn");
