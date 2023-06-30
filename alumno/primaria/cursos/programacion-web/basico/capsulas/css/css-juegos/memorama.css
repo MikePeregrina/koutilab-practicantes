@@ -2,7 +2,7 @@ body {
   color: #404040;
   font-family: Tahoma;
   /*background-image: url(../img/bg1.png);/*Se cambio el fondo principal del juego*/
-  background-image: url(../../img/img_juegos/fondo.png);  
+  background-image: url(../../img/img-juegos/bg.png);  
   background-repeat: no-repeat;/*el nuevo fondo no se repetira consecutivamente en el juego*/
   background-size:cover;/*el nuevo fondo se acopalara al tamaño de la pantalla del juego*/
   -webkit-user-select: none;
@@ -163,22 +163,25 @@ button::-moz-focus-inner {
   margin: 0 30px;
 }
 
+
+
 .timer {
   text-align: center;
-  padding: 2%;
+  padding: 3%;
   margin: 30px 0 0 68.2rem; /*Se cambio el pocisionamiento del timer*/
   width: 180px;
   height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(129,179,243,0.7); /*Se cambio el fondo del timer*/
-  box-shadow: 0 0 12px rgba(129,179,243);
-  border-color: rgba(129, 178, 243, 0.9);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
   border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
-  font-size: 170%;
+  font-size: 140%;
 }
 /*Generando animaciones del timer*/
 @keyframes animation1 {

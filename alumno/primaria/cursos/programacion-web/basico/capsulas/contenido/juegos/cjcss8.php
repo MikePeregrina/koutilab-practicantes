@@ -57,7 +57,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		<h2 class="titulo"><b>BORDES</b></h2>
 	</div>
 
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
@@ -198,7 +198,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		toggleVisablity("Message-Container");  
 		Swal.fire({
 			title: '¡Muy bien!',
-			text: 'Ahora pasemos al siguiente nivel',
+			text: 'Haz completado el laberinto',
 			imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 			imageHeight: 350,
 			backdrop: `
@@ -208,7 +208,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = 'level-2.html';
+				window.location.href = '../../../../../../rutas/ruta-pw-b.php';
 			}
 		})
 		correcto.play(); //agregando sonido al juego completado
