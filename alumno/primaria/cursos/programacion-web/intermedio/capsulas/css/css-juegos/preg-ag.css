@@ -2,7 +2,7 @@ body {
     color: #404040;
     font-family: Tahoma;
     /*background-image: url(../img/bg1.png);/*Se cambio el fondo que tenia el juego*/
-    background-image: url(../../img/img_juegos/bg.png);
+    background-image: url(../../img/img-juegos/bg.png);
     /*se coloco el nuevo fondo del juego*/
     background-repeat: no-repeat;
     /*Se dio la opcion de que no se repita el nuevo fondo en la pantalla del juego*/

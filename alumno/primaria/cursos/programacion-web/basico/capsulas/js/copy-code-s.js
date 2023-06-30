@@ -11,7 +11,10 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML = `p { color:red; margin-right:15px; }<br><br> h1 { color:white; text-align:center; }<br><br>.contenedorCentral { background:white; }`;
+).innerHTML = `
+p { color:red; margin-right:15px; } <br/>
+h1 { color:white; text-align:center; }
+.contenedorCentral { background:white; }`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).

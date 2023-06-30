@@ -14,10 +14,11 @@ document.getElementById(
     "textoej"
 ).innerHTML =
         `.main { 
-          width:500px; <br> 
-          height:500px; <br>
-          margin:0 auto; <br>
-          background-color:grey;} <br>`; 
+          width:500px; <br/> 
+          height:500px; <br/>
+          margin:0 auto; <br/>
+          background-color:grey; <br/>
+        }`; 
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).
@@ -115,7 +116,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = '../../../../../rutas/ruta-pw-i.php';
+                window.location.href = '../../../../../../rutas/ruta-pw-i.php';
             }
         });
         correcto.play(); //agregando sonido al juego completado

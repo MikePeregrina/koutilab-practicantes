@@ -2,7 +2,7 @@
 body {
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../img/img_juegos/bg.png);
+    background-image: url(../../img/img-juegos/bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-user-select: none;
@@ -66,6 +66,7 @@ body::-webkit-scrollbar-track {
     left: 155px;
 }
 
+
 .timer {
     text-align: center;
     padding: 3%;
@@ -75,12 +76,45 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(129, 179, 243, 0.7);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.108);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
-    border-radius: 90px;
+    border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
-    font-size: 150%;
+    font-size: 140%;
+}
+
+@keyframes animation1 {
+    0% {margin: 40px 0 0 1040px;}
+    20% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    80% {margin: 40px 0 0 1040px;} 
+    100% {margin: 40px 0 0 1050px;}
+}
+
+@keyframes animation2 {
+    0% {margin: 40px 0 0 1040px;}
+    10% {margin: 40px 0 0 1060px;}
+    20% {margin: 40px 0 0 1040px;} 
+    30% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    50% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    70% {margin: 40px 0 0 1060px;} 
+    80% {margin: 40px 0 0 1040px;} 
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+}
+
+#timer {
+    background: rgba(129, 179, 243, 0.7);
+}
+
+#tiempo {
+    margin: 0 0 0 0;
 }
 
 .contenido {
@@ -145,8 +179,6 @@ body::-webkit-scrollbar-track {
     transform: scale(1.2);
 }
 
-
-
 /* juego */
 
 body {
@@ -206,17 +238,38 @@ body {
     text-align: center;
     border: 2px solid rgba(61, 172, 244, 0.6);
     border-radius: 10px;
-    width: 100px;
+    width: 150px;
+    transition: 0.5s;
 }
 
 
 .word-box:hover {
-    background: linear-gradient(45deg, rgba(129, 179, 244));
-    box-shadow: 0px 2px 12px 2px #3dacf4;
+    background: rgba(61, 171, 244, 0.6);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
+@keyframes anim1 {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-5deg); }
+    20% { transform: rotate(5deg); }
+    30% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    60% { transform: rotate(5deg); }
+    70% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    90% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
 }
 
 .seleccionado {
-    background-color: #2097e6 !important;
+    background-color: #005baf !important;
+    border: 2px solid #005baf !important;
+    color: white;
+    animation-name: anim1;
+    animation-duration: 7s;
+    animation-delay: 0.1s;
 }
 
 .correcto {
