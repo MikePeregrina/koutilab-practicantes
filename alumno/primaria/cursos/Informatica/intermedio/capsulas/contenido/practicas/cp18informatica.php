@@ -58,8 +58,8 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <a href="../../../../../../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct8css.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 8 CSS</div><br>
+            <a href="../../../../../../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct18informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 8 Word</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
@@ -71,34 +71,19 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>En un documento HTML realizar el siguiente box model con las siguientes medidas margin: 30px 60px 45px 85px;
-                                    Al usar 4 valores:
-                                    <br>
-                                    El primer valor es para arriba.
-                                    <br>
-                                    El segundo valor es para la derecha.
-                                    <br>
-                                    El tercer valor es para la parte inferior.
-                                    <br>
-                                    El cuarto valor es para la izquierda.
-                                    <br>
-                                    Para recordar el orden, comience en la parte superior y siga en el sentido de las agujas del reloj. < div>
-                                        <br> <br>
+                                <p>Selecciona una plantilla en Word y utilizarla para crear un manual de instrucciones para un producto o procedimiento específico. Aplica estilos para organizar y dar formato a las secciones de introducción, pasos de instrucción, precauciones y resumen, y personaliza la plantilla según las necesidades del manual.
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica8css.png" style="height: 200px; width: 430px;">
+                                <center><img src="../../../../../../img/intermedioinf/prac18.PNG" style="height: auto; width: 40%;"></center>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
             </div>
-            <div class="">
-                <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
-                <iframe class="editor" id="editor" srcdoc=" "></iframe>
-            </div>
+
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
                 <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
             </form>
@@ -283,7 +268,7 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         echo "We are here";
@@ -294,19 +279,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
         $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
         $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
         $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -321,9 +306,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -338,8 +323,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

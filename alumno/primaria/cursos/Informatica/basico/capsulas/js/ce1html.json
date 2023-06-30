@@ -2,13 +2,13 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Verdadero",
+        "correctAnswer": "Almacenar, procesar y transmitir información",
         "incorrectAnswers": [
-            "Falso",
-            "No recuerdo",
-            "Puede ser"
+            "Desarrollar algoritmos informáticos",
+            "Estudiar los límites físicos y teóricos de las computadoras",
+            "Aplicar la inteligencia artificial en la computación"
         ],
-        "question": "Una página con extensión htm o html comienza por html (entre signos mayor y menor)",
+        "question": "¿Cuáles son las tareas principales de la informática?",
         "tags": [
             "language"
         ],
@@ -17,16 +17,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "body",
+        "correctAnswer": "Procesar información en código",
         "incorrectAnswers": [
-            "header",
-            "html",
-            "div"
+            "Realizar operaciones simples y complejas",
+            "Conectar dispositivos periféricos",
+            "Funcionar de forma interactiva y autónoma"
         ],
-        "question": "¿En donde se encuentra el title en una pagina web?",
+        "question": "¿Cuál es la función principal de una computadora?",
         "tags": [
             "language"
         ],
@@ -35,16 +36,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "hr",
+        "correctAnswer": "Procesador (CPU)",
         "incorrectAnswers": [
-            "br",
-            "line",
-            "wbr"
+            "Disco duro",
+            "Periféricos de entrada y salida",
+            "Tarjeta de red"
         ],
-        "question": "¿Qué etiqueta utilizamos para insertar una línea horizontal?",
+        "question": "¿Cuál es el enfoque principal de optimización en la arquitectura de computadoras?",
         "tags": [
             "language"
         ],
@@ -56,13 +58,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "<!--...-->",
+        "correctAnswer": "Presentar la información al usuario de forma comprensible",
         "incorrectAnswers": [
-            "<¡--...--!>",
-            "<comment>",
-            "<meta>"
+            "Captar y digitalizar los datos introducidos por el usuario",
+            "Procesar y ordenar la información",
+            "Enviar la información al exterior de la computadora"
         ],
-        "question": "¿Cuál es la forma correcta de insertar un comentario?",
+        "question": "¿Cuál es la función principal de los dispositivos de salida en un sistema informático?",
         "tags": [
             "language"
         ],
@@ -74,13 +76,13 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "<img src='foto.jpg'>",
+        "correctAnswer": "Impresora",
         "incorrectAnswers": [
-            "<imagen src='foto.jpg'> ",
-            "<img href='foto.jpg'>",
-            "<background src='foto.jpg'>"
+            "Teclado",
+            "Ratón",
+            "Micrófono"
         ],
-        "question": "Elija la forma correcta de ingresar una imagen.",
+        "question": "¿Cuál de los siguientes dispositivos NO es un periférico de entrada?",
         "tags": [
             "language"
         ],
@@ -92,13 +94,13 @@
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "br",
+        "correctAnswer": "Captar y digitalizar los datos introducidos por el usuario",
         "incorrectAnswers": [
-            "break",
-            "linebreak",
-            "p"
+            "Procesar y ordenar la información",
+            "Enviar la información al exterior de la computadora",
+            "Mostrar imágenes y textos en pantalla"
         ],
-        "question": "¿Qué etiqueta define un salto de línea?",
+        "question": "¿Qué función cumple un periférico de entrada en una computadora?",
         "tags": [
             "language"
         ],
@@ -110,13 +112,13 @@
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "h1",
+        "correctAnswer": "Transmitir y recuperar información digital.",
         "incorrectAnswers": [
-            "h6",
-            "head",
-            "big"
+            "Procesar datos de manera continua.",
+            "Controlar el flujo constante de electricidad",
+            "Almacenar información en la memoria RAM."
         ],
-        "question": "Elija la etiqueta que nos da el título más grande",
+        "question": "¿Cuál es la función principal de los dispositivos de almacenamiento de datos en un sistema informático?",
         "tags": [
             "language"
         ],
@@ -128,13 +130,13 @@
     {
         "category": "CE1",
         "id": "8",
-        "correctAnswer": "<body bg color=”#00ff00”>",
+        "correctAnswer": "La tecnología para el tratamiento automático de la información",
         "incorrectAnswers": [
-            "<FONT COLOR='RED'>los guardianes azules </font> ",
-            "<FONT SIZE='1'>cada día seré mejor </FONT>",
-            "<p align='center'>la mejor musica</p>"
+            "Una rama de la física",
+            "El estudio de los lenguajes de programación",
+            "El desarrollo de sistemas operativos"
         ],
-        "question": "Para definir el fondo de la página se utiliza:",
+        "question": "¿Qué es la computación en relación con la informática?",
         "tags": [
             "language"
         ],
@@ -146,13 +148,13 @@
     {
         "category": "CE1",
         "id": "9",
-        "correctAnswer": "Insertar imágenes, texto, tablas y fondos",
+        "correctAnswer": "Procesar información en código",
         "incorrectAnswers": [
-            "Generar solo formularios, enlaces y videos",
-            "Solamente se define el titulo",
-            "Respuestas a y b"
+            "Realizar operaciones simples y complejas",
+            "Conectar dispositivos periféricos",
+            "Funcionar de forma interactiva y autónoma"
         ],
-        "question": "En el body se puede:",
+        "question": "¿Cuál es la función principal de una computadora?",
         "tags": [
             "language"
         ],
@@ -164,13 +166,13 @@
     {
         "category": "CE1",
         "id": "10",
-        "correctAnswer": "Permite centrar el texto.",
+        "correctAnswer": "Mayor seguridad de acuerdo a las garantías técnicas vigentes.",
         "incorrectAnswers": [
-            "Permite seleccionar el texto.",
-            "Permite insertar un texto como título.",
-            "Permite cambiar el tamaño del texto."
+            "Menor capacidad de almacenamiento en comparación con otros formatos.",
+            "Mayor dificultad para acceder a la información desde diferentes lugares y dispositivos.",
+            "Pérdida de información y difusión de documentos legales."
         ],
-        "question": "La etiqueta center",
+        "question": "¿Cuál es una ventaja del archivo digital?",
         "tags": [
             "language"
         ],

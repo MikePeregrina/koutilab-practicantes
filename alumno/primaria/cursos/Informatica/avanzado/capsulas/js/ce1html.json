@@ -2,13 +2,14 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Verdadero",
+        "correctAnswer": "Imágenes, gráficos, tablas, formas y vídeos.",
         "incorrectAnswers": [
-            "Falso",
-            "No recuerdo",
-            "Puede ser"
+            "Solo imágenes y gráficos.",
+            "Solo tablas y formas.",
+            "Solo vídeos y formas."
         ],
-        "question": "Una página con extensión htm o html comienza por html (entre signos mayor y menor)",
+        "question": "¿Qué tipos de objetos se pueden insertar en PowerPoint para mejorar la visualización y presentación?",
+
         "tags": [
             "language"
         ],
@@ -17,16 +18,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "body",
+        "correctAnswer": "La creación, edición y presentación de presentaciones de diapositivas.",
         "incorrectAnswers": [
-            "header",
-            "html",
-            "div"
+            "La organización de archivos en carpetas.",
+            "La impresión de diapositivas en papel.",
+            "La selección de plantillas de diseño en PowerPoint."
         ],
-        "question": "¿En donde se encuentra el title en una pagina web?",
+        "question": "¿Qué se entiende por el manejo de diapositivas en PowerPoint?",
         "tags": [
             "language"
         ],
@@ -35,16 +37,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "hr",
+        "correctAnswer": "Planificar el contenido y establecer una estructura clara.",
         "incorrectAnswers": [
-            "br",
-            "line",
-            "wbr"
+            "Seleccionar una plantilla adecuada.",
+            "Utilizar animaciones y transiciones.",
+            "Realizar una revisión y edición exhaustiva."
         ],
-        "question": "¿Qué etiqueta utilizamos para insertar una línea horizontal?",
+        "question": "¿Cuál es el primer paso para elaborar diapositivas efectivas en PowerPoint?",
         "tags": [
             "language"
         ],
@@ -53,16 +56,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "<!--...-->",
+        "correctAnswer": "Cuadrículas.",
         "incorrectAnswers": [
-            "<¡--...--!>",
-            "<comment>",
-            "<meta>"
+            "Guías.",
+            "Ninguna de las anteriores.",
+            "Reglas."
         ],
-        "question": "¿Cuál es la forma correcta de insertar un comentario?",
+        "question": "Herramienta en PowerPoint que permite alinear y distribuir objetos de manera uniforme automáticamente:",
         "tags": [
             "language"
         ],
@@ -71,16 +75,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "<img src='foto.jpg'>",
+        "correctAnswer": "Mayor versatilidad para incorporar diferentes tipos de contenido.",
         "incorrectAnswers": [
-            "<imagen src='foto.jpg'> ",
-            "<img href='foto.jpg'>",
-            "<background src='foto.jpg'>"
+            "Diseño y formato personalizados.",
+            "Adaptación al tono y nivel de detalle de la audiencia.",
+            "Un diseño visual atractivo."
         ],
-        "question": "Elija la forma correcta de ingresar una imagen.",
+        "question": "¿Cuál es una ventaja de las presentaciones electrónicas en comparación con los métodos tradicionales?",
         "tags": [
             "language"
         ],
@@ -89,16 +94,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "br",
+        "correctAnswer": "Seleccionar 'Imagen' en la pestaña 'Insertar'.",
         "incorrectAnswers": [
-            "break",
-            "linebreak",
-            "p"
+            "Seleccionar 'Formas' en la pestaña 'Insertar'.",
+            "Seleccionar 'Tabla' en la pestaña 'Insertar'.",
+            "Seleccionar 'Gráfico' en la pestaña 'Insertar'."
         ],
-        "question": "¿Qué etiqueta define un salto de línea?",
+        "question": "¿Cuál es el paso inicial para insertar una imagen en PowerPoint?",
         "tags": [
             "language"
         ],
@@ -107,16 +113,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "h1",
+        "correctAnswer": "Haciendo clic en el borde de la regla y arrastrándola a la posición deseada.",
         "incorrectAnswers": [
-            "h6",
-            "head",
-            "big"
+            "Se agregan automáticamente al activar las reglas en PowerPoint.",
+            "Haciendo clic derecho en las diapositivas y seleccionando 'Agregar guía'.",
+            "Arrastrando las reglas hacia la posición deseada."
         ],
-        "question": "Elija la etiqueta que nos da el título más grande",
+        "question": "¿Cómo se pueden agregar guías en PowerPoint?",
         "tags": [
             "language"
         ],
@@ -125,16 +132,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "8",
-        "correctAnswer": "<body bg color=”#00ff00”>",
+        "correctAnswer": "Contenido multimedia como videos e imágenes.",
         "incorrectAnswers": [
-            "<FONT COLOR='RED'>los guardianes azules </font> ",
-            "<FONT SIZE='1'>cada día seré mejor </FONT>",
-            "<p align='center'>la mejor musica</p>"
+            "Plantillas y temas personalizados.",
+            "Enlaces a sitios web relevantes.",
+            "Publicaciones y tweets de redes sociales."
         ],
-        "question": "Para definir el fondo de la página se utiliza:",
+        "question": "¿Qué tipo de contenido se puede insertar en PowerPoint utilizando recursos en línea?",
         "tags": [
             "language"
         ],
@@ -143,16 +151,17 @@
         "regions": [],
         "isNiche": false
     },
+
     {
         "category": "CE1",
         "id": "9",
-        "correctAnswer": "Insertar imágenes, texto, tablas y fondos",
+        "correctAnswer": "Mejorar la fluidez y dinámica de la presentación",
         "incorrectAnswers": [
-            "Generar solo formularios, enlaces y videos",
-            "Solamente se define el titulo",
-            "Respuestas a y b"
+            "Corregir errores gramaticales, ortográficos o de formato.",
+            "Resaltar el contenido relevante y bien estructurado.",
+            "Practicar la presentación varias veces para asegurar coherencia"
         ],
-        "question": "En el body se puede:",
+        "question": "¿Cuál es la finalidad de utilizar transiciones suaves y coherentes entre diapositivas en PowerPoint?",
         "tags": [
             "language"
         ],
@@ -161,16 +170,17 @@
         "regions": [],
         "isNiche": false
     },
+    
     {
         "category": "CE1",
         "id": "10",
-        "correctAnswer": "Permite centrar el texto.",
+        "correctAnswer": "El diseño visual que se aplica a la parte posterior de las diapositivas.",
         "incorrectAnswers": [
-            "Permite seleccionar el texto.",
-            "Permite insertar un texto como título.",
-            "Permite cambiar el tamaño del texto."
+            "El diseño visual que se aplica a la parte posterior de las diapositivas.",
+            "La ubicación de los elementos en las diapositivas.",
+            "Los efectos de transición aplicados a las diapositivas."
         ],
-        "question": "La etiqueta center",
+        "question": "¿Qué es el formato de fondo en PowerPoint?",
         "tags": [
             "language"
         ],

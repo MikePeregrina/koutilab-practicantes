@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula13";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -90,45 +90,45 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T10/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T10/77.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/78.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/79.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/80.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/81.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/65.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T10/66.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/67.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/68.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/69.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T10/70.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
-                                    <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es una ventaja del archivo digital?</h1>
-                                    <div>
-                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">
-                                            Mayor seguridad de acuerdo a las garantías técnicas vigentes.
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">
-                                            Pérdida de información y difusión de documentos legales.
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">
-                                            Mayor dificultad para acceder a la información desde diferentes lugares y dispositivos.
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">
-                                            Menor capacidad de almacenamiento en comparación con otros formatos.
-                                        </label>
-                                    </div>
-                                    <input type="hidden" name="permiso" value="14">
-                                    <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="8">
-                                    <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <<h2>Para poder avanzar, responde la siguiente pregunta.</h2>
+                                        <h1>¿Cuál de las siguientes opciones NO es una medida de seguridad física para proteger los datos?</h1>
+                                        <div>
+                                            <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                            <label for="checkbox1">
+                                                Cifrado de datos
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                            <label for="checkbox2">
+                                                Monitoreo de cámaras de seguridad
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                            <label for="checkbox3">
+                                                Almacenamiento en un lugar seguro
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                            <label for="checkbox4">
+                                                Cerraduras y controles de acceso
+                                            </label>
+                                        </div>
+                                        <input type="hidden" name="permiso" value="14">
+                                        <input type="hidden" name="teorico" value="10">
+                                        <input type="hidden" name="id_curso" value="8">
+                                        <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
                         </li>

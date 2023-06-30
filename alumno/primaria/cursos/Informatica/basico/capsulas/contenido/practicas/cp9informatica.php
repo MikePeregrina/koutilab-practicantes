@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula20";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7;");
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula1html.php");
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //VERIFICAR QUE PERMISO INTENTO SEA EL CORRECTO
@@ -55,7 +55,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body>
     <div class="body">
         <div class="container">
-        <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <a href="../../../../../../cursos/informatica/basico/capsulas/contenido/teoricas/ct17informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
             <div class="new-g" style="text-align: center;">Cápsula práctica 9 Informatica</div><br>
             <div class="board">
@@ -63,17 +63,17 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                          
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
                                 <p>Investigar cómo Android ha influido en el mercado de dispositivos móviles y en la forma en que las personas interactúan con la tecnología. Pueden analizar su impacto en términos de acceso a la información, comunicación, entretenimiento y productividad.
-                                        <br> <br>
+                                    <br> <br>
                                 </p>
                             </td>
-                           
+
                         </tr>
                     </tbody>
                 </table>
@@ -246,7 +246,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <input type="hidden" name="id_alumno" value="<?php echo $id_user; ?>">
                     <input type="hidden" name="id_curso" value="7">
                     <input type="hidden" name="id_capsula" value="<?php echo $permiso_intento; ?>">
-                    <input type="file" name="archivo" id="inputArchivos" style="margin-left: 20%;"  required>
+                    <input type="file" name="archivo" id="inputArchivos" style="margin-left: 20%;" required>
                     <button type="submit" style="width: 150px; margin-left: 27px; border: none; background-color: #85c32e; color:white; font-size: 15px;" id="btnEnviar" name="btnEnviar">Subir Archivo</button>
                 </form>
                 <div id="estado"></div>
@@ -265,7 +265,7 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         echo "We are here";
@@ -276,19 +276,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
         $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
         $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
         $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -303,9 +303,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -320,8 +320,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

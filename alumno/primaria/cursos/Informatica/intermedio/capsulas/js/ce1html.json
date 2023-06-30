@@ -2,13 +2,13 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Verdadero",
+        "correctAnswer": "Un sistema de transmisión de datos a través de internet.",
         "incorrectAnswers": [
-            "Falso",
-            "No recuerdo",
-            "Puede ser"
+            "Un navegador web.",
+            "Un protocolo de transferencia de hipertextos.",
+            "Un sitio web en particular."
         ],
-        "question": "Una página con extensión htm o html comienza por html (entre signos mayor y menor)",
+        "question": "¿Qué es la World Wide Web?",
         "tags": [
             "language"
         ],
@@ -20,13 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "body",
+        "correctAnswer": "Un navegador web y una dirección web (URL).",
         "incorrectAnswers": [
-            "header",
-            "html",
-            "div"
+            "Un navegador web y una dirección IP.",
+            " Un navegador web y un nombre de usuario.",
+            "Un navegador web y una clave de acceso."
         ],
-        "question": "¿En donde se encuentra el title en una pagina web?",
+        "question": "¿Qué se necesita para ingresar a un sitio web ?",
         "tags": [
             "language"
         ],
@@ -38,13 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "hr",
+        "correctAnswer": "Todos son correctos",
         "incorrectAnswers": [
-            "br",
-            "line",
-            "wbr"
+            "Archivos y documentos.",
+            "Multimedia.",
+            "Únicamente texto."
         ],
-        "question": "¿Qué etiqueta utilizamos para insertar una línea horizontal?",
+        "question": "¿Qué tipo de contenido se puede enviar a través del correo electrónico?",
         "tags": [
             "language"
         ],
@@ -56,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "<!--...-->",
+        "correctAnswer": "Emitir señal inalámbrica en una determinada área.",
         "incorrectAnswers": [
-            "<¡--...--!>",
-            "<comment>",
-            "<meta>"
+            "Conectarse al cable coaxial de la red de internet.",
+            "Captar la señal emitida por un router inalámbrico.",
+            "Conectarse a redes WiFi disponibles."
         ],
-        "question": "¿Cuál es la forma correcta de insertar un comentario?",
+        "question": "Es la función principal de un router Wi-Fi:",
         "tags": [
             "language"
         ],
@@ -74,13 +74,13 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "<img src='foto.jpg'>",
+        "correctAnswer": "Generar resultados en forma de enlaces que respondan a las búsquedas del usuario",
         "incorrectAnswers": [
-            "<imagen src='foto.jpg'> ",
-            "<img href='foto.jpg'>",
-            "<background src='foto.jpg'>"
+            "Almacenar información en servidores web.",
+            "No se menciona la función principal de los motores de búsqueda.",
+            "Analizar la información de las páginas web utilizando programas spider, robot o crawler."
         ],
-        "question": "Elija la forma correcta de ingresar una imagen.",
+        "question": "¿Cuál es la función principal de los motores de búsqueda?",
         "tags": [
             "language"
         ],
@@ -92,13 +92,13 @@
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "br",
+        "correctAnswer": "Dejar una marca en un papel o soporte físico utilizando procedimientos mecánicos o digitales.",
         "incorrectAnswers": [
-            "break",
-            "linebreak",
-            "p"
+            "Mostrar algo en el monitor de la computadora.",
+            "Pasar un texto o imagen a un medio físico utilizando una impresora.",
+            "No se menciona una definición clara de imprimir."
         ],
-        "question": "¿Qué etiqueta define un salto de línea?",
+        "question": "¿Qué se entiende por imprimir?",
         "tags": [
             "language"
         ],
@@ -110,13 +110,13 @@
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "h1",
+        "correctAnswer": "Una lista de enlaces que redirigen a la web con información relacionada a la búsqueda.",
         "incorrectAnswers": [
-            "h6",
-            "head",
-            "big"
+            "No se menciona qué es un índice o listado.",
+            "Una palabra clave introducida por el usuario.",
+            "Un programa spider, robot o crawler."
         ],
-        "question": "Elija la etiqueta que nos da el título más grande",
+        "question": "¿Qué es un índice o listado?",
         "tags": [
             "language"
         ],
@@ -128,13 +128,13 @@
     {
         "category": "CE1",
         "id": "8",
-        "correctAnswer": "<body bg color=”#00ff00”>",
+        "correctAnswer": "Nombre de la cuenta y nombre del usuario.",
         "incorrectAnswers": [
-            "<FONT COLOR='RED'>los guardianes azules </font> ",
-            "<FONT SIZE='1'>cada día seré mejor </FONT>",
-            "<p align='center'>la mejor musica</p>"
+            "Nombre del usuario y contraseña.",
+            "Nombre de la cuenta y tipo de cuenta.",
+            "No se mencionan los elementos que se pueden editar."
         ],
-        "question": "Para definir el fondo de la página se utiliza:",
+        "question": "¿Qué elementos se pueden editar en la configuración de correo electrónico?",
         "tags": [
             "language"
         ],
@@ -146,13 +146,13 @@
     {
         "category": "CE1",
         "id": "9",
-        "correctAnswer": "Insertar imágenes, texto, tablas y fondos",
+        "correctAnswer": "Enviar y recibir mensajes a través de un servicio de red.",
         "incorrectAnswers": [
-            "Generar solo formularios, enlaces y videos",
-            "Solamente se define el titulo",
-            "Respuestas a y b"
+            "Abrir archivos y documentos.",
+            "No se menciona la función principal del correo electrónico.",
+            "Crear cuentas de correo electrónico"
         ],
-        "question": "En el body se puede:",
+        "question": "¿Cuál es la función principal del correo electrónico?",
         "tags": [
             "language"
         ],
@@ -164,13 +164,13 @@
     {
         "category": "CE1",
         "id": "10",
-        "correctAnswer": "Permite centrar el texto.",
+        "correctAnswer": "Conexión inalámbrica.",
         "incorrectAnswers": [
-            "Permite seleccionar el texto.",
-            "Permite insertar un texto como título.",
-            "Permite cambiar el tamaño del texto."
+            "Conexión de red.",
+            "Conexión por cable de televisión.",
+            "Conexión coaxial."
         ],
-        "question": "La etiqueta center",
+        "question": "¿Qué tipo de conexión se establece entre el router Wi-Fi y los dispositivos?",
         "tags": [
             "language"
         ],
