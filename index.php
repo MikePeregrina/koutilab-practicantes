@@ -30,9 +30,9 @@
 <body>
     <nav>
 
-      <div class="logop" style="background-color: #38b6ff ;width:270px; height: 75px; border-radius: 0px 0px 25px 25px; margin-left:15px;">
+      <div class="logop" style="background-color: #38b6ff ;width:285px; height: 75px; border-radius: 0px 0px 25px 25px; margin-left:15px;">
         <a href="index.php">
-             <img src="img/Bienvenida.png" style="height: 170px; width:230px;"class="logo">
+             <img src="img/koutilab1.png" style="margin: 0 10px 0 0;"class="logo">
         </a>
         
       </div>
@@ -204,7 +204,7 @@
         <h1 class="tiTU">Tipos de usuario</h1>
         <div class="contEscolar" >
             <div class="circle">
-            <img src="img/iconoEscuela.png" alt="" width="100px" style="margin-left:25px; margin-top:12px;">
+            <img src="img/escuela.png" alt="" width="100px" style="margin-left:0px; margin-top:12px;">
             </div>
             <h2 class="tituT">Escolar</h2>
             <hr class="lineC">
@@ -219,7 +219,7 @@
         </div>
         <div class="contInstitu" >
         <div class="circle">
-        <img src="img/institucion.png" alt="" width="135px" style="margin-left:9px; margin-top:12px;">
+        <img src="img/institucion.png" alt="" width="135px" style="margin-left:0px; margin-top:12px;">
         </div>
         <h2 class="tituT">Institucional</h2>
         <hr class="lineC">
@@ -232,7 +232,7 @@
         </div>
         <div class="contPersonal" >
         <div class="circle">
-        <img src="img/estudiante.png" alt="" width="115px" style="margin-left:17px; margin-top:10px;">
+        <img src="img/estudiante.png" alt="" width="115px" style="margin-left:0px; margin-top:10px;">
         </div>
         <h2 class="tituT">Personal</h2>
         <hr class="lineC">

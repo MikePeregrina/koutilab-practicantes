@@ -428,7 +428,7 @@ if (isset($_POST['iniciar_sesion'])) {
 </head>
 
 <body onload="recuperarDatos()">
-    <div class="container" style="margin-top: -25px; margin-left: -50px;">
+    <div class="container" style="margin: 0px 0 0 -15px;">
         <div class="panel">
             <div class="row">
                 <div class="col liquid">
@@ -439,13 +439,13 @@ if (isset($_POST['iniciar_sesion'])) {
                     <!-- /Owl-Carousel -->
                 </div>
                 <div class="form-box"><br><br>
+                <div class="logop">
+                        <img src="acciones/img/koutilab.png" alt="KOUTILAB">
+                    </div>
                     <div class="button-box">
                         <div id="elegir"></div>
                         <button type="button" class="toggle-btn" onclick="Ingresar()">Iniciar sesión</button>
                         <button type="button" class="toggle-btn" onclick="Registrarse()">Registrarse</button>
-                    </div>
-                    <div class="logop">
-                        <img src="acciones/img/koutilab.png" alt="KOUTILAB">
                     </div>
                     <form action="" id="Ingresar" class="input-group" method="POST">
                         <div class="form-group">
@@ -468,11 +468,11 @@ if (isset($_POST['iniciar_sesion'])) {
                         </div>
                         <?php echo isset($alert) ? $alert : ''; ?>
 
-                        <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span>Recordar contraseña</span>
+                        <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span style="margin: 0 0 -10px 0;">Recordar contraseña</span>
 
                         <a href="recuperar-contrasena.php" class="remember">Olvidé mi contraseña</a>
 
-                        <button type="submit" name="iniciar_sesion" class="submit-btn" style="margin-top: -2px;">Acceder</button>
+                        <button type="submit" name="iniciar_sesion" class="submit-btn" style="margin: -2px 0 0 50px;">Acceder</button>
                     </form>
                     <form action="" method="POST" id="Registrarse" class="input-group">
                         <div class="form-group">
@@ -509,8 +509,8 @@ if (isset($_POST['iniciar_sesion'])) {
                             <span class="fa fa-fw fa-eye password-icon show-password4"></span>
 
                         </div>
-                        <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span>Acepto los términos y condiciones</span>
-                        <button type="submit" name="registrar_usuario" class="submit-btn" style="margin-top: -2px;">Registrarse</button>
+                        <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span style="margin: 0 0 -10px 0;">Acepto los términos y condiciones</span>
+                        <button type="submit" name="registrar_usuario" class="submit-btn" style="margin: -2px 0 0 50px;">Registrarse</button>
                     </form>
                 </div>
             </div>
