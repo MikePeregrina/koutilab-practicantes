@@ -151,13 +151,13 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                     </div>
 
                     <div class="Logo2">
-                        <img src="../primaria/img/Bienvenida.png" style="height: 110px; width:170px;">
+                        <img src="../universidad/img/Bienvenida.png" style="height: 110px; width:170px;">
                     </div>
 
                     <div class="desplegable">
 
                         <button type="button" class="boton-opciones" id="" placeholder="Opciones">
-                            <div class="sing"> <img src="../primaria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                            <div class="sing"> <img src="../universidad/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
                             </div>
 
                             <div class="textB">
@@ -452,7 +452,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             document.oncontextmenu = new Function("return false");
         </script>
 
-        <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px;  background: url(../primaria/img/fondoPerfil.png);">
+        <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px;  background: url(../universidad/img/fondoPerfil.png);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
             <div class="portada" style="width: 500px; height: 40px; margin: 10px 30px 10px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8);">
                 <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un nuevo fondo</h4>
@@ -659,7 +659,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         </script>
 
-        <dialog close id="modalFP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px;  background: url(../primaria/img/fondoPerfil.png);">
+        <dialog close id="modalFP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px;  background: url(../universidad/img/fondoPerfil.png);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
             <div style="width: 500px; height: 40px; margin: 10px 30px 10px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8);">
                 <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un avatar</h4>
