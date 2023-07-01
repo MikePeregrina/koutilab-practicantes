@@ -2,13 +2,13 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Hojas de estilo externas",
+        "correctAnswer": "Almacenar y manejar datos.",
         "incorrectAnswers": [
-            "incrustado en la cabecera",
-            "En linea",
-            "Mediante PHP"
+            "Crear presentaciones visuales.",
+            "Realizar edición y diseño de imágenes.",
+            "Administrar redes y servidores."
         ],
-        "question": "¿Cuál es la forma más eficiente de aplicar estilos CSS en un documento HTML?",
+        "question": "¿Qué función principal cumple Excel en el entorno empresarial, educativo y personal?",
         "tags": [
             "language"
         ],
@@ -20,13 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "background-color",
+        "correctAnswer": "Un archivo que contiene una o más hojas de cálculo.",
         "incorrectAnswers": [
-            "italic",
-            "h1",
-            "span"
+            "Una función matemática utilizada para realizar cálculos complejos.",
+            "Una herramienta de diseño gráfico para crear ilustraciones.",
+            "Un conjunto de formatos predefinidos para estilizar datos."
         ],
-        "question": "¿Cuáles de las siguientes declaraciones son propiedades o atributos?",
+        "question": "¿Qué representa un 'libro' en Excel?",
         "tags": [
             "language"
         ],
@@ -38,13 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "p",
+        "correctAnswer": "Mediante una combinación de letras y números.",
         "incorrectAnswers": [
-            "font-family",
-            "50px",
-            "red"
+            " A través de un nombre descriptivo asignado por el usuario.",
+            "Utilizando una dirección de correo electrónico.",
+            "Por medio de un número único de identificación."
         ],
-        "question": "¿Cuáles de las siguientes declaraciones son selectores?",
+        "question": "¿Cómo se identifica una celda en Excel?",
         "tags": [
             "language"
         ],
@@ -56,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "p {background-color:red;}",
+        "correctAnswer": "Una forma de identificar una celda específica en una hoja de cálculo.",
         "incorrectAnswers": [
-            "#p {background-color:red;}",
-            ".p {background-color:red;} ",
-            "p.all {background-color:red;}"
+            "Una función matemática utilizada para realizar cálculos complejos.",
+            "Un formato especial para resaltar celdas importantes.",
+            "Un enlace externo a otra hoja de cálculo."
         ],
-        "question": "¿Cómo se define un color de fondo para todas las etiquetas 'p' en CSS?",
+        "question": "¿Qué es una referencia de celda en Excel?",
         "tags": [
             "language"
         ],
@@ -74,13 +74,13 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "margin",
+        "correctAnswer": ".xlsx",
         "incorrectAnswers": [
-            "border",
-            "padding",
-            "Ninguna respuesta es correcta"
+            ".docx",
+            ".txt",
+            ".pptx"
         ],
-        "question": " ¿Con qué propiedad se define el espacio entre el borde de un elemento y los elementos que lo rodean?",
+        "question": "¿Con qué extensión de archivo se guarda un libro de Excel en las versiones más recientes?",
         "tags": [
             "language"
         ],
@@ -92,13 +92,13 @@
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "margin-right",
+        "correctAnswer": "Una cuadrícula rectangular de celdas organizadas en filas y columnas.",
         "incorrectAnswers": [
-            "marginright",
-            "right-magin",
-            "text-right"
+            "Un archivo de texto con información estructurada.",
+            "Un conjunto de gráficos y visualizaciones.",
+            "Una lista de fórmulas y funciones."
         ],
-        "question": "¿Cómo se cambia el valor del margen derecho de un elemento?",
+        "question": "¿Cuál es la estructura básica de una hoja de cálculo de Excel?",
         "tags": [
             "language"
         ],
@@ -110,13 +110,13 @@
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "Cascading Style Sheets",
+        "correctAnswer": "*",
         "incorrectAnswers": [
-            "Center Style Steels",
-            "Calibre Style Sheet",
-            "Ninguna respuesta es correcta"
+            "^",
+            "/",
+            "+"
         ],
-        "question": "¿Qué significa CSS?",
+        "question": "¿Cuál es el operador utilizado para multiplicar dos o más valores en Excel?",
         "tags": [
             "language"
         ],
@@ -128,13 +128,13 @@
     {
         "category": "CE1",
         "id": "8",
-        "correctAnswer": "Todas las respuestas son correctas",
+        "correctAnswer": "CONCATENAR",
         "incorrectAnswers": [
-            "color: red",
-            "color: #FF0000",
-            "color: RGB(255, 0, 0)"
+            "BUSCARV",
+            "SUMA",
+            "CONTAR"
         ],
-        "question": "¿Cómo se indica que el color del texto es de color rojo?",
+        "question": "¿Cuál es la función que combina múltiples cadenas de texto en una sola en Excel?",
         "tags": [
             "language"
         ],
@@ -146,13 +146,13 @@
     {
         "category": "CE1",
         "id": "9",
-        "correctAnswer": "span {font-weight:bold}",
+        "correctAnswer": "HTML y CSV",
         "incorrectAnswers": [
-            "span {text-color:bold}",
-            "span {text-weight:bold} ",
-            "span {font-style:bold}"
+            "PNG y JPEG",
+            "XLSX y XML",
+            "PDF y DOCX"
         ],
-        "question": "¿Cómo se indica que todos los elementos 'span' tienen el texto en negrita?",
+        "question": "¿Qué tipo de archivos se pueden utilizar para exportar datos desde Excel a la web?",
         "tags": [
             "language"
         ],
@@ -164,13 +164,13 @@
     {
         "category": "CE1",
         "id": "10",
-        "correctAnswer": "font-family",
+        "correctAnswer": "Gráficos y tipos de gráficos",
         "incorrectAnswers": [
-            "text-type",
-            "font-type",
-            "text-family"
+            "Fórmulas y funciones",
+            "Tablas y filtros",
+            "Estilos predefinidos"
         ],
-        "question": "¿Qué propiedad se emplea para cambiar el tipo de letra de un elemento?",
+        "question": "¿Qué elementos gráficos ofrece Excel para representar visualmente los datos?",
         "tags": [
             "language"
         ],

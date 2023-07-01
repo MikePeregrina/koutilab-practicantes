@@ -12,10 +12,10 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-p::first-line { color: green; } <br>
-h2::first-letter { color: blue; } <br>
-p::after { content: "- Hola"; color: red; } <br>
-p::before { content: "- Adios"; } <br>
+p::first-line { color: green; } <br/>
+h2::first-letter { color: blue; } <br/>
+p::after { content: "- Hola"; color: red; } <br/>
+p::before { content: "- Adios"; } <br/>
 p::selection { color: brown; }
 `;
 //Entidades para que html no reconosca las etiquetas

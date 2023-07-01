@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula45";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium4.php");
 }
 
 
@@ -58,8 +58,8 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <a href="../../../../../../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct7css.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 7 CSS</div><br>
+            <a href="../../../../../../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct17informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 7 Word</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
@@ -71,15 +71,12 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crear un selector id. Té propongo un ejercicio práctico solo usando
-                                    el archivo HTML: Pintáremos todos los párrafos de un mismo color con excepción de uno.
-                                    Crea una regla dentro de la etiqueta style con el selector para un atributo determinado.
-                                    Escribe diferentes párrafos. Asígnale a uno de ellos ese atributo id. < p>
-                                        <br> <br>
+                                <p> Graba un macro para aplicar un formato específico a un documento, como establecer los estilos, los márgenes y el espaciado adecuados. Luego, ejecuta el macro dentro del documento.
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/selectoridpractica.png" style="height: 200px; width: 550px;">
+                                <img src="../../../../../../img/intermedioinf/prac17.gif" style="height: auto; width: 70%;">
 
                             </td>
                         </tr>
@@ -87,11 +84,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </table>
 
             </div>
-            <div class="">
-                <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
-                <iframe class="editor" id="editor" srcdoc=" "></iframe>
-            </div>
+
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
                 <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
             </form>
@@ -277,7 +270,7 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         echo "We are here";
@@ -288,19 +281,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
         $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
         $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
         $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -315,9 +308,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -332,8 +325,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

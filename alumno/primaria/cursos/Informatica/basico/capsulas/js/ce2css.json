@@ -2,13 +2,13 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Hojas de estilo externas",
+        "correctAnswer": "Proporcionar energía a todos los componentes de la computadora.",
         "incorrectAnswers": [
-            "incrustado en la cabecera",
-            "En linea",
-            "Mediante PHP"
+            "Establecer la conexión con dispositivos periféricos.",
+            "Proteger los datos almacenados en el disco duro.",
+            " Controlar la temperatura interna de la computadora."
         ],
-        "question": "¿Cuál es la forma más eficiente de aplicar estilos CSS en un documento HTML?",
+        "question": "¿Cuál es la importancia del botón de Encender en una torre de computadora?",
         "tags": [
             "language"
         ],
@@ -20,13 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "background-color",
+        "correctAnswer": "6 áreas.",
         "incorrectAnswers": [
-            "italic",
-            "h1",
-            "span"
+            "3 áreas.",
+            "4 áreas",
+            "5 áreas."
         ],
-        "question": "¿Cuáles de las siguientes declaraciones son propiedades o atributos?",
+        "question": "¿En cuántas áreas se clasifican las teclas del teclado?",
         "tags": [
             "language"
         ],
@@ -38,13 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "p",
+        "correctAnswer": "iOS",
         "incorrectAnswers": [
-            "font-family",
-            "50px",
-            "red"
+            "Android",
+            "Linux",
+            "Windows"
         ],
-        "question": "¿Cuáles de las siguientes declaraciones son selectores?",
+        "question": "¿Cuál de los siguientes sistemas operativos tiene el código cerrado y es exclusivo de los dispositivos Apple?",
         "tags": [
             "language"
         ],
@@ -56,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "p {background-color:red;}",
+        "correctAnswer": "Todos los anteriores.",
         "incorrectAnswers": [
-            "#p {background-color:red;}",
-            ".p {background-color:red;} ",
-            "p.all {background-color:red;}"
+            "Teléfonos inteligentes y televisión de Google.",
+            "Ordenadores portátiles y tabletas.",
+            "Weareables y auriculares."
         ],
-        "question": "¿Cómo se define un color de fondo para todas las etiquetas 'p' en CSS?",
+        "question": "¿Qué tipo de dispositivos pueden utilizar el sistema operativo Android, según el texto?",
         "tags": [
             "language"
         ],
@@ -74,13 +74,13 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "margin",
+        "correctAnswer": "El código fuente es visible para cualquiera y puede ser modificado.",
         "incorrectAnswers": [
-            "border",
-            "padding",
-            "Ninguna respuesta es correcta"
+            "Solo se puede utilizar de forma gratuita para uso personal.",
+            "Solo se puede utilizar en una plataforma específica",
+            "Pertenece a una empresa específica."
         ],
-        "question": " ¿Con qué propiedad se define el espacio entre el borde de un elemento y los elementos que lo rodean?",
+        "question": "¿Qué significa que Linux es un sistema operativo de software libre?",
         "tags": [
             "language"
         ],
@@ -92,13 +92,13 @@
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "margin-right",
+        "correctAnswer": "Windows",
         "incorrectAnswers": [
-            "marginright",
-            "right-magin",
-            "text-right"
+            "Mac OS",
+            "Linux",
+            "Todos los anteriores"
         ],
-        "question": "¿Cómo se cambia el valor del margen derecho de un elemento?",
+        "question": "¿Cuál de los siguientes sistemas operativos es el más utilizado y popular para ordenadores?",
         "tags": [
             "language"
         ],
@@ -110,13 +110,13 @@
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "Cascading Style Sheets",
+        "correctAnswer": "Conectar periféricos a la computadora.",
         "incorrectAnswers": [
-            "Center Style Steels",
-            "Calibre Style Sheet",
-            "Ninguna respuesta es correcta"
+            "Transferir energía a la computadora.",
+            "Realizar copias de seguridad de archivos.",
+            "Almacenar datos de forma permanente."
         ],
-        "question": "¿Qué significa CSS?",
+        "question": "¿Cuál es la función principal del puerto USB en una computadora?",
         "tags": [
             "language"
         ],
@@ -128,13 +128,13 @@
     {
         "category": "CE1",
         "id": "8",
-        "correctAnswer": "Todas las respuestas son correctas",
+        "correctAnswer": "Windows",
         "incorrectAnswers": [
-            "color: red",
-            "color: #FF0000",
-            "color: RGB(255, 0, 0)"
+            "macOS",
+            "Linux",
+            "Android"
         ],
-        "question": "¿Cómo se indica que el color del texto es de color rojo?",
+        "question": "¿Cuál es el nombre de la familia de sistemas operativos creados por Microsoft?",
         "tags": [
             "language"
         ],
@@ -146,13 +146,13 @@
     {
         "category": "CE1",
         "id": "9",
-        "correctAnswer": "span {font-weight:bold}",
+        "correctAnswer": "Kernel",
         "incorrectAnswers": [
-            "span {text-color:bold}",
-            "span {text-weight:bold} ",
-            "span {font-style:bold}"
+            "Shell",
+            "Aplicaciones",
+            "lscpu"
         ],
-        "question": "¿Cómo se indica que todos los elementos 'span' tienen el texto en negrita?",
+        "question": "¿Cuál es el componente principal de Linux que actúa como el núcleo del sistema operativo?",
         "tags": [
             "language"
         ],
@@ -164,13 +164,13 @@
     {
         "category": "CE1",
         "id": "10",
-        "correctAnswer": "font-family",
+        "correctAnswer": "Un sistema operativo para dispositivos móviles.",
         "incorrectAnswers": [
-            "text-type",
-            "font-type",
-            "text-family"
+            "Un programa de código abierto para desarrolladores.",
+            "Una interfaz para teléfonos inteligentes.",
+            "Un ordenador de bolsillo."
         ],
-        "question": "¿Qué propiedad se emplea para cambiar el tipo de letra de un elemento?",
+        "question": "¿Qué es Android?",
         "tags": [
             "language"
         ],

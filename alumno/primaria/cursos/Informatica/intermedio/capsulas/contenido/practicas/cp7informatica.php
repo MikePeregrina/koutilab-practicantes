@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula20";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
 }
 
 
@@ -58,38 +58,30 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <a href="../../../../../../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct7html.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 7 HTML</div><br>
+            <a href="../../../../../../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct7informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 7 informatica</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo de resultado</td>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Agrega un archivo PDF solo con código HTML.
-                                    Utiliza la etiqueta < iframe>. No debe de incluir títulos fuera del PDF.
-                                        <br> <br>
+                                <p>Practica el envío de correos electrónicos formales e informales, como enviar un correo a un profesor para solicitar información adicional sobre un tema o enviar un correo a un compañero de clase para colaborar en un proyecto. Deben redactar los mensajes adecuados, incluir un asunto claro y conciso, y asegurarse de que el contenido sea apropiado para el destinatario.
+                                    <br> <br>
                                 </p>
                             </td>
-                            <td class="ne">
-                                <center><img src="../../../../../../img/pdfpractica.png" style=" height:300px; width: 250px;">
-                                </center>
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>
 
             </div>
-            <div class="">
-                <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
-                <iframe class="editor" id="editor" srcdoc=" "></iframe>
-            </div>
+
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
                 <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
             </form>
@@ -279,7 +271,7 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         echo "We are here";
@@ -290,19 +282,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
         $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
         $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
         $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -317,9 +309,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -334,8 +326,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

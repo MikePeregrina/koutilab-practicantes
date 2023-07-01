@@ -5,8 +5,7 @@ html, body {
     height: 100vh;
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../img/img_juegos/bg.png);
-    background-size: cover;
+    background-image: url(../../img/img-juegos/bg.png);    background-size: cover;
     background-repeat: no-repeat;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -64,7 +63,6 @@ body::-webkit-scrollbar-track {
     width: 1200px;
     height: 500px;
 }
-
 .timer {
     text-align: center;
     padding: 3%;
@@ -74,7 +72,6 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(129, 179, 243, 0.7);
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
     border-radius: 110px;
@@ -82,7 +79,7 @@ body::-webkit-scrollbar-track {
     border-style: solid;
     border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
-    font-size: 150%;
+    font-size: 140%;
 }
 @keyframes animation1 {
     0% {margin: 40px 0 0 1040px;}
@@ -91,6 +88,44 @@ body::-webkit-scrollbar-track {
     60% {margin: 40px 0 0 1060px;}
     80% {margin: 40px 0 0 1040px;} 
     100% {margin: 40px 0 0 1050px;}
+}
+
+  @keyframes animation2 {
+    0% {margin: 40px 0 0 1040px;}
+    15% {margin: 40px 0 0 1060px;}
+    30% {margin: 40px 0 0 1040px;} 
+    45% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    75% {margin: 40px 0 0 1060px;}
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
+  @keyframes animation3 {
+    0% {margin: 40px 0 0 1040px;}
+    10% {margin: 40px 0 0 1060px;}
+    20% {margin: 40px 0 0 1040px;} 
+    30% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    50% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    70% {margin: 40px 0 0 1060px;} 
+    80% {margin: 40px 0 0 1040px;} 
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
+#timer {
+    background: rgba(129, 179, 243, 0.7);
+  }
+
+@keyframes animation1 {
+    0% {margin: 40px 0 0 1040px;}
+    20% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    80% {margin: 40px 0 0 1040px;} 
+    100% {margin: 40px 0 0 1060px;}
 }
 
   @keyframes animation2 {
@@ -150,9 +185,7 @@ body::-webkit-scrollbar-track {
     outline: none;
     border-radius: 50%;
     float: right;
-    transition: 0.5s;
 }
-
 .btn-b:hover {
     scale: 130%;
     transition: scale 0.35s;

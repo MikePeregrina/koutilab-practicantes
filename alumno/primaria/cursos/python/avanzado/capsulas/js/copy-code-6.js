@@ -12,9 +12,9 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-# Atributos <br>
-perro.nombre <br>
-# Método <br>
+# Atributos <br/>
+perro.nombre <br/>
+# Método <br/>
 perro.correr() 
 `;
 //Entidades para que html no reconosca las etiquetas

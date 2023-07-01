@@ -220,9 +220,9 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			//Permite que el timer se vuelva a cambiar de color a azul.
-		if(segundos > 15){
+		if(segundos < 15){
 			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			div.style.cssText = "background-color: #c42c2caf; border-color: #c42c2c;";
 		}else if(segundos < 10){
 			var div = document.getElementById("timer");
                     div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";

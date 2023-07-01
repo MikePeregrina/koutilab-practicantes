@@ -12,7 +12,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-resultado = (2 + 3) * 4 / 2 <br>
+resultado = (2 + 3) * 4 / 2 <br/>
 print("El resultado de la operación es: " + resultado)
 `;
 //Entidades para que html no reconosca las etiquetas

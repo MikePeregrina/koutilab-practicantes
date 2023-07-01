@@ -11,12 +11,12 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML =  `.flex-container { <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; display: flex; <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; flex-wrap: wrap; <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; background-color: blue; <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; flex-flow: column; <br>
-    &nbsp;&nbsp;&nbsp;&nbsp; flex-direction: column; <br>
+).innerHTML =  `.flex-container { <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp; display: flex; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp; flex-wrap: wrap; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp; background-color: blue; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp; flex-flow: column; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp; flex-direction: column; <br/>
 }`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
@@ -110,7 +110,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = '../../../../../rutas/ruta-pw-i.php';
+                window.location.href = '../../../../../../rutas/ruta-pw-i.php';
             }
         });
         correcto.play(); //agregando sonido al juego completado

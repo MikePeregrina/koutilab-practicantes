@@ -11,11 +11,11 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML =  `&lt;p&gt;Reglamento del aula de clases&lt;/p&gt;<br><br>
-&lt;oi&gt;
-&lt;li&gt;Todos los alumnos deberán ingresar al aula de clases con el uniforme adecuado&lt;/li&gt;<br><br>
-&lt;li&gt;Los alumnos deberán respetar a compañeros y profesores&lt;/li&gt;<br><br>
-&lt;li&gt;No ingresar con alimentos al aula de clase&lt;/li&gt;&lt;/oi&gt;`;
+).innerHTML =  `
+&ltp&gt Reglamento del aula de clases &lt/p&gt <br/>
+&ltoi&gt &ltli&gt Ingresar al aula de clases con el uniforme adecuado &lt/li&gt <br/>
+&ltli&gt Respetar a compañeros y profesores &lt/li&gt <br/>
+&ltli&gt No ingresar con alimentos &lt/li&gt &lt/oi&gt`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).

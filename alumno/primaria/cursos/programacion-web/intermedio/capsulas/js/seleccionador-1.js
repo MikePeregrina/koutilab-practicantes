@@ -195,7 +195,7 @@ function mostrarResultados() {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../rutas/ruta-pw-i.php';
+                    window.location.href = '../../../../../../rutas/ruta-pw-i.php';
                     
                 }
             });

@@ -58,24 +58,25 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <a href="../../../../../../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct3css.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 3 CSS</div><br>
+            <a href="../../../../../../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct13informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 3 Word</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Supongamos que queremos que nuestro
-                                    sitio tenga un fondo principal color blanco y una cabecera
-                                    color gris. Usando variables del CSS. 'style'
+                                <p> Crear una tabla para organizar información, selecciona un tema específico y utilizar una tabla de Word para organizar datos relevantes. Por ejemplo, crear una tabla para clasificar información sobre diferentes especies de animales, países y sus capitales, eventos históricos, etc.
                                     <br>
                                 </p>
+                            </td>
+                            <td class="ne">
+                                <img src="../../../../../../img/intermedioinf/prac13.png" style="height: auto; width: 60%;">
                             </td>
 
                         </tr>
@@ -83,11 +84,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </table>
 
             </div>
-            <div class="">
-                <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
-                <iframe class="editor" id="editor" srcdoc=" "></iframe>
-            </div>
+
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
                 <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
             </form>
@@ -273,7 +270,7 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         echo "We are here";
@@ -284,19 +281,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
         $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
         $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
         $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -311,9 +308,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -328,8 +325,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

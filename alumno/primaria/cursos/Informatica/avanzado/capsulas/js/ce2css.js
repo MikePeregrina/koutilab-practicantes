@@ -137,7 +137,7 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 51 + "&id_curso=" + 1; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 51 + "&id_curso=" + 9; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -155,7 +155,7 @@ function fetchQuiz() {
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Aceptar',
                         }).then((result) => {
-                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
                         });
                     }
                 }

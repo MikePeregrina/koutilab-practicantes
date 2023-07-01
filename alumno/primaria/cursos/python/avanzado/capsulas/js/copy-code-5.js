@@ -12,9 +12,9 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-numero_string = "10" <br>
-numero_entero = int(numero_string) <br>
-print(numero_entero) <br>
+numero_string = "10" <br/>
+numero_entero = int(numero_string) <br/>
+print(numero_entero) <br/>
 `;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
