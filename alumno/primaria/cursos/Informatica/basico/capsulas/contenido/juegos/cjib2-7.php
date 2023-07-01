@@ -160,7 +160,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 
 		
-			var segundos = 240;//240
+			var segundos = 240;
 
         let puntos = 0;
 
@@ -176,7 +176,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos <= 10) {
                 var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
 

@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		var segundos = 65;//240
+		var segundos = 240;
 
 		let puntos = 0;
 

@@ -57,7 +57,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		<h2 class="titulo"><b>ENTRADAS Y USO DE UNIDADES USB </b></h2>
 	</div>
 
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p> 
 		</b>

@@ -192,6 +192,17 @@ button::-moz-focus-inner {
 
 @keyframes animation2 {
   0% {margin: 40px 0 0 1040px;}
+  15% {margin: 40px 0 0 1060px;}
+  30% {margin: 40px 0 0 1040px;} 
+  45% {margin: 40px 0 0 1060px;}
+  60% {margin: 40px 0 0 1040px;} 
+  75% {margin: 40px 0 0 1060px;}
+  90% {margin: 40px 0 0 1060px;} 
+  100% {margin: 40px 0 0 1050px;}
+}
+
+@keyframes animation3 {
+  0% {margin: 40px 0 0 1040px;}
   10% {margin: 40px 0 0 1060px;}
   20% {margin: 40px 0 0 1040px;} 
   30% {margin: 40px 0 0 1060px;}
@@ -225,6 +236,15 @@ button::-moz-focus-inner {
   border-radius: 50%;
   float: left;
   transition: 0.5s;
+}
+.btn-b:hover {
+  scale: 130%;
+  transition: scale 0.35s;
+}
+
+.btn-b:hover::after {
+  scale: 100%;
+  transition: scale 0.35s;
 }
 
 @media (max-width: 750px) {

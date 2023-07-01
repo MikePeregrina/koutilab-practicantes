@@ -234,7 +234,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos <= 10) {
 				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
 			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {

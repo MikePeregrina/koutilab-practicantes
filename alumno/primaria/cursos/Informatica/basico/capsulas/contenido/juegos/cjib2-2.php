@@ -118,7 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
         incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;//240
+        var segundos = 240;
 
         let puntos = 0;
 

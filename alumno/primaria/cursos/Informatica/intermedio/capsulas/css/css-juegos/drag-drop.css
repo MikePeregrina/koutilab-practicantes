@@ -335,34 +335,47 @@ body::-webkit-scrollbar-track {
   justify-content: center;
   align-items: center;
   background: rgba(129,179,243);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
-  border-radius: 100px;
+  border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
   font-size: 150%;
 }
 /*Generando animaciones del timer*/
 @keyframes animation1 {
-  0% {margin: 30px 0 0 68rem;}
-  20% {margin: 30px 0 0 70rem;}
-  40% {margin: 30px 0 0 68rem;} 
-  60% {margin: 30px 0 0 70rem;}
-  80% {margin: 30px 0 0 68rem;} 
-  100% {margin: 30px 0 0 70rem;}
+  0% {margin: 2rem 0 0 68rem;}
+  20% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;} 
+  60% {margin: 2rem 0 0 70rem;}
+  80% {margin: 2rem 0 0 68rem;} 
+  100% {margin: 2rem 0 0 70rem;}
 }
 
 @keyframes animation2 {
-  0% {margin: 30px 0 0 68rem;}
-  10% {margin: 30px 0 0 70rem;}
-  20% {margin: 30px 0 0 68rem;;} 
-  30% {margin: 30px 0 0 70rem;}
-  40% {margin: 30px 0 0 68rem;;} 
-  50% {margin: 30px 0 0 70rem;}
-  60% {margin: 30px 0 0 68rem;;} 
-  70% {margin: 30px 0 0 70rem;} 
-  80% {margin: 30px 0 0 68rem;;} 
-  90% {margin: 30px 0 0 70rem;} 
-  100% {margin: 30px 0 0 69rem;}
+  0% {margin: 2rem 0 0 68rem;}
+  10% {margin: 2rem 0 0 70rem;}
+  20% {margin: 2rem 0 0 68rem;} 
+  30% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;} 
+  50% {margin: 2rem 0 0 70rem;}
+  90% {margin: 2rem 0 0 70rem;} 
+  100% {margin: 2rem 0 0 69rem;}
+}
+@keyframes animation3 {
+  0% {margin: 2rem 0 0 68rem;}
+  10% {margin: 2rem 0 0 70rem;}
+  20% {margin: 2rem 0 0 68rem;} 
+  30% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;} 
+  50% {margin: 2rem 0 0 70rem;}
+  60% {margin: 2rem 0 0 68rem;} 
+  70% {margin: 2rem 0 0 70rem;} 
+  80% {margin: 2rem 0 0 68rem;} 
+  90% {margin: 2rem 0 0 70rem;} 
+  100% {margin: 2rem 0 0 69rem;}
 }
 .btn-b {
   width: 5%;
@@ -381,11 +394,12 @@ body::-webkit-scrollbar-track {
   float: right;
 }
 /*Se agrego la animacion del btn regresar*/
-.btn-b:hover{
+.btn-b:hover {
   scale: 130%;
   transition: scale 0.35s;
 }
-.btn-b :hover::after{
+
+.btn-b:hover::after {
   scale: 100%;
   transition: scale 0.35s;
 }

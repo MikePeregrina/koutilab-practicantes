@@ -143,13 +143,17 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 30) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 3; //cancatenation

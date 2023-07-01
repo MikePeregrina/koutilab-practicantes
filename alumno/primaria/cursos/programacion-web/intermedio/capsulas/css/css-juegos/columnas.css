@@ -76,12 +76,48 @@ body::-webkit-scrollbar-track {
     justify-content: center;
     align-items: center;
     background: rgba(129, 179, 243, 0.7);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.108);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.108);
     position: fixed;
-    border-radius: 90px;
+    border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
     font-size: 150%;
 }
+@keyframes animation1 {
+    0% {margin: 40px 0 0 1040px;}
+    20% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    80% {margin: 40px 0 0 1040px;} 
+    100% {margin: 40px 0 0 1050px;}
+}
+
+  @keyframes animation2 {
+    0% {margin: 40px 0 0 1040px;}
+    15% {margin: 40px 0 0 1060px;}
+    30% {margin: 40px 0 0 1040px;} 
+    45% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    75% {margin: 40px 0 0 1060px;}
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
+  @keyframes animation3 {
+    0% {margin: 40px 0 0 1040px;}
+    10% {margin: 40px 0 0 1060px;}
+    20% {margin: 40px 0 0 1040px;} 
+    30% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    50% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    70% {margin: 40px 0 0 1060px;} 
+    80% {margin: 40px 0 0 1040px;} 
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
 
 .contenido {
     margin: 20px auto 30px auto;
@@ -130,7 +166,15 @@ body::-webkit-scrollbar-track {
     float: left;
     transition: 0.5s;
 }
-
+.btn-b:hover {
+    scale: 130%;
+    transition: scale 0.35s;
+  }
+  
+  .btn-b:hover::after {
+    scale: 100%;
+    transition: scale 0.35s;
+  }
 @media (max-width: 750px) {
     .btn-b {
         width: 15%;

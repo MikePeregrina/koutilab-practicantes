@@ -217,11 +217,46 @@ th {
   justify-content: center;
   align-items: center;
   background:  rgba(129, 179, 243, 0.7);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
-  border-radius: 90px;
+  border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
   font-size: 150%;
+}
+@keyframes animation1 {
+  0% {margin: 40px 0 0 1120px;}
+  20% {margin: 40px 0 0 1140px;}
+  40% {margin: 40px 0 0 1120px;} 
+  60% {margin: 40px 0 0 1140px;}
+  80% {margin: 40px 0 0 1120px;} 
+  100% {margin: 40px 0 0 1130px;}
+}
+
+@keyframes animation2 {
+  0% {margin: 40px 0 0 1120px}
+  15% {margin: 40px 0 0 1140px;}
+  30% {margin: 40px 0 0 1120px;} 
+  45% {margin: 40px 0 0 1140px;}
+  60% {margin: 40px 0 0 1120px;} 
+  75% {margin: 40px 0 0 1140px;}
+  90% {margin: 40px 0 0 1120px;} 
+  100% {margin: 40px 0 0 1130px;}
+}
+@keyframes animation3 {
+  0% {margin: 40px 0 0 1120px;}
+  10% {margin: 40px 0 0 1140px;}
+  20% {margin: 40px 0 0 1120px;} 
+  30% {margin: 40px 0 0 1140px;}
+  40% {margin: 40px 0 0 1120px;} 
+  50% {margin: 40px 0 0 1140px;}
+  60% {margin: 40px 0 0 1120px;} 
+  70% {margin: 40px 0 0 1140px;} 
+  80% {margin: 40px 0 0 1120px;} 
+  90% {margin: 40px 0 0 1140px;} 
+  100% {margin: 40px 0 0 1130px;}
 }
 
 .btn-b {
@@ -240,7 +275,15 @@ th {
   border-radius: 50%;
   float: right;
 }
+.btn-b:hover {
+  scale: 130%;
+  transition: scale 0.35s;
+}
 
+.btn-b:hover::after {
+  scale: 100%;
+  transition: scale 0.35s;
+}
 @media (max-width: 750px) {
   .btn-b {
     width: 10%;

@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</div>
 
 	<!-- Timer -->
-	<div class="timer">
+	<div class="timer"id="timer">
 		<b>Tiempo: <br />
 			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
@@ -225,6 +225,18 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
+			if(segundos > 15){
+			var div = document.getElementById("timer");
+			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+           }else if(segundos == 15){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+		   }else if(segundos < 10){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+ 	 } 
 			if (segundos == 0) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",

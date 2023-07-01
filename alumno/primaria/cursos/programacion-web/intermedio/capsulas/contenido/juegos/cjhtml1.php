@@ -229,13 +229,18 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos <= 10) {
-        var div = document.getElementById("timer");
-        div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    }	if (segundos <= 5) {
-        var div = document.getElementById("timer");
-        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    }
+			if(segundos > 15){
+			var div = document.getElementById("timer");
+			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+           }else if(segundos == 15){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+		   }else if(segundos < 10){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+ 	       }
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 2; //cancatenation

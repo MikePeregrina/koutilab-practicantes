@@ -61,7 +61,7 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <!-- Timer -->
-    <div class="timer">
+    <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>

@@ -59,13 +59,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-<<<<<<< HEAD
 		<h4 class="titulo" style="margin-left: 550px;"><b>LINUX</b></h4>
         
-=======
-		<h2 class="titulo" style="margin-left: 240px;"><b>LOCALIZACIÓN DE LOS BOTONES DE ENCENDIDO</b></h2>
-
->>>>>>> 8ba5f193ec911bac613dd03573a53cb807fc660a
 	</div>
 
 	<!-- Tiempo -->
@@ -233,7 +228,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos <= 10) {
 				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
 			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {

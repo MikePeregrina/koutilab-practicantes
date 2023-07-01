@@ -61,7 +61,7 @@ body::-webkit-scrollbar-track {
 .timer {
     text-align: center;
     padding: 0.9%;
-    margin: 20px 0 0 1050px; /*Se cambio el pocisionamiento del timer*/
+    margin: 40px 0 0 1050px; /*Se cambio el pocisionamiento del timer*/
     width: 150px;
     height: 150px;
     display: flex;

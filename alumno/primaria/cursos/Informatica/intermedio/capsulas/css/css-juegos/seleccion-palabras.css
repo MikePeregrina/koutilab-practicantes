@@ -68,9 +68,12 @@ body::-webkit-scrollbar-track {
     justify-content: center;
     align-items: center;
     background: rgba(129, 179, 243, 0.7);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
-    border-radius: 90px;
+    border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
     font-size: 150%;
 }
@@ -80,10 +83,20 @@ body::-webkit-scrollbar-track {
     40% {margin: 20px 0 0 1040px;} 
     60% {margin: 20px 0 0 1060px;}
     80% {margin: 20px 0 0 1040px;} 
-    100% {margin: 20px 0 0 1060px;}
+    100% {margin: 20px 0 0 1050px;}
 }
 
-  @keyframes animation2 {
+@keyframes animation2 {
+    0% {margin: 20px 0 0 1040px}
+    15% {margin: 20px 0 0 1060px;}
+    30% {margin: 20px 0 0 1040px;} 
+    45% {margin: 20px 0 0 1060px;}
+    60% {margin: 20px 0 0 1040px;} 
+    75% {margin: 20px 0 0 1060px;}
+    90% {margin: 20px 0 0 1040px;} 
+    100% {margin: 20px 0 0 1050px;}
+  }
+  @keyframes animation3 {
     0% {margin: 20px 0 0 1040px;}
     10% {margin: 20px 0 0 1060px;}
     20% {margin: 20px 0 0 1040px;} 
@@ -96,7 +109,6 @@ body::-webkit-scrollbar-track {
     90% {margin: 20px 0 0 1060px;} 
     100% {margin: 20px 0 0 1050px;}
   }
-
 .verificar {
     cursor: pointer;
     color: #404040;
@@ -131,14 +143,15 @@ margin-right: 40%;
     border-radius: 50%;
     float: right;
 }
-.btn-b:hover{
+.btn-b:hover {
     scale: 130%;
     transition: scale 0.35s;
   }
-  .btn-b :hover::after{
+  
+  .btn-b:hover::after {
     scale: 100%;
-    transition: scale 0.35s;}
-    
+    transition: scale 0.35s;
+  }   
 @media (max-width: 750px) {
     .btn-b {
         width: 10%;

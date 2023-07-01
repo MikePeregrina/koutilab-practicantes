@@ -119,7 +119,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-        var segundos = 240;//240
+        var segundos = 240;
 
         let puntos = 0;
 
