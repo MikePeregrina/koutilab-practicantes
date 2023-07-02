@@ -1,7 +1,11 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_director'];
+<<<<<<< HEAD
 if(empty($_SESSION['active'])||empty($_SESSION['id_director'])){
+=======
+if (empty($_SESSION['active']) || empty($_SESSION['id_director'])) {
+>>>>>>> 95aedb972361a64e44518b784d4c4e9dab1882f1
   header('location: ../../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');

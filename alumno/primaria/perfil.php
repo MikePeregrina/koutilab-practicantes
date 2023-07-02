@@ -37,17 +37,17 @@ $data_python_intermedio = mysqli_fetch_assoc($query_python_intermedio);
 $query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 6");
 $data_python_avanzado = mysqli_fetch_assoc($query_python_avanzado);
 
-//Estadisticas arduino basico
-$query_arduino_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 7");
-$data_arduino_basico = mysqli_fetch_assoc($query_arduino_basico);
+//Estadisticas informatica basico
+$query_informatica_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 7");
+$data_informatica_basico = mysqli_fetch_assoc($query_informatica_basico);
 
-//Estadisticas arduino intermedio
-$query_arduino_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 8");
-$data_arduino_intermedio = mysqli_fetch_assoc($query_arduino_intermedio);
+//Estadisticas informatica intermedio
+$query_informatica_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 8");
+$data_informatica_intermedio = mysqli_fetch_assoc($query_informatica_intermedio);
 
-//Estadisticas arduino avanzado
-$query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 9");
-$data_arduino_avanzado = mysqli_fetch_assoc($query_arduino_avanzado);
+//Estadisticas informatica avanzado
+$query_informatica_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 9");
+$data_informatica_avanzado = mysqli_fetch_assoc($query_informatica_avanzado);
 
 //Información solo de alumno
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
@@ -303,6 +303,48 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                                 <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
                                 <br>
                                 <h2>Python avanzado</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" style="height: 300px;">
+                    <a href="rutas/ruta-in-b.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_informatica_basico)) echo $data_informatica_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_informatica_basico)) echo $data_informatica_basico['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Informática básico</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" style="height: 300px;">
+                    <a href="rutas/ruta-in-i.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_informatica_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_informatica_intermedio)) echo $data_informatica_intermedio['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Informática intermedio</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" style="height: 300px;">
+                    <a href="rutas/ruta-in-a.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_informatica_avanzado)) echo $data_informatica_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_informatica_avanzado)) echo $data_informatica_avanzado['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Informática avanzado</h2>
                             </div>
                         </div>
                     </a>
