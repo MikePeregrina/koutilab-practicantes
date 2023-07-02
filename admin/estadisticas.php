@@ -33,135 +33,266 @@ $sqlusuarios = "SELECT COUNT(*) id_admin FROM admin";
 $resultusuarios = mysqli_query($conexion, $sqlusuarios);
 $filausuarios = mysqli_fetch_assoc($resultusuarios);
 
+if (isset($_POST['submitFecha'])) {
+    //echo "La fecha de inicio fue: " . $_POST['fechaInicio'];
+    if (isset($_POST['fechaFin'])) {
+        //echo "La fecha de Fin fue: " . $_POST['fechaFin'];
+        //echo "El id de usuario es :" . $_POST['id_user'];
+        $fechaInicio = $_POST['fechaInicio'];
+        $fechaFin = $_POST['fechaFin'];
+
+        $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+    }
+} else {
+
+    // Consulta para obtener los datos de ganancias
+    $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' GROUP BY(mes) ORDER BY (mes)DESC";
+}
+
+
+// Ejecutar la consulta
+$resultado = $conexion->query($consulta);
+
+// Crear un arreglo para almacenar los datos
+$datos = array();
+
+// Recorrer los resultados y almacenarlos en el arreglo
+while ($fila = $resultado->fetch_assoc()) {
+    $datos[] = $fila;
+}
+
+// Cerrar la conexión a la base de datos
+$conexion->close();
+
+// Crear un arreglo para almacenar las ganancias por mes
+$gananciasPorMes = array();
+
+// Recorrer los datos y agrupar las ganancias por mes
+foreach ($datos as $dato) {
+    $fecha = strtotime($dato['mes']);
+    $mes = date('Y-m', $fecha);
+    $monto = floatval($dato['total']);
+
+    if (isset($gananciasPorMes[$mes])) {
+        $gananciasPorMes[$mes] += $monto;
+    } else {
+        $gananciasPorMes[$mes] = $monto;
+    }
+}
+
+// Crear un arreglo para almacenar los datos de la gráfica
+$datosGrafica = array();
+
+// Recorrer las ganancias por mes y generar los datos para la gráfica
+foreach ($gananciasPorMes as $mes => $ganancia) {
+    // Obtener el nombre del mes y año a partir del formato Y-m
+    $nombreMes = date('F Y', strtotime($mes));
+    $datosGrafica[] = array(
+        'label' => $nombreMes,
+        'data' => $ganancia
+    );
+}
+
+// Convertir los datos a formato JSON
+$datosJSON = json_encode($datosGrafica);
+//echo "Datos recuperados de la bd" . $datosJSON;
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/lgk.png">
-  <link rel="stylesheet" href="css/nav-barra.css">
-  <link rel="stylesheet" href="css/estadisticas.css">
-  <link rel="stylesheet" href="css/footer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/lgk.png">
+    <link rel="stylesheet" href="css/nav-barra.css">
+    <link rel="stylesheet" href="css/estadisticas.css">
+    <link rel="stylesheet" href="css/footer.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
 
     <title>KOUTILAB</title>
-</head>
+    </head>
 
     <!-- Header nav -->
     <?php include 'header-nav.php'; ?>
 
-  <div class="containers">
-    <h1>Estadisticas</h1>  
-  </div>
-
- 
-
-
-  <section>
-    <div class="body">
-        <div class="latd">
-            <div class="grafica">
-                <canvas id="G-Instituciones" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class="fas fa-money-check-alt me-3"></i><b>Total de instituciones: </b><?php echo $filainstituciones['id_escuela']; ?></li>
-                </div>
-            </div>
-        </div>
-
-        <div class="latd1">
-            <div class="grafica">
-                <canvas id="G-Escuelas" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
-                </div>
-            </div>
-        </div>
+    <div class="containers">
+        <h1>Estadisticas</h1>
     </div>
 
-    <div class="body" style="margin-top: -20px;">
-        <div class="latd">
-            <div class="grafica">
-                <canvas id="G-Alumnos" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de alumnos: </b><?php echo $filaalumnos['id_alumno']; ?></li>
+
+
+
+    <section>
+        <div class="body">
+            <div class="latd">
+                <div class="grafica">
+                    <canvas id="G-Instituciones" width="450" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class="fas fa-money-check-alt me-3"></i><b>Total de instituciones: </b><?php echo $filainstituciones['id_escuela']; ?></li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="latd1">
+                <div class="grafica">
+                    <canvas id="G-Escuelas"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            // Código de inicialización de la gráfica
+                            console.log(<?php echo $datosJSON; ?>);
+                            // Obtener el elemento canvas
+                            var canvas = document.getElementById('G-Escuelas');
+
+                            // Obtener los datos JSON y procesarlos
+                            var datosJSON = JSON.parse('<?php echo $datosJSON; ?>');
+                            var labels = datosJSON.map(function(dato) {
+                                return dato.label;
+                            });
+                            var datos = datosJSON.map(function(dato) {
+                                return dato.data;
+                            });
+
+                            // Crear la instancia de la gráfica
+                            var grafica = new Chart(canvas, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        label: 'Escuelas',
+                                        data: datos,
+                                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                                        //borderWidth: 1, // Cambia el ancho del borde
+                                        backgroundColor: [
+                                            'rgba(255,99,132,0.2)',
+                                            'rgba(54,162,235,0.2)',
+                                            'rgba(255,206,86,0.2)',
+                                            'rgba(75,192,192,0.2)',
+                                            'rgba(255,159,64,0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255,99,132,1)',
+                                            'rgba(54,162,235,1)',
+                                            'rgba(255,206,86,1)',
+                                            'rgba(75,192,192,1)',
+                                            'rgba(255,159,64,1)'
+                                        ],
+                                        borderWidth: 1.5
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                    <div align="center" style="margin-top: 20px;">
+                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                            <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                            <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                            <br><br>
+                            <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="body" style="margin-top: -20px;">
+            <div class="latd">
+                <div class="grafica">
+                    <canvas id="G-Alumnos" width="450" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de alumnos: </b><?php echo $filaalumnos['id_alumno']; ?></li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="latd1">
+                <div class="grafica">
+                    <canvas id="G-Profesores" width="450" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de profesores: </b><?php echo $filadocentes['id_docente']; ?></li>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="latd1">
-            <div class="grafica">
-                <canvas id="G-Profesores" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de profesores: </b><?php echo $filadocentes['id_docente']; ?></li>
+        <div class="body" style="margin-top: -20px;">
+            <div class="latd">
+                <div class="grafica">
+                    <canvas id="G-Usuarios" width="450" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de usuarios: </b>0</li>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="body" style="margin-top: -20px;">
-        <div class="latd">
-            <div class="grafica">
-                <canvas id="G-Usuarios" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de usuarios: </b>0</li>
-                </div>
-            </div>
-        </div>
-
-        <div class="latd1">
-            <div class="grafica">
-                <canvas id="G-Visitas" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b>0</li> <!--Esta grafica aun no-->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="body" style="margin-top: -20px;">
-        <div class="latd">
-            <div class="grafica">
-                <canvas id="G-Familias" width="470" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de planes familiares: </b>0</li> <!--Esta grafica aun no-->
+            <div class="latd1">
+                <div class="grafica">
+                    <canvas id="G-Visitas" width="450" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b>0</li> <!--Esta grafica aun no-->
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="latd1">
-            <div class="grafica">
-                <canvas id="G-Personales" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de cuentas personales: </b>0</li> <!--Esta grafica aun no-->
+        <div class="body" style="margin-top: -20px;">
+            <div class="latd">
+                <div class="grafica">
+                    <canvas id="G-Familias" width="470" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de planes familiares: </b>0</li> <!--Esta grafica aun no-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="latd1">
+                <div class="grafica">
+                    <canvas id="G-Personales" width="450" height="280"></canvas>
+                    <hr style="opacity: 10%;">
+                    <div class="info">
+                        <li><i class='fa-solid fa-school me-3'></i><b>Total de cuentas personales: </b>0</li> <!--Esta grafica aun no-->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <!-- Fin graficas -->
-  </section>
+    </section>
 
-            
-  <?php include 'footer.php'; ?>
-   
- 
-  <script>
+
+    <?php include 'footer.php'; ?>
+
+
+    <script>
         const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
         const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
         const modalA = document.querySelector("#modalA");
@@ -276,7 +407,7 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
         });
     </script>
 
-    <script>
+    <script>/*
         var ctx = document.getElementById('G-Escuelas');
         var Escuelas = new Chart(ctx, {
             type: 'line',
@@ -304,7 +435,7 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
                 }
             }
         });
-    </script>
+    */</script>
 
     <script>
         var ctx = document.getElementById('G-Alumnos');
@@ -470,5 +601,6 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
+    </body>
+
 </html>

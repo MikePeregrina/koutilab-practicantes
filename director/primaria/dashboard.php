@@ -245,7 +245,7 @@ function actualizarGrafica()
       <div class="titlec">
         <h2>Datos de compras</h2>
       </div>
-
+        <!--Para la gráfica-->
       <div id="graficaContainer">
         <canvas id="grafica"></canvas>
       </div>

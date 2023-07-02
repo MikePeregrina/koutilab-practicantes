@@ -133,7 +133,7 @@
 
   .grafica {
     align-items: center;
-    scale: 105%;
+    /*scale: 105%;*/
   }
 
   .info {
@@ -149,7 +149,7 @@
 
     .grafica {
       align-items: center;
-      scale: 95%;
+      /*scale: 95%;*/
     }
   }
 
@@ -171,7 +171,7 @@
     }
     .grafica {
       align-items: center;
-      scale: 90%;
+      /*scale: 90%;*/
     }
   }
   
@@ -180,16 +180,25 @@
 
     .grafica {
       align-items: center;
-      scale: 85%;
+      /*scale: 85%;*/
     }
   }
 
   @media (max-width: 880px) {
+    .containers{
+      height: auto;
+    }
+
+    .latd1{
+      height: auto;
+      padding: 10%;
+    }
 
     .grafica {
       align-items: center;
-      scale: 70%;
+      /*scale: 70%;*/
     }
+
   }
      
   
@@ -240,7 +249,7 @@
 
   .latd1 {
     width: 95%;
-    height: 350px;
+    /*height: 350px;*/
     margin-left: 5%;
   }
 
