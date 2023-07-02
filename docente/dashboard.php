@@ -99,14 +99,14 @@ $query_cont = mysqli_query($conexion, $sql_cont);
         </div>
 
         <div class="card-cursos" style="scale: 80%;">
-          <a href="img/temario-pw-b.pdf" target="_blank">
+          <a href="../acciones/pdf/temario-pwb.pdf" target="_blank">
             <div><i class="fab fa-html5 fa-6x"></i></div>
             <h2>Programación web básico</h2>
           </a>
         </div>
 
         <div class="card-cursos" style="scale: 80%;">
-          <a href="img/temario-pw-i.pdf" target="_blank">
+          <a href="../acciones/pdf/temario-pwi.pdf" target="_blank">
             <div><i class="fab fa-html5 fa-6x"></i></div>
             <h2>Programación web intermedio</h2>
           </a>
