@@ -8,13 +8,13 @@ include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
 //Contar escuelas
-$sqlescuelas = "SELECT COUNT(*) id_escuela FROM escuelas";
+$sqlescuelas = "SELECT count(id_escuela) id_escuela from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional'";
 $resultescuelas = mysqli_query($conexion, $sqlescuelas);
 $filaescuelas = mysqli_fetch_assoc($resultescuelas);
 
 
 //Contar instituciones
-$sqlinstituciones = "SELECT COUNT(*) id_escuela FROM escuelas";
+$sqlinstituciones = "SELECT count(id_escuela) id_escuela from escuelas WHERE id_admin = '$id_user' AND nivel_educativo = 'Institucional'";
 $resultinsitituciones = mysqli_query($conexion, $sqlinstituciones);
 $filainstituciones = mysqli_fetch_assoc($resultinsitituciones);
 
@@ -33,71 +33,6 @@ $sqlusuarios = "SELECT COUNT(*) id_admin FROM admin";
 $resultusuarios = mysqli_query($conexion, $sqlusuarios);
 $filausuarios = mysqli_fetch_assoc($resultusuarios);
 
-/*
-if (isset($_POST['submitFecha'])) {
-    //echo "La fecha de inicio fue: " . $_POST['fechaInicio'];
-    if (isset($_POST['fechaFin'])) {
-        //echo "La fecha de Fin fue: " . $_POST['fechaFin'];
-        //echo "El id de usuario es :" . $_POST['id_user'];
-        $fechaInicio = $_POST['fechaInicio'];
-        $fechaFin = $_POST['fechaFin'];
-
-        $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
-    }
-} else {
-
-    // Consulta para obtener los datos de ganancias
-    $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' GROUP BY(mes) ORDER BY (mes)DESC";
-}
-
-
-// Ejecutar la consulta
-$resultado = $conexion->query($consulta);
-
-// Crear un arreglo para almacenar los datos
-$datos = array();
-
-// Recorrer los resultados y almacenarlos en el arreglo
-while ($fila = $resultado->fetch_assoc()) {
-    $datos[] = $fila;
-}
-
-// Cerrar la conexión a la base de datos
-$conexion->close();
-
-// Crear un arreglo para almacenar las ganancias por mes
-$gananciasPorMes = array();
-
-// Recorrer los datos y agrupar las ganancias por mes
-foreach ($datos as $dato) {
-    $fecha = strtotime($dato['mes']);
-    $mes = date('Y-m', $fecha);
-    $monto = floatval($dato['total']);
-
-    if (isset($gananciasPorMes[$mes])) {
-        $gananciasPorMes[$mes] += $monto;
-    } else {
-        $gananciasPorMes[$mes] = $monto;
-    }
-}
-
-// Crear un arreglo para almacenar los datos de la gráfica
-$datosGrafica = array();
-
-// Recorrer las ganancias por mes y generar los datos para la gráfica
-foreach ($gananciasPorMes as $mes => $ganancia) {
-    // Obtener el nombre del mes y año a partir del formato Y-m
-    $nombreMes = date('F Y', strtotime($mes));
-    $datosGrafica[] = array(
-        'label' => $nombreMes,
-        'data' => $ganancia
-    );
-}
-
-// Convertir los datos a formato JSON
-$datosJSON = json_encode($datosGrafica);
-//echo "Datos recuperados de la bd" . $datosJSON;
-*/
 ?>
 
 <!DOCTYPE html>
@@ -197,14 +132,14 @@ $datosJSON = json_encode($datosGrafica);
 
             var tipo_json = JSON.stringify(tipo);
             console.log(tipo_json);
-            
+
             $.post("graficas/consultaGrafica.php", {
                 fechaInicio: fechaInicio_json,
                 fechaFin: fechaFin_json,
                 id_user: id_user,
-                tipo:tipo_json
+                tipo: tipo_json
             }, function(data) {
-                alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
                 var arregloConvertido = JSON.parse(data);
 
                 mostrarGInstituciones(data);
@@ -236,9 +171,9 @@ $datosJSON = json_encode($datosGrafica);
                 fechaInicio: fechaInicio_json,
                 fechaFin: fechaFin_json,
                 id_user: id_user,
-                tipo:tipo_json
+                tipo: tipo_json
             }, function(data) {
-                alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
                 var arregloConvertido = JSON.parse(data);
 
                 mostrarGEscuelas(data);
@@ -249,8 +184,8 @@ $datosJSON = json_encode($datosGrafica);
 
         function filtrarGAlumnos() {
             //here
-            var fechaInicio = document.getElementById('fechaInicioEscuelas').value;
-            var fechaFin = document.getElementById('fechaFinEscuelas').value;
+            var fechaInicio = document.getElementById('fechaInicioAlumnos').value;
+            var fechaFin = document.getElementById('fechaFinAlumnos').value;
             var id_user = <?php echo $id_user; ?>;
             var tipo = "alumnos";
             console.log(fechaInicio);
@@ -270,12 +205,46 @@ $datosJSON = json_encode($datosGrafica);
                 fechaInicio: fechaInicio_json,
                 fechaFin: fechaFin_json,
                 id_user: id_user,
-                tipo:tipo_json
+                tipo: tipo_json
             }, function(data) {
-                alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
                 var arregloConvertido = JSON.parse(data);
 
                 mostrarGAlumnos(data);
+
+            });
+
+        }
+
+        function filtrarGProfesores() {
+            //here
+            var fechaInicio = document.getElementById('fechaInicioProfesores').value;
+            var fechaFin = document.getElementById('fechaFinProfesores').value;
+            var id_user = <?php echo $id_user; ?>;
+            var tipo = "profesores";
+            console.log(fechaInicio);
+            console.log(fechaFin);
+            console.log(id_user);
+            console.log(tipo);
+
+            var fechaInicio_json = JSON.stringify(fechaInicio);
+            console.log(fechaInicio_json);
+
+            var fechaFin_json = JSON.stringify(fechaFin);
+            console.log(fechaFin_json);
+
+            var tipo_json = JSON.stringify(tipo);
+            console.log(tipo_json);
+            $.post("graficas/consultaGrafica.php", {
+                fechaInicio: fechaInicio_json,
+                fechaFin: fechaFin_json,
+                id_user: id_user,
+                tipo: tipo_json
+            }, function(data) {
+                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                var arregloConvertido = JSON.parse(data);
+
+                mostrarGProfesores(data);
 
             });
 
@@ -285,7 +254,8 @@ $datosJSON = json_encode($datosGrafica);
         let graficaInstituciones;
         let graficaEscuelas;
         let graficaAlumnos;
-        
+        let graficaProfesores;
+
         function mostrarGInstituciones(data) {
             console.log(data);
             // Obtener el elemento canvas
@@ -307,7 +277,7 @@ $datosJSON = json_encode($datosGrafica);
             if (graficaInstituciones) {
                 graficaInstituciones.destroy();
             }
-             graficaInstituciones = new Chart(canvas, {
+            graficaInstituciones = new Chart(canvas, {
                 type: 'bar',
                 data: {
                     labels: labels,
@@ -367,7 +337,7 @@ $datosJSON = json_encode($datosGrafica);
             if (graficaEscuelas) {
                 graficaEscuelas.destroy();
             }
-             graficaEscuelas = new Chart(canvas, {
+            graficaEscuelas = new Chart(canvas, {
                 type: 'bar',
                 data: {
                     labels: labels,
@@ -426,7 +396,7 @@ $datosJSON = json_encode($datosGrafica);
             if (graficaAlumnos) {
                 graficaAlumnos.destroy();
             }
-             graficaAlumnos = new Chart(canvas, {
+            graficaAlumnos = new Chart(canvas, {
                 type: 'bar',
                 data: {
                     labels: labels,
@@ -463,37 +433,34 @@ $datosJSON = json_encode($datosGrafica);
                 }
             });
         }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
 
-            filtrarGEscuelas();
-            filtrarGInstituciones();
-            filtrarGAlumnos();
-
-        });
-        /*document.addEventListener('DOMContentLoaded', function() {
-            // Código de inicialización de la gráfica
-            console.log(<?php echo $datosJSON; ?>);
+        function mostrarGProfesores(data) {
+            console.log(data);
             // Obtener el elemento canvas
-            var canvas = document.getElementById('G-Escuelas');
+            var canvas = document.getElementById('G-Profesores');
 
             // Obtener los datos JSON y procesarlos
-            var datosJSON = JSON.parse('<?php echo $datosJSON; ?>');
+            var datosJSON = JSON.parse(data);
+            console.log(datosJSON);
             var labels = datosJSON.map(function(dato) {
                 return dato.label;
+                console.log(dato.label);
             });
             var datos = datosJSON.map(function(dato) {
                 return dato.data;
+                console.log(dato.data);
             });
 
             // Crear la instancia de la gráfica
-            var grafica = new Chart(canvas, {
+            if (graficaProfesores) {
+                graficaProfesores.destroy();
+            }
+            graficaProfesores = new Chart(canvas, {
                 type: 'bar',
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Escuelas',
+                        label: 'Profesores',
                         data: datos,
                         //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
                         //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
@@ -524,7 +491,16 @@ $datosJSON = json_encode($datosGrafica);
                     }
                 }
             });
-        });*/
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            filtrarGInstituciones();
+            filtrarGEscuelas();
+            filtrarGAlumnos();
+            filtrarGProfesores();
+
+        });
     </script>
     <div class="body" style="margin-top: -20px;">
         <div class="latd">
@@ -537,9 +513,9 @@ $datosJSON = json_encode($datosGrafica);
                 <div align="center" style="margin-top: 20px;">
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-                        <input type="date" name="fechaInicio" id="fechaInicioInstituciones" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="date" name="fechaInicio" id="fechaInicioAlumnos" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
                         <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-                        <input type="date" name="fechaFin" id="fechaFinInstituciones" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="date" name="fechaFin" id="fechaFinAlumnos" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
                         <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
                         <br><br>
                         <input onclick="filtrarGAlumnos()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
@@ -554,6 +530,17 @@ $datosJSON = json_encode($datosGrafica);
                 <hr style="opacity: 10%;">
                 <div class="info">
                     <li><i class='fa-solid fa-school me-3'></i><b>Total de profesores: </b><?php echo $filadocentes['id_docente']; ?></li>
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioProfesores" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinProfesores" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGProfesores()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
                 </div>
             </div>
         </div>
@@ -665,36 +652,6 @@ $datosJSON = json_encode($datosGrafica);
     });
 </script>
 
-<script>/*
-    var ctx = document.getElementById('G-Instituciones');
-    var Instituciones = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-            datasets: [{
-                label: 'Instituciones',
-                data: [<?php echo $filainstituciones['id_escuela']; ?>, 0, 0, 0, 0, 0],
-                backgroundColor: [
-                    'rgba(61,172,244,.6)'
-                ],
-                borderColor: [
-                    'rgba(61,172,244,.6)'
-                ],
-                borderWidth: 1.5
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-*/</script>
-
 <script>
     var ctx = document.getElementById('G-Visitas');
     var Visitas = new Chart(ctx, {
@@ -727,67 +684,6 @@ $datosJSON = json_encode($datosGrafica);
 
 <script>
     /*
-        var ctx = document.getElementById('G-Escuelas');
-        var Escuelas = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Escuelas',
-                    data: [<?php echo $filainstituciones['id_escuela']; ?>, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    */
-</script>
-
-<script>/*
-    var ctx = document.getElementById('G-Alumnos');
-    var Alumnos = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-            datasets: [{
-                label: 'Alumnos',
-                data: [<?php echo $filaalumnos['id_alumno']; ?>, 0, 0, 0, 0, 0],
-                backgroundColor: [
-                    'rgba(61,172,244,.6)'
-                ],
-                borderColor: [
-                    'rgba(61,172,244,.6)'
-                ],
-                borderWidth: 1.5
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-*/</script>
-
-<script>
     var ctx = document.getElementById('G-Profesores');
     var Profesores = new Chart(ctx, {
         type: 'line',
@@ -815,6 +711,7 @@ $datosJSON = json_encode($datosGrafica);
             }
         }
     });
+*/
 </script>
 
 <script>
