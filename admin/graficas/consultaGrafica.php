@@ -11,11 +11,11 @@
     if($tipo == "instituciones"){
         if ($fechaInicio != null) {
             if ($fechaFin != null) {
-                $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+                $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (created_at)ASC";
             }
         } else {
             // Consulta para obtener los datos de ganancias
-            $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo = 'Institucional' GROUP BY(mes) ORDER BY (mes)DESC";
+            $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo = 'Institucional' GROUP BY(mes) ORDER BY (created_at)ASC";
         }
         // Ejecutar la consulta
         $resultado = $conexion->query($consulta);
@@ -65,11 +65,11 @@
     if($tipo == "escuelas"){
         if ($fechaInicio != null) {
             if ($fechaFin != null) {
-                $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+                $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (created_at)ASC";
             }
         } else {
             // Consulta para obtener los datos de ganancias
-            $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' GROUP BY(mes) ORDER BY (mes)DESC";
+            $consulta = "SELECT count(id_escuela) as total, DATE_FORMAT(created_at,'%M %Y') as mes from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional' GROUP BY(mes) ORDER BY (created_at)ASC";
         }
         // Ejecutar la consulta
         $resultado = $conexion->query($consulta);
@@ -119,12 +119,70 @@
     if($tipo == "alumnos"){
         if ($fechaInicio != null) {
             if ($fechaFin != null) {
-                $consulta = "SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_primaria AS apri INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela UNION SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_secundaria AS ase INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela UNION SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_preparatoria AS apre INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela UNION SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_universidad AS au INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela WHERE id_admin = '$id_user' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+                $consulta = "SELECT COUNT(*) AS total, DATE_FORMAT(fecha_registro, '%M %Y') AS mes_anio
+                FROM (
+                  SELECT fecha_registro
+                  FROM alumnos_primaria AS apri
+                  INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user AND fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
+                
+                  UNION ALL
+                
+                  SELECT fecha_registro
+                  FROM alumnos_secundaria AS ase
+                  INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user AND fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
+                
+                  UNION ALL
+                
+                  SELECT fecha_registro
+                  FROM alumnos_preparatoria AS apre
+                  INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user AND fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
+                
+                  UNION ALL
+                
+                  SELECT fecha_registro
+                  FROM alumnos_universidad AS au
+                  INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user AND fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
+                ) AS subquery
+                GROUP BY DATE_FORMAT(fecha_registro, '%Y-%m')
+                ORDER BY fecha_registro ASC";
 
             }
         } else {
             // Consulta para obtener los datos de ganancias
-            $consulta = "SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_primaria AS apri INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela UNION SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_secundaria AS ase INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela UNION SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_preparatoria AS apre INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela UNION SELECT count(id_alumno) as total, DATE_FORMAT(created_at,'%M %Y') as mes FROM alumnos_universidad AS au INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela WHERE id_admin = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
+            $consulta = "SELECT COUNT(*) AS total, DATE_FORMAT(fecha_registro, '%M %Y') AS mes_anio
+                FROM (
+                  SELECT fecha_registro
+                  FROM alumnos_primaria AS apri
+                  INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user
+                
+                  UNION ALL
+                
+                  SELECT fecha_registro
+                  FROM alumnos_secundaria AS ase
+                  INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user
+                
+                  UNION ALL
+                
+                  SELECT fecha_registro
+                  FROM alumnos_preparatoria AS apre
+                  INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user
+                
+                  UNION ALL
+                
+                  SELECT fecha_registro
+                  FROM alumnos_universidad AS au
+                  INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela
+                  WHERE id_admin = $id_user
+                ) AS subquery
+                GROUP BY DATE_FORMAT(fecha_registro, '%Y-%m')
+                ORDER BY fecha_registro ASC";
         }
         // Ejecutar la consulta
         $resultado = $conexion->query($consulta);
@@ -145,7 +203,7 @@
         
         // Recorrer los datos y agrupar las ganancias por mes
         foreach ($datos as $dato) {
-            $fecha = strtotime($dato['mes']);
+            $fecha = strtotime($dato['mes_anio']);
             $mes = date('Y-m', $fecha);
             $monto = floatval($dato['total']);
         
