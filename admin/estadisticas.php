@@ -33,6 +33,7 @@ $sqlusuarios = "SELECT COUNT(*) id_admin FROM admin";
 $resultusuarios = mysqli_query($conexion, $sqlusuarios);
 $filausuarios = mysqli_fetch_assoc($resultusuarios);
 
+/*
 if (isset($_POST['submitFecha'])) {
     //echo "La fecha de inicio fue: " . $_POST['fechaInicio'];
     if (isset($_POST['fechaFin'])) {
@@ -96,318 +97,636 @@ foreach ($gananciasPorMes as $mes => $ganancia) {
 // Convertir los datos a formato JSON
 $datosJSON = json_encode($datosGrafica);
 //echo "Datos recuperados de la bd" . $datosJSON;
-
+*/
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/lgk.png">
-    <link rel="stylesheet" href="css/nav-barra.css">
-    <link rel="stylesheet" href="css/estadisticas.css">
-    <link rel="stylesheet" href="css/footer.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/lgk.png">
+<link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/estadisticas.css">
+<link rel="stylesheet" href="css/footer.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
-    <title>KOUTILAB</title>
-    </head>
 
-    <!-- Header nav -->
-    <?php include 'header-nav.php'; ?>
+<title>KOUTILAB</title>
+</head>
 
-    <div class="containers">
-        <h1>Estadisticas</h1>
+<!-- Header nav -->
+<?php include 'header-nav.php'; ?>
+
+<div class="containers">
+    <h1>Estadisticas</h1>
+</div>
+
+
+
+
+<section>
+    <div class="body">
+        <div class="latd">
+            <div class="grafica">
+                <canvas id="G-Instituciones" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class="fas fa-money-check-alt me-3"></i><b>Total de instituciones: </b><?php echo $filainstituciones['id_escuela']; ?></li>
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioInstituciones" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinInstituciones" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGInstituciones()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="latd1">
+            <div class="grafica">
+                <canvas id="G-Escuelas" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
+                </div>
+
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioEscuelas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinEscuelas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGEscuelas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function filtrarGInstituciones() {
+            //here
+            var fechaInicio = document.getElementById('fechaInicioInstituciones').value;
+            var fechaFin = document.getElementById('fechaFinInstituciones').value;
+            var id_user = <?php echo $id_user; ?>;
+            var tipo = "instituciones";
+            console.log(fechaInicio);
+            console.log(fechaFin);
+            console.log(id_user);
+            console.log(tipo);
+
+            var fechaInicio_json = JSON.stringify(fechaInicio);
+            console.log(fechaInicio_json);
+
+            var fechaFin_json = JSON.stringify(fechaFin);
+            console.log(fechaFin_json);
+
+            var tipo_json = JSON.stringify(tipo);
+            console.log(tipo_json);
+            
+            $.post("graficas/consultaGrafica.php", {
+                fechaInicio: fechaInicio_json,
+                fechaFin: fechaFin_json,
+                id_user: id_user,
+                tipo:tipo_json
+            }, function(data) {
+                alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                var arregloConvertido = JSON.parse(data);
+
+                mostrarGInstituciones(data);
+
+            });
+
+        }
+
+        function filtrarGEscuelas() {
+            //here
+            var fechaInicio = document.getElementById('fechaInicioEscuelas').value;
+            var fechaFin = document.getElementById('fechaFinEscuelas').value;
+            var id_user = <?php echo $id_user; ?>;
+            var tipo = "escuelas";
+            console.log(fechaInicio);
+            console.log(fechaFin);
+            console.log(id_user);
+            console.log(tipo);
+
+            var fechaInicio_json = JSON.stringify(fechaInicio);
+            console.log(fechaInicio_json);
+
+            var fechaFin_json = JSON.stringify(fechaFin);
+            console.log(fechaFin_json);
+
+            var tipo_json = JSON.stringify(tipo);
+            console.log(tipo_json);
+            $.post("graficas/consultaGrafica.php", {
+                fechaInicio: fechaInicio_json,
+                fechaFin: fechaFin_json,
+                id_user: id_user,
+                tipo:tipo_json
+            }, function(data) {
+                alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                var arregloConvertido = JSON.parse(data);
+
+                mostrarGEscuelas(data);
+
+            });
+
+        }
+
+        function filtrarGAlumnos() {
+            //here
+            var fechaInicio = document.getElementById('fechaInicioEscuelas').value;
+            var fechaFin = document.getElementById('fechaFinEscuelas').value;
+            var id_user = <?php echo $id_user; ?>;
+            var tipo = "alumnos";
+            console.log(fechaInicio);
+            console.log(fechaFin);
+            console.log(id_user);
+            console.log(tipo);
+
+            var fechaInicio_json = JSON.stringify(fechaInicio);
+            console.log(fechaInicio_json);
+
+            var fechaFin_json = JSON.stringify(fechaFin);
+            console.log(fechaFin_json);
+
+            var tipo_json = JSON.stringify(tipo);
+            console.log(tipo_json);
+            $.post("graficas/consultaGrafica.php", {
+                fechaInicio: fechaInicio_json,
+                fechaFin: fechaFin_json,
+                id_user: id_user,
+                tipo:tipo_json
+            }, function(data) {
+                alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                var arregloConvertido = JSON.parse(data);
+
+                mostrarGAlumnos(data);
+
+            });
+
+        }
+    </script>
+    <script>
+        let graficaInstituciones;
+        let graficaEscuelas;
+        let graficaAlumnos;
+        
+        function mostrarGInstituciones(data) {
+            console.log(data);
+            // Obtener el elemento canvas
+            var canvas = document.getElementById('G-Instituciones');
+
+            // Obtener los datos JSON y procesarlos
+            var datosJSON = JSON.parse(data);
+            console.log(datosJSON);
+            var labels = datosJSON.map(function(dato) {
+                return dato.label;
+                console.log(dato.label);
+            });
+            var datos = datosJSON.map(function(dato) {
+                return dato.data;
+                console.log(dato.data);
+            });
+
+            // Crear la instancia de la gráfica
+            if (graficaInstituciones) {
+                graficaInstituciones.destroy();
+            }
+             graficaInstituciones = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Instituciones',
+                        data: datos,
+                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                        //borderWidth: 1, // Cambia el ancho del borde
+                        backgroundColor: [
+                            'rgba(255,99,132,0.2)',
+                            'rgba(54,162,235,0.2)',
+                            'rgba(255,206,86,0.2)',
+                            'rgba(75,192,192,0.2)',
+                            'rgba(255,159,64,0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54,162,235,1)',
+                            'rgba(255,206,86,1)',
+                            'rgba(75,192,192,1)',
+                            'rgba(255,159,64,1)'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+
+        function mostrarGEscuelas(data) {
+            console.log(data);
+            // Obtener el elemento canvas
+            var canvas = document.getElementById('G-Escuelas');
+
+            // Obtener los datos JSON y procesarlos
+            var datosJSON = JSON.parse(data);
+            console.log(datosJSON);
+            var labels = datosJSON.map(function(dato) {
+                return dato.label;
+                console.log(dato.label);
+            });
+            var datos = datosJSON.map(function(dato) {
+                return dato.data;
+                console.log(dato.data);
+            });
+
+            // Crear la instancia de la gráfica
+            if (graficaEscuelas) {
+                graficaEscuelas.destroy();
+            }
+             graficaEscuelas = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Escuelas',
+                        data: datos,
+                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                        //borderWidth: 1, // Cambia el ancho del borde
+                        backgroundColor: [
+                            'rgba(255,99,132,0.2)',
+                            'rgba(54,162,235,0.2)',
+                            'rgba(255,206,86,0.2)',
+                            'rgba(75,192,192,0.2)',
+                            'rgba(255,159,64,0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54,162,235,1)',
+                            'rgba(255,206,86,1)',
+                            'rgba(75,192,192,1)',
+                            'rgba(255,159,64,1)'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function mostrarGAlumnos(data) {
+            console.log(data);
+            // Obtener el elemento canvas
+            var canvas = document.getElementById('G-Alumnos');
+
+            // Obtener los datos JSON y procesarlos
+            var datosJSON = JSON.parse(data);
+            console.log(datosJSON);
+            var labels = datosJSON.map(function(dato) {
+                return dato.label;
+                console.log(dato.label);
+            });
+            var datos = datosJSON.map(function(dato) {
+                return dato.data;
+                console.log(dato.data);
+            });
+
+            // Crear la instancia de la gráfica
+            if (graficaAlumnos) {
+                graficaAlumnos.destroy();
+            }
+             graficaAlumnos = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Alumnos',
+                        data: datos,
+                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                        //borderWidth: 1, // Cambia el ancho del borde
+                        backgroundColor: [
+                            'rgba(255,99,132,0.2)',
+                            'rgba(54,162,235,0.2)',
+                            'rgba(255,206,86,0.2)',
+                            'rgba(75,192,192,0.2)',
+                            'rgba(255,159,64,0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54,162,235,1)',
+                            'rgba(255,206,86,1)',
+                            'rgba(75,192,192,1)',
+                            'rgba(255,159,64,1)'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            filtrarGEscuelas();
+            filtrarGInstituciones();
+            filtrarGAlumnos();
+
+        });
+        /*document.addEventListener('DOMContentLoaded', function() {
+            // Código de inicialización de la gráfica
+            console.log(<?php echo $datosJSON; ?>);
+            // Obtener el elemento canvas
+            var canvas = document.getElementById('G-Escuelas');
+
+            // Obtener los datos JSON y procesarlos
+            var datosJSON = JSON.parse('<?php echo $datosJSON; ?>');
+            var labels = datosJSON.map(function(dato) {
+                return dato.label;
+            });
+            var datos = datosJSON.map(function(dato) {
+                return dato.data;
+            });
+
+            // Crear la instancia de la gráfica
+            var grafica = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Escuelas',
+                        data: datos,
+                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                        //borderWidth: 1, // Cambia el ancho del borde
+                        backgroundColor: [
+                            'rgba(255,99,132,0.2)',
+                            'rgba(54,162,235,0.2)',
+                            'rgba(255,206,86,0.2)',
+                            'rgba(75,192,192,0.2)',
+                            'rgba(255,159,64,0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54,162,235,1)',
+                            'rgba(255,206,86,1)',
+                            'rgba(75,192,192,1)',
+                            'rgba(255,159,64,1)'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });*/
+    </script>
+    <div class="body" style="margin-top: -20px;">
+        <div class="latd">
+            <div class="grafica">
+                <canvas id="G-Alumnos" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de alumnos: </b><?php echo $filaalumnos['id_alumno']; ?></li>
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioInstituciones" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinInstituciones" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGAlumnos()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="latd1">
+            <div class="grafica">
+                <canvas id="G-Profesores" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de profesores: </b><?php echo $filadocentes['id_docente']; ?></li>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-
-
-    <section>
-        <div class="body">
-            <div class="latd">
-                <div class="grafica">
-                    <canvas id="G-Instituciones" width="450" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class="fas fa-money-check-alt me-3"></i><b>Total de instituciones: </b><?php echo $filainstituciones['id_escuela']; ?></li>
-                    </div>
-                </div>
-            </div>
-
-            <div class="latd1">
-                <div class="grafica">
-                    <canvas id="G-Escuelas"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
-                    </div>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            // Código de inicialización de la gráfica
-                            console.log(<?php echo $datosJSON; ?>);
-                            // Obtener el elemento canvas
-                            var canvas = document.getElementById('G-Escuelas');
-
-                            // Obtener los datos JSON y procesarlos
-                            var datosJSON = JSON.parse('<?php echo $datosJSON; ?>');
-                            var labels = datosJSON.map(function(dato) {
-                                return dato.label;
-                            });
-                            var datos = datosJSON.map(function(dato) {
-                                return dato.data;
-                            });
-
-                            // Crear la instancia de la gráfica
-                            var grafica = new Chart(canvas, {
-                                type: 'bar',
-                                data: {
-                                    labels: labels,
-                                    datasets: [{
-                                        label: 'Escuelas',
-                                        data: datos,
-                                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
-                                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
-                                        //borderWidth: 1, // Cambia el ancho del borde
-                                        backgroundColor: [
-                                            'rgba(255,99,132,0.2)',
-                                            'rgba(54,162,235,0.2)',
-                                            'rgba(255,206,86,0.2)',
-                                            'rgba(75,192,192,0.2)',
-                                            'rgba(255,159,64,0.2)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255,99,132,1)',
-                                            'rgba(54,162,235,1)',
-                                            'rgba(255,206,86,1)',
-                                            'rgba(75,192,192,1)',
-                                            'rgba(255,159,64,1)'
-                                        ],
-                                        borderWidth: 1.5
-                                    }]
-                                },
-                                options: {
-                                    responsive: true,
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true
-                                        }
-                                    }
-                                }
-                            });
-                        });
-                    </script>
-                    <div align="center" style="margin-top: 20px;">
-                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-                            <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-                            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-                            <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-                            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-                            <br><br>
-                            <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="body" style="margin-top: -20px;">
-            <div class="latd">
-                <div class="grafica">
-                    <canvas id="G-Alumnos" width="450" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de alumnos: </b><?php echo $filaalumnos['id_alumno']; ?></li>
-                    </div>
-                </div>
-            </div>
-
-            <div class="latd1">
-                <div class="grafica">
-                    <canvas id="G-Profesores" width="450" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de profesores: </b><?php echo $filadocentes['id_docente']; ?></li>
-                    </div>
+    <div class="body" style="margin-top: -20px;">
+        <div class="latd">
+            <div class="grafica">
+                <canvas id="G-Usuarios" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de usuarios: </b>0</li>
                 </div>
             </div>
         </div>
 
-        <div class="body" style="margin-top: -20px;">
-            <div class="latd">
-                <div class="grafica">
-                    <canvas id="G-Usuarios" width="450" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de usuarios: </b>0</li>
-                    </div>
+        <div class="latd1">
+            <div class="grafica">
+                <canvas id="G-Visitas" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b>0</li> <!--Esta grafica aun no-->
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="latd1">
-                <div class="grafica">
-                    <canvas id="G-Visitas" width="450" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b>0</li> <!--Esta grafica aun no-->
-                    </div>
+    <div class="body" style="margin-top: -20px;">
+        <div class="latd">
+            <div class="grafica">
+                <canvas id="G-Familias" width="470" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de planes familiares: </b>0</li> <!--Esta grafica aun no-->
                 </div>
             </div>
         </div>
 
-        <div class="body" style="margin-top: -20px;">
-            <div class="latd">
-                <div class="grafica">
-                    <canvas id="G-Familias" width="470" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de planes familiares: </b>0</li> <!--Esta grafica aun no-->
-                    </div>
-                </div>
-            </div>
-
-            <div class="latd1">
-                <div class="grafica">
-                    <canvas id="G-Personales" width="450" height="280"></canvas>
-                    <hr style="opacity: 10%;">
-                    <div class="info">
-                        <li><i class='fa-solid fa-school me-3'></i><b>Total de cuentas personales: </b>0</li> <!--Esta grafica aun no-->
-                    </div>
+        <div class="latd1">
+            <div class="grafica">
+                <canvas id="G-Personales" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de cuentas personales: </b>0</li> <!--Esta grafica aun no-->
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Fin graficas -->
-    </section>
-
-
-    <?php include 'footer.php'; ?>
+    <!-- Fin graficas -->
+</section>
 
 
-    <script>
-        const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
-        const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
-        const modalA = document.querySelector("#modalA");
-        btnAbrirModalA.addEventListener("click", () => {
-            modalA.showModal();
-        })
+<?php include 'footer.php'; ?>
 
-        btnCerrarModalA.addEventListener("click", () => {
-            modalA.close();
-        })
-    </script>
 
-    <script>
-        const btn = document.querySelector("#menu-btn");
-        const menu = document.querySelector("#sidemenu");
-        btn.addEventListener("click", (e) => {
-            menu.classList.toggle("menu-expanded");
-            menu.classList.toggle("menu-collapsed");
+<script>
+    const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
+    const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
+    const modalA = document.querySelector("#modalA");
+    btnAbrirModalA.addEventListener("click", () => {
+        modalA.showModal();
+    })
 
-            document.querySelector("body").classList.toggle("body-expanded");
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    btnCerrarModalA.addEventListener("click", () => {
+        modalA.close();
+    })
+</script>
 
-    <script>
-        var ctx = document.getElementById('G-Usuarios');
-        var Usuarios = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Usuarios',
-                    data: [<?php echo $filausuarios['id_admin']; ?>, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>
+    const btn = document.querySelector("#menu-btn");
+    const menu = document.querySelector("#sidemenu");
+    btn.addEventListener("click", (e) => {
+        menu.classList.toggle("menu-expanded");
+        menu.classList.toggle("menu-collapsed");
+
+        document.querySelector("body").classList.toggle("body-expanded");
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    var ctx = document.getElementById('G-Usuarios');
+    var Usuarios = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Usuarios',
+                data: [<?php echo $filausuarios['id_admin']; ?>, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
-    <script>
-        var ctx = document.getElementById('G-Instituciones');
-        var Instituciones = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Instituciones',
-                    data: [<?php echo $filainstituciones['id_escuela']; ?>, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>/*
+    var ctx = document.getElementById('G-Instituciones');
+    var Instituciones = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Instituciones',
+                data: [<?php echo $filainstituciones['id_escuela']; ?>, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+*/</script>
 
-    <script>
-        var ctx = document.getElementById('G-Visitas');
-        var Visitas = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Visitas',
-                    data: [0, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>
+    var ctx = document.getElementById('G-Visitas');
+    var Visitas = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Visitas',
+                data: [0, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
-    <script>/*
+<script>
+    /*
         var ctx = document.getElementById('G-Escuelas');
         var Escuelas = new Chart(ctx, {
             type: 'line',
@@ -435,172 +754,173 @@ $datosJSON = json_encode($datosGrafica);
                 }
             }
         });
-    */</script>
+    */
+</script>
 
-    <script>
-        var ctx = document.getElementById('G-Alumnos');
-        var Alumnos = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Alumnos',
-                    data: [<?php echo $filaalumnos['id_alumno']; ?>, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>/*
+    var ctx = document.getElementById('G-Alumnos');
+    var Alumnos = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Alumnos',
+                data: [<?php echo $filaalumnos['id_alumno']; ?>, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+*/</script>
 
-    <script>
-        var ctx = document.getElementById('G-Profesores');
-        var Profesores = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Profesores',
-                    data: [<?php echo $filadocentes['id_docente']; ?>, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>
+    var ctx = document.getElementById('G-Profesores');
+    var Profesores = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Profesores',
+                data: [<?php echo $filadocentes['id_docente']; ?>, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
-    <script>
-        var ctx = document.getElementById('G-Familias');
-        var Familias = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Familias',
-                    data: [0, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>
+    var ctx = document.getElementById('G-Familias');
+    var Familias = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Familias',
+                data: [0, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
-    <script>
-        var ctx = document.getElementById('G-Personales');
-        var Personales = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
-                datasets: [{
-                    label: 'Cuentas personales',
-                    data: [0, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderColor: [
-                        'rgba(61,172,244,.6)'
-                    ],
-                    borderWidth: 1.5
+<script>
+    var ctx = document.getElementById('G-Personales');
+    var Personales = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'junio'],
+            datasets: [{
+                label: 'Cuentas personales',
+                data: [0, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderColor: [
+                    'rgba(61,172,244,.6)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
-    <script>
-        function disableIE() {
-            if (document.all) {
+<script>
+    function disableIE() {
+        if (document.all) {
+            return false;
+        }
+    }
+
+    function disableNS(e) {
+        if (document.layers || (document.getElementById && !document.all)) {
+            if (e.which == 2 || e.which == 3) {
                 return false;
             }
         }
+    }
+    if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+        document.onmousedown = disableNS;
+    } else {
+        document.onmouseup = disableNS;
+        document.oncontextmenu = disableIE;
+    }
+    document.oncontextmenu = new Function("return false");
+</script>
+<script>
+    onkeydown = e => {
+        let tecla = e.which || e.keyCode;
 
-        function disableNS(e) {
-            if (document.layers || (document.getElementById && !document.all)) {
-                if (e.which == 2 || e.which == 3) {
-                    return false;
-                }
-            }
+        // Evaluar si se ha presionado la tecla Ctrl:
+        if (e.ctrlKey) {
+            // Evitar el comportamiento por defecto del nevagador:
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Mostrar el resultado de la combinación de las teclas:
+            if (tecla === 85)
+                console.log("Ha presionado las teclas Ctrl + U");
+
+            if (tecla === 83)
+                console.log("Ha presionado las teclas Ctrl + S");
         }
-        if (document.layers) {
-            document.captureEvents(Event.MOUSEDOWN);
-            document.onmousedown = disableNS;
-        } else {
-            document.onmouseup = disableNS;
-            document.oncontextmenu = disableIE;
-        }
-        document.oncontextmenu = new Function("return false");
-    </script>
-    <script>
-        onkeydown = e => {
-            let tecla = e.which || e.keyCode;
-
-            // Evaluar si se ha presionado la tecla Ctrl:
-            if (e.ctrlKey) {
-                // Evitar el comportamiento por defecto del nevagador:
-                e.preventDefault();
-                e.stopPropagation();
-
-                // Mostrar el resultado de la combinación de las teclas:
-                if (tecla === 85)
-                    console.log("Ha presionado las teclas Ctrl + U");
-
-                if (tecla === 83)
-                    console.log("Ha presionado las teclas Ctrl + S");
-            }
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </body>
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
 
 </html>
