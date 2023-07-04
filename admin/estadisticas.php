@@ -8,30 +8,131 @@ include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
 //Contar escuelas
-$sqlescuelas = "SELECT count(id_escuela) id_escuela from escuelas WHERE id_admin = '$id_user' AND nivel_educativo != 'Institucional'";
+$sqlescuelas = "SELECT count(id_escuela) id_escuela from escuelas WHERE nivel_educativo != 'Institucional'";
 $resultescuelas = mysqli_query($conexion, $sqlescuelas);
 $filaescuelas = mysqli_fetch_assoc($resultescuelas);
 
-
 //Contar instituciones
-$sqlinstituciones = "SELECT count(id_escuela) id_escuela from escuelas WHERE id_admin = '$id_user' AND nivel_educativo = 'Institucional'";
+$sqlinstituciones = "SELECT count(id_escuela) id_escuela from escuelas WHERE nivel_educativo = 'Institucional'";
 $resultinsitituciones = mysqli_query($conexion, $sqlinstituciones);
 $filainstituciones = mysqli_fetch_assoc($resultinsitituciones);
 
 //Contar alumnos
-$sqlalumnos = "SELECT COUNT(*) id_alumno FROM alumnos_primaria";
+$sqlalumnos = "SELECT COUNT(id_alumno) id_alumno
+FROM (
+  SELECT id_alumno
+  FROM alumnos_personal AS aper
+
+  UNION ALL 
+
+  SELECT id_alumno
+  FROM alumnos_primaria AS apri
+
+  UNION ALL
+
+  SELECT id_alumno
+  FROM alumnos_secundaria AS ase
+
+  UNION ALL
+
+  SELECT id_alumno
+  FROM alumnos_preparatoria AS apre
+
+  UNION ALL
+
+  SELECT id_alumno
+  FROM alumnos_universidad AS au
+) AS subquery";
 $resultalumnos = mysqli_query($conexion, $sqlalumnos);
 $filaalumnos = mysqli_fetch_assoc($resultalumnos);
 
 //Contar docentes
-$sqldocentes = "SELECT COUNT(*) id_docente FROM docentes_primaria";
+$sqldocentes = "SELECT COUNT(id_docente) id_docente
+FROM (
+  SELECT id_docente
+  FROM docentes_personal AS aper
+
+  UNION ALL
+
+  SELECT id_docente
+  FROM docentes_primaria AS apri
+
+  UNION ALL
+
+  SELECT id_docente
+  FROM docentes_secundaria AS ase
+
+  UNION ALL
+
+  SELECT id_docente
+  FROM docentes_preparatoria AS apre
+
+  UNION ALL
+
+  SELECT id_docente
+  FROM docentes_universidad AS au
+) AS subquery";
 $resultdocentes = mysqli_query($conexion, $sqldocentes);
 $filadocentes = mysqli_fetch_assoc($resultdocentes);
 
 //Contar usuarios
-$sqlusuarios = "SELECT COUNT(*) id_admin FROM admin";
+$sqlusuarios = "SELECT COUNT(id_admin) id_admin FROM admin";
 $resultusuarios = mysqli_query($conexion, $sqlusuarios);
 $filausuarios = mysqli_fetch_assoc($resultusuarios);
+
+//Contar visitas
+$sqlvisitas = "SELECT SUM(conexiones) conexiones
+FROM (
+  SELECT conexiones
+  FROM alumnos_personal AS aper
+
+  UNION ALL 
+
+  SELECT conexiones
+  FROM alumnos_primaria AS apri
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM alumnos_secundaria AS ase
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM alumnos_preparatoria AS apre
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM alumnos_universidad AS au
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM docentes_personal AS aper
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM docentes_primaria AS apri
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM docentes_secundaria AS ase
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM docentes_preparatoria AS apre
+
+  UNION ALL
+
+  SELECT conexiones
+  FROM docentes_universidad AS au
+) AS subquery";
+$resultvisitas = mysqli_query($conexion, $sqlvisitas);
+$filavisitas = mysqli_fetch_assoc($resultvisitas);
 
 ?>
 
@@ -60,11 +161,8 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
 <?php include 'header-nav.php'; ?>
 
 <div class="containers">
-    <h1>Estadisticas</h1>
+    <h1>Estadísticas</h1>
 </div>
-
-
-
 
 <section>
     <div class="body">
@@ -249,12 +347,82 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
             });
 
         }
+
+        function filtrarGUsuarios() {
+            //here
+            var fechaInicio = document.getElementById('fechaInicioUsuarios').value;
+            var fechaFin = document.getElementById('fechaFinUsuarios').value;
+            var id_user = <?php echo $id_user; ?>;
+            var tipo = "usuarios";
+            console.log(fechaInicio);
+            console.log(fechaFin);
+            console.log(id_user);
+            console.log(tipo);
+
+            var fechaInicio_json = JSON.stringify(fechaInicio);
+            console.log(fechaInicio_json);
+
+            var fechaFin_json = JSON.stringify(fechaFin);
+            console.log(fechaFin_json);
+
+            var tipo_json = JSON.stringify(tipo);
+            console.log(tipo_json);
+            $.post("graficas/consultaGrafica.php", {
+                fechaInicio: fechaInicio_json,
+                fechaFin: fechaFin_json,
+                id_user: id_user,
+                tipo: tipo_json
+            }, function(data) {
+                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                var arregloConvertido = JSON.parse(data);
+
+                mostrarGUsuarios(data);
+
+            });
+
+        }
+
+        function filtrarGVisitas() {
+            //here
+            var fechaInicio = document.getElementById('fechaInicioVisitas').value;
+            var fechaFin = document.getElementById('fechaFinVisitas').value;
+            var id_user = <?php echo $id_user; ?>;
+            var tipo = "visitas";
+            console.log(fechaInicio);
+            console.log(fechaFin);
+            console.log(id_user);
+            console.log(tipo);
+
+            var fechaInicio_json = JSON.stringify(fechaInicio);
+            console.log(fechaInicio_json);
+
+            var fechaFin_json = JSON.stringify(fechaFin);
+            console.log(fechaFin_json);
+
+            var tipo_json = JSON.stringify(tipo);
+            console.log(tipo_json);
+            $.post("graficas/consultaGrafica.php", {
+                fechaInicio: fechaInicio_json,
+                fechaFin: fechaFin_json,
+                id_user: id_user,
+                tipo: tipo_json
+            }, function(data) {
+                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                var arregloConvertido = JSON.parse(data);
+
+                mostrarGVisitas(data);
+
+            });
+
+        }
     </script>
     <script>
         let graficaInstituciones;
         let graficaEscuelas;
         let graficaAlumnos;
         let graficaProfesores;
+        let graficaUsuarios;
+        let graficaVisitas;
 
         function mostrarGInstituciones(data) {
             console.log(data);
@@ -492,6 +660,124 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
                 }
             });
         }
+
+        function mostrarGUsuarios(data) {
+            console.log(data);
+            // Obtener el elemento canvas
+            var canvas = document.getElementById('G-Usuarios');
+
+            // Obtener los datos JSON y procesarlos
+            var datosJSON = JSON.parse(data);
+            console.log(datosJSON);
+            var labels = datosJSON.map(function(dato) {
+                return dato.label;
+                console.log(dato.label);
+            });
+            var datos = datosJSON.map(function(dato) {
+                return dato.data;
+                console.log(dato.data);
+            });
+
+            // Crear la instancia de la gráfica
+            if (graficaUsuarios) {
+                graficaUsuarios.destroy();
+            }
+            graficaUsuarios = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Usuarios',
+                        data: datos,
+                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                        //borderWidth: 1, // Cambia el ancho del borde
+                        backgroundColor: [
+                            'rgba(255,99,132,0.2)',
+                            'rgba(54,162,235,0.2)',
+                            'rgba(255,206,86,0.2)',
+                            'rgba(75,192,192,0.2)',
+                            'rgba(255,159,64,0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54,162,235,1)',
+                            'rgba(255,206,86,1)',
+                            'rgba(75,192,192,1)',
+                            'rgba(255,159,64,1)'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function mostrarGVisitas(data) {
+            console.log(data);
+            // Obtener el elemento canvas
+            var canvas = document.getElementById('G-Visitas');
+
+            // Obtener los datos JSON y procesarlos
+            var datosJSON = JSON.parse(data);
+            console.log(datosJSON);
+            var labels = datosJSON.map(function(dato) {
+                return dato.label;
+                console.log(dato.label);
+            });
+            var datos = datosJSON.map(function(dato) {
+                return dato.data;
+                console.log(dato.data);
+            });
+
+            // Crear la instancia de la gráfica
+            if (graficaVisitas) {
+                graficaVisitas.destroy();
+            }
+            graficaVisitas = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Visitas',
+                        data: datos,
+                        //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
+                        //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
+                        //borderWidth: 1, // Cambia el ancho del borde
+                        backgroundColor: [
+                            'rgba(255,99,132,0.2)',
+                            'rgba(54,162,235,0.2)',
+                            'rgba(255,206,86,0.2)',
+                            'rgba(75,192,192,0.2)',
+                            'rgba(255,159,64,0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54,162,235,1)',
+                            'rgba(255,206,86,1)',
+                            'rgba(75,192,192,1)',
+                            'rgba(255,159,64,1)'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -499,7 +785,8 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
             filtrarGEscuelas();
             filtrarGAlumnos();
             filtrarGProfesores();
-
+            filtrarGUsuarios();
+            filtrarGVisitas();
         });
     </script>
     <div class="body" style="margin-top: -20px;">
@@ -552,7 +839,18 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
                 <canvas id="G-Usuarios" width="450" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de usuarios: </b>0</li>
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de usuarios: </b><?php echo $filausuarios['id_admin']; ?></li>
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioUsuarios" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinUsuarios" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGUsuarios()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
                 </div>
             </div>
         </div>
@@ -562,7 +860,18 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
                 <canvas id="G-Visitas" width="450" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b>0</li> <!--Esta grafica aun no-->
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b><?php echo $filavisitas['conexiones']; ?></li> <!--Esta grafica aun no-->
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioVisitas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinVisitas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGVisitas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
                 </div>
             </div>
         </div>
@@ -623,6 +932,7 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    /*
     var ctx = document.getElementById('G-Usuarios');
     var Usuarios = new Chart(ctx, {
         type: 'line',
@@ -650,9 +960,11 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
             }
         }
     });
+*/
 </script>
 
 <script>
+    /*
     var ctx = document.getElementById('G-Visitas');
     var Visitas = new Chart(ctx, {
         type: 'line',
@@ -680,6 +992,7 @@ $filausuarios = mysqli_fetch_assoc($resultusuarios);
             }
         }
     });
+*/
 </script>
 
 <script>

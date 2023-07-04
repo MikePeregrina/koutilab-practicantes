@@ -22,7 +22,7 @@ $pais = $user["pais"];
     <li<?php echo (basename($_SERVER['PHP_SELF']) == 'estadisticas.php') ? ' class="active"' : ''; ?>>
       <a href="estadisticas.php">
         <i class="fas fa-chart-pie" ></i>
-        <span class="nav-item">Estadisticas</span>
+        <span class="nav-item">Estadísticas</span>
       </a>
     </li>
     <li<?php echo (basename($_SERVER['PHP_SELF']) == 'ingresos.php') ? ' class="active"' : ''; ?>>
