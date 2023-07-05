@@ -43,12 +43,6 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
         <div class="titlec">
           <h2>Usuario</h2>
         </div><br>
-
-        <div class="subtitle-perfil">
-          <h3>Foto de Perfil</h3>
-        </div>
-
-
         <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
           <div class="perfil-usuario-avatar">
 
@@ -59,8 +53,9 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             <div class="camera-icon">
               <input type="hidden" name="id" value="<?php echo $id; ?>">
               <input type="hidden" name="name" value="<?php echo $name; ?>">
+              <div class="white"></div>
               <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
-              <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px;"></i>
+              <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
             </div>
         </form>
       </div>

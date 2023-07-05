@@ -7,6 +7,33 @@
   --border: rgba(0, 201, 255, 2556);
 }
 
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(129, 179, 243);
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -70,7 +97,7 @@ h2 {
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 6px solid rgb(0, 0, 0); /* Agrega un borde azul */
+  border: 6px solid rgba(0,201,255,2556); /* Agrega un borde azul */
 }
 
 .avatar-img img {
@@ -88,7 +115,7 @@ h2 {
   justify-content: center;
   align-items: center;
   border: 7px solid rgba(0, 201, 255, 2556);
-  background: rgb(0, 0, 0);
+  background: rgba(0,201,255,2556);
   position: absolute;
   margin-left: 11%;
   margin-top: 11%;
@@ -96,7 +123,7 @@ h2 {
 }
 
 .camera-icon i {
-  color: #000;
+  color: white;
   margin: 2px; /* Ajusta el margen según tus necesidades */
 }
 
@@ -379,8 +406,16 @@ form .user-details1 .input-box1 {
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(to right, #63e4cf, #8cfd36);
   border: 0px;
   outline: none;
   border-radius: 30px;
+  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  transition: 0.5s;
+}
+
+
+.btn-grd:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
+  
 }

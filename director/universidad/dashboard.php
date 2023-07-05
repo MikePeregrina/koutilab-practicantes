@@ -205,7 +205,7 @@ function actualizarGrafica()
 
         <div class="camera-icon">
           <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-            <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px;"></i>
+            <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
           </form>
         </div>
       </div>
