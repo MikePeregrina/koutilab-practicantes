@@ -19,7 +19,7 @@
    
     body{
         background: linear-gradient(to bottom, white 15%, #5afef4, #42fa8f, #0cfefd);
-        background-size: cover;
+        /*background-size: cover;*/
         background-attachment: fixed;
         font-family: sans-serif;
     }
@@ -76,7 +76,7 @@
       width: 86%;
       box-sizing: border-box;
       margin: 2% auto;
-      height: 89px;
+      /*height: 89px;*/
       margin-left: 10%;
     }
   
@@ -84,7 +84,7 @@
       padding: 0px;
       margin: 0;
       width: 86%;
-      height: 245vh ;
+      /*height: 245vh ;*/
       margin-top: 20px;
       margin-left: 10%;
       display: flex;
@@ -93,7 +93,7 @@
 
     .body {
       display: flex;
-      min-height: 56vh;
+      /*min-height: 56vh;*/
       margin-left: -5%;
     }
 
@@ -189,9 +189,9 @@
       height: auto;
     }
 
-    .latd1{
+    .latd1, .latd{
       height: auto;
-      padding: 10%;
+      padding: 5%;
     }
 
     .grafica {
@@ -210,7 +210,7 @@
     box-sizing: border-box;
     margin: 2% auto;
     box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-    height: 70px;
+    /*height: 70px;*/
     margin-left: 15%;
     }
 
@@ -233,7 +233,7 @@
     section{
     padding: 0px;
     width: 75%;
-    height: 443vh;
+    /*height: 443vh;*/
     margin-left: 15%;
     }
     .body {
@@ -244,7 +244,7 @@
       
   .latd {
     width: 95%;
-    height: 350px;
+    /*height: 350px;*/
   }
 
   .latd1 {
@@ -274,14 +274,14 @@
       box-sizing: border-box;
       margin: 2% auto;
       box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-      height: 60px;
+      /*height: 60px;*/
       margin-left: 18%;
       }
 
     section{
       padding: 0px;
       width: 70%;
-      height: 449vh;
+      /*height: 449vh;*/
       margin-left: 18%;
     }
 

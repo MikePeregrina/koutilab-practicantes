@@ -197,9 +197,8 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 <canvas id="G-Escuelas" width="450" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
+                    <li><i class='fas fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
                 </div>
-
                 <div align="center" style="margin-top: 20px;">
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
