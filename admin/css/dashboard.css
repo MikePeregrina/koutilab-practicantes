@@ -1,22 +1,22 @@
-:root{
-  --blanco: #FFFFFF;
+:root {
+  --blanco: #ffffff;
   --oscurp: #212121;
-  --primario: #FFC107;
+  --primario: #ffc107;
   --secundario: #0097a7;
   --gris: #757575;
-  --border:rgba(0,201,255,2556);
+  --border: rgba(0, 201, 255, 2556);
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   outline: none;
   border: none;
   text-decoration: none;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-body{
+body {
   background: linear-gradient(to bottom, white 15%, #5afef4, #42fa8f, #0cfefd);
   background-size: cover;
   background-attachment: fixed;
@@ -57,14 +57,14 @@ h1 {
   font-size: 40px;
 }
 
-h2{
+h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
   font-size: 35px;
 }
 
-.subtitle-perfil h3{
+.subtitle-perfil h3 {
   font-weight: 400;
   margin-top: 1%;
   margin-left: 7%;
@@ -98,7 +98,7 @@ h2{
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 6px solid rgba(0,201,255,2556); /* Agrega un borde azul */
+  border: 6px solid rgba(0, 201, 255, 2556); /* Agrega un borde azul */
 }
 
 .avatar-img img {
@@ -108,14 +108,14 @@ h2{
 }
 
 .camera-icon {
-  background: rgba(0,201,255,2556);
+  background: rgba(0, 201, 255, 2556);
   border-radius: 50%;
   width: 62px;
   height: 62px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 7px solid rgba(0,201,255,2556);
+  border: 7px solid rgba(0, 201, 255, 2556);
   position: absolute;
   margin-left: 11%;
   margin-top: 11%;
@@ -124,21 +124,20 @@ h2{
 
 .camera-icon i {
   color: #000;
-  margin: 2px; 
+  margin: 2px;
   cursor: pointer;
 }
 
-section{
+section {
   padding: 0px;
   width: 86%;
   height: 750px;
   margin-top: 40px;
   margin-left: 10%;
   display: flex;
-  
 }
 
-.left-content{
+.left-content {
   background-color: rgba(255, 255, 255, 0.986);
   border-radius: 20px;
   padding: 0px;
@@ -149,7 +148,7 @@ section{
   height: 100%;
 }
 
-.right-content{
+.right-content {
   background-color: rgba(255, 255, 255, 0.986);
   border-radius: 20px;
   padding: 0px;
@@ -169,22 +168,22 @@ section{
   height: 55px;
   display: flex;
   justify-content: center;
-  background-color:rgba(0,201,255,2556);
+  background-color: rgba(0, 201, 255, 2556);
   border-radius: 0px 0px 25px 25px;
   text-align: center;
   margin-left: 15%;
   padding: 5px;
 }
 
-.container-image{
+.container-image {
   width: 100%;
   height: 34%;
 }
 
-.container-info{
+.container-info {
   width: 93%;
   height: 45%;
-  font-weight: 400; 
+  font-weight: 400;
   margin-left: 7%;
   margin-top: 5%;
   display: flex;
@@ -202,10 +201,10 @@ section{
   font-size: 19px;
 }
 
-.change-password{
+.change-password {
   width: 93%;
   height: 24%;
-  font-weight: 400; 
+  font-weight: 400;
   margin-left: 7%;
   margin-top: 5%;
   display: flex;
@@ -251,7 +250,11 @@ form .user-details1 .input-box1 {
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  background: linear-gradient(
+    to right,
+    rgb(61, 172, 244),
+    rgba(132, 196, 44, 0.6)
+  );
   border: 0px;
   outline: none;
   border-radius: 30px;
@@ -261,16 +264,13 @@ form .user-details1 .input-box1 {
 .btn-grd:hover {
   transform: scale(1.1);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
-  
 }
-
 
 .camera-icon input[type="file"] {
   position: absolute;
   transform: scale(2);
   opacity: 0;
 }
-
 
 .card {
   position: relative;
@@ -290,10 +290,10 @@ form .user-details1 .input-box1 {
   text-align: center;
 }
 
-.card i{
+.card i {
   margin-right: 22%;
 }
-.card a{
+.card a {
   text-decoration: none;
 }
 
@@ -313,179 +313,176 @@ form .user-details1 .input-box1 {
   z-index: 1;
 }
 
-
-
-
 @media (max-width: 1120px) {
-  
   h1 {
-  margin: auto;
-  text-align: center;
-  font-weight: bolder;
-  font-size: 38px;
-}
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 38px;
+  }
 
-h2{
+  h2 {
     margin: auto;
     text-align: center;
     font-weight: bolder;
     font-size: 27px;
+  }
+
+  .container-info h3 {
+    font-size: 24px;
+  }
+
+  .container-info h3 span {
+    font-size: 19px;
+  }
+
+  .change-password h3 {
+    font-size: 24px;
+  }
+
+  .change-password h3 span {
+    font-size: 19px;
+  }
 }
-
-.container-info h3{
-  font-size: 24px;
- }
-
- .container-info h3 span{
-  font-size: 19px;
- }
-
- .change-password h3{
-  font-size: 24px;
-}
-
- .change-password h3 span{
-  font-size: 19px;
-}
-
-
-}
-
-
 
 @media (max-width: 768px) {
+  .containers {
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    margin: 2% auto;
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    height: 60px;
+    margin-left: 13%;
+  }
 
-  .containers {   
-      padding: 10px;
-      width: 80%;
-      box-sizing: border-box;
-      margin: 2% auto;
-      box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-      height: 60px;
-      margin-left: 13%;
-     }
-     
-    .camera-icon {
-      width: 55px;
-      height:55px;
-      margin-left: 19%;
-      margin-top: 19%;
-    }
-  
-    section{
-      padding: 0px;
-      width: 80%;
-      height: 650px;
-      margin-left: 13%;
-      display: block;
-    }
-  
-    .titlec {
-      width: 50%;
-      height: 45px;
-      margin-left: 25%;
-     }
-  
-     .left-content{
-      width: 100%;
-     }
-  
-     .right-content{
-      width: 100%;
-      margin-left: 0%;
-      margin-top: 5%;
-     }
-  
-     .container-info{
-      margin-top: 2%;
-     }
-     .container-info h3{
-      font-size: 20px;
-     }
-  
-     .container-info h3 span{
-      font-size: 17px;
-     }
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 19%;
+    margin-top: 19%;
+  }
 
-     .change-password h3{
-      font-size: 20px;
-     }
-  
-     .change-password h3 span{
-      font-size: 17px;
-     }
+  section {
+    padding: 0px;
+    width: 80%;
+    height: 650px;
+    margin-left: 13%;
+    display: block;
+  }
 
-     .change-password {
-      margin-top: 19%;
-    }
+  .titlec {
+    width: 50%;
+    height: 45px;
+    margin-left: 25%;
+  }
 
-     .titlec {
-      height: 65px;
-     }
+  .left-content {
+    width: 100%;
+  }
 
-     .hr2{
-      visibility: hidden;
-     }
+  .right-content {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5%;
+  }
+
+  .container-info {
+    margin-top: 2%;
+  }
+  .container-info h3 {
+    font-size: 20px;
+  }
+
+  .container-info h3 span {
+    font-size: 17px;
+  }
+
+  .change-password h3 {
+    font-size: 20px;
+  }
+
+  .change-password h3 span {
+    font-size: 17px;
+  }
+
+  .change-password {
+    margin-top: 19%;
+  }
+
+  .titlec {
+    height: 65px;
+  }
+
+  .hr2 {
+    visibility: hidden;
+  }
+
+  .card i {
+    margin-right: 50%;
+  }
 }
 
 @media (max-width: 480px) {
-.containers {   
-  padding: 10px;
-  width: 80%;
-  box-sizing: border-box;
-  margin: 2% auto;
-  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-  height: 60px;
-  margin-left: 16%;
- }
+  .containers {
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    margin: 2% auto;
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    height: 60px;
+    margin-left: 16%;
+  }
 
- 
-.camera-icon {
-  width: 55px;
-  height:55px;
-  margin-left: 31%;
-  margin-top: 31%;
-}
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 31%;
+    margin-top: 31%;
+  }
 
+  section {
+    padding: 0px;
+    width: 80%;
+    height: 650px;
+    margin-left: 13%;
+    display: block;
+    margin-left: 16%;
+  }
 
-section{
-  padding: 0px;
-  width: 80%;
-  height: 650px;
-  margin-left: 13%;
-  display: block;
-  margin-left: 16%;
-}
+  .titlec {
+    width: 50%;
+    height: 45px;
+    margin-left: 25%;
+  }
 
-.titlec {
-  width: 50%;
-  height: 45px;
-  margin-left: 25%;
- }
+  .left-content {
+    width: 100%;
+  }
 
- .left-content{
-  width: 100%;
- }
+  .right-content {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5%;
+  }
 
- .right-content{
-  width: 100%;
-  margin-left: 0%;
-  margin-top: 5%;
- }
+  .container-info h3 {
+    font-size: 18px;
+  }
 
- .container-info h3{
-  font-size: 18px;
- }
+  .container-info h3 span {
+    font-size: 16px;
+  }
 
- .container-info h3 span{
-  font-size: 16px;
- }
+  .titlec {
+    height: 75px;
+  }
 
- .titlec {
-  height: 75px;
- }
+  .change-password {
+    margin-top: 3%;
+  }
 
- .change-password {
-  margin-top: 3%;
-}
+  .card i {
+    margin-right: 50%;
+  }
 }

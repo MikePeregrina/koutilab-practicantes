@@ -16,6 +16,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 <!--  -->
 
 <!DOCTYPE html>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,104 +32,99 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 </head>
 
 <body>
-    <!-- Header nav -->
-    <?php include 'header-nav.php'; ?>
+  <!-- Header nav -->
+  <?php include 'header-nav.php'; ?>
 
-    <div class="containers">
-      <h1>DASHBOARD</h1>
+  <div class="containers">
+    <h1>DASHBOARD</h1>
+  </div>
+
+  <section>
+    <div class="left-content">
+      <div class="titlec">
+        <h2>Usuario</h2>
+      </div><br>
+      <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
+        <div class="perfil-usuario-avatar">
+
+          <div class="avatar-img">
+            <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
+          </div>
+
+          <div class="camera-icon">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="name" value="<?php echo $name; ?>">
+            <div class="white"></div>
+            <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
+            <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
+          </div>
+      </form>
     </div>
 
-    <section>
-      <div class="left-content">
-        <div class="titlec">
-          <h2>Usuario</h2>
-        </div><br>
-        <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
-          <div class="perfil-usuario-avatar">
+    <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
 
-            <div class="avatar-img">
-              <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
-            </div>
+    <div class="container-info">
+      <h3>Nombre:<span><?php echo $name; ?></span></h3>
+      <br>
+      <h3>Usuario:<span><?php echo $username ?></span></h3>
+      <br>
+      <h3>Pais:<span><?php echo $pais ?></span></h3>
+    </div>
 
-            <div class="camera-icon">
-              <input type="hidden" name="id" value="<?php echo $id; ?>">
-              <input type="hidden" name="name" value="<?php echo $name; ?>">
-              <div class="white"></div>
-              <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
-              <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
-            </div>
-        </form>
-      </div>
+    <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
 
-      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
-
-      <div class="container-info">
-        <h3>Nombre:<span><?php echo $name; ?></span></h3>
-        <br>
-        <h3>Usuario:<span><?php echo $username ?></span></h3>
-        <br>
-        <h3>Pais:<span><?php echo $pais ?></span></h3>
-      </div>
-
-      <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
-
-      <div class="change-password">
-        <h3>Contraseña:</h3>
-        <form enctype="multipart/form-data" action="" method="post">
-          <div class="user-details1">
-            <div class="input-box1">
-              <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-              <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
-            </div>
+    <div class="change-password">
+      <h3>Contraseña:</h3>
+      <form enctype="multipart/form-data" action="" method="post">
+        <div class="user-details1">
+          <div class="input-box1">
+            <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+            <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
           </div>
-        </form>
         </div>
+      </form>
+    </div>
+    </div>
+
+    <div class="right-content">
+      <div class="titlec">
+        <h2>Cursos</h2>
       </div>
 
-      <div class="right-content">
-        <div class="titlec">
-          <h2>Cursos</h2>
-        </div>
 
-        
-          <div class="card" style="scale: 80%; margin-bottom: 0px">
-            <a href="#">
-              <div><i class="fas fa-money-check-alt fa-6x"></i></div>
-              <h2>Acceso 1</h2>
-            </a>
-          </div>
-          <div class="card" style="scale: 80%; margin-bottom: 0px">
-            <a href="#">
-              <div><i class="fas fa-chalkboard fa-6x"></i></div>
-              <h2>Acceso 2</h2>
-            </a>
-          </div>
-          <div class="card" style="scale: 80%; margin-bottom: 0px">
-            <a href="#">
-              <div><i class="fas fa-chart-pie fa-6x"></i></div>
-              <h2>Acceso 3</h2>
-            </a>
-          </div>
-          <div class="card" style="scale: 80%; margin-bottom: 0px">
-            <a href="#">
-              <div><i class="fas fa-project-diagram fa-6x"></i></div>
-              <h2>Acceso 4</h2>
-            </a>
-          </div>
+      <div class="card" style="scale: 80%; margin-bottom: 0px">
+        <a href="#">
+          <div><i class="fas fa-money-check-alt fa-6x"></i></div>
+          <h2>Acceso 1</h2>
+        </a>
       </div>
+      <div class="card" style="scale: 80%; margin-bottom: 0px">
+        <a href="#">
+          <div><i class="fas fa-chalkboard fa-6x"></i></div>
+          <h2>Acceso 2</h2>
+        </a>
+      </div>
+      <div class="card" style="scale: 80%; margin-bottom: 0px">
+        <a href="#">
+          <div><i class="fas fa-chart-pie fa-6x"></i></div>
+          <h2>Acceso 3</h2>
+        </a>
+      </div>
+      <div class="card" style="scale: 80%; margin-bottom: 0px">
+        <a href="#">
+          <div><i class="fas fa-project-diagram fa-6x"></i></div>
+          <h2>Acceso 4</h2>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <?php include 'footer.php'; ?>
 
+  <!-- Biblioteca Swal para pantalla emergente que jale -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <?php include 'footer.php'; ?>
-
-
-    
-
-    <!-- Biblioteca Swal para pantalla emergente que jale -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Cambiar foto de perfil -->
+  <!-- Cambiar foto de perfil -->
 
   <script type="text/javascript">
     document.getElementById("image").onchange = function() {
@@ -210,7 +206,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
   }
   ?>
 
- <?php
+  <?php
   if (isset($_POST['enviarcontrasena'])) {
     $idadmin = $_SESSION['id_admin'];
     $contrasena = md5($_POST['contrasena']);
@@ -255,6 +251,6 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
   }
   ?>
 
-  </body>
+</body>
 
 </html>

@@ -53,14 +53,14 @@ body::-webkit-scrollbar-track {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .studens-add-bar h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  /*font-size: 35px;*/
+  font-size: 35px;
 }
 
 .titlec h2 {
@@ -133,7 +133,7 @@ body::-webkit-scrollbar-track {
 .left-student i {
   margin-left: 5%;
   font-size: 30px;
-  margin-top: 3%;
+  margin-top: 2.5%;
 }
 
 .left-student h2 {
@@ -394,6 +394,18 @@ form {
     height: 45px;
     margin-left: 25%;
   }
+  
+  .studens-add-bar h2 {
+    font-size: 16px;
+  }
+
+  .left-student i {
+    margin-top: 3%;
+  }
+
+  .containers h1 {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -455,5 +467,17 @@ form {
     width: 50%;
     height: 45px;
     margin-left: 25%;
+  }
+  
+  .studens-add-bar h2 {
+    font-size: 16px;
+  }
+
+  .left-student i {
+    margin-top: 3%;
+  }
+
+  .containers h1 {
+    font-size: 30px;
   }
 }
