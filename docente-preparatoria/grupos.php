@@ -84,6 +84,16 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                 </a>
             </div>
+            <div class="item">
+                <a href="alumnos.php" class="">
+                    <div class="icon">
+                        <i class='fas fa-user<'></i>
+                    </div>
+                    <div class="title">
+                        <span>Alumnos</span>
+                    </div>
+                </a>
+            </div>
             <div class="item separator"></div>
             <div class="item">
                 <a href="contacto.php" class="">

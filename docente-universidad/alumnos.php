@@ -7,18 +7,18 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_docente_universidad'])) {
 include('../acciones/conexion.php');
 
 
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes d
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_universidad d
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
 //Seleccionar nombre del grupo
-$query = "SELECT a.nombre FROM alumnos a 
-JOIN docentes d
+$query = "SELECT a.nombre FROM alumnos_universidad a 
+JOIN docentes_universidad d
 ON a.id_alumno = d.id_docente
 WHERE $id_user = d.id_docente";
 
 
-$query_grupo = "SELECT nombre_grupo FROM grupos WHERE id_docente = $id_user";
+$query_grupo = "SELECT nombre_grupo FROM grupos_universidad WHERE id_docente = $id_user";
 $result = $conexion->query($query_grupo);
 if ($result->num_rows > 0) {
     $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -26,19 +26,19 @@ if ($result->num_rows > 0) {
 
 
 //Seleccinar y dar permiso a grupos
-$grupo = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos WHERE id_docente = $id_user"));
+$grupo = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_universidad WHERE id_docente = $id_user"));
 
 
 //Conteo de alumnos
-$sql = "SELECT COUNT(*) id_alumno FROM alumnos a 
-JOIN docentes d
+$sql = "SELECT COUNT(*) id_alumno FROM alumnos_universidad a 
+JOIN docentes_universidad d
 ON a.id_docente = d.id_docente
 WHERE d.id_docente = $id_user";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 
 //Estadisticas
-$query1 = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user");
+$query1 = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user");
 $data1 = mysqli_fetch_assoc($query1);
 ?>
 
@@ -106,6 +106,16 @@ $data1 = mysqli_fetch_assoc($query1);
                     </div>
                 </a>
             </div>
+            <div class="item">
+                <a href="alumnos.php" class="">
+                    <div class="icon">
+                        <i class='fas fa-user'></i>
+                    </div>
+                    <div class="title">
+                        <span>Alumnos</span>
+                    </div>
+                </a>
+            </div>
             <div class="item separator"></div>
             <div class="item" style="background-color: rgba(61,172,244, .4);">
                 <a href="alumnos.php" class="">
@@ -165,22 +175,16 @@ $data1 = mysqli_fetch_assoc($query1);
                 <h3><?php echo $fila['id_alumno']; ?><span> Alumnos</span></h3>
             </div>
         </div>
-        <div class="val-box1 ps-2">
-            <i class="fas fa-users"></i>
-            <div>
-                <button id="btn-abrir-modalA" class="submit-btn">Añadir alumno</button>
-            </div>
-        </div>
+
     </div>
 
     <div class="board p-2" style="width: 92%; margin-left: 75px;">
-        <table id="alumnos" width="100%" class="table border-top">
+        <table id="alumnos" width="100%" class="table border-top" style="z-index: 1;">
             <thead>
                 <tr>
                     <td><b>Nombre</b></td>
-                    <td><b>Nivel educativo</b></td>
                     <td><b>Grado escolar</b></td>
-                    <td><b>Grupo</b></td>
+                    <td><b>Correo</b></td>
                     <td><b>Acción</b></td>
                 </tr>
             </thead>
@@ -189,10 +193,10 @@ $data1 = mysqli_fetch_assoc($query1);
                 <?php
                 include "../acciones/conexion.php";
 
-                $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo FROM alumnos a
-                JOIN docentes d
+                $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.grado_escolar, a.email FROM alumnos_universidad a
+                JOIN docentes_universidad d
                 ON a.id_docente = d.id_docente
-                WHERE d.id_docente = '$id_user'");
+                WHERE d.id_docente = '$id_user' AND a.estado = 1");
                 $result = mysqli_num_rows($query_alumnos);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query_alumnos)) {
@@ -200,14 +204,12 @@ $data1 = mysqli_fetch_assoc($query1);
                 ?>
                         <tr>
                             <td><?php echo $data['nombre']; ?></td>
-                            <td><?php echo $data['nivel_educativo']; ?></td>
                             <td><?php echo $data['grado_escolar']; ?></td>
-                            <td><?php echo $data['nombre_grupo']; ?></td>
+                            <td><?php echo $data['email']; ?></td>
                             <td>
-                                <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-info" style="margin-right: 5px;"><i class='fas fa-chart-line' style="color: white;"></i></a>
-                                <a href="acciones/editar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-edit'></i></a>
+                                <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-info" style="margin-right: 5px;padding:1px; "><i class='fas fa-chart-line' style="color: white"></i></a>
                                 <form style="padding: 0px 0px;" action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" class="confirmar d-inline">
-                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                    <button class="btn btn-danger" type="submit" style="padding: 1px;"><i class='fas fa-trash-alt'></i> </button>
                                 </form>
                             </td>
                         </tr>
@@ -406,7 +408,7 @@ $data1 = mysqli_fetch_assoc($query1);
             if (isset($_POST['enviar'])) {
                 $contrasena = $_POST['contrasena'];
 
-                $sql = "UPDATE docentes SET contrasena='" . $contrasena . "'";
+                $sql = "UPDATE docentes_universidad SET contrasena='" . $contrasena . "'";
                 $resultado = mysqli_query($conexion, $sql);
 
                 if ($resultado) {

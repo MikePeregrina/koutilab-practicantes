@@ -23,15 +23,15 @@
     $id_user = $_SESSION['id_docente_preparatoria'];
     // Validar datos
     if (empty($_REQUEST['id'])) {
-        header("Location: ../../docente/alumnos.php");
+        header("Location: ../../docente-preparatoria/alumnos.php");
     }
     //Estadisticas
     $idalumno = $_REQUEST['id'];
-    $query1 = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $idalumno");
+    $query1 = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $idalumno");
     $data1 = mysqli_fetch_assoc($query1);
     $result_sql = mysqli_num_rows($query1);
     if ($result_sql == 0) {
-        header("Location: ../../docente/alumnos.php");
+        header("Location: ../../docente-preparatoria/alumnos.php");
     }
 
     ?>

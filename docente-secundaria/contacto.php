@@ -72,6 +72,16 @@ WHERE d.id_docente = $id_user"));
                     </div>
                 </a>
             </div>
+            <div class="item">
+                <a href="alumnos.php" class="">
+                    <div class="icon">
+                        <i class='fas fa-user'></i>
+                    </div>
+                    <div class="title">
+                        <span>Alumnos</span>
+                    </div>
+                </a>
+            </div>
             <div class="item separator"></div>
             <div class="item" style="background-color: rgba(61,172,244, .4);">
                 <a href="contacto.php" class="">
