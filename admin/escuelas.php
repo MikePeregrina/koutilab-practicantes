@@ -175,10 +175,10 @@ $fila = mysqli_fetch_assoc($result);
                         <span class="details"></span> <br>
                         <button type="button" class="btn-grd1" onclick="copyToClipBoard3()">Copiar clave alumno</button>
                     </div>
-                    <div class="input-box">
+                    <div class="input-box" style="padding: 0px;">
                         <button type="button" onclick="generarClaves()" class="btn-grd2">Generar claves</button>
                     </div>
-                    <button class="btn-grd" style="margin-left: 180px;" type="submit">Registrar</button>
+                    <button class="btn-grd" style="margin-left: 180px; margin-top:5%" type="submit">Registrar</button>
 
                 </div>
         </div>
