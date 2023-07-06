@@ -93,6 +93,30 @@ body::-webkit-scrollbar-track {
   display: flex;
 }
 
+#f-c {
+  box-shadow: none;
+}
+
+#btn-edit {
+  scale: 70%; 
+  border-radius: 15px;
+}
+
+#btn-trs {
+  scale: 70%;
+  box-shadow: none;
+  border-radius: 15px;
+  margin: 0 0 0 -15px;
+}
+
+#i-edit{
+  margin: 10px 0 0 0;
+}
+
+#i-trs {
+  margin: 10px 0 0 0;
+}
+
 .left-student {
   background-color: rgba(255, 255, 255, 0.519);
   border-radius: 30px;

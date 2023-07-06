@@ -123,9 +123,9 @@ $fila = mysqli_fetch_assoc($result);
                             <td><?php echo $data['nombre']; ?></td>
                             <td><?php echo $data['pais']; ?></td>
                             <td>
-                                <a href="acciones/editar_admin.php?id=<?php echo $data['id_admin']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-edit'></i></a>
-                                <form style="padding: 0px 0px;" action="acciones/eliminar_admin.php?id=<?php echo $data['id_admin']; ?>" method="post" class="confirmar d-inline">
-                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                <a href="acciones/editar_admin.php?id=<?php echo $data['id_admin']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
+                                <form style="padding: 0px 0px;" action="acciones/eliminar_admin.php?id=<?php echo $data['id_admin']; ?>" method="post" id="f-c" class="d-inline">
+                                    <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
                                 </form>
                             </td>
                         </tr>

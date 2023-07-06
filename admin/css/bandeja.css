@@ -85,6 +85,23 @@
       height: 89px;
       margin-left: 10%;
      }
+
+     
+#f-c {
+  box-shadow: none;
+}
+
+#btn-trs {
+  scale: 70%;
+  border-radius: 15px;
+  margin: 0 0 0 -20px;
+  float: left;
+}
+
+#i-trs {
+  margin: 10px 0 0 0;
+}
+
   
       section{
         padding: 0px;

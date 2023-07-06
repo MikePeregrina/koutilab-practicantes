@@ -57,6 +57,35 @@
       font-size: 40px;
     }
 
+    #f-c {
+      box-shadow: none;
+    }
+
+    #btn-group {
+      scale: 60%;
+      margin-right: -40px;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    #btn-trs {
+      scale: 78%;
+      margin-left: -6px;
+    }
+
+    #td-group {
+      display: flex;
+    }
+
+    #i-group {
+      font-size: 30px;
+      margin-top: 18px;
+    }
+
+    #i-trs {
+      margin-top: 10px;
+    }
+
   .studens-add-bar h2{
     margin: auto;
     text-align: center;

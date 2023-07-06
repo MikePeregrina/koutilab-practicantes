@@ -190,10 +190,10 @@ $data1 = mysqli_fetch_assoc($query1);
                             <td><?php echo $data['grado_escolar']; ?></td>
                             <td><?php echo $data['email']; ?></td>
                             <td>
-                                <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-info" style="margin-right: 5px;padding:1px; "><i class='fas fa-chart-line' style="color: white"></i></a>
-                                <a href="acciones/editar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-success" style="margin-right: 5px;padding:1px; "><i class='fas fa-edit'></i></a>
-                                <form style="padding: 0px 0px;" action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" class="confirmar d-inline">
-                                    <button class="btn btn-danger" type="submit" style="padding: 1px;"><i class='fas fa-trash-alt'></i> </button>
+                                <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-info"><i class='fas fa-chart-line' id="i-group" style="color: white"></i></a>
+                                <a href="acciones/editar_alumno.php?id=<?php echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-success"><i class='fas fa-edit' id="i-group"></i></a>
+                                <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" id="f-c" class="d-inline">
+                                    <button class="btn btn-danger" id="btn-trs" type="submit" ><i class='fas fa-trash-alt' id="i-group"></i> </button>
                                 </form>
                             </td>
                         </tr>

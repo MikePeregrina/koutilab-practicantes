@@ -223,12 +223,13 @@ $fila = mysqli_fetch_assoc($result);
                             <td>Clave director: <?php echo $data['clave_director'] ?><br>Clave docente: <?php echo $data['clave_docente'] ?><br>Clave alumno: <?php echo $data['clave_alumno'] ?></td>
                             <td><?php echo $data['autorizacion']; ?></td>
 
-                            <td>
-                                <a href="acciones/mostrar_info.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-info" style="margin-right: 6px; padding:1px"><i class="fas fa-info-circle"></i></i></a>
-                                <a href="acciones/editar_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" style="margin-right: 5px; padding:1px"><i class='fas fa-edit'></i></a>
-                                <form style="padding: 0px 0px;" action="acciones/eliminar_escuela.php?id=<?php echo $data['id_escuela']; ?>" method="post" class="confirmar d-inline">
-                                    <button style="padding:1px" class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                            <td id="td-btn">
+                                <a href="acciones/editar_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
+                                <form action="acciones/eliminar_escuela.php?id=<?php echo $data['id_escuela']; ?>" method="post" id="f-c" class="d-inline">
+                                    <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
                                 </form>
+                                <a href="acciones/mostrar_info.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-info-circle"></i></i></a>
+
                             </td>
                         </tr>
                 <?php }

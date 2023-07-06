@@ -87,6 +87,37 @@
       margin-left: 10%;
      }
 
+     #f-c {
+      box-shadow: none;
+    }
+
+    #btn-group {
+      scale: 80%;
+      margin-right: -20px;
+      border-radius: 10px;
+      width: 20%;
+    }
+
+    #btn-trs {
+      scale: 80%;
+      margin-left: -20px;
+      border-radius: 10px;
+      width: 26%;
+    }
+
+    #td-group {
+      display: flex;
+    }
+
+    #i-group {
+      font-size: 30px;
+      margin-top: 10px;
+    }
+
+    #i-trs {
+      margin-top: 10px;
+    }
+
   
      .studens-add-bar{ 
       padding: 0px;
