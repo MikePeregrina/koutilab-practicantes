@@ -110,15 +110,32 @@ section {
 }
 
 .tabla-ingr {
-  margin-left: 30px;
+  margin-left: 10px;
+  width: 580px;
+}
+
+#ingresos1 {
+  max-width: 580px;
+}
+
+#ingresos2 {
+  max-width: 580px;
+}
+
+#ingresos3 {
+  max-width: 580px;
+}
+
+#ingresos4 {
+  max-width: 580px;
 }
 
 .grafica {
   text-align: center;
   align-items: center;
-  scale: 100%;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-right: 10px;
+  width: 500px;
 }
 
 .info {

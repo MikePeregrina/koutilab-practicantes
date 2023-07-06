@@ -112,7 +112,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="ingresos1" width="10%" class="table">
+        <table id="ingresos1" class="table">
           <thead>
             <tr>
               <td><b>Escuela</b></td>
@@ -232,7 +232,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="ingresos2" width="10%" class="table">
+        <table id="ingresos2" class="table">
           <thead>
             <tr>
               <td><b>Usuario</b></td>
@@ -341,7 +341,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="ingresos3" width="10%" class="table">
+        <table id="ingresos3" class="table">
           <thead>
             <tr>
               <td><b>Usuario</b></td>
@@ -405,7 +405,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="ingresos4" width="10%" class="table">
+        <table id="ingresos4" class="table">
           <thead>
             <tr>
               <td><b>Usuario</b></td>
@@ -894,7 +894,11 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     $('#ingresos1').DataTable({
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-      }
+      },
+      lengthMenu: [
+        [5, 10],
+        [5, 10]
+      ]
     });
   });
 </script>
@@ -904,7 +908,11 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     $('#ingresos2').DataTable({
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-      }
+      },
+      lengthMenu: [
+        [5, 10],
+        [5, 10]
+      ]
     });
   });
 </script>
@@ -914,7 +922,11 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     $('#ingresos3').DataTable({
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-      }
+      },
+      lengthMenu: [
+        [5, 10],
+        [5, 10]
+      ]
     });
   });
 </script>
@@ -923,8 +935,13 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   $(document).ready(function() {
     $('#ingresos4').DataTable({
       language: {
-        url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-      }
+        url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json',
+        searching: false
+      },
+      lengthMenu: [
+        [5, 10],
+        [5, 10]
+      ]
     });
   });
 </script>
