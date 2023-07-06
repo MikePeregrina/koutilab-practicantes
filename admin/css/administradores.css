@@ -60,14 +60,14 @@ body::-webkit-scrollbar-track {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 28px;
 }
 
 .titlec h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 28px;
 }
 
 .containers {
@@ -293,7 +293,7 @@ form .user-details .input-box {
 .btn-grd {
   width: 45%;
   height: 13%;
-  padding: 10px 30px;
+  /*padding: 10px 30px;*/
   cursor: pointer;
   display: block;
   background-image: linear-gradient(to right, #63e4cf, #8cfd36);
@@ -348,6 +348,22 @@ form {
     text-align: center;
     font-weight: bolder;
     font-size: 27px;
+  }
+  
+  .studens-add-bar h2 {
+    font-size: 22px;
+  }
+
+  .left-student i {
+    margin-top: 3%;
+  }
+
+  .containers h1 {
+    font-size: 30px;
+  }
+
+  .titlec h2 {
+    font-size: 20px;
   }
 }
 
@@ -405,6 +421,10 @@ form {
 
   .containers h1 {
     font-size: 30px;
+  }
+
+  .titlec h2 {
+    font-size: 20px;
   }
 }
 
@@ -479,5 +499,9 @@ form {
 
   .containers h1 {
     font-size: 30px;
+  }
+
+  .titlec h2 {
+    font-size: 20px;
   }
 }

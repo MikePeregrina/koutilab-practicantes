@@ -58,7 +58,7 @@ $fila = mysqli_fetch_assoc($result);
     <div class="popup-container" id="popupContainer">
         <div class="popup-content">
             <div class="titlec">
-                <h2>Nuevo grupo</h2>
+                <h2>Nuevo administrador</h2>
             </div>
            
             <div class="contenedor-emergente">
@@ -79,7 +79,7 @@ $fila = mysqli_fetch_assoc($result);
                     <div class="input-box">
                         <span class="details">País:</span>
                         <select name="pais" style="height: 44px;" type="select" required>
-                            <option value="">Eliga un país</option>
+                            <option value="">Elija un país</option>
                             <option value="Estados Unidos">Estados Unidos</option>
                             <option value="México">México</option>
                             <option value="Costa Rica">Costa Rica</option>
