@@ -1,4 +1,5 @@
 <?php
+// RECORDATORIO DE MODIFICAR ALUMNO PERSONAL EN INSERTAR PAGO EN PAYMENT_PERSONAL
 session_start();
 $id_user = $_SESSION['id_admin'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
@@ -111,7 +112,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="" width="20%" class="table">
+        <table id="ingresos1" width="10%" class="table">
           <thead>
             <tr>
               <td><b>Escuela</b></td>
@@ -121,48 +122,89 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Escuela 1</td>
-              <td>Privada</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
-            <tr>
-              <td>Escuela 2</td>
-              <td>Pública</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
-            <tr>
-              <td>Escuela 3</td>
-              <td>Pública</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
-            <tr>
-              <td>Escuela 4</td>
-              <td>Pública</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
-            <tr>
-              <td>Escuela 5</td>
-              <td>Pública</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
-            <tr>
-              <td>Escuela 6</td>
-              <td>Pública</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
-            <tr>
-              <td>Escuela 7</td>
-              <td>Pública</td>
-              <td>$6,000</td>
-              <td>$10,000</td>
-            </tr>
+            <?php
+            include "../acciones/conexion.php";
+
+            $query_escuelas = mysqli_query($conexion, "SELECT 
+            SUM(monto) AS total,
+            nombre_escuela,
+            SUM(CASE WHEN DATE_FORMAT(create_at, '%Y-%m-01') >= DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') THEN monto ELSE 0 END) AS ganancias_ultimo_mes,
+            nivel_educativo
+          FROM (
+            SELECT 
+              payment_amount AS monto,
+              apri.id_alumno,
+              nombre_escuela,
+              nivel_educativo,
+              create_at
+            FROM payment_primaria AS ppri
+            INNER JOIN alumnos_primaria AS apri ON ppri.id_alumno = apri.id_alumno
+            INNER JOIN escuelas esc ON apri.id_escuela = esc.id_escuela
+            
+            UNION ALL
+            
+            SELECT 
+              payment_amount AS monto,
+              asec.id_alumno,
+              nombre_escuela,
+              nivel_educativo,
+              create_at
+            FROM payment_secundaria AS psec
+            INNER JOIN alumnos_secundaria AS asec ON psec.id_alumno = asec.id_alumno
+            INNER JOIN escuelas esc ON asec.id_escuela = esc.id_escuela
+            
+            UNION ALL
+            
+            SELECT 
+              payment_amount AS monto,
+              apre.id_alumno,
+              nombre_escuela,
+              nivel_educativo,
+              create_at
+            FROM payment_preparatoria AS ppre
+            INNER JOIN alumnos_preparatoria AS apre ON ppre.id_alumno = apre.id_alumno
+            INNER JOIN escuelas esc ON apre.id_escuela = esc.id_escuela
+            
+            UNION ALL
+            
+            SELECT 
+              payment_amount AS monto,
+              auni.id_alumno,
+              nombre_escuela,
+              nivel_educativo,
+              create_at
+            FROM payment_universidad AS puni
+            INNER JOIN alumnos_universidad AS auni ON puni.id_alumno = auni.id_alumno
+            INNER JOIN escuelas esc ON auni.id_escuela = esc.id_escuela
+            
+            UNION ALL
+            
+            SELECT 
+              payment_amount AS monto,
+              taco.id AS id_alumno,
+              nombre_escuela,
+              nivel_educativo,
+              create_at
+            FROM payment_institucional AS pins
+            INNER JOIN temp_account AS taco ON pins.id = taco.id
+            INNER JOIN escuelas esc ON taco.id_escuela = esc.id_escuela
+          ) AS subquery
+          GROUP BY nombre_escuela, nivel_educativo
+          ORDER BY nombre_escuela ASC;
+          ");
+            $result = mysqli_num_rows($query_escuelas);
+            if ($result > 0) {
+              while ($data = mysqli_fetch_assoc($query_escuelas)) {
+
+            ?>
+                <tr>
+                  <td><?php echo $data['nombre_escuela']; ?></td>
+                  <td><?php echo $data['nivel_educativo']; ?></td>
+                  <td><?php echo $data['ganancias_ultimo_mes']; ?></td>
+                  <td><?php echo $data['total']; ?></td>
+                </tr>
+            <?php }
+            } ?>
           </tbody>
         </table>
       </div>
@@ -190,58 +232,88 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="" width="20%" class="table">
+        <table id="ingresos2" width="10%" class="table">
           <thead>
             <tr>
               <td><b>Usuario</b></td>
-              <td><b>Cápsula a desbloquear</b></td>
-              <td><b>Costo</b></td>
+              <td><b>Nivel educativo</b></td>
+              <td><b>Total gastado el último mes por el usuario</b></td>
               <td><b>Total gastado por el usuario</b></td>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Usuario 1</td>
-              <td>Cápsula 1</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 2</td>
-              <td>Cápsula 2</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 3</td>
-              <td>Cápsula 3</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 4</td>
-              <td>Cápsula 4</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 5</td>
-              <td>Cápsula 5</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 6</td>
-              <td>Cápsula 6</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 7</td>
-              <td>Cápsula 7</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
+            <?php
+            include "../acciones/conexion.php";
+
+            $query_escuelas = mysqli_query($conexion, "SELECT
+           
+      
+            ap.usuario AS usuario,
+            'Primaria' AS nivel_educativo,
+            COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
+            COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
+          FROM
+            alumnos_primaria ap
+          LEFT JOIN
+            payment_primaria pp ON ap.id_alumno = pp.id_alumno
+          GROUP BY
+            ap.usuario, nivel_educativo
+          
+          UNION ALL
+          
+          SELECT
+            ap.usuario AS usuario,
+            'Secundaria' AS nivel_educativo,
+            COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
+            COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
+          FROM
+            alumnos_secundaria ap
+          LEFT JOIN
+            payment_secundaria pp ON ap.id_alumno = pp.id_alumno
+          GROUP BY
+            ap.usuario, nivel_educativo
+          
+          UNION ALL
+          
+          SELECT
+            ap.usuario AS usuario,
+            'Preparatoria' AS nivel_educativo,
+            COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
+            COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
+          FROM
+            alumnos_preparatoria ap
+          LEFT JOIN
+            payment_preparatoria pp ON ap.id_alumno = pp.id_alumno
+          GROUP BY
+            ap.usuario, nivel_educativo
+          
+          UNION ALL
+          
+          SELECT
+            ap.usuario AS usuario,
+            'Universidad' AS nivel_educativo,
+            COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
+            COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
+          FROM
+            alumnos_universidad ap
+          LEFT JOIN
+            payment_universidad pp ON ap.id_alumno = pp.id_alumno
+          GROUP BY
+            ap.usuario, nivel_educativo;
+          ");
+            $result = mysqli_num_rows($query_escuelas);
+            if ($result > 0) {
+              while ($data = mysqli_fetch_assoc($query_escuelas)) {
+
+            ?>
+                <tr>
+                  <td><?php echo $data['usuario']; ?></td>
+                  <td><?php echo $data['nivel_educativo']; ?></td>
+                  <td><?php echo $data['total_gastado']; ?></td>
+                  <td><?php echo $data['total_gastado_ultimo_mes']; ?></td>
+                </tr>
+            <?php }
+            } ?>
           </tbody>
         </table>
       </div>
@@ -269,58 +341,43 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="" width="20%" class="table">
+        <table id="ingresos3" width="10%" class="table">
           <thead>
             <tr>
               <td><b>Usuario</b></td>
-              <td><b>Paquete comprado</b></td>
-              <td><b>Costo</b></td>
+              <td><b>Tipo de cuenta</b></td>
+              <td><b>Total gastado el último mes por el usuario</b></td>
               <td><b>Total gastado por el usuario</b></td>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Usuario 1</td>
-              <td>Paquete 1</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 2</td>
-              <td>Paquete 2</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 3</td>
-              <td>Paquete 3</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 4</td>
-              <td>Paquete 4</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 5</td>
-              <td>Paquete 5</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 6</td>
-              <td>Paquete 6</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Usuario 7</td>
-              <td>Paquete 7</td>
-              <td>$30</td>
-              <td>$100</td>
-            </tr>
+            <?php
+            include "../acciones/conexion.php";
+
+            $query_escuelas = mysqli_query($conexion, "SELECT
+            ap.usuario AS usuario,
+            'Personal' AS nivel_educativo,
+            COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
+            COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
+          FROM
+            alumnos_personal ap
+          LEFT JOIN
+            payment_personal pp ON ap.id_alumno = pp.id_alumno
+          GROUP BY
+            ap.usuario, nivel_educativo;");
+            $result = mysqli_num_rows($query_escuelas);
+            if ($result > 0) {
+              while ($data = mysqli_fetch_assoc($query_escuelas)) {
+
+            ?>
+                <tr>
+                  <td><?php echo $data['usuario']; ?></td>
+                  <td><?php echo $data['nivel_educativo']; ?></td>
+                  <td><?php echo $data['total_gastado']; ?></td>
+                  <td><?php echo $data['total_gastado_ultimo_mes']; ?></td>
+                </tr>
+            <?php }
+            } ?>
           </tbody>
         </table>
       </div>
@@ -348,7 +405,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
   <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
-        <table id="" width="20%" class="table">
+        <table id="ingresos4" width="10%" class="table">
           <thead>
             <tr>
               <td><b>Usuario</b></td>
@@ -823,6 +880,53 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
       }
     });
   }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#ingresos1').DataTable({
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+      }
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#ingresos2').DataTable({
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+      }
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#ingresos3').DataTable({
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+      }
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#ingresos4').DataTable({
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+      }
+    });
+  });
 </script>
 
 </body>

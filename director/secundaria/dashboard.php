@@ -173,6 +173,8 @@ function actualizarGrafica()
 <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
 
 <title>KOUTILAB</title>
 </head>
@@ -245,7 +247,48 @@ function actualizarGrafica()
       <div class="titlec">
         <h2>Datos de compras</h2>
       </div>
+      <div class="board p-2" style="width: 92%; margin-left: 75px;">
+        <table id="ingresos1" width="10%" class="table">
+          <thead>
+            <tr>
+              <td><b>Fecha</b></td>
+              <td><b>Total ganancias</b></td>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            include "../../acciones/conexion.php";
 
+            $query_escuelas = mysqli_query($conexion, "SELECT
+            SUM(payment_amount * 0.1) AS total,
+            DATE_FORMAT(create_at, '%M %Y') AS mes
+          FROM
+            payment_secundaria AS pp
+          INNER JOIN
+            alumnos_secundaria AS ap ON pp.id_alumno = ap.id_alumno
+          INNER JOIN
+            directores_secundaria AS dp ON ap.id_escuela = dp.id_escuela
+          WHERE
+            dp.id_director = '$id_user'
+          GROUP BY
+            YEAR(create_at), MONTH(create_at)
+          ORDER BY
+            YEAR(create_at) DESC, MONTH(create_at) DESC;
+          ");
+            $result = mysqli_num_rows($query_escuelas);
+            if ($result > 0) {
+              while ($data = mysqli_fetch_assoc($query_escuelas)) {
+
+            ?>
+                <tr>
+                  <td><?php echo $data['mes']; ?></td>
+                  <td><?php echo $data['total']; ?></td>
+                </tr>
+            <?php }
+            } ?>
+          </tbody>
+        </table>
+      </div>
       <div id="graficaContainer">
         <canvas id="grafica"></canvas>
       </div>
@@ -575,6 +618,23 @@ function actualizarGrafica()
     btnCerrarModalFP.addEventListener("click", () => {
       modalFP.close();
     })
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#ingresos1').DataTable({
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+        }
+      });
+    });
   </script>
 
 </body>
