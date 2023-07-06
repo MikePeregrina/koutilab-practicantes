@@ -182,16 +182,16 @@ function actualizarGrafica()
 <body>
 
   <!-- Header nav -->
-  <?php include 'header-nav.php'; ?>
-
-  <div class="containers">
-    <h1>DASHBOARD</h1>
-  </div>
   <?php
   $id = $user["id_director"];
   $name = $user["nombre"];
   $image = $user["image"];
   ?>
+  <?php include 'header-nav.php'; ?>
+
+  <div class="containers">
+    <h1>DASHBOARD</h1>
+  </div>
   <section>
     <div class="left-content">
       <div class="titlec">
@@ -247,8 +247,8 @@ function actualizarGrafica()
       <div class="titlec">
         <h2>Datos de compras</h2>
       </div>
-      <div class="board p-2" style="width: 92%; margin-left: 75px;">
-        <table id="ingresos1" width="10%" class="table">
+      <div class="tabla-ingr">
+        <table id="ingresos1" class="table">
           <thead>
             <tr>
               <td><b>Fecha</b></td>
@@ -633,7 +633,11 @@ function actualizarGrafica()
       $('#ingresos1').DataTable({
         language: {
           url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-        }
+        },
+      lengthMenu: [
+        [5, 10],
+        [5, 10]
+      ]
       });
     });
   </script>

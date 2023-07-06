@@ -236,8 +236,8 @@ function actualizarGrafica()
         <h2>Datos de compras</h2>
       </div>
 
-      <div class="board p-2" style="width: 92%; margin-left: 75px;">
-        <table id="ingresos1" width="10%" class="table">
+      <div class="tabla-ingr">
+        <table id="ingresos1" class="table">
           <thead>
             <tr>
               <td><b>Fecha</b></td>
@@ -280,7 +280,7 @@ function actualizarGrafica()
       </div>
 
       <div id="graficaContainer">
-        <canvas id="grafica" style="box-sizing: border-box; height: 200px; width: 403px;"></canvas>
+        <canvas id="grafica"></canvas>
       </div>
 
       <script>
@@ -622,7 +622,11 @@ function actualizarGrafica()
       $('#ingresos1').DataTable({
         language: {
           url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-        }
+        },
+      lengthMenu: [
+        [5, 10],
+        [5, 10]
+      ]
       });
     });
   </script>
