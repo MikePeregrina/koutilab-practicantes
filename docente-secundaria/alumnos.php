@@ -73,13 +73,9 @@ $data1 = mysqli_fetch_assoc($query1);
     <div class="studens-add-bar">
         <div class="left-student">
             <i class="fas fa-users"></i>
-            <h2>Alumnos</h2>
+            <h2><?php echo $fila['id_alumno']; ?> <span>Alumnos(s)</span</h2>
         </div>
 
-        <div class="right-student">
-            <i class="fas fa-users"></i>
-            <h2><?php echo $fila['id_alumno']; ?><span> Alumno(s)</span></h2>
-        </div>
     </div>
 
     <!-- Contenido de la pantalla emergente -->
