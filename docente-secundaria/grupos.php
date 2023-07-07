@@ -105,9 +105,9 @@ $fila = mysqli_fetch_assoc($result);
                         <span class="details">Clave: </span>
                         <input type="text" name="clave" id="clave" required readonly>
                     </div>
-                    <div class="input-box1">
-                        <span class="details"></span><br>
-                        <button type="button" class="btn-grd" onclick="copyToClipBoard()">Copiar clave</button>
+                    <div class="input-box1" id="copy-key">
+                        <span class="details"></span><br><br>
+                        <button type="button" class="btn-grd" onclick="copyToClipBoard()" id="btn-copy">Copiar clave</button>
                     </div>
                 </div>
                 <button type="submit" class="btn-grd">Guardar</button>

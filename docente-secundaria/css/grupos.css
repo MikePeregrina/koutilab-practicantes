@@ -227,7 +227,7 @@ section {
   top: 50%;
   left: 50%;
   width: 65%;
-  height: 80%;
+  height: 90%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   border: 3px solid rgba(0, 201, 255, 2556);
@@ -248,8 +248,8 @@ section {
 
 .contenedor-emergente {
   width: 85%;
-  height: 70%;
-  margin-top: 4%;
+  height: 80%;
+  margin-top: 2%;
   margin-left: 7.5%;
 }
 
@@ -296,8 +296,8 @@ form .user-details1 .input-box1 {
 }
 
 .btn-grd {
-  width: 45%;
-  height: 13%;
+  width: 40%;
+  height: 9%;
   /*padding: 10px 30px;*/
   cursor: pointer;
   display: block;
@@ -305,10 +305,14 @@ form .user-details1 .input-box1 {
   border: 0px;
   outline: none;
   border-radius: 30px;
-  margin-top: 4%;
-  margin-left: 27.5%;
-  font-size: 22px;
+  /*margin-top: 4%;*/
+  margin: 0 auto;
+  font-size: 25px;
   font-weight: 600;
+}
+
+#btn-copy{
+  font-size: 22px;
 }
 
 form {
@@ -439,7 +443,7 @@ form {
     padding: 5px;
     font-size: 15px;
   }
-  .btn-grd {
+  .btn-grd, .user-details1 .input-box1 button {
     font-size: 18px;
   }
 }
@@ -530,7 +534,16 @@ form {
     font-size: 13px;
   }
 
-  .btn-grd {
+  .btn-grd, .user-details1 .input-box1 button{
     font-size: 18px;
   }
+}
+
+#copy-key{
+  margin-left: 0 !important;
+}
+
+#btn-copy{
+  height: 30%;
+  width: 70%;
 }

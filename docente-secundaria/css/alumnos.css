@@ -581,4 +581,8 @@ form .user-details1 .campo {
   .btn-grd, .btn-grd1 {
     font-size: 18px;
   }
+
+  .user-details1 .input-box1 button{
+    height: 30px;
+  }
 }
