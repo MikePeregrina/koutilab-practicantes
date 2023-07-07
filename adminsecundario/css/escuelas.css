@@ -85,6 +85,46 @@
       height: 89px;
       margin-left: 10%;
      }
+
+     #f-c {
+      box-shadow: none;
+    }
+    
+    #td-btn {
+      display: flexbox;
+    }
+    
+    #btn-inf {
+      scale: 70%;
+      border-radius: 15px;
+      float: left;
+    }
+    
+    #btn-edit {
+      scale: 70%;
+      border-radius: 15px;
+      float: left;
+    }
+    
+    #btn-trs {
+      scale: 70%;
+      border-radius: 15px;
+      margin: 0 0 0 -20px;
+      float: left;
+    }
+    
+    #i-edit {
+      margin: 10px 0 0 0;
+    }
+    
+    #i-trs {
+      margin: 10px 0 0 0;
+    }
+    
+    #i-inf {
+      color: white;
+      margin: 10px 0 0 0;
+    }
   
      .studens-add-bar{ 
       padding: 0px;

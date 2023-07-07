@@ -79,8 +79,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
                             <td>
                                 <?php if ($data['estado'] == 1) { ?>
-                                    <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" class="bandeja d-inline">
-                                        <button class="btn btn-danger" type="submit"><i class='fas fa-check'></i> </button>
+                                    <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" id="f-c" class="d-inline">
+                                        <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-check'></i> </button>
                                     </form>
                                 <?php } ?>
                             </td>

@@ -60,7 +60,7 @@ $fila = mysqli_fetch_assoc($result);
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <input type="hidden" name="name" value="<?php echo $name; ?>">
           <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
-          <i class="fa fa-camera" style="color: rgba(0,201,255,2556); font-size:25px;"></i>
+          <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
         </div>
     </form>
   </div>
