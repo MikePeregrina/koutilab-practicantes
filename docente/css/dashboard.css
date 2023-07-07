@@ -363,7 +363,7 @@ h2{
     section{
       padding: 0px;
       width: 80%;
-      height: 500px;
+      /*height: 500px;*/
       margin-left: 13%;
       display: block;
     }
@@ -398,6 +398,10 @@ h2{
      .titlec {
       height: 65px;
      }
+
+     #hrPass{
+      margin-top:-30% !important;
+     }
 }
 
 @media (max-width: 480px) {
@@ -423,7 +427,7 @@ h2{
 section{
   padding: 0px;
   width: 70%;
-  height: 500px;
+  /*height: 500px;*/
   margin-left: 18%;
   display: block;
 }
@@ -455,7 +459,9 @@ section{
  .titlec {
   height: 75px;
  }
- 
+ #hrPass{
+  margin-top:-30% !important;
+ }
 }
 
 

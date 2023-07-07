@@ -72,7 +72,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
         <h3>CCT: <span><?php echo $user["cct"] ?></span></h3>
       </div>
 
-      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-37%;">
+      <hr id="hrPass" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-37%;">
 
       <div class="change-password">
         <h3>Contraseña:</h3>
