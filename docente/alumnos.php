@@ -58,7 +58,7 @@ $data1 = mysqli_fetch_assoc($query1);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
 
-<title>Document</title>
+<title>KOUTILAB</title>
 </head>
 
 <body>

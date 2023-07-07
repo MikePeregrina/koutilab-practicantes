@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_docente_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_docente_secundaria'])) {
+$id_user = $_SESSION['id_docente_preparatoria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_docente_preparatoria'])) {
     header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_secundaria d
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_preparatoria d
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));

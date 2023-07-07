@@ -41,7 +41,7 @@ $fila = mysqli_fetch_assoc($result);
 
 
   
-  <title>Document</title>
+  <title>KOUTILAB</title>
 </head>
 <body>
   
