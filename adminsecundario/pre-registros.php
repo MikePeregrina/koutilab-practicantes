@@ -11,7 +11,6 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
 <!DOCTYPE html>
 <html lang="en">
-<>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="img/lgk.png">
@@ -29,7 +28,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
-  <title>Document</title>
+  <title>KOUTILAB</title>
 </head>
 <body>
   

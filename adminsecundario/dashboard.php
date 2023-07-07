@@ -45,7 +45,7 @@ $fila = mysqli_fetch_assoc($result);
     </div><br>
 
     <div class="subtitle-perfil">
-      <h3>Foto de Perfil</h3>
+      <h3></h3>
     </div>
 
 
