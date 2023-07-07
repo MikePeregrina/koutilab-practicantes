@@ -13,9 +13,13 @@ if (isset($_POST['iniciar_sesion'])) {
         $password = mysqli_real_escape_string($conexion, $_POST['contrasena']);
         $contrasena = md5(mysqli_real_escape_string($conexion, $_POST['contrasena']));
 
-        //Validar inicio de sesión de un admin
-        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user'");
+        //Validar inicio de sesión de un admin principal
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND rol = '1'");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un admin secundario
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND rol = '2'");
+        $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
 
         //Validar inicio de sesión de un alumno de primaria
         $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user'");
@@ -86,7 +90,7 @@ if (isset($_POST['iniciar_sesion'])) {
         $result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
 
         if ($result_validar_admin > 0) {
-            $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND rol=1");
             $resultado_admin = mysqli_num_rows($query_admin);
             if ($resultado_admin > 0) {
                 $dato_admin = mysqli_fetch_array($query_admin);
@@ -96,6 +100,23 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['nombre'] = $dato_admin['nombre'];
                 $_SESSION['user'] = $dato_admin['usuario'];
                 header('location: admin/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                 Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        }else if ($result_validar_admin_secundario > 0) {
+            $query_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND rol=2");
+            $resultado_admin_secundario = mysqli_num_rows($query_admin_secundario);
+            if ($resultado_admin_secundario > 0) {
+                $dato_admin_secundario = mysqli_fetch_array($query_admin_secundario);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 2;
+                $_SESSION['id_admin'] = $dato_admin_secundario['id_admin'];
+                $_SESSION['nombre'] = $dato_admin_secundario['nombre'];
+                $_SESSION['user'] = $dato_admin_secundario['usuario'];
+                header('location: adminsecundario/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                  Usuario o contraseña incorrecta
@@ -528,9 +549,13 @@ if (isset($_POST['iniciar_sesion'])) {
         $clave_registrar = $_POST['clave_registrar'];
         $email_registrar = $_POST['email_registrar'];
 
-        //Validar inicio de sesión de un admin
-        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
+        //Validar inicio de sesión de un admin principal
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=1");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un admin secundario
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=2");
+        $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
 
         //Validar inicio de sesión de un alumno de primaria
         $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$usuario_registrar'");
@@ -718,7 +743,7 @@ if (isset($_POST['iniciar_sesion'])) {
             $id_director_institucional = $data_paquete_director['id_director'];
         }
 
-        if ($result_validar_admin > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
+        if ($result_validar_admin > 0 ||$result_validar_admin_secundario > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
             echo
             "
       <script>
@@ -1378,9 +1403,14 @@ if (isset($_POST['iniciar_sesion'])) {
         $contrasena_correo = $_POST['contrasena_registrar'];
         $email_registrar = $_POST['email_registrar'];
 
-        //Validar inicio de sesión de un admin
-        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
+        //Validar inicio de sesión de un admin principal
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=1");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        
+        //Validar inicio de sesión de un admin secundario
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=2");
+        $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
 
         //Validar inicio de sesión de un alumno de primaria
         $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$usuario_registrar'");
@@ -1442,7 +1472,7 @@ if (isset($_POST['iniciar_sesion'])) {
         $query_validar_director_instituacional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$usuario_registrar'");
         $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_instituacional);
 
-        if ($result_validar_admin > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
+        if ($result_validar_admin > 0||$result_validar_admin_secundario > 0|| $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
             echo
             "
       <script>

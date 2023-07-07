@@ -2,12 +2,11 @@
 session_start();
 $id_user = $_SESSION['id_admin'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
-    header('location: ../acciones/cerrarsesion.php');
+  header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
-
 
 $sql = "SELECT COUNT(*) id_admin FROM admin";
 $result = mysqli_query($conexion, $sql);
