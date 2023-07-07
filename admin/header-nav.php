@@ -8,7 +8,7 @@ $pais = $user["pais"];
 <nav class="navbar-header">
   <ul>
     <li>
-      <a href="" class="logo">
+      <a href="#" class="logo">
         <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
         <span class="nav-item">KOUTILAB</span>
       </a>
@@ -61,10 +61,10 @@ $pais = $user["pais"];
         <span class="nav-item">Bandeja de salida</span>
       </a>
     </li>
-    <li class="li-ultimo" <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
-      <a href="../acciones/cerrarsesion.php" class="logout">
+    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
+      <a href="../acciones/cerrarsesion.php">
         <i class="fas fa-sign-out-alt"></i>
-        <span class="nav-item2">Salir</span>
+        <span class="nav-item">Salir</span>
       </a>
     </li>
   </ul>

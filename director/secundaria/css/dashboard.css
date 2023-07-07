@@ -182,6 +182,22 @@ section {
   max-width: 600px;
 }
 
+.titulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  color: black;
+}
+
+.subtitulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+  color: black;
+}
+
 .titlec {
   width: 70%;
   height: 55px;

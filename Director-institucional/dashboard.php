@@ -179,13 +179,13 @@ function actualizarGrafica()
   <?php include 'header-nav.php'; ?>
 
   <div class="containers">
-    <h1>DASHBOARD</h1>
+    <h1 class="titulos">DASHBOARD</h1>
   </div>
 
   <section>
     <div class="left-content">
       <div class="titlec">
-        <h2>Usuario</h2>
+        <h2 class="subtitulos">Usuario</h2>
       </div>
       <br>
 
@@ -233,7 +233,7 @@ function actualizarGrafica()
 
     <div class="right-content">
       <div class="titlec">
-        <h2>Datos de compras</h2>
+        <h2 class="subtitulos">Datos de compras</h2>
       </div>
 
       <div class="tabla-ingr">

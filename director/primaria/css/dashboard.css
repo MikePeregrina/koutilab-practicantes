@@ -71,6 +71,22 @@ h2 {
   font-size: 23px;
 }
 
+.titulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  color: black;
+}
+
+.subtitulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+  color: black;
+}
+
 .containers {
   background-color: rgba(255, 255, 255, 0.583);
   border-radius: 20px;

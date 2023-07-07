@@ -51,7 +51,7 @@ $image = $u["image"];
               </a>
               </li>
               <li<?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
-                <a href="../acciones/cerrarsesion.php" class="logout">
+                <a href="../acciones/cerrarsesion.php">
                   <i class="fas fa-sign-out-alt"></i>
                   <span class="nav-item">Salir</span>
                 </a>

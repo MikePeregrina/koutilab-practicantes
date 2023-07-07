@@ -3,7 +3,7 @@
   top: 0;
   height: 100%;
   left: 0;
-  width: 90px;
+  width: 75px;
   overflow: hidden;
   background: #fff;
   transition: width 0.2s linear;
@@ -37,10 +37,10 @@
 .navbar-header li a{
   position: relative;
   color: rgb(85, 83, 83) ;
-  font-size: 14px;
+  font-size: 10px;
   display: table;
   width: 300px;
-  padding: 10px 10px 17px 10px;
+  padding: 3px 3px 17px 3px;
   
 }
 

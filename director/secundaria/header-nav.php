@@ -42,7 +42,7 @@ WHERE a.id_director = $id_user"));
     </li>
     <li <?php echo (basename($_SERVER['PHP_SELF']) == 'docentes.php') ? ' class="active"' : ''; ?>>
       <a href="docentes.php">
-        <i class="fas fa-person-chalkboard"></i>
+      <i class="fas fa-chalkboard-teacher"></i>
         <span class="nav-item">Docentes</span>
       </a>
     </li>
@@ -65,7 +65,7 @@ WHERE a.id_director = $id_user"));
       </a>
     </li>
     <li <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
-      <a href="../../acciones/cerrarsesion.php" class="logout">
+      <a href="../../acciones/cerrarsesion.php">
         <i class="fas fa-sign-out-alt"></i>
         <span class="nav-item">Salir</span>
       </a>

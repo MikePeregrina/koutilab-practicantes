@@ -50,6 +50,23 @@ body {
   font-family: sans-serif;
   height: 840px;
 }
+
+.titulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  color: black;
+}
+
+.subtitulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+  color: black;
+}
+
 h1 {
   margin: auto;
   text-align: center;
