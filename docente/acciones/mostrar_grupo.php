@@ -72,7 +72,9 @@
                         ?>
                                 <tr>
                                     <td><?php echo $data['nombre']; ?></td>
+                                    <td>Primaria</td>
                                     <td><?php echo $data['grado_escolar']; ?></td>
+                                    <td><?php echo $data['nombre_grupo']; ?></td>
                                     <td><?php echo $data['trofeos']; ?></td>
                                     <td><?php echo $data['puntos']; ?></td>
                                     <td><?php echo $data['practico']; ?></td>
