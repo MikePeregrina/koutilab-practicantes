@@ -22,7 +22,7 @@ $pais = $user["pais"];
     <li<?php echo (basename($_SERVER['PHP_SELF']) == 'escuela.php') ? ' class="active"' : ''; ?>>
       <a href="escuelas.php">
         <i class="fas fa-school" ></i>
-        <span class="nav-item">Escuela</span>
+        <span class="nav-item">Escuelas</span>
       </a>
     </li>
     <li<?php echo (basename($_SERVER['PHP_SELF']) == 'bandeja.php') ? ' class="active"' : ''; ?>>

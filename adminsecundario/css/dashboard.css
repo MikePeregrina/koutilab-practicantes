@@ -70,7 +70,7 @@ h2{
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 6px solid rgb(0, 0, 0); /* Agrega un borde azul */
+  border: 6px solid rgba(0, 201, 255, 2556); /* Agrega un borde azul */
 }
 
 .avatar-img img {

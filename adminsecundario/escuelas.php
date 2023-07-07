@@ -16,7 +16,6 @@ $fila = mysqli_fetch_assoc($result);
 
 <!DOCTYPE html>
 <html lang="en">
-<>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="img/lgk.png">
@@ -33,7 +32,7 @@ $fila = mysqli_fetch_assoc($result);
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <title>Document</title>
+  <title>KOUTILAB</title>
 </head>
 <body>
   
@@ -158,7 +157,7 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                     <div class="input-box">
                         <span class="details"></span> <br>
-                        <button type="button" class="btn-grd1" onclick="copyToClipBoard1()">Copiar clave director</button>
+                        <button type="button" class="btn-grd1" style="padding:1%;" onclick="copyToClipBoard1()">Copiar clave director</button>
                     </div>
                     <div class="input-box">
                         <span class="details">Clave docente:</span>
@@ -166,7 +165,7 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                     <div class="input-box">
                         <span class="details"></span> <br>
-                        <button type="button" class="btn-grd1" onclick="copyToClipBoard2()">Copiar clave docente</button>
+                        <button type="button" class="btn-grd1" style="padding:1%;" onclick="copyToClipBoard2()">Copiar clave docente</button>
                     </div>
                     <div class="input-box">
                         <span class="details">Clave alumnos:</span>
@@ -174,21 +173,23 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                     <div class="input-box">
                         <span class="details"></span> <br>
-                        <button type="button" class="btn-grd1" onclick="copyToClipBoard3()">Copiar clave alumno</button>
+                        <button type="button" class="btn-grd1" style="padding:1%;" onclick="copyToClipBoard3()">Copiar clave alumno</button>
                     </div>
                     <div class="input-box">
-                        <button type="button" onclick="generarClaves()" class="btn-grd2">Generar claves</button>
+                        <button type="button" onclick="generarClaves()" class="btn-grd2" style="padding:2%;">Generar claves</button>
                     </div>
-                    <button class="btn-grd" style="margin-left: 180px;" type="submit">Registrar</button>
+                    <button id="btn-registrar" class="btn-grd" style="margin-top: 6%; padding:1%;" type="submit">Registrar</button>
 
                 </div>
         </div>
 
         </form>
             </div>
-
+            <div  style="float: right;">
             <button id="closeButton"><i class="fas fa-times"></i></button>
         
+            </div>
+            
         </div>
     </div> <!-- Cierre de la pantalla emergente -->
   <section>

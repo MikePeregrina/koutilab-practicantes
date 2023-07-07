@@ -33,7 +33,7 @@ $fila = mysqli_fetch_assoc($result);
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   
-  <title>Document</title>
+  <title>KOUTILAB</title>
 </head>
 <body>
   

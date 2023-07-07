@@ -28,7 +28,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
-  <title>Document</title>
+  <title>KOUTILAB</title>
 </head>
 <body>
   
