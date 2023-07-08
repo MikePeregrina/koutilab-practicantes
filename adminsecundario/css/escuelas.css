@@ -26,7 +26,6 @@ body::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
-<<<<<<< HEAD
   .titlec h2{
       margin: auto;
       text-align: center;
@@ -144,11 +143,6 @@ body::-webkit-scrollbar {
       .right-student h2{
           margin-left: 10%;
       }
-=======
-body::-webkit-scrollbar:vertical {
-  width: 10px;
-}
->>>>>>> f0acdf2d0649a0409a132472f37c30b64ecae8e6
 
 body::-webkit-scrollbar-button:increment,
 body::-webkit-scrollbar-button {
