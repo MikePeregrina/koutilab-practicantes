@@ -97,10 +97,8 @@ $fila = mysqli_fetch_assoc($result);
     </div>
 
     <div class="latd" style="scale:100%;justify-content: center; align-items: center;">
-
-        <canvas id="G-Alumnos" width="30px !important" height="30px !important"></canvas>
-      </div>
-      <div align="center" style="margin-top: 20px;">
+        <canvas id="G-Alumnos" width="450" height="280"></canvas>
+        <div align="center" style="margin-top: 10%;">
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
           <input type="date" name="fechaInicio" id="fechaInicioAlumnos" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
@@ -111,6 +109,8 @@ $fila = mysqli_fetch_assoc($result);
           <input onclick="filtrarGAlumnos()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
         </form>
       </div>
+      </div>
+      
   
 </section>
 
@@ -182,7 +182,7 @@ $fila = mysqli_fetch_assoc($result);
         data: {
           labels: labels,
           datasets: [{
-            label: 'Alumnos',
+            label: '# De Alumnos',
             data: datos,
             //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
             //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
@@ -302,45 +302,7 @@ $fila = mysqli_fetch_assoc($result);
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Primaria', 'Secundaria', 'Preparatoria', 'Bachillerato'],
-        datasets: [{
-          label: '# de estudiantes',
-          data: [12, 19, 3, 5],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-  </script>
+
   <script>
     function disableIE() {
       if (document.all) {

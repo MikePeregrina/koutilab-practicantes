@@ -54,7 +54,7 @@ h2{
   width: 86%;
   box-sizing: border-box;
   margin: 2% auto;
-  height: 89px;
+  /*height: 89px;*/
   margin-left: 10%;
 }
 
@@ -133,7 +133,7 @@ section{
   height: 100%;
   margin-left: 5%;
   position: relative;
-  display: flex;
+  /*display: flex;*/
   flex-wrap: wrap;
 }
 
@@ -295,13 +295,16 @@ form .user-details1 .input-box1 {
   display: flex;
   flex-wrap: wrap;
   padding: 1.5rem 2rem;
-  
   border-radius: 15px;
-  margin-top: 1.5%;
+  margin-top: 0;
   height: auto;
   margin-bottom: 25px;
+  margin-top: 7%;
 }
 
+.latd canvas{
+  margin-top: 0;
+}
 
 
 @media (max-width: 1120px) {
@@ -480,10 +483,6 @@ section{
 }
 
 
-
-
-
-
-
-
-
+canvas{
+  width: 80%;
+}
