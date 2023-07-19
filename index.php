@@ -3,298 +3,271 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="img/lgk.png">
     <link rel="stylesheet" href="css/principalIndex.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/bootstrap.min.js.js">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="img/lgk.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css" />
     <link rel="stylesheet" href="Comfortaa/Comfortaa-VariableFont_wght.ttf">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <script>
-        $(document).ready(function() {
-            $('#icon').click(function() {
-                $('ul').toggleClass('show');
-            });
-        });
-    </script>
-
+    <title>KOUTILAB</title>
 </head>
 
 <body>
-    <nav>
+    <!-- Navbar -->
+    <header>
+        <nav class="nav" id="navi">
+            <ul class="ul">
+                <li class="menu visible" id="abrir"><i class="fas fa-bars"></i></li>
+                <li class="close" id="cerrar"><i class="fas fa-times"></i></li>
+                <li class="space-right"><a href="#inicio"><img src="img/koutilab.png" class="logo-img" alt=""></a></li>
+                <li class="li-r"><a href="#nosotros">Nosotros</a></li>
+                <li class="li-r"><a href="#rutas">Rutas de aprendizaje</a></li>
+                <li class="li-r"><a href="#usuarios">Tipos de usuario</a></li>
+                <li class="hov li-r"><a href="#" class="reg">Registrarse</a></li>
+                <li class="hov li-r"><div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div></li>
+            </ul>
+        </nav>
+    </header>
 
-      <div class="logop" style="background-color: #38b6ff ;width:285px; height: 75px; border-radius: 0px 0px 25px 25px; margin-left:15px;">
-        <a href="index.php">
-             <img src="img/koutilab1.png" style="margin: 0 10px 0 0;"class="logo">
-        </a>
-        
-      </div>
-           <ul>
-            <li style="padding-right: 55px; "> <a href="#Nosotros" >Nosotros</a></li>
-            <li style="padding-right: 55px;"><a href="#Rutas">Rutas de aprendizaje</a></li>
-            <li style="padding-right: 55px;"><a href="#Niveles">Tipos de usuario</a></li>
-            <!-- <li><a href="#Niveles">Niveles escolares</a></li> -->
-            <!--<li><a class="Rg" href="registro/index.php">Registrarse</a></li>  -->
-            <li >
-                <a class="is" href="login.php"></i><i class="fas fa-user-alt" style="color: black;"></i> Iniciar sesión</a>
-            </li>
-        </ul>
-    </nav> <br><br><br>
-    <section id="Que" class="container-fluid fon">
-        
-        <div class="row">
-
-        <div class="col">
-               <p style="font-size: 27px" class="g">¿Estás interesado en <br> enseñar o ampliar tus <br> conocimientos a través de <br>
-                una plataforma educativa <br>especializada?</p>
-                <p class="pl" style="font-size: 16px; padding-top: 3px;">Te invitamos a descubrir nuestra<br> plataforma web educativa, donde <br> aprender nunca fue tan emocionante.  </p>
-                <br>
-                
-                <p class="pl" style="font-size: 16px; padding-top: 10px;">En Koutilab, cada usuario encuentra<br> su propia forma de aprender.</p>
-            </div>
-             <div class="col">
-             <img src="img/2023 koutilab web imagenes-06.png" class="img-fluid">
-            </div>
-            
-            
-        </div><br><br>
-        <!-- <p style="font-size: 30px" class="g">Conoce Koutilab la <span style="font-size: 30px">herramientas autodidacta ideal
-            </span>para que tus alumnos <br> descubran <span style="font-size: 30px">el mundo de la programación</span>
-        </p> -->
-        
-        <div>
-        <p class="barra-inferior" style="font-size: 25px; padding-top: 18px;"><b> Descubre nuestras rutas de aprendizaje, 
-        <span class="resaltado">juegos de interactivos</span>
-        <br>y fortalece tus conocimientos con 
-        <span class="resaltado">teoría</span> y<span class="resaltado"> práctica.</span></b></p>
-
-        </div>
+    <!-- Inicio -->
+    <section id="inicio">
+        <div class="banner"></div>
     </section>
 
-    <section id="Nosotros" class="container-fluid "><br><br>
     <!-- Nosotros -->
-        <div class="row">
-            
-            <div class="container1">
+    <section class="content-1" id="nosotros">
+        <div class="tittle-1">
+            <h1>Descubre nuestras&nbsp;</h1>
+            <h1 class="white-1">RUTAS DE APRENDIZAJE&nbsp;&nbsp;</h1>
+            <h1>y juegos interactivos</h1>
+        </div>
+        <div class="tittle-2">
+            <div class="line-1"></div>
+            <h1 class="line-2">Nosotros</h1>
+            <div class="line-3"></div>
+        </div>
+        <div class="tittle-3">
+            <h3>
+                KoutiLab, la plataforma líder en la educación revoluciona la experiencia del
+                aprendizaje a través de cápsulas y rutas que se adaptan a las necesidades de
+                cada usuario.
                 <br><br>
-                <p style="font-size: 30px" class="tN">Nosotros</p>
-                <p style="font-size: 22px" class="tK">Koutilab, la plataforma educativa líder, ofrece una experiencia enriquecedora con cápsulas y rutas <br>
-                   educativas variadas. Con cobertura desde primaria hasta universidad, brindamos opciones flexibles <br>
-                   para instituciones y usuarios individuales. Nos comprometemos a impulsar el crecimiento y <br>
-                   desarrollo de nuestros usuarios en todas las etapas educativas a través de herramientas innovadoras <br>
-                                                         y accesibles.</p>
-
-            </div>
-            <div class="container-caracteristicas">
-                <div class="container-pais">
-                    <img src="img/mundo.png" alt="" width="140px" style="margin-left:110px;">
-                    <img src="img/institucion.png" alt="" width="150px" style="margin-left:80px;">
-                    <img src="img/escuela.png" alt="" width="110px" style="margin-left:80px;">
-                    <img src="img/maestro.png" alt=""  width="150px" style="margin-left:80px;"> 
-                    <img src="img/estudiante.png" alt="" width="130px" style="margin-left:80px;">
-                    <p><span class="cantidades" style="margin-left:45px;">3+</span><span class="cantidades" style="margin-left:190px;">5+</span>
-                    <span class="cantidades" style="margin-left:150px;">100+</span><span class="cantidades" style="margin-left:130px;">500+</span><span class="cantidades" style="margin-left:120px;">5 000+</span></p>
-                    
-                    <p style="margin-top:-25px;"><span class="titulosC" style="margin-left:20px;">Paises</span><span class="titulosC" style="margin-left:100px;">Instituciones</span>
-                    <span class="titulosC" style="margin-left:90px;">Escuelas</span><span class="titulosC" style="margin-left:100px;">Docentes</span><span class="titulosC" style="margin-left:90px;">Alumnos</span></p>
-                    
-          </div>
-         </div>
-
-        <!--  <div><br><br> <br><br><br>
-                <img src="img/2023 koutilab web imagenes-07.png" alt="" class="img-fluid3">
-                <p class="g ris" style="font-size: 30px; text-align: center; margin-left: 20%;" aling="center">
-                    Utilizamos una ruta de aprendizaje con cápsulas de coding <br> diferentes para guiar a cada alumno en su aprendizaje de CODING.</p>
-            </div> -->
-           
-        </div><br><br>
+                Nuestro compromiso, impulsar el crecimiento y desarrollo de nuestros
+                usuarios a través de herramientas innovadores y accesibles.
+            </h3>
+        </div>
     </section>
-    <!-- <section>
-        <div class="fonV">
-            <video id="player" playsinline controls>
-                <source src="vid/DEMO1.mp4" type="video/mp4" />
-            </video>
-        </div>
-    </section> -->
-   <section id="Rutas" class="container-fluid c"><br><br>
-   <!-- Ruta -->
-      <br>
-        <p class="r">Rutas de <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aprendizaje</p><br><br><br><br>
-        <div class="containerText">
-            <p style="font-size: 22px" class="tK">Con nuestras rutas de aprendizaje personalizadas, podrás elegir el <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;camino que mejor se adapte a tu estilo de aprendizaje. Prepárate para<br>
-                                              disfrutar de una experiencia educativa completa y enriquecedora</p>
-        </div>
-        <!-- Capsulas -->
-        <div class="capsula1" style="margin-bottom: -210px; margin-top: 50px;">
-        <img src="img/pintroductorias.png" alt="" width="130px" style="margin-left: -170px;">
-        <p style="margin-top:-100px; margin-left:95px;">Cápsulas <br>introductorias </p>
 
-        </div>
-        <div class="capsula2" style="margin-bottom: -160px; margin-top: 50px;">
-        <img src="img/pteoricas.png" alt="" width="130px" style="margin-left: -170px; margin-top:10px;">
-        <p style="margin-top:-100px; margin-left:100px;">Cápsulas <br>teorícas</p>
-
-        </div>
-        <div class="capsula3" >
-        <img src="img/ppracticas.png" alt="" width="130px" style="margin-left: -170px; margin-top:10px;">    
-        <p style="margin-top:-110px; margin-left:95px;">Cápsulas <br>practícas</p>
-
-        </div>
-        <div class="capsula4" style="margin-bottom: -160px; margin-top: 50px;">
-        <img src="img/pjuegos.png" alt="" width="130px" style="margin-left: -170px; margin-top:10px;"> 
-        <p style="margin-top:-110px; margin-left:95px;">Cápsulas <br>de juego</p>
-
-        </div>
-        <div class="capsula5">
-        <img src="img/pevaluativas.png" alt="" width="115px" style="margin-left: -170px; margin-top:10px;">    
-        <p style="margin-top:-115px; margin-left:95px;">Cápsulas <br>evaluativas</p>
-
-        </div>
-        <br><br><br><br><br>
-        <!-- 
-            
-        <div class="row">
-            <div class="col r">
-                <fieldset class="ru">
-                    <img src="img/Copia de elementos kouti web-06.png" alt="" class="elemento " height="100px" width="100px">
-                    <div id="el1"><br><br>
-                        <h4><b>Cápsulas de contenidos</b></h4>
-                        <p>
-                            Todo lo necesario para aprender los conceptos.
-                        </p>
-                    </div>
-                </fieldset><br>
-                <fieldset class="ru">
-                    <img src="img/Copia de elementos kouti web-07.png" alt="" class="elemento" height="100px" width="100px">
-                    <div id="el2"><br><br>
-                        <h4><b>Gamificación</b></h4>
-                        <p>
-                            Mantén a tus alumnos motivados con insignias.
-                        </p>
-                    </div>
-                </fieldset><br>
-                <fieldset class="ru">
-                    <img src="img/Copia de elementos kouti web-08.png" alt="" class="elemento" height="100px" width="100px">
-                    <div id="el3"><br>
-                        <h4><b>FabLabs</b></h4>
-                        <p>
-                            La práctica hace al maestro. Pondrán en práctica <br> los conocimientos con retos a resolver.
-                        </p>
-                    </div>
-
-                </fieldset>
+    <!-- Rutas de aprendizaje -->
+    <section id="rutas">
+        <div class="content-2">
+            <div class="card">
+                <img src="img/mundo.png" class="c2-img1" alt="">
+                <h1 class="white-2">3 +</h1>
+                <h2 class="white-2 t2">Paises</h2>
             </div>
-            <div class="col">
-                <img class="ider" src="img/2023 koutilab web imagenes-10.png" style="margin-left: 100px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="card">
+                <img src="img/institucion.png" class="c2-img2" alt="">
+                <h1 class="white-2">5 +</h1>
+                <h2 class="white-2 t2">Instituciones</h2>
             </div>
-         -->
-
-    </section>
-     <section id="Niveles" class="container-fluid t"><br><br><br>
-     <div class="fondow" style="margin-left: -15px;">
-        
-        <h1 class="tiTU">Tipos de usuario</h1>
-        <div class="contEscolar" >
-            <div class="circle">
-            <img src="img/escuela.png" alt="" width="100px" style="margin-left:0px; margin-top:12px;">
+            <div class="card">
+                <img src="img/escuela.png" class="c2-img3" alt="">
+                <h1 class="white-2">100 +</h1>
+                <h2 class="white-2 t2">Escuelas</h2>
             </div>
-            <h2 class="tituT">Escolar</h2>
-            <hr class="lineC">
-            <p class="textDes">
-                    Está enfocado en los <br>
-                    niveles educativos de <br>
-                    primaria, secundaria, prepa <br>
-                    y universidad. 
-            </p>
-            <input type="button" value="Registrar Escuela" class="buttonR" style="margin-top: -6px;">
-    
+            <div class="card">
+                <img src="img/maestro.png" class="c2-img4" alt="">
+                <h1 class="white-2">500 +</h1>
+                <h2 class="white-2 t2">Docentes</h2>
+            </div>
+            <div class="card">
+                <img src="img/estudiante.png" class="c2-img5" alt="">
+                <h1 class="white-2">5,000 +</h1>
+                <h2 class="white-2 t2">Alumnos</h2>
+            </div>
         </div>
-        <div class="contInstitu" >
-        <div class="circle">
-        <img src="img/institucion.png" alt="" width="135px" style="margin-left:0px; margin-top:12px;">
+        <div class="content-2-1">
+            <div class="tittle-4">
+                <h1 class="t4-t1">RUTAS DE APRENDIZAJE</h1>
+            </div>
+            <div class="tittle-5">
+                <div class="line-4"></div>
+            </div>
+            <div class="tittle-6">
+                <h3>Nuestras rutas se adaptan al estilo de aprendizaje de cada usurario (kinestésico, visual, auditivo
+                    y verbal) De esta forma aseguramos una experiencia educativa completa y enriquecedora.
+                    <br><br>
+                    La ruta de aprendizaje consiste en:
+                </h3>
+            </div>
         </div>
-        <h2 class="tituT">Institucional</h2>
-        <hr class="lineC">
-        <p class="textDes">
-            Está enfocado para centros <br>
-            recreativos como museos, <br>
-            bibliotecas, plazuelas, etc.
-            </p>
-            <input type="button" value="Registrar Institución" class="buttonR2" style="margin-top: 23px;" >
-        </div>
-        <div class="contPersonal" >
-        <div class="circle">
-        <img src="img/estudiante.png" alt="" width="115px" style="margin-left:0px; margin-top:10px;">
-        </div>
-        <h2 class="tituT">Personal</h2>
-        <hr class="lineC">
-        <p class="textDes">
-        Está enfocada para adquisición <br>
-        individual, nuestra plataforma <br>
-        ofrece beneficios de <br>
-        aprendizaje personalizados
-            </p>
-            <input type="button" value="Adquirir" class="buttonR2" style="margin-top: 0px;" >
-        </div><br><br><br>
-     </div>
-        
-
-    </section><br><br> 
-
-    <footer>
-        <div class="content" style="margin-left: 35px;">
-            <div class="left box">
-                <div class="upper">
-                    <img src="img/logoKoutLab.png" alt="" width="250px">
-                    <p>Somos una plataforma educativa <br>
-                       enfocada en brindar una <br>
-                       experiencia de aprendizaje <br>
-                       enriquecedora</p>
-                   </div>
-                <div class="lower" style="margin-left:60px;">
-                    <div class="topic">Contacto</div>
-                    <div class="phone">
-                        <a href="#"><i class="fas fa-phone-volume"></i>2228279092</a>
+        <div class="capsule">
+            <div class="col1">
+                <div class="card2">
+                    <img src="img/BTNINTRO1.png" class="cp-img" alt="">
+                    <div class="cp-bar">
+                        <h4 class="cp-t1">
+                            Cápsulas introductorias <br>
+                            y teoricas
+                        </h4>
                     </div>
-                    <div class="email">
-                        <a href="#" style="font-size: 10px;"><i class="fas fa-envelope"></i>info@koutilab.com</a>
+                </div>
+                <div class="card2">
+                    <img src="img/BTNEV1.png" class="cp-img" alt="">
+                    <div class="cp-bar">
+                        <h4 class="cp-t1">
+                            Cápsulas evaluativas
+                        </h4>
                     </div>
                 </div>
             </div>
-            <div class="middle box" >
-                <div class="topic">Otros servicios</div>
-                <div><a href="https://aerobotplanet.com/">Aerobot</a></div>
-                <div><a href="#"></a></div>
-                <div><a href="#">Aviso de privacidad</a></div>
-                <div><a href="#">Términos y condiciones</a></div>
-            </div>
-            <div class="right box" >
-                <div class="topic">Siguenos</div>
-                <form action="#">
-                   <div >
-                        <button class="botones"><a href="https://www.facebook.com/AerobotPlanet/"><img src="img/facebook.png" width="35px">   Facebook</a></button><br>
-                        <button class="botones"><a href="https://www.instagram.com/aerobotplanet_oficial/"> <img src="img/instagram.png" width="35px">   Instagram</a></button><br>
-                        <button class="botones"><a href="https://api.whatsapp.com/send?phone=5219712870361"><img src="img/whatsapp.png" width="35px">   Whatsapp</a></button>
+            <div class="col2">
+                <div class="card2">
+                    <img src="img/BTNPRA1.png" class="cp-img" alt="">
+                    <div class="cp-bar">
+                        <h4 class="cp-t1">
+                            Cápsulas con ejercicios <br>
+                            prácticos
+                        </h4>
                     </div>
-                    
-                   
-                </form>
+                </div>
+                <div class="card2">
+                    <img src="img/BTNJU.png" class="cp-img" alt="">
+                    <div class="cp-bar">
+                        <h4 class="cp-t1">
+                            Cápsulas de juego
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tipos de usuarios -->
+    <section id="usuarios">
+        <div class="users">
+            <div class="tittle-7">
+                <h1>
+                    Tipos de usuario
+                </h1>
+            </div>
+            <div class="col3">
+                <div class="card3">
+                    <div class="circle">
+                        <img src="img/escuela.png" class="us-img" alt="">
+                    </div>
+                    <h1>Escolar</h1>
+                    <div class="us-bar"></div>
+                    <h4 class="us-tx">
+                        Está enfocado en los
+                        niveles educativos de
+                        primaria, secundaria, prepa
+                        y universidad.
+                    </h4>
+                    <div class="btn-sub">
+                        <h5 class="us-tx1">Registrar</h5>
+                    </div>
+                </div>
+                <div class="card3">
+                    <div class="circle">
+                        <img src="img/institucion.png" style="margin-top: 15px; width: 130px;" class="us-img" alt="">
+                    </div>
+                    <h1>Institucional</h1>
+                    <div class="us-bar"></div>
+                    <h4 class="us-tx">
+                        Enfocado tanto para centros
+                        recreativos como para museos,
+                        bibliotecas, etc.
+                    </h4>
+                    <div class="btn-sub">
+                        <h5 class="us-tx1">Registrar</h5>
+                    </div>
+                </div>
+                <div class="card3">
+                    <div class="circle">
+                        <img src="img/estudiante.png" style="margin-top: 20px;" class="us-img" alt="">
+                    </div>
+                    <h1>Personal</h1>
+                    <div class="us-bar"></div>
+                    <h4 class="us-tx">
+                        Para la adquisición
+                        individual y el también
+                        aprendizaje personalizados
+                    </h4>
+                    <div class="btn-sub">
+                        <h5 class="us-tx1">Registrar</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="f-card1">
+                <img src="img/koutilab.png" class="logo-f-img" alt="">
+                <h5 class="f-tx">
+                    Somos una plataforma educativa
+                    enfocada en brindar una
+                    experiencia de aprendizaje
+                    enriquecedora.
+                </h5>
+            </div>
+            <div class="f-card">
+                <div class="f-space">
+                    <h1>Contacto</h1>
+                    <h5><i class="fas fa-phone-volume"></i>&nbsp;&nbsp;2228279092</h5>
+                    <h5 class="f-tx1"><i class="fas fa-envelope"></i>&nbsp;info@koutilab.com</h5>
+                </div>
+            </div>
+            <div class="f-card">
+                <div class="f-space">
+                    <h1>Otros servicios</h1>
+                    <h5><a href="https://aerobotplanet.com/" class="a-f">Aerobot Planet</a></h5>
+                    <h5 class="f-tx1"><a href="#" class="a-f">Aviso de privacidad</a></h5>
+                    <h5 class="f-tx1"><a href="#" class="a-f">Términos y condiciones</a></h5>
+                </div>
+            </div>
+            <div class="f-card">
+                <div class="f-space">
+                    <h1>Síguenos</h1>
+                    <h5><a href="https://www.facebook.com/AerobotPlanet/" class="a-f"><i class="fab fa-facebook-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Facebook</a></h5>
+                    <h5 class="f-tx1"><a href="https://www.instagram.com/aerobotplanet_oficial/" class="a-f"><i class="fab fa-instagram-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Instagram</a></h5>
+                    <h5 class="f-tx1"><a href="https://api.whatsapp.com/send?phone=5219712870361" class="a-f"><i class="fab fa-whatsapp-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;WhatsApp</a></h5>
+                </div>
             </div>
         </div>
         <div class="bottom">
-            <p>© Copyright <a href="#"><b>Aerobot</b></a> All Rights Reserved</p>
+            <p>© Copyright <b>Aerobot</b> All Rights Reserved</p>
         </div>
     </footer>
 
-    <script src="https://cdn.plyr.io/3.7.3/plyr.polyfilled.js"></script>
+    <script>
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', function () {
+            nav.classList.toggle('down', window.scrollY > 0);
+        })
+
+        const navi = document.querySelector("#navi");
+        const abrir = document.querySelector("#abrir");
+        const cerrar = document.querySelector("#cerrar");
+
+        abrir.addEventListener("click", () => {
+            navi.classList.add("visible");
+            abrir.classList.remove("visible");
+            abrir.classList.add("invisible");
+        })
+
+        cerrar.addEventListener("click", () => {
+            navi.classList.remove("visible");
+            abrir.classList.add("visible");
+            abrir.classList.remove("invisible");
+        })
+    </script>
 </body>
 
 </html>

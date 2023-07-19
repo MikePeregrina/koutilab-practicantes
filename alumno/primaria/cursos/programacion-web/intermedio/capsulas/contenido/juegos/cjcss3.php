@@ -87,7 +87,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
-		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
+		<!-- <button class="verificar" onClick="alertExcelent()">Siguiente Sección</button> -->
 	</div>
 
 	<script>
@@ -399,7 +399,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../rutas/ruta-pw-i.php';
+					window.location.href = '../../../../../../rutas/ruta-pw-i.php';
 				}
 			});
 			correcto.play(); //agregando sonido al juego completado

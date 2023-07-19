@@ -108,11 +108,17 @@ if (isset($resultadoIntentos['intentos'])) {
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+        function f(){
+
+        }
+        
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
             var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("editor").contentWindow.document;
             let iframe = frame.querySelectorAll("iframe").length;
+
+         
 
             if (iframe > 0) {
 
@@ -194,7 +200,8 @@ if (isset($resultadoIntentos['intentos'])) {
                             }
                         });
                     }
-                } else {
+                }
+            } else {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Incorrecto.play();
                     var myCodeHTML = document.getElementById("cd").value;
@@ -211,7 +218,6 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
-            }
         }
     </script>
     <script src="../../js/fund.js"></script>

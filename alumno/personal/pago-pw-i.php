@@ -24,7 +24,7 @@ if (ProPayPal) {
     define("PayPalENV", "sandbox");
 }
 $currency = "USD";
-$productPrice = 2;
+$productPrice = 10;
 $id_curso = 2;
 $id_capsula = 1;
 ?>

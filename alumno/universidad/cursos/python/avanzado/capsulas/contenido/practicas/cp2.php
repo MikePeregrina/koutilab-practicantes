@@ -76,6 +76,12 @@ if (empty($existe) && $id_user != 1) {
     <script src="../../js/codePy.js"></script>
     <script src="../../js/fund.js"></script>
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
 
             let ta = document.getElementById('editor').innerText
@@ -83,17 +89,20 @@ if (empty($existe) && $id_user != 1) {
             let esCorrecto = ta == '1\n2\n3\n4\ndef contar_letras(frase):\n    frase_sin_espacios = frase.replace(" ", "")\n    numero_de_letras = len(frase_sin_espacios)\n    return numero_de_letras';
 
             if (!esCorrecto) {
-
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                incorrecto.play();
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'incorrecto' + '&permiso=' + 6 + '&id_curso=' + 6 + '&practico=' + 10;
                     }
                 });
             } else {
+                correcto.play();
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',

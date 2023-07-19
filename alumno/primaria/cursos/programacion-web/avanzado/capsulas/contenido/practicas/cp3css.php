@@ -9,23 +9,23 @@ $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula18";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -156,11 +156,37 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+            let divs = frame.querySelectorAll("div").length;
+            console.log("divs: " + divs);
+
+            if (csscode.indexOf('position') !== -1) {
+                console.log("Si aparece position en CSS");
+            } else {
+                console.log("No hay position en CSS");
+            }
+
+            if (csscode.indexOf('before') !== -1) {
+                console.log("Si aparece before en CSS");
+            } else {
+                console.log("No hay before en CSS");
+            }
+
+            if (csscode.indexOf('after') !== -1) {
+                console.log("Si aparece after en CSS");
+            } else {
+                console.log("No hay after en CSS");
+            }
+
+            if (divs > 0 && csscode.indexOf('position') != -1 && csscode.indexOf('before') != -1 && csscode.indexOf('after') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -214,7 +240,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd19.php?validar=' + 'correcto' + '&permiso=' + 19 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd19.php?validar=' + 'correcto' + '&permiso=' + 19 + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {

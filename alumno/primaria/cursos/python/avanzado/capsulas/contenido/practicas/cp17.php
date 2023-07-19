@@ -111,21 +111,29 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
 
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
 
             let ta = document.getElementById('editor').innerText
             let esCorrecto = ta == '1\n2\nlista_anidada = [[1, 2, 3], ["A", "B", "C"], [True, False, True]]\nprint(lista_anidada)';
 
             if (!esCorrecto) {
+                Incorrecto.play();
                 var editorP = ace.edit("editor");
 
                 var myCode = editorP.getSession().getValue();
                 var encodeV = encodeURI(myCode);
 
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'incorrecto' + '&permiso=' + 40 + '&id_curso=' + 6 + '&practico=' + 10 + '&pythoncode=' + encodeV;

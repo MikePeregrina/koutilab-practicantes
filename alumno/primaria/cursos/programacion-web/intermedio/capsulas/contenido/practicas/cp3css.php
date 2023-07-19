@@ -7,21 +7,21 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 
 include "../../../../../../../../acciones/conexion.php";
 
-if (isset($_GET['htmlcode'])) {
-    $htmlcode = $_GET['htmlcode'];
-} else {
-    $htmlcode = "";
-}
-if (isset($_GET['csscode'])) {
-    $csscode = $_GET['csscode'];
-} else {
-    $csscode = "";
-}
-if (isset($_GET['jscode'])) {
-    $jscode = $_GET['jscode'];
-} else {
-    $jscode = "";
-}
+// if (isset($_GET['htmlcode'])) {
+//     $htmlcode = $_GET['htmlcode'];
+// } else {
+//     $htmlcode = "";
+// }
+// if (isset($_GET['csscode'])) {
+//     $csscode = $_GET['csscode'];
+// } else {
+//     $csscode = "";
+// }
+// if (isset($_GET['jscode'])) {
+//     $jscode = $_GET['jscode'];
+// } else {
+//     $jscode = "";
+// }
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
@@ -31,28 +31,28 @@ if (empty($existe)) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+// $permiso_intento = 28;
+// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
+// $result_sql_permisos = mysqli_num_rows($sql_permisos);
+// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
+// //Contar total de intentos
+// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
+// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+// if (isset($resultadoIntentos['intentos'])) {
+//     $totalIntentos = $resultadoIntentos['intentos'];
+//     if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+//         $puntosGanados = 8;
+//     } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 6;
+//     } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 0;
+//     } else {
+//         $puntosGanados = 0;
+//     }
+// } else {
+//     $puntosGanados = 10;
+// }
 
 ?>
 
@@ -118,9 +118,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
-                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
-                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
+                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"> </textarea>
+                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"></textarea>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 
@@ -152,7 +152,7 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados; ?>;
+
 
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
@@ -200,76 +200,24 @@ if (isset($resultadoIntentos['intentos'])) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-                if (puntos == 0) {
-                    //resultado();
-                    Swal.fire({
-                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
-                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+             
+                Swal.fire({
+                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                } else if (puntos == 6) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                } else if (puntos == 8) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                } else if (puntos == 10) {
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                }
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
+                    }
+                });
+
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
@@ -280,7 +228,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("html-code").value + '&csscode=' + document.getElementById("css-code").value + '&jscode=' + document.getElementById("js-code").value;
+                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10 ;
 
                     }
                 });

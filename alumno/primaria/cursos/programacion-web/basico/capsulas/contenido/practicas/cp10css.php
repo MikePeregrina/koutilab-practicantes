@@ -109,6 +109,7 @@ if (isset($resultadoIntentos['intentos'])) {
             // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
             let divs = frame.querySelectorAll("div").length;
+            var puntos = <?php echo $puntosGanados; ?>;
 
             if (divs > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto

@@ -11,6 +11,7 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
+$htmlcode = $_GET['htmlcode'];
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -18,7 +19,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
 //Verificar si la pregunta es correcta
 if ($pregunta != 'correcto') {
-    header('location: ../contenido/practicas/cp9html.php');
+    header('location: ../contenido/practicas/cp9html.php?htmlcode='.$htmlcode.'');
 }
 
 if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {
@@ -38,9 +39,9 @@ if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-py-i.php');
+        header('location: ../../../../../rutas/ruta-pw-b.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $result_sql_permisos > 4) {
-    header('location: ../../../../../rutas/ruta-py-i.php');
+    header('location: ../../../../../rutas/ruta-pw-b.php');
 }

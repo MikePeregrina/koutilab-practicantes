@@ -157,6 +157,8 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
         //checar respuesta
 
+
+        var puntos = <?php echo $puntosGanados; ?>;
         var checkbox1 = document.getElementById('checkbox1');
         var checkbox2 = document.getElementById('checkbox2');
         var checkbox3 = document.getElementById('checkbox3');
@@ -168,6 +170,7 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox4.addEventListener("change", comprueba, true);
 
         function comprueba() {
+
             if (checkbox4.checked) {
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

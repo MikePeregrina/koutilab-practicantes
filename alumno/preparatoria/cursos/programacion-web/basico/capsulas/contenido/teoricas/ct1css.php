@@ -262,6 +262,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
             } else if (checkbox2.checked) {
+                Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -273,6 +274,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox3.checked) {
+                Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -284,6 +286,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox4.checked) {
+                Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',

@@ -30,7 +30,7 @@ if (empty($existe)) {
     </head>
 
     <body onload="alert1()">
-        <a href="#"
+        <a href="#" onclick="history.back(); return false;"
             ><button
                 style="float: left; position: absolute; margin: 70px 0 0 10px"
                 class="btn-b">

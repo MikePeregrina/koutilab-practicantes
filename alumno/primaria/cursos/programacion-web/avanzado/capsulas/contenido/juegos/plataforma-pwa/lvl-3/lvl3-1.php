@@ -29,7 +29,7 @@ if (empty($existe)) {
 </head>
 
 <body onload="alert1()">
-    <a href="#"><button style="float: left; position: absolute; margin: 70px 0 0 10px" class="btn-b">
+    <a href="#" onclick="history.back(); return false;"><button style="float: left; position: absolute; margin: 70px 0 0 10px" class="btn-b">
             <i class="fas fa-reply"></i>
         </button>
     </a>

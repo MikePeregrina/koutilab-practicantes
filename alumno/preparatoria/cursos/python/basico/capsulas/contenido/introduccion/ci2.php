@@ -57,6 +57,14 @@ include "../../../../../../../../acciones/conexion.php";
                         <li style="background-image: url('../../img/P2/In/87.gif');"></li>
                         <li style="background-image: url('../../img/P2/In/88.gif');"></li>
                         <li style="background-image: url('../../img/P2/In/89.gif');"></li>
+                        <li style="background-image: url('../../img/PA.gif');">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
+                                <input type="hidden" name="permiso" value="1">
+                                <input type="hidden" name="id_curso" value="4">
+                                <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
+                            </form>
+
+                        </li>
                     </ul>
                 </section>
         </div>

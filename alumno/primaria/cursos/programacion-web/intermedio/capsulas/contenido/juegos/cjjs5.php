@@ -349,7 +349,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../rutas/ruta-pw-i.php';
+					window.location.href = '../../../../../../rutas/ruta-pw-i.php';
 				}
 			});
 			correcto.play(); //agregando sonido al juego completado

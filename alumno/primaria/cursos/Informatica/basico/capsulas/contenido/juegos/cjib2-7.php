@@ -94,133 +94,75 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
 
     </div>
-
     <script>
-        //ambos
-        //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
-        function marcador() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        alertExcelent();
-                    }
-                });
-            }
-        }
-        //funciona para mostrar el resultado al agotarse el tiempo
-        function marcadorTiempoAgotado() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        tiempoAgotado();
-                    }
-                });
-            }
-        }
+		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
+		// para mantener proporcion
+		var words = ['INFORMATICA', 'SISTEMAS', 'OPERATIVOS', 'LINUX', 'WINDOWS', 'macOS', 'PROGRAMAS', 'FUNCIONES'];
+		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
-        //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
-        function tiempoAgotado() {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 47 + "&id_curso=" + 7; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd47.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-            Swal.fire({
-                title: 'Mala Suerte',
-                text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
-        }
-        //ambos
+		var puzzle = wordfind.newPuzzle(words, {
+			height: 18,
+			width: 18,
+			fillBlanks: false
+		});
+		wordfind.print(puzzle);
 
 		$('#solve').click(function() {
 			wordfindgame.solve(gamePuzzle, words);
 		});
 	</script>
-	<script>
+    <script>
+        //Se esta llamando los sonidos de la carpeta "sonidos"
+	   	//Se esta llamando los sonidos de la carpeta "sonidos"
+	        var correcto = document.createElement("audio");
+		   correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	       var incorrecto = document.createElement("audio");
+		    incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3"; 
 
-		
-			var segundos = 240;
+        var segundos = 240;
 
         let puntos = 0;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            if (segundos <= 60) {
-                var div = document.getElementById("timer");
-                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 30) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+            	/declarando condiciones que permiten cambiar el color de fondo del timer/
+		if (segundos <= 60) {
+			var div = document.getElementById("timer");
+			div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}
+		if (segundos <= 30) {
+			var div = document.getElementById("timer");
+			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}
+		if (segundos <= 10) {
+			var div = document.getElementById("timer");
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}
             if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
 
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 7; //cancatenation
                 Swal.fire({
                     title: 'Oops...',
-                    text: '¡El tiempo se acabo!',
+                    text: '¡Verifica tu respuesta!',
                     imageUrl: "../../img/img_juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        marcadorTiempoAgotado();
-                        // window.location.reload();
+                        window.location.reload();
                     }
                 });
+				incorrecto.play(); //asignando sonido al juego no completado
+                xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
             }
         }
-
-        //Alerta muestra de que el juego fue completado
-        function alertExcelent() {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 47 + "&id_curso=" + 7; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd47.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-            Swal.fire({
-                title: 'Excelente',
-                text: '¡Buen trabajo!',
-                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-in-b.php';
-                }
-            });
-        }
     </script>
+	
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

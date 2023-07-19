@@ -1,3 +1,4 @@
+<!-- PERMISOS PARA EVALUATIVA -->
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno_preparatoria'];
@@ -43,7 +44,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_preparatoria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, puntos, id_alumno, id_curso) VALUES ('5', $puntos, '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, puntos, id_alumno, id_curso) VALUES ('2', $puntos, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
@@ -63,7 +64,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_preparatoria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, puntos, id_alumno, id_curso) VALUES ('5', $puntos - 2, '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, puntos, id_alumno, id_curso) VALUES ('2', $puntos - 2, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
@@ -83,7 +84,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_preparatoria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, puntos, id_alumno, id_curso) VALUES ('5', $puntos - 4, '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, puntos, id_alumno, id_curso) VALUES ('2', $puntos - 4, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
@@ -103,7 +104,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     //Datos permisos
     $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_preparatoria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
-    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, id_alumno, id_curso) VALUES ('5', '$id_user', $id_curso)";
+    $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, id_alumno, id_curso) VALUES ('2', '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");

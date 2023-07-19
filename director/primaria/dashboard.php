@@ -198,20 +198,22 @@ function actualizarGrafica()
         <h2 class="subtitulos">Usuario</h2>
       </div>
       <br>
-
-
+      <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
       <div class="perfil-usuario-avatar">
         <div class="avatar-img">
           <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
         </div>
 
         <div class="camera-icon">
-          <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-            <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
-          </form>
-        </div>
+              <input type="hidden" name="id" value="<?php echo $id; ?>">
+              <input type="hidden" name="name" value="<?php echo $name; ?>">
+              <div class="white"></div>
+              <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
+              <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
+            </div>
+        
+      </form>
       </div>
-
       <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
 
       <div class="container-info">

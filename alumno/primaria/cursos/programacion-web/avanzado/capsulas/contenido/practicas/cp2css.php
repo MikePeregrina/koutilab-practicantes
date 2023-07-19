@@ -140,14 +140,58 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
 
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+            let divs = frame.querySelectorAll("div").length;
+            console.log("divs: " + divs);
+
+            if (csscode.indexOf('width') !== -1) {
+                console.log("Si aparece width en CSS");
+            } else {
+                console.log("No hay width en CSS");
+            }
+
+            if (csscode.indexOf('height') !== -1) {
+                console.log("Si aparece height en CSS");
+            } else {
+                console.log("No hay height en CSS");
+            }
+
+            if (csscode.indexOf('background-color') !== -1) {
+                console.log("Si aparece background-color en CSS");
+            } else {
+                console.log("No hay background-color en CSS");
+            }
+
+            if (csscode.indexOf('border') !== -1) {
+                console.log("Si aparece border en CSS");
+            } else {
+                console.log("No hay border en CSS");
+            }
+
+            if (csscode.indexOf('padding') !== -1) {
+                console.log("Si aparece padding en CSS");
+            } else {
+                console.log("No hay padding en CSS");
+            }
+
+            if (csscode.indexOf('text-transform') !== -1) {
+                console.log("Si aparece text-transform en CSS");
+            } else {
+                console.log("No hay text-transform en CSS");
+            }
+
+            if (divs > 0 && csscode.indexOf('width') != -1 && csscode.indexOf('height') != -1 && csscode.indexOf('background-color') != -1 && csscode.indexOf('border') != -1 && csscode.indexOf('padding') != -1 && csscode.indexOf('text-transform') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //resultado();
@@ -164,7 +208,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -181,7 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -198,7 +242,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {
@@ -215,28 +260,32 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 }
-            }
-            // fallo, quitar vidas
-            fail();
-        }
+            } else {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
 
-        function fail() {
-            //se llama a "sonido" y reproducimos el sonido de que esta correcto
-            Incorrecto.play();
-            Swal.fire({
-                title: 'Oops...',
-                text: '¡Verifica tu respuesta!',
-                imageUrl: "../../../../../../img/signo.gif",
-                imageHeight: 350,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 3 + '&practico=' + 10;
-                }
-            });
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'incorrecto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
+                    }
+                });
+            }
         }
     </script>
     <script>

@@ -9,23 +9,23 @@ $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula2";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -157,32 +157,32 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode != 'validar') {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                Incorrecto.play();
-                var myCodeHTML = document.getElementById("html-code").value;
-                var encodeHTML = encodeURI(myCodeHTML);
-                var myCodeCSS = document.getElementById("css-code").value;
-                var encodeCSS = encodeURI(myCodeCSS);
-                var myCodeJS = document.getElementById("js-code").value;
-                var encodeJS = encodeURI(myCodeJS);
+            //Validando etiquetas utilizadas
+            let inputext = frame.querySelectorAll('input[type="text"]').length;
+            console.log("inputext: " + inputext);
 
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'incorrecto' + '&permiso=' + 3 + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+            let inputemail = frame.querySelectorAll('input[type="email"]').length;
+            console.log("inputemail: " + inputemail);
 
-                    }
-                });
-            } else {
+            let textarea = frame.querySelectorAll('textarea').length;
+            console.log("textarea: " + textarea);
+
+            let checkbox = frame.querySelectorAll('input[type="checkbox"]').length;
+            console.log("checkbox: " + checkbox);
+
+            let inputboton = frame.querySelectorAll('input[type="button"]').length;
+            console.log("inputboton: " + inputboton);
+
+
+            if (inputext > 0 && inputemail > 0 && textarea > 0 && checkbox > 0 && inputboton > 0) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -258,6 +258,27 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
+            } else {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
+
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pd3.php?validar=' + 'incorrecto' + '&permiso=' + 3 + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
+                    }
+                });
             }
         }
     </script>

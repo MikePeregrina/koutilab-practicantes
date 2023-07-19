@@ -48,6 +48,9 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                     <li>
                         <a itlist="itList_6" href="#"></a>
                     </li>
+                    <li>
+                        <a itlist="itList_7" href="#"></a>
+                    </li>
                 </ul>
                 <ul id="slider">
                         <li style="background-image: url('../../img/html/In/7.gif'); z-index:0; opacity: 1;"></li>
@@ -56,7 +59,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                         <li style="background-image: url('../../img/html/In/10.gif');"></li>
                         <li style="background-image: url('../../img/html/In/11.gif');"></li>
                         <li style="background-image: url('../../img/html/In/12.gif');"></li>
+                        <li style="background-image: url('../../img/PA.gif');">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
+                                <input type="hidden" name="permiso" value="1">
+                                <!-- Cambiar al id del curso al que corresponda -->
+                                <input type="hidden" name="id_curso" value="1">
+                                <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
+                            </form>
 
+                        </li>
                 </ul>
             </section>
         </div>

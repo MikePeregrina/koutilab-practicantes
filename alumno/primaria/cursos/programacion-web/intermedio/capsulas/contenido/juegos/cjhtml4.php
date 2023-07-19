@@ -73,7 +73,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="contenido">
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
+        <a href="../../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
                 id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
@@ -258,7 +258,7 @@ let puntos = 0;
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../rutas/ruta-pw-i.php';
+                    window.location.href = '../../../../../../rutas/ruta-pw-i.php';
                 }
             });
             correcto.play(); //agregando sonido al juego completado

@@ -189,7 +189,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -211,7 +211,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -232,7 +232,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -253,7 +253,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 }
@@ -268,7 +268,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct9informatica.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -281,7 +281,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct9informatica.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -294,7 +294,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct9informatica.php';
                     }
                 });
             }

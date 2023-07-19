@@ -2,7 +2,7 @@ body{
     color: #404040;
     font-family: Tahoma;
     /*background-image: url(../img/bg1.png);/*Se cambio el fondo que tenia el juego*/
-    background-image: url(../../img/img_juegos/fondo.png);    
+    background-image: url(../../img/img-juegos/bg.png);    
     background-repeat: no-repeat;/*Se dio la opcion de que no se repita el nuevo fondo en la pantalla del juego*/
     background-size: cover;/*el fondo del juego se ajustará a la pantalla total*/
     -webkit-user-select: none;
@@ -58,6 +58,7 @@ body::-webkit-scrollbar-track {
     font-size: 1.3rem; /*Se cambio el tamaño de la letra*/
 }
 
+
 .timer {
     text-align: center;
     padding: 0.9%;
@@ -67,35 +68,55 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(129,179,243,0.7); /*Se cambio el fondo del timer*/
-    box-shadow: 0 0 12px rgba(129,179,243);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
     border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
-    font-size: 170%;
+    font-size: 140%;
 }
 
+#timer {
+    background: rgba(129, 179, 243, 0.7);
+  }
+
 @keyframes animation1 {
-    0% {margin: 40px 0 0 1100px;}
-    20% {margin: 40px 0 0 1110px;}
-    40% {margin: 40px 0 0 1100px;} 
-    60% {margin: 40px 0 0 1110px;}
-    80% {margin: 40px 0 0 1100px;} 
-    100% {margin: 40px 0 0 1110px;}
+    0% {margin: 20px 0 0 1100px;}
+    20% {margin: 20px 0 0 1110px;}
+    40% {margin: 20px 0 0 1100px;} 
+    60% {margin: 20px 0 0 1110px;}
+    80% {margin: 20px 0 0 1100px;} 
+    100% {margin: 20px 0 0 1110px;}
+  }
+
+  @keyframes animation2 {
+    0% {margin: 20px 0 0 1120px;}
+    10% {margin: 20px 0 0 1130px;}
+    20% {margin: 20px 0 0 1120px;} 
+    30% {margin: 20px 0 0 1130px;}
+    40% {margin: 20px 0 0 1120px;} 
+    50% {margin: 20px 0 0 1130px;}
+    60% {margin: 20px 0 0 1120px;} 
+    70% {margin: 20px 0 0 1130px;} 
+    80% {margin: 20px 0 0 1120px;} 
+    90% {margin: 20px 0 0 1130px;} 
+    100% {margin: 20px 0 0 1120px;}
   }
   
-  @keyframes animation2 {
-    0% {margin: 40px 0 0 1120px;}
-    10% {margin: 40px 0 0 1130px;}
-    20% {margin: 40px 0 0 1120px;} 
-    30% {margin: 40px 0 0 1130px;}
-    40% {margin: 40px 0 0 1120px;} 
-    50% {margin: 40px 0 0 1130px;}
-    60% {margin: 40px 0 0 1120px;} 
-    70% {margin: 40px 0 0 1130px;} 
-    80% {margin: 40px 0 0 1120px;} 
-    90% {margin: 40px 0 0 1130px;} 
-    100% {margin: 40px 0 0 1120px;}
+  @keyframes animation3 {
+    0% {margin: 20px 0 0 1120px;}
+    10% {margin: 20px 0 0 1130px;}
+    20% {margin: 20px 0 0 1120px;} 
+    30% {margin: 20px 0 0 1130px;}
+    40% {margin: 20px 0 0 1120px;} 
+    50% {margin: 20px 0 0 1130px;}
+    60% {margin: 20px 0 0 1120px;} 
+    70% {margin: 20px 0 0 1130px;} 
+    80% {margin: 20px 0 0 1120px;} 
+    90% {margin: 20px 0 0 1130px;} 
+    100% {margin: 20px 0 0 1120px;}
   }
 
 .contenido {

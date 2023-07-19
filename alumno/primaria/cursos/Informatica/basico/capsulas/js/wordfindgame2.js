@@ -5,7 +5,10 @@
  * For all details and documentation:
  *     http://github.com/bunkat/wordfind
  */
-
+var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+	var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 (function (document, $, wordfind) {
     "use strict";
 
@@ -256,9 +259,10 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href =
-                                "../../../../../../rutas/ruta-pw-b.php";
+                            '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
+                    correcto.play();
                 }
             }
 

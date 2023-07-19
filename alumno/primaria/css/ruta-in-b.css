@@ -175,9 +175,7 @@ section {
 }
 
 .container-premium1{
-  border: 2px solid rgb(203, 203, 203);
   margin-left: 58%;
-  border-radius: 45px 0 0px 45px;
   width: 42%;
   height: 120px;
   display: flex;
@@ -188,10 +186,7 @@ section {
 }
 
 .container-premium2{
- 
-  border: 2px solid rgb(203, 203, 203);
   margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
   display: flex;
@@ -202,9 +197,7 @@ section {
 }
 
 .container-premium3{
-  border: 2px solid rgb(203, 203, 203);
   margin-left: 56%;
-  border-radius: 45px 0 0px 45px;
   width: 480px;
   height: 120px;
   display: flex;
@@ -216,9 +209,7 @@ section {
 }
 
 .container-premium4{
-  border: 2px solid rgb(203, 203, 203);
   margin-left: -1%;
-  border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
   display: flex;

@@ -14,7 +14,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css">
+    <link rel="stylesheet" href="../../css/capsula-teoriaa.css">
     <link rel="stylesheet" href="../../css/carrusel.css" />
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

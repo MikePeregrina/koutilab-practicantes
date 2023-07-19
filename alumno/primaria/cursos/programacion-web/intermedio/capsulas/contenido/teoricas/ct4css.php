@@ -142,6 +142,12 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script>
         //checar respuesta
+         //se esta llamando los sonidos de la carpeta "sonidos"
+         var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 
         var puntos = <?php echo $puntosGanados; ?>;
         var checkbox1 = document.getElementById('checkbox1');
@@ -159,6 +165,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //resultado();
+                    Correcto.play();
                     Swal.fire({
                         title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
                         text: '¡Más de 3 intentos, no es posible sumar puntos!',
@@ -178,6 +185,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else if (puntos == 6) {
+                    Correcto.play();
                     Swal.fire({
                         title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
@@ -197,6 +205,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else if (puntos == 8) {
+                    Correcto.play();
                     Swal.fire({
                         title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
@@ -216,6 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else if (puntos == 10) {
+                    Correcto.play();
                     Swal.fire({
                         title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
@@ -236,6 +246,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 }
             } else if (checkbox2.checked) {
+Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -247,6 +258,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox3.checked) {
+Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -258,6 +270,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox4.checked) {
+                Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',

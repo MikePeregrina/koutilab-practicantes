@@ -6,34 +6,6 @@
     --gris: #757575;
     --border:rgba(0,201,255,2556);
 }
-
-body::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-
-body::-webkit-scrollbar:vertical {
-  width: 10px;
-}
-
-body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button {
-  display: none;
-}
-
-body::-webkit-scrollbar:horizontal {
-  height: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: rgba(129, 179, 243);
-  border-radius: 20px;
-  border: 2px solid #f1f2f3;
-}
-
-body::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
 *{
     margin: 0;
     padding: 0;

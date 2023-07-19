@@ -50,6 +50,23 @@ body {
   font-family: sans-serif;
   height: 840px;
 }
+
+.titulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  color: black;
+}
+
+.subtitulos {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+  color: black;
+}
+
 h1 {
   margin: auto;
   text-align: center;
@@ -69,22 +86,6 @@ h2 {
   margin-top: 1%;
   margin-left: 7%;
   font-size: 23px;
-}
-
-.titulos {
-  margin: 0 auto 0 auto;
-  text-align: center;
-  font-weight: bolder;
-  font-size: 40px;
-  color: black;
-}
-
-.subtitulos {
-  margin: 0 auto 0 auto;
-  text-align: center;
-  font-weight: bolder;
-  font-size: 35px;
-  color: black;
 }
 
 .containers {
@@ -237,6 +238,12 @@ section {
   margin-left: 5px;
   font-weight: 100;
   font-size: 19px;
+}
+
+.camera-icon input[type="file"] {
+  position: absolute;
+  transform: scale(2);
+  opacity: 0;
 }
 
 @media (max-width: 1120px) {
@@ -436,6 +443,7 @@ form .user-details1 .input-box1 {
   cursor: pointer;
   display: block;
   margin: auto;
+  background: linear-gradient(to right, #63e4cf, #8cfd36);
   border: 0px;
   outline: none;
   border-radius: 30px;
@@ -449,3 +457,4 @@ form .user-details1 .input-box1 {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
   
 }
+

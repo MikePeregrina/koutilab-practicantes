@@ -25,12 +25,12 @@ if (isset($_POST['submitFecha'])) {
     $fechaInicio = $_POST['fechaInicio'];
     $fechaFin = $_POST['fechaFin'];
 
-    $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from docentes_preparatoria as pp INNER JOIN directores_preparatoria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND fecha_registro BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+    $consulta = "SELECT SUM(pp.conexiones) as total, DATE_FORMAT(pp.fecha_registro,'%M %Y') as mes from docentes_preparatoria as pp INNER JOIN directores_preparatoria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND pp.fecha_registro BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
   }
 } else {
 
   // Consulta para obtener los datos de ganancias
-  $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from docentes_preparatoria as pp INNER JOIN directores_preparatoria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
+  $consulta = "SELECT SUM(pp.conexiones) as total, DATE_FORMAT(pp.fecha_registro,'%M %Y') as mes from docentes_preparatoria as pp INNER JOIN directores_preparatoria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
 }
 
 

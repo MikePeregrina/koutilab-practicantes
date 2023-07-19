@@ -79,7 +79,7 @@ if (empty($existe) && $id_user != 1) {
 
             let ta = document.getElementById('editor').innerText
 
-
+            
             if (!esCorrecto) {
 
                 Swal.fire({

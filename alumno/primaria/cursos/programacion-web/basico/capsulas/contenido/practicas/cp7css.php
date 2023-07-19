@@ -111,11 +111,14 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            console.log("ddd");
             // checar que haya por lo menos 1 bold, italics y mark
             var puntos = <?php echo $puntosGanados; ?>;
-            var p = document.getElementById("p").contentWindow.document;
+            var p = document.getElementById("editor").contentWindow.document;
+            var parrafos = p.getElementsByTagName('p');
 
-            if (p > 0) {
+           
+            if (parrafos.length > 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

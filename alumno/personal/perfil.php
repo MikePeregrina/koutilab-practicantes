@@ -98,7 +98,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         //Función que realiza la busqueda mediante campo de texto, búsqueda por proximidad
         $(document).ready(function() {
             (function($) {
-                $('#FiltrarContenido').keyup(function() { //input que contiene la búsqueda deseada
+                $('#FiltrarContenido').keydown(function() { //input que contiene la búsqueda deseada
                     var ValorBusqueda = new RegExp($(this).val(), 'i');
                     $('.photo-slider-img').hide();
                     $('.photo-slider-img').removeClass('carrusel-cursos');
@@ -503,7 +503,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 START(); // Iniciar el slider automáticamente al cargar la página
 
                 function START() {
-                    tt = setInterval(NEXT, 4500); // Establecer un intervalo de tiempo para avanzar al siguiente slide 
+                    tt = setInterval(NEXT, 1500); // Establecer un intervalo de tiempo para avanzar al siguiente slide 
                 }
 
                 function NEXT() {

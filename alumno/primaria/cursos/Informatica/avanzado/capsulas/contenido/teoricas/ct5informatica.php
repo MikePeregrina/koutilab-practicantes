@@ -267,6 +267,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct5informatica.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -280,6 +281,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct5informatica.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -293,6 +295,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct5informatica.php';
                     }
                 });
             }

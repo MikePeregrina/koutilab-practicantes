@@ -45,7 +45,7 @@ $username = $user["usuario"];
     <li class="li-ultimo" <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
       <a href="../acciones/cerrarsesion.php" class="logout">
         <i class="fas fa-sign-out-alt"></i>
-        <span class="nav-item2">Salir</span>
+        <span class="nav-item2" style="margin-left: 2.5%; margin-top:2%;">Salir</span>
       </a>
     </li>
   </ul>

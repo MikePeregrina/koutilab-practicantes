@@ -117,7 +117,7 @@ if (isset($resultadoIntentos['intentos'])) {
         function miFunc() {
 
             let ta = document.getElementById('editor').innerText
-            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\nimport re\ncontrasena = input("Digite una contraseña")\nexpresion_regular = r"^.{8}$"\nif re.match(expresion_regular, contrasena):\n    print("La contraseña es valida")\nelse:\n    print("La contraseña es invalida")';
+            let esCorrecto = ta == '1';
 
 
             if (!esCorrecto) {
@@ -136,8 +136,10 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else {
+                
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+              
                 let puntos = '<?php echo $puntosGanados; ?>';
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

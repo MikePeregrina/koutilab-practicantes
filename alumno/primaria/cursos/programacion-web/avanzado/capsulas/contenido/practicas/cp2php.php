@@ -136,11 +136,44 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+
+            let p = frame.querySelectorAll('p').length;
+            console.log("p: " + p);
+
+            if (jscode.indexOf('echo') !== -1) {
+                console.log("Si aparece echo en PHP");
+            } else {
+                console.log("No hay echo en PHP");
+            }
+
+            if (jscode.indexOf('array') !== -1) {
+                console.log("Si aparece array en PHP");
+            } else {
+                console.log("No hay array en PHP");
+            }
+
+            if (jscode.indexOf('[') !== -1) {
+                console.log("Si aparece [ en PHP");
+            } else {
+                console.log("No hay [ en PHP");
+            }
+
+            if (jscode.indexOf(']') !== -1) {
+                console.log("Si aparece ] en PHP");
+            } else {
+                console.log("No hay ] en PHP");
+            }
+
+            if (p > 0 && jscode.indexOf('echo') != -1 && jscode.indexOf('array') != -1 && jscode.indexOf('[') != -1 && jscode.indexOf(']') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -160,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -177,7 +210,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -194,7 +227,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {
@@ -211,13 +245,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 }
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
 
                 Swal.fire({
                     title: 'Oops...',
@@ -226,7 +266,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'incorrecto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
                     }
                 });
             }

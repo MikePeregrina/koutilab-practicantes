@@ -9,23 +9,23 @@ $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula24";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -160,11 +160,40 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+            let inputext = frame.querySelectorAll('input[type="text"]').length;
+            console.log("inputext: " + inputext);
+
+            let inputemail = frame.querySelectorAll('input[type="email"]').length;
+            console.log("inputemail: " + inputemail);
+
+            let textarea = frame.querySelectorAll('textarea').length;
+            console.log("textarea: " + textarea);
+
+            let inputboton = frame.querySelectorAll('input[type="button"]').length;
+            console.log("inputboton: " + inputboton);
+
+            if (csscode.indexOf('background-color') !== -1) {
+                console.log("Si aparece background-color en CSS");
+            } else {
+                console.log("No hay background-color en CSS");
+            }
+
+            if (csscode.indexOf('background-color') !== -1) {
+                console.log("Si aparece color en CSS");
+            } else {
+                console.log("No hay color en CSS");
+            }
+
+            if (inputext > 0 && inputemail > 0 && textarea > 0 && inputboton > 0 && csscode.indexOf('background-color') != -1 && csscode.indexOf('color') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -172,7 +201,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 if (puntos == 0) {
                     //resultado();
                     Swal.fire({
-                        title: 'Bien hecho, al fin lo lograste. ¡Debes mejorar!',
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
                         text: '¡Más de 3 intentos, no es posible sumar puntos!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -218,7 +247,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'correcto' + '&permiso=' + 25 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd25.php?validar=' + 'correcto' + '&permiso=' + 25 + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {

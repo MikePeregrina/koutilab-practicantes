@@ -91,13 +91,18 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
-
 	</div>
 
 	<script>
 		let cantidadTarjetas = 24;
 		let iconos = []
 		let selecciones = []
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
@@ -240,6 +245,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
 			if (segundos == 0) {
+				incorrecto.play(); //agregando sonido al juego no completado
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 3; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
@@ -254,7 +260,6 @@ if (isset($resultadoIntentos['intentos'])) {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
-					incorrecto.play(); //agregando sonido al juego no completado
 				});
 			} else {
 				segundos--;

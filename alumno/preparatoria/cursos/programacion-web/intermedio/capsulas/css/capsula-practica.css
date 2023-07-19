@@ -6,12 +6,12 @@
 body {
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../../../../img/bg1.png);
+    background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; 
-}
+    user-select: none;
+  }
 
 body::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -39,15 +39,14 @@ body::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
 .container{
-    max-width: 90%;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 5px;
-    background: rgba(255,255,255,.8);
-    margin-left: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 0 12px rgba(61,172,244, .6);
+  max-width: 88%;
+  width: 100%;
+  padding: 2.5vw 3.5vw; /* Utilizamos unidades vw para hacer el padding responsive */
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 2.5vh 2.5vw; /* Utilizamos unidades vh y vw para hacer los márgenes responsive */
+  border: 2px solid rgba(129, 179, 243, 0.5);
+  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
 }
 
 .board{

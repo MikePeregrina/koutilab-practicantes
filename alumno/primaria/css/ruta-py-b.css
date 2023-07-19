@@ -439,6 +439,7 @@ section {
     transform: translateY(0);
   }
 }
+
 .btn1 {
   top: 1%;
   margin-left: 0%;
@@ -518,15 +519,15 @@ section {
 }
 .btn20 {
   top: 40.2%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn21 {
   top: 42.2%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn22 {
   top: 44.4%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn23 {
   top: 46.4%;
@@ -599,27 +600,27 @@ section {
 }
 .btn40 {
   top: 81.6%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn41 {
   top: 83.6%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn42 {
   top: 85.6%;
-  margin-left: 50%;
+  margin-left: 0%;
 }
 .btn43 {
   top: 87.8%;
-  margin-left: 50%;
+  margin-left: 0%;
 }
 .btn44 {
   top: 89.8%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn45 {
   top: 91.8%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 
 .btn46 {

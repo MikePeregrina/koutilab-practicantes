@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T7/158.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd42.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd42.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es la sintaxis básica del ciclo "for" en Python?</h1>
                                     <div>
@@ -115,7 +115,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">for i = 0, i < 10, i++:</label>
-                                    </div>
+                                    </div>s
                                     <input type="hidden" name="permiso" value="42">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="4">

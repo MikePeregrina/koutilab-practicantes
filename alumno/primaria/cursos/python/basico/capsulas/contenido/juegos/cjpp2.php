@@ -200,19 +200,22 @@ if (empty($existe)) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 1; //cancatenation
+                incorrecto.play(); //agregando sonido al juego no completado
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 4; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+			    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			    xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+                    imageUrl: "../../img/img-juegos/Thumbs-Ops.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.reload();
                     }
                 });
-                incorrecto.play(); //agregando sonido al juego no completado
+                
                 xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -252,8 +255,10 @@ if (empty($existe)) {
         function verificar() {
             if (arreglo[0] != "" && arreglo[1] != "" && arreglo[2] != "" && arreglo[3] != "" && arreglo[4] != "" && arreglo[5] != "" && arreglo[6] != "" && arreglo[7] != "" && arreglo[8] != "" && arreglo[9] != "") {
                 if (arreglo[0] == "var" && arreglo[1] == "pal" && arreglo[2] == "var" && arreglo[3] == "pal" && arreglo[4] == "var" && arreglo[5] == "pal" && arreglo[6] == "var" && arreglo[7] == "pal" && arreglo[8] == "var" && arreglo[9] == "pal") {
-                        Swal.fire({
-                            title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
+                    correcto.play(); //agregando sonido al juego completado
+                    
+                    Swal.fire({
+                            title: '¡Bien hecho! ' + 'Obtuviste ' + 10 + ' trofeos',
                             text: '¡Puntuación guardada con éxito!',
                             imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                             imageHeight: 350,

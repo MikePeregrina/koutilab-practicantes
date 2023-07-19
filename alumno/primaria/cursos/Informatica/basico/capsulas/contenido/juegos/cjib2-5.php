@@ -246,6 +246,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play();
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

@@ -439,6 +439,7 @@ section {
     transform: translateY(0);
   }
 }
+
 .btn1 {
   top: 1%;
   margin-left: 0%;
@@ -518,15 +519,15 @@ section {
 }
 .btn20 {
   top: 40.2%;
-  margin-left: 41%;
+  margin-left: -9%;
 }
 .btn21 {
   top: 42.2%;
-  margin-left: 32%;
+  margin-left: -18%;
 }
 .btn22 {
   top: 44.4%;
-  margin-left: 32%;
+  margin-left: -9%;
 }
 .btn23 {
   top: 46.4%;

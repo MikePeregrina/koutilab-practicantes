@@ -66,9 +66,9 @@ function checkAnswer(respuesta) {
             // Color de línea 
             contexto.strokeStyle = "#84c42c";
             // Comenzamos en 0, 0
-            contexto.moveTo(15, 20);
+            contexto.moveTo(0, 30);
             // Hacemos una línea hasta 48, 48
-            contexto.lineTo(520, 220);
+            contexto.lineTo(535, 215);
             contexto.stroke(); // "Guardar" cambios
             //sumamos al contador
             respuestasCorrectas++;
@@ -77,8 +77,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(15, 100);
-            contexto.lineTo(520, 155);
+            contexto.moveTo(0, 115);
+            contexto.lineTo(535, 148);
             contexto.stroke();
             respuestasCorrectas++;
         }
@@ -89,8 +89,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(15, 170);
-            contexto.lineTo(520, 15);
+            contexto.moveTo(0, 200);
+            contexto.lineTo(533, 20);
             contexto.stroke();
             respuestasCorrectas++;
         } else if (
@@ -100,7 +100,7 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(2, 295);
+            contexto.moveTo(0, 300);
             contexto.lineTo(520,75);
             contexto.stroke();
             respuestasCorrectas++;
@@ -113,8 +113,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(15, 240);
-            contexto.lineTo(520,275);
+            contexto.moveTo(0, 280);
+            contexto.lineTo(533,280);
             contexto.stroke();
             respuestasCorrectas++;
         } else {

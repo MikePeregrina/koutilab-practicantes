@@ -109,6 +109,7 @@ if (isset($resultadoIntentos['intentos'])) {
             var frame = document.getElementById("editor").contentWindow.document;
             let ul = frame.querySelectorAll("ul").length;
             let a = frame.querySelectorAll("a").length;
+            var puntos = <?php echo $puntosGanados; ?>;
 
             if (ul > 0 && a > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto

@@ -240,6 +240,12 @@ section {
   font-size: 19px;
 }
 
+.camera-icon input[type="file"] {
+  position: absolute;
+  transform: scale(2);
+  opacity: 0;
+}
+
 @media (max-width: 1120px) {
   h1 {
     margin: auto;

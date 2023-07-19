@@ -9,23 +9,23 @@ $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula21";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -156,11 +156,49 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+            let table = frame.querySelectorAll("table ").length;
+            console.log("table : " + table);
+
+            let thead = frame.querySelectorAll("thead").length;
+            console.log("thead: " + thead);
+
+            let tr = frame.querySelectorAll("tr").length;
+            console.log("tr: " + tr);
+
+            let th = frame.querySelectorAll("th").length;
+            console.log("th: " + th);
+
+            let tbody = frame.querySelectorAll("tbody").length;
+            console.log("tbody: " + tbody);
+
+            if (csscode.indexOf('background-color') !== -1) {
+                console.log("Si aparece background-color en CSS");
+            } else {
+                console.log("No hay background-color en CSS");
+            }
+
+            if (csscode.indexOf('color') !== -1) {
+                console.log("Si aparece color en CSS");
+            } else {
+                console.log("No hay color en CSS");
+            }
+
+            if (csscode.indexOf('border') !== -1) {
+                console.log("Si aparece border en CSS");
+            } else {
+                console.log("No hay border en CSS");
+            }
+
+            if (table > 0 && thead > 0 && tr > 0 && th > 0 && tbody > 0 && csscode.indexOf('background-color') != -1 && csscode.indexOf('color') != -1 && csscode.indexOf('border') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -214,7 +252,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {

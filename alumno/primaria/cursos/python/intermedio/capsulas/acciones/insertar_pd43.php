@@ -14,7 +14,7 @@ $puntos = $_GET['practico'];
 $pythoncode = $_GET['pythoncode'];
 $pythoncodeDecodificado = urldecode($pythoncode );
 $mensajeConSaltosDeLinea = str_replace(array("\r", "\n"),array('\r', '\n'), $pythoncodeDecodificado);
-$urlRedireccionamiento = "../contenido/practicas/cp19.php?pythoncode=" . $mensajeConSaltosDeLinea;
+$urlRedireccionamiento = "../contenido/practicas/cp16.php?pythoncode=" . $mensajeConSaltosDeLinea;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_primaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");

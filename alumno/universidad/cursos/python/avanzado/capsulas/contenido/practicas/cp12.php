@@ -75,22 +75,30 @@ if (empty($existe) && $id_user != 1) {
     <script src="../../js/codePy.js"></script>
     <script src="../../js/fund.js"></script>
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
 
             let ta = document.getElementById('editor').innerText
-
+            let esCorrecto = ta == '1\n2\nvariable1, variable2, variable3 = 10, "Hola", True\nprint("El valor 1: {variable1}, El valor 2: {variable2}, El valor 3: {variable3}")';
             if (!esCorrecto) {
-
+                incorrecto.play();
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 6 + '&practico=' + 10;
                     }
                 });
             } else {
+                correcto.play();
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',

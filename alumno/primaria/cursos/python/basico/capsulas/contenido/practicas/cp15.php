@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\ndef suma(a, b):\n    resultado = a + b\n    return resultado';
+            let esCorrecto = ta == '1';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
@@ -120,7 +120,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'incorrecto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_cp15.php?validar=' + 'incorrecto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
                     }
                 });
             } else {
@@ -144,7 +144,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp15.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -161,7 +161,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp15.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -178,7 +178,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp15.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -195,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp15.php?validar=' + 'correcto' + '&permiso=' + 40 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 }

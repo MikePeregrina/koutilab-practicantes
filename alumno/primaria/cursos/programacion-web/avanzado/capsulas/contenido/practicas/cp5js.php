@@ -138,11 +138,47 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+
+            let button = frame.querySelectorAll('button').length;
+            console.log("button: " + button);
+
+            let script = frame.querySelectorAll('script').length;
+            console.log("script: " + script);
+
+            if (jscode.indexOf('function') !== -1) {
+                console.log("Si aparece function en JS");
+            } else {
+                console.log("No hay function en JS");
+            }
+
+            if (jscode.indexOf('getElementById') !== -1) {
+                console.log("Si aparece getElementById en JS");
+            } else {
+                console.log("No hay getElementById en JS");
+            }
+
+            if (jscode.indexOf('backgroundColor') !== -1) {
+                console.log("Si aparece backgroundColor en JS");
+            } else {
+                console.log("No hay backgroundColor en JS");
+            }
+
+            if (jscode.indexOf('addEventListener') !== -1) {
+                console.log("Si aparece addEventListener en JS");
+            } else {
+                console.log("No hay addEventListener en JS");
+            }
+
+            if (button > 0 && script > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('getElementById') != -1 && jscode.indexOf('backgroundColor') != -1 && jscode.indexOf('addEventListener') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -150,7 +186,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 if (puntos == 0) {
                     //resultado();
                     Swal.fire({
-                        title: 'Bien hecho, al fin lo lograste. ¡Debes mejorar!',
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
                         text: '¡Más de 3 intentos, no es posible sumar puntos!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -162,7 +198,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd59.php?validar=' + 'correcto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -179,7 +215,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd59.php?validar=' + 'correcto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -196,7 +232,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd59.php?validar=' + 'correcto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {
@@ -213,13 +250,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd59.php?validar=' + 'correcto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 }
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
 
                 Swal.fire({
                     title: 'Oops...',
@@ -228,7 +271,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd59.php?validar=' + 'incorrecto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'incorrecto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
                     }
                 });
             }

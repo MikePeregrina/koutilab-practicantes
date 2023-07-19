@@ -111,6 +111,12 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
 
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
 
             let ta = document.getElementById('editor').innerText
@@ -118,15 +124,17 @@ if (isset($resultadoIntentos['intentos'])) {
             let esCorrecto = ta == '1\n2\n3\n4\n5\ndef mayor(numero1, numero2):\n    if numero1 > numero2:\n        return numero1\n    else:\n        return numero2';
 
             if (!esCorrecto) {
+                Incorrecto.play();
                 var editorP = ace.edit("editor");
 
                 var myCode = editorP.getSession().getValue();
                 var encodeV = encodeURI(myCode);
 
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'incorrecto' + '&permiso=' + 9 + '&id_curso=' + 6 + '&practico=' + 10 + '&pythoncode=' + encodeV;

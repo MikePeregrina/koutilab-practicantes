@@ -101,20 +101,27 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="../../js/codePy.js"></script>
     <script src="../../js/fund.js"></script>
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
 
             let ta = document.getElementById('editor').innerText
             let esCorrecto = ta == '1\n2\n3\n4\n5\ntexto = input("Ingresa una cadena de texto: ")\nif "hola" in texto.lower():\n    print("La cadena de texto contiene la palabra hola.")\nelse:\n    print("La cadena de texto no contiene la palabra hola.")';
 
             if (!esCorrecto) {
-
+                Incorrecto.play();
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
                     }
                 });
             } else {
@@ -137,7 +144,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -154,7 +161,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -171,7 +178,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -188,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 3 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 }

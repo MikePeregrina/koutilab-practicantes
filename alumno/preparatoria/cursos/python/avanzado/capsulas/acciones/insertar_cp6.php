@@ -18,7 +18,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
 //Verificar si la pregunta es correcta
 if ($pregunta != 'correcto') {
-    header('location: ../contenido/juegos/cp2.php');
+    header('location: ../contenido/juegos/cj10.php');
 }
 
 if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {
@@ -38,9 +38,9 @@ if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-py-a.php');
+        header('location: ../../../../../rutas/ruta-pw-b.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $result_sql_permisos > 4) {
-    header('location: ../../../../../rutas/ruta-py-a.php');
+    header('location: ../../../../../rutas/ruta-pw-b.php');
 }

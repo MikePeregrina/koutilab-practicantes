@@ -1,4 +1,5 @@
-.navbar-header {
+
+nav {
   position: fixed;
   top: 0;
   height: 100%;
@@ -8,25 +9,22 @@
   background: #fff;
   transition: width 0.2s linear;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-  z-index: 2;
-}
+}   
 
-.navbar-header .logo {
+.logo{
   display: flex;
   text-align: center;
   transition: all 0.5s ease;
-  margin: 10px 0 10px 2px;
-  height: 60px;
+  margin: 10px 0 0 10px;
 }
 
-.navbar-header .logo img {
-  width: 65px;
-  height: 65px;
+.logo img{
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-top: -3%;
 }
 
-.navbar-header .logo span {
+.logo span{
   font-weight: bold;
   padding-left: 10px;
   margin-top: 2%;
@@ -34,7 +32,7 @@
   text-transform: uppercase;
 }
 
-.navbar-header li a{
+li a{
   position: relative;
   color: rgb(85, 83, 83) ;
   font-size: 14px;
@@ -43,17 +41,8 @@
   padding: 10px 10px 25px 13px ;
 }
 
-.li-ultimo .logout{
-  position: absolute;
-  color: rgb(85, 83, 83) ;
-  font-size: 14px;
-  display: table;
-  width: 300px;
-  padding: 10px 10px 25px 13px ;
-}
-
 .fas{
-  position:inherit;
+  position: relative;
   width: 70px;
   height: 40px;
   top: 14px;
@@ -65,13 +54,6 @@
   position: relative;
   top: 12px;
   margin-left: 10px;
-  font-size: 15px;
-}
-
-.nav-item2{
-  position: relative;
-  top: 8px;
-  margin-left: 28%;
   font-size: 15px;
 }
 
