@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula17";
+$permiso = "capsula20";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 18;
+$permiso_intento = 21;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -36,6 +36,7 @@ if (isset($resultadoIntentos['intentos'])) {
 } else {
     $puntosGanados = 10;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -89,34 +90,34 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T2.5/69.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T2.5/70.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/71.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/72.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/73.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/74.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1/76.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T1/77.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1/78.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1/79.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1/80.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1/81.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd18.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd21.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué es una pseudo-clase?</h1>
+                                    <h1>¿Cómo puedo agregar fondos multiples?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">Es una palabra clave que añade a los selectores</label>
+                                        <label for="checkbox1">background: url("nombre_imagen") right repeat-y, url("nombre_imagen")</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Son palabras clave</label>
+                                        <label for="checkbox2">img: url( ) right: ( ), url ( )</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">Son selectores</label>
+                                        <label for="checkbox3">video: url( ) right: ( ), url ( )</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Palabras que están sueltas</label>
+                                        <label for="checkbox4">Todas las anteriores</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="18">
+                                    <input type="hidden" name="permiso" value="21">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="2">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -163,6 +164,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (checkbox1.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //resultado();
@@ -242,10 +244,6 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
-
-
-
-
             } else if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();

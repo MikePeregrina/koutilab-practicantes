@@ -12,9 +12,16 @@ $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
 $htmlcode = $_GET['htmlcode'];
-$htmlcodeCodificado = urlencode($htmlcode );
-$mensajeConSaltosDeLinea = str_replace("%0A","sdl",$htmlcodeCodificado);
-$urlRedireccionamiento = "../contenido/practicas/cp3html.php?htmlcode=" . $mensajeConSaltosDeLinea;
+$htmlCodificado = urlencode($htmlcode );
+$htmlsdl = str_replace("%0A","sdl",$htmlCodificado);
+$csscode = $_GET['csscode'];
+$cssCodificado = urlencode($csscode );
+$csssdl = str_replace("%0A","sdl",$cssCodificado);
+$jscode = $_GET['jscode'];
+$jsCodificado = urlencode($jscode );
+$jssdl = str_replace("%0A","sdl",$jsCodificado);
+
+$urlRedireccionamiento = "../contenido/practicas/cp4html.php?htmlcode=" . $htmlsdl."&csscode=" . $csssdl."&jscode=" . $jssdl;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_preparatoria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -50,6 +57,9 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
 
     $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, practico, id_alumno, id_curso) VALUES ('2', $puntos, '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
+    echo('<script>
+    alert("entro en el insert estadistica");
+</script>');
     //Sumar trofeos
     $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
     $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
@@ -61,7 +71,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-pw-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 2 && $result_sql_permisos == 0) {
@@ -81,7 +91,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-pw-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 3 && $result_sql_permisos == 0) {
@@ -101,7 +111,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-pw-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 4 && $result_sql_permisos == 0) {
@@ -121,9 +131,9 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-pw-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 1 && $result_sql_permisos > 0) {
-    header('location: ../../../../../rutas/ruta-pw-b.php');
+    header('location: ../../../../../rutas/ruta-pw-i.php');
 }

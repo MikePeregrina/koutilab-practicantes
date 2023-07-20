@@ -1,7 +1,7 @@
 body {
   color: #404040;
   font-family: Tahoma;
-  background-image: url(../../img/img_juegos/fondo.png);  background-size: cover;
+  background-image: url(../../img/img-juegos/bg.png);  background-size: cover;
   background-repeat: no-repeat;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -205,34 +205,49 @@ th {
     padding: 0 0 0 20%;
   }
 }
-
 .timer {
   text-align: center;
   padding: 3%;
-  margin: 40px 0 0 1130px;
-  width: 170px;
-  height: 170px;
+  margin: 40px 0 0 1050px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background:  rgba(129, 179, 243, 0.7);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
-  border-radius: 90px;
+  border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
-  font-size: 150%;
-  
+  font-size: 140%;
+}
+
+#timer {
+  background: rgba(129, 179, 243, 0.7);
 }
 @keyframes animation1 {
-  0% {margin: 40px 0 0 1100px;}
-  20% {margin: 40px 0 0 1110px;}
-  40% {margin: 40px 0 0 1100px;} 
-  60% {margin: 40px 0 0 1110px;}
-  80% {margin: 40px 0 0 1100px;} 
-  100% {margin: 40px 0 0 1110px;}
+  0% {margin: 40px 0 0 1120px;}
+  20% {margin: 40px 0 0 1130px;}
+  40% {margin: 40px 0 0 1120px;} 
+  60% {margin: 40px 0 0 1130px;}
+  80% {margin: 40px 0 0 1120px;} 
+  100% {margin: 40px 0 0 1130px;}
 }
 
 @keyframes animation2 {
+  0% {margin: 40px 0 0 1120px;}
+  15% {margin: 40px 0 0 1130px;}
+  30% {margin: 40px 0 0 1120px;} 
+  45% {margin: 40px 0 0 1130px;}
+  60% {margin: 40px 0 0 1120px;} 
+  75% {margin: 40px 0 0 1130px;}
+  90% {margin: 40px 0 0 1130px;} 
+  100% {margin: 40px 0 0 1120px;}
+}
+
+@keyframes animation3 {
   0% {margin: 40px 0 0 1120px;}
   10% {margin: 40px 0 0 1130px;}
   20% {margin: 40px 0 0 1120px;} 

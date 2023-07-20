@@ -5,22 +5,25 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
+
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula4";
+
+$permiso = "capsula17";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 
+
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -90,36 +93,37 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T1/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T1/77.gif');"></li>
-                        <li style="background-image: url('../../img/css/T1/78.gif');"></li>
-                        <li style="background-image: url('../../img/css/T1/79.gif');"></li>
-                        <li style="background-image: url('../../img/css/T1/80.gif');"></li>
-                        <li style="background-image: url('../../img/css/T1/81.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/83.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T2/84.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/85.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/86.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/87.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/88.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd30.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd18.php
+">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cómo puedo agregar fondos multiples?</h1>
+                                    <h1>¿Cuántas palabras clave existen para referirse a los colores básicos?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">background: url("nombre_imagen") right repeat-y, url("nombre_imagen")</label>
+                                        <label for="checkbox1">10 palabras clave</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">img: url( ) right: ( ), url ( )</label>
+                                        <label for="checkbox2">17 palabras clave</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">video: url( ) right: ( ), url ( )</label>
+                                        <label for="checkbox3">1 palabra clave</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Todas las anteriores</label>
+                                        <label for="checkbox4">20 palabras clave</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="1">
+                                    <input type="hidden" name="id_curso" value="2">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
@@ -161,10 +165,9 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox4.addEventListener("change", comprueba, true);
 
         function comprueba() {
-            if (checkbox1.checked) {
+            if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
-
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //resultado();
@@ -244,10 +247,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
-            } else if (checkbox2.checked) {
+            } else if (checkbox1.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
-
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -261,7 +263,6 @@ if (isset($resultadoIntentos['intentos'])) {
             } else if (checkbox3.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
-
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -275,7 +276,6 @@ if (isset($resultadoIntentos['intentos'])) {
             } else if (checkbox4.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
-
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',

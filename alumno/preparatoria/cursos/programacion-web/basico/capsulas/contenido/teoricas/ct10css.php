@@ -148,11 +148,13 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
         //checar respuesta
 
+
+
         var checkbox1 = document.getElementById('checkbox1');
         var checkbox2 = document.getElementById('checkbox2');
         var checkbox3 = document.getElementById('checkbox3');
         var checkbox4 = document.getElementById('checkbox4');
-
+       var puntos = <?php echo $puntosGanados; ?>;
         checkbox1.addEventListener("change", comprueba, true);
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);

@@ -6,8 +6,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula7";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -36,7 +36,6 @@ if (isset($resultadoIntentos['intentos'])) {
 } else {
     $puntosGanados = 10;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +51,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalerT3@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -98,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/js/T3/144.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd54.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct3js.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son los operadores matemáticos básicos?</h1>
                                     <div>
@@ -113,13 +112,15 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Ecuaciones, multiplicacion, suma y fracciones</label>
                                     </div>
+                                    
+                                    
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Todas las anteriores</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="1">
+                                    <input type="hidden" name="id_curso" value="2">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
@@ -166,29 +167,8 @@ if (isset($resultadoIntentos['intentos'])) {
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-                if (puntos == 0) {
-                    //resultado();
-                    Swal.fire({
-                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
-                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 6) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                 Swal.fire({
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -205,45 +185,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             document.getElementById('evaluar').submit();
                         }
                     });
-                } else if (puntos == 8) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 10) {
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                }
+                
             } else if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();

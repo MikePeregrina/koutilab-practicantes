@@ -8,6 +8,13 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula11";
+if (isset($_GET['htmlcode'])) {
+    $htmlcode = $_GET['htmlcode'];
+    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = urldecode($htmlcode);
+}else{
+    $htmlcode = "";
+}
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -89,7 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
             <div class="">
                 <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeydown="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
+                <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%; " disabled>Evaluar</button></a>
@@ -180,14 +187,16 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd12.php?validar=' + 'correcto' + '&permiso=' + 12 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd12.php?validar=' + 'correcto' + '&permiso=' + 12 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + encodeHTML;
+
                         }
                     });
                 }
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
-
+                var myCodeHTML = document.getElementById("cd").value;
+                var encodeHTML = encodeURI(myCodeHTML);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -195,7 +204,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd12.php?validar=' + 'incorrecto' + '&permiso=' + 12 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd12.php?validar=' + 'incorrecto' + '&permiso=' + 12 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("cd").value;
 
                     }
                 });

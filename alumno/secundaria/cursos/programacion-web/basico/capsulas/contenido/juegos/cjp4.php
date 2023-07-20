@@ -1,4 +1,18 @@
-
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_secundaria'];
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -64,7 +78,7 @@
     <body onload="iniciarTiempo();">
         <!-- Titulo general -->
         <div class="titulo-gen">
-            <h2 class="titulo" style="margin-left: 480px"><b>CRUCIGRAMA</b></h2>
+            <h4 class="titulo" style="margin-left: 520px"><b>SOMBRAS</b></h4>
         </div>
 
         <!-- Alerta -->
@@ -1026,8 +1040,13 @@
 
         <script>
             var segundos = 240;
-
             let puntos = 0;
+
+            //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
             function iniciarTiempo() {
                 document.getElementById("tiempo").innerHTML =
@@ -1048,13 +1067,14 @@
                     Swal.fire({
                         title: "Oops...",
                         text: "¡Verifica tu respuesta!",
-                        imageUrl: "../../img/img_juegos/loop.gif",
+                        imageUrl: "../../img/img-juegos/loop.gif",
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.reload();
                         }
                     });
+                    incorrecto.play();
                 } else {
                     segundos--;
                     setTimeout("iniciarTiempo()", 1000);
@@ -1260,11 +1280,11 @@
                         Swal.fire({
                             title: "¡Bien hecho!",
                             text: "¡Puntuación guardada con éxito!",
-                            imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                             imageHeight: 350,
                             backdrop: `
 					rgba(0,143,255,0.6)
-					url("../../img/img_juegos/fondo.gif")
+					url("../../img/img-juegos/fondo.gif")
 					`,
                             confirmButtonColor: "#a14cd9",
                             confirmButtonText: "Aceptar",
@@ -1274,6 +1294,7 @@
                                     "../../../../../../rutas/ruta-pw-b.php";
                             }
                         });
+                        correcto.play(); //agregando sonido al juego completado
                 } else {
                     if (palabra1.toLowerCase() != "sombreado") {
                         palabra1_letra1.value = "";

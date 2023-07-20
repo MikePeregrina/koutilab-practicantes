@@ -17,6 +17,6 @@ $query = "INSERT INTO estadisticas_preparatoria(trofeos, progreso, puntos, pract
 $query_run = mysqli_query($conexion, $query);
 
 if ($insertarPermisos) {
-    header('location: ../../../../../rutas/ruta-pw-b.php');
+    header('location: ../../../../../rutas/ruta-py-a.php');
     exit();
 }

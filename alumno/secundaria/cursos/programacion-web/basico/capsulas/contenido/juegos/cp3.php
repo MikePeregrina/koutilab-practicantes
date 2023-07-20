@@ -1,4 +1,18 @@
-
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_secundaria'];
+$permiso = "capsulapago3";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
     <link rel="stylesheet" href="../../css/css-juegos/box.css" />
     <script src="script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -15,7 +30,7 @@
 
 <body onload="alert1()">
     <div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE ACOMODAR</b></h2>
+		<h2 class="titulo"><b>BOX MODEL</b></h2>
 	</div>
 
 	<div class="timer">
@@ -37,28 +52,28 @@
             <div class="respuestas">
                 <div class="imagenes">
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/border.png" alt="" draggable="true" ondragstart="drag(event)" id="border" class="imagen1">
+                        <img src="../../img/img-juegos/border.png" alt="" draggable="true" ondragstart="drag(event)" id="border" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/top.png" alt="" draggable="true" ondragstart="drag(event)" id="top" class="imagen1">
+                        <img src="../../img/img-juegos/top.png" alt="" draggable="true" ondragstart="drag(event)" id="top" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/bottom.png" alt="" draggable="true" ondragstart="drag(event)" id="bottom" class="imagen1">
+                        <img src="../../img/img-juegos/bottom.png" alt="" draggable="true" ondragstart="drag(event)" id="bottom" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/right.png" alt="" draggable="true" ondragstart="drag(event)" id="right" class="imagen1">
+                        <img src="../../img/img-juegos/right.png" alt="" draggable="true" ondragstart="drag(event)" id="right" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/content.png" alt="" draggable="true" ondragstart="drag(event)" id="content" class="imagen1">
+                        <img src="../../img/img-juegos/content.png" alt="" draggable="true" ondragstart="drag(event)" id="content" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/padding.png" alt="" draggable="true" ondragstart="drag(event)" id="padding" class="imagen1">
+                        <img src="../../img/img-juegos/padding.png" alt="" draggable="true" ondragstart="drag(event)" id="padding" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/left.png" alt="" draggable="true" ondragstart="drag(event)" id="left" class="imagen1">
+                        <img src="../../img/img-juegos/left.png" alt="" draggable="true" ondragstart="drag(event)" id="left" class="imagen1">
                     </div>
                     <div class="caja-img">
-                        <img src="../../img/img_juegos/margin.png" alt="" draggable="true" ondragstart="drag(event)" id="margin" class="imagen1">
+                        <img src="../../img/img-juegos/margin.png" alt="" draggable="true" ondragstart="drag(event)" id="margin" class="imagen1">
                     </div>
                 </div>
             </div>
@@ -101,7 +116,7 @@
         Swal.fire({
             title: '¡Hola!',
             text: 'Koubot quiere repasar lo aprendido sobre Box Model, ¿Podrías ayudarlo a saber cual es el nombre de cada capa del Box Model?',
-            imageUrl: "../../img/img_juegos/mascota-1.png",
+            imageUrl: "../../img/img-juegos/mascota-1.png",
             imageHeight: 320,
             confirmButtonText: '¡Vamos!',
             confirmButtonColor: '#85c42c',
@@ -113,9 +128,14 @@
     }
 </script>
 <script>
-    var segundos = 240;
-
+    var segundos = 5;
     let puntos = 0;
+
+    //Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
     function iniciarTiempo() {
         document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -123,13 +143,14 @@
             Swal.fire({
                 title: 'Oops...',
                 text: '¡Se acabó el tiempo!',
-                imageUrl: "../../img/img_juegos/loop.gif",
+                imageUrl: "../../img/img-juegos/loop.gif",
                 imageHeight: 350,
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.reload();
                 }
             });
+            incorrecto.play(); //agregando sonido al juego no completado
         } else {
             segundos--;
             setTimeout("iniciarTiempo()", 1000);
@@ -170,11 +191,11 @@
                     Swal.fire({
                         title: '¡Bien hecho!',
                         text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                        imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                         imageHeight: 350,
                         backdrop: `
                             rgba(0,143,255,0.6)
-                            url("../../img/img_juegos/fondo.gif")
+                            url("../../img/img-juegos/fondo.gif")
                             `,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
@@ -183,12 +204,13 @@
                             window.location.href = '../../../../../../rutas/ruta-pw-b.php';
                         }
                     });
+                    correcto.play(); //agregando sonido al juego completado
                 }
             } else {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../img/img_juegos/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {

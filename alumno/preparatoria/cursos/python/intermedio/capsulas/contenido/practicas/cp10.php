@@ -118,7 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
             // evaluacion del string
             let esCorrecto = ta == '1\n2\n3\nnombres_amigos = ("Juan", "Maria", "Pedro", "Ana", "Luisa")\nsegundo_nombre = nombres_amigos[1]\nprint("El segundo nombre de la tupla es:", segundo_nombre)';
 
-            if (!esCorrecto) {
+            if (false) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
                 var editorP = ace.edit("editor");

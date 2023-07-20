@@ -11,10 +11,10 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
-$htmlcode = $_GET['htmlcode'];
-$htmlcodeCodificado = urlencode($htmlcode );
-$mensajeConSaltosDeLinea = str_replace("%0A","sdl",$htmlcodeCodificado);
-$urlRedireccionamiento = "../contenido/practicas/cp1html.php?htmlcode=" . $mensajeConSaltosDeLinea;
+$pythoncode = $_GET['pythoncode'];
+$pythoncodeDecodificado = urldecode($pythoncode );
+$mensajeConSaltosDeLinea = str_replace(array("\r", "\n"),array('\r', '\n'), $pythoncodeDecodificado);
+$urlRedireccionamiento = "../contenido/practicas/cp1.php?pythoncode=" . $mensajeConSaltosDeLinea;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_preparatoria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -61,7 +61,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-py-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 2 && $result_sql_permisos == 0) {
@@ -81,7 +81,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-py-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 3 && $result_sql_permisos == 0) {
@@ -101,7 +101,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-py-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 4 && $result_sql_permisos == 0) {
@@ -121,9 +121,9 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-py-i.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 1 && $result_sql_permisos > 0) {
-    header('location: ../../../../../rutas/ruta-pw-b.php');
+    header('location: ../../../../../rutas/ruta-py-i.php');
 }

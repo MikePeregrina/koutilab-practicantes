@@ -44,7 +44,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 
 	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css"> <!--Linkeo de la hoja de estilos-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -62,7 +62,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+		<h4 class="titulo" style="margin-left: 450px;"><b>CONECTAR HTML Y CSS</b></h4>
 	</div>
 
 	<!-- Tiempo -->
@@ -100,18 +100,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i><img src="../../img/img_juegos/html.png" width= "85px"></i>',
-				'<i ><img src="../../img/img_juegos/codificacion.png" width= "50px"></i>',
-				'<i><img src="../../img/img_juegos/css (1).png" width= "85px" ></i>',
-				'<i><img src="../../img/img_juegos/Proyecto nuevo (1).png" width= "153px" height="40px"></i></i>',
-				'<i><img src="../../img/img_juegos/style.png" width= "153px" height="32px"></i>',
-				'<i ><img src="../../img/img_juegos/link.png" width= "183px" height="35px" ></i>',
-				'<i><img src="../../img/img_juegos/rel.png" width= "153px" height="32px" ></i>',
-				'<i ><img src="../../img/img_juegos/href.png" width= "153px" height="32px" ></i>',
-				'<i><img src="../../img/img_juegos/import.png" width= "153px" height="32px" ></i>',
-				'<i><img src="../../img/img_juegos/navegador.png" width= "73px"></i>',
-				'<i><img src="../../img/img_juegos/error.png" width= "73px"></i>',
-				'<i><img src="../../img/img_juegos/html1.png" width= "73px"></i>'
+				'<i><img src="../../img/img-juegos/html.png" width= "85px"></i>',
+				'<i ><img src="../../img/img-juegos/codificacion.png" width= "50px"></i>',
+				'<i><img src="../../img/img-juegos/css (1).png" width= "85px" ></i>',
+				'<i><img src="../../img/img-juegos/Proyecto nuevo (1).png" width= "153px" height="40px"></i></i>',
+				'<i><img src="../../img/img-juegos/style.png" width= "153px" height="32px"></i>',
+				'<i ><img src="../../img/img-juegos/link.png" width= "183px" height="35px" ></i>',
+				'<i><img src="../../img/img-juegos/rel.png" width= "153px" height="32px" ></i>',
+				'<i ><img src="../../img/img-juegos/href.png" width= "153px" height="32px" ></i>',
+				'<i><img src="../../img/img-juegos/import.png" width= "153px" height="32px" ></i>',
+				'<i><img src="../../img/img-juegos/navegador.png" width= "73px"></i>',
+				'<i><img src="../../img/img-juegos/error.png" width= "73px"></i>',
+				'<i><img src="../../img/img-juegos/html1.png" width= "73px"></i>'
 			]
 		}
 
@@ -182,11 +182,11 @@ if (isset($resultadoIntentos['intentos'])) {
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("../../img/img_juegos/fondo.gif")
+									url("../../img/img-juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -195,8 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
 							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
 						}
 					});
-
-
+					correcto.play(); //agregando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -214,8 +213,14 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 	<script>
-		var segundos = 240;
+		var segundos = 240;//240
 		let puntos = 0;
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
@@ -231,7 +236,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 }
                 if (segundos <= 10) {
                     var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
 			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
@@ -243,13 +248,14 @@ if (isset($resultadoIntentos['intentos'])) {
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../img/img_juegos/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

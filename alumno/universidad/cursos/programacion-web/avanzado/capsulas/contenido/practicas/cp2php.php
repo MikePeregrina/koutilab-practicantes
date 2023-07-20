@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula5";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium4.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -102,9 +102,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
-                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"></textarea> <br>
+                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 
@@ -136,11 +136,44 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+
+            let p = frame.querySelectorAll('p').length;
+            console.log("p: " + p);
+
+            if (jscode.indexOf('echo') !== -1) {
+                console.log("Si aparece echo en PHP");
+            } else {
+                console.log("No hay echo en PHP");
+            }
+
+            if (jscode.indexOf('array') !== -1) {
+                console.log("Si aparece array en PHP");
+            } else {
+                console.log("No hay array en PHP");
+            }
+
+            if (jscode.indexOf('[') !== -1) {
+                console.log("Si aparece [ en PHP");
+            } else {
+                console.log("No hay [ en PHP");
+            }
+
+            if (jscode.indexOf(']') !== -1) {
+                console.log("Si aparece ] en PHP");
+            } else {
+                console.log("No hay ] en PHP");
+            }
+
+            if (p > 0 && jscode.indexOf('echo') != -1 && jscode.indexOf('array') != -1 && jscode.indexOf('[') != -1 && jscode.indexOf(']') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -160,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -177,7 +210,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -194,7 +227,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {
@@ -211,13 +245,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'correcto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 }
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
 
                 Swal.fire({
                     title: 'Oops...',
@@ -226,7 +266,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd40.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 3 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pdtextocambiar.php?validar=' + 'incorrecto' + '&permiso=' + textocambiar + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
                     }
                 });
             }

@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula30";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
@@ -107,7 +107,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            //el split ayuda a dividir las cadenas de ahi tomo el nombre y lo meto a la condicion
+            //asi logra aceptar cualquier nombre
+            let val = ta.split(' ');
+            // para revisar que palabra manda y que posicion
+            //alert(val[2]);
+            let esCorrecto = ta == '1\n2\nnumero = ' + val[2] + ' valor de numero es:", numero)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
@@ -120,12 +125,13 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_cp12.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
                     }
                 });
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+                let puntos = '<?php echo $puntosGanados; ?>';
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
@@ -143,7 +149,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp12.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -160,7 +166,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp12.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -177,7 +183,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp12.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -194,7 +200,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp12.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 }

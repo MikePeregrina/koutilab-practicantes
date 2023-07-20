@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula13";
+$permiso = "capsula7";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,13 +14,13 @@ if (empty($existe) && $id_user != 1) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 14;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 8;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 4");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T3/46.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd8.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es la forma correcta de asignar un valor a una variable en Python?</h1>
                                     <div>
@@ -116,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">set valor variable</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="8">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="4">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

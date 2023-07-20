@@ -1,7 +1,7 @@
 body{
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../img/img_juegos/fondo.png);    background-size: cover;
+    background-image: url(../../img/img-juegos/bg.png);    background-size: cover;
     background-repeat: no-repeat;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -65,34 +65,51 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:  rgba(129, 179, 243, 0.7);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
-    border-radius: 90px;
+    border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
-    font-size: 150%;
+    font-size: 140%;
 }
 @keyframes animation1 {
-    0% {margin: 30px 0 0 68.2rem;}
-    20% {margin: 30px 0 0 69.2rem;}
-    40% {margin: 30px 0 0 68.2rem;} 
-    60% {margin: 30px 0 0 69.2rem;}
-    80% {margin: 30px 0 0 68.2rem;} 
-    100% {margin: 30px 0 0 69.2rem;}
+    0% {margin: 40px 0 0 1040px;}
+    20% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    80% {margin: 40px 0 0 1040px;} 
+    100% {margin: 40px 0 0 1060px;}
 }
 
   @keyframes animation2 {
-    0% {margin: 30px 0 0 68.2rem;}
-    10% {margin: 30px 0 0 69.2rem;}
-    20% {margin: 30px 0 0 68.2rem;;} 
-    30% {margin: 30px 0 0 69.2rem;}
-    40% {margin: 30px 0 0 68.2rem;;} 
-    50% {margin: 30px 0 0 69.2rem;}
-    60% {margin: 30px 0 0 68.2rem;;} 
-    70% {margin: 30px 0 0 69.2rem;} 
-    80% {margin: 30px 0 0 68.2rem;;} 
-    90% {margin: 30px 0 0 69.2rem;} 
-    100% {margin: 30px 0 0 68.2rem;}
+    0% {margin: 40px 0 0 1040px;}
+    15% {margin: 40px 0 0 1060px;}
+    30% {margin: 40px 0 0 1040px;} 
+    45% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    75% {margin: 40px 0 0 1060px;}
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
+  @keyframes animation3 {
+    0% {margin: 40px 0 0 1040px;}
+    10% {margin: 40px 0 0 1060px;}
+    20% {margin: 40px 0 0 1040px;} 
+    30% {margin: 40px 0 0 1060px;}
+    40% {margin: 40px 0 0 1040px;} 
+    50% {margin: 40px 0 0 1060px;}
+    60% {margin: 40px 0 0 1040px;} 
+    70% {margin: 40px 0 0 1060px;} 
+    80% {margin: 40px 0 0 1040px;} 
+    90% {margin: 40px 0 0 1060px;} 
+    100% {margin: 40px 0 0 1050px;}
+  }
+
+  #timer {
+    background: rgba(129, 179, 243, 0.7);
   }
 .contenido {
     opacity: 0.9;
@@ -189,6 +206,7 @@ body::-webkit-scrollbar-track {
     color: rgba(14, 13, 13, 0.534);
     font-stretch: narrower;
     text-align: center;
+    line-height: 30px;
 }
 
 .copia{

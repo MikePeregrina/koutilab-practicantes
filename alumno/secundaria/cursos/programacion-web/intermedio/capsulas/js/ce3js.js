@@ -73,8 +73,8 @@ function fetchQuiz() {
                             'success'
                         )
                     } else {
-                         //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                         Incorrecto.play();
+                        //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                        Incorrecto.play();
                         Swal.fire({
                             icon: 'info',
                             title: 'Oops...',
@@ -82,8 +82,8 @@ function fetchQuiz() {
                         })
                     }
                 } else {
-                     //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                     Incorrecto.play();
+                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                    Incorrecto.play();
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -99,8 +99,8 @@ function fetchQuiz() {
             next.addEventListener("click", () => {
                 i++;
                 if (i >= 5) {
-                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                     Correcto.play();
+                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                    Correcto.play();
                     inform.style.display = "block";
                     save.style.display = "inline";
                     next.style.display = "none";
@@ -134,12 +134,12 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 23 + "&id_curso=" + 2; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 49 + "&id_curso=" + 2; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                         //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                         Correcto.play();
+                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                        Correcto.play();
                         Swal.fire({
                             title: '+' + score + ' puntos',
                             text: '¡Puntuación guardada con éxito!',
@@ -156,14 +156,14 @@ function fetchQuiz() {
                         });
                     }
                 }
-                xmlhttp.open("POST", "../../acciones/insertar_pd23.php", true);
+                xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
             });
         })
         .catch(() => {
-             //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-             Incorrecto.play();
+            //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+            Incorrecto.play();
             error.innerHTML = "No puedo cargar preguntas";
         });
 }

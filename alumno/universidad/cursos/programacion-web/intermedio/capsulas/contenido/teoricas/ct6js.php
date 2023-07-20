@@ -4,23 +4,24 @@ $id_user = $_SESSION['id_alumno_universidad'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
+
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsulapago9";
+
+$permiso = "capsulapago5";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/pasarela/capsula1js.php");
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium5.php");
 }
-
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 46;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -98,7 +99,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/js/T2.5/165.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd60.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd46.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Para qué utilizamos 'for loop'?</h1>
                                     <div>
@@ -117,9 +118,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Todas las anteriores</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="46">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="1">
+                                    <input type="hidden" name="id_curso" value="2">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>

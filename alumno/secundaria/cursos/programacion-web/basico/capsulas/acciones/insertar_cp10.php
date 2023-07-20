@@ -14,7 +14,7 @@ $id_curso = $_POST['id_curso'];
 
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria_pago WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_pago_secundaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
 //Verificar si la pregunta es correcta

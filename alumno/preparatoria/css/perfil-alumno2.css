@@ -339,6 +339,7 @@ input[type="file"]::-webkit-file-upload-button {
   width: 100%;
   margin-bottom: 1.25rem;
   text-align: center;
+  justify-content: center;
 }
 .seccion-perfil-usuario .perfil-usuario-footer {
   display: flex;
@@ -695,7 +696,7 @@ margin-top: -1.5rem;
   height: 340px;
   border-radius: 5px;
   display: flex;
-  justify-content: flex-start;
+  justify-content:center;
   align-items: center;
 }
 canvas {
@@ -1038,8 +1039,6 @@ width: 50%;
 height:5px; 
 border:none;
 position: relative;
-margin-left: 26%;
-margin-right: 40px;
 margin-bottom: 10px;
 }
 /* Boton de opciones Foto de perfil */

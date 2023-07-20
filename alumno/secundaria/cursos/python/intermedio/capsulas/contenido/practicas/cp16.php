@@ -6,11 +6,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula42";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5");
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium4.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\ncontenido_modulo1 = """\ndef saludar():\n    print("Hola desde el paquete 1!")\nmensaje = "Este es un mensaje desde el paquete 1"\n"""\nwith open(ruta_archivo_modulo, "w") as archivo_modulo1:\n    archivo_modulo.write(contenido_modulo1)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
@@ -126,6 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
+                let puntos = '<?php echo $puntosGanados; ?>';
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

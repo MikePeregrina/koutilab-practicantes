@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno_preparatoria'];
@@ -96,6 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T1.5/23.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T1.5/24.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T1.5/25.gif');"></li>
+                        
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd5.php">

@@ -10,16 +10,16 @@ $permiso = "capsulapago1";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/pasarela/capsula1html.php");
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/html/T1.5/25.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct2html.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son las dos formas de dividir la estructura de los directorios?</h1>
                                     <div>
@@ -118,7 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="1">
+                                    <input type="hidden" name="id_curso" value="2">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
@@ -153,11 +153,19 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox3.addEventListener("change", comprueba, true);
         checkbox4.addEventListener("change", comprueba, true);
 
+         //se esta llamando los sonidos de la carpeta "sonidos"
+         var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+
         function comprueba() {
             if (checkbox1.checked) {
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //resultado();
+                    Correcto.play();
                     Swal.fire({
                         title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
                         text: '¡Más de 3 intentos, no es posible sumar puntos!',
@@ -177,6 +185,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else if (puntos == 6) {
+                    Correcto.play();
                     Swal.fire({
                         title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
@@ -196,6 +205,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else if (puntos == 8) {
+                    Correcto.play();
                     Swal.fire({
                         title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
@@ -215,6 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else if (puntos == 10) {
+                    Correcto.play();
                     Swal.fire({
                         title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
@@ -235,6 +246,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 }
             } else if (checkbox2.checked) {
+                Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -246,6 +258,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox3.checked) {
+                Incorrecto.play();
+
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -257,6 +271,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox4.checked) {
+                Incorrecto.play();
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',

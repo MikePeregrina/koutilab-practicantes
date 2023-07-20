@@ -182,7 +182,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                 console.log("No hay -2");
             }
 
-            if (true) {
+            if ((jscode.indexOf('3') !== -1 || jscode.indexOf(' 3') !== -1) && (jscode.indexOf('+6') !== -1 || jscode.indexOf('+ 6') !== -1) && (jscode.indexOf('/3') !== -1 || jscode.indexOf('/ 3') !== -1) && (jscode.indexOf('-2') !== -1 || jscode.indexOf('- 2') !== -1)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

@@ -6,14 +6,36 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula8";
+$permiso = "capsula34";
+if (isset($_GET['htmlcode'])) {
+    $htmlcode = $_GET['htmlcode'];
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
+    $htmlcode = urldecode($htmlcode);
+} else {
+    $htmlcode = "";
+}
+if (isset($_GET['csscode'])) {
+    $csscode = $_GET['csscode'];
+    $csscode = str_replace("sdl", "%0A", $csscode);
+    $csscode = urldecode($csscode);
+} else {
+    $csscode = "";
+}
+if (isset($_GET['htmlcode'])) {
+    $jscode = $_GET['jscode'];
+    $jscode = str_replace("sdl", "%0A", $jscode);
+    $jscode = urldecode($jscode);
+} else {
+    $jscode = "";
+}
+
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 3;
+$permiso_intento = 35;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -99,9 +121,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
-                    <textarea onkeyup="actualizar()" id="html-code" class="cd" placeholder="Escribe el código HTML aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"></textarea> <br>
+                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 
@@ -133,11 +155,44 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
+            var puntos = <?php echo $puntosGanados; ?>;
+            var frame = document.getElementById("output").contentWindow.document;
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (htmlcode == 'validar') {
+            //Validando etiquetas utilizadas
+            let inputext = frame.querySelectorAll('input[type="text"]').length;
+            console.log("inputext: " + inputext);
+
+            let inputemail = frame.querySelectorAll('input[type="email"]').length;
+            console.log("inputemail: " + inputemail);
+
+            let textarea = frame.querySelectorAll('textarea').length;
+            console.log("textarea: " + textarea);
+
+            let button = frame.querySelectorAll('button').length;
+            console.log("button: " + button);
+
+            let script = frame.querySelectorAll('script').length;
+            console.log("script: " + script);
+
+            if (jscode.indexOf('function') !== -1) {
+                console.log("Si aparece function en JS");
+            } else {
+                console.log("No hay function en JS");
+            }
+
+            if (jscode.indexOf('var') !== -1) {
+                console.log("Si aparece var en JS");
+            } else {
+                console.log("No hay var en JS");
+            }
+
+
+            if (inputext > 0 && inputemail && textarea && button > 0 && script > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1) {
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
@@ -145,7 +200,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 if (puntos == 0) {
                     //resultado();
                     Swal.fire({
-                        title: 'Bien hecho, al fin lo lograste. ¡Debes mejorar!',
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
                         text: '¡Más de 3 intentos, no es posible sumar puntos!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -157,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd35.php?validar=' + 'correcto' + '&permiso=' + 35 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -174,7 +229,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd35.php?validar=' + 'correcto' + '&permiso=' + 35 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -191,7 +246,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd35.php?validar=' + 'correcto' + '&permiso=' + 35 + '&id_curso=' + 2 + '&practico=' + 10;
+
                         }
                     });
                 } else if (puntos == 10) {
@@ -208,13 +264,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 3 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd35.php?validar=' + 'correcto' + '&permiso=' + 35 + '&id_curso=' + 3 + '&practico=' + 10;
                         }
                     });
                 }
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
 
                 Swal.fire({
                     title: 'Oops...',
@@ -223,7 +285,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd55.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 3 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd35.php?validar=' + 'incorrecto' + '&permiso=' + 35 + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
                     }
                 });
             }

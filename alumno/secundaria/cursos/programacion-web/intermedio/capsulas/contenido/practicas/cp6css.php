@@ -6,37 +6,37 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago10";
+$permiso = "capsulapago4";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/pasarela/capsula1html.php");
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium4.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
+// //Contar total de intentos
+// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
+// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+// if (isset($resultadoIntentos['intentos'])) {
+//     $totalIntentos = $resultadoIntentos['intentos'];
+//     if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+//         $puntosGanados = 8;
+//     } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 6;
+//     } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 0;
+//     } else {
+//         $puntosGanados = 0;
+//     }
+// } else {
+//     $puntosGanados = 10;
+// }
 
 ?>
 
@@ -139,7 +139,6 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
-            var puntos = <?php echo $puntosGanados; ?>;
 
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
@@ -187,28 +186,8 @@ if (isset($resultadoIntentos['intentos'])) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
-                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-                if (puntos == 0) {
-                    //resultado();
                     Swal.fire({
-                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
-                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                } else if (puntos == 6) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -220,44 +199,10 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_cp11.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
-                } else if (puntos == 8) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                } else if (puntos == 10) {
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                }
+                
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
@@ -269,7 +214,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd43.php?validar=' + 'incorrecto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_cp11.php?validar=' + 'incorrecto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
                     }
                 });
             }

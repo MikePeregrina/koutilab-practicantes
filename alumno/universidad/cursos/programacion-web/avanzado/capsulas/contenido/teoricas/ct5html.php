@@ -10,7 +10,7 @@ $permiso = "capsulapago1";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/pasarela/capsula5html.php");
+    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium1.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -98,7 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/html/T4/46.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd15.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct5html.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son las etiquetas que utilizamos para crear una linea recta?</h1>
                                     <div>

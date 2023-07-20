@@ -10,7 +10,7 @@ $permiso = "capsulapago4";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula2css.php");
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //VERIFICAR QUE EL permiso_intento sea correto
@@ -148,11 +148,13 @@ if (isset($resultadoIntentos['intentos'])) {
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
         //checar respuesta
 
+
+
         var checkbox1 = document.getElementById('checkbox1');
         var checkbox2 = document.getElementById('checkbox2');
         var checkbox3 = document.getElementById('checkbox3');
         var checkbox4 = document.getElementById('checkbox4');
-
+       var puntos = <?php echo $puntosGanados; ?>;
         checkbox1.addEventListener("change", comprueba, true);
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);

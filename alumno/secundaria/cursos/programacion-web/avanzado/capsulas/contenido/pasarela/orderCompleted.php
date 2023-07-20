@@ -20,7 +20,8 @@
         <img src="img/Thumbs-Up.gif" alt="" />
         <div>
             <button>
-                <a href="#" onclick="history.back(); return false;" type="button">Regresar a la ruta</a>
+                <!-- Poner ruta a la que regresara -->
+                <a href="../../../../../../rutas/ruta-pw-a.php" type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>

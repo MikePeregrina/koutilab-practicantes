@@ -5,12 +5,17 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
+if (isset($_GET['htmlcode'])) {
+    $htmlcode = $_GET['htmlcode'];
+} else {
+    $htmlcode = "";
+}
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula2html.php");
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //VERIFICAR QUE PERMISO INTENTO SEA EL CORRECTO
@@ -85,7 +90,7 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
             <div class="">
                 <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
+                <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
@@ -104,6 +109,7 @@ if (isset($resultadoIntentos['intentos'])) {
             var frame = document.getElementById("editor").contentWindow.document;
             let ul = frame.querySelectorAll("ul").length;
             let a = frame.querySelectorAll("a").length;
+            var puntos = <?php echo $puntosGanados; ?>;
 
             if (ul > 0 && a > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
@@ -192,7 +198,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_cp5.php?validar=' + 'incorrecto' + '&permiso=' + 5 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_cp5.php?validar=' + 'incorrecto' + '&permiso=' + 5 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("cd").value;
                     }
                 });
             }

@@ -11,6 +11,10 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
+$pythoncode = $_GET['pythoncode'];
+$pythoncodeDecodificado = urldecode($pythoncode );
+$mensajeConSaltosDeLinea = str_replace(array("\r", "\n"),array('\r', '\n'), $pythoncodeDecodificado);
+$urlRedireccionamiento = "../contenido/practicas/cp17.php?pythoncode=" . $mensajeConSaltosDeLinea;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_universidad WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -37,7 +41,7 @@ if ($result_sql == 0) {
 if ($pregunta != 'correcto') {
     $sumaIntentos = ($totalIntentos) + 1;
     $insertarIntentos = mysqli_query($conexion, "UPDATE detalle_intentos_universidad SET intentos = '$sumaIntentos' WHERE id_capsula = '$permiso' AND id_alumno = $id_user AND id_curso = '$id_curso'");
-    header('location: ../contenido/practicas/cp14.php');
+    header("Location: " . $urlRedireccionamiento);
 }
 
 if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0) {

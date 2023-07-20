@@ -208,6 +208,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         // window.location.reload();
                     }
                 });
+                incorrecto.play();
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -236,6 +237,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     window.location.href = '../../../../../../rutas/ruta-in-b.php';
                 }
             });
+            correcto.play();
         }
     </script>
 

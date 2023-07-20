@@ -55,12 +55,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/php/In/133.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/php/In/134.gif');"></li>
-                        <li style="background-image: url('../../img/php/In/135.gif');"></li>
-                        <li style="background-image: url('../../img/php/In/136.gif');"></li>
-                        <li style="background-image: url('../../img/php/In/137.gif');"></li>
-                        <li style="background-image: url('../../img/php/In/138.gif');"></li>
+                            <li style="background-image: url('../../img/php/In/133.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/php/In/134.gif');"></li>
+                            <li style="background-image: url('../../img/php/In/135.gif');"></li>
+                            <li style="background-image: url('../../img/php/In/136.gif');"></li>
+                            <li style="background-image: url('../../img/php/In/137.gif');"></li>
+                            <li style="background-image: url('../../img/php/In/138.gif');"></li>
                     </ul>
                 </section>
         </div>

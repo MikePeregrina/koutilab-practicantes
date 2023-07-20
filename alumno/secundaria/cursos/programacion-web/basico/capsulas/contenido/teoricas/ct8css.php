@@ -10,7 +10,7 @@ $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula1css.php");
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
 }
 
 ?>
@@ -133,59 +133,14 @@ if (empty($existe)) {
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);
         checkbox4.addEventListener("change", comprueba, true);
-
+        
         function comprueba() {
             if (checkbox1.checked) {
-                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-                if (puntos == 0) {
-                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                    Correcto.play();
-                    //resultado();
-                    Swal.fire({
-                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
-                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 6) {
+               
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 8) {
-                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                    Correcto.play();
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10+ ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -202,28 +157,7 @@ if (empty($existe)) {
                             document.getElementById('evaluar').submit();
                         }
                     });
-                } else if (puntos == 10) {
-                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                    Correcto.play();
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                }
+                
 
             } else if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

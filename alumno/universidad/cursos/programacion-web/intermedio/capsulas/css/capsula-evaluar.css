@@ -6,7 +6,7 @@
 body {
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../../../../img/bg1.png);
+    background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -63,23 +63,29 @@ body::-webkit-scrollbar-track {
     font-family: Tahoma;
 }
 
-.btn-b{
-    width: 5%;
-    padding: 5px 5px;
-    cursor: pointer;
-    display: block;
-    margin: auto;
-    background: linear-gradient(to right, rgba(129,179,243, .8), rgba(132,196,44, .8));
-    border: 0px;
-    outline: none;
-    border-radius: 50%;
-    float: right;
+.btn-b {
+  position: absolute;
+  width: 5%;
+  padding: 5px 5px;
+  cursor: pointer;
+  display: block;
+  margin: 12px 0 0 12px;
+  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  border: 0px;
+  outline: none;
+  border-radius: 50%;
+  float: left;
+  transition: 0.5s;
 }
 
 @media (max-width: 750px) {
     .btn-b {
       width: 10%;
     }
+  }
+
+  .btn-b:hover {
+    transform: scale(1.2);
   }
 
 @media (max-width: 750px) {

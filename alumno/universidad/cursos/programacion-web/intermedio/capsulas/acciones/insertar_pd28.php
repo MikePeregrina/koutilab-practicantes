@@ -11,6 +11,17 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
+$htmlcode = $_GET['htmlcode'];
+$htmlCodificado = urlencode($htmlcode );
+$htmlsdl = str_replace("%0A","sdl",$htmlCodificado);
+$csscode = $_GET['csscode'];
+$cssCodificado = urlencode($csscode );
+$csssdl = str_replace("%0A","sdl",$cssCodificado);
+$jscode = $_GET['jscode'];
+$jsCodificado = urlencode($jscode );
+$jssdl = str_replace("%0A","sdl",$jsCodificado);
+
+$urlRedireccionamiento = "../contenido/practicas/cp5css.php?htmlcode=" . $htmlsdl."&csscode=" . $csssdl."&jscode=" . $jssdl;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_universidad WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
@@ -37,7 +48,7 @@ if ($result_sql == 0) {
 if ($pregunta != 'correcto') {
     $sumaIntentos = ($totalIntentos) + 1;
     $insertarIntentos = mysqli_query($conexion, "UPDATE detalle_intentos_universidad SET intentos = '$sumaIntentos' WHERE id_capsula = '$permiso' AND id_alumno = $id_user AND id_curso = '$id_curso'");
-    header('location: ../contenido/practicas/cp1css.php');
+    header("Location: " . $urlRedireccionamiento);
 }
 
 if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0) {

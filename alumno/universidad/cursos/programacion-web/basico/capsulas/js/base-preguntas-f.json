@@ -21,7 +21,7 @@
 },
 {
     "categoria": "web basico-css",
-    "pregunta": "¿Cuál es la etiqueta que permte tener palabras grandes o pequeñas dentro de un texto de HTML?",
+    "pregunta": "¿Cuál es la etiqueta que permite tener palabras grandes o pequeñas dentro de un texto de HTML?",
     "respuesta": "big",
     "incorrecta1": "h1",
     "incorrecta2": "font-size:",

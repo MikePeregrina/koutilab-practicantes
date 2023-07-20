@@ -6,22 +6,48 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsulapago10";
+$permiso = "capsulapago5";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/pasarela/capsula1html.php");
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium5.php");
 }
+
+
+
+if (isset($_GET['htmlcode'])) {
+    $htmlcode = $_GET['htmlcode'];
+    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = urldecode($htmlcode);
+}else{
+    $htmlcode = "";
+}
+if (isset($_GET['csscode'])) {
+    $csscode = $_GET['csscode'];
+    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = urldecode($csscode);
+}else{
+    $csscode = "";
+}
+if (isset($_GET['htmlcode'])) {
+    $jscode = $_GET['jscode'];
+    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = urldecode($jscode);
+}else{
+    $jscode = "";
+}
+
+
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 47;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 2");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -101,9 +127,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
-                    <textarea onkeyup="actualizar()" id="html-code" class="cd" placeholder="Escribe el código HTML aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"></textarea> <br>
+                    <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 
@@ -179,7 +205,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd61.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd47.php?validar=' + 'correcto' + '&permiso=' + 47 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -196,7 +222,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd61.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd47.php?validar=' + 'correcto' + '&permiso=' + 47 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -213,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd61.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd47.php?validar=' + 'correcto' + '&permiso=' + 47 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -230,13 +256,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd61.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd47.php?validar=' + 'correcto' + '&permiso=' + 47 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();
+                var myCodeHTML = document.getElementById("html-code").value;
+                var encodeHTML = encodeURI(myCodeHTML);
+                var myCodeCSS = document.getElementById("css-code").value;
+                var encodeCSS = encodeURI(myCodeCSS);
+                var myCodeJS = document.getElementById("js-code").value;
+                var encodeJS = encodeURI(myCodeJS);
 
                 Swal.fire({
                     title: 'Oops...',
@@ -245,7 +277,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd61.php?validar=' + 'incorrecto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd47.php?validar=' + 'incorrecto' + '&permiso=' + 47 + '&id_curso=' + 2 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+
                     }
                 });
             }

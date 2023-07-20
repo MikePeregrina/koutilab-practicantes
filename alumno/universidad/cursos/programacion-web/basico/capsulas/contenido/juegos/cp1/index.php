@@ -1,3 +1,19 @@
+<?php 
+session_start();
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_universidad'];
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../img/lgk.png" />
     <link rel="stylesheet" href="../../../css/css-juegos/slide.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -12,7 +29,7 @@
 </head>
 <body onload="alert1()">
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>LINEA DE TIEMPO</b></h2>
 	</div>
 
 	<div class="timer" id="timer">
@@ -32,14 +49,14 @@
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-0-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-3-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-4-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-5-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-6-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="../../../img/img_juegos/lvl1/linea-del-tiempo1-7-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-0-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-4-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-5-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-6-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../../img/img-juegos/lvl1/linea-del-tiempo1-7-0.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -55,7 +72,7 @@
 			Swal.fire({
 				title: '¡Oh no!',
 				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
-				imageUrl: "../../../img/img_juegos/loop.gif",
+				imageUrl: "../../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
 				confirmButtonColor: '#85c42c',
@@ -64,7 +81,7 @@
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "../../../img/img_juegos/linea-del-tiempo1.png",
+					imageUrl: "../../../img/img-juegos/linea-del-tiempo1.png",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -79,8 +96,13 @@
 	</script>
 	<script>
 		var segundos = 240;
-
 		let puntos = 0;
+
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -95,19 +117,20 @@
 		}
 		if (segundos <= 10) {
 			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 		}
 			if (segundos == 0) {
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../../img/img_juegos/loop.gif",
+					imageUrl: "../../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -190,18 +213,19 @@
 							Swal.fire({
 								title: '¡Muy bien!',
 								text: 'Ahora pasemos al siguiente nivel',
-								imageUrl: "../../../img/img_juegos/Thumbs-Up.gif",
+								imageUrl: "../../../img/img-juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
 								rgba(0,143,255,0.6)
-								url("../../../img/img_juegos/fondo.gif")`,
+								url("../../../img/img-juegos/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = 'level-2.html';
+									window.location.href = 'level-2.php';
 								}
 							})
+							correcto.play(); //agregando sonido al juego completado
 						}, "800");
 					}
 				}
