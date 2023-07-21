@@ -70,12 +70,12 @@ body::-webkit-scrollbar-track {
 .timer {
     text-align: center;
     padding: 3%;
-    margin: 40px 0 0 1050px;
     width: 100px;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(129,179,243,0.7);
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
     border-radius: 110px;
@@ -83,31 +83,43 @@ body::-webkit-scrollbar-track {
     border-style: solid;
     border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
-    font-size: 140%;
+    font-size: 150%;
+    margin-left: 82.5%;
+    margin-top:1.5%;
+  }
+  @keyframes animation1 {
+    0% {margin: -1.5% 0 0 82.4%;}
+    20% {margin: -1.5% 0 0 82.6%;}
+    40% {margin: -1.5% 0 0 82.4%;} 
+    60% {margin: -1.5% 0 0 82.6%;}
+    80% {margin: -1.5% 0 0 82.4%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
 }
 
-@keyframes animation1 {
-    0% {margin: 40px 0 0 1040px;}
-    20% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    60% {margin: 40px 0 0 1060px;}
-    80% {margin: 40px 0 0 1040px;} 
-    100% {margin: 40px 0 0 1050px;}
-}
+  @keyframes animation2 {
+    0% {margin: -1.5% 0 0 82.2%;}
+    15% {margin: -1.5% 0 0 82.8%;}
+    30% {margin: -1.5% 0 0 82.2%;} 
+    45% {margin: -1.5% 0 0 82.8%;}
+    60% {margin: -1.5% 0 0 82.2%;} 
+    75% {margin: -1.5% 0 0 82.8%;;}
+    90% {margin: -1.5% 0 0 82.2%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
+  }
 
-@keyframes animation2 {
-    0% {margin: 40px 0 0 1040px;}
-    10% {margin: 40px 0 0 1060px;}
-    20% {margin: 40px 0 0 1040px;} 
-    30% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    50% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    70% {margin: 40px 0 0 1060px;} 
-    80% {margin: 40px 0 0 1040px;} 
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050px;}
-}
+  @keyframes animation3 {
+    0% {margin: -1.5% 0 0 81.4%;}
+    10% {margin: -1.5% 0 0 83.6%;}
+    20% {margin: -1.5% 0 0 81.4%;} 
+    30% {margin: -1.5% 0 0 83.6%;}
+    40% {margin: -1.5% 0 0 81.4%;} 
+    50% {margin: -1.5% 0 0 83.6%;}
+    60% {margin: -1.5% 0 0 81.4%;} 
+    70% {margin: -1.5% 0 0 83.6%;} 
+    80% {margin: -1.5% 0 0 81.4%;} 
+    90% {margin: -1.5% 0 0 83.6%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
+  }
 
 #timer {
     background: rgba(129, 179, 243, 0.7);
@@ -127,12 +139,32 @@ body::-webkit-scrollbar-track {
     width: 1200px;
     height: 530px;
 }
+ 
+.footerimga{
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2%;
+  }
+  
+  .imagen-footer {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 250px !important;
+  
+  }
 
 .verificar {
     cursor: pointer;
     color: #000000;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
-    padding: 20px;
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+    );
+    padding: 20px; 
     border-radius: 30px;
     border-style: none;
     font-size: 130%;
@@ -157,7 +189,10 @@ body::-webkit-scrollbar-track {
     cursor: pointer;
     display: block;
     margin: 12px 0 0 12px;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+    );
     border: 0px;
     outline: none;
     border-radius: 50%;

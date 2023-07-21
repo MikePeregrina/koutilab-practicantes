@@ -114,7 +114,10 @@ body::-webkit-scrollbar-track {
 .verificar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(to right,rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+    );
     padding: 18px;
     border-radius: 30px;
     border-style: none;
@@ -138,8 +141,9 @@ margin-right: 40%;
     display: block;
     margin: auto;
     background: linear-gradient(to right,
-            rgb(129, 179, 243, 0.8),
-            rgba(132, 196, 44, 0.6));
+   rgba(129, 179, 243,0.7), 
+   rgba(132,196,44,0.6)
+    );
     border: 0px;
     outline: none;
     border-radius: 50%;

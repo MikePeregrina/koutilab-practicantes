@@ -109,6 +109,11 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
     </div>
+    <footer class="footerimga">
+      <div class="imagen-footer">
+        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+      </div>
+    </footer>
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador-v.js"></script>

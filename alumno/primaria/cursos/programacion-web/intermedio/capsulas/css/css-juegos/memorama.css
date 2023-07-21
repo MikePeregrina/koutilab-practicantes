@@ -1,7 +1,8 @@
 body {
   color: #404040;
   font-family: Tahoma;
-  background-image: url(../../img/img-juegos/bg.png);
+  /*background-image: url(../img/bg1.png);/*Se cambio el fondo principal del juego*/
+  background-image: url(../../img/img-juegos/bg.png);/*Se anexa nuevo fondo del juego*/
   background-repeat: no-repeat;/*el nuevo fondo no se repetira consecutivamente en el juego*/
   background-size:cover;/*el nuevo fondo se acopalara al tamaño de la pantalla del juego*/
   -webkit-user-select: none;
@@ -230,7 +231,10 @@ button::-moz-focus-inner {
   cursor: pointer;
   display: block;
   margin: 12px 0 0 12px;
-  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));          
+  background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
+  );          
   border: 0px;
   outline: none;
   border-radius: 50%;
@@ -246,7 +250,6 @@ button::-moz-focus-inner {
   scale: 100%;
   transition: scale 0.35s;
 }
-
 @media (max-width: 750px) {
   .btn-b {
       width: 15%;
@@ -315,7 +318,11 @@ div {
   cursor: pointer;
   color: black;
   /*Se cambio el color del btn inciar juego*/
-  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+  );
+
   padding: 30px;
   border-radius: 50px;
   /*border: white 5px solid;*/

@@ -59,12 +59,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo" style="margin-left: 450px;"><b>SELECTOR ETIQUETA</b></h4>
-	</div>
-
 	<!-- Tiempo -->
 	<div class="timer" id="timer">
 		<b style="margin-top: 10px;">Tiempo: <br>
@@ -72,25 +66,37 @@ if (isset($resultadoIntentos['intentos'])) {
 		</b>
 	</div>
 
-	<div class="contenido">
 
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-				<i class="fas fa-reply"></i></button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
-
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h4 class="titulo" style="margin-left: 40px;"><b>SELECTOR ETIQUETA</b></h4>
+	</div>
+    <section>
+	<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+        </div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
 			Iniciar juego
 		</div>
-   
+
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
 
-	</div>
+	</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 
 	<script>
 		let cantidadTarjetas = 24;

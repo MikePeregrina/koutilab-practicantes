@@ -95,36 +95,6 @@ body::-webkit-scrollbar-track {
     100% {margin: 40px 0 0 1050px;}
 }
 
-@keyframes animation2 {
-    0% {margin: 40px 0 0 1040px;}
-    10% {margin: 40px 0 0 1060px;}
-    20% {margin: 40px 0 0 1040px;} 
-    30% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    50% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    70% {margin: 40px 0 0 1060px;} 
-    80% {margin: 40px 0 0 1040px;} 
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050px;}
-}
-
-#timer {
-    background: rgba(129, 179, 243, 0.7);
-}
-
-#tiempo {
-    margin: 0 0 0 0;
-}
-@keyframes animation1 {
-    0% {margin: 40px 0 0 1040px;}
-    20% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    60% {margin: 40px 0 0 1060px;}
-    80% {margin: 40px 0 0 1040px;} 
-    100% {margin: 40px 0 0 1050px;}
-}
-
   @keyframes animation2 {
     0% {margin: 40px 0 0 1040px;}
     15% {margin: 40px 0 0 1060px;}
@@ -150,6 +120,14 @@ body::-webkit-scrollbar-track {
     100% {margin: 40px 0 0 1050px;}
   }
 
+#timer {
+    background: rgba(129, 179, 243, 0.7);
+}
+
+#tiempo {
+    margin: 0 0 0 0;
+}
+
 .contenido {
     margin: 20px auto 30px auto;
     border-radius: 5px;
@@ -164,7 +142,11 @@ body::-webkit-scrollbar-track {
 .verificar {
     cursor: pointer;
     color: #000000;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
+    );
+
     padding: 20px;
     border-radius: 30px;
     border-style: none;
@@ -190,7 +172,10 @@ body::-webkit-scrollbar-track {
     cursor: pointer;
     display: block;
     margin: 12px 0 0 12px;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
+    );
     border: 0px;
     outline: none;
     border-radius: 50%;
@@ -206,6 +191,7 @@ body::-webkit-scrollbar-track {
     scale: 100%;
     transition: scale 0.35s;
   }
+
 @media (max-width: 750px) {
     .btn-b {
         width: 15%;

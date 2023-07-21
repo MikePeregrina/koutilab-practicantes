@@ -1,20 +1,17 @@
-body {
+body{
     color: #404040;
     font-family: Tahoma;
     /*background-image: url(../img/bg1.png);/*Se cambio el fondo que tenia el juego*/
-    background-image: url(../../img/img-juegos/bg.png);
-    /*se coloco el nuevo fondo del juego*/
-    background-repeat: no-repeat;
-    /*Se dio la opcion de que no se repita el nuevo fondo en la pantalla del juego*/
-    background-size: cover;
-    /*el fondo del juego se ajustará a la pantalla total*/
+    background-image: url(../../img/img-juegos/bg.png); /*se coloco el nuevo fondo del juego*/
+    background-repeat: no-repeat;/*Se dio la opcion de que no se repita el nuevo fondo en la pantalla del juego*/
+    background-size: cover;/*el fondo del juego se ajustará a la pantalla total*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:center;
 }
 
 body::-webkit-scrollbar {
@@ -48,9 +45,8 @@ body::-webkit-scrollbar-track {
     margin: 10px auto 0 auto;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(129, 179, 243, 0.5);
-    /*se cambio el color del borde*/
-    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    border: 2px solid rgba(129, 179, 243, 0.5); /*se cambio el color del borde*/
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6); 
     line-height: 20px;
     width: 1200px;
     height: 60px;
@@ -59,8 +55,7 @@ body::-webkit-scrollbar-track {
 .titulo {
     display: flex;
     justify-content: center;
-    font-size: 1.3rem;
-    /*Se cambio el tamaño de la letra*/
+    font-size: 1.3rem; /*Se cambio el tamaño de la letra*/
 }
 
 .timer {
@@ -128,8 +123,7 @@ body::-webkit-scrollbar-track {
     margin: 20px auto 30px auto;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(129, 179, 243, 0.5);
-    /*se cambio el color del borde*/
+    border: 2px solid rgba(129, 179, 243, 0.5); /*se cambio el color del borde*/
     box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
     line-height: 20px;
     width: 1200px;
@@ -139,7 +133,10 @@ body::-webkit-scrollbar-track {
 .verificar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(to bottom right, rgba(129, 179, 243), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+    );
     padding: 20px;
     border-radius: 30px;
     border-style: none;
@@ -160,7 +157,10 @@ body::-webkit-scrollbar-track {
     cursor: pointer;
     display: block;
     margin: 12px 0 0 12px;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
+    );
     border: 0px;
     outline: none;
     border-radius: 50%;
@@ -176,6 +176,7 @@ body::-webkit-scrollbar-track {
     scale: 100%;
     transition: scale 0.35s;
   }
+
 @media (max-width: 750px) {
     .btn-b {
         width: 15%;
@@ -190,11 +191,10 @@ body::-webkit-scrollbar-track {
     transform: scale(1.2);
 }
 
-.main-ctn {
+.main-ctn{
     font-size: 20px;
     margin: 30px;
-    background-color: rgba(129, 179, 243, 0.7);
-    /*Se cambio el color del contenedor*/
+    background-color: rgba(129,179,243,0.7); /*Se cambio el color del contenedor*/
     padding: 15px;
     border-radius: 15px;
     text-align: center;
@@ -206,45 +206,42 @@ body::-webkit-scrollbar-track {
     margin-top: 50px;
 }
 
-.main-ctn p {
-    line-height: 25px;
-    /*Interlineado*/
+.main-ctn p{
+    line-height : 25px; /*Interlineado*/
     margin-bottom: 0px;
     padding: 0;
     margin: 0;
 }
 
-.q-ctn {
+.q-ctn{
     display: flex;
     justify-content: center;
     margin-top: 0px;
     padding-top: 0px;
 }
 
-.title-ctn {
+.title-ctn{
     text-align: justify;
     padding: 15px;
     margin-top: 0px;
     padding-top: 0px;
 }
 
-.opt-ctn {
+.opt-ctn{
     text-align: center;
 }
 
-.btn-opt {
+.btn-opt{
     font-size: 20px;
     padding: 15px;
     margin: 30px;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 20px;
-    /*border: 2px white solid;*/
-    /*Se comento esta linea  para quitar el color del borde*/
-    background:
-
-        rgba(132, 196, 44, 0.6)
-        /*Se cambio el color de los btns de respuesta del juego*/
+    /*border: 2px white solid;*//*Se comento esta linea  para quitar el color del borde*/
+    background: 
+        
+        rgba(132, 196, 44, 0.6)/*Se cambio el color de los btns de respuesta del juego*/
     ;
     border-color: white;
     border-style: solid;
@@ -252,17 +249,17 @@ body::-webkit-scrollbar-track {
     /*box-shadow: #404040 3px 4px;*/
 }
 
-.btn-opt:hover {
-    background: linear-gradient(to right,
-            rgba(129, 179, 243),
-            rgba(132, 196, 44, 0.6)
-            /*Se cambio el color de los btns de respuesta del juego*/
-        );
+.btn-opt:hover{
+    background: linear-gradient(
+        to right,
+        rgba(129,179,243),
+        rgba(132, 196, 44, 0.6)/*Se cambio el color de los btns de respuesta del juego*/
+    );
     transform: scale(1.05);
 }
 
 
-.paleta-de-colores {
+.paleta-de-colores{
     background-color: #3faaf5;
     background-color: #73c4fc;
     background-color: #1f4b74;

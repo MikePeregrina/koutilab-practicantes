@@ -128,10 +128,9 @@ body::-webkit-scrollbar-track {
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(
-        to right,
-        rgba(132, 196, 44, 0.5),
-        rgba(129, 179, 243)
+    background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
     );
     border: 0px;
     outline: none;
@@ -291,10 +290,9 @@ body::-webkit-scrollbar-track {
 .verificar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(
-        to right,
-        rgba(132, 196, 44, 0.5),
-        rgba(129, 179, 243)
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
     );
     padding: 13px;
     border-radius: 30px;
@@ -311,10 +309,9 @@ body::-webkit-scrollbar-track {
 .recargar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(
-        to right,
-        rgba(132, 196, 44, 0.5),
-        rgba(129, 179, 243)
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
     );
     padding: 13px;
     border-radius: 30px;

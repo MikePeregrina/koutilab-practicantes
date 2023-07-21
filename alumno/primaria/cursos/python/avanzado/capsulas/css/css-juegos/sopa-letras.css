@@ -232,7 +232,10 @@ button::-moz-focus-inner {
   cursor: pointer;
   display: block;
   margin: 12px 0 0 12px;
-  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+  background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+  );
   border: 0px;
   outline: none;
   border-radius: 50%;

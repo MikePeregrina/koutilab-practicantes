@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula43";
+$permiso = "capsula6";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 44;
+$permiso_intento = 7;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -38,6 +38,8 @@ if (isset($resultadoIntentos['intentos'])) {
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,23 +54,27 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>FOR</b></h2>
 	</div>
-
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo"></p>
-		</b>
-	</div>
-
-	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
-
-		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
-		<br>
+	
+	<section>
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h5 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+        </div>
 
 		<div id="page">
 
@@ -102,7 +108,14 @@ if (isset($resultadoIntentos['intentos'])) {
 			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
 	
 		  </div>
-	</div>
+	</section>
+	 <!-- CAMBIOS -->
+	 <footer class="footerimga">
+      <div class="imagen-footer">
+        <img src="../../img/benvenida.png" alt="No-image">
+      </div>
+    </footer>
+  <!-- fIN CAMBIOS -->
 
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
@@ -111,7 +124,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		Swal.fire({
 			title: '¡Oh no!',
 			text: 'Kobot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
-			imageUrl: "../../img/img-juegos/loop.gif",
+			imageUrl: "../../img/img_juegos/loop.gif",
 			imageHeight: 320,
 			confirmButtonText: '¡Vamos!',
 			confirmButtonColor: '#85c42c',
@@ -125,16 +138,16 @@ if (isset($resultadoIntentos['intentos'])) {
 		var segundos = 240;
 		let puntos = 0;
 
-		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos <= 60) {
-               	var div = document.getElementById("timer");
+               var div = document.getElementById("timer");
                     div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
                 if (segundos <= 30) {
@@ -147,20 +160,19 @@ if (isset($resultadoIntentos['intentos'])) {
                 }
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 44 + "&id_curso=" + 4; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 4; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../img/img-juegos/loop.gif",
+					imageUrl: "../../img/img_juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
-				xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
+				Incorrecto.play(); //Agregando sonido al juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -208,18 +220,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		document.getElementById("moves").innerHTML = moves;
 		toggleVisablity("Message-Container");  
 		var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 44 + "&id_curso=" + 4; //cancatenation
-		xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 4; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xmlhttp.send(param);
 		Swal.fire({
 			title: '¡Muy bien!',
-			text: 'Lograste completar el laberinto',
-			imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+			text: 'Llegaste a la nave con éxito',
+			imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 			imageHeight: 350,
 			backdrop: `
 			rgba(0,143,255,0.6)
-			url("../../img/img-juegos/fondo.gif")`,
+			url("../../img/img_juegos/fondo.gif")`,
 			confirmButtonColor: '#a14cd9',
 			confirmButtonText: '¡Vamos!',
 			}).then((result) => {
@@ -227,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				window.location.href = '../../../../../../rutas/ruta-py-b.php';
 			}
 		})
-		correcto.play(); //agregando sonido al juego completado
+		Correcto.play(); //Agregando sonido al juego completado
 	}
 	
 	function toggleVisablity(id) {
@@ -719,7 +731,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 		sprite = new Image();
 		sprite.src =
-		"../../img/img-juegos/mascota-1.png" +
+		"../../img/img_juegos/mascota-1.png" +
 		"?" +
 		new Date().getTime();
 		sprite.setAttribute("crossOrigin", " ");
@@ -731,7 +743,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 	
 		finishSprite = new Image();
-		finishSprite.src = "../../img/img-juegos/cohete.png"+
+		finishSprite.src = "../../img/img_juegos/cohete.png"+
 		"?" +
 		new Date().getTime();
 		finishSprite.setAttribute("crossOrigin", " ");

@@ -54,99 +54,109 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>ESTRUCTURAS ITERATIVAS</b></h2>
 	</div>
+    <section>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo"></p>
-		</b>
-	</div>
-
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
+<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 	<script>
-		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
 		//Arreglo de preguntas
-		var preguntas = [{
+		var preguntas = [
+			{
 				num: 1,
-				pregunta: "¿Qué tipo de estructura podemos ocupar si queremos usar código de forma repetida?",
-				opA: "Estructura iterativa",
-				opB: "Estructura condicional",
-				opC: "Estructura de datos",
-				correcta: "A",
+				pregunta:
+					"Cuando hablamos de la sintaxis en Python, nos referimos como en todo lenguaje al correcto _____ y orden de las palabras que utilizamos para comunicarnos.",
+				opA: "Color",
+				opB: "Uso",
+				opC: "Parametro",
+				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 2,
-				pregunta: "Los bucles son una forma de crear estructuras iterativas, ¿sabes cuántos tipos de bucles hay?",
-				opA: "3",
-				opB: "2",
-				opC: "5",
-				correcta: "B",
+				pregunta:
+					"Por ello, en Python también es necesario cumplir ciertos requisitos a la hora de expresarnos esta manera, se evitan _________",
+				opA: "Errores",
+				opB: "Saltos de linea",
+				opC: "Codigo",
+				correcta: "A",
 				tiempo: "20",
 			},
 			{
 				num: 3,
-				pregunta: "Se trata de tipo de bucle que queremos que se repita un número definido de veces, ya sea establecido por el programador o por el usuario",
-				opA: "For",
-				opB: "While",
-				opC: "If",
-				correcta: "A",
+				pregunta:
+					"Parte esencial de la sintaxis en Python son los __________ que sirven para describir una variable",
+				opA: "Codigos",
+				opB: "Etiquetas",
+				opC: "Identificadores",
+				correcta: "C",
 				tiempo: "30",
 			},
 			{
 				num: 4,
-				pregunta: "Se trata del tipo de bucle que se va a repetir siempre y cuando se cumpla una condición sin importar cuantas veces sea necesario repetirse",
-				opA: "For",
-				opB: "While",
-				opC: "If",
+				pregunta:
+					"Python diferencia entre mayúsculas y minúsculas y no admite caracteres de puntuación como @, $ o %.",
+				opA: "Falso",
+				opB: "Cierto ",
+				opC: "No se",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 5,
-				pregunta: "No es un bucle, pero nos ayuda a crear una mejor estructura y poder ayudarnos a crear mejores sistemas de condición",
-				opA: "For",
-				opB: "While",
-				opC: "If",
-				correcta: "C",
+				pregunta:
+					"Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
+				opA: "Minuscula",
+				opB: "Mayuscula",
+				opC: "Ambas",
+				correcta: "B",
 				tiempo: "30",
-			}
+			},
 		];
 
 		var puntos = 0; //Leva el conteo de puntos/aciertos
 		var seleccion; //Guarda la respuesta elegida
 		var contador = 1; //Lleva el conteo de preguntas
 		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
+
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function getRandomInt(max) {
 			//para generar números random enteros
@@ -156,7 +166,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -182,7 +192,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		function ponerPregunta() {
 			//Actualiza las preguntas
 			document.getElementById("main-ctn").innerHTML =
-				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
+				'<p id="cont" style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
 				this.contador +
 				"/5</p>" +
 				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
@@ -218,31 +228,35 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos <= 10) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 5) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
+			if(segundos > 15){
+			var div = document.getElementById("timer");
+			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+           }else if(segundos == 15){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+		   }else if(segundos < 10){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+   			}
+
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "../../img/img-juegos/loop.gif",
+					imageUrl: "../../img/img_juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
+				Incorrecto.play(); //Agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -279,14 +293,14 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "../../img/img-juegos/loop.gif",
+						imageUrl: "../../img/img_juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -321,18 +335,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+				imageUrl: "./../img/img_juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
+						url("../../img/img_juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
@@ -340,7 +354,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					window.location.href = '../../../../../../rutas/ruta-py-b.php';
 				}
 			});
-			correcto.play(); //agregando sonido al juego completado
+			Correcto.play(); //Agregando sonido al juego completado
 		}
 
 		//Alerta, muestra que la respuesta fue correcta

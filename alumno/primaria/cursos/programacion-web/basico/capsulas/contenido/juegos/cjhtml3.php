@@ -55,11 +55,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>LISTAS ORDENADAS Y NO ORDENADAS </b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -67,15 +62,22 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>LISTAS ORDENADAS Y NO ORDENADAS </b></h2>
+    </div>
+
     <!-- Contenedor principal -->
-    <div class="contenido">
-
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
+    <section>
+    <!-- Boton para regresar -->
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+        </div>
         <!-- Titulo secundario -->
         <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
         <br>
@@ -100,8 +102,15 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
         <!-- boton de verificar respuestas -->
-        <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
-    </div>
+        <div class="btn-v">
+            <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
+        </div>
+ </section>
+ <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+</footer>
 
     <script src="../../js/copy-code.js"></script>
 </body>

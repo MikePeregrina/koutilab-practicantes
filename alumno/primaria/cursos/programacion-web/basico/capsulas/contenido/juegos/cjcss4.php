@@ -55,20 +55,20 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>SELECTORES DE CSS</b></h2>
-    </div>
-
-    <!-- Timer -->
+     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
 
+        <!-- Titulo general del juego -->
+        <div class="titulo-gen">
+        <h2 class="titulo"><b>SELECTORES DE CSS</b></h2>
+    </div>
+
     <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
 
         <!-- Boton para regresar -->
         <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
@@ -100,9 +100,15 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
         <!-- boton de verificar respuestas -->
-        <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
-    </div>
-
+        <div class="btn-v">
+            <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
+        </div>
+ </section>
+ <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+</footer>
     <script src="../../js/copy-code-s.js"></script>
 </body>
 

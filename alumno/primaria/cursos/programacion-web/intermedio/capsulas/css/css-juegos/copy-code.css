@@ -1,7 +1,7 @@
 body{
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../img/img-juegos/bg.png);    
+    background-image: url(../../img/img-juegos/bg.png);
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-user-select: none;
@@ -85,18 +85,19 @@ body::-webkit-scrollbar-track {
     100% {margin: 40px 0 0 1050px;}
 }
 
-  @keyframes animation2 {
+@keyframes animation2 {
     0% {margin: 40px 0 0 1040px;}
     15% {margin: 40px 0 0 1060px;}
     30% {margin: 40px 0 0 1040px;} 
-    45% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    75% {margin: 40px 0 0 1060px;}
+    30% {margin: 40px 0 0 1060px;}
+    45% {margin: 40px 0 0 1040px;} 
+    60% {margin: 40px 0 0 1060px;}
+    75% {margin: 40px 0 0 1040px;} 
     90% {margin: 40px 0 0 1060px;} 
     100% {margin: 40px 0 0 1050px;}
-  }
+}
 
-  @keyframes animation3 {
+@keyframes animation3 {
     0% {margin: 40px 0 0 1040px;}
     10% {margin: 40px 0 0 1060px;}
     20% {margin: 40px 0 0 1040px;} 
@@ -108,7 +109,7 @@ body::-webkit-scrollbar-track {
     80% {margin: 40px 0 0 1040px;} 
     90% {margin: 40px 0 0 1060px;} 
     100% {margin: 40px 0 0 1050px;}
-  }
+}
 
 #timer {
     background: rgba(129, 179, 243, 0.7);
@@ -180,7 +181,7 @@ body::-webkit-scrollbar-track {
     box-shadow: 0 0 8px white;
 }
 #textoej {
-    line-height: 25px;
+    line-height: 28px;
 }
 #escrito{
     background: transparent;
@@ -206,7 +207,6 @@ body::-webkit-scrollbar-track {
     padding-top: 12px;
 }
 /*---------------------*/
-
 .btn-b {
     position: absolute;
     width: 5%;
@@ -214,7 +214,10 @@ body::-webkit-scrollbar-track {
     cursor: pointer;
     display: block;
     margin: 12px 0 0 12px;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
+    );
     border: 0px;
     outline: none;
     border-radius: 50%;
@@ -248,7 +251,10 @@ body::-webkit-scrollbar-track {
 .verificar {
     cursor: pointer;
     color: #000000;
-    background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+    );
     padding: 20px;
     border-radius: 30px;
     border-style: none;

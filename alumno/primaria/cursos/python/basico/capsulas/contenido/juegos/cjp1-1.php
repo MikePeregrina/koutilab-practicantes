@@ -45,50 +45,53 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/preguntas-agiles.css" /><!--Linkeo de la hoja de estilos-->
+	<link rel="stylesheet" href="../../css/css-juegos/preg-ag.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="shortcut icon" href="../../img/img-juegos">
 	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>SINTAXIS BÁSICA</b></h2>
-	</div>
-
+	<!-- CAMBIOS -->
 	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo" style="margin: 0 0 0 0"></p>
-		</b>
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>SINTÁXIS BÁSICA</b></h2>
 	</div>
+    <section>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="#"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
+<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
 		var preguntas = [
@@ -142,12 +145,18 @@ if (isset($resultadoIntentos['intentos'])) {
 				correcta: "B",
 				tiempo: "30",
 			},
-			
 		];
-        var puntos = 0; //Leva el conteo de puntos/aciertos
+
+		var puntos = 0; //Leva el conteo de puntos/aciertos
 		var seleccion; //Guarda la respuesta elegida
 		var contador = 1; //Lleva el conteo de preguntas
 		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
+
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function getRandomInt(max) {
 			//para generar números random enteros
@@ -183,7 +192,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		function ponerPregunta() {
 			//Actualiza las preguntas
 			document.getElementById("main-ctn").innerHTML =
-				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
+				'<p id="cont" style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
 				this.contador +
 				"/5</p>" +
 				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
@@ -219,17 +228,18 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			//Permite que el timer se vuelva a cambiar de color a azul.
-		if(segundos < 15){
+			if(segundos > 15){
 			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: #c42c2caf; border-color: #c42c2c;";
-		}else if(segundos < 10){
+			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+           }else if(segundos == 15){
 			var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}else if (segundos == 15) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+		   }else if(segundos < 10){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+   			}
+
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
@@ -239,13 +249,14 @@ if (isset($resultadoIntentos['intentos'])) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "../../img/img-juegos/loop.gif",
+					imageUrl: "../../img/img_juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				Incorrecto.play(); //Agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -289,7 +300,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "../../img/img-juegos/loop.gif",
+						imageUrl: "../../img/img_juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -331,11 +342,11 @@ if (isset($resultadoIntentos['intentos'])) {
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+				imageUrl: "./../img/img_juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
+						url("../../img/img_juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
@@ -343,6 +354,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					window.location.href = '../../../../../../rutas/ruta-py-b.php';
 				}
 			});
+			Correcto.play(); //Agregando sonido al juego completado
 		}
 
 		//Alerta, muestra que la respuesta fue correcta
@@ -368,6 +380,6 @@ if (isset($resultadoIntentos['intentos'])) {
 			});
 		}
 	</script>
-    
 </body>
+
 </html>

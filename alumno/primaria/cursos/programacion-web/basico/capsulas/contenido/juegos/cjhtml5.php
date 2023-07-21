@@ -56,16 +56,15 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>HIPERVINCULOS</b></h2>
-    </div>
-
-    <!-- Timer -->
+     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
+    </div>
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>HIPERVINCULOS</b></h2>
     </div>
 
     <!-- Contenedor principal -->
@@ -109,6 +108,11 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
     </div>
+    <footer class="footerimga">
+      <div class="imagen-footer">
+        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+      </div>
+    </footer>
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador-h.js"></script>

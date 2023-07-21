@@ -123,7 +123,10 @@ body::-webkit-scrollbar-track {
 .verificar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(to bottom right,rgba(129,179,243),rgba(132, 196, 44, 0.6));
+    background: linear-gradient(to right,
+     rgba(129, 179, 243,0.7), 
+     rgba(132,196,44,0.6)
+    );
     padding: 20px;
     border-radius: 30px;
     border-style: none;
@@ -145,10 +148,9 @@ body::-webkit-scrollbar-track {
     display: block;
     margin: auto;
     /*Se cambio el color  del btn regresar*/
-    background: linear-gradient(
-        to right,
-        rgba(129, 179, 243),
-        rgba(132, 196, 44, 0.6)
+    background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
     );
     border: 0px;
     outline: none;
