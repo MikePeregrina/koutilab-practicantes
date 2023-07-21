@@ -98,7 +98,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3 style="margin-bottom: 20px;">EDITOR DE CÓDIGO</h3>
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>

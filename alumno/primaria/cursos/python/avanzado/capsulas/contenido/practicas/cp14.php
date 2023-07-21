@@ -96,7 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe> -->
-                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 5%; padding: 5px; margin: -30px 60px -20px 1050px; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
+                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 15%; padding: 5px; margin: -30px 60px -20px 70%; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
 
                 <div class="editor-container">
                     <div class="cd" id="editor"></div>

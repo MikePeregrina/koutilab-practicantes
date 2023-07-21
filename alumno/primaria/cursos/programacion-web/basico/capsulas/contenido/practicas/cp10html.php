@@ -88,7 +88,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </table>
 
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3>EDITOR DE CÓDIGO</h3>
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>

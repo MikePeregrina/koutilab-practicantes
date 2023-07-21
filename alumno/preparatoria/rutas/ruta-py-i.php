@@ -158,18 +158,45 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                 <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp4.php"><button class="prem2" id="pracp" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 3-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp1/index.php"><button class="prem3" id="gamep" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 3-->
             </div>
+            
+             <!-- Extras -->
+             <div class="container-premium-extra1">
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P1/ct2-5python.php"><button class="prem1" id="teoriap" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 3-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp4.php"><button class="prem2" id="pracp" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 3-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp1/index.php"><button class="prem3" id="gamep" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 3-->
+            </div>
+            <!-- Extras -->
+
             <!-- TEMA 3.5 -->
             <div class="container-premium2">
                 <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P1/ct3-5python.php"><button class="prem4" id="teoriap" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 5-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp6.php"><button class="prem5" id="pracp" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 5-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp2.php"><button class="prem6" id="gamep" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 5-->
             </div>
+
+            <!-- Extras -->
+            <div class="container-premium-extra2">
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P1/ct3-5python.php"><button class="prem4" id="teoriap" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 5-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp6.php"><button class="prem5" id="pracp" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 5-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp2.php"><button class="prem6" id="gamep" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 5-->
+            </div>
+            <!-- Extras -->
+
             <!-- TEMA 6.5 -->
             <div class="container-premium3">
                 <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P1/ct6-5python.php"><button class="prem7" id="teoriap" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 9-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp10.php"><button class="prem8" id="pracp" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 9-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp3.php"><button class="prem9" id="gamep" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 9-->
             </div>
+
+            <!-- Extras -->
+            <div class="container-premium-extra3">
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P1/ct6-5python.php"><button class="prem7" id="teoriap" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 9-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp10.php"><button class="prem8" id="pracp" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 9-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp3.php"><button class="prem9" id="gamep" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 9-->
+            </div>
+            <!-- Extras -->
+
             <!-- PARTE 2 -->
             <div class="label-2">
                 <span>CAPITULO 2</span>
@@ -213,18 +240,46 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                 <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp16.php"><button class="prem11" id="pracp" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 6-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp4/index.php"><button class="prem12" id="gamep" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 6-->
             </div>
+            
+            <!-- Extras -->
+            <div class="container-premium-extra4">
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P2/ct5-5python.php"><button class="prem10" id="teoriap" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 6-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp16.php"><button class="prem11" id="pracp" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 6-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp4/index.php"><button class="prem12" id="gamep" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 6-->
+            </div>
+            <!-- Extras -->
+
             <!-- TEMA 6.5 -->
             <div class="container-premium5">
                 <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P2/ct6-5python.php"><button class="prem13" id="teoriap" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 8-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp18.php"><button class="prem14" id="pracp" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 8-->
                 <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp5.php"><button class="prem15" id="gamep" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 8-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P2/ct6-5python.php"><button class="prem13" id="teoriap" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 8-->
             </div>
+
+            <!-- Extras -->
+            <div class="container-premium-extra5">
+                
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp18.php"><button class="prem14" id="pracp" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 8-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp5.php"><button class="prem15" id="gamep" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 8-->
+            </div>
+            <!-- Extras -->
+
             <!-- TEMA 7.5 -->
             <div class="container-premium6">
-                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P2/ct7-5python.php"><button class="prem16" id="teoriap" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
-                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp20.php"><button class="btn17" id="pracp" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 10-->
-                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp6.php"><button class="btn18" id="gamep" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 10-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P2/ct7-5python.php"><button class="btn" id="teoriap" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp20.php"><button class="btn" id="pracp" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 10-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp6.php"><button class="btn" id="gamep" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 10-->
             </div>
+
+            <!-- Extras -->
+            <div class="container-premium-extra6">
+                <a href="../cursos/python/intermedio/capsulas/contenido/teoricas/P2/ct7-5python.php"><button class="btn" id="teoriap" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/practicas/cp20.php"><button class="btn" id="pracp" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 10-->
+                <a href="../cursos/python/intermedio/capsulas/contenido/juegos/cjpp6.php"><button class="btn" id="gamep" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 10-->
+            </div>
+            <!-- Extras -->
+
         </div>
         </div>
     </section>

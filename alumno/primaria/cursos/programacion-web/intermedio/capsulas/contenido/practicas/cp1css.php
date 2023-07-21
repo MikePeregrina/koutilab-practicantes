@@ -103,7 +103,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3 style="margin-bottom: 20px;">EDITOR DE CÓDIGO</h3>
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>

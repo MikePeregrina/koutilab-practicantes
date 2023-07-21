@@ -1,17 +1,21 @@
-* {
+*{
     margin: 0;
     padding: 0;
-}
-
-body {
-    color: #404040;
-    font-family: Tahoma;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+  }
+  body{
     background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; 
-}
+      font-family: Tahoma;
+      color: #404040;
+  }
 
 body::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -39,27 +43,26 @@ body::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
 .container{
-    max-width: 90%;
-    width: 100%;
-    padding: 25px 30px;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
     border-radius: 5px;
     background: rgba(255,255,255,.8);
-    margin-left: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
     border: 2px solid rgba(129, 179, 243, 0.5);
     box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
 }
 
 .board{
-    width: 96%;
-    margin: 30px 0 30px 30px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 23px;
     overflow: auto;
     background: rgba(255,255,255, .8);
     border-radius: 8px;
     box-shadow: 0 0 12px rgba(61,172,244,.6);
     padding: 0;
     overflow-x: auto;
+    margin-bottom: 20px;
 }
 
 .board img{
@@ -169,7 +172,7 @@ form .user-details .input-box{
 }
 
 .btn-b {
-    width: 5%;
+    width: 80px;
     padding: 5px 5px;
     cursor: pointer;
     display: block;
@@ -181,22 +184,10 @@ form .user-details .input-box{
     transition: 0.5s;
 }
 
-@media (max-width: 750px) {
-    .btn-b {
-      width: 10%;
-    }
-  }
-
   .btn-b:hover {
     transform: scale(1.2);
   }
 
-@media (max-width: 750px) {
-    .container{
-      width: 90%;
-      margin-right: 150px;
-    }
-}
 
 .btne{
     width: 100%;
@@ -217,7 +208,7 @@ form .user-details .input-box{
 
 
 .btn-grd{
-    width: 20%;
+    width: 245px;
     padding: 10px 30px;
     cursor: pointer;
     display: block;
@@ -227,6 +218,7 @@ form .user-details .input-box{
     outline: none;
     border-radius: 30px;
     transition: 0.5s;
+    color: black;
 }
 
 .btn-grd:hover {
@@ -241,13 +233,13 @@ h3{
 
 
 .cd{
-    width: 47%;
+    width: 44%;
     box-shadow: 0 0 12px rgba(132,196,44, .8);
     text-decoration: none;
     font-size: 20px;
     margin-top: 10px;
     border: none;
-    margin-left: 30px;
+    margin-left: 5%;
     margin-bottom: 10px;
     height: 450px;
     font-family: Tahoma;
@@ -261,7 +253,7 @@ h3{
 }
 
 .editor{
-    width: 47%;
+    width: 43.5%;
     box-shadow: 0 0 12px rgba(132,196,44, .8);
     text-decoration: none;
     margin-top: 10px;
@@ -270,4 +262,30 @@ h3{
     margin-bottom: 10px;
     height: 450px;
     background: white;
+}
+
+
+@media (max-width: 680px) {
+   .editor-container{
+    display: grid;
+   }
+
+   .editor{
+    width: 80%;
+    margin-left: 10%;
+    }
+
+    .cd{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .new-g{
+        font-size: 10px;
+    }
+
+    .btn-grd{
+        width: 145px;
+        color: black;
+    }
 }

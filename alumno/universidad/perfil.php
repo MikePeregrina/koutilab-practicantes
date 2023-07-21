@@ -250,10 +250,10 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         <li>
                             <form enctype="multipart/form-data" action="" method="post">
                                 <div class="user-details1">
-                                    <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
+                                    <div class="input-box1" >
                                         <input type="text" name="clavegrupo" value="" placeholder="Clave de grupo">
 
-                                        <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" style="scale: 80%; width: 60%; margin-top:25px;">
+                                        <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" >
                                     </div>
                                 </div>
                             </form>

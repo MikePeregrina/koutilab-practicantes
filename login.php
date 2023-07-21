@@ -86,8 +86,8 @@ if (isset($_POST['iniciar_sesion'])) {
         $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_institucional);
 
         //Validar inicio de sesión de cuentas temporales
-        $query_validar_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user'");
-        $result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
+        //$query_validar_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user'");
+        //$result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
 
         if ($result_validar_admin > 0) {
             $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND rol=1");
