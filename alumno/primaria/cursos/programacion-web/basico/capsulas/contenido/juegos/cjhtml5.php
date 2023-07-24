@@ -68,16 +68,16 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h4>
-
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
+        </div>
         <br>
         <!-- contenido del juego -->
         <div class="container-all">
@@ -107,12 +107,14 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
-    </div>
-    <footer class="footerimga">
-      <div class="imagen-footer">
-        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
-      </div>
-    </footer>
+        </section>
+       <!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador-h.js"></script>

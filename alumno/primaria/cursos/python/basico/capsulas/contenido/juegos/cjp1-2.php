@@ -719,7 +719,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 		sprite = new Image();
 		sprite.src =
-		"../../img/img_juegos/mascota-1.png" +
+		"../../img/img-juegos/mascota-1.png" +
 		"?" +
 		new Date().getTime();
 		sprite.setAttribute("crossOrigin", " ");
@@ -731,7 +731,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		};
 	
 		finishSprite = new Image();
-		finishSprite.src = "../../img/img_juegos/cohete.png"+
+		finishSprite.src = "../../img/img-juegos/cohete.png"+
 		"?" +
 		new Date().getTime();
 		finishSprite.setAttribute("crossOrigin", " ");

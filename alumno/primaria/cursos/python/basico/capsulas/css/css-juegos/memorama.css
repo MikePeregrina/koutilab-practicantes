@@ -225,6 +225,16 @@ div {
   width: 100%;
   margin-left: 10%;
 }
+@keyframes iniciar{
+  20%,
+  90%{
+    transform: rotateY(180deg);
+  }
+  0%,
+  100%{
+    transform: rotateY(0deg);
+  }
+}
 
 .footerimga{
   width: 100%;

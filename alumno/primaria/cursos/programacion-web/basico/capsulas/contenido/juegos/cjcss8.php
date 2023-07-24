@@ -74,8 +74,6 @@ if (isset($resultadoIntentos['intentos'])) {
             </a>
             <h5 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
         </div>
-
-		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
 		<br>
 
 		<div id="page">

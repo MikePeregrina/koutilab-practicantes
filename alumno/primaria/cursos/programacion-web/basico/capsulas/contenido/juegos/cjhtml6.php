@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
             </a>
             <h5 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
         </div>
-		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+		
 		<br>
 
 		<div id="page">
@@ -132,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		var segundos = 240;
+		var segundos = 65;
 		let puntos = 0;
 
 		//Funcion que agrega el sonido al juego
