@@ -26,7 +26,6 @@
                 <li class="li-r"><a href="#nosotros">Nosotros</a></li>
                 <li class="li-r"><a href="#rutas">Rutas de aprendizaje</a></li>
                 <li class="li-r"><a href="#usuarios">Tipos de usuario</a></li>
-                <li class="hov li-r"><a href="#" class="reg">Registrarse</a></li>
                 <li class="hov li-r"><div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div></li>
             </ul>
         </nav>
@@ -168,7 +167,7 @@
                         primaria, secundaria, prepa
                         y universidad.
                     </h4>
-                    <div class="btn-sub">
+                    <div class="btn-sub" onclick="escolar()">
                         <h5 class="us-tx1">Registrar</h5>
                     </div>
                 </div>
@@ -198,7 +197,7 @@
                         individual y el también
                         aprendizaje personalizados
                     </h4>
-                    <div class="btn-sub">
+                    <div class="btn-sub" onclick="login()">
                         <h5 class="us-tx1">Registrar</h5>
                     </div>
                 </div>
@@ -267,6 +266,14 @@
             abrir.classList.add("visible");
             abrir.classList.remove("invisible");
         })
+
+        function login() {
+            window.location.href = "./login.php";
+        }
+
+        function escolar() {
+            window.location.href = "./registro/index.php";
+        }
     </script>
 </body>
 
