@@ -54,11 +54,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>PRIMEROS PASOS CON EL  CORREO ELECTRÓNICO</b></h2>
-    </div>
-
+    <!-- CAMBIOS -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -66,20 +62,22 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>SELECCIÓN DE RESPUESTA PARA UN ENUNCIADO</b></h2>
+    </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
-
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
-                tiempo o responde mal</b></h4>
-        <br>
-
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
+                    tiempo o responde mal</b></h4>
+        </div>
 
         <!-- Tenoch Moises -->
         <!--contenedor principal-->
@@ -106,6 +104,8 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
             <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
             <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
+            <!--script donde se le da funcionalidad al juego-->
+            <script src="index.js"></script>
 
         </div>
         <!-- boton de verificar respuestas-->
@@ -114,6 +114,14 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
     </div>
     <!-- Tenoch Moises -->
+
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
 
     <script>
         /* Ambos */

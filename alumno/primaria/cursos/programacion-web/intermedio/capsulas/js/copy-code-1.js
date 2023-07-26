@@ -1,5 +1,5 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-var segundos = 150;
+var segundos = 240;
 var count = 1000;
 let puntos = 0;
 
@@ -109,7 +109,7 @@ function alertExcelent() {
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../../img/img_juegos/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
@@ -128,7 +128,7 @@ function alertExcelent() {
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../../img/img-juegos/fondo.gif")`,
+                url("../../img/img-juegos/loop.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });

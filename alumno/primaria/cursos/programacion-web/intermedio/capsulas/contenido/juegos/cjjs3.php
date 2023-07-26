@@ -55,28 +55,26 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>OPERADORES MATEMÁTICOS</b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo"></p>
 		</b>
 	</div>
-
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>OPERADORES MATEMÁTICOS</b></h2>
+    </div>
     <!-- Contenedor principal -->
     <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i>
-            </button>
+      <div class="cont-st">
+        <a href="../../../../../../rutas/ruta-pw-i.php">
+          <button class="btn-b">
+            <i class="fas fa-reply"></i>
+          </button>
         </a>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
+        <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+      </div>
         <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
@@ -128,6 +126,13 @@ if (isset($resultadoIntentos['intentos'])) {
         <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
     </div>
     <p id="resultado"></p>
+   <!-- CAMBIOS -->
+    <footer class="footerimga">
+      <div class="imagen-footer">
+        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+      </div>
+    </footer>
+  <!-- fIN CAMBIOS -->
     <script>
         //Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");

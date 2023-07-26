@@ -73,17 +73,16 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="contenido">
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-i.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
                 tiempo o responde mal</b></h4>
+        </div>
         <br>
-
-
         <!-- Tenoch Moises -->
         <!--contenedor principal-->
         <div class="contenedor">
@@ -117,7 +116,13 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
     </div>
     <!-- Tenoch Moises -->
-
+    <!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
     <script>
 
         //ambos
@@ -127,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 swal.fire({
                     title: "Juego finalizado",
                     text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -143,7 +148,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 swal.fire({
                     title: "Juego finalizado",
                     text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {

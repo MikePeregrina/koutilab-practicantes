@@ -61,28 +61,27 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo"><b>CONSTANTES</b></h4>
-	</div>
-
 
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo"></p>
 		</b>
 	</div>
+		<!-- Titulo general -->
+    <div class="titulo-gen">
+		<h4 class="titulo"><b>CONSTANTES</b></h4>
+	</div>
+	<section>
 
-	<div class="contenido">
-
-		<a href="../../../../../../rutas/ruta-pw-i.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-i.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
+        </div>
+        <!--FIN  CAMBIOS -->
 		<br>
 
 		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
@@ -97,8 +96,14 @@ if (isset($resultadoIntentos['intentos'])) {
 		<div class="soup">
 			<div id='juego'></div>
 		</div>
-
-	</div>
+	</section>
+	<!-- CAMBIOS -->
+		<footer class="footerimga">
+			<div class="imagen-footer">
+				<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+			</div>
+		</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras

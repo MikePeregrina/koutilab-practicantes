@@ -56,29 +56,27 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>CONTROLES DE TEXTO</b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>CONTROLES DE TEXTO</b></h2>
+    </div>
+     <!-- Contenedor principal -->
+	<section>
 
-    <!-- Contenedor principal -->
-    <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h4>
-
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-i.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
+        </div>
         <br>
         <!-- contenido del juego -->
         <div class="container-all">
@@ -107,8 +105,13 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
+    </section>
+<!-- CAMBIOS -->
+<footer class="footerimga">
+    <div class="imagen-footer">
+        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
     </div>
-
+</footer>
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador-1.js"></script>
 

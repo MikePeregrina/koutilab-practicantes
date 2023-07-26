@@ -55,30 +55,31 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>FLEX CONTAINER</b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo"></p>
         </b>
     </div>
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>FLEX CONTAINER</b></h2>
+    </div>
+
 
     <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php">
-            <button class="btn-b">
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-i.php">
+              <button class="btn-b">
                 <i class="fas fa-reply"></i>
-            </button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote</b></h4>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+        </div>
+        <!-- Parte que modifique Final -->
         <br>
 
         <!--CONTENEDOR DEL JUEGO-->
@@ -102,8 +103,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
-    </div>
-
+    </section>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script src="../../js/copy-code-2.js"></script>
 </body>
 
