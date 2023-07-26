@@ -112,6 +112,7 @@ function alertExcelent() {
         });
         correcto.play(); //agregando sonido al juego completado
     } else {
+        incorrecto.play();
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",

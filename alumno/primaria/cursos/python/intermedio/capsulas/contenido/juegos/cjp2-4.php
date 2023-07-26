@@ -55,10 +55,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>MODULOS</b></h2>
-    </div>
 
     <!-- Timer -->
     <div class="timer" id="timer">
@@ -67,20 +63,23 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>MODULOS</b></h2>
+    </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
+        <div class="cont-st">
+            <!-- Boton para regresar -->
+            <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                    <i class="fas fa-reply"></i></button>
+            </a>
 
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
-                tiempo o responde mal</b></h4>
-        <br>
+            <!-- Titulo secundario -->
+            <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
+                    tiempo o responde mal</b></h4>
+        </div>
 
 
         <!-- Tenoch Moises -->
@@ -118,17 +117,20 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
     </div>
     <!-- Tenoch Moises -->
-
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    
     <script>
-
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -143,8 +145,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -191,21 +192,21 @@ if (isset($resultadoIntentos['intentos'])) {
         correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var incorrecto = document.createElement("audio");
         incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-        
+
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
 
             if (segundos == 0) {
                 Swal.fire({
@@ -294,8 +295,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     if (mostrar_pantalla_juego_términado) {
                         swal.fire({
                             title: "Juego finalizado",
-                            text:
-                                "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                            text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
                             icon: "success",
                             confirmButtonText: '¡Genial!'
                         }).then((result) => {
@@ -412,9 +412,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             return texto;
         }
-/* Ambos */
-
-
+        /* Ambos */
     </script>
 
 

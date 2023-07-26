@@ -54,58 +54,66 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>DATOS COMPUESTOS </b></h2>
-	</div>
-
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i></button>
-		</a>
-
-		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
-			<br>
-
-			<div id="page">
-
-				<div id="Message-Container">
-					<div id="message">
-						<p id="moves"></p>
-					</div>
-				</div>
-
-				<br>
-				<div id="menu" style="margin-top: -500px; position: absolute;">
-					<div class="custom-select">
-						<select id="diffSelect">
-							<option value="10">Easy</option>
-							<option value="15">Medium</option>
-							<option value="25">Hard</option>
-							<option value="38">Extreme</option>
-						</select>
-					</div>
-					<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
-				</div>
-
-				<div class="maze-contenedor">
-					<div id="view">
-						<div id="mazeContainer">
-							<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
-						</div>
-					</div>
-				</div>
-
-				<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
-
-			</div>
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>DATOS COMPUESTOS </b></h2>
 	</div>
 
+
+
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+					<i class="fas fa-reply"></i></button>
+			</a>
+
+			<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+		</div>
+
+		<div id="page">
+
+			<div id="Message-Container">
+				<div id="message">
+					<p id="moves"></p>
+				</div>
+			</div>
+
+			<br>
+			<div id="menu" style="margin-top: -500px; position: absolute;">
+				<div class="custom-select">
+					<select id="diffSelect">
+						<option value="10">Easy</option>
+						<option value="15">Medium</option>
+						<option value="25">Hard</option>
+						<option value="38">Extreme</option>
+					</select>
+				</div>
+				<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+			</div>
+
+			<div class="maze-contenedor">
+				<div id="view">
+					<div id="mazeContainer">
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
+
+		</div>
+	</section>
+	<footer class="footerimga">
+		<div class="imagen-footer">
+		  <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -128,25 +136,25 @@ if (isset($resultadoIntentos['intentos'])) {
 		let puntos = 0;
 
 		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();

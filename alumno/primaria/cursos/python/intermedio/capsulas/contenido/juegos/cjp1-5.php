@@ -49,16 +49,11 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="shortcut icon" href="../../../../../../img/lgk.png"/>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
     <title>KOUTILAB</title>
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>VARIABLES LOCALES</b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -66,16 +61,22 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>VARIABLES LOCALES</b></h2>
+    </div>
+
     <!-- Contenedor principal -->
-    <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
+    <section>
+        <div class="cont-st">
+            <!-- Boton para regresar -->
+            <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                    <i class="fas fa-reply"></i></button>
+            </a>
 
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h4>
-
+            <!-- Titulo secundario -->
+            <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h4>
+        </div>
         <br>
         <!-- contenido del juego -->
         <div class="container-all">
@@ -104,30 +105,42 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
-    </div>
+    </section>
+
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador.js"></script>
-
+    <script src="../../js/seleccionador - copia.js"></script>
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
         let puntos = 0;
 
+        //Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
 
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
@@ -151,26 +164,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 setTimeout("iniciarTiempo()", 1000);
             }
         }
-
-        // //Alerta muestra de que el juego fue completado
-        // function alertExcelent() {
-        //     Swal.fire({
-        //         title: 'Excelente',
-        //         text: '¡Buen trabajo!',
-        //         imageUrl: "img/Thumbs-Up.gif",
-        //         imageHeight: 350,
-        //         backdrop: `
-        // 				rgba(0,143,255,0.6)
-        // 				url("img/fondo.gif")`,
-        //         confirmButtonColor: '#a14cd9',
-        //         confirmButtonText: '¡Genial!',
-        //     }).then((result) => {
-        //         if (result.isConfirmed) {
-        //             window.location.reload();
-        //         }
-        //     });
-
-        // }
     </script>
 </body>
 

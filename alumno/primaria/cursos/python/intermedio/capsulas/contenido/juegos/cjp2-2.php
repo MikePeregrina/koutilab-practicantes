@@ -54,11 +54,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>CALCULOS COMBINADOS</b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -66,18 +61,22 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>CALCULOS COMBINADOS</b></h2>
+    </div>
+
     <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
+        <div class="cont-st">
+            <!-- Boton para regresar -->
+            <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                    <i class="fas fa-reply"></i></button>
+            </a>
 
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
-        <br>
+            <!-- Titulo secundario -->
+            <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
+        </div>
 
         <!--CONTENEDOR DEL JUEGO-->
         <div class="mjuego">
@@ -85,8 +84,8 @@ if (isset($resultadoIntentos['intentos'])) {
             <!--EJEMPLO DE CODIGO-->
             <div class="ejemplo">
 
-                
-                <p id="textoej" >
+
+                <p id="textoej">
                 </p>
             </div>
 
@@ -100,8 +99,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
-    </div>
-
+    </section>
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script src="../../js/copy-code-2.js"></script>
 </body>
 

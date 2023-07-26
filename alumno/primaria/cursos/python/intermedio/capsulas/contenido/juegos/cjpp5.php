@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -10,7 +10,7 @@ $permiso = "capsulapago5";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium5.php");
+	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium5.php");
 }
 ?>
 <!DOCTYPE html>
@@ -29,11 +29,6 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>EXCEPCIONES PERSONALIZADAS</b></h2>
-	</div>
-
 	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br />
@@ -41,42 +36,50 @@ if (empty($existe)) {
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general del juego -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>EXCEPCIONES PERSONALIZADAS</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+	<!-- Contenedor principal -->
+	<section>
+		<div class="cont-st">
+			<!-- Boton para regresar -->
+			<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+
+			<!-- Titulo secundario -->
+			<h4 class="titulo">
+				<b>Selecciona la opción que corresponda a la línea en blanco o que
+					encaje con la definición dada.</b>
+			</h4>
+		</div>
+
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
-
+	</section>
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
 	<script>
 		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"¿De que modo podemos evitar que nuestro programa se detenga por alguna causa?",
+				pregunta: "¿De que modo podemos evitar que nuestro programa se detenga por alguna causa?",
 				opA: "Con una variable",
 				opB: "Con una función",
 				opC: "Con una excepción",
@@ -85,8 +88,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"¿Qué tipo de sintaxis maneja este tipo de excepciones?",
+				pregunta: "¿Qué tipo de sintaxis maneja este tipo de excepciones?",
 				opA: "class",
 				opB: "def",
 				opC: "print",
@@ -95,8 +97,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Un ejemplo de una excepción es...",
+				pregunta: "Un ejemplo de una excepción es...",
 				opA: "class NombreError(Exception):",
 				opB: "NombreError(Exception):",
 				opC: "class NombreError():",
@@ -105,8 +106,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"Otra forma de capturar un error y tratarlo como excepción es mediante el uso de...",
+				pregunta: "Otra forma de capturar un error y tratarlo como excepción es mediante el uso de...",
 				opA: "print",
 				opB: "try",
 				opC: "if",
@@ -115,8 +115,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Las excepciones son importantes para el flujo del programa ya que nos sirven para",
+				pregunta: "Las excepciones son importantes para el flujo del programa ya que nos sirven para",
 				opA: "No detener su transcurso y valorar si hay algún caracter inválido",
 				opB: "Mejorar la apariencia",
 				opC: "No sirven de nada",
@@ -138,7 +137,7 @@ if (empty($existe)) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -200,19 +199,20 @@ if (empty($existe)) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	 }
+			}
 			if (segundos == 0) {
+				incorrecto.play();
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
@@ -223,7 +223,6 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -256,6 +255,7 @@ if (empty($existe)) {
 					alertGood();
 				}
 			} else {
+				incorrecto.play();
 				console.log("Incorrecto");
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
@@ -296,6 +296,7 @@ if (empty($existe)) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			correcto.play();
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
@@ -316,6 +317,7 @@ if (empty($existe)) {
 
 		//Alerta, muestra que la respuesta fue correcta
 		function alertGood() {
+			correcto.play();
 			Swal.fire({
 				position: "center",
 				icon: "success",
@@ -328,6 +330,7 @@ if (empty($existe)) {
 
 		//Alerta, muestra que la respuesta fue incorrecta
 		function alertBad() {
+			incorrecto.play();
 			Swal.fire({
 				position: "center",
 				icon: "error",

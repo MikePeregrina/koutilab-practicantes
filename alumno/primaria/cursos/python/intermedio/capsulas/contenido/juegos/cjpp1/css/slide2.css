@@ -1,3 +1,13 @@
+:root{
+  --mcol0:rgba(61, 172, 244, 0.6);
+  --mcol1:#2196F3;
+  --mcol2:#1976D2;
+  --txtcol0:#90A4AE;
+  --txtcol1:rgb(61, 171, 244);
+  --whitecol:#ECEFF1;
+  --darkcol:#263238;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -7,8 +17,9 @@
   box-sizing: border-box;
   
 }
+
 body{
-  background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
+  background-image: url(../img/bg.png);/*Se cambio el fondo*/
   background-repeat: no-repeat; /*no repite la imagen*/
   background-size: cover;/*distribuye la imagen a toda la pantalla*/
   -webkit-user-select: none;
@@ -45,6 +56,7 @@ body::-webkit-scrollbar-track {
   border-radius: 10px;
 }
 
+
 .titulo-gen {
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 12px rgba(129,179,243);
@@ -66,15 +78,13 @@ body::-webkit-scrollbar-track {
 
 .timer {
   text-align: center;
-  padding: 0.9%;
-  margin-left: 82.5%;
-  margin-top:-1.5%; /*Se cambio el pocisionamiento del timer*/
+  padding: 3%;
   width: 160px;
   height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(129, 179, 243, 0.7); /*Se cambio el fondo del timer*/
+  background: rgba(129,179,243,0.7);
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   position: fixed;
   border-radius: 110px;
@@ -82,7 +92,9 @@ body::-webkit-scrollbar-track {
   border-style: solid;
   border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
-  font-size: 170%;
+  font-size: 150%;
+  margin-left: 82.5%;
+  margin-top:-1.5%;
 }
 @keyframes animation1 {
   0% {margin: -1.5% 0 0 82.4%;}
@@ -118,6 +130,7 @@ body::-webkit-scrollbar-track {
   100% {margin: -1.5% 0 0 82.5%;}
 }
 
+
 section {
   padding: 0px;
   width: 86%;
@@ -149,11 +162,12 @@ section {
   background: linear-gradient(to right,
    rgba(129, 179, 243,0.7), 
    rgba(132,196,44,0.6)
-   );
+  );
   border: 0px;
   border-radius: 50%;
   margin-right: 10px;
   margin-left: 10%;
+  font-size: 25px;
 }
 .btn-b:hover {
   scale: 130%;
@@ -173,119 +187,143 @@ section {
   text-align: center;
 }
 
-button::-moz-focus-inner {
-  border: 3px;
-}
 
 
-.btn-b i {
-  font-size: 29px;
-}
-
-:root {
-  --w: calc(
-      80vw / 6
-  ); /*Se cambia la altura y el ancho de las tarjetas del juego*/
-  --h: calc(
-      50vh / 4
-  ); /*Se cambia la altura y el ancho de las tarjetas del juego*/
-}
-
-* {
-  transition: all 0.3s;
-}
-
-div {
-  display: inline-block;
-}
-
-.area-tarjeta,
-.tarjeta,
-.cara {
-  cursor: pointer;
-  width: var(--w);
-  min-width: 100px;
-  height: var(--h);
-  margin-top: 2px;
-  border-radius: 10px;
-}
-
-.tarjeta {
+/*Juegoo*/
+#puzzle_container{
   position: relative;
-  transform-style: preserve-3d;
-  animation: iniciar 2.1s; /*Se cambia el tiempo que tiene cada tarjeta, antes de inicar el juego*/
+  width: 50vh;
+  height:50vh;
+  background-color:var(--darkcol);
+  border-radius:8px;
+  border:5px solid var(--mcol0);
 }
 
-.cara {
-  position: absolute;
-  backface-visibility: hidden;
-  box-shadow: inset 0 0 0 6px, transparent;
-  font-size: 200%;
+.puzzle_block{
+  position:absolute;
+  left:0;
+  top:0;
+  width:33.4%;
+  height:33.4%;
+  background-color:var(--txtcol1);
+  color:var(--whitecol);
+  font-size:10vh;
+  font-weight:bold;
+  cursor: pointer;
+  user-select:none;
+  transition:left 0.3s,top 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.trasera {
-  background-color: rgba(129, 179, 243);
-  transform: rotateY(180deg);
+.contenedor-img {
+  width: 103px;
+  height: 103px;
 }
 
-.superior {
-background: linear-gradient(to right,
-rgba(129, 179, 243,0.7), 
-rgba(132,196,44,0.6)
-);
-  margin-top: 2px;
+.slide-contenedor {
+max-width: 100%;
+height: 450px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
-.nuevo-juego {
+
+#difficulty_container{
+  display:flex;
+  flex-direction:row;
+  width:50vh;
+  height:10vh;
+  background-color:var(--darkcol);
+  border-radius:8px;
+  margin-top:22px;
+}
+.difficulty_button{
+  flex-grow:1;
+  background-color:inherit;
+  color:var(--mcol2);
+  text-align:center;
+  font-size:3vh;
+  font-weight:bold;
+  padding-top:5%;
+  margin:4px;
   cursor: pointer;
-  /*Se cambio el color del btn inciar juego*/
-  background: linear-gradient(to right,
-   rgba(129, 179, 243,0.7), 
-   rgba(132,196,44,0.6)
-  );
-  padding: 30px;
-  border-radius: 50px;
-  /*border: white 5px solid;*/
-  font-size: 160%;
-  margin-top: 4%;
-  margin-bottom: 6%;
+  transition:font-size 0.3s;
 }
-
-#tablero {
-  width: 100%;
-  margin-left: 10%;
+.difficulty_button:hover{
+  opacity:0.8;
+  font-size:3.5vh;
 }
-@keyframes iniciar{
-20%,
-90%{
-  transform: rotateY(180deg);
-}
-0%,
-100%{
-  transform: rotateY(0deg);
-}
+.difficulty_button.active{
+  background-color:inherit;
+  color:var(--mcol0);
 }
 
 .footerimga{
-  width: 100%;
-  height: 90px;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 2%;
+width: 100%;
+height: 90px;
+text-align: center;
+justify-content: center;
+display: flex;
+margin-top: 2%;
 }
 
 .imagen-footer {
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  width: 250px !important;
+text-align: center;
+justify-content: center;
+display: flex;
+width: 250px !important;
 
 }
 
+
+@media (max-width: 850px) {
+
+
+  .timer {
+      width: 170px;
+      height: 170px;
+      font-size: 140%;
+      margin-left: 76%;
+      margin-top:-1%;
+  }  
+ 
+}
+@keyframes animation1 {
+  0% {margin: -1.5% 0 0 75%;}
+  20% {margin: -1.5% 0 0 77%;}
+  40% {margin: -1.5% 0 0 75%;} 
+  60% {margin: -1.5% 0 0 77%;}
+  80% {margin: -1.5% 0 0 75%;} 
+  100% {margin: -1.5% 0 0 76%;}
+}
+
+@keyframes animation2 {
+  0% {margin: -1.5% 0 0 75%;}
+  15% {margin: -1.5% 0 0 77%;}
+  30% {margin: -1.5% 0 0 75%;} 
+  45% {margin: -1.5% 0 0 77%;}
+  60% {margin: -1.5% 0 0 75%;} 
+  75% {margin: -1.5% 0 0 77%;;}
+  90% {margin: -1.5% 0 0 75%;} 
+  100% {margin: -1.5% 0 0 76%;}
+}
+
+@keyframes animation3 {
+  0% {margin: -1.5% 0 0 75%;}
+  10% {margin: -1.5% 0 0 77%;}
+  20% {margin: -1.5% 0 0 75%;} 
+  30% {margin: -1.5% 0 0 77%;}
+  40% {margin: -1.5% 0 0 75%;} 
+  50% {margin: -1.5% 0 0 77%;}
+  60% {margin: -1.5% 0 0 75%;} 
+  70% {margin: -1.5% 0 0 77%;} 
+  80% {margin: -1.5% 0 0 75%;} 
+  90% {margin: -1.5% 0 0 77%;} 
+  100% {margin: -1.5% 0 0 76%;}
+}
 
 @media (max-width: 619px) {
 
@@ -294,6 +332,41 @@ rgba(132,196,44,0.6)
     width: 120px;
     height: 120px;
     font-size: 120%;
+    margin-left: 73%;
+    margin-top:-1.5%;
+  }
+  @keyframes animation1 {
+    0% {margin: -1.5% 0 0 72%;}
+    20% {margin: -1.5% 0 0 74%;}
+    40% {margin: -1.5% 0 0 72%;} 
+    60% {margin: -1.5% 0 0 74%;}
+    80% {margin: -1.5% 0 0 72%;} 
+    100% {margin: -1.5% 0 0 73%;}
+  }
+  
+  @keyframes animation2 {
+    0% {margin: -1.5% 0 0 72%;}
+    15% {margin: -1.5% 0 0 74%;}
+    30% {margin: -1.5% 0 0 72%;} 
+    45% {margin: -1.5% 0 0 74%;}
+    60% {margin: -1.5% 0 0 72%;} 
+    75% {margin: -1.5% 0 0 74%;;}
+    90% {margin: -1.5% 0 0 72%;} 
+    100% {margin: -1.5% 0 0 73%;}
+  }
+  
+  @keyframes animation3 {
+    0% {margin: -1.5% 0 0 72%;}
+    10% {margin: -1.5% 0 0 74%;}
+    20% {margin: -1.5% 0 0 72%;} 
+    30% {margin: -1.5% 0 0 74%;}
+    40% {margin: -1.5% 0 0 72%;} 
+    50% {margin: -1.5% 0 0 74%;}
+    60% {margin: -1.5% 0 0 72%;} 
+    70% {margin: -1.5% 0 0 74%;} 
+    80% {margin: -1.5% 0 0 72%;} 
+    90% {margin: -1.5% 0 0 74%;} 
+    100% {margin: -1.5% 0 0 73%;}
   }
 
   .titulo-gen{
@@ -318,9 +391,17 @@ rgba(132,196,44,0.6)
     font-size: 20px;
   }
   
-
 }
 
+
+@media (max-width: 560px) {
+
+
+  .html-b-t{
+    font-size: 12px;
+  }
+
+}
 
 @media (max-width: 518px) {
 
@@ -328,6 +409,14 @@ rgba(132,196,44,0.6)
   .html-b-t{
     font-size: 12px;
   }
-  
+
 }
 
+@media (max-width: 480px) {
+
+
+  .html-b-t{
+    font-size: 12px;
+  }
+  
+}
