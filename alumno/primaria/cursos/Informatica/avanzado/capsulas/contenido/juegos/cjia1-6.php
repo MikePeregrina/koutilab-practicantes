@@ -56,31 +56,29 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h3 class="titulo" style="margin-left: 370px;"><b>RETOQUES FINALES POWER POINT</b></h3>
-	</div>
-
-	<!-- Tiempo -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
-			<p id="tiempo"></p>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>MEMORAMA</b></h2>
+	</div>
 
-		<a href="../../../../../../rutas/ruta-in-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
-
+		<div class="cont-st">
+			<a href="#">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+		</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
 			Iniciar juego
@@ -89,8 +87,15 @@ if (isset($resultadoIntentos['intentos'])) {
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
 
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		let cantidadTarjetas = 24;
 		let iconos = []
