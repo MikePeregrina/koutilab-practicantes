@@ -68,7 +68,7 @@ function checkAnswer(respuesta) {
             // Comenzamos en 0, 0
             contexto.moveTo(0, 30);
             // Hacemos una línea hasta 48, 48
-            contexto.lineTo(535, 215);
+            contexto.lineTo(570, 215);
             contexto.stroke(); // "Guardar" cambios
             //sumamos al contador
             respuestasCorrectas++;
@@ -77,8 +77,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 115);
-            contexto.lineTo(535, 148);
+            contexto.moveTo(0, 90);
+            contexto.lineTo(550, 148);
             contexto.stroke();
             respuestasCorrectas++;
         }
@@ -89,8 +89,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 200);
-            contexto.lineTo(533, 20);
+            contexto.moveTo(0, 150);
+            contexto.lineTo(535, 20);
             contexto.stroke();
             respuestasCorrectas++;
         } else if (
@@ -100,8 +100,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 300);
-            contexto.lineTo(520,75);
+            contexto.moveTo(0, 250);
+            contexto.lineTo(550,75);
             contexto.stroke();
             respuestasCorrectas++;
 
@@ -113,8 +113,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 280);
-            contexto.lineTo(533,280);
+            contexto.moveTo(0, 200);
+            contexto.lineTo(650,280);
             contexto.stroke();
             respuestasCorrectas++;
         } else {

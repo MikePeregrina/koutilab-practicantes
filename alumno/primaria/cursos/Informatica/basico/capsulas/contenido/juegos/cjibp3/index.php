@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -10,10 +11,9 @@ $permiso = "capsulapago1";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
+    header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,39 +24,44 @@ if (empty($existe)) {
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="shortcut icon" href="../../../img/img_juegos/lgk.png">
 </head>
 <body onload="alert1()">
+
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>CONECTORES PRINCIPALES</b></h2>
+		<h2 class="titulo"><b>CONECTORES</b></h2>
 	</div>
 
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
-    
-    <div class="contenido">
-		<a href="../../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
+    <section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-		<br>
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
 
 		<div class="slide-contenedor">
-			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="lvl1-2/s1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="lvl1-2/s8.png" class="contenedor-img" alt=""></div>
-			</div>
+			<div class="slide-contenedor">
+				<div id="puzzle_container">
+					<div class="puzzle_block"><img src="lvl1-2/s1.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s2.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s3.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s4.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s5.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s6.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s7.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="lvl1-2/s8.png" class="contenedor-img" alt=""></div>
+				</div>
 		</div>
 
 		<!-- <div id="difficulty_container">
@@ -64,7 +69,8 @@ if (empty($existe)) {
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
 		</div> -->
-	</div>
+	</section>
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		function alert1() {
@@ -94,34 +100,34 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
-		var segundos = 240;
-		let puntos = 0;
-		//Se esta llamando los sonidos de la carpeta "sonidos"
-        var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
 	    var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+		var segundos = 240;
 
-		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
-			if (segundos <= 60) {
-        var div = document.getElementById("timer");
-        div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    	}
-    	if (segundos <= 30) {
-        var div = document.getElementById("timer");
-        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    	}
-    	if (segundos <= 10) {
-        var div = document.getElementById("timer");
-        div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-    	}
-			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
-				Swal.fire({
+		let puntos = 0;
+var count = 1000;
+//Agregando animacion a el timer
+function iniciarTiempo() {
+document.getElementById("tiempo").innerHTML =
+segundos + " segundos";
+if (segundos <= 60) {
+var div = document.getElementById("timer");
+div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+}
+if (segundos <= 30) {
+var div = document.getElementById("timer");
+div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+}
+if (segundos <= 10) {
+var div = document.getElementById("timer");
+div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+}
+if (segundos == 0) {
+	Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
 					imageUrl: "../../../img/img_juegos/loop.gif",
@@ -132,9 +138,7 @@ if (empty($existe)) {
 					}
 				});
 				incorrecto.play(); //agregando sonido al juego no completado
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+				
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -142,6 +146,9 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
+
+
+
 		const GameDifficulty=[20,50,70];
 		class Game{
 			difficulty;//difficulty based on GameDifficulty array
@@ -215,8 +222,8 @@ if (empty($existe)) {
 					if(this.checkPuzzleSolved()){
 						setTimeout(() => {
 							Swal.fire({
-								title: '¡Muy bien!',
-								text: 'Ahora pasemos al siguiente nivel',
+								title: '¡Excelente!',
+								text: 'Haz completado todos los niveles',
 								imageUrl: "../../../img/img_juegos/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
@@ -226,12 +233,11 @@ if (empty($existe)) {
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = './level2.php';
+									window.location.href = '../cjibp3/level2.php';
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado
-						}, "800");
-					}
+						}, "800");}
 				}
 			}
 	

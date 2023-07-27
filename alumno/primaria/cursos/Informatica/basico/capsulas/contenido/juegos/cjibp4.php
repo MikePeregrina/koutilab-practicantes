@@ -6,15 +6,14 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsulapago4";
+$permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
-?>
-<<!DOCTYPE html>
-    <html>
+?><!DOCTYPE html>
+<html>
     <!-- 
 		Manual de cambios para el crucigrama por pasos:
 		1. Realizar el dibujo o diagrama de como va a quedar la matriz del crucigrama 
@@ -53,53 +52,66 @@ if (empty($existe)) {
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>KOUTILAB</title>
-        <link rel="shortcut icon" href="../../img/img_juegos/lgk.png" />
+        <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-        <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous" />
+        <script
+            src="https://kit.fontawesome.com/53845e078c.js"
+            crossorigin="anonymous"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <link rel="stylesheet" href="../../css/css-juegos/cjibp2-2.css" />
+        <link rel="stylesheet" href="../../css/css-juegos/crucigrama02.css" />
     </head>
 
     <body onload="iniciarTiempo();">
+<!-- CAMBIOS -->
+        <div class="timer" id="timer">
+            <b>Tiempo: <br>
+                <p id="tiempo" style="margin: 0 0 0 0;"></p>
+            </b>
+        </div>
+
         <!-- Titulo general -->
         <div class="titulo-gen">
-            <h4 class="titulo" style="margin-left: 420px"><b>SISTEMAS OPERATIVOS</b></h4>
+            <h2 class="titulo" ><b>SISTEMAS OPERATIVOS</b></h2>
         </div>
 
         <!-- Alerta -->
         <div id="mensaje" style="position: absolute"></div>
 
-        <div class="timer" id="timer">
-            <b style="margin-top: 10px">Tiempo: <br />
-                <p id="tiempo"></p>
-            </b>
-        </div>
 
         <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
-        <div class="contenido">
-            <a href="../../../../../../rutas/ruta-in-b.php"><button style="
-                        float: left;
-                        position: relative;
-                        margin: 10px 0 0 10px;
-                    " class="btn-b" id="btn-cerrar-modalV">
-                    <i class="fas fa-reply"></i></button></a>
-            <!-- Titulo secundario -->
-            <h6 class="titulo">
-                <b>Busca la palabra que describe el texto</b>
-            </h6>
-            <br />
+        <section>
 
+            <div class="cont-st">
+                <a href="../../../../../../rutas/ruta-in-b.php">
+                  <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                  </button>
+                </a>
+                <h6 class="titulo"><b>Busca la palabra que describe el texto</b></h6>
+            </div>
+<!--FIN CAMBIOS -->
+        <div class="mjuego">    
             <!-- Apartado donde van las frases a buscar por el usuario -->
             <div class="words">
                 <table>
                     <tr>
-                        <b class="tituloH">Horizontales:</b>
+                        
                         <td>
                             <div class="horizontal">
+                                <b class="tituloV">Horizontales:</b>
+                                <br>
                                 1. Conjunto de pasos lógicos escritos en un lenguaje de programación
                                 que nos permite realizar una tarea específica
                                 <br /><br />
@@ -113,7 +125,6 @@ if (empty($existe)) {
                                 <div class="vertical">
                                     1. Windows es un sistema ____________.
 
-                                </div>
                             </div>
                         </td>
 
@@ -122,15 +133,14 @@ if (empty($existe)) {
                 </table>
             </div>
 
-            <div class="linea"></div>
-
+    
             <!-- Apartado del crucigrama junto con sus casillas -->
-            <div class="crucigrama" style="margin: 0 40px 0 0">
-                <div class="numero1" style="margin: 275px 0 0 -20px">1.</div>
-                <div class="numero1-1" style="margin: -25px 0 0 350px">1.</div>
-                <div class="numero2-2" style="margin: 410px 0 0 240px">2.</div>
-                <div class="numero3-3" style="margin: 15px 0 0 45px">3.</div>
-                <div class="numero2" style="margin: 145px 0 0 45px">4.</div>
+            <div class="crucigrama" >
+                <div class="numero1">1.</div>
+                <div class="numero1-1">1.</div>
+                <div class="numero2-2">2.</div>
+                <div class="numero3-3">3.</div>
+                <div class="numero2">4.</div>
                 <table id="crucigrama">
                     <tr>
                         <td>
@@ -591,571 +601,583 @@ if (empty($existe)) {
                     </tr>
                 </table>
             </div>
-
-            <!-- boton de verificar respuestas -->
-            <button class="verificar" onClick="verificar()">
-                Comprobar respuestas
-            </button>
         </div>
 
-        <script>
-            //Se esta llamando los sonidos de la carpeta "sonidos"
-            var correcto = document.createElement("audio");
-		    correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	        var incorrecto = document.createElement("audio");
-		    incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+         <!-- boton de verificar respuestas -->
+        </div>
 
-            var segundos = 65;//240
-            let puntos = 0;
+        <!-- boton de verificar respuestas -->
+        <button class="verificar" onClick="verificar()">
+            Comprobar respuestas
+        </button>
+    </div>
+	    </section>
 
-            function iniciarTiempo() {
-                document.getElementById("tiempo").innerHTML =
-                    segundos + " segundos";
-                if (segundos <= 60) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos == 0) {
-                    var xmlhttp = new XMLHttpRequest();
+<!-- CAMBIOS -->
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../../img/img_juegos/benvenida.png" alt="No-image">
+            </div>
+        </footer>
+<!-- FIN CAMBIOS -->
+<script>
+    //Se esta llamando los sonidos de la carpeta "sonidos"
+    var correcto = document.createElement("audio");
+    correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+    var incorrecto = document.createElement("audio");
+    incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-                    var param =
-                        "score=" +
-                        0 +
-                        "&validar=" +
-                        "incorrecto" +
-                        "&permiso=" +
-                        9 +
-                        "&id_curso=" +
-                        1; //cancatenation
-                    Swal.fire({
-                        title: "Oops...",
-                        text: "¡Verifica tu respuesta!",
-                        imageUrl: "../../img/img_juegos/loop.gif",
-                        imageHeight: 350,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.reload();
-                        }
-                    });
-                    incorrecto.play(); //adjuntando sonido del juego no completado
-                    xmlhttp.open(
-                        "POST",
-                        "../../acciones/insertar_cp9.php",
-                        true
-                    );
-                    xmlhttp.setRequestHeader(
-                        "Content-Type",
-                        "application/x-www-form-urlencoded"
-                    );
-                    xmlhttp.send(param);
-                } else {
-                    segundos--;
-                    setTimeout("iniciarTiempo()", 1000);
+    var segundos = 65;//240
+    let puntos = 0;
+
+    function iniciarTiempo() {
+        document.getElementById("tiempo").innerHTML =
+            segundos + " segundos";
+        if (segundos <= 60) {
+            var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos <= 30) {
+            var div = document.getElementById("timer");
+            div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos <= 10) {
+            var div = document.getElementById("timer");
+            div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        }
+        if (segundos == 0) {
+            var xmlhttp = new XMLHttpRequest();
+
+            var param =
+                "score=" +
+                0 +
+                "&validar=" +
+                "incorrecto" +
+                "&permiso=" +
+                9 +
+                "&id_curso=" +
+                1; //cancatenation
+            Swal.fire({
+                title: "Oops...",
+                text: "¡Verifica tu respuesta!",
+                imageUrl: "../../img/img_juegos/loop.gif",
+                imageHeight: 350,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.reload();
                 }
+            });
+            incorrecto.play(); //adjuntando sonido del juego no completado
+            xmlhttp.open(
+                "POST",
+                "../../acciones/insertar_cp9.php",
+                true
+            );
+            xmlhttp.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            xmlhttp.send(param);
+        } else {
+            segundos--;
+            setTimeout("iniciarTiempo()", 1000);
+        }
+    }
+</script>
+
+<script>
+    // Deshabilitar todas las casillas
+    for (fila = 1; fila <= 9; fila++) {
+        for (columna = 1; columna <= 10; columna++) {
+            document.getElementById(
+                "fila" + fila + "C" + columna
+            ).readOnly = true;
+        }
+    }
+
+    //Palabra Windows
+    var palabra1_letra1 = document.getElementById("fila1C2");
+    var palabra1_letra2 = document.getElementById("fila1C3");
+    var palabra1_letra3 = document.getElementById("fila1C4");
+    var palabra1_letra4 = document.getElementById("fila1C5");
+    var palabra1_letra5 = document.getElementById("fila1C6");
+    var palabra1_letra6 = document.getElementById("fila1C7");
+    var palabra1_letra7 = document.getElementById("fila1C8");
+
+    //Palabra Operativo
+    var palabra2_letra1 = document.getElementById("fila1C6");
+    var palabra2_letra2 = document.getElementById("fila2C6");
+    var palabra2_letra3 = document.getElementById("fila3C6");
+    var palabra2_letra4 = document.getElementById("fila4C6");
+    var palabra2_letra5 = document.getElementById("fila5C6");
+    var palabra2_letra6 = document.getElementById("fila6C6");
+    var palabra2_letra7 = document.getElementById("fila7C6");
+    var palabra2_letra8 = document.getElementById("fila8C6");
+    var palabra2_letra9 = document.getElementById("fila9C6");
+
+    //Palabra Sistema
+    var palabra3_letra1 = document.getElementById("fila3C2");
+    var palabra3_letra2 = document.getElementById("fila3C3");
+    var palabra3_letra3 = document.getElementById("fila3C4");
+    var palabra3_letra4 = document.getElementById("fila3C5");
+    var palabra3_letra5 = document.getElementById("fila3C6");
+    var palabra3_letra6 = document.getElementById("fila3C7");
+    var palabra3_letra7 = document.getElementById("fila3C8");
+
+    //Palabra Linux
+    var palabra4_letra1 = document.getElementById("fila7C5");
+    var palabra4_letra2 = document.getElementById("fila7C6");
+    var palabra4_letra3 = document.getElementById("fila7C7");
+    var palabra4_letra4 = document.getElementById("fila7C8");
+    var palabra4_letra5 = document.getElementById("fila7C9");
+
+
+    //Palabra Programas
+    var palabra5_letra1 = document.getElementById("fila5C1");
+    var palabra5_letra2 = document.getElementById("fila5C2");
+    var palabra5_letra3 = document.getElementById("fila5C3");
+    var palabra5_letra4 = document.getElementById("fila5C4");
+    var palabra5_letra5 = document.getElementById("fila5C5");
+    var palabra5_letra6 = document.getElementById("fila5C6");
+    var palabra5_letra7 = document.getElementById("fila5C7");
+    var palabra5_letra8 = document.getElementById("fila5C8");
+    var palabra5_letra9 = document.getElementById("fila5C9");
+
+    //Habilitar las casillas necesarias (horizontales)
+    palabra2_letra1.readOnly = false;
+    palabra2_letra2.readOnly = false;
+    palabra2_letra3.readOnly = false;
+    palabra2_letra4.readOnly = false;
+    palabra2_letra5.readOnly = false;
+    palabra2_letra6.readOnly = false;
+    palabra2_letra7.readOnly = false;
+    palabra2_letra8.readOnly = false;
+    palabra2_letra9.readOnly = false;
+
+
+
+    palabra5_letra1.readOnly = false;
+    palabra5_letra2.readOnly = false;
+    palabra5_letra3.readOnly = false;
+    palabra5_letra4.readOnly = false;
+    palabra5_letra5.readOnly = false;
+    palabra5_letra6.readOnly = false;
+    palabra5_letra7.readOnly = false;
+    palabra5_letra8.readOnly = false;
+    palabra5_letra9.readOnly = false;
+
+    palabra4_letra1.readOnly = false;
+    palabra4_letra2.readOnly = false;
+    palabra4_letra3.readOnly = false;
+    palabra4_letra4.readOnly = false;
+    palabra4_letra5.readOnly = false;
+
+
+    palabra3_letra1.readOnly = false;
+    palabra3_letra2.readOnly = false;
+    palabra3_letra3.readOnly = false;
+    palabra3_letra4.readOnly = false;
+    palabra3_letra5.readOnly = false;
+    palabra3_letra6.readOnly = false;
+    palabra3_letra7.readOnly = false;
+
+
+
+    //Habilitar las casillas necesarias (verticales)
+
+    palabra1_letra1.readOnly = false;
+    palabra1_letra2.readOnly = false;
+    palabra1_letra3.readOnly = false;
+    palabra1_letra4.readOnly = false;
+    palabra1_letra5.readOnly = false;
+    palabra1_letra6.readOnly = false;
+    palabra1_letra7.readOnly = false;
+
+    for (fila = 1; fila <= 9; fila++) {
+        for (columna = 1; columna <= 10; columna++) {
+            if (
+                document.getElementById("fila" + fila + "C" + columna)
+                .readOnly == false
+            ) {
+                document.getElementById(
+                    "fila" + fila + "C" + columna
+                ).style.backgroundColor = "rgba(61, 172, 244)";
             }
-        </script>
+        }
+    }
 
-        <script>
-            // Deshabilitar todas las casillas
-            for (fila = 1; fila <= 9; fila++) {
-                for (columna = 1; columna <= 10; columna++) {
-                    document.getElementById(
-                        "fila" + fila + "C" + columna
-                    ).readOnly = true;
-                }
-            }
+    //Mensaje de verificar respuesta en caso de haber respuestas erroneas
+    var errorActivo = 0;
 
-            //Palabra Windows
-            var palabra1_letra1 = document.getElementById("fila1C2");
-            var palabra1_letra2 = document.getElementById("fila1C3");
-            var palabra1_letra3 = document.getElementById("fila1C4");
-            var palabra1_letra4 = document.getElementById("fila1C5");
-            var palabra1_letra5 = document.getElementById("fila1C6");
-            var palabra1_letra6 = document.getElementById("fila1C7");
-            var palabra1_letra7 = document.getElementById("fila1C8");
+    function error() {
+        Swal.fire({
+            title: "Verifica tus respuestas",
+            text: "Corrige tus respuestas antes de que termine el tiempo",
+            icon: "info",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Continuar",
+        });
+        errorActivo = 1;
+    }
 
-            //Palabra Operativo
-            var palabra2_letra1 = document.getElementById("fila1C6");
-            var palabra2_letra2 = document.getElementById("fila2C6");
-            var palabra2_letra3 = document.getElementById("fila3C6");
-            var palabra2_letra4 = document.getElementById("fila4C6");
-            var palabra2_letra5 = document.getElementById("fila5C6");
-            var palabra2_letra6 = document.getElementById("fila6C6");
-            var palabra2_letra7 = document.getElementById("fila7C6");
-            var palabra2_letra8 = document.getElementById("fila8C6");
-            var palabra2_letra9 = document.getElementById("fila9C6");
+    //Esta funcion es para ejecutarse cada 5 segundos en caso de haber errores
+    setInterval("ocultarError()", 5000);
 
-            //Palabra Sistema
-            var palabra3_letra1 = document.getElementById("fila3C2");
-            var palabra3_letra2 = document.getElementById("fila3C3");
-            var palabra3_letra3 = document.getElementById("fila3C4");
-            var palabra3_letra4 = document.getElementById("fila3C5");
-            var palabra3_letra5 = document.getElementById("fila3C6");
-            var palabra3_letra6 = document.getElementById("fila3C7");
-            var palabra3_letra7 = document.getElementById("fila3C8");
+    function ocultarError() {
+        if (errorActivo == 1) {
+            document.getElementById("mensaje").innerHTML = "";
+            document.getElementById("mensaje").className = "";
+            errorActivo = 0;
+        }
+    }
 
-            //Palabra Linux
-            var palabra4_letra1 = document.getElementById("fila7C5");
-            var palabra4_letra2 = document.getElementById("fila7C6");
-            var palabra4_letra3 = document.getElementById("fila7C7");
-            var palabra4_letra4 = document.getElementById("fila7C8");
-            var palabra4_letra5 = document.getElementById("fila7C9");
+    //Verificar las palabras por casillas sumando sus letras y formar la palabra
+    function verificar() {
+        document.getElementById("mensaje").innerHTML = "";
+        palabra1 =
+            palabra1_letra1.value +
+            palabra1_letra2.value +
+            palabra1_letra3.value +
+            palabra1_letra4.value +
+            palabra1_letra5.value +
+            palabra1_letra6.value +
+            palabra1_letra7.value;
 
+        palabra2 =
+            palabra2_letra1.value +
+            palabra2_letra2.value +
+            palabra2_letra3.value +
+            palabra2_letra4.value +
+            palabra2_letra5.value +
+            palabra2_letra6.value +
+            palabra2_letra7.value +
+            palabra2_letra8.value +
+            palabra2_letra9.value;
+        palabra3 =
+            palabra3_letra1.value +
+            palabra3_letra2.value +
+            palabra3_letra3.value +
+            palabra3_letra4.value +
+            palabra3_letra5.value +
+            palabra3_letra6.value +
+            palabra3_letra7.value;
+        palabra4 =
+            palabra4_letra1.value +
+            palabra4_letra2.value +
+            palabra4_letra3.value +
+            palabra4_letra4.value +
+            palabra4_letra5.value;
+        palabra5 =
+            palabra5_letra1.value +
+            palabra5_letra2.value +
+            palabra5_letra3.value +
+            palabra5_letra4.value +
+            palabra5_letra5.value +
+            palabra5_letra6.value +
+            palabra5_letra7.value +
+            palabra5_letra8.value +
+            palabra5_letra9.value;
 
-            //Palabra Programas
-            var palabra5_letra1 = document.getElementById("fila5C1");
-            var palabra5_letra2 = document.getElementById("fila5C2");
-            var palabra5_letra3 = document.getElementById("fila5C3");
-            var palabra5_letra4 = document.getElementById("fila5C4");
-            var palabra5_letra5 = document.getElementById("fila5C5");
-            var palabra5_letra6 = document.getElementById("fila5C6");
-            var palabra5_letra7 = document.getElementById("fila5C7");
-            var palabra5_letra8 = document.getElementById("fila5C8");
-            var palabra5_letra9 = document.getElementById("fila5C9");
+        //Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
+        if (
+            palabra1.toLowerCase() == "windows" &&
+            palabra2.toLowerCase() == "operativo" &&
+            palabra3.toLowerCase() == "sistema" &&
+            palabra4.toLowerCase() == "linux" &&
+            palabra5.toLowerCase() == "programas"
+        ) {
+            var xmlhttp = new XMLHttpRequest();
 
-            //Habilitar las casillas necesarias (horizontales)
-            palabra2_letra1.readOnly = false;
-            palabra2_letra2.readOnly = false;
-            palabra2_letra3.readOnly = false;
-            palabra2_letra4.readOnly = false;
-            palabra2_letra5.readOnly = false;
-            palabra2_letra6.readOnly = false;
-            palabra2_letra7.readOnly = false;
-            palabra2_letra8.readOnly = false;
-            palabra2_letra9.readOnly = false;
+            var param =
+                "score=" +
+                10 +
+                "&validar=" +
+                "correcto" +
+                "&permiso=" +
+                9 +
+                "&id_curso=" +
+                1; //cancatenation
 
-
-
-            palabra5_letra1.readOnly = false;
-            palabra5_letra2.readOnly = false;
-            palabra5_letra3.readOnly = false;
-            palabra5_letra4.readOnly = false;
-            palabra5_letra5.readOnly = false;
-            palabra5_letra6.readOnly = false;
-            palabra5_letra7.readOnly = false;
-            palabra5_letra8.readOnly = false;
-            palabra5_letra9.readOnly = false;
-
-            palabra4_letra1.readOnly = false;
-            palabra4_letra2.readOnly = false;
-            palabra4_letra3.readOnly = false;
-            palabra4_letra4.readOnly = false;
-            palabra4_letra5.readOnly = false;
-
-
-            palabra3_letra1.readOnly = false;
-            palabra3_letra2.readOnly = false;
-            palabra3_letra3.readOnly = false;
-            palabra3_letra4.readOnly = false;
-            palabra3_letra5.readOnly = false;
-            palabra3_letra6.readOnly = false;
-            palabra3_letra7.readOnly = false;
-
-
-
-            //Habilitar las casillas necesarias (verticales)
-
-            palabra1_letra1.readOnly = false;
-            palabra1_letra2.readOnly = false;
-            palabra1_letra3.readOnly = false;
-            palabra1_letra4.readOnly = false;
-            palabra1_letra5.readOnly = false;
-            palabra1_letra6.readOnly = false;
-            palabra1_letra7.readOnly = false;
-
-            for (fila = 1; fila <= 9; fila++) {
-                for (columna = 1; columna <= 10; columna++) {
-                    if (
-                        document.getElementById("fila" + fila + "C" + columna)
-                        .readOnly == false
-                    ) {
-                        document.getElementById(
-                            "fila" + fila + "C" + columna
-                        ).style.backgroundColor = "rgba(61, 172, 244)";
-                    }
-                }
-            }
-
-            //Mensaje de verificar respuesta en caso de haber respuestas erroneas
-            var errorActivo = 0;
-
-            function error() {
+            xmlhttp.onreadystatechange = function() {
                 Swal.fire({
-                    title: "Verifica tus respuestas",
-                    text: "Corrige tus respuestas antes de que termine el tiempo",
-                    icon: "info",
-                    confirmButtonColor: "#3085d6",
-                    confirmButtonText: "Continuar",
+                    title: "¡Bien hecho!",
+                    text: "¡Puntuación guardada con éxito!",
+                    imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
+            rgba(0,143,255,0.6)
+            url("../../img/img_juegos/fondo.gif")
+            `,
+                    confirmButtonColor: "#a14cd9",
+                    confirmButtonText: "Aceptar",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                    }
                 });
-                errorActivo = 1;
+            };
+            correcto.play(); //agregando sonido al juego completado
+            xmlhttp.open(
+                "POST",
+                "../../acciones/insertar_cp9.php",
+                true
+            );
+            xmlhttp.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            xmlhttp.send(param);
+        } else {
+            if (palabra1.toLowerCase() != "windows") {
+                palabra1_letra1.value = "";
+                palabra1_letra2.value = "";
+                palabra1_letra3.value = "";
+                palabra1_letra4.value = "";
+                palabra1_letra5.value = "";
+                palabra1_letra6.value = "";
+                palabra1_letra7.value = "";
+
+                error();
             }
 
-            //Esta funcion es para ejecutarse cada 5 segundos en caso de haber errores
-            setInterval("ocultarError()", 5000);
+            if (palabra2.toLowerCase() != "operativo") {
+                palabra2_letra1.value = "";
+                palabra2_letra2.value = "";
+                palabra2_letra3.value = "";
+                palabra2_letra4.value = "";
+                palabra2_letra5.value = "";
+                palabra2_letra6.value = "";
+                palabra2_letra7.value = "";
+                palabra2_letra8.value = "";
+                palabra2_letra9.value = "";
+                error();
+            }
 
-            function ocultarError() {
-                if (errorActivo == 1) {
-                    document.getElementById("mensaje").innerHTML = "";
-                    document.getElementById("mensaje").className = "";
-                    errorActivo = 0;
+            if (palabra3.toLowerCase() != "sistema") {
+                palabra3_letra1.value = "";
+                palabra3_letra2.value = "";
+                palabra3_letra3.value = "";
+                palabra3_letra4.value = "";
+                palabra3_letra5.value = "";
+                palabra3_letra6.value = "";
+                palabra3_letra7.value = "";
+                error();
+            }
+
+            if (palabra4.toLowerCase() != "linux") {
+                palabra4_letra1.value = "";
+                palabra4_letra2.value = "";
+                palabra4_letra3.value = "";
+                palabra4_letra4.value = "";
+                palabra4_letra5.value = "";
+                error();
+            }
+
+            if (palabra5.toLowerCase() != "programas") {
+                palabra5_letra1.value = "";
+                palabra5_letra2.value = "";
+                palabra5_letra3.value = "";
+                palabra5_letra4.value = "";
+                palabra5_letra5.value = "";
+                palabra5_letra6.value = "";
+                palabra5_letra7.value = "";
+                palabra5_letra8.value = "";
+                palabra5_letra9.value = "";
+                error();
+            }
+
+            //Corrector de palabras agregando la letra que estaba bien de las que palabras ya agregadas
+            if (palabra1.toLowerCase() == "windows") {
+                palabra1_letra5.value = "o";
+
+            }
+
+            if (palabra2.toLowerCase() == "operativo") {
+                palabra1_letra5.value = "o";
+                palabra3_letra5.value = "e";
+                palabra5_letra6.value = "a";
+                palabra4_letra2.value = "i";
+            }
+
+            if (palabra3.toLowerCase() == "sistema") {
+                palabra2_letra3.value = "e";
+            }
+
+            if (palabra4.toLowerCase() == "linux") {
+                palabra2_letra7.value = "i";
+            }
+
+            if (palabra5.toLowerCase() == "programas") {
+                palabra2_letra5.value = "a";
+            }
+        }
+    }
+</script>
+
+<script>
+    function habilitarMovimiento() {
+        var inputs = document.querySelectorAll("#crucigrama input");
+
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener("input", function(e) {
+                var maxLength = parseInt(
+                    e.target.getAttribute("maxlength")
+                );
+                var currentLength = e.target.value.length;
+
+                if (currentLength >= maxLength) {
+                    // Mover el enfoque al siguiente input en la dirección elegida
+                    var nextInput = getNextInput(e.target);
+
+                    if (nextInput) {
+                        nextInput.focus();
+                    }
                 }
+            });
+        }
+
+        function getNextInput(currentInput) {
+            var tdParent = currentInput.parentElement;
+            var trParent = tdParent.parentElement;
+            var tdIndex = Array.prototype.indexOf.call(
+                trParent.children,
+                tdParent
+            );
+            var trIndex = Array.prototype.indexOf.call(
+                trParent.parentElement.children,
+                trParent
+            );
+            var direction = getMovementDirection(currentInput);
+
+            if (direction === "horizontal") {
+                // Mover horizontalmente
+                return getNextHorizontalInput(
+                    trParent,
+                    tdIndex,
+                    direction,
+                    currentInput
+                );
+            } else if (direction === "vertical") {
+                // Mover verticalmente
+                return getNextVerticalInput(
+                    trParent,
+                    tdIndex,
+                    direction,
+                    currentInput
+                );
             }
 
-            //Verificar las palabras por casillas sumando sus letras y formar la palabra
-            function verificar() {
-                document.getElementById("mensaje").innerHTML = "";
-                palabra1 =
-                    palabra1_letra1.value +
-                    palabra1_letra2.value +
-                    palabra1_letra3.value +
-                    palabra1_letra4.value +
-                    palabra1_letra5.value +
-                    palabra1_letra6.value +
-                    palabra1_letra7.value;
+            return null;
+        }
 
-                palabra2 =
-                    palabra2_letra1.value +
-                    palabra2_letra2.value +
-                    palabra2_letra3.value +
-                    palabra2_letra4.value +
-                    palabra2_letra5.value +
-                    palabra2_letra6.value +
-                    palabra2_letra7.value +
-                    palabra2_letra8.value +
-                    palabra2_letra9.value;
-                palabra3 =
-                    palabra3_letra1.value +
-                    palabra3_letra2.value +
-                    palabra3_letra3.value +
-                    palabra3_letra4.value +
-                    palabra3_letra5.value +
-                    palabra3_letra6.value +
-                    palabra3_letra7.value;
-                palabra4 =
-                    palabra4_letra1.value +
-                    palabra4_letra2.value +
-                    palabra4_letra3.value +
-                    palabra4_letra4.value +
-                    palabra4_letra5.value;
-                palabra5 =
-                    palabra5_letra1.value +
-                    palabra5_letra2.value +
-                    palabra5_letra3.value +
-                    palabra5_letra4.value +
-                    palabra5_letra5.value +
-                    palabra5_letra6.value +
-                    palabra5_letra7.value +
-                    palabra5_letra8.value +
-                    palabra5_letra9.value;
+        function getMovementDirection(currentInput) {
+            var tdParent = currentInput.parentElement;
+            var trParent = tdParent.parentElement;
+            var tdIndex = Array.prototype.indexOf.call(
+                trParent.children,
+                tdParent
+            );
+            var trIndex = Array.prototype.indexOf.call(
+                trParent.parentElement.children,
+                trParent
+            );
 
-                //Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
+            // Verificar si hay inputs disponibles en la misma fila (horizontal)
+            for (
+                var i = tdIndex + 1; i < trParent.children.length; i++
+            ) {
+                var input = trParent.children[i].querySelector("input");
                 if (
-                    palabra1.toLowerCase() == "windows" &&
-                    palabra2.toLowerCase() == "operativo" &&
-                    palabra3.toLowerCase() == "sistema" &&
-                    palabra4.toLowerCase() == "linux" &&
-                    palabra5.toLowerCase() == "programas"
+                    !input.disabled &&
+                    !input.value &&
+                    !input.readOnly
                 ) {
-                    var xmlhttp = new XMLHttpRequest();
-
-                    var param =
-                        "score=" +
-                        10 +
-                        "&validar=" +
-                        "correcto" +
-                        "&permiso=" +
-                        9 +
-                        "&id_curso=" +
-                        1; //cancatenation
-
-                    xmlhttp.onreadystatechange = function() {
-                        Swal.fire({
-                            title: "¡Bien hecho!",
-                            text: "¡Puntuación guardada con éxito!",
-                            imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
-                            imageHeight: 350,
-                            backdrop: `
-					rgba(0,143,255,0.6)
-					url("../../img/img_juegos/fondo.gif")
-					`,
-                            confirmButtonColor: "#a14cd9",
-                            confirmButtonText: "Aceptar",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '../../../../../../rutas/ruta-in-b.php';
-                            }
-                        });
-                    };
-                    correcto.play(); //agregando sonido al juego completado
-                    xmlhttp.open(
-                        "POST",
-                        "../../acciones/insertar_cp9.php",
-                        true
-                    );
-                    xmlhttp.setRequestHeader(
-                        "Content-Type",
-                        "application/x-www-form-urlencoded"
-                    );
-                    xmlhttp.send(param);
-                } else {
-                    if (palabra1.toLowerCase() != "windows") {
-                        palabra1_letra1.value = "";
-                        palabra1_letra2.value = "";
-                        palabra1_letra3.value = "";
-                        palabra1_letra4.value = "";
-                        palabra1_letra5.value = "";
-                        palabra1_letra6.value = "";
-                        palabra1_letra7.value = "";
-
-                        error();
-                    }
-
-                    if (palabra2.toLowerCase() != "operativo") {
-                        palabra2_letra1.value = "";
-                        palabra2_letra2.value = "";
-                        palabra2_letra3.value = "";
-                        palabra2_letra4.value = "";
-                        palabra2_letra5.value = "";
-                        palabra2_letra6.value = "";
-                        palabra2_letra7.value = "";
-                        palabra2_letra8.value = "";
-                        palabra2_letra9.value = "";
-                        error();
-                    }
-
-                    if (palabra3.toLowerCase() != "sistema") {
-                        palabra3_letra1.value = "";
-                        palabra3_letra2.value = "";
-                        palabra3_letra3.value = "";
-                        palabra3_letra4.value = "";
-                        palabra3_letra5.value = "";
-                        palabra3_letra6.value = "";
-                        palabra3_letra7.value = "";
-                        error();
-                    }
-
-                    if (palabra4.toLowerCase() != "linux") {
-                        palabra4_letra1.value = "";
-                        palabra4_letra2.value = "";
-                        palabra4_letra3.value = "";
-                        palabra4_letra4.value = "";
-                        palabra4_letra5.value = "";
-                        error();
-                    }
-
-                    if (palabra5.toLowerCase() != "programas") {
-                        palabra5_letra1.value = "";
-                        palabra5_letra2.value = "";
-                        palabra5_letra3.value = "";
-                        palabra5_letra4.value = "";
-                        palabra5_letra5.value = "";
-                        palabra5_letra6.value = "";
-                        palabra5_letra7.value = "";
-                        palabra5_letra8.value = "";
-                        palabra5_letra9.value = "";
-                        error();
-                    }
-
-                    //Corrector de palabras agregando la letra que estaba bien de las que palabras ya agregadas
-                    if (palabra1.toLowerCase() == "windows") {
-                        palabra1_letra5.value = "o";
-
-                    }
-
-                    if (palabra2.toLowerCase() == "operativo") {
-                        palabra1_letra5.value = "o";
-                        palabra3_letra5.value = "e";
-                        palabra5_letra6.value = "a";
-                        palabra4_letra2.value = "i";
-                    }
-
-                    if (palabra3.toLowerCase() == "sistema") {
-                        palabra2_letra3.value = "e";
-                    }
-
-                    if (palabra4.toLowerCase() == "linux") {
-                        palabra2_letra7.value = "i";
-                    }
-
-                    if (palabra5.toLowerCase() == "programas") {
-                        palabra2_letra5.value = "a";
-                    }
-                }
-            }
-        </script>
-
-        <script>
-            function habilitarMovimiento() {
-                var inputs = document.querySelectorAll("#crucigrama input");
-
-                for (var i = 0; i < inputs.length; i++) {
-                    inputs[i].addEventListener("input", function(e) {
-                        var maxLength = parseInt(
-                            e.target.getAttribute("maxlength")
-                        );
-                        var currentLength = e.target.value.length;
-
-                        if (currentLength >= maxLength) {
-                            // Mover el enfoque al siguiente input en la dirección elegida
-                            var nextInput = getNextInput(e.target);
-
-                            if (nextInput) {
-                                nextInput.focus();
-                            }
-                        }
-                    });
-                }
-
-                function getNextInput(currentInput) {
-                    var tdParent = currentInput.parentElement;
-                    var trParent = tdParent.parentElement;
-                    var tdIndex = Array.prototype.indexOf.call(
-                        trParent.children,
-                        tdParent
-                    );
-                    var trIndex = Array.prototype.indexOf.call(
-                        trParent.parentElement.children,
-                        trParent
-                    );
-                    var direction = getMovementDirection(currentInput);
-
-                    if (direction === "horizontal") {
-                        // Mover horizontalmente
-                        return getNextHorizontalInput(
-                            trParent,
-                            tdIndex,
-                            direction,
-                            currentInput
-                        );
-                    } else if (direction === "vertical") {
-                        // Mover verticalmente
-                        return getNextVerticalInput(
-                            trParent,
-                            tdIndex,
-                            direction,
-                            currentInput
-                        );
-                    }
-
-                    return null;
-                }
-
-                function getMovementDirection(currentInput) {
-                    var tdParent = currentInput.parentElement;
-                    var trParent = tdParent.parentElement;
-                    var tdIndex = Array.prototype.indexOf.call(
-                        trParent.children,
-                        tdParent
-                    );
-                    var trIndex = Array.prototype.indexOf.call(
-                        trParent.parentElement.children,
-                        trParent
-                    );
-
-                    // Verificar si hay inputs disponibles en la misma fila (horizontal)
-                    for (
-                        var i = tdIndex + 1; i < trParent.children.length; i++
-                    ) {
-                        var input = trParent.children[i].querySelector("input");
-                        if (
-                            !input.disabled &&
-                            !input.value &&
-                            !input.readOnly
-                        ) {
-                            return "horizontal";
-                        }
-                    }
-
-                    // Verificar si hay inputs disponibles en la misma columna (vertical)
-                    for (
-                        var i = trIndex + 1; i < trParent.parentElement.children.length; i++
-                    ) {
-                        var input =
-                            trParent.parentElement.children[i].children[
-                                tdIndex
-                            ].querySelector("input");
-                        if (
-                            !input.disabled &&
-                            !input.value &&
-                            !input.readOnly
-                        ) {
-                            return "vertical";
-                        }
-                    }
-
-                    return "";
-                }
-
-                function getNextHorizontalInput(
-                    trParent,
-                    tdIndex,
-                    direction,
-                    currentInput
-                ) {
-                    // Mover horizontalmente
-                    if (direction === "horizontal") {
-                        for (
-                            var i = tdIndex + 1; i < trParent.children.length; i++
-                        ) {
-                            var nextInput =
-                                trParent.children[i].querySelector("input");
-                            if (
-                                !nextInput.disabled &&
-                                !nextInput.value &&
-                                !nextInput.readOnly
-                            ) {
-                                return nextInput;
-                            }
-                        }
-                    }
-
-                    return null;
-                }
-
-                function getNextVerticalInput(
-                    trParent,
-                    tdIndex,
-                    direction,
-                    currentInput
-                ) {
-                    // Mover verticalmente
-                    var trIndex = Array.prototype.indexOf.call(
-                        trParent.parentElement.children,
-                        trParent
-                    );
-
-                    for (
-                        var i = trIndex + 1; i < trParent.parentElement.children.length; i++
-                    ) {
-                        var nextInput =
-                            trParent.parentElement.children[i].children[
-                                tdIndex
-                            ].querySelector("input");
-                        if (
-                            !nextInput.disabled &&
-                            !nextInput.value &&
-                            !nextInput.readOnly
-                        ) {
-                            return nextInput;
-                        }
-                    }
-
-                    return null;
+                    return "horizontal";
                 }
             }
 
-            habilitarMovimiento();
-        </script>
+            // Verificar si hay inputs disponibles en la misma columna (vertical)
+            for (
+                var i = trIndex + 1; i < trParent.parentElement.children.length; i++
+            ) {
+                var input =
+                    trParent.parentElement.children[i].children[
+                        tdIndex
+                    ].querySelector("input");
+                if (
+                    !input.disabled &&
+                    !input.value &&
+                    !input.readOnly
+                ) {
+                    return "vertical";
+                }
+            }
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    </body>
+            return "";
+        }
 
-    </html>
+        function getNextHorizontalInput(
+            trParent,
+            tdIndex,
+            direction,
+            currentInput
+        ) {
+            // Mover horizontalmente
+            if (direction === "horizontal") {
+                for (
+                    var i = tdIndex + 1; i < trParent.children.length; i++
+                ) {
+                    var nextInput =
+                        trParent.children[i].querySelector("input");
+                    if (
+                        !nextInput.disabled &&
+                        !nextInput.value &&
+                        !nextInput.readOnly
+                    ) {
+                        return nextInput;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        function getNextVerticalInput(
+            trParent,
+            tdIndex,
+            direction,
+            currentInput
+        ) {
+            // Mover verticalmente
+            var trIndex = Array.prototype.indexOf.call(
+                trParent.parentElement.children,
+                trParent
+            );
+
+            for (
+                var i = trIndex + 1; i < trParent.parentElement.children.length; i++
+            ) {
+                var nextInput =
+                    trParent.parentElement.children[i].children[
+                        tdIndex
+                    ].querySelector("input");
+                if (
+                    !nextInput.disabled &&
+                    !nextInput.value &&
+                    !nextInput.readOnly
+                ) {
+                    return nextInput;
+                }
+            }
+
+            return null;
+        }
+    }
+
+    habilitarMovimiento();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+
+</html>

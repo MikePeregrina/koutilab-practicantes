@@ -103,8 +103,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 214);
-            contexto.lineTo(960, 337);
+            contexto.moveTo(0, 200);
+            contexto.lineTo(800, 300);
             contexto.stroke();
             respuestasCorrectas++;
 
@@ -165,18 +165,18 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../../img/img_juegos/loop.gif ',
+                imageUrl: '../img/img_juegos/loop.gif ',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../img/img_juegos/fondo.gif")`,
+                    url("../img/img_juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.reload();
                 }
-            });
+            });incorrecto.play();
         } else {
             //llamamos a la alerta
             var xmlhttp = new XMLHttpRequest();
@@ -188,11 +188,11 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: 'Resultados',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../../img/img_juegos/Thumbs-Up.gif',
+                imageUrl: '../img/img_juegos/Thumbs-Up.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../img/img_juegos/fondo.gif")`,
+                    url("../img/img_juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {

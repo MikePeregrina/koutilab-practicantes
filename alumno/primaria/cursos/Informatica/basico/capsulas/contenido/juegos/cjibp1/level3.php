@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -12,41 +13,42 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLIDE PUZZLE</title>
-	<link rel="shortcut icon" href="../../../img//img_juegos/lgk.png">
-    <link rel="stylesheet" href="../../../css/css-juegos/slide.css">
+    <link rel="stylesheet" href="../../../css/css-juegos/slide-lvl3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body onload="alert1()">
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>CONECTORES PRINCIPALES</b></h2>
+		<h2 class="titulo"><b>CONECTORES</b></h2>
 	</div>
 
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
-    
-    <div class="contenido" style="height: 650px;">
+    <section>
+
+		<div class="cont-st">
 		<a href="../../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-		<br>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
 
-		<div class="slide-contenedor" style="margin-top: 70px;">
+		<div class="slide-contenedor" >
 			<div id="puzzle_container" style="width: 515px; height: 515px;">
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl3-2/s1.png" class="contenedor-img" alt=""></div>
 				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="lvl3-2/s2.png" class="contenedor-img" alt=""></div>
@@ -80,7 +82,7 @@ if (empty($existe)) {
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
 		</div> -->
-	</div>
+	</section>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		function alert1() {
@@ -110,32 +112,35 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
-		//Se esta llamando los sonidos de la carpeta "sonidos"
-        var correcto = document.createElement("audio");
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var correcto = document.createElement("audio");
 		correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
 	    var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		var segundos = 240;
-		let puntos = 0;
 
-		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
-			if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-			if (segundos == 0) {
-				
-				Swal.fire({
+let puntos = 0;
+
+var count = 1000;
+//Agregando animacion a el timer
+function iniciarTiempo() {
+document.getElementById("tiempo").innerHTML =
+segundos + " segundos";
+if (segundos <= 60) {
+var div = document.getElementById("timer");
+div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+}
+if (segundos <= 30) {
+var div = document.getElementById("timer");
+div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+}
+if (segundos <= 10) {
+var div = document.getElementById("timer");
+div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+}
+if (segundos == 0) {
+	Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
 					imageUrl: "../../../img/img_juegos/loop.gif",
@@ -243,7 +248,6 @@ if (empty($existe)) {
 							})
 							correcto.play(); //agregando sonido al juego completado
 						}, "800");
-						
 					}
 				}
 			}
