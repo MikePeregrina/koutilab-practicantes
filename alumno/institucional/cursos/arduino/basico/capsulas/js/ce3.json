@@ -1,0 +1,38 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "delay",
+        "incorrectAnswers": [
+            "On",
+            "Off",
+            "No recuerdo"
+        ],
+        "question": "¿Qué comando se utiliza para darle secuencia a un LED?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Indica al arduino esperar cierto tiempo que tu eligas",
+        "incorrectAnswers": [
+            "Encender y apargar un LED",
+            "Apagar un LED",
+            "Encender un LED"
+        ],
+        "question": "¿Qué función tiene el comando 'delay'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

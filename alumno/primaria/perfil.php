@@ -271,7 +271,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                     </div>
                     <ul class="lista-datos">
                         <div class="val-box">
-                            <canvas id="myChart1" style="margin-left: 5%;"></canvas>
+                            <canvas id="myChart1"></canvas>
                         </div>
                     </ul>
                 </div>
@@ -544,17 +544,17 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             document.oncontextmenu = new Function("return false");
         </script>
 
-        <dialog close id="modalCC" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 45%; height: 30%; box-shadow: 0 0 12px rgba(0,201,255,2556);">
+        <dialog close id="modalCC" style="border: none; border-radius: 10px; margin-top: 250px; margin-left: 27%; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 45%; height: 30%; box-shadow: 0 0 12px rgba(0,201,255,2556);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 6px; padding-right: 9px; padding-top: 4px; padding-bottom: px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer; " id="btn-cerrar-modalCC"><i class="fas fa-close"></i></button><br>
-            <div class="portada" style="width: 450px; height: 140px;border-radius: 10px; margin-top: 0px; margin-left: 60px;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); box-shadow: 0 0 12px rgba(0,201,255,2556); ">
+            <div class="portada" style="width: 80%; height: 140px;border-radius: 10px; margin-top: 2.5%; margin-left: 10%;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); box-shadow: 0 0 12px rgba(0,201,255,2556); ">
                 <ul class="lista-datos">
                     <b>&nbsp;Contraseña:</b>
 
                     <form enctype="multipart/form-data" action="" method="post">
-                        <div class="user-details1" style="margin-left:65px;">
-                            <div class="input-box1" style="width: auto; scale: 80%; margin-top:5px; margin-left: -15px;">
+                        <div class="user-details1" style="margin-left:1%;">
+                            <div class="input-box1" style="width: 70%; scale: 90%; margin-top:1%; margin-left: -0;">
                                 <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                                <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
+                                <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="width: 70%; margin-left:40%">
                             </div>
                         </div>
                     </form>
@@ -567,74 +567,74 @@ $query_cont = mysqli_query($conexion, $sql_cont);
 
 
 
-        <dialog close id="modalP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556);">
+        <dialog close id="modalP" style="width:40%;border: none; border-radius: 10px; margin-top: 190px; margin-left: 33%; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalP"><i class="fas fa-close"></i></button><br>
-            <div class="portada" style="width: 500px; height: 40px; margin: 10px 30px 10px 30px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8);">
-                <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un nuevo fondo</h4>
+            <div class="portada" style="width: 90%; height: 40px;margin-left:5%; margin-bottom:2%;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8);">
+                <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Fondos</h4>
             </div>
-            <div class="portada" style="width: 500px; height: 300px; margin: 0px 30px 30px 30px;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); overflow-y: scroll;">
+            <div class="portada" style="width: 90%; height: 300px; margin-left:5%;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); overflow-y: scroll;">
                 <form id="cambiarportada1" action="acciones/cambiarfondo.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-1" value="portada-1">
-                    <img src="img/portada-1.png" alt="" style="width: 450px; margin-left: 18px; margin-top: 15px; border-radius: 5px;"><br>
-                    <button onclick="miPortada1(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-1.png" alt="" style="width: 95%; margin-left: 3%; margin-top: 15px; border-radius: 5px;"><br>
+                    <button onclick="miPortada1(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada2" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-2" value="portada-2">
-                    <img src="img/portada-2.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                    <button onclick="miPortada2(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-2.png" alt="" style="width: 95%; margin-left: 3%; border-radius: 5px;"><br>
+                    <button onclick="miPortada2(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada3" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-3" value="portada-3">
-                    <img src="img/portada-3.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                    <button onclick="miPortada3(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-3.png" alt="" style="width: 95%; margin-left: 3%; border-radius: 5px;"><br>
+                    <button onclick="miPortada3(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada4" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-4" value="portada-4">
-                    <img src="img/portada-4.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                    <button onclick="miPortada4(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-4.png" alt="" style="width: 95%; margin-left: 3%; border-radius: 5px;"><br>
+                    <button onclick="miPortada4(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada5" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-5" value="portada-5">
-                    <img src="img/portada-5.png" alt="" style="width: 450px; margin-left: 18px; border-radius: 5px;"><br>
-                    <button onclick="miPortada5(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-5.png" alt="" style="width: 95%; margin-left: 3%; border-radius: 5px;"><br>
+                    <button onclick="miPortada5(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada6" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-6" value="portada-6">
-                    <img src="img/portada-6.png" alt="" style="width: 450px; margin-left: 18px; "><br>
-                    <button onclick="miPortada6(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-6.png" alt="" style="width: 95%; margin-left: 3%; "><br>
+                    <button onclick="miPortada6(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada7" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-7" value="portada-7">
-                    <img src="img/portada-7.png" alt="" style="width: 450px; margin-left: 18px; "><br>
-                    <button onclick="miPortada7(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-7.png" alt="" style="width: 95%; margin-left: 3%; "><br>
+                    <button onclick="miPortada7(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
                 <hr style="margin-left: 15px; width: 457px; margin-top: 10px; color: grey; opacity: 25%;">
                 <form id="cambiarportada8" action="acciones/cambiarfondo.php" method="post" style="margin-top:15px; margin-bottom: 15px;">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="name" value="<?php echo $name; ?>">
                     <input type="hidden" name="portada-8" value="portada-8">
-                    <img src="img/portada-8.png" alt="" style="width: 450px; margin-left: 18px;"><br>
-                    <button onclick="miPortada8(); return false;" type="submit" style="width: 100px; margin-left: 200px; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
+                    <img src="img/portada-8.png" alt="" style="width: 95%; margin-left: 3%;"><br>
+                    <button onclick="miPortada8(); return false;" type="submit" style="width: 100px; margin-left: 40%; padding: 5px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;">Seleccionar</button>
                 </form>
             </div>
         </dialog>
@@ -774,13 +774,13 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         </script>
 
-        <dialog close id="modalFP" style="border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 80px; margin-left: 370px; background: url(img/fondoPerfil.png);">
+        <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
-            <div style="width: 500px; height: 40px; margin: 10px 30px 10px 30px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8);">
-                <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Selecciona un avatar</h4>
+            <div style="margin-left:5%; margin-bottom:2%; width: 90%; height: 40px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); display:flex; justify-content:center">
+                <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Avatar</h4>
             </div>
-            <div class="portada" style="width: 500px; height: 300px; margin: 0px 30px 30px 30px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); overflow-y: scroll; display: flex; justify-content: space-between;">
-                <div>
+            <div class="portada" style="margin-left:5%;width: 90%; height: 300px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); overflow-y: scroll; display: flex; justify-content: space-between; flex-wrap:wrap">
+                <div style="flex: 1 0 10px">
                     <form id="cambiaravatar1" action="acciones/cambiaravatar.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="name" value="<?php echo $name; ?>">
@@ -805,7 +805,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         <button onclick="miAvatar3(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-03" name="Mascota-Aerobot-03">Seleccionar</button>
                     </form>
                 </div>
-                <div>
+                <div style="flex: 1 0 10px">
                     <form id="cambiaravatar4" action="acciones/cambiaravatar.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="name" value="<?php echo $name; ?>">
@@ -830,7 +830,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         <button onclick="miAvatar6(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-06" name="Mascota-Aerobot-06">Seleccionar</button>
                     </form>
                 </div>
-                <div>
+                <div style="flex: 1 0 10px">
                     <form id="cambiaravatar7" action="acciones/cambiaravatar.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="name" value="<?php echo $name; ?>">
@@ -1082,6 +1082,13 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         }
         ?>
+
+        <footer class="footerimga">
+		    <div class="imagen-footer">
+			    <img src="../primaria/img/benvenida.png" alt="No-image">
+		    </div>
+	    </footer>
+
         <?php
         if (isset($_POST['enviarclave'])) {
             $idalumno = $_SESSION['id_alumno_primaria'];
@@ -1151,9 +1158,5 @@ $query_cont = mysqli_query($conexion, $sql_cont);
         <div class="pie-pagina">
             <div class="imagenLogoF">
                 <br>
-
-                <img src="../primaria/img/Bienvenida.png" width="270px" height="185px">
-            </div>
-        </div>
     </div>
 </body>

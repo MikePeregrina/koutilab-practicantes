@@ -99,7 +99,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T1.5/25.gif');"></li>
                         
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd5.php">
 
                                     <input type="hidden" name="permiso" value="5">
@@ -114,7 +114,11 @@ if (isset($resultadoIntentos['intentos'])) {
                 </section>
         </div>
     </div>
-
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

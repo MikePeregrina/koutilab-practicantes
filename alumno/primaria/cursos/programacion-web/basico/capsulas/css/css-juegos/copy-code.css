@@ -262,7 +262,7 @@ transition: scale 0.35s;
 .mjuego textarea{
   text-align: center;
   height: 260px;
-  width: 400px;
+  width: 95%;
   border: none;
   resize: none;
   outline: none;

@@ -9,17 +9,17 @@
   
 }
 body{
-  background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-  background-repeat: no-repeat; /*no repite la imagen*/
-  background-size: cover;/*distribuye la imagen a toda la pantalla*/
+  background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Esto asegura que el fondo no se desplace con el contenido */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none; 
     font-family: Tahoma;
     color: #404040;
-    height: auto;
-
 }
+
 
 body::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -290,51 +290,32 @@ rgba(132,196,44,0.6)
 }
 
 @media(max-width: 1300px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-    
-  }
   .timer{
     margin-left: 73%;
   }
  
 }
 @media(max-width: 1200px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
   .timer{
     margin-left: 73%;
   }
  
 }
 @media(max-width: 900px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
+
   .timer{
     margin-left: 73%;
   }
 }
 @media(max-width: 763px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
+
   .timer{
     margin-left: 73%;
   }
 }
 
 @media (max-width: 619px) {
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
-  
+
   .timer {
     width: 120px;
     height: 120px;
@@ -369,10 +350,7 @@ rgba(132,196,44,0.6)
 
 
 @media (max-width: 518px) {
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
+
   .timer{
     margin-left: 73%;
   }

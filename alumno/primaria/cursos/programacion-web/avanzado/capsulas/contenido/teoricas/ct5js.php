@@ -98,23 +98,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/js/T4.5/129.gif');"></li>
                         <li style="background-image: url('../../img/js/T4.5/130.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct5js.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué se necesita para crear un evento?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Seleccionar el elemento HTML donde queremos agregar el evento.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Para poder conectar dos paginas web.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Para colocar un link.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Ninguna de las anteriores</label>
                                     </div>
@@ -129,6 +129,11 @@ if (isset($resultadoIntentos['intentos'])) {
                 </section>
         </div>
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
