@@ -57,6 +57,7 @@ $data1 = mysqli_fetch_assoc($query1);
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
 <title>KOUTILAB</title>
 </head>
@@ -73,7 +74,7 @@ $data1 = mysqli_fetch_assoc($query1);
     <div class="studens-add-bar">
         <div class="left-student">
             <i class="fas fa-users"></i>
-            <h2><?php echo $fila['id_alumno']; ?> <span>Alumnos(s)</span</h2>
+            <h2><?php echo $fila['id_alumno']; ?> <span>Alumnos(s)</span< /h2>
         </div>
 
     </div>
@@ -190,7 +191,8 @@ $data1 = mysqli_fetch_assoc($query1);
                                 <td><?php echo $data['email']; ?></td>
                                 <td>
                                     <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-info"><i class='fas fa-chart-line' id="i-group" style="color: white"></i></a>
-                                    <!--<a href="acciones/editar_alumno.php?id=<?php //echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-success"><i class='fas fa-edit' id="i-group"></i></a>-->
+                                    <!--<a href="acciones/editar_alumno.php?id=<?php //echo $data['id_alumno']; 
+                                                                                ?>" id="btn-group" class="btn btn-success"><i class='fas fa-edit' id="i-group"></i></a>-->
                                     <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" id="f-c" class="d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i class='fas fa-trash-alt' id="i-group"></i> </button>
                                     </form>
@@ -300,6 +302,8 @@ $data1 = mysqli_fetch_assoc($query1);
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -307,6 +311,8 @@ $data1 = mysqli_fetch_assoc($query1);
     <script>
         $(document).ready(function() {
             $('#alumnos').DataTable({
+                responsive: true,
+                autoWidth: false,
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
                 }

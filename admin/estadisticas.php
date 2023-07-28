@@ -199,7 +199,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 <div class="info">
                     <li><i class='fas fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
                 </div>
-                <div align="center" style="margin-top: 20px;">
+                <div align="center" style="margin-top: 20px;" class="form-ctn">
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
                         <input type="date" name="fechaInicio" id="fechaInicioEscuelas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>

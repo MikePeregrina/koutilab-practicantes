@@ -92,14 +92,14 @@ if (!empty($paquetes['fechaRegistro'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/packages.css">
     <link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Director Institucional</title>
+    <title>KOUTILAB</title>
     </head>
 
     <body>
@@ -235,12 +235,8 @@ if (!empty($paquetes['fechaRegistro'])) {
                         } ?>
                     </div>
                 </div>
-
-
-                <button id="closeButton"><i class="fas fa-times"></i></button>
-
-
             </div>
+            <button id="closeButton"><i class="fas fa-times"></i></button>
         </div>
 
 
@@ -287,7 +283,7 @@ if (!empty($paquetes['fechaRegistro'])) {
             }
             ?>
         </section>
-
+        <?php include 'footer.php'; ?>
         <script>
             const addCourseButton = document.getElementById('addCourseButton');
             const popupContainer = document.getElementById('popupContainer');

@@ -24,6 +24,7 @@ WHERE a.id_director = $id_user"));
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/contact.css">
 <link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -63,6 +64,9 @@ WHERE a.id_director = $id_user"));
 
     </section>
   </form>
+
+  <?php include 'footer.php'; ?>
+  
   <?php
   if (isset($_POST['enviarsugerencia'])) {
     $data2 = mysqli_query($conexion, "SELECT * FROM directores_preparatoria d INNER JOIN escuelas e WHERE d.id_escuela = e.id_escuela AND id_director = '$id_user'");
@@ -72,21 +76,21 @@ WHERE a.id_director = $id_user"));
     $nombre_usuario = $_SESSION['nombre'];
     $asunto = $_POST['asunto'];
     $mensaje = $_POST['mensaje'];
-    
+
     $sql = "INSERT INTO sugerencias (nombre_escuela,nombre_usuario,asunto,mensaje,estado) VALUES (?, ?, ?, ?, ?)";
 
-                if($stmt = mysqli_prepare($conexion, $sql)){
-                    mysqli_stmt_bind_param($stmt, "sssss", $param_escuela, $param_usuario, $param_asunto, $param_mensaje, $param_estado);
+    if ($stmt = mysqli_prepare($conexion, $sql)) {
+      mysqli_stmt_bind_param($stmt, "sssss", $param_escuela, $param_usuario, $param_asunto, $param_mensaje, $param_estado);
 
-                    $param_escuela = $nombre_escuela;
-                    $param_usuario = $nombre_usuario;
-                    $param_asunto = $asunto;
-                    $param_mensaje = $mensaje;
-                    $param_estado = 1;
+      $param_escuela = $nombre_escuela;
+      $param_usuario = $nombre_usuario;
+      $param_asunto = $asunto;
+      $param_mensaje = $mensaje;
+      $param_estado = 1;
 
-                    if(mysqli_stmt_execute($stmt)){
-                      echo
-                      "
+      if (mysqli_stmt_execute($stmt)) {
+        echo
+        "
                       <script>
                       Swal.fire({
                           title: '¡Excelente!',
@@ -101,8 +105,8 @@ WHERE a.id_director = $id_user"));
                         });
                       </script>
                         ";
-                    }else{
-                      "
+      } else {
+        "
                       <script>
                       Swal.fire({
                           title: '¡Error inesperado!',
@@ -117,8 +121,8 @@ WHERE a.id_director = $id_user"));
                         });
                       </script>
                         ";
-                    }
-   }
+      }
+    }
   }
   ?>
 

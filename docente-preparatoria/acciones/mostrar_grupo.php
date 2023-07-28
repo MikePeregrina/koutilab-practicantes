@@ -1,29 +1,32 @@
 <?php
-    require "../../acciones/conexion.php";
-    session_start();
-    $id_user = $_SESSION['id_docente_preparatoria'];
-    // Validar datos
-    if (empty($_REQUEST['id'])) {
-        header("Location: ../../docente/grupos.php");
-    }
-    //Estadisticas
-    $idgrupo = $_REQUEST['id'];
-    $query1 = mysqli_query($conexion, "SELECT * FROM grupos_preparatoria WHERE id_grupo = $idgrupo");
-    $data1 = mysqli_fetch_assoc($query1);
-    $result_sql = mysqli_num_rows($query1);
-    if ($result_sql == 0) {
-        header("Location: ../../docente/grupos.php");
-    }
+require "../../acciones/conexion.php";
+session_start();
+$id_user = $_SESSION['id_docente_preparatoria'];
+// Validar datos
+if (empty($_REQUEST['id'])) {
+    header("Location: ../../docente-preparatoria/grupos.php");
+}
+//Estadisticas
+$idgrupo = $_REQUEST['id'];
+$query1 = mysqli_query($conexion, "SELECT * FROM grupos_preparatoria WHERE id_grupo = $idgrupo");
+$data1 = mysqli_fetch_assoc($query1);
+$result_sql = mysqli_num_rows($query1);
+if ($result_sql == 0) {
+    header("Location: ../../docente-preparatoria/grupos.php");
+}
 
-    ?>
+?>
 
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../img/lgk.png">
     <link rel="stylesheet" href="css/showgroup.css">
+
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -33,65 +36,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bulma.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
+
 </head>
 
 <body>
-    <div class="container-titulo">
-    <h1>Lista de alumnos y puntajes</h1>  
-  </div>
+    <div class="containers">
+        <h1>Lista de alumnos y puntajes</h1>
+    </div>
 
 
-  <section>
-    <div class="d-flex justify-content-center" style="margin-top: 2%;">
-            <div class="board p-2" style="width: 95%;">
-                <table id="alumnos" width="100%" class="table border-top">
-                    <thead>
-                        <tr>
-                            <td><b>Nombre</b></td>
-                            <td><b>Nivel educativo</b></td>
-                            <td><b>Grado escolar</b></td>
-                            <td><b>Grupo</b></td>
-                            <td><b>Trofeos</b></td>
-                            <td><b>Puntaje</b></td>
-                            <td><b>Práctico</b></td>
-                            <td><b>Teorico</b></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include "../../acciones/conexion.php";
-                        $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.grado_escolar, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas_preparatoria e
+    <section>
+        <div class="board p-2" style="width: 95%;">
+            <table id="alumnos" width="100%" class="table border-top">
+                <thead>
+                    <tr>
+                        <td><b>Nombre</b></td>
+                        <td><b>Nivel educativo</b></td>
+                        <td><b>Grado escolar</b></td>
+                        <td><b>Trofeos</b></td>
+                        <td><b>Puntaje</b></td>
+                        <td><b>Práctico</b></td>
+                        <td><b>Teorico</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include "../../acciones/conexion.php";
+                    $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.grado_escolar, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas_preparatoria e
                     JOIN alumnos_preparatoria a
                     ON e.id_alumno = a.id_alumno
                     JOIN detalle_grupos_preparatoria dg
                     ON dg.id_alumno = a.id_alumno
                     WHERE dg.id_grupo = '$idgrupo';");
-                        $result = mysqli_num_rows($query_grupo);
-                        if ($result > 0) {
-                            while ($data = mysqli_fetch_assoc($query_grupo)) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $data['nombre']; ?></td>
-                                    <td>preparatoria</td>
-                                    <td><?php echo $data['grado_escolar']; ?></td>
-                                    <td><?php echo $data['nombre_grupo']; ?></td>
-                                    <td><?php echo $data['trofeos']; ?></td>
-                                    <td><?php echo $data['puntos']; ?></td>
-                                    <td><?php echo $data['practico']; ?></td>
-                                    <td><?php echo $data['teorico']; ?></td>
-                                </tr>
-                        <?php }
-                        } ?>
-                    </tbody>
-                </table>
-                <a href="../grupos.php" class="btn btn-danger">Atrás</a>
-            </div>
+                    $result = mysqli_num_rows($query_grupo);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_grupo)) {
+                    ?>
+                            <tr>
+                                <td><?php echo $data['nombre']; ?></td>
+                                <td>Preparatoria</td>
+                                <td><?php echo $data['grado_escolar']; ?></td>
+                                <td><?php echo $data['trofeos']; ?></td>
+                                <td><?php echo $data['puntos']; ?></td>
+                                <td><?php echo $data['practico']; ?></td>
+                                <td><?php echo $data['teorico']; ?></td>
+                            </tr>
+                    <?php }
+                    } ?>
+                </tbody>
+            </table>
+            <a href="../grupos.php" class="btn btn-danger">Atrás</a>
         </div>
-  </section>
-
+    </section>
+    <?php include '../footer.php'; ?>
     <script>
         $(document).ready(function() {
             var table = $('#alumnos').DataTable({
+                responsive: true,
+                autoWidth: false,
                 lengthChange: false,
                 searching: false,
                 paging: false,
@@ -122,4 +125,7 @@
     <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
+
 </body>

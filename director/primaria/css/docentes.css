@@ -21,18 +21,53 @@ body {
   background-attachment: fixed;
   font-family: sans-serif;
 }
-h1 {
+
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(129, 179, 243);
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.containers h1 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
   font-size: 40px;
 }
 
-h2 {
+.studens-add-bar h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 28px;
+}
+
+.titlec h2 {
+  margin: auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 28px;
 }
 
 .containers {
@@ -61,7 +96,7 @@ h2 {
 .left-student {
   background-color: rgba(255, 255, 255, 0.519);
   border-radius: 30px;
-  padding: 0px;
+  padding: 10px;
   border: 3px solid var(--border);
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   box-sizing: border-box;
@@ -72,8 +107,9 @@ h2 {
 }
 
 .left-student i {
-  margin-left: 15%;
+  margin-left: 5%;
   font-size: 30px;
+  margin-top: 0%;
 }
 
 .left-student h2 {
@@ -95,8 +131,9 @@ h2 {
 }
 
 .right-student i {
-  margin-left: 15%;
+  margin-left: 7%;
   font-size: 30px;
+  margin-top: 2.5%;
 }
 
 .right-student h2 {
@@ -106,8 +143,8 @@ h2 {
 section {
   padding: 0px;
   width: 86%;
-  height: 569px;
-  margin-top: 40px;
+  height: 100%;
+  margin-top: 25px;
   margin-left: 10%;
   display: flex;
   background-color: rgba(255, 255, 255, 0.986);
@@ -119,28 +156,29 @@ section {
   flex-direction: column;
 }
 
-#chart {
-  width: 400px;
-  height: 300px;
-  border: 1px solid #ccc;
+#graficaContainer {
+  width: 100%;
+  margin: 0 auto !important;
+  padding-bottom: 50px;
+  margin: 10px;
+  margin-top: 5%;
 }
 
-.bar {
-  width: 20px;
-  background-color: #007bff;
-  margin: 0 5px;
-  display: inline-block;
-  transition: height 0.3s ease;
+canvas{
+  width: 60% !important;
+  height: 60% !important;
+  margin-left: 20% !important;
 }
 
-.chart-labels {
+.titlec {
+  width: 40%;
+  height: 55px;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-}
-
-.chart-labels span {
-  margin: 0 20px;
+  background-color: rgba(0, 201, 255, 2556);
+  border-radius: 0px 0px 25px 25px;
+  text-align: center;
+  margin-left: 30%;
 }
 
 @media (max-width: 1120px) {
@@ -156,6 +194,22 @@ section {
     text-align: center;
     font-weight: bolder;
     font-size: 27px;
+  }
+
+  .studens-add-bar h2 {
+    font-size: 22px;
+  }
+
+  .left-student i {
+    margin-top: 0%;
+  }
+
+  .containers h1 {
+    font-size: 38px;
+  }
+
+  .titlec h2 {
+    font-size: 22px;
   }
 }
 
@@ -193,16 +247,114 @@ section {
   section {
     padding: 0px;
     width: 75%;
-    height: 569px;
+    height: auto;
     margin-left: 15%;
-    display: flex;
-    flex-direction: column;
   }
 
   .titlec {
     width: 50%;
     height: 45px;
     margin-left: 25%;
+  }
+
+  .studens-add-bar h2 {
+    font-size: 16px;
+  }
+
+  .left-student i {
+    margin-top: 0%;
+  }
+
+  .containers h1 {
+    font-size: 30px;
+  }
+
+  .titlec h2 {
+    font-size: 20px;
+  }
+
+  canvas{
+    width: 85% !important;
+    height: 85% !important;
+    margin-left: 3% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .containers {
+    padding: 10px;
+    width: 75%;
+    box-sizing: border-box;
+    margin: 2% auto;
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    height: 60px;
+    margin-left: 19%;
+  }
+
+  h1 {
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 29px;
+  }
+
+  h2 {
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 19px;
+  }
+
+  .studens-add-bar {
+    width: 75%;
+    margin-left: 18%;
+    margin-top: 4.5%;
+    height: 60px;
+  }
+
+  section {
+    padding: 0px;
+    width: 75%;
+    height: auto;
+    margin-top: 5%;
+    margin-left: 19%;
+  }
+
+  .titlec {
+    width: 50%;
+    height: 45px;
+    margin-left: 25%;
+  }
+  
+  .studens-add-bar h2 {
+    font-size: 13px;
+    margin-left: 15px;
+  }
+
+  .left-student i{
+    margin-top: 0%;
+  }
+
+  .right-student i{
+    margin-top: 7%;
+  }
+
+  .containers h1 {
+    font-size: 30px;
+  }
+
+  .titlec h2 {
+    font-size: 17px;
+  }
+
+  div.dataTables_wrapper div.dataTables_filter input {
+    width: 150px !important;
+  }
+
+  canvas{
+    width: 90% !important;
+    height: 90% !important;
+    margin-left: 3% !important;
   }
 }
 
@@ -270,16 +422,9 @@ section {
   }
 }
 
-#graficaContainer {
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 50px;
-  margin: 10px;
-  margin-top: 15%;
-}
 
-canvas {
-  max-width: 100%;
-  margin: 0 auto;
+/*canvas {
+  max-width: 100% !important;
+  margin: 0 auto !important;
   /*max-height: 70%;*/
-}
+/*}*/

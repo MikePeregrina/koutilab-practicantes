@@ -9,6 +9,51 @@ include('../../acciones/conexion.php');
 // $query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");
 // $data = mysqli_fetch_assoc($query);
 
+//Verificar si ya se tiene permiso en ruta 1
+$permiso_ruta_r1 = "1";
+$sql_verificar_r1 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r1'");
+$existe_verificar_r1 = mysqli_num_rows($sql_verificar_r1);
+
+//Verificar si ya se tiene permiso en ruta 2
+$permiso_ruta_r2 = "2";
+$sql_verificar_r2 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r2'");
+$existe_verificar_r2 = mysqli_num_rows($sql_verificar_r2);
+
+//Verificar si ya se tiene permiso en ruta 3
+$permiso_ruta_r3 = "3";
+$sql_verificar_r3 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r3'");
+$existe_verificar_r3 = mysqli_num_rows($sql_verificar_r3);
+
+//Verificar si ya se tiene permiso en ruta 4
+$permiso_ruta_r4 = "4";
+$sql_verificar_r4 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r4'");
+$existe_verificar_r4 = mysqli_num_rows($sql_verificar_r4);
+
+//Verificar si ya se tiene permiso en ruta 5
+$permiso_ruta_r5 = "5";
+$sql_verificar_r5 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r5'");
+$existe_verificar_r5 = mysqli_num_rows($sql_verificar_r5);
+
+//Verificar si ya se tiene permiso en ruta 6
+$permiso_ruta_r6 = "6";
+$sql_verificar_r6 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r6'");
+$existe_verificar_r6 = mysqli_num_rows($sql_verificar_r6);
+
+//Verificar si ya se tiene permiso en ruta 7
+$permiso_ruta_r7 = "7";
+$sql_verificar_r7 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r7'");
+$existe_verificar_r7 = mysqli_num_rows($sql_verificar_r7);
+
+//Verificar si ya se tiene permiso en ruta 8
+$permiso_ruta_r8 = "8";
+$sql_verificar_r8 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r8'");
+$existe_verificar_r8 = mysqli_num_rows($sql_verificar_r8);
+
+//Verificar si ya se tiene permiso en ruta 9
+$permiso_ruta_r9 = "9";
+$sql_verificar_r9 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r9'");
+$existe_verificar_r9 = mysqli_num_rows($sql_verificar_r9);
+
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_primaria WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
@@ -196,6 +241,30 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             <div class="lati">
 
 
+                <div class="dos1" style="margin-bottom: 15px;">
+                    <div class="titlec2">
+                        <h2>Nuevo grupo</h2>
+                    </div>
+                    <ul class="lista-datos">
+                        <li><b>&nbsp;Unirse a un grupo:</b></li>
+                        <li>
+                            <form enctype="multipart/form-data" action="" method="post">
+                                <div class="user-details1">
+                                    <div class="input-box1">
+                                        <input type="text" name="clavegrupo" value="" placeholder="Clave de grupo">
+
+                                        <input type="submit" name="enviarclave" value="Unirse" class="btn-grd">
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <br>
+
+
                 <div class="dos1">
                     <div class="titlec2">
                         <h2>Estadísticas</h2>
@@ -206,12 +275,12 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </ul>
                 </div>
-                <div class="dos1" style="margin-top:5px;">
+                <div class="dos1">
                     <ul class="lista-datos">
-                        <li><i class="fas fa-award"></i>&nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?></li>
-                        <li><i class='fas fa-chart-line'></i><b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
-                        <li><i class='fab fa-joomla'></i>&nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li>
-                        <li><i class='fas fa-file-alt'></i>&nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
+                        <li><i class="fas fa-award"></i> &nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
+                        <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li><br>
+                        <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Conocimientos:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
+                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
                     </ul>
                 </div>
 
@@ -222,7 +291,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                 <div class="titlec">
                     <h2>Cursos</h2>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-pw-b.php">
                         <div class="container">
                             <div class="box">
@@ -237,7 +306,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r2 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-pw-i.php">
                         <div class="container">
                             <div class="box">
@@ -251,7 +320,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r3 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-pw-a.php">
                         <div class="container">
                             <div class="box">
@@ -265,7 +334,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r4 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-py-b.php">
                         <div class="container">
                             <div class="box">
@@ -279,7 +348,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r5 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-py-i.php">
                         <div class="container">
                             <div class="box">
@@ -293,7 +362,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r6 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-py-a.php">
                         <div class="container">
                             <div class="box">
@@ -307,7 +376,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r7 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-in-b.php">
                         <div class="container">
                             <div class="box">
@@ -321,7 +390,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r8 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-in-i.php">
                         <div class="container">
                             <div class="box">
@@ -335,7 +404,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r9 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-in-a.php">
                         <div class="container">
                             <div class="box">
@@ -1000,6 +1069,72 @@ $query_cont = mysqli_query($conexion, $sql_cont);
       Swal.fire({
           title: '¡Advertencia!',
           text: 'Cambio de contraseña no exitosa',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+            }
+        }
+        ?>
+        <?php
+        if (isset($_POST['enviarclave'])) {
+            $idalumno = $_SESSION['id_alumno_primaria'];
+            $clavegrupo = $_POST['clavegrupo'];
+
+            $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_primaria WHERE clave = '$clavegrupo'"));
+            if (isset($data_alumno['id_grupo'])) {
+                $id_grupo_alumno = $data_alumno['id_grupo'];
+                $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos_primaria(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
+            }
+            if (isset($data_alumno['id_docente'])) {
+                $id_docente_alumno = $data_alumno['id_docente'];
+                $sql_update = mysqli_query($conexion, "UPDATE alumnos_primaria SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
+            }
+
+            if (isset($data_alumno['id_grupo'])) {
+                $sql = "SELECT DISTINCT c.id_curso FROM grupos_primaria g JOIN detalle_grupo_cursos_primaria dg ON g.id_grupo = dg.id_grupo JOIN cursos_primaria c ON dg.id_curso = c.id_curso WHERE g.clave = '$clavegrupo'";
+                $resultado = $conexion->query($sql);
+
+                if ($resultado->num_rows > 0) {
+                    // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
+                    while ($fila = $resultado->fetch_assoc()) {
+                        $idcurso = $fila["id_curso"];
+                        $insertar_acceso_curso = "INSERT INTO acceso_cursos_primaria(id_curso, id_alumno) VALUES ('$idcurso', $idalumno)";
+                        $conexion->query($insertar_acceso_curso);
+                    }
+                }
+            }
+
+            if ($insertar_grupo && $insertar_acceso_curso && $sql_update) {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Registro de grupo exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Revisa bien tu clave!',
+          text: 'Registro de grupo no exitoso',
           icon: 'info',
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'Reintentar',

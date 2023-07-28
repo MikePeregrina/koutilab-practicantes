@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('../../acciones/conexion.php');
 session_start();
@@ -12,10 +12,8 @@ $estado = $_POST['estado'];
 $insertar_contacto = mysqli_query($conexion, "INSERT INTO sugerencias(nombre_escuela, nombre_usuario, asunto, mensaje, estado) VALUES ('$nombre_escuela', '$nombre_usuario', '$asunto', '$mensaje', '$estado')");
 
 if ($insertar_contacto) {
-    $alert = '<div class="alert alert-primary" role="alert">
+  $alert = '<div class="alert alert-primary" role="alert">
                           Usuario registrado
                       </div>';
-    header("Location: ../../docente/contacto.php");
-  }
-
-?>
+  header("Location: ../../docente-secundaria/contacto.php");
+}

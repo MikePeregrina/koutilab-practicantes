@@ -51,5 +51,5 @@ if ($insertar_alumno && $insertar_grupo && $insertar_acceso_curso) {
   $alert = '<div class="alert alert-primary" role="alert">
                          Alumno registrado
                       </div>';
-  header("Location: ../../docente/alumnos.php");
+  header("Location: ../../docente-preparatoria/alumnos.php");
 }

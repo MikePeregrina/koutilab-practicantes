@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2023 a las 19:14:52
+-- Tiempo de generación: 28-07-2023 a las 23:54:19
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -120,7 +120,8 @@ INSERT INTO `acceso_cursos_secundaria` (`id_acceso_curso`, `id_curso`, `id_alumn
 (6, 6, 1),
 (7, 7, 1),
 (8, 8, 1),
-(9, 9, 1);
+(9, 9, 1),
+(10, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `usuario`, `contrasena`, `image`, `fondo`, `nombre`, `pais`, `estado`, `fecha_registro`, `rol`) VALUES
-(1, '@admin', 'acbf157754bc921e70ab30b1e79c75f5', NULL, NULL, 'Admin', 'México', 1, '2023-07-05 03:18:06', 2);
+(1, '@admin', 'acbf157754bc921e70ab30b1e79c75f5', NULL, NULL, 'Admin', 'México', 1, '2023-07-21 18:14:17', 1),
+(2, '@adminsecundario', 'acbf157754bc921e70ab30b1e79c75f5', NULL, NULL, 'Admin Secundario', 'México', 1, '2023-07-19 04:20:17', 2);
 
 -- --------------------------------------------------------
 
@@ -241,7 +243,7 @@ CREATE TABLE `alumnos_preparatoria` (
 --
 
 INSERT INTO `alumnos_preparatoria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Alumno Preparatoria', '@alumnopreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-WWRPR6OU', 'alumnopreparatoria@gmail.com', 'Mascota-Aerobot-01.png', NULL, 'portada-1.png', 3, 1, 1, 7, '2023-06-25 23:53:10');
+(1, 'Alumno Preparatoria', '@alumnopreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-WWRPR6OU', 'alumnopreparatoria@gmail.com', 'Mascota-Aerobot-04.png', NULL, 'portada-1.png', 3, 1, 1, 11, '2023-06-25 23:53:10');
 
 -- --------------------------------------------------------
 
@@ -271,7 +273,7 @@ CREATE TABLE `alumnos_primaria` (
 --
 
 INSERT INTO `alumnos_primaria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-R1U2SD8L', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1, 33, '2023-06-25 23:52:24'),
+(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-R1U2SD8L', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1, 50, '2023-06-25 23:52:24'),
 (2, 'asdf', 'asdf', 'asdf', 'asdf', 'asdfasdf', 'asdf', 'asdf', 'asdfdf', 1, 1, 1, 10, '2023-06-27 00:08:25');
 
 -- --------------------------------------------------------
@@ -302,7 +304,7 @@ CREATE TABLE `alumnos_secundaria` (
 --
 
 INSERT INTO `alumnos_secundaria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Alumno Secundaria', '@alumnosecundaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-DT9VQK1', 'alumnosecundaria@gmail.com', 'Mascota-Aerobot-01.png', NULL, 'portada-1.png', 2, 1, 1, 6, '2023-06-25 23:53:00');
+(1, 'Alumno Secundaria', '@alumnosecundaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-DT9VQK1', 'alumnosecundaria@gmail.com', 'Mascota-Aerobot-04.png', NULL, 'portada-2.png', 2, 1, 1, 37, '2023-06-25 23:53:00');
 
 -- --------------------------------------------------------
 
@@ -1596,7 +1598,8 @@ INSERT INTO `detalle_grupo_cursos_secundaria` (`id_detalle_grupo_curso`, `id_gru
 (3, 1, 3),
 (4, 1, 4),
 (5, 1, 5),
-(6, 1, 6);
+(6, 1, 6),
+(7, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -1908,7 +1911,7 @@ CREATE TABLE `docentes_preparatoria` (
 --
 
 INSERT INTO `docentes_preparatoria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Preparatoria', '@docentepreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-IP311LQJ', 'docentepreparatoria@gmail.com', NULL, 3, 1, 0, '2023-06-25 23:54:11');
+(1, 'Docente Preparatoria', '@docentepreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-IP311LQJ', 'docentepreparatoria@gmail.com', NULL, 3, 1, 1, '2023-06-25 23:54:11');
 
 -- --------------------------------------------------------
 
@@ -1935,7 +1938,7 @@ CREATE TABLE `docentes_primaria` (
 --
 
 INSERT INTO `docentes_primaria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-EIU2XXKS', 'docenteprimaria@gmail.com', NULL, 1, 1, 7, '2023-06-25 23:53:49');
+(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-EIU2XXKS', 'docenteprimaria@gmail.com', NULL, 1, 1, 12, '2023-06-25 23:53:49');
 
 -- --------------------------------------------------------
 
@@ -1962,7 +1965,7 @@ CREATE TABLE `docentes_secundaria` (
 --
 
 INSERT INTO `docentes_secundaria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Secundaria', '@docentesecundaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-T4UR2CK1', 'docentesecundaria@gmail.com', NULL, 2, 1, 2, '2023-06-25 23:54:00');
+(1, 'Docente Secundaria', '@docentesecundaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-T4UR2CK1', 'docentesecundaria@gmail.com', NULL, 2, 1, 5, '2023-06-25 23:54:00');
 
 -- --------------------------------------------------------
 
@@ -1989,7 +1992,7 @@ CREATE TABLE `docentes_universidad` (
 --
 
 INSERT INTO `docentes_universidad` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Universidad', '@docenteuniversidad', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-8TGBBD1Z', 'docenteuniversidad@gmail.com', NULL, 4, 1, 0, '2023-06-25 23:54:21');
+(1, 'Docente Universidad', '@docenteuniversidad', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-8TGBBD1Z', 'docenteuniversidad@gmail.com', NULL, 4, 1, 1, '2023-06-25 23:54:21');
 
 -- --------------------------------------------------------
 
@@ -2225,6 +2228,7 @@ CREATE TABLE `grupos_primaria` (
   `materia` varchar(100) DEFAULT NULL,
   `nombre_grupo` varchar(100) DEFAULT NULL,
   `grado` varchar(100) DEFAULT NULL,
+  `clave` varchar(100) NOT NULL,
   `id_docente` int(11) DEFAULT NULL,
   `estado` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -2233,8 +2237,8 @@ CREATE TABLE `grupos_primaria` (
 -- Volcado de datos para la tabla `grupos_primaria`
 --
 
-INSERT INTO `grupos_primaria` (`id_grupo`, `materia`, `nombre_grupo`, `grado`, `id_docente`, `estado`) VALUES
-(1, 'Desarrollo Primaria', 'Desarrollo Primaria', '1°', 1, 1);
+INSERT INTO `grupos_primaria` (`id_grupo`, `materia`, `nombre_grupo`, `grado`, `clave`, `id_docente`, `estado`) VALUES
+(1, 'Desarrollo Primaria', 'Desarrollo Primaria', '1°', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -2448,7 +2452,7 @@ CREATE TABLE `sugerencias` (
   `nombre_usuario` varchar(100) DEFAULT NULL,
   `asunto` varchar(100) DEFAULT NULL,
   `mensaje` varchar(100) DEFAULT NULL,
-  `estado` int(11) DEFAULT NULL
+  `estado` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -3070,7 +3074,7 @@ ALTER TABLE `acceso_cursos_primaria`
 -- AUTO_INCREMENT de la tabla `acceso_cursos_secundaria`
 --
 ALTER TABLE `acceso_cursos_secundaria`
-  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `acceso_cursos_universidad`
@@ -3082,7 +3086,7 @@ ALTER TABLE `acceso_cursos_universidad`
 -- AUTO_INCREMENT de la tabla `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos_personal`
@@ -3352,7 +3356,7 @@ ALTER TABLE `detalle_grupo_cursos_primaria`
 -- AUTO_INCREMENT de la tabla `detalle_grupo_cursos_secundaria`
 --
 ALTER TABLE `detalle_grupo_cursos_secundaria`
-  MODIFY `id_detalle_grupo_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detalle_grupo_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_grupo_cursos_universidad`

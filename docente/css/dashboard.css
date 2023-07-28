@@ -1,10 +1,27 @@
-:root{
-  --blanco: #FFFFFF;
+:root {
+  --blanco: #ffffff;
   --oscurp: #212121;
-  --primario: #FFC107;
+  --primario: #ffc107;
   --secundario: #0097a7;
   --gris: #757575;
-  --border:rgba(0,201,255,2556);
+  --border: rgba(0, 201, 255, 2556);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, white 15%, #5afef4, #42fa8f, #0cfefd);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  color: #4a4a4a;
 }
 
 body::-webkit-scrollbar {
@@ -34,21 +51,6 @@ body::-webkit-scrollbar-track {
   border-radius: 10px;
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  box-sizing: border-box; 
-}
-
-body{
-  background: linear-gradient(to bottom, white 15%, #5afef4, #42fa8f, #0cfefd);
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: sans-serif;
-}
 h1 {
   margin: auto;
   text-align: center;
@@ -56,14 +58,14 @@ h1 {
   font-size: 40px;
 }
 
-h2{
+h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 170%;/*35px;*/
 }
 
-.subtitle-perfil h3{
+.subtitle-perfil h3 {
   font-weight: 400;
   margin-top: 1%;
   margin-left: 7%;
@@ -97,7 +99,7 @@ h2{
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 6px solid rgba(0,201,255,2556); /* Agrega un borde azul */
+  border: 6px solid rgba(0, 201, 255, 2556); /* Agrega un borde azul */
 }
 
 .avatar-img img {
@@ -107,15 +109,14 @@ h2{
 }
 
 .camera-icon {
-  background: #fff;
+  background: rgba(0, 201, 255, 2556);
   border-radius: 50%;
   width: 62px;
   height: 62px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 7px solid rgba(0,201,255,2556);
-  background: rgba(0,201,255,2556);
+  border: 7px solid rgba(0, 201, 255, 2556);
   position: absolute;
   margin-left: 11%;
   margin-top: 11%;
@@ -124,21 +125,20 @@ h2{
 
 .camera-icon i {
   color: #000;
-  margin: 2px; 
+  margin: 2px;
   cursor: pointer;
 }
 
-section{
+section {
   padding: 0px;
   width: 86%;
   height: 750px;
   margin-top: 40px;
   margin-left: 10%;
   display: flex;
-  
 }
 
-.left-content{
+.left-content {
   background-color: rgba(255, 255, 255, 0.986);
   border-radius: 20px;
   padding: 0px;
@@ -149,7 +149,7 @@ section{
   height: 100%;
 }
 
-.right-content{
+.right-content {
   background-color: rgba(255, 255, 255, 0.986);
   border-radius: 20px;
   padding: 0px;
@@ -169,22 +169,22 @@ section{
   height: 55px;
   display: flex;
   justify-content: center;
-  background-color:rgba(0,201,255,2556);
+  background-color: rgba(0, 201, 255, 2556);
   border-radius: 0px 0px 25px 25px;
   text-align: center;
   margin-left: 15%;
   padding: 5px;
 }
 
-.container-image{
+.container-image {
   width: 100%;
   height: 34%;
 }
 
-.container-info{
+.container-info {
   width: 93%;
   height: 45%;
-  font-weight: 400; 
+  font-weight: 400;
   margin-left: 7%;
   margin-top: 5%;
   display: flex;
@@ -202,12 +202,12 @@ section{
   font-size: 19px;
 }
 
-.change-password{
+.change-password {
   width: 93%;
   height: 24%;
-  font-weight: 400; 
+  font-weight: 400;
   margin-left: 7%;
-  margin-top: 5%;
+  margin-top: 8%;
   display: flex;
   flex-direction: column;
 }
@@ -242,7 +242,7 @@ form .user-details1 .input-box1 {
   font-size: 20px;
   border-radius: 20px;
   border: none;
-  box-shadow: 0 0 12px rgba(44, 107, 196, 0.8);
+  box-shadow: 0 0 8px rgba(44, 107, 196, 0.8);
 }
 
 .input-box1 .btn-grd {
@@ -251,29 +251,34 @@ form .user-details1 .input-box1 {
   cursor: pointer;
   display: block;
   margin: auto;
+  background: linear-gradient(
+    to right,
+    rgb(61, 172, 244),
+    rgba(132, 196, 44, 0.6)
+  );
   border: 0px;
   outline: none;
   border-radius: 30px;
-  background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));
   transition: 0.5s;
 }
-
 
 .btn-grd:hover {
   transform: scale(1.1);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
-  
 }
 
-.card-cursos {
+.camera-icon input[type="file"] {
+  position: absolute;
+  transform: scale(2);
+  opacity: 0;
+}
+
+.card {
   position: relative;
   width: 40%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 250px;
   border-radius: 20%;
-  text-align: center;
   overflow: hidden;
   transition: 0.5s;
   border: solid 1px rgba(61, 172, 244, 0.6);
@@ -281,18 +286,24 @@ form .user-details1 .input-box1 {
   margin-right: 5%;
   margin-left: 5%;
   margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.card-cursos a {
+/*.card i {
+  margin-right: 22%;
+}*/
+.card a {
   text-decoration: none;
 }
 
-.card-cursos:hover {
+.card:hover {
   transform: translateY(-2px);
   box-shadow: 0 1px 5px rgb(180, 180, 180);
 }
 
-.card-cursos::before {
+.card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -303,172 +314,301 @@ form .user-details1 .input-box1 {
   z-index: 1;
 }
 
-.camera-icon input[type="file"] {
-  position: absolute;
-  transform: scale(2);
-  opacity: 0;
+.hr2{
+  margin-top: -38% !important;
 }
-
-
-
-
 
 @media (max-width: 1120px) {
-  
-  h1 {
-  margin: auto;
-  text-align: center;
-  font-weight: bolder;
-  font-size: 38px;
-}
+  h3{
+    font-size: 22px !important;
+  }
 
-h2{
+  input[type="text"]{
+    font-size: 18px !important;
+  }
+
+  .btn-grd{
+    padding: 7px !important;
+    font-size: 20px !important;
+  }
+
+  .camera-icon {
+    margin-left: 13%;
+    margin-top: 13%;
+  }
+
+  h1 {
     margin: auto;
     text-align: center;
     font-weight: bolder;
-    font-size: 27px;
+    font-size: 38px;
+  }
+
+  h2 {
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 150%;/*35px;*/
+  }
+
+  .container-info h3 {
+    font-size: 24px;
+  }
+
+  .hr2{
+    margin-top: -30% !important;
+  }
+
+  .change-password{
+    margin-top: 5%;
+  }
+
+  .container-info h3 span {
+    font-size: 19px;
+  }
+
+  .change-password h3 {
+    font-size: 24px;
+  }
+
+  .change-password h3 span {
+    font-size: 19px;
+  }
 }
-
-.container-info h3{
-  font-size: 24px;
- }
-
- .container-info h3 span{
-  font-size: 19px;
- }
-
+@media (max-width: 980px) {
+  .camera-icon {
+    margin-left: 15%;
+    margin-top: 15%;
+  }
 }
-
-
-
 @media (max-width: 768px) {
+  .containers {
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    margin: 2% auto;
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    height: 60px;
+    margin-left: 16.2% !important;
+  }
 
-  .containers {   
-      padding: 10px;
-      width: 80%;
-      box-sizing: border-box;
-      margin: 2% auto;
-      box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-      height: 60px;
-      margin-left: 13%;
-     }
-     
-    .camera-icon {
-      width: 55px;
-      height:55px;
-      margin-left: 19%;
-      margin-top: 19%;
-    }
-  
-    section{
-      padding: 0px;
-      width: 80%;
-      /*height: 500px;*/
-      margin-left: 13%;
-      display: block;
-    }
-  
-    .titlec {
-      width: 50%;
-      height: 45px;
-      margin-left: 25%;
-     }
-  
-     .left-content{
-      width: 100%;
-     }
-  
-     .right-content{
-      width: 100%;
-      margin-left: 0%;
-      margin-top: 5%;
-     }
-  
-     .container-info{
-      margin-top: 2%;
-     }
-     .container-info h3{
-      font-size: 20px;
-     }
-  
-     .container-info h3 span{
-      font-size: 17px;
-     }
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 19%;
+    margin-top: 19%;
+  }
 
-     .titlec {
-      height: 65px;
-     }
+  section {
+    padding: 0px;
+    width: 80%;
+    height: 650px;
+    margin-left: 16.2% !important;
+    display: block;
+  }
 
-     #hrPass{
-      margin-top:-30% !important;
-     }
+  .titlec {
+    width: 50%;
+    height: 45px;
+    margin-left: 25%;
+  }
+
+  .left-content {
+    width: 100% !important;
+  }
+
+  .right-content {
+    width: 100% !important;
+    margin-left: 0% !important;
+    margin-top: 5% !important;
+    /*height: 110% !important;*/
+    /*display: inherit !important;*/
+  }
+
+  .container-info {
+    margin-top: 2%;
+  }
+  .container-info h3 {
+    font-size: 20px;
+  }
+
+  .container-info h3 span {
+    font-size: 17px;
+  }
+
+  .change-password h3 {
+    font-size: 20px;
+  }
+
+  .change-password h3 span {
+    font-size: 17px;
+  }
+
+  .change-password {
+    margin-top: 23%;
+  }
+
+  .titlec {
+    height: 65px;
+  }
+
+  .hr2 {
+    visibility: hidden;
+    margin-top: -45% !important;
+  }
+
+  
+  .footerimga .imagen-footer img {
+    position: relative !important;
+    top: 760% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 25%;
+    margin-top: 25%;
+  }
+
+  .change-password{
+    margin-top: 5%;
+  }
+
+  .hr2 {
+    /*visibility: visible;*/
+    background-color: lightgray;
+    width: 60%;
+    height: 2px;
+    margin-left: 20%;
+    margin-top: -32% !important;
+  }
+
+  .right-content{
+    display: inherit !important;
+  }
+
+  .card{
+    width: 70% !important;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin: 5% auto 5% auto;
+    height: auto;
+  }
+
+  .card i {
+    /*margin-right: 50%;*/
+    margin: 0 auto;
+    width: 80% !important;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 28%;
+    margin-top: 28%;
+  }
+
+  .change-password{
+    margin-top: 5%;
+  }
+
+  .hr2 {
+    visibility: hidden;
+    background-color: lightgray;
+    width: 60%;
+    height: 2px;
+    margin-left: 20%;
+    margin-top: -32% !important;
+  }
+
+  .card{
+    width: 70% !important;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin: 5% auto 5% auto;
+    height: auto;
+  }
+
+  .card i {
+    /*margin-right: 50%;*/
+    margin: 0 auto;
+    width: 70% !important;
+  }
 }
 
 @media (max-width: 480px) {
-.containers {   
-  padding: 10px;
-  width: 70%;
-  box-sizing: border-box;
-  margin: 2% auto;
-  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
-  height: 60px;
-  margin-left: 18%;
- }
+  .containers {
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    margin: 2% auto;
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    height: 60px;
+    margin-left: 16%;
+  }
 
- 
-.camera-icon {
-  width: 55px;
-  height:55px;
-  margin-left: 31%;
-  margin-top: 31%;
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 31%;
+    margin-top: 31%;
+  }
+
+  section {
+    padding: 0px;
+    width: 80%;
+    height: 650px;
+    margin-left: 13%;
+    display: block;
+    margin-left: 16%;
+  }
+
+  .titlec {
+    width: 50%;
+    height: 45px;
+    margin-left: 25%;
+  }
+
+  .left-content {
+    width: 100%;
+  }
+
+  .right-content {
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5%;
+  }
+
+  .container-info h3 {
+    font-size: 18px;
+  }
+
+  .container-info h3 span {
+    font-size: 16px;
+  }
+
+  .titlec {
+    height: 75px;
+  }
+
+  .change-password {
+    margin-top: 3%;
+  }
+
+  .card i {
+    margin-right: 50%;
+  }
 }
 
-
-section{
-  padding: 0px;
-  width: 70%;
-  /*height: 500px;*/
-  margin-left: 18%;
-  display: block;
+body {
+  overflow-x: hidden;
 }
-
-.titlec {
-  width: 50%;
-  height: 45px;
-  margin-left: 25%;
- }
-
- .left-content{
-  width: 100%;
- }
-
- .right-content{
-  width: 100%;
-  margin-left: 0%;
-  margin-top: 5%;
- }
-
- .container-info h3{
-  font-size: 18px;
- }
-
- .container-info h3 span{
-  font-size: 16px;
- }
-
- .titlec {
-  height: 75px;
- }
- #hrPass{
-  margin-top:-30% !important;
- }
-}
-
-
-
-
-
-
-
-
-

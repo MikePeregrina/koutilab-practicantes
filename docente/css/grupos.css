@@ -22,30 +22,32 @@ body {
   font-family: sans-serif;
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, .popup-content::-webkit-scrollbar, select::-webkit-scrollbar{
   -webkit-appearance: none;
 }
 
-body::-webkit-scrollbar:vertical {
+body::-webkit-scrollbar:vertical, .popup-content::-webkit-scrollbar:vertical, select::-webkit-scrollbar:vertical{
   width: 10px;
 }
 
 body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button, .popup-content::-webkit-scrollbar-button:increment,
+.popup-content::-webkit-scrollbar-button, select::-webkit-scrollbar-button:increment,
+select::-webkit-scrollbar-button{
   display: none;
 }
 
-body::-webkit-scrollbar:horizontal {
+body::-webkit-scrollbar:horizontal, .popup-content::-webkit-scrollbar:horizontal, select::-webkit-scrollbar:horizontal{
   height: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .popup-content::-webkit-scrollbar-thumb, select::-webkit-scrollbar-thumb{
   background: rgba(129, 179, 243);
   border-radius: 20px;
   border: 2px solid #f1f2f3;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, .popup-content::-webkit-scrollbar-track, select::-webkit-scrollbar-track{
   border-radius: 10px;
 }
 
@@ -56,47 +58,18 @@ body::-webkit-scrollbar-track {
   font-size: 40px;
 }
 
-#f-c {
-  box-shadow: none;
-}
-
-#btn-group {
-  scale: 60%;
-  margin-right: -40px;
-  border-radius: 10px;
-  width: 100%;
-}
-
-#btn-trs {
-  scale: 78%;
-  margin-left: 6px;
-}
-
-#td-group {
-  display: flex;
-}
-
-#i-group {
-  font-size: 30px;
-  margin-top: 18px;
-}
-
-#i-trs {
-  margin-top: 10px;
-}
-
 .studens-add-bar h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 28px;
 }
 
 .titlec h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .containers {
@@ -112,6 +85,46 @@ body::-webkit-scrollbar-track {
   margin: 2% auto;
   height: 89px;
   margin-left: 10%;
+}
+
+#f-c {
+  box-shadow: none;
+}
+
+#td-btn {
+  display: flexbox;
+}
+
+#btn-inf {
+  scale: 70%;
+  border-radius: 15px;
+  float: left;
+}
+
+#btn-edit {
+  scale: 70%;
+  border-radius: 15px;
+  float: left;
+}
+
+#btn-trs {
+  scale: 70%;
+  border-radius: 15px;
+  margin: 0 0 0 -20px;
+  float: left;
+}
+
+#i-edit {
+  margin: 10px 0 0 0;
+}
+
+#i-trs {
+  margin: 10px 0 0 0;
+}
+
+#i-inf {
+  color: white;
+  margin: 10px 0 0 0;
 }
 
 .studens-add-bar {
@@ -136,7 +149,7 @@ body::-webkit-scrollbar-track {
 }
 
 .left-student i {
-  margin-left: 15%;
+  margin-left: 5%;
   font-size: 30px;
   margin-top: 2.5%;
 }
@@ -160,7 +173,7 @@ body::-webkit-scrollbar-track {
 }
 
 .right-student i {
-  margin-left: 15%;
+  margin-left: 7%;
   font-size: 30px;
   margin-top: 2.5%;
 }
@@ -172,7 +185,7 @@ body::-webkit-scrollbar-track {
 section {
   padding: 0px;
   width: 86%;
-  height: 569px auto;
+  height: auto;
   margin-top: 40px;
   margin-left: 10%;
   display: flex;
@@ -184,7 +197,7 @@ section {
 }
 
 .board {
-  width: 98%;
+  width: 95%;
   margin: 10px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.8);
@@ -227,12 +240,14 @@ section {
   top: 50%;
   left: 50%;
   width: 65%;
-  height: 80%;
+  height: 85%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   border: 3px solid rgba(0, 201, 255, 2556);
   box-shadow: 0 0 12px var(--border);
   border-radius: 20px;
+  overflow: auto;
+  margin-left: 3%;
 }
 
 .titlec {
@@ -248,30 +263,130 @@ section {
 
 .contenedor-emergente {
   width: 85%;
-  height: 70%;
+  height: auto;
   margin-top: 4%;
   margin-left: 7.5%;
+  margin-bottom: 5%;
 }
 
-.contenedor-emergente form .user-details1 {
+.contenedor-emergente form .user-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: auto;
 }
 
-form .user-details1 .input-box1 {
+form .user-details .input-box {
   margin: 5px;
   width: calc(100% / 2 - 40px);
 }
 
-.user-details1 .input-box1 .details {
+.user-details .input-box .details {
+  display: block;
+  font-weight: 600;
+  font-size: 120%;/*19px;*/
+  margin-top: 5%;
+  margin-bottom: 15px;
+}
+.user-details .input-box input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 110%;/*20px;*/
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 12px var(--border);
+}
+
+.user-details .input-box select {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: 0 0 12px var(--border);
+  padding-left: 15px;
+  font-size: 110%;/*16px;*/
+  font-family: Tahoma;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-grd {
+  width: 45%;
+  height: 7%;
+  /*padding: 10px 30px;*/
+  padding: 7px;
+  cursor: pointer;
+  display: block;
+  background-image: linear-gradient(to right, #63e4cf, #8cfd36);
+  border: 0px;
+  outline: none;
+  border-radius: 30px;
+  margin-left: 27.5% !important;
+  font-size: 140%; /*22px;*/
+  font-weight: 600;
+  margin-top: 2%;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.btn-grd1 {
+  width: 100%;
+  height: 37%;
+  /*padding: 10px 30px;*/
+  cursor: pointer;
+  display: block;
+  background-image: linear-gradient(to right, #63e4cf, #8cfd36);
+  border: 0px;
+  outline: none;
+  border-radius: 30px;
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: -4%;
+}
+
+.btn-grd2 {
+  width: 100%;
+  height: 70%;
+  /*padding: 10px 30px;*/
+  padding: 7px;
+  cursor: pointer;
+  display: block;
+  background-image: linear-gradient(to right, #63e4cf, #8cfd36);
+  border: 0px;
+  outline: none;
+  border-radius: 30px;
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: 5%;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(106, 106, 106, 0.75);
+}
+
+form .user-details .campo {
+  margin: 5px;
+  width: calc(100% / 2 - 40px);
+}
+
+.user-details .campo .details {
   display: block;
   font-weight: 600;
   font-size: 19px;
   margin-top: 5%;
   margin-bottom: 15px;
 }
-.user-details1 .input-box1 input {
+.user-details .campo input {
   width: 100%;
   margin-bottom: 20px;
   padding: 7px;
@@ -282,51 +397,33 @@ form .user-details1 .input-box1 {
   box-shadow: 0 0 12px var(--border);
 }
 
-.user-details1 .input-box1 select {
-  height: 35px;
-  width: 100%;
-  outline: none;
-  border-radius: 20px;
-  box-shadow: 0 0 12px var(--border);
-  padding-left: 15px;
-  font-size: 16px;
-  font-family: Tahoma;
-  transition: all 0.3s;
-  border: none;
-}
-
-.btn-grd {
-  width: 45%;
-  height: 13%;
-  /*padding: 10px 30px;*/
+.user-details .campo span {
+  position: absolute;
+  right: 245px;
+  top: 472px;
+  cursor: pointer;
+  padding: 10px 30px;
   cursor: pointer;
   display: block;
+  margin: auto;
   background-image: linear-gradient(to right, #63e4cf, #8cfd36);
   border: 0px;
   outline: none;
   border-radius: 30px;
-  margin-top: 4%;
-  margin-left: 27.5%;
-  font-size: 22px;
-  font-weight: 600;
 }
 
-form {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.8);
-  /*padding: 10px 20px;*/
-  box-sizing: border-box;
-  border-radius: 20px;
-  box-shadow: 0 0 12px rgba(106, 106, 106, 0.75);
-  padding: 10px;
+.campo label {
+  display: block;
+  font-weight: 600;
+  font-size: 19px;
+  margin-top: 5%;
+  margin-bottom: 15px;
 }
 
 #closeButton {
   position: absolute;
-  top: 10px;
-  right: 70px;
+  top: 10%;
+  right: 22%;
   background: none;
   border: none;
   cursor: pointer;
@@ -339,6 +436,14 @@ form {
 
 #closeButton:hover i {
   color: var(--border);
+}
+
+.select:not(.is-multiple):not(.is-loading)::after{
+  z-index: auto !important;
+}
+
+.is-full {
+  margin-top: 20px !important;
 }
 
 @media (max-width: 1120px) {
@@ -371,6 +476,45 @@ form {
   .titlec h2 {
     font-size: 27px;
   }
+
+  
+  .btn-grd1, .btn-grd2 {
+    width: 100%;
+    /*height: 17%;*/
+    font-size: 18px;
+    margin-top: 5%;
+  }
+
+  .btn-grd1{
+    margin-top: -8%;
+  }
+}
+
+@media (max-width: 1001px){
+  .btn-grd1, .btn-grd2 {
+    width: 100%;
+    /*height: 17%;*/
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .user-details .input-box .details {
+    font-size: 100%;/*19px;*/
+  }
+
+  .user-details .input-box input {
+    font-size: 100%;/*20px;*/
+  }
+  
+  .user-details .input-box select {
+    font-size: 90%;/*16px;*/
+  }
+  
+  .btn-grd {
+    font-size: 120%; /*22px;*/
+  }
 }
 
 @media (max-width: 768px) {
@@ -381,7 +525,7 @@ form {
     margin: 2% auto;
     box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
     height: 60px;
-    margin-left: 15%;
+    margin-left: 18.5%;
   }
 
   h1 {
@@ -400,15 +544,17 @@ form {
 
   .studens-add-bar {
     width: 75%;
-    margin-left: 15%;
+    margin-left: 18.5%;
     height: 60px;
+    margin-top: 3%;
   }
 
   section {
     padding: 0px;
     width: 75%;
-    height: 569px;
-    margin-left: 15%;
+    height: auto;
+    margin-left: 18.5%;
+    margin-top: 3%;
   }
 
   .titlec {
@@ -417,30 +563,133 @@ form {
     margin-left: 25%;
   }
 
+  .titlec h2{
+    font-size: 19px;
+  }
+
   .studens-add-bar h2 {
     font-size: 16px;
   }
 
-  .left-student i, .right-student i {
-    margin-top: 3.8%;
+  .right-student i {
+    margin-top: 5%;
+  }
+
+  .left-student i {
+    margin-top: 5%;
   }
 
   .containers h1 {
     font-size: 30px;
   }
 
-  .titlec h2 {
-    font-size: 22px;
+  .btn-grd1, .btn-grd2 {
+    width: 100%;
+    /*height: 17%;*/
+    font-size: 12px;
+    margin-top: 5%;
   }
-  .user-details1 .input-box1 .details {
-    font-size: 15px;
+
+  form {
+    width: 100%;
+    height: 100%;
   }
-  .user-details1 .input-box1 input, .user-details1 .input-box1 select {
-    padding: 5px;
-    font-size: 15px;
+
+  div.dataTables_wrapper div.dataTables_filter input {
+    width: 160px !important;
   }
-  .btn-grd {
+
+  .contenedor-emergente form .user-details {
+    display: inherit;
+    justify-content: center;
+    /*text-align: center;*/
+  }
+  
+  form .user-details .input-box {
+    margin: 5px;
+    width: 95%;
+  }
+  
+  .user-details .input-box .details {
     font-size: 18px;
+    margin-top: 1%;
+    margin-bottom: 4%;
+  }
+  .user-details .input-box input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0 12px var(--border);
+  }
+  
+  .user-details .input-box select {
+    /*height: 35px;*/
+    padding: 7px;
+    width: 100%;
+    padding-left: 15px;
+    font-size: 16px;
+    margin-bottom: 5%;
+  }
+  
+  .btn-grd {
+    width: 45%;
+    height: 7%;
+    padding: 5px;
+    display: block;
+    font-size: 18px;
+    margin: 0 auto !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .btn-grd1 {
+    width: 100%;
+    height: 37%;
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    font-size: 17px;
+    margin-top: -20% !important;
+  }
+  
+  .btn-grd2 {
+    width: 100%;
+    height: 70%;
+    padding: 5px;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8%;
+    margin-bottom: 8%;
+  }
+
+  .popup-container {
+    display: none;
+    position: fixed;
+    top: -3%;
+    left: 6.5%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    height: 110%;
+  }
+
+  .contenedor-emergente{
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .popup-content {
+    margin-top: -2%;
+  }
+
+  #closeButton {
+    top: 7%;
+    right: 27%;
   }
 }
 
@@ -495,7 +744,7 @@ form {
   section {
     padding: 0px;
     width: 70%;
-    height: 569px;
+    height: auto;
     margin-left: 18%;
   }
 
@@ -509,28 +758,30 @@ form {
     font-size: 16px;
   }
 
-  .left-student i, .right-student i {
-    margin-top: 3.8%;
+  .right-student i {
+    margin-top: 3%;
+  }
+
+  .left-student i {
+    margin-top: 3%;
   }
 
   .containers h1 {
     font-size: 30px;
   }
-
   .titlec h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
-  .user-details1 .input-box1 .details {
-    font-size: 15px;
+  .btn-grd1, .btn-grd2 {
+    width: 100%;
+    /*height: 17%;*/
+    font-size: 12px;
+    margin-top: 5%;
   }
 
-  .user-details1 .input-box1 input, .user-details1 .input-box1 select {
-    padding: 5px;
-    font-size: 13px;
-  }
-
-  .btn-grd {
-    font-size: 18px;
+  form {
+    width: 100%;
+    height: 100%;
   }
 }

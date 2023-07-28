@@ -120,7 +120,7 @@ body::-webkit-scrollbar-track {
 .left-student {
   background-color: rgba(255, 255, 255, 0.519);
   border-radius: 30px;
-  padding: 0px;
+  padding: 10px;
   border: 3px solid var(--border);
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   box-sizing: border-box;
@@ -133,7 +133,7 @@ body::-webkit-scrollbar-track {
 .left-student i {
   margin-left: 5%;
   font-size: 30px;
-  margin-top: 2.5%;
+  margin-top: 0%;
 }
 
 .left-student h2 {
@@ -167,7 +167,7 @@ body::-webkit-scrollbar-track {
 section {
   padding: 0px;
   width: 86%;
-  height: 569px;
+  height: auto;
   margin-top: 40px;
   margin-left: 10%;
   display: flex;
@@ -179,7 +179,7 @@ section {
 }
 
 .board {
-  width: 98%;
+  /*width: 95%;*/
   margin: 10px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.8);
@@ -209,8 +209,8 @@ section {
 .popup-container {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0%;
+  left: 3.5%;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -335,6 +335,10 @@ form {
   color: var(--border);
 }
 
+.select:not(.is-multiple):not(.is-loading)::after{
+  z-index: auto !important;
+}
+
 @media (max-width: 1120px) {
   h1 {
     margin: auto;
@@ -355,7 +359,7 @@ form {
   }
 
   .left-student i {
-    margin-top: 3%;
+    margin-top: 0%;
   }
 
   .containers h1 {
@@ -363,9 +367,15 @@ form {
   }
 
   .titlec h2 {
-    font-size: 27px;
+    font-size: 22px;
   }
 }
+
+@media (max-width: 807px) and (min-width: 769px){
+  .left-student h2{
+    margin-top: -4%;
+  }
+} 
 
 @media (max-width: 768px) {
   .containers {
@@ -401,7 +411,7 @@ form {
   section {
     padding: 0px;
     width: 75%;
-    height: 569px;
+    height: auto;
     margin-left: 15%;
   }
 
@@ -416,7 +426,7 @@ form {
   }
 
   .left-student i {
-    margin-top: 3%;
+    margin-top: 0%;
   }
 
   .containers h1 {
@@ -425,6 +435,114 @@ form {
 
   .titlec h2 {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .containers {
+    padding: 10px;
+    width: 75%;
+    box-sizing: border-box;
+    margin: 2% auto;
+    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+    height: 60px;
+    margin-left: 19%;
+  }
+
+  h1 {
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 29px;
+  }
+
+  h2 {
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 19px;
+  }
+
+  .studens-add-bar {
+    width: 75%;
+    margin-left: 18%;
+    margin-top: 4.5%;
+    height: 60px;
+  }
+
+  section {
+    padding: 0px;
+    width: 75%;
+    height: auto;
+    margin-top: 5%;
+    margin-left: 19%;
+  }
+
+  .titlec {
+    width: 50%;
+    height: 45px;
+    margin-left: 25%;
+  }
+  
+  .studens-add-bar h2 {
+    font-size: 13px;
+    margin-left: 15px;
+  }
+
+  .left-student i{
+    margin-top: 0%;
+  }
+
+  .right-student i{
+    margin-top: 7%;
+  }
+
+  .containers h1 {
+    font-size: 30px;
+  }
+
+  .titlec h2 {
+    font-size: 17px;
+  }
+
+  .contenedor-emergente form .user-details {
+    display: inherit;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+  .user-details .input-box input, .user-details .input-box select {
+    width: 270%;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .btn-grd{
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .popup-container {
+    display: none;
+    position: fixed;
+    top: -3%;
+    left: 6.5%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    height: 110%;
+  }
+
+  .contenedor-emergente{
+    height: auto;
+  }
+
+  div.dataTables_wrapper div.dataTables_filter input {
+    width: 150px !important;
   }
 }
 
@@ -457,8 +575,10 @@ form {
   .left-student i {
     margin-left: 5%;
     font-size: 20px;
-    margin-top: -10%;
+    margin-top: 0%;
   }
+
+  
 
   .right-student h2 {
     margin-left: 4%;
@@ -479,7 +599,7 @@ form {
   section {
     padding: 0px;
     width: 70%;
-    height: 569px;
+    height: auto;
     margin-left: 18%;
   }
 

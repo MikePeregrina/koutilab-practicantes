@@ -6,6 +6,7 @@
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../img/lgk.png">
     <link rel="stylesheet" href="../css/alumnos.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="background-image: url(../img/bg1.png); padding-top: 10px; padding-bottom: 300px;">
+<body>
     <?php
     require "../../acciones/conexion.php";
     session_start();
@@ -36,58 +37,59 @@
 
     ?>
 
-    <div class="d-flex justify-content-center" style="margin-bottom: 35px;">
-        <div class="values" style="width: 98%; margin-left: 52px;">
-            <h3 class="i-name">Puntaje del alumno</h3>
-        </div>
+    <div class="containers">
+        <h1>Puntaje del Alumno</h1>
     </div>
+    <section>
+        <div class="d-flex justify-content-center">
+            <div class="board p-4" style="width: 90%;">
+                <table id="alumnos" width="100%" class="table border-top">
+                    <thead>
+                        <tr>
+                            <td><b></b></td>
+                            <td><b>Programación web básica</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5>Trofeos</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["trofeos"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Puntaje</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["puntos"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Práctico</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["practico"] ?></h5>
+                            </td>
 
-    <div class="d-flex justify-content-center" style="margin-top: -50px;">
-        <div class="board p-4" style="width: 90%;">
-            <table id="alumnos" width="100%" class="table border-top">
-                <thead>
-                    <tr>
-                        <td><b></b></td>
-                        <td><b>Programación web básica</b></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <h5>Trofeos</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["trofeos"] ?></h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Puntaje</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["puntos"] ?></h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Práctico</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["practico"] ?></h5>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Teorico</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["teorico"] ?></h5>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <a href="../alumnos.php" class="btn btn-danger">Atrás</a>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Teorico</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["teorico"] ?></h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="../alumnos.php" class="btn btn-danger">Atrás</a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <?php include '../footer.php'; ?>
 </body>

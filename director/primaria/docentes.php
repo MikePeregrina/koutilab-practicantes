@@ -155,11 +155,13 @@ function actualizarGrafica()
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/nav-barra.css">
 <link rel="stylesheet" href="css/docentes.css">
+<link rel="stylesheet" href="css/footer.css">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<title>Document</title>
+<title>KOUTILAB</title>
 </head>
 
 <body>
@@ -179,7 +181,7 @@ function actualizarGrafica()
   </div>
 
   <section>
-
+  <br><br>
     <div id="graficaContainer">
       <canvas id="grafica"></canvas>
     </div>
@@ -192,12 +194,14 @@ function actualizarGrafica()
         <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
         <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
         <br><br>
-        <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px">
+        <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom: 2%;">
       </form>
     </div>
 
 
   </section>
+  
+  <?php include 'footer.php'; ?>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

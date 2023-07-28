@@ -12,40 +12,40 @@ $username = $user["usuario"];
         <span class="nav-item">KOUTILAB</span>
       </a>
     </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard.php') ? ' class="active"' : ''; ?>>
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard.php') ? ' class="active"' : ''; ?>>
       <a href="dashboard.php">
         <i class="fas fa-user"></i>
         <span class="nav-item">Dashboard</span>
       </a>
     </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'grupos.php') ? ' class="active"' : ''; ?>>
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'grupos.php') ? ' class="active"' : ''; ?>>
       <a href="grupos.php">
         <i class="fas fa-users-viewfinder" ></i>
         <span class="nav-item">Grupos</span>
       </a>
     </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'alumnos.php') ? ' class="active"' : ''; ?>>
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'alumnos.php') ? ' class="active"' : ''; ?>>
       <a href="alumnos.php">
         <i class="fas fa-users"></i>
         <span class="nav-item">Alumnos</span>
       </a>
     </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? ' class="active"' : ''; ?>>
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? ' class="active"' : ''; ?>>
       <a href="contact.php">
         <i class="fas fa-address-book"></i>
         <span class="nav-item">Contacto</span>
       </a>
     </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'help.php') ? ' class="active"' : ''; ?>>
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'help.php') ? ' class="active"' : ''; ?>>
       <a  id="btn-abrir-modalV">
         <i class="fas fa-question-circle"></i>
         <span class="nav-item">Help</span>
       </a>
     </li>
-    <li class="li-ultimo" <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
-      <a href="../acciones/cerrarsesion.php" class="logout">
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
+      <a href="../acciones/cerrarsesion.php">
         <i class="fas fa-sign-out-alt"></i>
-        <span class="nav-item2" style="margin-left: 2.5%; margin-top:2%;">Salir</span>
+        <span class="nav-item">Salir</span>
       </a>
     </li>
   </ul>

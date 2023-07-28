@@ -152,18 +152,16 @@ function actualizarGrafica()
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/nav-barra.css">
 <link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/footer.css">
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script> <!--Libreria de javaScript para consultas dinámicas-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <title>KOUTILAB</title>
 </head>
@@ -187,47 +185,48 @@ function actualizarGrafica()
       <div class="titlec">
         <h2 class="subtitulos">Usuario</h2>
       </div>
-      <br>
+      <!--<br>COMENTADO TEMPORALMENTE-->
+      <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
+        <div class="perfil-usuario-avatar">
+          <div class="avatar-img">
+            <img src="img/<?php echo $image; ?>" id="imgchange1">
+          </div>
 
-
-      <div class="perfil-usuario-avatar">
-        <div class="avatar-img">
-          <img src="img/<?php echo $image; ?>" id="imgchange1">
-        </div>
-
-        <div class="camera-icon">
-          <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
+          <div class="camera-icon">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="name" value="<?php echo $name; ?>">
+            <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
             <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
-          </form>
-        </div>
-      </div>
+          </div>
 
-      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
+      </form>
+    </div>
+    <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
 
       <div class="container-info">
         <?php
         $data2 = mysqli_query($conexion, "SELECT * FROM director_institucional d INNER JOIN escuelas e WHERE d.id_escuela = e.id_escuela AND id_director = '$id_user'");
         while ($consulta = mysqli_fetch_array($data2)) {
-          echo "  <h3 class='info-heading'>Nombre: <span>" . $consulta['nombre'] . "</h3>";
-          echo "  <h3 class='info-heading'>Usuario: <span>" . $consulta['usuario'] . "</h3>";
-          echo "  <h3 class='info-heading'>Escuela: <span>" . $consulta['nombre_escuela'] . "</h3>";
+          echo "  <h3 class='info-heading'>Nombre: <span>" . $consulta['nombre'] . "</span></h3>";
+          echo "  <h3 class='info-heading'>Usuario: <span>" . $consulta['usuario'] . "</span></h3>";
+          echo "  <h3 class='info-heading'>Escuela: <span>" . $consulta['nombre_escuela'] . "</span></h3>";
         }
         ?>
       </div>
 
-      <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-37%;">
+      <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
 
       <div class="change-password">
-        <h3>Contraseña:</h3>
-        <form enctype="multipart/form-data" action="" method="post">
-          <div class="user-details1">
-            <div class="input-box1">
-              <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-              <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
-            </div>
+      <h3>Contraseña:</h3>
+      <form enctype="multipart/form-data" action="" method="post">
+        <div class="user-details1">
+          <div class="input-box1">
+            <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+            <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
 
     </div>
 
@@ -235,7 +234,7 @@ function actualizarGrafica()
       <div class="titlec">
         <h2 class="subtitulos">Datos de compras</h2>
       </div>
-
+      <div class="latd">
       <div class="tabla-ingr">
         <table id="ingresos1" class="table">
           <thead>
@@ -339,123 +338,24 @@ function actualizarGrafica()
         });
       </script>
       <div align="center">
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-          <h4>Filtro </h4><br>
-          <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-          <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-          <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-          <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-          <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-          <br><br>
-          <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px">
-        </form>
+          <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <h4>Filtro </h4><br>
+            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+            <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+            <input type="date" name="fechaFin" id="fechaFin" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+            <br><br>
+            <input name="submitFecha" type="submit" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px">
+          </form>
+        </div>
       </div>
+      
+    </div>
   </section>
 
-  <script>
-    /*
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
+  <?php include 'footer.php'; ?>
 
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
-    gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
-    gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
-
-    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
-    gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
-    gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
-
-    new Chart(ctx2, {
-      type: "line",
-      data: {
-        labels: self.dashboard.meses.map((m) => m.mes),
-        datasets: [{
-            label: "Ventas",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#cb0c9f",
-            borderWidth: 3,
-            backgroundColor: gradientStroke1,
-            fill: true,
-            data: [100,250,150,120,200],//self.dashboard.meses.map((m) => m.total),
-            maxBarThickness: 6,
-          },
-          {
-            label: "Compras",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#5a8fc0",
-            borderWidth: 3,
-            backgroundColor: gradientStroke1,
-            fill: true,
-            data: ["Enero","Febrero","Marzo","Abril","Mayo"],//self.dashboard.meses2.map((m) => m.total),
-            maxBarThickness: 6,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-        interaction: {
-          intersect: false,
-          mode: "index",
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [5, 5],
-            },
-            ticks: {
-              display: true,
-              padding: 10,
-              color: "#b2b9bf",
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: "normal",
-                lineHeight: 2,
-              },
-            },
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5],
-            },
-            ticks: {
-              display: true,
-              color: "#b2b9bf",
-              padding: 20,
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: "normal",
-                lineHeight: 2,
-              },
-            },
-          },
-        },
-      },
-    });
-  */
-  </script>
   <dialog close id="modalFP" style="border: none; border-radius: 10px; margin-top: 80px; margin-left: 370px; background: url(img/bg1.png); text-align: center;">
     <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
     <div style="color:darkslategray; width: 500px; height: 40px; margin: 10px 30px 10px 30px; box-shadow: 0 0 12px rgba(61,172,244,.6); border-radius: 10px; background: rgba(255,255,255, .8);">
@@ -610,9 +510,11 @@ function actualizarGrafica()
     })
   </script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -620,6 +522,8 @@ function actualizarGrafica()
   <script>
     $(document).ready(function() {
       $('#ingresos1').DataTable({
+        responsive: true,
+        autoWidth: false,
         language: {
           url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
         },
