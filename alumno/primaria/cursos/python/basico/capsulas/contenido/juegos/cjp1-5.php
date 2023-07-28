@@ -52,7 +52,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
 
         <div class="cont-st">
-            <a href="#">
+            <a href="../../../../../../rutas/ruta-py-b.php">
             <button class="btn-b">
                 <i class="fas fa-reply"></i>
             </button>
@@ -113,7 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- CAMBIOS -->
         <footer class="footerimga">
             <div class="imagen-footer">
-                <img src="../../img/benvenida.png" alt="No-image">
+                <img src="../../img/img-juegos/benvenida.png" alt="No-image">
             </div>
         </footer>
         <!-- fIN CAMBIOS -->
@@ -156,7 +156,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "../../img/img_juegos/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {

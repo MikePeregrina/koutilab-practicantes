@@ -56,34 +56,30 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>FORMULARIOS</b></h2>
-    </div>
-
+  <!-- CAMBIOS -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
-            <p id="tiempo"></p>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
-
+  
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+    <h2 class="titulo"><b>FORMULARIOS</b></h2>
+    </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
-
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-a.php">
-            <button class="btn-b">
+        <div class="cont-st">
+            <a href="#" onclick="history.back(); return false;">
+              <button class="btn-b">
                 <i class="fas fa-reply"></i>
-            </button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
+              </button>
+            </a>
+            <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
                 tiempo o responde mal</b></h4>
-        <br>
-
+        </div>
 
         <!-- Tenoch Moises -->
         <!--contenedor principal-->
@@ -109,6 +105,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
             <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
             <!--script donde se le da funcionalidad al juego-->
+           
         
         </div>
         <!-- boton de verificar respuestas-->
@@ -118,7 +115,22 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
     <!-- Tenoch Moises -->
 
+    <!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
+
+
     <script>
+// Obtener el ancho y alto de la ventana (resolución de la pantalla)
+var ancho = window.innerWidth;
+var alto = window.innerHeight;
+
+// Mostrar la resolución en la consola
+console.log("Resolución de la ventana: " + ancho + "x" + alto);
 
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"

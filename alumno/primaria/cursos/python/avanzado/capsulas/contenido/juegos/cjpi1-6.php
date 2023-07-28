@@ -68,14 +68,15 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Contenedor principal -->
     <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-py-a.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i>
-            </button>
+      <div class="cont-st">
+        <a href="../../../../../../rutas/ruta-pw-b.php">
+          <button class="btn-b">
+            <i class="fas fa-reply"></i>
+          </button>
         </a>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
-        <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
+        <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+      </div>
+
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
                 <!--Generando pregunta 1-->
@@ -107,11 +108,22 @@ if (isset($resultadoIntentos['intentos'])) {
                 </h3><!--Generando primer pregunta-->
             </section>
         </div>
-
+        
         <!--Boton para verificar la respuesta-->
-        <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
-    </div>
+        <div class="btn-ctn">
+        <button class="verificar" onClick="verificar()">
+            Comprobar respuestas
+          </button>
+      </div>
+      </div>
     <p id="resultado"></p>
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+      <div class="imagen-footer">
+        <img src="../../img/benvenida.png" alt="No-image">
+      </div>
+    </footer>
+  <!-- fIN CAMBIOS -->
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 120;

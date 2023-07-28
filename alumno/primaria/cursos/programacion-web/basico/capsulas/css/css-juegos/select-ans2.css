@@ -104,7 +104,10 @@ Brandon Rodriguez*/
 .verificar {
   cursor: pointer;
   color: #404040;
-  background: linear-gradient(to right, rgba(129, 179, 243), rgba(132,196,44,0.6));
+  background: linear-gradient(to right,
+  rgba(129, 179, 243,0.7), 
+  rgba(132,196,44,0.6)
+  );
    padding: 20px;
   border-radius: 30px;
   border-style: none;
@@ -238,6 +241,10 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 669px) {
+  .btn-b{
+    margin-top: 20px;
+    margin-left: 5px;
+  }
   .contenido h4 {
     font-size: 115%;
   }
@@ -252,6 +259,24 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 619px) {
+  .contenedor{
+    height: auto;
+  }
+  body{
+    height: 800px;
+    font-size: 12px;
+  }
+  .pregunta{
+    font-size: 12px;
+    margin-bottom: -65;
+  }
+  .btn{
+    font-size: 10px;
+  }
+  .btn-b{
+    margin-top: 30px;
+    margin-left: 15px;
+  }
   .contenido h4 {
     font-size: 85%;
 
@@ -297,7 +322,7 @@ Brandon Rodriguez*/
     100% {margin: -1.5% 0 0 69%;}
   }
   .title-ctn p {
-    font-size: 90%;
+    font-size: 50%;
   }
 
   .timer {
@@ -314,7 +339,7 @@ Brandon Rodriguez*/
   .btn-b {
     width: 70px;
     padding: 10px 10px;
-    margin-left: 10%;
+    margin-left: 70px;
   }
 
   .btn-b i {
@@ -323,9 +348,13 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 560px) {
+  .btn-b{
+    margin-top: 30px;
+    margin-left: 15px;
+  }
 
   .title-ctn p {
-    font-size: 80%;
+    font-size: 50%;
   }
 
   .main-ctn #cont {
@@ -334,8 +363,12 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 518px) {
+  .btn-b{
+    margin-top: 30px;
+    margin-left: 15px;
+  }
   .title-ctn p {
-    font-size: 90%;
+    font-size: 50%;
   }
 
   .main-ctn #cont {
@@ -344,9 +377,12 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 480px) {
-
+    .btn-b{
+      margin-top: 30px;
+      margin-left: 15px;
+    }
   .title-ctn p {
-    font-size: 90%;
+    font-size: 50%;
   }
 
   .main-ctn #cont {

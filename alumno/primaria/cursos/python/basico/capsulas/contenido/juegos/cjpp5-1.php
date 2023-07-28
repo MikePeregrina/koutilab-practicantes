@@ -15,47 +15,49 @@ if (empty($existe)) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOUTILAB</title>
-	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
-    <link rel="stylesheet" href="../../css/css-juegos/slide.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>KOUTILAB</title>
+		<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+		<link rel="stylesheet" href="../../css/css-juegos/slide.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</head>
 <body onload="alert1()">
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>SENTENCIA RETURN</b></h2>
 	</div>
-
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
     
-    <div class="contenido">
-		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-		<br>
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+				<i class="fas fa-reply"></i></button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-3-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-4-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-5-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-6-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-7-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="IMG1/lvl1/Tipos-de-return-8-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-4-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-5-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-6-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-7-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="../../img/img-juegos/IMG1/lvl1/Tipos-de-return-8-0.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -64,8 +66,18 @@ if (empty($existe)) {
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
 		</div> -->
-	</div>
+	</section>
+	
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	
 	<script>
 		function alert1() {
 			Swal.fire({
@@ -80,7 +92,7 @@ if (empty($existe)) {
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "../../img/img-juegos/Tipos-de-return.png",
+					imageUrl: "../../img/img-juegos/IMG1/Tipos-de-return.png",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -93,6 +105,7 @@ if (empty($existe)) {
 			});
 		}
 	</script>
+
 	<script>
 		var segundos = 240;
 		let puntos = 0;
@@ -142,6 +155,7 @@ if (empty($existe)) {
 			}
 		}
 	</script>
+
 	<script>
 		const GameDifficulty=[20,50,70];
 		class Game{

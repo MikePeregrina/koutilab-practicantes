@@ -67,7 +67,7 @@ function iniciarTiempo() {
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
         }).then((result) => {
             if (result.isConfirmed) {

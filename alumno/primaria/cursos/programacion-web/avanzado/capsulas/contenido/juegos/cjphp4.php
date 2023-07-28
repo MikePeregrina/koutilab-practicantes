@@ -56,25 +56,22 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-
-
-    <!-- Timer -->
-    <div class="timer" id="timer">
+<div class="timer" id="timer">
         <b>Tiempo: <br>
-            <p id="tiempo"></p>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
-
-        <!-- Titulo general del juego -->
-        <div class="titulo-gen">
-        <h2 class="titulo"><b>PROCESAMIENTO DE FORMULARIOS</b></h2>
-    </div>
+    
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>PROCESAMIENTO DE FORMULARIOS</b></h2>
+	</div>
 
     <!-- Contenedor principal -->
     <section>
         <!-- Boton para regresar -->
         <div class="cont-st">
-            <a href="#">
+            <a href="#" onclick="history.back(); return false;">
               <button class="btn-b">
                 <i class="fas fa-reply"></i>
               </button>

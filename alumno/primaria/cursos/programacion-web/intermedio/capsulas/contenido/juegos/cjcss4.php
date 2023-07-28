@@ -71,14 +71,14 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
 
         <!-- Boton para regresar -->
-        <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-i.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
-        </div>
+         <!-- Boton para regresar -->
+         <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
+                id="btn-cerrar-modalV">
+                <i class="fas fa-reply"></i></button>
+        </a>
+
+        <!-- Titulo secundario -->
+        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
         <!-- Parte que modifique Final -->
         <br>
 

@@ -46,8 +46,8 @@ if (isset($resultadoIntentos['intentos'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans1.css">
     <link rel="stylesheet" href="../../css/css-juegos/select-ans2.css">
+    <link rel="stylesheet" href="../../css/css-juegos/select-ans1.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -118,7 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
 <!-- fIN CAMBIOS -->
@@ -164,11 +164,11 @@ if (isset($resultadoIntentos['intentos'])) {
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -214,7 +214,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡El tiempo se acabo!',
-                    imageUrl: "../../img/img_juegos/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
@@ -239,11 +239,11 @@ if (isset($resultadoIntentos['intentos'])) {
             Swal.fire({
                 title: 'Excelente',
                 text: '¡Buen trabajo!',
-                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {

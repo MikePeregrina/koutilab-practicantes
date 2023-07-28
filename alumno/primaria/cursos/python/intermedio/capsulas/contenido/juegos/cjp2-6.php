@@ -109,7 +109,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</section>
 	<footer class="footerimga">
 		<div class="imagen-footer">
-		  <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		  <img src="../../img/benvenida.png" alt="No-image">
 		</div>
 	</footer>
 

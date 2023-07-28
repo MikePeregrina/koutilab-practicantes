@@ -52,7 +52,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -114,7 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- CAMBIOS -->
         <footer class="footerimga">
             <div class="imagen-footer">
-                <img src="../../img/benvenida.png" alt="No-image">
+                <img src="../../img/img-juegos/benvenida.png" alt="No-image">
             </div>
         </footer>
         <!-- fIN CAMBIOS -->

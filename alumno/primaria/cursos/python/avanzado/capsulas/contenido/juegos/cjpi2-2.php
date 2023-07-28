@@ -54,11 +54,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>ASIGNAR MÚLTIPLES VALORES A MÚLTIPLES VARIABLES</b></h2>
-    </div>
-
+<!-- Parte que modifique Inicio -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -66,26 +62,30 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>ASIGNAR MÚLTIPLES VALORES A MÚLTIPLES VARIABLES</b></h2>
+    </div>
+
     <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-py-a.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
-        <br>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-a.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+        </div>
+<!-- Parte que modifique Final -->
 
         <!--CONTENEDOR DEL JUEGO-->
         <div class="mjuego">
 
             <!--EJEMPLO DE CODIGO-->
-            <div class="ejemplo">
-
-                
+            <div class="ejemplo">   
                 <p id="textoej" >
                 </p>
             </div>
@@ -96,13 +96,25 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
 
         </div>
-
-
+<!-- Parte que modifique Inicio -->
         <!-- boton de verificar respuestas -->
-        <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
-    </div>
+        <div class="btn-v">
+            <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
+        </div>
+        
+    </section>
+    
 
-    <script src="../../js/copy-code-4.js"></script>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+
+ 
+<!-- Parte que modifique Final -->    
+
+<script src="../../js/copy-code-4.js"></script>
 </body>
 
 </html>

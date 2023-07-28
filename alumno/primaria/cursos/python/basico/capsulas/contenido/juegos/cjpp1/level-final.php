@@ -21,68 +21,71 @@ if (empty($existe)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLIDE PUZZLE</title>
 	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
-    <link rel="stylesheet" href="../../../css/css-juegos/slide.css">
+    <link rel="stylesheet" href="../../../css/css-juegos/slide-koala.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="shortcut icon" href="img/lgk.png">
 </head>
 <body onload="alert1()">
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>NUESTRO PRIMER PROGRAMA</b></h2>
+		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
 	</div>
-
-	<div class="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
-    
-    <div class="contenido" style="height: 650px;">
-		<a href="../../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-		<br>
-
-		<div class="slide-contenedor" style="margin-top: 70px;">
-			<div id="puzzle_container" style="width: 515px; height: 515px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide8.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide9.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide10.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide11.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide12.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide13.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide14.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide15.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide16.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide17.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide19.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide20.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide21.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide22.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide23.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide24.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl1/slide25.png" class="contenedor-img" alt=""></div>
-			</div>
+	
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+				<i class="fas fa-reply"></i></button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
 		</div>
-
-		<!-- <div id="difficulty_container">
-			<div class="difficulty_button active">EASY</div>
-			<div class="difficulty_button">MEDIUM</div>
-			<div class="difficulty_button">HARD</div>
-		</div> -->
-	</div>
+	
+			<div class="slide-contenedor">
+				<div id="puzzle_container">
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide1.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide2.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide3.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide4.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide5.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide6.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide7.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide8.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide9.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide10.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide11.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide12.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide13.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide14.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide15.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide16.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide17.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide19.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide20.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide21.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide22.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide23.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide24.png" class="contenedor-img" alt=""></div>
+					<div class="puzzle_block"><img src="../../../img/img-juegos/lvl3/slide25.png" class="contenedor-img" alt=""></div>
+				</div>
+			</div>
+	
+			<!-- <div id="difficulty_container">
+				<div class="difficulty_button active">EASY</div>
+				<div class="difficulty_button">MEDIUM</div>
+				<div class="difficulty_button">HARD</div>
+			</div> -->
+	</section>
+		
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	
 	<script>
 		function alert1() {
 			Swal.fire({
@@ -110,6 +113,7 @@ if (empty($existe)) {
 			});
 		}
 	</script>
+
 	<script>
 		var segundos = 240;
 		let puntos = 0;
@@ -146,6 +150,7 @@ if (empty($existe)) {
 			}
 		}
 	</script>
+	
 	<script>
 		const GameDifficulty=[20,50,70];
 		class Game{

@@ -93,7 +93,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
 	<!-- fIN CAMBIOS -->
@@ -188,11 +188,11 @@ if (isset($resultadoIntentos['intentos'])) {
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("../../img/img_juegos/fondo.gif")
+									url("../../img/img-juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
@@ -252,7 +252,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../img/img_juegos/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {

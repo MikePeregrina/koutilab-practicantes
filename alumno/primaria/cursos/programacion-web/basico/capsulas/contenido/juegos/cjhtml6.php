@@ -65,7 +65,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<section>
 	    <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-b.php">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
               <button class="btn-b">
                 <i class="fas fa-reply"></i>
               </button>
@@ -132,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		var segundos = 65;
+		var segundos = 240;
 		let puntos = 0;
 
 		//Funcion que agrega el sonido al juego

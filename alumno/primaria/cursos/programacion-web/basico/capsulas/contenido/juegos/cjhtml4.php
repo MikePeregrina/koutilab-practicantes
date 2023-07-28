@@ -75,10 +75,8 @@ if (isset($resultadoIntentos['intentos'])) {
             <i class="fas fa-reply"></i>
           </button>
         </a>
-        <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-        </div>
-        <!-- Titulo secundario -->
         <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
+        </div>
         <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
         <div class="container">
             <section ><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->

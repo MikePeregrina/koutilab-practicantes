@@ -56,40 +56,45 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>INCLUDE() Y REQUIRE()</b></h2>
 	</div>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo"></p>
-		</b>
-	</div>
+    <section>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-pw-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o
-				que encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+            <a href="#" onclick="history.back(); return false;">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Selecciona la opción que corresponda a la línea en blanco o que encaje con la definición dada.</b></h4>
+        </div>
+<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+		<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 
 	<script>
 		//Funcion que agrega el sonido al juego
@@ -367,6 +372,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta, muestra que la respuesta fue correcta
 		function alertGood() {
+			correcto.play();
 			Swal.fire({
 				position: "center",
 				icon: "success",
@@ -379,6 +385,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta, muestra que la respuesta fue incorrecta
 		function alertBad() {
+			incorrecto.play();
 			Swal.fire({
 				position: "center",
 				icon: "error",

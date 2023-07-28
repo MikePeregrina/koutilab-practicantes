@@ -13,6 +13,7 @@ if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <!-- 
@@ -67,69 +68,65 @@ if (empty($existe)) {
 
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+    <!-- Titulo general -->
     <div class="titulo-gen">
-        <h4 class="titulo" style="margin-left: 350px"><b>ANALIZANDO EXPRESIONES REGULARES</b></h4>
+        <h2 class="titulo" ><b>ANALIZANDO EXPRESIONES REGULARES</b></h2>
     </div>
 
     <!-- Alerta -->
     <div id="mensaje" style="position: absolute"></div>
 
-    <div class="timer" id="timer">
-        <b style="margin-top: 10px">Tiempo: <br />
-            <p id="tiempo"></p>
-        </b>
-    </div>
-
     <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
-    <div class="contenido">
-        <a href="../../../../../../rutas/ruta-py-a.php"><button style="
-                        float: left;
-                        position: relative;
-                        margin: 10px 0 0 10px;
-                    " class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button></a>
-        <!-- Titulo secundario -->
-        <h6 class="titulo">
-            <b>Busca la palabra que describe el texto</b>
-        </h6>
-        <br />
-
-        <!-- Apartado donde van las frases a buscar por el usuario -->
-        <div class="words">
-            <table>
-                <tr>
-                    <b class="tituloH">Horizontales:</b>
-                    <td>
-                        <div class="horizontal">
-                            1. Se trata del lenguaje de programación que estamos estudiando.
-                            <br /><br />
-                            2. El tema que estamos tratando es ver como funciona una expresión _________.
-                            <br /><br />
-                            3. Al trabajar con las expresiones regulares, de cierta forma tenemos un
-                            mejor c________ de la información, ya que podemos buscar mejor algo en específico.
-                            <br /><br />
-                            <b style="margin-left: 66px" class="tituloV">Verticales:</b>
-                            <div class="vertical">
-                                1. Se trata de la función que nos ayuda a buscar todas las coincidencias en 
-                                nuestro código.
-                                
-                            </div>
-                        </div>
-                    </td>
-
-                    <td></td>
-                </tr>
-            </table>
+    <section>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-a.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h6 class="titulo"><b>Busca la palabra que describe el texto</b></h6>
         </div>
 
-        <div class="linea"></div>
+        <!-- Apartado donde van las frases a buscar por el usuario -->
+        <div class="mjuego">
+            <div class="words">
+                <table>
+                    <tr>
+                        <b class="tituloH">Horizontales:</b>
+                        <td>
+                            <div class="horizontal">
+                                1. Se trata del lenguaje de programación que estamos estudiando.
+                                <br /><br />
+                                2. El tema que estamos tratando es ver como funciona una expresión _________.
+                                <br /><br />
+                                3. Al trabajar con las expresiones regulares, de cierta forma tenemos un
+                                mejor c________ de la información, ya que podemos buscar mejor algo en específico.
+                                <br /><br />
+                                <b style="margin-left: 66px" class="tituloV">Verticales:</b>
+                                <div class="vertical">
+                                    1. Se trata de la función que nos ayuda a buscar todas las coincidencias en 
+                                    nuestro código.
+                                    
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
 
-        <!-- Apartado del crucigrama junto con sus casillas -->
-        <div class="crucigrama" style="margin: 0 40px 0 0">
-            <div class="numero1" style="margin: 280px 0 0 45px">2.</div>
-            <div class="numero2" style="margin: -25px 0 0 415px">1.</div>
-            <div class="numero1-1" style="margin: 150px 0 0 45px">1.</div>
-            <div class="numero2-2" style="margin: 410px 0 0 -20px">3.</div>
+            <!-- Apartado del crucigrama junto con sus casillas -->
+            <div class="crucigrama">
+            <div class="numero1">2.</div>
+            <div class="numero2">1.</div>
+            <div class="numero1-1">1.</div>
+            <div class="numero2-2">3.</div>
             <table id="crucigrama">
                 <tr>
                     <td>
@@ -346,23 +343,33 @@ if (empty($existe)) {
                     </td>
                 </tr>
             </table>
+            </div>
         </div>
-
+        
         <!-- boton de verificar respuestas -->
-        <button class="verificar" onClick="verificar()">
-            Comprobar respuestas
-        </button>
-    </div>
+            <div class="btn-v">
+            <button class="verificar" onClick="verificar()">
+                Comprobar respuestas
+            </button>
+            </div>
+    </section>
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+<!-- FIN CAMBIOS -->
 
     <script>
         var segundos = 240;
         let puntos = 0;
 
-        //Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        //se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
@@ -382,7 +389,6 @@ if (empty($existe)) {
 
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-
                 var param =
                     "score=" +
                     0 +
@@ -402,7 +408,7 @@ if (empty($existe)) {
                         window.location.reload();
                     }
                 })
-                incorrecto.play(); //agregando sonido al juego no completado
+                Incorrecto.play(); //agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
                     "../../acciones/insertar_cp9.php",
@@ -606,7 +612,7 @@ if (empty($existe)) {
                             window.location.href = '../../../../../../rutas/ruta-py-a.php';
                         }
                     });
-                    correcto.play(); //agregando sonido al juego completado
+                    Correcto.play(); //agregando sonido al juego completado
                 };
                 xmlhttp.open(
                     "POST",

@@ -88,7 +88,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
 <!-- fIN CAMBIOS -->
@@ -249,7 +249,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "../../img/img_juegos/loop.gif",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -300,7 +300,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "../../img/img_juegos/loop.gif",
+						imageUrl: "../../img/img-juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
@@ -342,11 +342,11 @@ if (isset($resultadoIntentos['intentos'])) {
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "./../img/img_juegos/Thumbs-Up.gif",
+				imageUrl: "./../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {

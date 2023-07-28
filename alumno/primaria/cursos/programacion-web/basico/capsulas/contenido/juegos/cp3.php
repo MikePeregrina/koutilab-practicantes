@@ -46,7 +46,6 @@ if (empty($existe)) {
 
 		<!-- Titulo secundario -->
 		<h4 class="titulo"><b>Desliza las tarjetas usando el ratón para desplazarlas y colocarlas en el orden correcto</b></h4>
-		<br>
         
         <div class="game">
             <div class="respuestas">
@@ -109,7 +108,15 @@ if (empty($existe)) {
             <button class="verificar" onclick="verificar()">Comprobar respuestas</button>
             <button class="recargar" id="recarga" onclick="recargar()">Volver a intentar</button>
         </div>
+        
     </div>
+         <!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 </body>
 <script>
     function alert1() {
@@ -128,7 +135,7 @@ if (empty($existe)) {
     }
 </script>
 <script>
-    var segundos = 5;
+    var segundos = 240;
     let puntos = 0;
 
     //Funcion que agrega el sonido al juego
@@ -139,6 +146,18 @@ if (empty($existe)) {
 
     function iniciarTiempo() {
         document.getElementById('tiempo').innerHTML = segundos + " segundos";
+        if (segundos <= 60) {
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
         if (segundos == 0) {
             Swal.fire({
                 title: 'Oops...',
@@ -183,10 +202,13 @@ if (empty($existe)) {
         }
     }
 
+
+</script>
+<script>
     //Funcion para validar las respuestas, primero si nungun campo esta vacio y luego si son las correctas
     function verificar() {
         if (arreglo[0] != "" && arreglo[1] != "" && arreglo[2] != "" && arreglo[3] != "" && arreglo[4] != "" && arreglo[5] != "" && arreglo[6] != "" && arreglo[7]) {
-            if (arreglo[0] == "content" && arreglo[1] == "padding" && arreglo[2] == "border" && arreglo[3] == "margin" && arreglo[4] == "top" && arreglo[5] == "bottom" && arreglo[6] == "left" && arreglo[7] == "right") {
+            if (arreglo[0] == "border" && arreglo[1] == "top" && arreglo[2] == "bottom" && arreglo[3] == "right" && arreglo[4] == "content" && arreglo[5] == "padding" && arreglo[6] == "left" && arreglo[7] == "margin") {
                 xmlhttp.onreadystatechange = function() {
                     Swal.fire({
                         title: '¡Bien hecho!',
@@ -220,8 +242,8 @@ if (empty($existe)) {
             }
         }
     }
-</script>
-<script>
+
+
     //Funcion para recargar pagina
     let recargar = document.getElementById('recarga');
     recargar.addEventListener('click', _ => {

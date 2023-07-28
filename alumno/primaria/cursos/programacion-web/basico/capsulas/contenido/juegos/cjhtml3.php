@@ -78,8 +78,6 @@ if (isset($resultadoIntentos['intentos'])) {
             </a>
             <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
         </div>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
         <br>
 
         <!--CONTENEDOR DEL JUEGO-->

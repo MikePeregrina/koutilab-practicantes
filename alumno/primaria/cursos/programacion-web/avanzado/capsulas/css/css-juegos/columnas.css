@@ -8,14 +8,15 @@
     
   }
   body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    background-repeat: no-repeat; /*no repite la imagen*/
-    background-size: cover;/*distribuye la imagen a toda la pantalla*/
+    background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto asegura que el fondo no se desplace con el contenido */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-      font-family: Tahoma;
-      color: #404040;
+    user-select: none; 
+    font-family: Tahoma;
+    color: #404040;
   }
   
   body::-webkit-scrollbar {
@@ -67,23 +68,27 @@
   .timer {
     text-align: center;
     padding: 0.9%;
-    margin-left: 82.5%;
-    margin-top:-1.5%; /*Se cambio el pocisionamiento del timer*/
+    top: 4%;
+    right: 3%; /*Se cambio el pocisionamiento del timer*/
     width: 160px;
     height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(129, 179, 243, 0.7); /*Se cambio el fondo del timer*/
+    box-shadow: 0 0 12px rgba(129, 179, 243);
+    position: fixed;
+    border-radius: 110px;
+    z-index: 5;
+    font-size: 170%;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
     border-radius: 110px;
     border-width: 0.8px;
     border-style: solid;
     border-color: rgba(129, 178, 243, 0.9);
-    z-index: 5;
-    font-size: 170%;
   }
+
   @keyframes animation1 {
     0% {margin: -1.5% 0 0 82.4%;}
     20% {margin: -1.5% 0 0 82.6%;}
@@ -175,13 +180,14 @@
   }
 
 
-.verificar {
+  .verificar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(to right,
-    rgba(129, 179, 243,0.7), 
-    rgba(132,196,44,0.6)
-);
+    background: linear-gradient(
+        to right,
+        rgba(129, 179, 243),
+        rgba(132, 196, 44, 0.6)
+    );
     padding: 20px;
     border-radius: 30px;
     border-style: none;
@@ -191,7 +197,7 @@
     justify-content: center;
     width: 260px;
     position: absolute;
-    bottom: -20px;
+    bottom: 300px;
 }
 
 
@@ -322,6 +328,7 @@ h4 {
   
     .word-box{
         font-size: 16px;
+        width: 170%;
     }
     
     .timer {
@@ -352,6 +359,34 @@ h4 {
       font-size: 20px;
     }
   }
+
+
+  
+  @media (max-width: 550px) {
+    .container-all {
+        width: 90%;
+    }
+  
+    .word-box{
+        font-size: 13px;
+    }
+    .html-b-t{
+      font-size: 12px;
+    }
+    
+    .left-column{
+      margin-left: 5%;
+      width: 17%;
+    }
+    .right-column{
+      width: 17%;
+    }
+    
+    #canvas{
+      width: 55%;
+    }
+  }
+  
   
   
   @media (max-width: 518px) {

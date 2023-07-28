@@ -133,7 +133,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 swal.fire({
                     title: "Juego finalizado",
                     text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -149,7 +149,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 swal.fire({
                     title: "Juego finalizado",
                     text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {

@@ -29,48 +29,46 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>FUNCIONES LAMBDA</b></h2>
 	</div>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo" style="margin: 0 0 0 0"></p>
-		</b>
-	</div>
+    <section>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-py-a.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-a.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
+<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 	<script>
-		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
 		//Arreglo de preguntas
 		var preguntas = [
 			{
@@ -129,6 +127,12 @@ if (empty($existe)) {
 		var seleccion; //Guarda la respuesta elegida
 		var contador = 1; //Lleva el conteo de preguntas
 		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
+
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function getRandomInt(max) {
 			//para generar números random enteros
@@ -195,7 +199,7 @@ if (empty($existe)) {
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
-				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
+				this.random = getRandomInt(10); //Elige la primera pregunta a mostrar
 				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
 				ponerPregunta(); //Muestra la pregunta
 			}
@@ -210,8 +214,8 @@ if (empty($existe)) {
 		   }else if(segundos < 10){
 			var div = document.getElementById("timer");
             div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+   			}
 
- 	 }
 			if (segundos == 0) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
@@ -223,7 +227,7 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
+				incorrecto.play(); //Agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -294,6 +298,7 @@ if (empty($existe)) {
 			evaluarRespuesta();
 		}
 
+		//Alerta muestra que el juego fue completado
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			Swal.fire({

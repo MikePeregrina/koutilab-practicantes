@@ -7,7 +7,7 @@
 /* Tenoch Moises*/
 .contenedor {
   width: 70vw;
-  height: 50vh;
+  height: auto;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +15,7 @@
   /*margin-bottom: 10px;
   margin-left: 11%;*/
   text-align: center;
+  margin-bottom: 10%;
 }
 /* Tenoch Moises*/
 .encabezado {
@@ -95,7 +96,7 @@ Brandon Rodriguez*/
   border: 2px solid rgba(129, 179, 243, 0.5); 
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   line-height: 20px;
-  width: 92%;
+  width: 86%;
   text-align: center;
   /*height: 500px;*/
 }
@@ -119,7 +120,6 @@ Brandon Rodriguez*/
 @media (max-width: 1001px) {
   .contenido h4 {
     font-size: 115%;
-    margin-top: 10%;
   }
 
   .title-ctn p {
@@ -134,9 +134,47 @@ Brandon Rodriguez*/
 @media (max-width: 963px) {
   .contenido h4 {
     font-size: 115%;
-    margin-top: 10%;
+  }
+  .timer {
+    width: 150px;
+    height: 150px;
+    font-size: 130%;
+    margin-left: 77%;
+    margin-top:-1.5%;
+  }
+  @keyframes animation1 {
+    0% {margin: -1.5% 0 0 77%;}
+    20% {margin: -1.5% 0 0 79%;}
+    40% {margin: -1.5% 0 0 77%;} 
+    60% {margin: -1.5% 0 0 79%;}
+    80% {margin: -1.5% 0 0 77%;} 
+    100% {margin: -1.5% 0 0 78%;}
+}
+
+  @keyframes animation2 {
+    0% {margin: -1.5% 0 0 77%;}
+    15% {margin: -1.5% 0 0 79%;}
+    30% {margin: -1.5% 0 0 77%;} 
+    45% {margin: -1.5% 0 0 79%;}
+    60% {margin: -1.5% 0 0 77%;} 
+    75% {margin: -1.5% 0 0 79%;;}
+    90% {margin: -1.5% 0 0 77%;} 
+    100% {margin: -1.5% 0 0 78%;}
   }
 
+  @keyframes animation3 {
+    0% {margin: -1.5% 0 0 77%;}
+    10% {margin: -1.5% 0 0 79%;}
+    20% {margin: -1.5% 0 0 77%;} 
+    30% {margin: -1.5% 0 0 79%;}
+    40% {margin: -1.5% 0 0 77%;} 
+    50% {margin: -1.5% 0 0 79%;}
+    60% {margin: -1.5% 0 0 77%;} 
+    70% {margin: -1.5% 0 0 79%;} 
+    80% {margin: -1.5% 0 0 77%;} 
+    90% {margin: -1.5% 0 0 79%;} 
+    100% {margin: -1.5% 0 0 78%;}
+  }
   .title-ctn p {
     font-size: 90%;
   }
@@ -149,9 +187,47 @@ Brandon Rodriguez*/
 @media (max-width: 850px) {
   .contenido h4 {
     font-size: 115%;
-    margin-top: 10%;
+  }
+  .timer {
+    width: 130px;
+    height: 130px;
+    font-size: 110%;
+    margin-left: 77%;
+    margin-top:-1.5%;
+  }
+  @keyframes animation1 {
+    0% {margin: -1.5% 0 0 77%;}
+    20% {margin: -1.5% 0 0 79%;}
+    40% {margin: -1.5% 0 0 77%;} 
+    60% {margin: -1.5% 0 0 79%;}
+    80% {margin: -1.5% 0 0 77%;} 
+    100% {margin: -1.5% 0 0 78%;}
+}
+
+  @keyframes animation2 {
+    0% {margin: -1.5% 0 0 77%;}
+    15% {margin: -1.5% 0 0 79%;}
+    30% {margin: -1.5% 0 0 77%;} 
+    45% {margin: -1.5% 0 0 79%;}
+    60% {margin: -1.5% 0 0 77%;} 
+    75% {margin: -1.5% 0 0 79%;;}
+    90% {margin: -1.5% 0 0 77%;} 
+    100% {margin: -1.5% 0 0 78%;}
   }
 
+  @keyframes animation3 {
+    0% {margin: -1.5% 0 0 77%;}
+    10% {margin: -1.5% 0 0 79%;}
+    20% {margin: -1.5% 0 0 77%;} 
+    30% {margin: -1.5% 0 0 79%;}
+    40% {margin: -1.5% 0 0 77%;} 
+    50% {margin: -1.5% 0 0 79%;}
+    60% {margin: -1.5% 0 0 77%;} 
+    70% {margin: -1.5% 0 0 79%;} 
+    80% {margin: -1.5% 0 0 77%;} 
+    90% {margin: -1.5% 0 0 79%;} 
+    100% {margin: -1.5% 0 0 78%;}
+  }
   .title-ctn p {
     font-size: 90%;
   }
@@ -164,7 +240,6 @@ Brandon Rodriguez*/
 @media (max-width: 669px) {
   .contenido h4 {
     font-size: 115%;
-    margin-top: 10%;
   }
 
   .title-ctn p {
@@ -178,10 +253,49 @@ Brandon Rodriguez*/
 
 @media (max-width: 619px) {
   .contenido h4 {
-    font-size: 115%;
-    margin-top: 10%;
-  }
+    font-size: 70%;
 
+  }
+  .timer {
+    width: 120px;
+    height: 120px;
+    font-size: 120%;
+    margin-left: 69%;
+    margin-top: -1.5%;
+  }
+  @keyframes animation1 {
+    0% {margin: -1.5% 0 0 68%;}
+    20% {margin: -1.5% 0 0 70%;}
+    40% {margin: -1.5% 0 0 68%;} 
+    60% {margin: -1.5% 0 0 70%;}
+    80% {margin: -1.5% 0 0 68%;} 
+    100% {margin: -1.5% 0 0 69%;}
+  }
+  
+  @keyframes animation2 {
+    0% {margin: -1.5% 0 0 68%;}
+    15% {margin: -1.5% 0 0 70%;}
+    30% {margin: -1.5% 0 0 68%;} 
+    45% {margin: -1.5% 0 0 70%;}
+    60% {margin: -1.5% 0 0 68%;} 
+    75% {margin: -1.5% 0 0 70%;;}
+    90% {margin: -1.5% 0 0 68%;} 
+    100% {margin: -1.5% 0 0 69%;}
+  }
+  
+  @keyframes animation3 {
+    0% {margin: -1.5% 0 0 68%;}
+    10% {margin: -1.5% 0 0 70%;}
+    20% {margin: -1.5% 0 0 68%;} 
+    30% {margin: -1.5% 0 0 70%;}
+    40% {margin: -1.5% 0 0 68%;} 
+    50% {margin: -1.5% 0 0 70%;}
+    60% {margin: -1.5% 0 0 68%;} 
+    70% {margin: -1.5% 0 0 70%;} 
+    80% {margin: -1.5% 0 0 68%;} 
+    90% {margin: -1.5% 0 0 70%;} 
+    100% {margin: -1.5% 0 0 69%;}
+  }
   .title-ctn p {
     font-size: 90%;
   }
@@ -193,15 +307,22 @@ Brandon Rodriguez*/
   }
 
   .main-ctn #cont {
-    font-size: 120% !important;
+    font-size: auto !important;
+  }
+
+  
+  .btn-b {
+    width: 60px;
+    padding: 12px 12px;
+    margin-left: auto;
+  }
+
+  .btn-b i {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 560px) {
-  .contenido h4 {
-    font-size: 115%;
-    margin-top: 10%;
-  }
 
   .title-ctn p {
     font-size: 80%;
@@ -213,11 +334,6 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 518px) {
-  .contenido h4 {
-    font-size: 115%;
-    margin-top: 10%;
-  }
-
   .title-ctn p {
     font-size: 90%;
   }
@@ -228,10 +344,6 @@ Brandon Rodriguez*/
 }
 
 @media (max-width: 480px) {
-  .contenido h4 {
-    font-size: 115%;
-    margin-top: 10%;
-  }
 
   .title-ctn p {
     font-size: 90%;

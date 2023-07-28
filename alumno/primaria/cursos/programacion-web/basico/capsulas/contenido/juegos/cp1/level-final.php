@@ -22,57 +22,60 @@ if (empty($existe)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLIDE PUZZLE</title>
 	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
-    <link rel="stylesheet" href="../../../css/css-juegos/slide.css">
+    <link rel="stylesheet" href="../../../css/css-juegos/slide final.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body onload="alert1()">
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>LINEA DE TIEMPO</b></h2>
-	</div>
-
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
-    
-    <div class="contenido" style="height: 650px;">
-		<a href="../../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>LINEA DE TIEMPO</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+    
+    <section>
+
+		<div class="cont-st">
+            <a href="../../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
 		<br>
 
 		<div class="slide-contenedor" style="margin-top: 70px;">
-			<div id="puzzle_container" style="width: 515px; height: 515px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-0-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-3-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-4-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-5-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-6-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-7-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-8-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-9-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-10-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-11-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-12-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-13-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-14-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-15-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-16-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-17-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-18-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-19-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-20-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-21-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-22-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-23-0.png" class="contenedor-img" alt=""></div>
+			<div id="puzzle_container" style="">
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-0-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-4-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-5-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-6-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-7-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-8-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-9-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-10-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-11-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-12-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-13-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-14-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-15-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-16-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-17-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-18-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-19-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-20-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-21-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-22-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style=""><img src="../../../img/img-juegos/lvl3/linea-del-tiempo-final-23-0.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -81,7 +84,14 @@ if (empty($existe)) {
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
 		</div> -->
-	</div>
+		</section>
+<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		function alert1() {

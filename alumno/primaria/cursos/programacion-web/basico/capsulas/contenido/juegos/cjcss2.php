@@ -153,56 +153,6 @@ if (isset($resultadoIntentos['intentos'])) {
 				correcta: "B",
 				tiempo: "30",
 			},
-			{
-				num: 6,
-				pregunta:
-					"El atributo style en que tipo de documento se emplea",
-				opA: ".txt",
-				opB: ".CSS",
-				opC: ".HTML",
-				correcta: "C",
-				tiempo: "20",
-			},
-			{
-				num: 7,
-				pregunta:
-					"¿Cual de Todos es un Selector?",
-				opA: "href",
-				opB: "h1{ }",
-				opC: "link",
-				correcta: "B",
-				tiempo: "20",
-			},
-			{
-				num: 8,
-				pregunta:
-					"¿Cual de Todas es una Propiedad?",
-				opA: "color:",
-				opB: "14px",
-				opC: "red",
-				correcta: "A",
-				tiempo: "25",
-			},
-			{
-				num: 9,
-				pregunta:
-					"¿Cual de Todos es un Valor?",
-				opA: "style",
-				opB: "color:",
-				opC: "red",
-				correcta: "C",
-				tiempo: "30",
-			},
-			{
-				num: 10,
-				pregunta:
-					"La meta principal es permitir al _____ del navegador pintar elementos de la página con características específicas, como colores, posición o decoración.",
-				opA: "Buscador",
-				opB: "Motor",
-				opC: "Documento",
-				correcta: "B",
-				tiempo: "30",
-			},
 		];
 
 		var puntos = 0; //Leva el conteo de puntos/aciertos
@@ -246,7 +196,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById("main-ctn").innerHTML =
 				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
 				this.contador +
-				"/10</p>" +
+				"/5</p>" +
 				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
 				"<p>" +
 				this.preguntas[this.random].pregunta +
@@ -275,7 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
-				this.random = getRandomInt(10); //Elige la primera pregunta a mostrar
+				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
 				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
 				ponerPregunta(); //Muestra la pregunta
 			}
@@ -323,15 +273,15 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.puntos = this.puntos + 1;
 				this.contador = this.contador + 1;
 
-				if (this.puntos == 10) {
+				if (this.puntos == 5) {
 					//Cuando haya acertado las 10 preguntas
 					alertExcelent();
 				} else {
-					this.random = getRandomInt(10);
+					this.random = getRandomInt(5);
 					let found = prePas.find((element) => element == this.random);
 					while (found == this.random) {
 						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
-						this.random = getRandomInt(10);
+						this.random = getRandomInt(5);
 						found = prePas.find((element) => element == this.random);
 					}
 					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante

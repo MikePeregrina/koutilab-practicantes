@@ -4,6 +4,12 @@
 const ALTURA_CANVAS = 290,
     ANCHURA_CANVAS = 535;
 
+//se esta llamando los sonidos de la carpeta "sonidos"
+var Correcto = document.createElement("audio");
+Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var Incorrecto = document.createElement("audio");
+Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 // Obtener el elemento del DOM
 const canvas = document.querySelector("#canvas");
 canvas.width = ANCHURA_CANVAS;
@@ -156,11 +162,11 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: 'img/loop.gif',
+                imageUrl: '../img/img-juegos/loop.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -174,18 +180,19 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: 'Resultados',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: 'img/Thumbs-Up.gif',
+                imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.reload();
+                    window.location.href = '../../../../../rutas/ruta-py-b.php';
                 }
             });
+            Correcto.play(); //Agregando sonido al juego completado
         }
     }
     //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
@@ -193,11 +200,11 @@ function mostrarResultados() {
         Swal.fire({
             title: 'Oops...',
             text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-            imageUrl: 'img/loop.gif',
+            imageUrl: '../../img/img-juegos/loop.gif',
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: '#a14cd9',
             confirmButtonText: '¡Genial!',
         });

@@ -15,54 +15,56 @@ if (empty($existe)) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLIDE PUZZLE</title>
-	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
-    <link rel="stylesheet" href="../../css/css-juegos/slide.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>KOUTILAB</title>
+		<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+		<link rel="stylesheet" href="../../css/css-juegos/slide.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</head>
 <body onload="alert1()">
+<!-- CAMBIOS -->
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>SENTENCIA RETURN</b></h2>
 	</div>
-
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
     
-    <div class="contenido">
+   <section>
+		<div class="cont-st">
 		<a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 			<i class="fas fa-reply"></i></button>
 		</a>
-
-		<!-- Titulo secundario -->
 		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-		<br>
+		</div>
 
 		<div class="slide-contenedor">
-			<div id="puzzle_container" style="width: 412px; height: 412px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-3-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-4-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-5-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-6-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-7-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-8-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-9-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-10-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-11-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-12-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-13-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-14-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="IMG1/lvl2/Return2-15-0.png" class="contenedor-img" alt=""></div>
+			<div id="puzzle_container">
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-4-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-5-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-6-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-7-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-8-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-9-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-10-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-11-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-12-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-13-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-14-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="../../img/img-juegos/IMG1/lvl2/Return2-15-0.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -71,8 +73,10 @@ if (empty($existe)) {
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
 		</div> -->
-	</div>
+   </section>
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	
 	<script>
 		function alert1() {
 			Swal.fire({
@@ -87,7 +91,7 @@ if (empty($existe)) {
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "../../img/img-juegos/Return2.png",
+					imageUrl: "../../img/img-juegos/IMG1/Return2.png",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',
@@ -100,6 +104,7 @@ if (empty($existe)) {
 			});
 		}
 	</script>
+
 	<script>
 		var segundos = 240;
 		let puntos = 0;
@@ -148,6 +153,7 @@ if (empty($existe)) {
 			}
 		}
 	</script>
+
 	<script>
 		const GameDifficulty=[20,50,70];
 		class Game{
@@ -233,7 +239,7 @@ if (empty($existe)) {
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = 'cjpp5-3.php';
+									window.location.href = 'cjpp5-3';
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado

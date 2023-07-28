@@ -52,24 +52,27 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+	<!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>LABERINTO</b></h2>
-		<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
+		<h2 class="titulo"><b>LINEAS SVG</b></h2>
 	</div>
-
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
-
-	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-a.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
-
-		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
-		<br>
+	
+	<section>
+		<div class="cont-st">
+            <a href="#" onclick="history.back(); return false;">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h5 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+        </div>
 
 		<div id="page">
 
@@ -103,8 +106,14 @@ if (isset($resultadoIntentos['intentos'])) {
 			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
 	
 		  </div>
-	</div>
-
+	</section>
+	 <!-- CAMBIOS -->
+	 <footer class="footerimga">
+      <div class="imagen-footer">
+	  	<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+      </div>
+    </footer>
+  <!-- fIN CAMBIOS -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -150,6 +159,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				var xmlhttp = new XMLHttpRequest();
 
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 1; //cancatenation
+				
+				incorrecto.play(); //agregando sonido al juego no completado
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -160,7 +171,6 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
 				xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -213,6 +223,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xmlhttp.send(param);
+		
+		correcto.play(); //agregando sonido al juego completado
 		Swal.fire({
 			title: '¡Muy bien!',
 			text: 'Koubot ha llegado a su nave',
@@ -228,7 +240,6 @@ if (isset($resultadoIntentos['intentos'])) {
 				window.location.href = '../../../../../../rutas/ruta-pw-a.php';
 			}
 		})
-		correcto.play(); //agregando sonido al juego completado
 	}
 	
 	function toggleVisablity(id) {

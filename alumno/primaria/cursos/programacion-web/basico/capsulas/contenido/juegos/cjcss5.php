@@ -112,12 +112,12 @@ if (isset($resultadoIntentos['intentos'])) {
 				'<i><img src="../../img/img-juegos/bandera.png"  width= "60px" ></i>',
 				'<i><img src="../../img/img-juegos/css m.png"  width= "60px" ></i>',
 				'<i><img src="../../img/img-juegos/css-3.png"  width= "60px" ></i>',
-				'<i><img src="../../img/img-juegos/propiedad.png"  width= "190px" height="40px" ></i>',
-				'<i><img src="../../img/img-juegos/h1.png"   width= "190px" height="40px"></i>',
-				'<i><img src="../../img/img-juegos/h2.png"   width= "190px" height="40px"></i>',
-				'<i><img src="../../img/img-juegos/contenedor.png"   width= "190px" height="40px"></i>',
-				'<i><img src="../../img/img-juegos/h3.png"   width= "190px" height="40px"></i>',
-				'<i><img src="../../img/img-juegos/div.png"   width= "190px" height="40px"></i>'
+				'<i><img src="../../img/img-juegos/htmll.png"  width= "60px" height="40px" ></i>',
+				'<i><img src="../../img/img-juegos/h1.png"   width= "60px" height="40px"></i>',
+				'<i><img src="../../img/img-juegos/h2.png"   width= "60px" height="40px"></i>',
+				'<i><img src="../../img/img-juegos/codigo-html.png"   width= "60px" height="40px"></i>',
+				'<i><img src="../../img/img-juegos/h3.png"   width= "60px" height="40px"></i>',
+				'<i><img src="../../img/img-juegos/division.png"   width= "60px" height="40px"></i>'
 			]
 		}
 
