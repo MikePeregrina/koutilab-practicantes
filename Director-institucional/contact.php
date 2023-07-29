@@ -12,15 +12,15 @@ WHERE d.id_director = $id_user"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>Document</title>
+  <title>KOUTILAB</title>
   </head>
 
   <body>
@@ -57,6 +57,7 @@ WHERE d.id_director = $id_user"));
 
 
     </section>
+    <?php include 'footer.php'; ?>
   </body>
   <?php
   if (isset($_POST['enviarcontacto'])) {

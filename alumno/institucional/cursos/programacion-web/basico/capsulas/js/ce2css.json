@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Hojas de estilo externas",
+        "incorrectAnswers": [
+            "incrustado en la cabecera",
+            "En linea",
+            "Mediante PHP"
+        ],
+        "question": "¿Cuál es la forma más eficiente de aplicar estilos CSS en un documento HTML?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "background-color",
+        "incorrectAnswers": [
+            "italic",
+            "h1",
+            "span"
+        ],
+        "question": "¿Cuáles de las siguientes declaraciones son propiedades o atributos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "p",
+        "incorrectAnswers": [
+            "font-family",
+            "50px",
+            "red"
+        ],
+        "question": "¿Cuáles de las siguientes declaraciones son selectores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "p {background-color:red;}",
+        "incorrectAnswers": [
+            "#p {background-color:red;}",
+            ".p {background-color:red;} ",
+            "p.all {background-color:red;}"
+        ],
+        "question": "¿Cómo se define un color de fondo para todas las etiquetas 'p' en CSS?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "margin",
+        "incorrectAnswers": [
+            "border",
+            "padding",
+            "Ninguna respuesta es correcta"
+        ],
+        "question": " ¿Con qué propiedad se define el espacio entre el borde de un elemento y los elementos que lo rodean?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "margin-right",
+        "incorrectAnswers": [
+            "marginright",
+            "right-magin",
+            "text-right"
+        ],
+        "question": "¿Cómo se cambia el valor del margen derecho de un elemento?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Cascading Style Sheets",
+        "incorrectAnswers": [
+            "Center Style Steels",
+            "Calibre Style Sheet",
+            "Ninguna respuesta es correcta"
+        ],
+        "question": "¿Qué significa CSS?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Todas las respuestas son correctas",
+        "incorrectAnswers": [
+            "color: red",
+            "color: #FF0000",
+            "color: RGB(255, 0, 0)"
+        ],
+        "question": "¿Cómo se indica que el color del texto es de color rojo?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "span {font-weight:bold}",
+        "incorrectAnswers": [
+            "span {text-color:bold}",
+            "span {text-weight:bold} ",
+            "span {font-style:bold}"
+        ],
+        "question": "¿Cómo se indica que todos los elementos 'span' tienen el texto en negrita?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "font-family",
+        "incorrectAnswers": [
+            "text-type",
+            "font-type",
+            "text-family"
+        ],
+        "question": "¿Qué propiedad se emplea para cambiar el tipo de letra de un elemento?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

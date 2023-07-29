@@ -9,23 +9,23 @@ $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula34";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -99,7 +99,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3 style="margin-bottom: 20px;">EDITOR DE CÓDIGO</h3>
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
@@ -126,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script src="../../js/editor.js"></script>

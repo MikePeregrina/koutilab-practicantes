@@ -10,9 +10,9 @@ $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula36";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
@@ -91,12 +91,12 @@ if (isset($resultadoIntentos['intentos'])) {
                 </table>
 
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3>EDITOR DE CÓDIGO</h3>
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%; " disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script>
@@ -203,7 +203,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'incorrecto' + '&permiso=' + 37 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("cd").value;
+                        window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'incorrecto' + '&permiso=' + 37 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("cd").value;
 
                     }
                 });

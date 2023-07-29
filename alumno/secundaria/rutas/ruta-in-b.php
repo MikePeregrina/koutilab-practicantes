@@ -63,7 +63,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../img/lgk.png">
-    <link rel="stylesheet" href="../../secundaria/css/ruta-in-b.css">
+    <link rel="stylesheet" href="../css/ruta-in-b.css">
 
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

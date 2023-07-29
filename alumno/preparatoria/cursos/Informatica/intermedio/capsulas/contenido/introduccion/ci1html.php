@@ -72,6 +72,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
             </section>
         </div>
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         function disableIE() {
             if (document.all) {

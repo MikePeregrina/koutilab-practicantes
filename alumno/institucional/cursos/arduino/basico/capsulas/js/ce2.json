@@ -1,0 +1,74 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Ingles",
+        "incorrectAnswers": [
+            "Español",
+            "Frances",
+            "No recuerdo"
+        ],
+        "question": "¿En que lenguaje estan los comandos de arduino?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Salida",
+        "incorrectAnswers": [
+            "Entrada",
+            "Color",
+            "Bajo"
+        ],
+        "question": "¿Qué significa el comando 'Output'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Alto",
+        "incorrectAnswers": [
+            "Bajo",
+            "Izquierda",
+            "Derecha"
+        ],
+        "question": "¿Qué significa el comando 'High'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Bajo",
+        "incorrectAnswers": [
+            "Centro",
+            "Derecha",
+            "Superior"
+        ],
+        "question": "¿Qué significa el comando 'Low'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

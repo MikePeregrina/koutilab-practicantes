@@ -20,11 +20,11 @@ WHERE a.id_director = $id_user"));
   $image = $user["image"];
 
 ?>
-<nav>
+<nav class="navbar-header">
   <ul>
     <li>
       <a href="" class="logo">
-      <img src="acciones/img/<?php echo $image; ?>" id="imgchange1">
+      <img src="acciones/img/<?php echo $image; ?>">
         <span class="nav-item">KOUTILAB</span>
       </a>
     </li>

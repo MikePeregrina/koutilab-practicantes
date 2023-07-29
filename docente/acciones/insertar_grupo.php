@@ -8,11 +8,12 @@ $materia = $_POST['materia'];
 $nombre_grupo = $_POST['nombre_grupo'];
 $grado = $_POST['grado'];
 $curso = $_POST['curso'];
+$clave = $_POST['clave'];
 $id_user = $_SESSION['id_docente_primaria'];
-$insertar_grupo = mysqli_query($conexion, "INSERT INTO grupos_primaria(materia, nombre_grupo, grado, id_docente) VALUES ('$materia', '$nombre_grupo', '$grado', '$id_user')");
+$insertar_grupo = mysqli_query($conexion, "INSERT INTO grupos_primaria(materia, nombre_grupo, grado, clave, id_docente) VALUES ('$materia', '$nombre_grupo', '$grado', '$clave', '$id_user')");
 
 //Contar total de intentos
-$consultaIdGrupo = mysqli_query($conexion, "SELECT * FROM grupos_primaria WHERE nombre_grupo = '$nombre_grupo' AND id_docente = $id_user");
+$consultaIdGrupo = mysqli_query($conexion, "SELECT * FROM grupos_primaria WHERE clave = '$clave' AND id_docente = $id_user");
 $resultadoIdGrupo = mysqli_fetch_assoc($consultaIdGrupo);
 $id_grupo = $resultadoIdGrupo['id_grupo'];
 

@@ -73,23 +73,23 @@ if (empty($existe)) {
                         <li style="background-image: url('../../img/css/T2.5/143.gif');"></li>
                         <li style="background-image: url('../../img/css/T2.5/144.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp7.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuándo se usa el 'box model'?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Cuando se habla del diseño, el modelo de una caja</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Cuando se habla del diseño</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Palabras que llevan corchetes</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">No recuerdo</label>
                                     </div>
@@ -104,6 +104,12 @@ if (empty($existe)) {
                 </section>
         </div>
     </div>
+
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -133,31 +139,31 @@ if (empty($existe)) {
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);
         checkbox4.addEventListener("change", comprueba, true);
-        
+
         function comprueba() {
             if (checkbox1.checked) {
-               
-                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                    Correcto.play();
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10+ ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Correcto.play();
+                Swal.fire({
+                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var inputValidar = document.getElementById("validar");
+                        inputValidar.value = "correcto";
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+
 
             } else if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

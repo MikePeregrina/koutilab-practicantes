@@ -56,7 +56,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>UTILIZACIÓN DE UN MOTOR DE BÚSQUEDA </b></h2>
+        <h2 class="titulo"><b>CONFIGURACIÓN DE PÁGINA</b></h2>
     </div>
 
     <!-- Timer -->
@@ -69,12 +69,14 @@ if (isset($resultadoIntentos['intentos'])) {
     <!-- Contenedor principal -->
     <div class="contenido">
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i>
-            </button>
-        </a>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
         <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
@@ -127,7 +129,11 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
 
         <!--Boton para verificar la respuesta-->
-        <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
+        <div class="btn-ctn">
+            <button class="verificar" onClick="verificar()">
+                Comprobar respuestas
+            </button>
+        </div>
     </div>
     <p id="resultado"></p>
     <script>
@@ -206,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 +"&id_curso=" + 8; //cancatenation
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 8; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);

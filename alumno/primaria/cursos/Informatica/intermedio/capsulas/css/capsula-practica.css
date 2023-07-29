@@ -224,8 +224,8 @@ form .user-details .input-box{
 
 
 .btn-grd{
-    width: 20%;
-    padding: 10px 30px;
+    width: 245px;
+    padding: 13px 30px;
     cursor: pointer;
     display: block;
     margin: auto;
@@ -234,8 +234,10 @@ form .user-details .input-box{
     outline: none;
     border-radius: 30px;
     transition: 0.5s;
-    margin-bottom: 30px;
-}
+    color: black;
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
 
 .btn-grd:hover {
     transform: scale(1.1);

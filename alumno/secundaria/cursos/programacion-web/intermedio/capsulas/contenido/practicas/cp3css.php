@@ -98,7 +98,7 @@ if (empty($existe)) {
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3 style="margin-bottom: 20px;">EDITOR DE CÓDIGO</h3>
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
@@ -125,7 +125,7 @@ if (empty($existe)) {
                 </div>
 
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script src="../../js/editor.js"></script>
@@ -200,7 +200,7 @@ if (empty($existe)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-             
+
                 Swal.fire({
                     title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
                     text: '¡Puntuación guardada con éxito!',
@@ -228,7 +228,7 @@ if (empty($existe)) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10 ;
+                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
 
                     }
                 });

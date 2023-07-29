@@ -56,12 +56,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo" style="margin-left: 550px;"><b>CLASES</b></h4>
-	</div>
-
 	<!-- Tiempo -->
 	<div class="timer" id="timer">
 		<b style="margin-top: 10px;">Tiempo: <br>
@@ -69,15 +63,20 @@ if (isset($resultadoIntentos['intentos'])) {
 		</b>
 	</div>
 
-	<div class="contenido">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h4 class="titulo" style="margin-left: 550px;"><b>CLASES</b></h4>
+	</div>
 
-		<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-				<i class="fas fa-reply"></i></button>
-		</a>
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+					<i class="fas fa-reply"></i></button>
+			</a>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
+			<!-- Titulo secundario -->
+			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+		</div>
 
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
@@ -87,8 +86,12 @@ if (isset($resultadoIntentos['intentos'])) {
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
 
-	</div>
-
+	</section>
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
 	<script>
 		let cantidadTarjetas = 24;
 		let iconos = []
@@ -214,26 +217,26 @@ if (isset($resultadoIntentos['intentos'])) {
 		let puntos = 0;
 
 		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();

@@ -20,7 +20,7 @@ WHERE a.id_director = $id_user"));
   $image = $user["image"];
 
 ?>
-<nav>
+<nav class="navbar-header">
   <ul>
     <li>
       <a href="" class="logo">

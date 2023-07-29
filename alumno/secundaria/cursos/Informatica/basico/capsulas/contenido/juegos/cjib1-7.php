@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula21";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 7");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -51,33 +51,30 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../img//img_juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>DISPOSITIVOS MIXTOS</b></h2>
-    </div>
-
-    <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
 
-    <!-- Contenedor principal -->
-    <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>DISPOSITIVOS MIXTOS</b></h2>
+    </div>
 
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h4>
+    <section>
 
-        <br>
+        <div class="cont-st">
+            <!-- Boton para regresar -->
+            <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                    <i class="fas fa-reply"></i></button>
+
+            </a>
+            <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
+        </div>
         <!-- contenido del juego -->
         <div class="container-all">
             <!-- Columna de lado izquierdo -->
@@ -109,23 +106,34 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
-    </div>
+    </section>
+
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img_juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador-p.js"></script>
 
     <script>
         //Se esta llamando los sonidos de la carpeta "sonidos"
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-        var segundos = 240;
+        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+        var segundos = 20;
 
         let puntos = 0;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            /declarando condiciones que permiten cambiar el color de fondo del timer/
+            //declarando condiciones que permiten cambiar el color de fondo del timer/
             if (segundos <= 60) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
@@ -139,11 +147,9 @@ if (isset($resultadoIntentos['intentos'])) {
                 div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
-                var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 7; //cancatenation
                 Swal.fire({
                     title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
+                    text: '¡Tiempo Agotado! Vuelve a intentarlo',
                     imageUrl: "../../img/img_juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {

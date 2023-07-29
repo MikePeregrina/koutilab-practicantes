@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula28";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -69,20 +69,20 @@ if (isset($resultadoIntentos['intentos'])) {
     <!-- Contenedor principal -->
     <div class="contenido">
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i>
-            </button>
-        </a>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
         <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
         <div class="container">
-            <section ><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
+            <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
                 <!--Generando pregunta 1-->
                 <h3>1. ¿En qué año fue creado Microsoft Word?
-                    <select class="select"
-                        id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
+                    <select class="select" id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
                         <option value="----">...</option>
                         <option value="correcto">1981</option>
                         <option value="incorrecto">1810</option>
@@ -91,8 +91,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </h3>
                 <!--Generando pregunta 2-->
                 <h3>2. ¿Qué es Microsoft Word?
-                    <select class="select"
-                        id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
+                    <select class="select" id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
                         <option value="----">...</option>
                         <option value="incorrecto">Un programa para poder jugar</option>
                         <option value="correcto">Un procesador de textos y creador de documentos digitales</option>
@@ -101,8 +100,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </h3>
                 <!--Generando pregunta 3-->
                 <h3>3. ¿Para qué podemos ocupar Microsoft Word?
-                    <select class="select"
-                        id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
+                    <select class="select" id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
                         <option value="----">...</option>
                         <option value="correcto">Para poder realizar textos procesados como libros, tareas, etc...</option>
                         <option value="incorrecto">Para jugar</option>
@@ -122,15 +120,19 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
 
         <!--Boton para verificar la respuesta-->
-    <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
+        <div class="btn-ctn">
+            <button class="verificar" onClick="verificar()">
+                Comprobar respuestas
+            </button>
+        </div>
     </div>
     <p id="resultado"></p>
     <script>
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
@@ -139,17 +141,17 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: "Oops...Intentalo nuevamente, te has quedado sin tiempo",
@@ -183,7 +185,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.reload();
-                } 
+                }
             });
         }
 

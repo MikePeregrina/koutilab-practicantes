@@ -12,91 +12,92 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/lgk.png">
-  <link rel="stylesheet" href="css/nav-barra.css">
-  <link rel="stylesheet" href="css/administradores.css">
-  <link rel="stylesheet" href="css/footer.css">
- 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/lgk.png">
+<link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/administradores.css">
+<link rel="stylesheet" href="css/footer.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
-  <title>KOUTILAB</title>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<title>KOUTILAB</title>
 </head>
+
 <body>
-  
+
     <!-- Header nav -->
     <?php include 'header-nav.php'; ?>
 
-  <div class="containers">
-    <h1>BANDEJA DE ENTRADA </h1>  
-  </div>
-
-    
-  <section>
-
-   <div class="board p-2">
-        <table id="bandeja" width="100%" class="table border-top">
-            <thead>
-                <tr>
-                    <td><b>Nombre</b></td>
-                    <td><b>Escuela</b></td>
-                    <td><b>Asunto</b></td>
-                    <td><b>Sugerencia</b></td>
-                    <td><b>Estado</b></td>
-                    <td><b>Acción</b></td>
-                </tr>
-            </thead>
-            <tbody>
-
-                <?php
-                include "../acciones/conexion.php";
-
-                $query_sugerencias = mysqli_query($conexion, "SELECT * FROM sugerencias ORDER BY estado DESC");
-                $result = mysqli_num_rows($query_sugerencias);
-                if ($result > 0) {
-                    while ($data = mysqli_fetch_assoc($query_sugerencias)) {
-                        if ($data['estado'] == 1) {
-                            $estado = '<span class="badge badge-pill badge-success">Pendiente</span>';
-                        } else {
-                            $estado = '<span class="badge badge-pill badge-danger">Completado</span>';
-                        }
-                ?>
-                        <tr>
-                            <td><?php echo $data['nombre_usuario']; ?></td>
-                            <td><?php echo $data['nombre_escuela']; ?></td>
-                            <td><?php echo $data['asunto']; ?></td>
-                            <td><?php echo $data['mensaje']; ?></td>
-                            <td><?php echo $estado; ?></td>
-
-                            <td>
-                                <?php if ($data['estado'] == 1) { ?>
-                                    <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" id="f-c" class="d-inline">
-                                        <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-check'></i> </button>
-                                    </form>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                <?php }
-                } ?>
-
-            </tbody>
-        </table>
+    <div class="containers">
+        <h1>BANDEJA DE ENTRADA </h1>
     </div>
-    
-  </section>
 
-            
-  <?php include 'footer.php'; ?>
 
-  <script>
+    <section>
+        <div class="board p-2">
+            <table id="bandeja" width="100%" class="table border-top">
+                <thead>
+                    <tr>
+                        <td><b>Nombre</b></td>
+                        <td><b>Escuela</b></td>
+                        <td><b>Asunto</b></td>
+                        <td><b>Sugerencia</b></td>
+                        <td><b>Estado</b></td>
+                        <td><b>Acción</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    include "../acciones/conexion.php";
+
+                    $query_sugerencias = mysqli_query($conexion, "SELECT * FROM sugerencias ORDER BY estado DESC");
+                    $result = mysqli_num_rows($query_sugerencias);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_sugerencias)) {
+                            if ($data['estado'] == 1) {
+                                $estado = 'Pendiente';
+                            } else {
+                                $estado = 'Completado';
+                            }
+                    ?>
+                            <tr>
+                                <td><?php echo $data['nombre_usuario']; ?></td>
+                                <td><?php echo $data['nombre_escuela']; ?></td>
+                                <td><?php echo $data['asunto']; ?></td>
+                                <td><?php echo $data['mensaje']; ?></td>
+                                <td><?php echo $estado; ?></td>
+
+                                <td>
+                                    <?php if ($data['estado'] == 1) { ?>
+                                        <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" id="f-c" class="confirmar d-inline">
+                                            <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-check'></i> </button>
+                                        </form>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                    <?php }
+                    } ?>
+
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+
+    <?php include 'footer.php'; ?>
+
+    <script>
         const btnAbrirModalV = document.querySelector("#btn-abrir-modalV");
         const btnCerrarModalV = document.querySelector("#btn-cerrar-modalV");
         const modalV = document.querySelector("#modalV");
@@ -213,9 +214,13 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#bandeja').DataTable({
+                responsive: true,
+                autoWidth: false,
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
                 }
@@ -243,4 +248,5 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <script src="js/funciones.js"></script>
 
 </body>
+
 </html>

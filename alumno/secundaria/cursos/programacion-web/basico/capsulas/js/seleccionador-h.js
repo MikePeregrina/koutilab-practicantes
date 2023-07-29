@@ -65,9 +65,9 @@ function checkAnswer(respuesta) {
             // Color de línea 
             contexto.strokeStyle = "#84c42c";
             // Comenzamos en 0, 0
-            contexto.moveTo(0, 20);
+            contexto.moveTo(0, 30);
             // Hacemos una línea hasta 48, 48
-            contexto.lineTo(590, 260);
+            contexto.lineTo(590, 220);
             contexto.stroke(); // "Guardar" cambios
             //sumamos al contador
             respuestasCorrectas++;
@@ -76,8 +76,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 83);
-            contexto.lineTo(535, 20);
+            contexto.moveTo(0, 88);
+            contexto.lineTo(535, 28);
             contexto.stroke();
             respuestasCorrectas++;
         }
@@ -88,8 +88,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 155);
-            contexto.lineTo(575, 298);
+            contexto.moveTo(0, 145);
+            contexto.lineTo(575, 270);
             contexto.stroke();
             respuestasCorrectas++;
         } else if (
@@ -99,8 +99,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 273);
-            contexto.lineTo(560, 165);
+            contexto.moveTo(0, 263);
+            contexto.lineTo(560, 140);
             contexto.stroke();
             respuestasCorrectas++;
 
@@ -112,8 +112,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 215);
-            contexto.lineTo(560, 100);
+            contexto.moveTo(0, 205);
+            contexto.lineTo(560, 82);
             contexto.stroke();
             respuestasCorrectas++;
         } else {

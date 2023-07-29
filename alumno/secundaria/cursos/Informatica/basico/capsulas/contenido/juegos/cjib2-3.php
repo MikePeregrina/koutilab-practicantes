@@ -45,21 +45,16 @@ if (isset($resultadoIntentos['intentos'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/cjib2-3.1.css">
-    <link rel="stylesheet" href="../../css/css-juegos/cjib2-3.css">
+    <link rel="stylesheet" href="../../css/css-juegos/style.css">
+    <link rel="stylesheet" href="../../css/css-juegos/gameStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
     <title>KOUTILAB</title>
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>PARTES Y USO DEL MOUSE</b></h2>
-    </div>
-
+    <!-- CAMBIOS -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -67,20 +62,21 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>PARTES Y USO DEL MOUSE</b></h2>
+    </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                    <i class="fas fa-reply"></i></button>
 
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El juego consiste en responder correctamente una serie de preguntas pierde si se acaba el
-                tiempo o responde mal</b></h4>
-        <br>
-
+            </a>
+            <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
+                    tiempo o responde mal</b></h4>
+        </div>
 
         <!-- Tenoch Moises -->
         <!--contenedor principal-->
@@ -117,6 +113,14 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
     </div>
     <!-- Tenoch Moises -->
+
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img_juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
 
     <script>
         //ambos
@@ -175,49 +179,59 @@ if (isset($resultadoIntentos['intentos'])) {
             });
         }
         //ambos
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
-
-        let puntos = 0;
+        //se esta llamando los sonidos de la carpeta "sonidos"
         //Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");
         correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var incorrecto = document.createElement("audio");
         incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+
+        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+        var segundos = 240;
+
+        let puntos = 0;
+
+        var count = 1000;
+        //Agregando animacion a el timer
         function iniciarTiempo() {
-            document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            if (segundos <= 60) {
-                var div = document.getElementById("timer");
-                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+            document.getElementById("tiempo").innerHTML =
+                segundos + " segundos";
             if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 15) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos <= 10) {
                 var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
                 Swal.fire({
-                    title: 'Oops...',
-                    text: '¡El tiempo se acabo!',
+                    title: "Oops...",
+                    text: "Se acabó el tiempo",
                     imageUrl: "../../img/img_juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        marcadorTiempoAgotado();
-                        // window.location.reload();
+                        window.location.reload();
                     }
                 });
                 incorrecto.play(); //asignando sonido al juego no completado
+                loseText.setText("Juego terminado");
+                player.setTint(0xff0000);
+                player.anims.play("turn");
+                gameoverSound();
+                gameOver = true;
             } else {
                 segundos--;
-                setTimeout("iniciarTiempo()", 1000);
+                setTimeout("iniciarTiempo()", count);
             }
         }
-
+        //Alerta muestra de que el juego fue completado
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
             var xmlhttp = new XMLHttpRequest();
@@ -245,6 +259,9 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
 
 
+</body>
+
+</html>
 </body>
 
 </html>

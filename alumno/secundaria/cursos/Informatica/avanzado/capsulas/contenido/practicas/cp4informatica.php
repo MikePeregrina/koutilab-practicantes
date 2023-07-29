@@ -71,13 +71,13 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p>
-                                En PowerPoint, personaliza una presentación añadiendo un tema y el formato de fondo de tu elección.
-                                        <br> <br>
+                                    En PowerPoint, personaliza una presentación añadiendo un tema y el formato de fondo de tu elección.
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
                                 <img src="../../../../../../img/avanzadoinf/prac4.PNG" style="height: auto; width: 50%;">
-                                
+
                             </td>
                         </tr>
                     </tbody>
@@ -85,7 +85,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             </div>
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
+                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update">Evaluar</button></a>
             </form>
         </div>
     </div>
@@ -269,7 +269,7 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         echo "We are here";
@@ -280,19 +280,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
         $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
         $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
         $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -307,9 +307,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -324,8 +324,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

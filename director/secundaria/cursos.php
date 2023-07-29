@@ -25,9 +25,10 @@ WHERE a.id_director = $id_user"));
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/cursos.css">
   <link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <title>Document</title>
+  <title>KOUTILAB</title>
 </head>
 <body>
 
@@ -88,10 +89,8 @@ WHERE a.id_director = $id_user"));
                 <button><h3>Adquirir</h3></button>
             </div>
         </div>
-
-        <button id="closeButton"><i class="fas fa-times"></i></button>
-       
     </div>
+    <button id="closeButton"><i class="fas fa-times"></i></button>
 </div>
 
 <section>
@@ -99,6 +98,8 @@ WHERE a.id_director = $id_user"));
     
     
 </section>
+
+<?php include 'footer.php'; ?>
 <script></script>
 <script>
     const addCourseButton = document.getElementById('addCourseButton');

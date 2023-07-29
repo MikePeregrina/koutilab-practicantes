@@ -56,40 +56,45 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>INCLUDE() Y REQUIRE()</b></h2>
 	</div>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo"></p>
-		</b>
-	</div>
+	<section>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-pw-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o
-				que encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+			<a href="#" onclick="history.back(); return false;">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Selecciona la opción que corresponda a la línea en blanco o que encaje con la definición dada.</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		//Funcion que agrega el sonido al juego
@@ -99,11 +104,9 @@ if (isset($resultadoIntentos['intentos'])) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"Si queremos agregar código de a nuestros programas y no queremos estar escribiendo mucho código, podemos ocupar la función...",
+				pregunta: "Si queremos agregar código de a nuestros programas y no queremos estar escribiendo mucho código, podemos ocupar la función...",
 				opA: "Include o require",
 				opB: "Import",
 				opC: "Yield",
@@ -112,8 +115,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Lo que caracteriza a _________ es que detendrá la ejecución del programa si no encuentra el archivo solicitado",
+				pregunta: "Lo que caracteriza a _________ es que detendrá la ejecución del programa si no encuentra el archivo solicitado",
 				opA: "Include",
 				opB: "Requiere",
 				opC: "Import",
@@ -122,8 +124,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Lo que caracteriza a ________ es que si no encuentra el archivo a incluir, solo lanza una advertencia y no detiene la ejecución",
+				pregunta: "Lo que caracteriza a ________ es que si no encuentra el archivo a incluir, solo lanza una advertencia y no detiene la ejecución",
 				opA: "Include",
 				opB: "Requiere",
 				opC: "Import",
@@ -132,8 +133,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"La función __________ solo manda a llamar el archivo una vez cada que se necesite para evitar errores",
+				pregunta: "La función __________ solo manda a llamar el archivo una vez cada que se necesite para evitar errores",
 				opA: "include_once",
 				opB: "import",
 				opC: "require",
@@ -142,8 +142,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"La forma correcta de usar un código de include/require es...",
+				pregunta: "La forma correcta de usar un código de include/require es...",
 				opA: "include 'funcion.php';",
 				opB: "echo 'funcion.php';",
 				opC: "incluir 'funcion.php';",
@@ -232,18 +231,18 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			document.getElementById("tiempo").innerHTML =
 				segundos + " segundos";
-		if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	    }
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 49 + "&id_curso=" + 3; //cancatenation
@@ -301,10 +300,10 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 49 + "&id_curso=" + 3; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 49 + "&id_curso=" + 3; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
@@ -343,10 +342,10 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 49 + "&id_curso=" + 3; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 49 + "&id_curso=" + 3; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
@@ -367,6 +366,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta, muestra que la respuesta fue correcta
 		function alertGood() {
+			correcto.play();
 			Swal.fire({
 				position: "center",
 				icon: "success",
@@ -379,6 +379,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta, muestra que la respuesta fue incorrecta
 		function alertBad() {
+			incorrecto.play();
 			Swal.fire({
 				position: "center",
 				icon: "error",

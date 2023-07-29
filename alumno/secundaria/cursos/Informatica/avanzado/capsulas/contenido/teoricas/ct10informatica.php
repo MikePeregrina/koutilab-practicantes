@@ -97,38 +97,38 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/informatica/T10/81.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T10/82.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd23.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es una ventaja de descargar plantillas y temas para PowerPoint desde sitios web?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
                                             Mejora el diseño visual de la presentación.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
                                             Permite insertar enlaces a sitios web relevantes.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
                                             Permite incorporar contenido de redes sociales.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
                                             Facilita la colaboración y el intercambio de presentaciones.
                                         </label>
-                                    </div>
-                                    <input type="hidden" name="permiso" value="23">
-                                    <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="9">
-                                    <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                        <div class="container-question">
+                                            <input type="hidden" name="permiso" value="23">
+                                            <input type="hidden" name="teorico" value="10">
+                                            <input type="hidden" name="id_curso" value="9">
+                                            <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
                         </li>
@@ -136,6 +136,11 @@ if (isset($resultadoIntentos['intentos'])) {
                 </section>
         </div>
     </div>
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

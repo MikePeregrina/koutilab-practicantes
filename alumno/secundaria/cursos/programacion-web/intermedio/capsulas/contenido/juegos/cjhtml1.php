@@ -55,10 +55,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>SINTAXIS ESPECIALES</b></h2>
-	</div>
 
 	<!-- Timer -->
 	<div class="timer" id="timer">
@@ -66,21 +62,22 @@ if (isset($resultadoIntentos['intentos'])) {
 			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
 	</div>
+	<!-- Titulo general del juego -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>SINTAXIS ESPECIALES</b></h2>
+	</div>
 
 	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-pw-i.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Selecciona la opción que corresponda a la línea en blanco o que
+					encaje con la definición dada.</b></h4>
+		</div>
 		<br />
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
@@ -88,8 +85,14 @@ if (isset($resultadoIntentos['intentos'])) {
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
-
+	</section>
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
@@ -98,11 +101,9 @@ if (isset($resultadoIntentos['intentos'])) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas sintaxis especial
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"Que caracter genera la entidad de nombre gt",
+				pregunta: "Que caracter genera la entidad de nombre gt",
 				opA: "&lt;",
 				opB: "&quot;",
 				opC: "&gt;",
@@ -111,31 +112,28 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Que caracter se genera con la entidad de nombre apos",
+				pregunta: "Que caracter se genera con la entidad de nombre apos",
 				opA: "&amp;",
 				opB: "&quot;",
 				opC: "&apos;",
 				correcta: "C",
 				tiempo: "20",
 			},
-			
-		
+
+
 			{
 				num: 3,
-				pregunta:
-					"Cual de las siguientes etiquetas es de cierre ",
+				pregunta: "Cual de las siguientes etiquetas es de cierre ",
 				opA: "< /body >",
 				opB: "< th/ >",
 				opC: "< script >",
 				correcta: "A",
 				tiempo: "30",
 			},
-		
+
 			{
 				num: 4,
-				pregunta:
-					"Cual es la forma correcta de escribir un comentario en HTML",
+				pregunta: "Cual es la forma correcta de escribir un comentario en HTML",
 				opA: "/**/ ",
 				opB: "< !-...- >",
 				opC: "Ctrl+C",
@@ -144,8 +142,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"La etiqueta ____ permite hacer saltos de linea.",
+				pregunta: "La etiqueta ____ permite hacer saltos de linea.",
 				opA: "< /th >",
 				opB: "< style >",
 				opC: "< br >",
@@ -167,7 +164,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -219,7 +216,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.resPas.push(randomRes); //Se agrega el random al arreglo para evitar repetir la respuesta
 			}
 			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-		}//Agregando animacion a el timer
+		} //Agregando animacion a el timer
 		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
 		function iniciarTiempo() {
 			noRepeat++;
@@ -229,18 +226,18 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	       }
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 2; //cancatenation
@@ -294,10 +291,10 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 2; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
@@ -336,10 +333,10 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 2; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",

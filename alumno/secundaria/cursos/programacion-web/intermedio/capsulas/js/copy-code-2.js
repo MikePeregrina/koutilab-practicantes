@@ -103,7 +103,7 @@ function alertExcelent() {
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
@@ -122,7 +122,7 @@ function alertExcelent() {
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../../img/img-juegos/fondo.gif")`,
+                url("../../img/img-juegos/loop.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });

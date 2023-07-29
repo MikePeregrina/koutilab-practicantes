@@ -12,8 +12,8 @@ $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
 $htmlcode = $_GET['htmlcode'];
-$htmlcodeCodificado = urlencode($htmlcode );
-$mensajeConSaltosDeLinea = str_replace("%0A","sdl",$htmlcodeCodificado);
+$htmlcodeCodificado = urlencode($htmlcode);
+$mensajeConSaltosDeLinea = str_replace("%0A", "sdl", $htmlcodeCodificado);
 $urlRedireccionamiento = "../contenido/practicas/cp5html.php?htmlcode=" . $mensajeConSaltosDeLinea;
 
 //Verificar si ya hay intentos en la capsula

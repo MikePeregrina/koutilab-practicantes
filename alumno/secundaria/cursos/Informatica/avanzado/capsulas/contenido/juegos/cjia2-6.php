@@ -56,31 +56,29 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h3 class="titulo" style="margin-left: 380px;"><b>ELEMENTOS GRÁFICOS DE EXCEL</b></h3>
-	</div>
-
-	<!-- Tiempo -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
-			<p id="tiempo"></p>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>MEMORAMA</b></h2>
+	</div>
 
-		<a href="../../../../../../rutas/ruta-in-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
-
+		<div class="cont-st">
+			<a href="#">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+		</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
 			Iniciar juego
@@ -89,7 +87,15 @@ if (isset($resultadoIntentos['intentos'])) {
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
 
-	</div>
+	</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		let cantidadTarjetas = 24;
@@ -174,7 +180,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 44 +"&id_curso=" + 9; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 44 + "&id_curso=" + 9; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -225,20 +231,20 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 44 +"&id_curso=" + 9; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 44 + "&id_curso=" + 9; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);

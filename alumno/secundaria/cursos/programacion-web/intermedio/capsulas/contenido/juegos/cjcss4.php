@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula28";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -55,30 +55,30 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>FLEX CONTAINER</b></h2>
-    </div>
-
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo"></p>
         </b>
     </div>
+    <!-- Titulo general del juego -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>FLEX CONTAINER</b></h2>
+    </div>
+
 
     <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php">
-            <button class="btn-b">
-                <i class="fas fa-reply"></i>
-            </button>
+        <!-- Boton para regresar -->
+        <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                <i class="fas fa-reply"></i></button>
         </a>
 
         <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote</b></h4>
+        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
+        <!-- Parte que modifique Final -->
         <br>
 
         <!--CONTENEDOR DEL JUEGO-->
@@ -87,7 +87,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <!--EJEMPLO DE CODIGO-->
             <div class="ejemplo">
 
-                
+
                 <p id="textoej" style="text-align: start; margin: 0 0 0 160px;">
                 </p>
             </div>
@@ -102,8 +102,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
-    </div>
-
+    </section>
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script src="../../js/copy-code-2.js"></script>
 </body>
 

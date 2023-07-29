@@ -25,9 +25,9 @@ if (!empty($_POST)) {
                 $sql_insert = "INSERT INTO acceso_cursos_preparatoria(id_curso, id_alumno) VALUES ('$curso', $idalumno)";
                 $conexion->query($sql_insert);
             }
-            header("Location: ../../docente/grupos.php");
+            header("Location: ../../docente-preparatoria/grupos.php");
         } else {
-            header("Location: ../../docente/grupos.php");
+            header("Location: ../../docente-preparatoria/grupos.php");
         }
     }
 }
@@ -35,14 +35,14 @@ if (!empty($_POST)) {
 // Mostrar Datos
 
 if (empty($_REQUEST['id'])) {
-    header("Location: ../../docente/grupos.php");
+    header("Location: ../../docente-preparatoria/grupos.php");
 }
 $idgrupo = $_REQUEST['id'];
 $sql = mysqli_query($conexion, "SELECT * FROM grupos_preparatoria WHERE id_grupo = '$idgrupo'");
 $result_sql = mysqli_num_rows($sql);
 
 if ($result_sql == 0) {
-    header("Location: ../../docente/grupos.php");
+    header("Location: ../../docente-preparatoria/grupos.php");
 } else {
     if ($data = mysqli_fetch_array($sql)) {
         $materia = $data['materia'];
@@ -58,6 +58,7 @@ if ($result_sql == 0) {
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../img/lgk.png">
     <link rel="stylesheet" href="css/editar.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
@@ -70,78 +71,81 @@ if ($result_sql == 0) {
 
 <body>
 
-    <div class="container-titulo">
+    <div class="containers">
         <h1>Agregar cursos al grupo</h1>
     </div>
 
 
     <section>
-        <form class="" action="" method="post">
-            <div class="user-details1">
+        <div class="contenedor-emergente">
+            <form class="" action="" method="post" style="box-shadow: none;">
+                <div class="user-details">
 
-                <?php echo isset($alert) ? $alert : ''; ?>
+                    <?php echo isset($alert) ? $alert : ''; ?>
 
-                <div class="input-box1">
-                    <span class="details">Matería</span>
-                    <input type="text" name="materia" id="materia" value="<?php echo $materia; ?>" required readonly>
+                    <div class="input-box">
+                        <span class="details">Matería</span>
+                        <input type="text" name="materia" id="materia" value="<?php echo $materia; ?>" required readonly>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Nombre grupo</span>
+                        <input type="text" name="nombre_grupo" id="nombre_grupo" value="<?php echo $nombregrupo; ?>" required readonly>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Cursos del grupo</span>
+                        <table width="100%" class="table border-top">
+                            <tbody>
+                                <?php
+                                include "../../acciones/conexion.php";
+                                $query_alumnos = mysqli_query($conexion, "SELECT DISTINCT c.curso FROM grupos_preparatoria g JOIN detalle_grupo_cursos_preparatoria dg ON g.id_grupo = dg.id_grupo JOIN cursos_preparatoria c ON dg.id_curso = c.id_curso WHERE g.id_grupo = $idgrupo");
+                                $result = mysqli_num_rows($query_alumnos);
+                                if ($result > 0) {
+                                    while ($data = mysqli_fetch_assoc($query_alumnos)) {
+
+                                ?>
+                                        <tr>
+                                            <td><?php echo $data['curso']; ?></td>
+                                        </tr>
+                                <?php }
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Cursos</span>
+                        <select style="height: 44px;" name="curso" type="select" required>
+                            <option value="1">Programación web básico</option>
+                            <option value="2">Programación web intermedio</option>
+                            <option value="3">Programación web avanzado</option>
+                            <option value="4">Python básico</option>
+                            <option value="5">Python intermedio</option>
+                            <option value="6">Python avanzado</option>
+                            <option value="7">Informática básico</option>
+                            <option value="8">Informática intermedio</option>
+                            <option value="9">Informática avanzado</option>
+                        </select>
+                    </div>
+
                 </div>
 
-                <div class="input-box1">
-                    <span class="details">Nombre grupo</span>
-                    <input type="text" name="nombre_grupo" id="nombre_grupo" value="<?php echo $nombregrupo; ?>" required readonly>
+                <br>
+                <div style="display: flex; text-align: center; justify-content: center; gap: 20px;">
+                    <button type="submit" class="btn btn-success" style="width: 15%; height:50px; margin-top:0%">Guardar</button>
+                    <a href="../grupos.php" class="btn btn-danger" style="width: 15%; height:50px; padding:1.7%">Atrás</a>
                 </div>
 
-                <div class="input-box1">
-                    <span class="details">Cursos del grupo</span>
-                    <table width="100%" class="table border-top">
-                        <tbody>
-                            <?php
-                            include "../../acciones/conexion.php";
-                            $query_alumnos = mysqli_query($conexion, "SELECT DISTINCT c.curso FROM grupos_preparatoria g JOIN detalle_grupo_cursos_preparatoria dg ON g.id_grupo = dg.id_grupo JOIN cursos_preparatoria c ON dg.id_curso = c.id_curso WHERE g.id_grupo = $idgrupo");
-                            $result = mysqli_num_rows($query_alumnos);
-                            if ($result > 0) {
-                                while ($data = mysqli_fetch_assoc($query_alumnos)) {
+            </form>
+        </div>
 
-                            ?>
-                                    <tr>
-                                        <td><?php echo $data['curso']; ?></td>
-                                    </tr>
-                            <?php }
-                            } ?>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="input-box1">
-                    <span class="details">Cursos</span>
-                    <select style="height: 44px;" name="curso" type="select" required>
-                        <option value="1">Programación web básico</option>
-                        <option value="2">Programación web intermedio</option>
-                        <option value="3">Programación web avanzado</option>
-                        <option value="4">Python básico</option>
-                        <option value="5">Python intermedio</option>
-                        <option value="6">Python avanzado</option>
-                        <option value="7">Informática básico</option>
-                        <option value="8">Informática intermedio</option>
-                        <option value="9">Informática avanzado</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <br>
-            <div style="display: flex; text-align: center; justify-content: center; gap: 20px;">
-                <button type="submit" class="btn btn-success" style="width: 15%; height:50px; margin-top:0%">Guardar</button>
-                <a href="../grupos.php" class="btn btn-danger" style="width: 15%; height:50px; padding:1.7%">Atrás</a>
-            </div>
-
-        </form>
     </section>
-
-    <footer>
+    <?php include '../footer.php'; ?>
+    <!--<footer>
         <div class="imagen-footer">
             <img src="img/Bienvenida.png">
         </div>
-    </footer>
+    </footer>-->
 
 </body>

@@ -206,7 +206,7 @@ section {
   height: 24%;
   font-weight: 400;
   margin-left: 7%;
-  margin-top: 5%;
+  margin-top: 8%;
   display: flex;
   flex-direction: column;
 }
@@ -314,6 +314,11 @@ form .user-details1 .input-box1 {
 }
 
 @media (max-width: 1120px) {
+  .camera-icon {
+    margin-left: 13%;
+    margin-top: 13%;
+  }
+
   h1 {
     margin: auto;
     text-align: center;
@@ -332,6 +337,14 @@ form .user-details1 .input-box1 {
     font-size: 24px;
   }
 
+  .hr2{
+    margin-top: -52% !important;
+  }
+
+  .change-password{
+    margin-top: 15%;
+  }
+
   .container-info h3 span {
     font-size: 19px;
   }
@@ -344,7 +357,12 @@ form .user-details1 .input-box1 {
     font-size: 19px;
   }
 }
-
+@media (max-width: 980px) {
+  .camera-icon {
+    margin-left: 15%;
+    margin-top: 15%;
+  }
+}
 @media (max-width: 768px) {
   .containers {
     padding: 10px;
@@ -353,7 +371,7 @@ form .user-details1 .input-box1 {
     margin: 2% auto;
     box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
     height: 60px;
-    margin-left: 13%;
+    margin-left: 15%;
   }
 
   .camera-icon {
@@ -367,7 +385,7 @@ form .user-details1 .input-box1 {
     padding: 0px;
     width: 80%;
     height: 650px;
-    margin-left: 13%;
+    margin-left: 15%;
     display: block;
   }
 
@@ -407,7 +425,7 @@ form .user-details1 .input-box1 {
   }
 
   .change-password {
-    margin-top: 19%;
+    margin-top: 23%;
   }
 
   .titlec {
@@ -420,6 +438,55 @@ form .user-details1 .input-box1 {
 
   .card i {
     margin-right: 50%;
+  }
+
+  .footerimga .imagen-footer img {
+    position: relative !important;
+    top: 760% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 25%;
+    margin-top: 25%;
+  }
+
+  .change-password{
+    margin-top: 5%;
+  }
+
+  .hr2 {
+    visibility: visible;
+    background-color: lightgray;
+    width: 60%;
+    height: 2px;
+    margin-left: 20%;
+    margin-top: -32% !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .camera-icon {
+    width: 55px;
+    height: 55px;
+    margin-left: 28%;
+    margin-top: 28%;
+  }
+
+  .change-password{
+    margin-top: 5%;
+  }
+
+  .hr2 {
+    visibility: visible;
+    background-color: lightgray;
+    width: 60%;
+    height: 2px;
+    margin-left: 20%;
+    margin-top: -42% !important;
   }
 }
 
@@ -485,4 +552,8 @@ form .user-details1 .input-box1 {
   .card i {
     margin-right: 50%;
   }
+}
+
+body {
+  overflow-x: hidden;
 }

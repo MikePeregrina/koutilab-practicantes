@@ -60,46 +60,57 @@ if (isset($resultadoIntentos['intentos'])) {
 
 <body onload="iniciarTiempo();">
 	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo"><b>BOTONES</b></h4>
-	</div>
-
-
 	<div class="timer" id="timer">
 		<b style="margin-top: 10px;">Tiempo: <br>
 			<p id="tiempo"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
-
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-			<i class="fas fa-reply"></i></button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
-		<br>
-
-		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
-		<div class="words">
-			<h6><b>Palabras a buscar:</b></h6>
-			<div id='Palabras' style="font-size: 120%;"></div>
-		</div>
-
-		<div class="linea"></div>
-
-		<!-- Sección donde se agrega la sopa de letras -->
-		<div class="soup">
-			<div id='juego' style="margin: 0 0 0 40px;"></div>
-		</div>
-
+	<div class="titulo-gen">
+		<h4 class="titulo"><b>BOTONES</b></h4>
 	</div>
+
+
+
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-pw-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
+		</div>
+
+		<!--CONTENEDOR DEL JUEGO-->
+		<div class="mjuego">
+			<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+			<div class="words">
+				<div class="title-h6">
+					<h4><b>Palabras a buscar:</b></h4>
+				</div>
+				<div id='Palabras'></div>
+			</div>
+
+			<!-- Sección donde se agrega la sopa de letras -->
+			<div class="soup">
+				<div id='juego' style="margin: 0 0 0 40px;"></div>
+			</div>
+		</div>
+
+	</section>
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
-		var words = ['BUTTON', 'DISABLED', 'TYPE', 'NAME', 'ONCLICK', 'ONMOUSEDOWN', 'ONDBLCLICK', 'ONKEYPRESS'];
+		var words = ['ONMOUSEDOWN', 'DISABLED', 'TYPE', 'NAME', 'ONCLICK', 'BUTTON', 'ONDBLCLICK', 'ONKEYPRESS'];
 		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
 		var puzzle = wordfind.newPuzzle(words, {
@@ -126,18 +137,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
-		if (segundos <= 60) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 30) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 10) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 1; //cancatenation

@@ -38,6 +38,7 @@ if (isset($resultadoIntentos['intentos'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -50,44 +51,48 @@ if (isset($resultadoIntentos['intentos'])) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="img/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>TIPOS DE ARCHIVOS</b></h2>
-	</div>
-
+	<!-- CAMBIOS -->
 	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b>Tiempo: <br />
+		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>TIPOS DE ARCHIVO</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+	<section>
+
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-in-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img_juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
 		var preguntas = [{
@@ -136,6 +141,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				tiempo: "30",
 			},
 		];
+
 
 		var puntos = 0; //Leva el conteo de puntos/aciertos
 		var seleccion; //Guarda la respuesta elegida
@@ -203,6 +209,12 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 		}
+		//Se esta llamando los sonidos de la carpeta "sonidos"
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
 		function iniciarTiempo() {
 			noRepeat++;
@@ -213,18 +225,18 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	 }
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
@@ -254,7 +266,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.puntos = this.puntos + 1;
 				this.contador = this.contador + 1;
 
-				if (this.puntos == 10) {
+				if (this.puntos == 5) {
 					//Cuando haya acertado las 10 preguntas
 					alertExcelent();
 				} else {
@@ -292,6 +304,7 @@ if (isset($resultadoIntentos['intentos'])) {
 							window.location.reload();
 						}
 					});
+					incorrecto.play();
 				} else {
 					alertBad();
 				}

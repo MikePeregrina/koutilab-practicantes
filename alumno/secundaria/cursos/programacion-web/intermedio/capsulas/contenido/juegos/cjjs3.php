@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula41";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -55,36 +55,33 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
+    <!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo"></p>
+        </b>
+    </div>
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
         <h2 class="titulo"><b>OPERADORES MATEMÁTICOS</b></h2>
     </div>
-
-    <!-- Timer -->
-    <div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo"></p>
-		</b>
-	</div>
-
     <!-- Contenedor principal -->
     <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-                id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i>
-            </button>
-        </a>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-i.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
         <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
                 <!--Generando pregunta 1-->
                 <h3>
                     1. En Javascript, los
-                    <select class="select"
-                        id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
+                    <select class="select" id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
                         <option value="----">...</option>
                         <option value="correcto">Operadores matemáticos</option>
                         <option value="incorrecto">Operadores lógicos</option>
@@ -93,8 +90,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </h3> <br>
                 <!--Generando pregunta 2-->
                 <h3>2. El operador
-                    <select class="select"
-                        id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
+                    <select class="select" id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
                         <option value="----">...</option>
                         <option value="incorrecto">-</option>
                         <option value="correcto">+</option>
@@ -104,8 +100,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </h3> <br>
                 <!--Generando pregunta 3-->
                 <h3>3. El operador
-                    <select class="select"
-                        id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
+                    <select class="select" id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
                         <option value="----">...</option>
                         <option value="correcto">Módulo</option>
                         <option value="incorrecto">Suma</option>
@@ -128,12 +123,19 @@ if (isset($resultadoIntentos['intentos'])) {
         <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
     </div>
     <p id="resultado"></p>
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
     <script>
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
@@ -142,23 +144,23 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 42 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd42.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 42 + "&id_curso=" + 2; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd42.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: "Oops...Intentalo nuevamente, te has quedado sin tiempo",
                     text: "",
@@ -179,10 +181,10 @@ if (isset($resultadoIntentos['intentos'])) {
         //funcion Error, determina que las respuestas sean correctas
         function error() {
             var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 42 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd42.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 42 + "&id_curso=" + 2; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd42.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: "¡Oh no!",
                 text: "Comprueba tus respuestas, e intentalo nuevamente",
@@ -203,10 +205,10 @@ if (isset($resultadoIntentos['intentos'])) {
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
             var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 42 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd42.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 42 + "&id_curso=" + 2; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd42.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: "¡Felicidades!",
                 text: "¡Buen trabajo!",

@@ -22,30 +22,32 @@ body {
   font-family: sans-serif;
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, .popup-content::-webkit-scrollbar, select::-webkit-scrollbar{
   -webkit-appearance: none;
 }
 
-body::-webkit-scrollbar:vertical {
+body::-webkit-scrollbar:vertical, .popup-content::-webkit-scrollbar:vertical, select::-webkit-scrollbar:vertical{
   width: 10px;
 }
 
 body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button, .popup-content::-webkit-scrollbar-button:increment,
+.popup-content::-webkit-scrollbar-button, select::-webkit-scrollbar-button:increment,
+select::-webkit-scrollbar-button{
   display: none;
 }
 
-body::-webkit-scrollbar:horizontal {
+body::-webkit-scrollbar:horizontal, .popup-content::-webkit-scrollbar:horizontal, select::-webkit-scrollbar:horizontal{
   height: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .popup-content::-webkit-scrollbar-thumb, select::-webkit-scrollbar-thumb{
   background: rgba(129, 179, 243);
   border-radius: 20px;
   border: 2px solid #f1f2f3;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, .popup-content::-webkit-scrollbar-track, select::-webkit-scrollbar-track{
   border-radius: 10px;
 }
 
@@ -183,7 +185,7 @@ body::-webkit-scrollbar-track {
 section {
   padding: 0px;
   width: 86%;
-  height: 569px auto;
+  height: auto;
   margin-top: 40px;
   margin-left: 10%;
   display: flex;
@@ -195,7 +197,7 @@ section {
 }
 
 .board {
-  width: 98%;
+  width: 95%;
   margin: 10px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.8);
@@ -245,6 +247,7 @@ section {
   box-shadow: 0 0 12px var(--border);
   border-radius: 20px;
   overflow: auto;
+  margin-left: 3%;
 }
 
 .titlec {
@@ -260,9 +263,10 @@ section {
 
 .contenedor-emergente {
   width: 85%;
-  height: 210%;
+  height: auto;
   margin-top: 4%;
   margin-left: 7.5%;
+  margin-bottom: 5%;
 }
 
 .contenedor-emergente form .user-details {
@@ -312,19 +316,20 @@ form .user-details .input-box {
   width: 45%;
   height: 7%;
   /*padding: 10px 30px;*/
+  padding: 7px;
   cursor: pointer;
   display: block;
   background-image: linear-gradient(to right, #63e4cf, #8cfd36);
   border: 0px;
   outline: none;
   border-radius: 30px;
-  margin-left: 27.5%;
+  margin-left: 27.5% !important;
   font-size: 22px;
   font-weight: 600;
   margin-top: 2%;
   text-align: center;
   justify-content: center;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .btn-grd1 {
@@ -346,6 +351,7 @@ form .user-details .input-box {
   width: 100%;
   height: 70%;
   /*padding: 10px 30px;*/
+  padding: 7px;
   cursor: pointer;
   display: block;
   background-image: linear-gradient(to right, #63e4cf, #8cfd36);
@@ -416,8 +422,8 @@ form .user-details .campo {
 
 #closeButton {
   position: absolute;
-  top: 70px;
-  right: 350px;
+  top: 10%;
+  right: 22%;
   background: none;
   border: none;
   cursor: pointer;
@@ -430,6 +436,14 @@ form .user-details .campo {
 
 #closeButton:hover i {
   color: var(--border);
+}
+
+.select:not(.is-multiple):not(.is-loading)::after{
+  z-index: auto !important;
+}
+
+.is-full {
+  margin-top: 20px !important;
 }
 
 @media (max-width: 1120px) {
@@ -472,6 +486,17 @@ form .user-details .campo {
   }
 }
 
+@media (max-width: 1001px){
+  .btn-grd1, .btn-grd2 {
+    width: 100%;
+    /*height: 17%;*/
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    justify-items: center;
+  }
+}
+
 @media (max-width: 768px) {
   .containers {
     padding: 10px;
@@ -480,7 +505,7 @@ form .user-details .campo {
     margin: 2% auto;
     box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
     height: 60px;
-    margin-left: 15%;
+    margin-left: 18.5%;
   }
 
   h1 {
@@ -499,15 +524,17 @@ form .user-details .campo {
 
   .studens-add-bar {
     width: 75%;
-    margin-left: 15%;
+    margin-left: 18.5%;
     height: 60px;
+    margin-top: 3%;
   }
 
   section {
     padding: 0px;
     width: 75%;
-    height: 569px;
-    margin-left: 15%;
+    height: auto;
+    margin-left: 18.5%;
+    margin-top: 3%;
   }
 
   .titlec {
@@ -516,16 +543,20 @@ form .user-details .campo {
     margin-left: 25%;
   }
 
+  .titlec h2{
+    font-size: 19px;
+  }
+
   .studens-add-bar h2 {
     font-size: 16px;
   }
 
   .right-student i {
-    margin-top: 3%;
+    margin-top: 5%;
   }
 
   .left-student i {
-    margin-top: 3%;
+    margin-top: 5%;
   }
 
   .containers h1 {
@@ -538,10 +569,110 @@ form .user-details .campo {
     font-size: 12px;
     margin-top: 5%;
   }
+
   form {
     width: 100%;
     height: 100%;
   }
+
+  div.dataTables_wrapper div.dataTables_filter input {
+    width: 160px !important;
+  }
+
+  /*TEST------------------------------------------------------------------------------------------*/
+  .contenedor-emergente form .user-details {
+    display: inherit;
+    justify-content: center;
+    /*text-align: center;*/
+  }
+  
+  form .user-details .input-box {
+    margin: 5px;
+    width: 95%;
+  }
+  
+  .user-details .input-box .details {
+    font-size: 18px;
+    margin-top: 1%;
+    margin-bottom: 4%;
+  }
+  .user-details .input-box input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0 12px var(--border);
+  }
+  
+  .user-details .input-box select {
+    /*height: 35px;*/
+    padding: 7px;
+    width: 100%;
+    padding-left: 15px;
+    font-size: 16px;
+    margin-bottom: 5%;
+  }
+  
+  .btn-grd {
+    width: 45%;
+    height: 7%;
+    padding: 5px;
+    display: block;
+    font-size: 18px;
+    margin: 0 auto !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .btn-grd1 {
+    width: 100%;
+    height: 37%;
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    font-size: 17px;
+    margin-top: -15%;
+  }
+  
+  .btn-grd2 {
+    width: 100%;
+    height: 70%;
+    padding: 5px;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8%;
+    margin-bottom: 8%;
+  }
+
+  .popup-container {
+    display: none;
+    position: fixed;
+    top: -3%;
+    left: 6.5%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    height: 110%;
+  }
+
+  .contenedor-emergente{
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .popup-content {
+    margin-top: -2%;
+  }
+
+  #closeButton {
+    top: 7%;
+    right: 27%;
+  }
+  /*FIN TEST--------------------------------------------------------------------------------------*/
 }
 
 @media (max-width: 480px) {
@@ -595,7 +726,7 @@ form .user-details .campo {
   section {
     padding: 0px;
     width: 70%;
-    height: 569px;
+    height: auto;
     margin-left: 18%;
   }
 

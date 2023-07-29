@@ -25,42 +25,46 @@ $fila = mysqli_fetch_assoc($result);
 
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/nav-barra.css">
-  <link rel="stylesheet" href="css/grupos.css">
-  <link rel="stylesheet" href="css/footer.css">
- 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/nav-barra.css">
+<link rel="stylesheet" href="css/grupos.css">
+<link rel="stylesheet" href="css/footer.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
 
-  
-  <title>KOUTILAB</title>
+
+<title>KOUTILAB</title>
 </head>
+
 <body>
-  
+
     <!-- Header nav -->
     <?php include 'header-nav.php'; ?>
 
-  <div class="containers">
-    <h1>GRUPOS</h1>  
-  </div>
-
-  <div class="studens-add-bar">
-    <div class="left-student">
-        <i class="fas fa-users"></i><h2><?php echo $fila['id_grupo']; ?> Grupo(s)</h2>
+    <div class="containers">
+        <h1>GRUPOS</h1>
     </div>
 
-    <div class="right-student" id="addCourseButton">
-        <i class="fas fa-user-plus"></i><h2>Añadir grupo</h2>
+    <div class="studens-add-bar">
+        <div class="left-student">
+            <i class="fas fa-users"></i>
+            <h2><?php echo $fila['id_grupo']; ?> Grupo(s)</h2>
+        </div>
+
+        <div class="right-student" id="addCourseButton">
+            <i class="fas fa-user-plus"></i>
+            <h2>Añadir grupo</h2>
+        </div>
     </div>
-  </div>
 
     <!-- Contenido de la pantalla emergente -->
     <div class="popup-container" id="popupContainer">
@@ -68,128 +72,128 @@ $fila = mysqli_fetch_assoc($result);
             <div class="titlec">
                 <h2>Nuevo grupo</h2>
             </div>
-           
+
             <div class="contenedor-emergente">
-            <form id="grupos" method="POST" enctype="multipart/form-data" action="acciones/insertar_grupo.php" autocomplete="off">
-                <div class="user-details1">
-                    <div class="input-box1">
-                        <span class="details">Materia: </span>
-                        <input type="text" name="materia" placeholder="Nombre de la materia" required>
+                <form id="grupos" method="POST" enctype="multipart/form-data" action="acciones/insertar_grupo.php" autocomplete="off">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Materia: </span>
+                            <input type="text" name="materia" placeholder="Nombre de la materia" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Nombre del grupo: </span>
+                            <input type="text" name="nombre_grupo" id="nombre_grupo" onkeydown="generarGrupo()" placeholder="Ejemplo: A Matutino" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Grado: </span>
+                            <select style="height: 44px;" name="grado" type="select" required>
+                                <option value="">Elija un grado</option>
+                                <option value="1°">1°</option>
+                                <option value="2°">2°</option>
+                                <option value="3°">3°</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Curso: </span>
+                            <select style="height: 44px;" name="curso" required>
+                                <option>Seleccionar curso</option>
+                                <option value="1">Programación web básico</option>
+                                <option value="2">Programación web intermedio</option>
+                                <option value="3">Programación web avanzado</option>
+                                <option value="4">Python básico</option>
+                                <option value="5">Python intermedio</option>
+                                <option value="6">Python avanzado</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Clave: </span>
+                            <input type="text" name="clave" id="clave" required readonly>
+                        </div>
+                        <div class="input-box" id="copy-key">
+                            <span class="details"></span><br><br>
+                            <button type="button" class="btn-grd1" onclick="copyToClipBoard()" id="btn-copy">Copiar clave</button>
+                        </div>
                     </div>
-                    <div class="input-box1">
-                        <span class="details">Nombre del grupo: </span>
-                        <input type="text" name="nombre_grupo" id="nombre_grupo" onkeydown="generarGrupo()" placeholder="Ejemplo: A Matutino" required>
-                    </div>
-                    <div class="input-box1">
-                        <span class="details">Grado: </span>
-                        <select style="height: 44px;" name="grado" type="select" required>
-                            <option value="">Elija un grado</option>
-                            <option value="1°">1°</option>
-                            <option value="2°">2°</option>
-                            <option value="3°">3°</option>
-                        </select>
-                    </div>
-                    <div class="input-box1">
-                        <span class="details">Curso: </span>
-                        <select style="height: 44px;" name="curso" required>
-                            <option>Seleccionar curso</option>
-                            <option value="1">Programación web básico</option>
-                            <option value="2">Programación web intermedio</option>
-                            <option value="3">Programación web avanzado</option>
-                            <option value="4">Python básico</option>
-                            <option value="5">Python intermedio</option>
-                            <option value="6">Python avanzado</option>
-                        </select>
-                    </div>
-                    <div class="input-box1">
-                        <span class="details">Clave: </span>
-                        <input type="text" name="clave" id="clave" required readonly>
-                    </div>
-                    <div class="input-box1" id="copy-key">
-                        <span class="details"></span><br><br>
-                        <button type="button" class="btn-grd" onclick="copyToClipBoard()" id="btn-copy">Copiar clave</button>
-                    </div>
-                </div>
-                <button type="submit" class="btn-grd">Guardar</button>
-            </form>
+                    <button type="submit" class="btn-grd">Guardar</button>
+                </form>
             </div>
-        
 
-            <button id="closeButton"><i class="fas fa-times"></i></button>
-        
+
         </div>
+        <button id="closeButton"><i class="fas fa-times"></i></button>
+
     </div> <!-- Cierre de la pantalla emergente -->
-  <section>
+    <section>
 
-  <div class="board p-2" >
-        <table id="grupos1" width="100%" class="table border-top" style="z-index: 1;">
-            <thead>
-                <tr>
-                    <td><b>Materia</b></td>
-                    <td><b>Nombre del grupo</b></td>
-                    <td><b>Grado escolar</b></td>
-                    <td><b>Clave</b></td>
-                    <td><b>Acción</b></td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include "../acciones/conexion.php";
+        <div class="board p-2">
+            <table id="grupos1" width="100%" class="table border-top" style="z-index: 1;">
+                <thead>
+                    <tr>
+                        <td><b>Materia</b></td>
+                        <td><b>Nombre del grupo</b></td>
+                        <td><b>Grado escolar</b></td>
+                        <td><b>Clave</b></td>
+                        <td><b>Acción</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include "../acciones/conexion.php";
 
-                $query_grupos = mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE id_docente = $id_user AND estado = 1");
-                $result = mysqli_num_rows($query_grupos);
-                if ($result > 0) {
-                    while ($data = mysqli_fetch_assoc($query_grupos)) {
+                    $query_grupos = mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE id_docente = $id_user AND estado = 1");
+                    $result = mysqli_num_rows($query_grupos);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_grupos)) {
 
-                ?>
-                        <tr>
-                            <td><?php echo $data['materia']; ?></td>
-                            <td><?php echo $data['nombre_grupo']; ?></td>
-                            <td><?php echo $data['grado']; ?></td>
-                            <td><?php echo $data['clave']; ?></td>
+                    ?>
+                            <tr>
+                                <td><?php echo $data['materia']; ?></td>
+                                <td><?php echo $data['nombre_grupo']; ?></td>
+                                <td><?php echo $data['grado']; ?></td>
+                                <td><?php echo $data['clave']; ?></td>
 
-                            <td id="td-group">
-                                <a href="acciones/mostrar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" id="btn-group"><i class='fas fa-clipboard-list' style="color: white;" id="i-group"></i></a>
-                                <a href="acciones/mostrar_estadisticas_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" id="btn-group"><i class="fas fa-chart-pie" style="color: white;" id="i-group"></i></a>
-                                <a href="acciones/editar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-edit' id="i-group"></i></a>
-                                <a href="acciones/agregar_curso.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-plus' id="i-group"></i></a>
-                                <form action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" id="f-c" class="d-inline">
-                                    <button class="btn btn-danger" type="submit" id="btn-trs" ><i class='fas fa-trash-alt' id="i-trs"></i> </button>
-                                </form>
-                            </td>
-                        </tr>
-                <?php }
-                } ?>
-            </tbody>
-        </table>
-    </div>
-  </section>
+                                <td id="td-group">
+                                    <a href="acciones/mostrar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" id="btn-group"><i class='fas fa-clipboard-list' style="color: white;" id="i-group"></i></a>
+                                    <a href="acciones/mostrar_estadisticas_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" id="btn-group"><i class="fas fa-chart-pie" style="color: white;" id="i-group"></i></a>
+                                    <a href="acciones/editar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-edit' id="i-group"></i></a>
+                                    <a href="acciones/agregar_curso.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-plus' id="i-group"></i></a>
+                                    <form action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" id="f-c" class="d-inline">
+                                        <button class="btn btn-danger" type="submit" id="btn-trs"><i class='fas fa-trash-alt' id="i-trs"></i> </button>
+                                    </form>
+                                </td>
+                            </tr>
+                    <?php }
+                    } ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-            
-  <?php include 'footer.php'; ?>
 
-  
-  <script>
-    const addCourseButton = document.getElementById('addCourseButton');
-    const popupContainer = document.getElementById('popupContainer');
-    const closeButton = document.getElementById('closeButton');
+    <?php include 'footer.php'; ?>
 
-    addCourseButton.addEventListener('click', function() {
-        popupContainer.style.display = 'block';
-    });
 
-    closeButton.addEventListener('click', function() {
-        popupContainer.style.display = 'none';
-    });
+    <script>
+        const addCourseButton = document.getElementById('addCourseButton');
+        const popupContainer = document.getElementById('popupContainer');
+        const closeButton = document.getElementById('closeButton');
 
-    popupContainer.addEventListener('click', function(event) {
-        if (event.target === popupContainer) {
+        addCourseButton.addEventListener('click', function() {
+            popupContainer.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', function() {
             popupContainer.style.display = 'none';
-        }
-    });
-  </script>
-  
-  <script>
+        });
+
+        popupContainer.addEventListener('click', function(event) {
+            if (event.target === popupContainer) {
+                popupContainer.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
         /* Función para generar clave para alumno */
         function generarUsuarioAlumno() {
             var pass = "";
@@ -260,21 +264,25 @@ $fila = mysqli_fetch_assoc($result);
             }
         }
     </script>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         $(document).ready(function() {
-        $('#grupos1').DataTable({
-            language: {
-            url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
-            }
-        });
+            $('#grupos1').DataTable({
+                responsive: true,
+                autoWidth: false,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+                }
+            });
         });
     </script>
 
@@ -338,4 +346,5 @@ $fila = mysqli_fetch_assoc($result);
 
 
 </body>
+
 </html>

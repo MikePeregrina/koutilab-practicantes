@@ -10,7 +10,6 @@
   display: block;
   width: 100%;
   height: 110vh;
-  min-height: 500px;
 }
 
 #slider li {
@@ -132,10 +131,8 @@
   @media screen and (max-width: 767px) {
     #slider {
         height: 400px;
-        min-height: 600px;
-      
+        min-height: 600px; 
     }
-    
     .content_slider h2 {
       font-size: 15pt !important;
     }
@@ -196,11 +193,11 @@
     #container-slider .arrowPrev,
     #container-slider .arrowNext {
       font-size: 25pt;
-      margin-top: -90px;
+      margin-top: -23px;
     }
   
       .listslider li {   
-          margin-top: -400px;
+          margin-top: 55px;
         }
   }
 
@@ -209,114 +206,51 @@
     #container-slider .arrowPrev,
     #container-slider .arrowNext {
       font-size: 25pt;
-      margin-top: -150px;
+      margin-top: -50px;
     }
   
       .listslider li {   
-          margin-top: -450px;
+          margin-top: -120px;
         }
   }
 
-  @media screen and (max-width: 900px) {
-   
-    #container-slider .arrowPrev,
-    #container-slider .arrowNext {
-      font-size: 25pt;
-      margin-top: -150px;
-    }
-  
-      .listslider li {   
-          margin-top: -500px;
-        }
-  }
-
-  @media screen and (max-width: 850px) {
-   
-    #container-slider .arrowPrev,
-    #container-slider .arrowNext {
-      font-size: 25pt;
-      margin-top: -150px;
-    }
-  
-      .listslider li {   
-          margin-top: -500px;
-        }
-  }
-
-  @media screen and (max-width: 800px) {
-   
-    #container-slider .arrowPrev,
-    #container-slider .arrowNext {
-      font-size: 25pt;
-      margin-top: -150px;
-    }
-    #container-slider .arrowPrev {
-        left: 15px;
-      }
-      
-      #container-slider .arrowNext {
-        right: 15px !important;
-      }
-  
-      .listslider li {   
-          margin-top: -500px;
-        }
-  }
+ 
 
   @media screen and (max-width: 710px) {
    
     #container-slider .arrowPrev,
     #container-slider .arrowNext {
       font-size: 25pt;
-      margin-top: -150px;
+      margin-top: -80px;
     }
   
       .listslider li {   
-          margin-top: -500px;
+          margin-top: -230px;
         }
   }
 
-  @media screen and (max-width: 655px) {
-   
-    
-    #container-slider .arrowPrev,
-    #container-slider .arrowNext {
-      font-size: 23pt;
-      margin-top: -160px;
-    }
-      .listslider li {
-          
-          margin-top: -550px;
-        }
-  }
 
-  @media screen and (max-width: 610px) {
+  @media screen and (max-width: 600px) {
    
     
     #container-slider .arrowPrev,
     #container-slider .arrowNext {
       font-size: 24pt;
-      margin-top: -170px;
+      margin-top: -40px;
+    }
+
+    #container-slider .arrowPrev {
+      left: 3px;
+    }
+    #container-slider .arrowNext {
+      right: 4px !important;
     }
       .listslider li {
           
-          margin-top: -600px;
+          margin-top: -100px;
         }
   }
 
-  @media screen and (max-width: 560px) {
-   
-    
-    #container-slider .arrowPrev,
-    #container-slider .arrowNext {
-      font-size: 23pt;
-      margin-top: -180px;
-    }
-    
-    .listslider li {
-      margin-top: -650px;
-    }
-  }
 
   @media screen and (max-width: 507px) {
    
@@ -324,20 +258,24 @@
     #container-slider .arrowPrev,
     #container-slider .arrowNext {
       font-size: 22pt;
-      margin-top: -180px;
+      margin-top: -50px;
+
+    }
+
+    #container-slider .arrowPrev {
+      left: 3px;
+    }
+    #container-slider .arrowNext {
+      right: 4px !important;
     }
     
     .listslider li { 
-      margin-top: -700px;
+      margin-top: -120px;
     }
   }
   
   @media screen and (max-width: 460px) {
-    #slider {
-        height: 400px;
-        min-height: 600px; 
-        
-    }
+  
     .content_slider h2 {
       font-size: 15pt !important;
     }
@@ -347,7 +285,7 @@
     #container-slider .arrowPrev,
     #container-slider .arrowNext {
       font-size: 20pt;
-      margin-top: -100px;
+      margin-top: -10px;
       
     }
     #container-slider .arrowPrev {
@@ -356,10 +294,7 @@
     #container-slider .arrowNext {
       right: 7px !important;
     }
-    #slider {
-      height: 400px;
-      min-height: 400px;
-    }
+
     #slider li .content_slider {
       padding: 10px 35px;
     }
@@ -369,8 +304,7 @@
     }
 
     .listslider li {
-        
-        margin-top: -320px;
+        margin-top: -70px;
       }
     
   }

@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
+	header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
 }
 ?>
 <!DOCTYPE html>
@@ -30,54 +30,56 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>TRABAJAR CON DATOS</b></h2>
-	</div>
-
+	<!-- CAMBIOS -->
 	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo"></p>
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-in-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o
-				que encaje con la definición dada.</b>
-		</h4>
-		<br />
+	<section>
+
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-pw-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Se esta llamando los sonidos de la carpeta "sonidos"
-        var correcto = document.createElement("audio");
+		var correcto = document.createElement("audio");
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	    var incorrecto = document.createElement("audio");
+		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"La única forma de ingresar datos en Excel es escribirlos directamente",
+				pregunta: "La única forma de ingresar datos en Excel es escribirlos directamente",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -86,8 +88,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"¿Qué comando es el indicado para desplazarme entre celdas?",
+				pregunta: "¿Qué comando es el indicado para desplazarme entre celdas?",
 				opA: "Ctrl + Flechas",
 				opB: "Ctrl + C",
 				opC: "Ctrl + V",
@@ -96,8 +97,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"¿Qué comando es el indicado para copiar datos?",
+				pregunta: "¿Qué comando es el indicado para copiar datos?",
 				opA: "Ctrl + X",
 				opB: "Ctrl + C",
 				opC: "Ctrl + V",
@@ -106,8 +106,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"¿Qué comando es el indicado para pegar datos?",
+				pregunta: "¿Qué comando es el indicado para pegar datos?",
 				opA: "Ctrl + X",
 				opB: "Ctrl + C",
 				opC: "Ctrl + V",
@@ -116,8 +115,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"¿Qué comando es el indicado para cortar datos?",
+				pregunta: "¿Qué comando es el indicado para cortar datos?",
 				opA: "Ctrl + X",
 				opB: "Ctrl + C",
 				opC: "Ctrl + V",
@@ -126,8 +124,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 6,
-				pregunta:
-					"¿Cómo puedo encontrar la función de ordenar mis datos?",
+				pregunta: "¿Cómo puedo encontrar la función de ordenar mis datos?",
 				opA: "En archivo",
 				opB: "En insertar",
 				opC: "En datos",
@@ -136,8 +133,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 7,
-				pregunta:
-					"Puedo crear varias hojas para administrar mis datos en Excel",
+				pregunta: "Puedo crear varias hojas para administrar mis datos en Excel",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -146,8 +142,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 8,
-				pregunta:
-					"Para modificar alguno de mis datos en mis hojas de Excel, ¿Qué necesito hacer?",
+				pregunta: "Para modificar alguno de mis datos en mis hojas de Excel, ¿Qué necesito hacer?",
 				opA: "Crear una nueva hoja de datos",
 				opB: "Posicionarme en la celda y dar clic para editar",
 				opC: "No se puede",
@@ -156,8 +151,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 9,
-				pregunta:
-					"¿Puedo ingresar fechas como datos en mi hoja de Excel?",
+				pregunta: "¿Puedo ingresar fechas como datos en mi hoja de Excel?",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -166,8 +160,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 10,
-				pregunta:
-					"¿Tienes hambre?",
+				pregunta: "¿Tienes hambre?",
 				opA: "¡Si! tengo hambre",
 				opB: "Para nada",
 				opC: "No lo se",
@@ -256,18 +249,18 @@ if (empty($existe)) {
 			}
 			document.getElementById("tiempo").innerHTML =
 				segundos + " segundos";
-				if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7);";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	 }
+			}
 			if (segundos == 0) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
