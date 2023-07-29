@@ -11,23 +11,23 @@ include "../../../../../../../../acciones/conexion.php";
 
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -87,7 +87,7 @@ if (empty($existe)) {
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3 style="margin-bottom: 20px;">EDITOR DE CÓDIGO</h3>
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
@@ -112,11 +112,11 @@ if (empty($existe)) {
                     <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
-               
+
 
             </div>
-            
-            <a  style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script src="../../js/editor.js"></script>
@@ -168,23 +168,23 @@ if (empty($existe)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                Swal.fire({
+                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp9.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_cp9.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 2 + '&practico=' + 10;
+                    }
+                });
+
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();

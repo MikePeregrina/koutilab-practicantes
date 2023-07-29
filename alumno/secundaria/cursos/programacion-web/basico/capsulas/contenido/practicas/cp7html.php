@@ -9,9 +9,9 @@ $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula20";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
@@ -92,12 +92,12 @@ if (isset($resultadoIntentos['intentos'])) {
                 </table>
 
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3>EDITOR DE CÓDIGO</h3>
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
 
         </div>
     </div>
@@ -108,17 +108,17 @@ if (isset($resultadoIntentos['intentos'])) {
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-        function f(){
+        function f() {
 
         }
-        
+
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
             var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("editor").contentWindow.document;
             let iframe = frame.querySelectorAll("iframe").length;
 
-         
+
 
             if (iframe > 0) {
 
@@ -202,22 +202,22 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 }
             } else {
-                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                    Incorrecto.play();
-                    var myCodeHTML = document.getElementById("cd").value;
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Incorrecto.play();
+                var myCodeHTML = document.getElementById("cd").value;
                 var encodeHTML = encodeURI(myCodeHTML);
-                    Swal.fire({
-                        title: 'Oops...',
-                        text: '¡Verifica tu respuesta!',
-                        imageUrl: "../../../../../../img/signo.gif",
-                        imageHeight: 350,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd21.php?validar=' + 'incorrecto' + '&permiso=' + 21 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("cd").value;
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pd21.php?validar=' + 'incorrecto' + '&permiso=' + 21 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("cd").value;
 
-                        }
-                    });
-                }
+                    }
+                });
+            }
         }
     </script>
     <script src="../../js/fund.js"></script>

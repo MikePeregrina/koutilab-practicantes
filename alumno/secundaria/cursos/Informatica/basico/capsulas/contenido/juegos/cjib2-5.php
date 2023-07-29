@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula40";
+$permiso = "capsula24";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 41;
+$permiso_intento = 25;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -38,6 +38,7 @@ if (isset($resultadoIntentos['intentos'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -45,49 +46,53 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/cjib2-4.css" /><!--Linkeo de la hoja de estilos-->
+	<link rel="stylesheet" href="../../css/css-juegos/preg-ag.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
 	<title>KOUTILAB</title>
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>ANDROID</b></h2>
-	</div>
-
+	<!-- CAMBIOS -->
 	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b>Tiempo: <br />
+		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>ANDROID</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+	<section>
+
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-in-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img_juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
 		var preguntas = [{
@@ -154,11 +159,6 @@ if (isset($resultadoIntentos['intentos'])) {
 		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
-		//Se esta llamando los sonidos de la carpeta "sonidos"
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function ponerRespuesta() {
 			if (randomRes == 0) {
@@ -209,6 +209,10 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 		}
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
 		function iniciarTiempo() {
 			noRepeat++;
@@ -218,28 +222,29 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
+			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
 			if (segundos > 15) {
 				var div = document.getElementById("timer");
-				div.style.cssText = "  background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-			}
-			if (segundos <= 15) {
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
 				var div = document.getElementById("timer");
 				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 10) {
+
+			} else if (segundos < 10) {
 				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 7; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
-					imageUrl: "img/loop.gif",
+					imageUrl: "../../img/img_juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -283,20 +288,21 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 7; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
-						imageUrl: "img/loop.gif",
+						imageUrl: "../../img/img_juegos/loop.gif",
 						imageHeight: 350,
 					}).then((result) => {
 						if (result.isConfirmed) {
 							window.location.reload();
 						}
 					});
+					incorrecto.play();
 				} else {
 					alertBad();
 				}
@@ -321,22 +327,21 @@ if (isset($resultadoIntentos['intentos'])) {
 			seleccion = res;
 			evaluarRespuesta();
 		}
-
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 7; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 + "&id_curso=" + 7; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "img/Thumbs-Up.gif",
+				imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("img/fondo.gif")`,
+						url("../../img/img_juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {

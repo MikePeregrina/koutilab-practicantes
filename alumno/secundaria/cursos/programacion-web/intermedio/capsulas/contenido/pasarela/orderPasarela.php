@@ -104,7 +104,7 @@ $id_capsula = $_POST['id_capsula'];
             </div>
             <div class="button-box">
                 <button type="button" class="toggle-btn">
-                    <a  href="../../../../../../rutas/ruta-pw-i.php" type="button">Regresar a la ruta</a>
+                    <a href="../../../../../../rutas/ruta-pw-i.php" type="button">Regresar a la ruta</a>
                 </button>
             </div>
         </div>

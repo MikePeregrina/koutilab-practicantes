@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
@@ -30,32 +30,27 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>ANIMACIONES Y TRANSICIONES</b></h2>
-    </div>
-
-    <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
-            <p id="tiempo"></p>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
 
-    <!-- Contenedor principal -->
-    <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-a.php">
-            <button class="btn-b">
-                <i class="fas fa-reply"></i>
-            </button>
-        </a>
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h2>
+    </div>
 
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo con un clic y relacionala con una del lado
-                derecho con otro clic</b></h4>
+    <section>
 
-        <br>
+        <div class="cont-st">
+            <a href="#">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
+        </div>
         <!-- contenido del juego -->
         <div class="container-all">
             <!-- Columna de lado izquierdo -->
@@ -83,9 +78,15 @@ if (empty($existe)) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
-    </div>
+    </section>
 
-    <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
     <script>
         //Apartado de canvas para trazar lineas
 
@@ -169,8 +170,7 @@ if (empty($existe)) {
                     contexto.lineTo(508, 220);
                     contexto.stroke();
                     respuestasCorrectas++;
-                }
-                else if (
+                } else if (
                     respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
                 ) {
                     palabraseleccionada.classList.add('correcto');
@@ -223,9 +223,9 @@ if (empty($existe)) {
 
         //Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	    var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 
         // Agregar evento de clic al botón de comprobar respuestas
@@ -297,31 +297,27 @@ if (empty($existe)) {
                 });
             }
         }
-
-
-
     </script>
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120
-        ;
+        var segundos = 120;
         let puntos = 0;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
@@ -348,8 +344,8 @@ if (empty($existe)) {
         //         imageUrl: "img/Thumbs-Up.gif",
         //         imageHeight: 350,
         //         backdrop: `
-		// 				rgba(0,143,255,0.6)
-		// 				url("img/fondo.gif")`,
+        // 				rgba(0,143,255,0.6)
+        // 				url("img/fondo.gif")`,
         //         confirmButtonColor: '#a14cd9',
         //         confirmButtonText: '¡Genial!',
         //     }).then((result) => {
@@ -359,8 +355,6 @@ if (empty($existe)) {
         //     });
 
         // }
-
-
     </script>
 </body>
 

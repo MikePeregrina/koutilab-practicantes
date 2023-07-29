@@ -85,7 +85,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <div class="editor-container">
                 <h3 style="margin-bottom: 20px;">EDITOR DE CÓDIGO</h3>
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
@@ -112,7 +112,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                 </div>
 
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script src="../../js/editor.js"></script>
@@ -186,23 +186,23 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                Swal.fire({
+                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp11.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
-                        }
-                    });
-                
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_cp11.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 2 + '&practico=' + 10;
+                    }
+                });
+
             } else {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Incorrecto.play();

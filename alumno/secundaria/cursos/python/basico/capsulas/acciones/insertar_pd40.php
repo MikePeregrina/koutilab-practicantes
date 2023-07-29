@@ -12,8 +12,8 @@ $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
 $pythoncode = $_GET['pythoncode'];
-$pythoncodeDecodificado = urldecode($pythoncode );
-$mensajeConSaltosDeLinea = str_replace(array("\r", "\n"),array('\r', '\n'), $pythoncodeDecodificado);
+$pythoncodeDecodificado = urldecode($pythoncode);
+$mensajeConSaltosDeLinea = str_replace(array("\r", "\n"), array('\r', '\n'), $pythoncodeDecodificado);
 $urlRedireccionamiento = "../contenido/practicas/cp18.php?pythoncode=" . $mensajeConSaltosDeLinea;
 
 //Verificar si ya hay intentos en la capsula

@@ -123,3 +123,4 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
 } else if ($pregunta == 'correcto' && $totalIntentos >= 1 && $result_sql_permisos > 0) {
     header('location: ../../../../../rutas/ruta-in-b.php');
 }
+s

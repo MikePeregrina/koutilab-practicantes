@@ -55,10 +55,6 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>TEXTO</b></h2>
-	</div>
 
 	<!-- Timer -->
 	<div class="timer" id="timer">
@@ -67,20 +63,23 @@ if (isset($resultadoIntentos['intentos'])) {
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-pw-i.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general del juego -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>TEXTO</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
+
+	<!-- Contenedor principal -->
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-pw-i.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Selecciona la opción que corresponda a la línea en blanco o que
+					encaje con la definición dada.</b></h4>
+		</div>
 		<br />
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
@@ -88,8 +87,14 @@ if (isset($resultadoIntentos['intentos'])) {
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!-- <button class="verificar" onClick="alertExcelent()">Siguiente Sección</button> -->
-	</div>
-
+	</section>
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
@@ -98,11 +103,9 @@ if (isset($resultadoIntentos['intentos'])) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"¿Que nos permite manipular la propiedades de texto?",
+				pregunta: "¿Que nos permite manipular la propiedades de texto?",
 				opA: "Interlineado, separación, tabulación, etc...",
 				opB: "Colores",
 				opC: "Formas",
@@ -111,8 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"¿Cuantos tipos de nombres de familias existen?",
+				pregunta: "¿Cuantos tipos de nombres de familias existen?",
 				opA: "Tres",
 				opB: "Dos",
 				opC: "Una",
@@ -121,8 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Una de las siguientes fuentes no existe",
+				pregunta: "Una de las siguientes fuentes no existe",
 				opA: "Familia de fuentes",
 				opB: "Familia genérica",
 				opC: "Familia de colores",
@@ -131,8 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"Es la propiedad que nos permite manipular el tamaño de fuete para nuestros textos",
+				pregunta: "Es la propiedad que nos permite manipular el tamaño de fuete para nuestros textos",
 				opA: "font-size",
 				opB: "font-family",
 				opC: "font-style",
@@ -141,61 +141,10 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Es la propiedad que nos permite manipular el estilo de nuestros textos",
+				pregunta: "Es la propiedad que nos permite manipular el estilo de nuestros textos",
 				opA: "font-size",
 				opB: "font-family",
 				opC: "font-style",
-				correcta: "C",
-				tiempo: "20",
-			},
-			{
-				num: 6,
-				pregunta:
-					"Es el valor de font-weight que nos permite producir un texto normal",
-				opA: "lighter",
-				opB: "normal",
-				opC: "bold",
-				correcta: "B",
-				tiempo: "30",
-			},
-			{
-				num: 7,
-				pregunta:
-					"¿Cuál es el estilo de texto que hace que los textos se muestren en cursiva?",
-				opA: "Normal",
-				opB: "Italic",
-				opC: "Oblique",
-				correcta: "B",
-				tiempo: "20",
-			},
-			{
-				num: 8,
-				pregunta:
-					"Es la propiedad que nos permite establecer el ancho de nuestros textos",
-				opA: "font-weight",
-				opB: "font-family",
-				opC: "font-style",
-				correcta: "A",
-				tiempo: "20",
-			},
-			{
-				num: 9,
-				pregunta:
-					"Es el valor de font-weight que nos permite producir un texto ligero o delgado",
-				opA: "lighter",
-				opB: "normal",
-				opC: "bold",
-				correcta: "A",
-				tiempo: "25",
-			},
-			{
-				num: 10,
-				pregunta:
-					"Es el valor de font-weight que nos permite producir un texto grueso o en negrita",
-				opA: "lighter",
-				opB: "normal",
-				opC: "bold",
 				correcta: "C",
 				tiempo: "20",
 			},
@@ -214,7 +163,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -242,7 +191,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById("main-ctn").innerHTML =
 				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
 				this.contador +
-				"/10</p>" +
+				"/5</p>" +
 				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
 				"<p>" +
 				this.preguntas[this.random].pregunta +
@@ -271,23 +220,23 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
-				this.random = getRandomInt(10); //Elige la primera pregunta a mostrar
+				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
 				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	 }
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 2; //cancatenation
@@ -317,15 +266,15 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.puntos = this.puntos + 1;
 				this.contador = this.contador + 1;
 
-				if (this.puntos == 10) {
+				if (this.puntos == 5) {
 					//Cuando haya acertado las 10 preguntas
 					alertExcelent();
 				} else {
-					this.random = getRandomInt(10);
+					this.random = getRandomInt(5);
 					let found = prePas.find((element) => element == this.random);
 					while (found == this.random) {
 						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
-						this.random = getRandomInt(10);
+						this.random = getRandomInt(5);
 						found = prePas.find((element) => element == this.random);
 					}
 					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
@@ -341,10 +290,10 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 2; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
@@ -383,10 +332,10 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 2; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
@@ -394,7 +343,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)
-						url("i../../img/img-juegos/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
 				confirmButtonColor: "#a14cd9",
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {

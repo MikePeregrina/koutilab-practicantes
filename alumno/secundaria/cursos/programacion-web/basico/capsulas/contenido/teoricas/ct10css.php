@@ -97,23 +97,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/css/T8.5/157.gif');"></li>
                         <li style="background-image: url('../../img/css/T8.5/158.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp10.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Se pueden agregar sombras al texto?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Verdadero</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Falso</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Probablemente</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">No recuerdo</label>
                                     </div>
@@ -128,6 +128,12 @@ if (isset($resultadoIntentos['intentos'])) {
                 </section>
         </div>
     </div>
+
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -154,7 +160,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var checkbox2 = document.getElementById('checkbox2');
         var checkbox3 = document.getElementById('checkbox3');
         var checkbox4 = document.getElementById('checkbox4');
-       var puntos = <?php echo $puntosGanados; ?>;
+        var puntos = <?php echo $puntosGanados; ?>;
         checkbox1.addEventListener("change", comprueba, true);
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);

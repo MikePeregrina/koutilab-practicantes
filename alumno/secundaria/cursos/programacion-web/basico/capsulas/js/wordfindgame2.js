@@ -242,7 +242,7 @@
 						imageHeight: 350,
 						backdrop: `
 							rgba(0,143,255,0.6)
-							url("img/fondo.gif")
+							url("../img/img-juegos/fondo.gif")
 							`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',

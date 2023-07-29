@@ -54,28 +54,29 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>FÓRMULAS</b></h2>
-    </div>
-
+    <!-- CAMBIOS -->
     <!-- Timer -->
     <div class="timer" id="timer">
-        <b>Tiempo: <br />
-            <p id="tiempo"></p>
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
+    </div>
+
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>SELECCIÓN DE RESPUESTA PARA UN ENUNCIADO</b></h2>
     </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-a.php">
-            <button class="btn-b">
-                <i class="fas fa-reply"></i>
-            </button>
-        </a>
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
         <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
@@ -128,9 +129,22 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
 
         <!--Boton para verificar la respuesta-->
-        <button class="verificar" onClick="verificar()">Comprobar respuestas</button>
+        <div class="btn-ctn">
+            <button class="verificar" onClick="verificar()">
+                Comprobar respuestas
+            </button>
+        </div>
+
     </div>
     <p id="resultado"></p>
+
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 120;
@@ -146,17 +160,17 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 9; //cancatenation
@@ -207,7 +221,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 +"&id_curso=" + 9; //cancatenation
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 9; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);

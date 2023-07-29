@@ -12,16 +12,16 @@ $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
 $htmlcode = $_GET['htmlcode'];
-$htmlCodificado = urlencode($htmlcode );
-$htmlsdl = str_replace("%0A","sdl",$htmlCodificado);
+$htmlCodificado = urlencode($htmlcode);
+$htmlsdl = str_replace("%0A", "sdl", $htmlCodificado);
 $csscode = $_GET['csscode'];
-$cssCodificado = urlencode($csscode );
-$csssdl = str_replace("%0A","sdl",$cssCodificado);
+$cssCodificado = urlencode($csscode);
+$csssdl = str_replace("%0A", "sdl", $cssCodificado);
 $jscode = $_GET['jscode'];
-$jsCodificado = urlencode($jscode );
-$jssdl = str_replace("%0A","sdl",$jsCodificado);
+$jsCodificado = urlencode($jscode);
+$jssdl = str_replace("%0A", "sdl", $jsCodificado);
 
-$urlRedireccionamiento = "../contenido/practicas/cp6js.php?htmlcode=" . $htmlsdl."&csscode=" . $csssdl."&jscode=" . $jssdl;
+$urlRedireccionamiento = "../contenido/practicas/cp6js.php?htmlcode=" . $htmlsdl . "&csscode=" . $csssdl . "&jscode=" . $jssdl;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_secundaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");

@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula43";
+$permiso = "capsula3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 44;
+$permiso_intento = 4;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -43,9 +43,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 <head>
 	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="../../img/img_juegos/lgk.png">
-
-	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/cjib2-5.css"> <!--Linkeo de la hoja de estilos-->
+	<link rel="shortcut icon" href="img/lgk.png">
+	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css"> <!--Linkeo de la hoja de estilos-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
@@ -56,30 +55,28 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo" style="margin-left: 550px;"><b>LINUX</b></h4>
-        
-	</div>
-
-	<!-- Tiempo -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b style="margin-top: 10px;">Tiempo: <br>
-			<p id="tiempo"></p>
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>LINUX</b></h2>
+	</div>
 
-		<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-				<i class="fas fa-reply"></i></button>
-		</a>
+	<section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+					<i class="fas fa-reply"></i></button>
+			</a>
 
+			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+		</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
 			Iniciar juego
@@ -88,12 +85,21 @@ if (isset($resultadoIntentos['intentos'])) {
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
 
-	</div>
+	</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img_juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		let cantidadTarjetas = 24;
 		let iconos = []
 		let selecciones = []
+
 
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
@@ -112,7 +118,6 @@ if (isset($resultadoIntentos['intentos'])) {
 				'<i><img src="../::/../../img/img_juegos/l12.png" width= "50px"></i>'
 			]
 		}
-
 		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
 		function generarTablero() {
 			iniciarTiempo()
@@ -173,8 +178,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 44 + "&id_curso=" + 7; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 7; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
@@ -193,11 +198,10 @@ if (isset($resultadoIntentos['intentos'])) {
 							window.location.href = '../../../../../../rutas/ruta-in-b.php';
 						}
 					});
-					correcto.play(); //asignando sonido al juego completado
+					correcto.play(); //agregando sonido al juego completado
 				}
 			}, 1000);
 		}
-
 		//Verificar si ambas son iguales
 		function verificar() {
 			for (let i = 0; i < cantidadTarjetas; i++) {
@@ -211,13 +215,20 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 	<script>
-		var segundos = 300; //tiempo original 300s
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+		var segundos = 240;
 		let puntos = 0;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
+
+		//Agregando animacion a el timer
 		function iniciarTiempo() {
-			document.getElementById("tiempo").innerHTML =
-				segundos + " segundos";
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			//declarando condiciones que permiten cambiar el color de fondo del timer/
 			if (segundos <= 60) {
 				var div = document.getElementById("timer");
 				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
@@ -230,30 +241,30 @@ if (isset($resultadoIntentos['intentos'])) {
 				var div = document.getElementById("timer");
 				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
-			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 44 + "&id_curso=" + 7; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 7; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
 					imageUrl: "../../img/img_juegos/loop.gif",
-					imageHeight: 300,
+					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
-
 				});
-				incorrecto.play();
+				incorrecto.play(); //agregando sonido al juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
+	</script>
 	</script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

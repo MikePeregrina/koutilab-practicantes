@@ -1,5 +1,3 @@
-//Apartado de canvas para trazar lineas
-
 //variables para la medida del canvas
 const ALTURA_CANVAS = 290,
     ANCHURA_CANVAS = 535;
@@ -129,13 +127,6 @@ function checkAnswer(respuesta) {
     }
 }
 
-
-//Funcion que agrega el sonido al juego
-var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-var incorrecto = document.createElement("audio");
-incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
 // Agregar evento de clic al botón de comprobar respuestas
 const botonComprobar = document.querySelector('.verificar');
 botonComprobar.addEventListener('click', mostrarResultados);
@@ -158,6 +149,7 @@ function mostrarResultados() {
             xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
+            correcto.play();
             Swal.fire({
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
@@ -181,9 +173,9 @@ function mostrarResultados() {
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             //llamamos a la alerta
+            correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 //estrucutra de la alerta
-                
                 title: 'Resultados',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
                 imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
@@ -198,11 +190,11 @@ function mostrarResultados() {
                     window.location.href = "../../../../../../rutas/ruta-py-i.php";
                 }
             });
-            correcto.play(); //agregando sonido al juego completado
         }
     }
     //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
     else {
+        incorrecto.play();
         Swal.fire({
             title: 'Oops...',
             text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',

@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
+	header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
 }
 ?>
 <!DOCTYPE html>
@@ -29,54 +29,50 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
+
+	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>FUNCIONES LAMBDA</b></h2>
 	</div>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo" style="margin: 0 0 0 0"></p>
-		</b>
-	</div>
+	<section>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-py-a.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-py-a.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
-		//Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"¿Para que sirve la palabra lambda en nuestro código de Python?",
+				pregunta: "¿Para que sirve la palabra lambda en nuestro código de Python?",
 				opA: "Para declara funciones en la misma línea",
 				opB: "Para crear sumas",
 				opC: "No sirve de nada",
@@ -85,8 +81,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"¿Cuál es la forma correcta de crear una función lambda?",
+				pregunta: "¿Cuál es la forma correcta de crear una función lambda?",
 				opA: "suma = a, b: a + b, lambda",
 				opB: "suma = lambda a, b: a + b",
 				opC: "suma = lambda = a + b",
@@ -95,8 +90,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Las funciones lambda se pueden mandar a llamar sin la necesidad de parámetros",
+				pregunta: "Las funciones lambda se pueden mandar a llamar sin la necesidad de parámetros",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -105,8 +99,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"suma = _____ a, b: a + b",
+				pregunta: "suma = _____ a, b: a + b",
 				opA: "print",
 				opB: "int()",
 				opC: "lambda",
@@ -115,8 +108,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Puedo mandar a llamar una función lambda varias veces en mi código con distintos parámetros y funcionará",
+				pregunta: "Puedo mandar a llamar una función lambda varias veces en mi código con distintos parámetros y funcionará",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -130,6 +122,12 @@ if (empty($existe)) {
 		var contador = 1; //Lleva el conteo de preguntas
 		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
 
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 		function getRandomInt(max) {
 			//para generar números random enteros
 			return Math.floor(Math.random() * max);
@@ -138,7 +136,7 @@ if (empty($existe)) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -195,23 +193,23 @@ if (empty($existe)) {
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
-				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
+				this.random = getRandomInt(10); //Elige la primera pregunta a mostrar
 				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
- 	 }
 			if (segundos == 0) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
@@ -223,7 +221,7 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
+				incorrecto.play(); //Agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -294,6 +292,7 @@ if (empty($existe)) {
 			evaluarRespuesta();
 		}
 
+		//Alerta muestra que el juego fue completado
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			Swal.fire({

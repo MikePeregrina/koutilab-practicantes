@@ -63,6 +63,8 @@ function iniciarTiempo() {
         xmlhttp.send(param);
         //Borra el texto escri to
         escrito.value = "";
+        
+        incorrecto.play(); //agregando sonido al juego no completado
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
@@ -73,7 +75,6 @@ function iniciarTiempo() {
                 window.location.reload();
             }
         });
-        incorrecto.play(); //agregando sonido al juego no completado
     } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -96,6 +97,8 @@ function alertExcelent() {
         xmlhttp.open("POST", "../../acciones/insertar_pd20.php", true);
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send(param);
+        
+        correcto.play(); //agregando sonido al juego completado
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
@@ -113,8 +116,9 @@ function alertExcelent() {
                 window.location.href = '../../../../../../rutas/ruta-pw-a.php';
             }
         });
-        correcto.play(); //agregando sonido al juego completado
     } else {
+        console.log("ds");
+        incorrecto.play();
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",

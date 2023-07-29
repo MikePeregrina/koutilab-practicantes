@@ -96,13 +96,13 @@ if (isset($resultadoIntentos['intentos'])) {
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe> -->
-                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 5%; padding: 5px; margin: -30px 60px -20px 1050px; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
+                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 15%; padding: 5px; margin: -30px 60px -20px 70%; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
 
                 <div class="editor-container">
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
@@ -136,10 +136,10 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else {
-                
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
-              
+
                 let puntos = '<?php echo $puntosGanados; ?>';
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

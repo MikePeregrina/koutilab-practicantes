@@ -41,7 +41,7 @@ function escogerPreguntaAleatoria() {
                 swal.fire({
                     title: "Juego finalizado",
                     text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -71,7 +71,7 @@ function escogerPregunta(n) {
     select_id("numero").innerHTML = n;
     let pc = preguntas_correctas;
     if (preguntas_hechas > 1) {
-        select_id("puntaje").innerHTML = pc + "/" + "10";
+        select_id("puntaje").innerHTML = pc + "/" + "5";
     } else {
         select_id("puntaje").innerHTML = "";
     }
