@@ -96,23 +96,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T5.5/129.gif');"></li>
                         <li style="background-image: url('../../../img/P2/T5.5/130.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct5-5py.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1> ¿Qué es una lista en Python?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Es una estructura de datos inmutable que no puede ser modificada una vez creada.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Es una función especializada para realizar operaciones matemáticas complejas.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Es un tipo de dato utilizado exclusivamente para representar archivos y directorios en el sistema operativo.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Es una forma de representar interfaces gráficas de usuario interactivas.</label>
                                     </div>

@@ -97,23 +97,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../../img/P2/T5.5/129.gif');"></li>
                         <li style="background-image: url('../../../../img/P2/T5.5/130.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct5-5py.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cómo se pueden organizar paquetes en múltiples directorios en Python?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">es posible organizar paquetes en múltiples directorios utilizando el concepto de "paquetes anidados".</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">No es posible organizar paquetes en múltiples directorios.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Organizar paquetes en múltiples directorios en Python requiere la instalación de herramientas adicionales de terceros.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Todos los módulos y paquetes deben colocarse en el mismo directorio principal en Python, no se pueden anidar en subdirectorios.</label>
                                     </div>

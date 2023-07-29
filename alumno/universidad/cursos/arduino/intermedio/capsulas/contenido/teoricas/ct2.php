@@ -64,7 +64,7 @@ if (empty($existe) && $id_user != 1) {
                         <li style="background-image: url('../../img/CT222.mp4');"></li>
                         <li style="background-image: url('../../img/CT2222.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>Realiza un pequeño ejercicio</h1>

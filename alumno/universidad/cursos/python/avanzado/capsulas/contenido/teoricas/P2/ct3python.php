@@ -96,23 +96,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T3/108.gif');"></li>
                         <li style="background-image: url('../../../img/P2/T3/109.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd30.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué ocurre al asignar el mismo valor a una variable en Python? </h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">La variable simplemente conserva el valor anterior y no se produce ningún cambio en su contenido.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Se produce un error de asignación.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Se duplica el contenido de la variable.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Se concatenan los valores existentes y nuevos.</label>
                                     </div>

@@ -88,29 +88,29 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/informatica/T11/91.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T11/92.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd27.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es la importancia del botón de Encender en una torre de computadora?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
                                             Proporcionar energía a todos los componentes de la computadora.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
                                             Controlar la temperatura interna de la computadora.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
                                             Proteger los datos almacenados en el disco duro.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
                                             Establecer la conexión con dispositivos periféricos.

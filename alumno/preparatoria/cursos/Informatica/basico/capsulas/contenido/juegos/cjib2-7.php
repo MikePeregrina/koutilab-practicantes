@@ -94,6 +94,11 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
 
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion

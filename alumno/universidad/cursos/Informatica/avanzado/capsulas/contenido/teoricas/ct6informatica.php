@@ -98,29 +98,29 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/informatica/T6/51.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T6/52.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué se debe tener en cuenta al seleccionar una plantilla en PowerPoint?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
                                             La combinación de colores armoniosa y fuentes legibles.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
                                             La inclusión de animaciones y transiciones predefinidas.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
                                             La combinación de colores armoniosa y fuentes legibles.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
                                             La búsqueda en línea de plantillas predefinidas.

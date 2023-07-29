@@ -89,29 +89,29 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd20.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué se debe agregar en el campo "Para" según el texto?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
                                             El destinatario del correo.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
                                             El motivo o descripción del correo.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
                                             El mensaje que se desea enviar.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
                                             No se menciona qué se debe agregar en el campo "Para".

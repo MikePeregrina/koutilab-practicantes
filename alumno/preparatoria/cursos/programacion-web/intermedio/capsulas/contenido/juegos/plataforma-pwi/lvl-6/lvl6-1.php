@@ -54,6 +54,11 @@ if (empty($existe)) {
     <div class="logotipo">
         <img src="../img/koutilab.png" id="logo" alt="">
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         function alert1() {
             Swal.fire({

@@ -96,23 +96,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T3.5/38.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T3.5/39.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_ct3-5py.phsp">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Para qué sirven las funciones especificas?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Son funciones que se crean para realizar tareas especificas.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Sirven para decorar el código y hacerlo más estético.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Sirven para generar música y sonidos.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Sirven para controlar el hardware de un dispositivo.</label>
                                     </div>

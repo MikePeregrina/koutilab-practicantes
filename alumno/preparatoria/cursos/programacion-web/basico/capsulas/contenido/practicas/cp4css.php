@@ -99,6 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%; " disabled>Evaluar</button></a>
         </div>
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");

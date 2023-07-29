@@ -56,7 +56,7 @@ if (empty($existe) && $id_user != 1) {
                         <li style="background-image: url('../../img/ct2.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/ct22.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué se le agrega al control del motor?</h1>

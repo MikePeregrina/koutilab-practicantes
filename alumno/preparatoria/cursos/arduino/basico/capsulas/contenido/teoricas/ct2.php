@@ -60,7 +60,7 @@ if (empty($existe) && $id_user != 1) {
                         <li style="background-image: url('../../img/CT22.mp4');"></li>
                         <li style="background-image: url('../../img/CT222.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿En que idioma estan los comandos en arduino?</h1>
@@ -77,6 +77,11 @@ if (empty($existe) && $id_user != 1) {
                 </section>
         </div>
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         function miFunc() {
             //checar respuesta

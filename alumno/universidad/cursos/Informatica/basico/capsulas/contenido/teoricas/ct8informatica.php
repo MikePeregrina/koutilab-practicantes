@@ -95,30 +95,30 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/informatica/T8/68.gif');"></li>
 
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd20.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué característica define a los periféricos mixtos o dispositivos de entrada/salida (E/S)?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
                                             Son dispositivos que pueden ingresar información desde el exterior y mostrar resultados al usuario.
 
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
                                             Son dispositivos que solo ingresan información desde el exterior.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
                                             Son dispositivos que solo envían información al software.
                                         </label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
                                             Son dispositivos que solo muestran al usuario los resultados de las operaciones.

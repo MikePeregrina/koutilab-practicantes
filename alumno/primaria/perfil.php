@@ -552,9 +552,9 @@ $query_cont = mysqli_query($conexion, $sql_cont);
 
                     <form enctype="multipart/form-data" action="" method="post">
                         <div class="user-details1" style="margin-left:1%;">
-                            <div class="input-box1" style="width: 70%; scale: 90%; margin-top:1%; margin-left: -0;">
+                            <div class="input-box1" style="width: 90%; scale: 90%; margin-top:1%; margin-left: -0;">
                                 <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                                <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="width: 70%; margin-left:40%">
+                                <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="width: 70%; margin-left:20%">
                             </div>
                         </div>
                     </form>
@@ -1155,8 +1155,5 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         }
         ?>
-        <div class="pie-pagina">
-            <div class="imagenLogoF">
-                <br>
-    </div>
+       
 </body>

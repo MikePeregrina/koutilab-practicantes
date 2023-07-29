@@ -96,23 +96,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T7.5/157.gif');"></li>
                         <li style="background-image: url('../../../img/P2/T7.5/158.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct7-5py.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1> ¿Qué son las metaclases en Python?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Es una clase especial que define el comportamiento de otras clases.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Son clases que solo se utilizan para representar datos tabulares.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Son funciones que se utilizan para realizar operaciones matemáticas avanzadas.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Son clases que se utilizan exclusivamente en la manipulación de archivos y directorios.</label>
                                     </div>

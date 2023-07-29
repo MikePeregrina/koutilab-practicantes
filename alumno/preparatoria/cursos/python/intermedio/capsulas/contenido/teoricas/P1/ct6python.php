@@ -97,23 +97,23 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../../img/P1/T6/66.gif');"></li>
                         <li style="background-image: url('../../../../img/P1/T6/67.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                            <div >
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd17.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué es un dato compuesto en Python?</h1>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">Un tipo de dato que solo se utiliza en estructuras de control.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">Un tipo de dato que almacena un solo valor.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">Un tipo de dato que solo se utiliza en funciones.</label>
                                     </div>
-                                    <div>
+                                    <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Un tipo de dato que solo se utiliza en estructuras de control.</label>
                                     </div>
@@ -128,6 +128,11 @@ if (isset($resultadoIntentos['intentos'])) {
                 </section>
         </div>
     </div>
+    <footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
