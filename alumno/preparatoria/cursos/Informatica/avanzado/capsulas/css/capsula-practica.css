@@ -45,6 +45,22 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
+
+
+.board::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .board::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  .board::-webkit-scrollbar-thumb {
+    background: rgba(129,179,243);
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
 .container{
     width: 90%;
     margin-top: 30px;
@@ -224,8 +240,8 @@ form .user-details .input-box{
 
 
 .btn-grd{
-    width: 20%;
-    padding: 10px 30px;
+    width: 245px;
+    padding: 13px 30px;
     cursor: pointer;
     display: block;
     margin: auto;
@@ -234,7 +250,9 @@ form .user-details .input-box{
     outline: none;
     border-radius: 30px;
     transition: 0.5s;
-    margin-bottom: 30px;
+    color: black;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }
 
 .btn-grd:hover {
@@ -249,17 +267,19 @@ h3{
 
 
 .cd{
-    width: 47%;
+    width: 44%;
     box-shadow: 0 0 12px rgba(132,196,44, .8);
     text-decoration: none;
     font-size: 20px;
     margin-top: 10px;
     border: none;
-    margin-left: 30px;
+    margin-left: 5%;
     margin-bottom: 10px;
     height: 450px;
     font-family: Tahoma;
     outline: none;
+    resize: none;
+    overflow: hidden;
 }
 
 .cd::placeholder{

@@ -416,8 +416,6 @@ input[type="file"]::-webkit-file-upload-button {
   /*background: linear-gradient(90deg, rgba(61,172,244,.4) 19%, rgba(255,255,255,.6) 56%, rgba(132,196,44,.4) 88%);*/
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
-  margin-top: 0px;
-  padding: 1.5rem 2rem;
   border: 3px solid rgba(0, 201, 255, 2556);
   /*background: linear-gradient(90deg, rgba(61,172,244,.4) 19%, rgba(255,255,255,.6) 56%, rgba(132,196,44,.4) 88%);*/
   background: rgba(255, 255, 255, 0.8);
@@ -492,16 +490,10 @@ margin-left: 20%;
 margin-top: -1.5rem;
   
 }
-/*Titulo Estadisticas*/
-.titlec2{
-  width: 280px;
-  margin-left: 26%;
-  margin-right: 40px;
-  margin-top: -1.5rem;
-}
+
 /*Titulo Estadisticas*/
 .titlec2 {
-  width: 300px;
+  width: 60%;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -509,10 +501,8 @@ margin-top: -1.5rem;
   background-color: rgba(0, 201, 255, 2556);
   border-radius: 0% 0% 55% 55%;
   position: relative;
-margin-left: 1%;
 margin-top: -1.5rem;
-  margin-left: 13%;
-  margin-right: 40px;
+  margin-left: 3%;
   margin-top: -1.5rem;
 }
 /*Contendores de cada cursos*/

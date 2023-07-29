@@ -78,7 +78,7 @@ if (empty($existe) && $id_user != 1) {
                     <div class="cd" id="editor">// Programación básica con Arduino</div>
                 </div>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" >Evaluar</button></a>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>

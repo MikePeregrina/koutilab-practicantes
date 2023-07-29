@@ -84,7 +84,7 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
 
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
+                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" >Evaluar</button></a>
             </form>
         </div>
     </div>
