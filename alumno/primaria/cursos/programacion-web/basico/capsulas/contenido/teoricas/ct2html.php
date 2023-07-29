@@ -102,11 +102,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <h1>¿Cuantos formatos de texto existen?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">5 formatos diferentes</label>
+                                        <label for="checkbox1">10 formatos diferentes</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">10 formatos diferentes</label>
+                                        <label for="checkbox2">5 formatos diferentes</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">

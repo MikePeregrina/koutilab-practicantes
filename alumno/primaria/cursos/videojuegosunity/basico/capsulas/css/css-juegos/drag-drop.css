@@ -1,0 +1,416 @@
+body {
+  color: #404040;
+  font-family: Tahoma;
+  /*background-image: url(../img/bg1.png);*/
+  background-image: url(../../img/img_juegos/fondo.png);  background-repeat: no-repeat; /*no repite la imagen*/
+  background-size: cover;/*distribuye la imagen a toda la pantalla*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(129, 179, 243);
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.titulo-gen {
+  margin: 8px auto 0 auto;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px rgba(129,179,243);
+  line-height: 20px;
+  width: 1200px;
+  height: 60px;
+}
+
+.titulo {
+  margin: 14px 0 5px 390px;
+  font-size: 18px;
+}
+
+.contenido {
+  margin: 20px auto 30px auto;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px rgba(129,179,243);
+  line-height: 20px;
+  width: 1200px;
+  height: 790px;
+}
+
+.imagen1 {
+  position: relative;
+  width: 200px; /*cambia la anchura de las imagenes*/
+  height: 85px; /*cambia la altura de las imagenes*/
+  border-radius: 15px;
+}
+
+.imagenes {
+  position: absolute;
+  margin-top: -18px;/*Cambia el pocisionamiento de las imagenes y el titulo*/
+  width: 660px;
+  height: 320px;
+}
+
+.caja-html {
+  float: right;
+  position: relative;
+  width: 580px;
+  height: 130px;
+}
+
+.caja-css {
+  float: right;
+  margin-left: 600px;
+  /*width: 580px;*/
+  height: 435;
+}
+
+.caja-img {
+  margin: 60px 0 0 74px;/*cambia el margen de los laterales de la seccion de imagenes*/
+  float: left;
+  width: 200px; /*Se modifico la altura y el ancho de las imagenes*/
+  height: 90px;
+  margin-top: 1.4rem; /*Cambia el espaciado entre imagenes de forma horizontal*/
+  display: flex;
+  justify-content: center;
+}
+
+.caja-contenedor {
+  margin: 10px 0 0 13px;
+  float: left;
+  width: 237px; /*cambia el posicionamiento de la contenedores de la derecha*/
+  height: 120px;
+}
+
+.box {
+  position: absolute;
+  width: 240px; /*Cambia el posicionamiento de las tarjetas de la izquierda*/
+  height: 110px;
+  border-width: 1px;
+  justify-content: center;
+  display: flex;
+}
+
+.html-b-t {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;  /*cambia el alineamiento del titulo de cada recuadro*/
+  font-size: 160%;
+}
+.ht1 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 30px;
+  padding-top: 30px;
+  margin-top: 7px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;
+  height: 56px;
+  border-radius: 20px;
+  border-style: dotted; /*genera un borde punteado*/
+  text-align: center;
+}
+
+.ht2 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 30px;
+  padding-top: 30px;
+  margin-top: 137px; /*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;/*cambia el ancho del contenedor*/
+  height: 56px; /*cambia la altura del contenedor*/
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+
+.ht3 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 30px;
+  padding-top: 30px;
+  margin-top: 267px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;/*ancho de la tarjeta*/
+  height: 56px;/*altura de la tarjeta*/
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+
+.ht4 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 30px;
+  padding-top: 30px;
+  margin-top: 398px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;/*ancho de la tarjeta*/
+  height: 56px;/*altura de la tarjeta*/
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+
+.ht5 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 30px;
+  padding-top: 30px;
+  margin-top: 528px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;/*ancho de la tarjeta*/
+  height: 56px;/*altura de la tarjeta*/
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+.ht6 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 280px;  /*Cambia el posicionamiento de los recuadros de la derecha */
+  padding-top: 30px;
+  margin-top: 7px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;
+  height: 56px;
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+.ht7 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 280px;
+  padding-top: 30px;
+  margin-top: 137px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;
+  height: 56px;
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+.ht8 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 280px;
+  padding-top: 30px;
+  margin-top: 267px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;
+  height: 56px;
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+.ht9 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 280px;
+  padding-top: 30px;
+  margin-top: 398px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;
+  height: 56px;
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+.ht10 {
+  position: absolute;
+  font-size: 100%;
+  margin-left: 280px;
+  padding-top: 30px;
+  margin-top: 528px;/*cambia el espaciado entre contenedores*/
+  z-index: 0;
+  width: 200px;
+  height: 56px;
+  border-radius: 20px;
+  border-style: dotted;
+  text-align: center;
+}
+.div-vertical {
+  background-color: rgba(88, 88, 88, 0.3);
+  width: 2px;
+  height: 620px; /*cambia la altura de la linea*/
+  position: absolute;
+  margin-left: 600px;  /*Se modifico la alineación de la div.vertical*/
+  margin-top: 65px;
+}
+/*Se coemnto la div.horizontal*/
+/*.div-horizontal {
+  background-color: rgba(88, 88, 88, 0.5);
+  width: 570px;
+  height: 1px;
+  position: absolute;
+  margin-left: 600px;
+  margin-top: 493px;
+}*/
+
+.btn-v {
+  position: absolute;
+  margin-top: 645px;
+}
+
+.btn-r {
+  position: absolute;
+  margin-top: 725px;
+}
+
+.verificar {
+  cursor: pointer;
+  color: #404040;
+  background: linear-gradient(
+    to right,
+    rgba(129, 179, 243),
+    rgba(132, 196, 44,0.6)
+  );
+  padding: 20px;
+  border-radius: 30px;
+  border-style: none;
+  font-size: 130%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 320px;
+  width: 260px;
+  float: left;
+}
+
+.recargar {
+  cursor: pointer;
+  color: #404040;
+  background: linear-gradient(
+    to right,
+    rgba(129, 179, 243),
+    rgba(132, 196, 44,0.6)
+  );
+  padding: 20px;
+  border-radius: 30px;
+  border-style: none;
+  font-size: 130%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 620px;
+  width: 260px;
+}
+
+.timer {
+  text-align: center;
+  padding: 3%;
+  margin: 2rem 0 0 69rem;
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(129,179,243);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  border-radius: 110px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-color: rgba(129, 178, 243, 0.9);
+  z-index: 5;
+  font-size: 150%;
+}
+/*Generando animaciones del timer*/
+@keyframes animation1 {
+  0% {margin: 2rem 0 0 68rem;}
+  20% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;} 
+  60% {margin: 2rem 0 0 70rem;}
+  80% {margin: 2rem 0 0 68rem;} 
+  100% {margin: 2rem 0 0 70rem;}
+}
+
+@keyframes animation2 {
+  0% {margin: 2rem 0 0 68rem;}
+  15% {margin: 2rem 0 0 70rem;}
+  30% {margin: 2rem 0 0 68rem;;} 
+  45% {margin: 2rem 0 0 70rem;}
+  60% {margin: 2rem 0 0 68rem;;} 
+  75% {margin: 2rem 0 0 70rem;}
+  90% {margin: 2rem 0 0 70rem;} 
+  100% {margin: 2rem 0 0 69rem;}
+}
+
+@keyframes animation3 {
+  0% {margin: 2rem 0 0 68rem;}
+  10% {margin: 2rem 0 0 70rem;}
+  20% {margin: 2rem 0 0 68rem;;} 
+  30% {margin: 2rem 0 0 70rem;}
+  40% {margin: 2rem 0 0 68rem;;} 
+  50% {margin: 2rem 0 0 70rem;}
+  60% {margin: 2rem 0 0 68rem;;} 
+  70% {margin: 2rem 0 0 70rem;} 
+  80% {margin: 2rem 0 0 68rem;;} 
+  90% {margin: 2rem 0 0 70rem;} 
+  100% {margin: 2rem 0 0 69rem;}
+}
+.btn-b {
+  width: 5%;
+  padding: 5px 5px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(
+    to right,
+    rgba(129, 179, 243),
+    rgba(132, 196,44,0.6)
+  );
+  border: 0px;
+  outline: none;
+  border-radius: 50%;
+  float: right;
+}
+/*Se agrego la animacion del btn regresar*/
+.btn-b:hover {
+  scale: 130%;
+  transition: scale 0.35s;
+}
+
+.btn-b:hover::after {
+  scale: 100%;
+  transition: scale 0.35s;
+}
+
+@media (max-width: 750px) {
+  .btn-b {
+    width: 10%;
+  }
+}
+
+.btn-b i {
+  font-size: 25px;
+}
