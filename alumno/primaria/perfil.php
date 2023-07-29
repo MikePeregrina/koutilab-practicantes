@@ -349,6 +349,20 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
+                <div class="card" style="height: 300px;">
+                    <a href="rutas/ruta-vj-b.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_Videojuegos_Unity_basico)) echo $data_Videojuegos_Unity_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_Videojuegos_Unity_basico)) echo $data_Videojuegos_Unity_basico['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Videojuegos Unity básico</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
