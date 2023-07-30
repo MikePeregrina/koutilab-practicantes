@@ -96,7 +96,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
     <section>
         <div class="main-content">
             <div class="label">
-                <span>Videojuegos Capitulo 1</span>
+                <span>Capitulo 1</span>
             </div>
             <div class="snake">
                 <!-- Videojuegos Unity Basico 1-->
@@ -149,7 +149,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/evaluativas/ce1videojuegos.php"><button class="btn32" id="eva" <?php echo 'style="' . (($existe_capsula25 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas Videojuegos Unity Basico 1-->
 
                 <div class="label-css">
-                <span>Videojuegos Capitulo 2</span>
+                <span>Capitulo 2</span>
                 </div>
                 <!-- Videojuegos UNITY Capitulo 2-->
                 <!-- TEMA 1 -->

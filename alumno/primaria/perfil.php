@@ -54,6 +54,21 @@ $permiso_ruta_r9 = "9";
 $sql_verificar_r9 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r9'");
 $existe_verificar_r9 = mysqli_num_rows($sql_verificar_r9);
 
+//Verificar si ya se tiene permiso en ruta 10
+$permiso_ruta_r10 = "10";
+$sql_verificar_r10 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r10'");
+$existe_verificar_r10 = mysqli_num_rows($sql_verificar_r10);
+
+//Verificar si ya se tiene permiso en ruta 11
+$permiso_ruta_r11 = "11";
+$sql_verificar_r11 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r11'");
+$existe_verificar_r11 = mysqli_num_rows($sql_verificar_r11);
+
+//Verificar si ya se tiene permiso en ruta 12
+$permiso_ruta_r12 = "12";
+$sql_verificar_r12 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r12'");
+$existe_verificar_r12 = mysqli_num_rows($sql_verificar_r12);
+
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_primaria WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
@@ -93,6 +108,18 @@ $data_informatica_intermedio = mysqli_fetch_assoc($query_informatica_intermedio)
 //Estadisticas informatica avanzado
 $query_informatica_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 9");
 $data_informatica_avanzado = mysqli_fetch_assoc($query_informatica_avanzado);
+
+//Estadisticas videojuegosunity basico
+$query_videojuegosunity_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 10");
+$data_videojuegosunity_basico = mysqli_fetch_assoc($query_videojuegosunity_basico);
+
+//Estadisticas videojuegosunity intermedio
+$query_videojuegosunity_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 11");
+$data_videojuegosunity_intermedio = mysqli_fetch_assoc($query_videojuegosunity_intermedio);
+
+//Estadisticas videojuegosunity avanzado
+$query_videojuegosunity_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 12");
+$data_videojuegosunity_avanzado = mysqli_fetch_assoc($query_videojuegosunity_avanzado);
 
 //Información solo de alumno
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
@@ -418,16 +445,44 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         </div>
                     </a>
                 </div>
-                <div class="card" style="height: 300px;">
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r10 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                     <a href="rutas/ruta-vj-b.php">
                         <div class="container">
                             <div class="box">
-                                <div class="chart" data-percent="<?php if (isset($data_Videojuegos_Unity_basico)) echo $data_Videojuegos_Unity_basico['progreso']; ?>" data-scale-color="#ffb400">
-                                    <?php if (isset($data_Videojuegos_Unity_basico)) echo $data_Videojuegos_Unity_basico['progreso']; ?>%
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>%
                                 </div>
                                 <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
                                 <br>
                                 <h2>Videojuegos Unity básico</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r11 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-i.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_intermedio)) echo $data_videojuegosunity_intermedio['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Videojuegos Unity intermedio</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r12 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-a.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Videojuegos Unity avanzado</h2>
                             </div>
                         </div>
                     </a>
