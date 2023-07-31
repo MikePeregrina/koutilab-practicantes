@@ -327,9 +327,11 @@ if (empty($existe)) {
             }
         }
 
-        //Funcion de recoleccion de estrellas
+        //Funcion de recoleccion de estrellas y variable de score que contiene el numero de estrellas
         function collectStar(player, star) {
             star.disableBody(true, true);
+
+            //Variable de score que contiene el numero de estrellas
             score += 1;
 
             colectSound();
@@ -380,6 +382,7 @@ if (empty($existe)) {
             count = 10000000000;
         }
 
+        //Alerta que solo reinicia el juego
         function alertLose() {
             Swal.fire({
                 title: 'Oops...',
@@ -393,7 +396,10 @@ if (empty($existe)) {
             });
         }
 
+        //Funcion que envia los datos a la base de datos
         function alertWin() {
+            // mult = score;
+            // score = mult * 3;
             Swal.fire({
                 title: '¡Perfecto!',
                 text: 'Has completado el capitulo 1 de las aventuras de Koubot con 10 puntos y ' + score + ' estrellas de 5',
@@ -419,6 +425,7 @@ if (empty($existe)) {
             correcto.play(); //agregando sonido al juego completado
         }
 
+        //Alerta que envia al jugador al volver a intentarlo sin estrellas
         function alertQuestion() {
             Swal.fire({
                 title: '¡Oh no!',
