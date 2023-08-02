@@ -193,7 +193,7 @@ $data1 = mysqli_fetch_assoc($query1);
                                     <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-info"><i class='fas fa-chart-line' id="i-group" style="color: white"></i></a>
                                     <!--<a href="acciones/editar_alumno.php?id=<?php //echo $data['id_alumno']; 
                                                                                 ?>" id="btn-group" class="btn btn-success"><i class='fas fa-edit' id="i-group"></i></a>-->
-                                    <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" id="f-c" class="d-inline">
+                                    <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i class='fas fa-trash-alt' id="i-group"></i> </button>
                                     </form>
                                 </td>
@@ -299,9 +299,18 @@ $data1 = mysqli_fetch_assoc($query1);
         }
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bulma.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bulma.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bulma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
 
@@ -310,13 +319,28 @@ $data1 = mysqli_fetch_assoc($query1);
 
     <script>
         $(document).ready(function() {
-            $('#alumnos').DataTable({
+            var table = $('#alumnos').DataTable({
                 responsive: true,
                 autoWidth: false,
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.13.2/i18n/es-MX.json'
+                lengthChange: false,
+                searching: true,
+                paging: true,
+                ordering: false,
+                info: false,
+                buttons: [{
+                    extend: 'pdf',
+                    split: ['excel', 'print'],
+                }],
+                "language": {
+                    "paginate": {
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
                 }
             });
+
+
+            table.buttons().container().appendTo($('div.column.is-half', table.table().container()).eq(0));
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

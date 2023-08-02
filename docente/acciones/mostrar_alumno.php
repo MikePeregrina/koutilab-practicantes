@@ -30,6 +30,8 @@
     $idalumno = $_REQUEST['id'];
     $query1 = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $idalumno");
     $data1 = mysqli_fetch_assoc($query1);
+    $query2 = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = $idalumno");
+    $data2 = mysqli_fetch_assoc($query2);
     $result_sql = mysqli_num_rows($query1);
     if ($result_sql == 0) {
         header("Location: ../../docente/alumnos.php");
@@ -37,59 +39,67 @@
 
     ?>
 
-<div class="containers">
+    <div class="containers">
         <h1>Puntaje del Alumno</h1>
     </div>
-<section>
-<div class="d-flex justify-content-center">
-        <div class="board p-4" style="width: 90%;">
-            <table id="alumnos" width="100%" class="table border-top">
-                <thead>
-                    <tr>
-                        <td><b></b></td>
-                        <td><b>Programación web básica</b></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <h5>Trofeos</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["trofeos"] ?></h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Puntaje</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["puntos"] ?></h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Práctico</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["practico"] ?></h5>
-                        </td>
+    <section>
+        <div class="d-flex justify-content-center">
+            <div class="board p-4" style="width: 90%;">
+                <table id="alumnos" width="100%" class="table border-top">
+                    <thead>
+                        <tr>
+                            <td><b></b></td>
+                            <td><b>Programación web básica</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5>Logros</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["trofeos"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Destreza</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["puntos"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Conocimientos</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["practico"] ?></h5>
+                            </td>
 
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Teorico</h5>
-                        </td>
-                        <td>
-                            <h5><?php echo $data1["teorico"] ?></h5>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <a href="../alumnos.php" class="btn btn-danger">Atrás</a>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Coding</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["teorico"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Conexiones</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data2["conexiones"] ?></h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="../alumnos.php" class="btn btn-danger">Atrás</a>
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
     <?php include '../footer.php'; ?>
 </body>

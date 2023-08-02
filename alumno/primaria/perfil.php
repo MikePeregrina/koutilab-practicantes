@@ -147,11 +147,6 @@ $totalPuntaje = ((int)$fila['id_alumno']) * 300;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
-//Contador de conexiones
-$cont = intval($user['conexiones'] + 1);
-$sql_cont = "UPDATE `alumnos_primaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_user'";
-$query_cont = mysqli_query($conexion, $sql_cont);
-
 ?>
 <!DOCTYPE html>
 
@@ -1153,10 +1148,10 @@ $query_cont = mysqli_query($conexion, $sql_cont);
         ?>
 
         <footer class="footerimga">
-		    <div class="imagen-footer">
-			    <img src="../primaria/img/benvenida.png" alt="No-image">
-		    </div>
-	    </footer>
+            <div class="imagen-footer">
+                <img src="../primaria/img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
 
         <?php
         if (isset($_POST['enviarclave'])) {
@@ -1224,5 +1219,5 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         }
         ?>
-       
+
 </body>

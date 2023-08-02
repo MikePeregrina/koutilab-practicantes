@@ -120,11 +120,6 @@ $totalPuntaje = ((int)$fila['id_alumno']) * 300;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
-//Contador de conexiones
-$cont = intval($user['conexiones'] + 1);
-$sql_cont = "UPDATE `alumnos_secundaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_user'";
-$query_cont = mysqli_query($conexion, $sql_cont);
-
 ?>
 <!DOCTYPE html>
 

@@ -103,6 +103,9 @@ $fila = mysqli_fetch_assoc($result);
                                 <option value="4">Python básico</option>
                                 <option value="5">Python intermedio</option>
                                 <option value="6">Python avanzado</option>
+                                <option value="7">Informática básico</option>
+                                <option value="8">Informática intermedio</option>
+                                <option value="9">Informática avanzado</option>
                             </select>
                         </div>
                         <div class="input-box">
@@ -157,7 +160,7 @@ $fila = mysqli_fetch_assoc($result);
                                     <a href="acciones/mostrar_estadisticas_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" id="btn-group"><i class="fas fa-chart-pie" style="color: white;" id="i-group"></i></a>
                                     <a href="acciones/editar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-edit' id="i-group"></i></a>
                                     <a href="acciones/agregar_curso.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-plus' id="i-group"></i></a>
-                                    <form action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" id="f-c" class="d-inline">
+                                    <form action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" type="submit" id="btn-trs"><i class='fas fa-trash-alt' id="i-trs"></i> </button>
                                     </form>
                                 </td>

@@ -245,7 +245,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                 responsive: true,
                 autoWidth: false,
                 lengthChange: false,
-                searching: false,
+                searching: true,
                 paging: true,
                 ordering: false,
                 info: false,

@@ -120,11 +120,6 @@ $totalPuntaje = ((int)$fila['id_alumno']) * 300;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
-//Contador de conexiones
-$cont = intval($user['conexiones'] + 1);
-$sql_cont = "UPDATE `alumnos_universidad` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_user'";
-$query_cont = mysqli_query($conexion, $sql_cont);
-
 ?>
 <!DOCTYPE html>
 
@@ -250,10 +245,10 @@ $query_cont = mysqli_query($conexion, $sql_cont);
                         <li>
                             <form enctype="multipart/form-data" action="" method="post">
                                 <div class="user-details1">
-                                    <div class="input-box1" >
+                                    <div class="input-box1">
                                         <input type="text" name="clavegrupo" value="" placeholder="Clave de grupo">
 
-                                        <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" >
+                                        <input type="submit" name="enviarclave" value="Unirse" class="btn-grd">
                                     </div>
                                 </div>
                             </form>
@@ -1148,10 +1143,10 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         }
         ?>
-         <footer class="footerimga">
-		    <div class="imagen-footer">
-			    <img src="../primaria/img/benvenida.png" alt="No-image">
-		    </div>
-	    </footer>
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../primaria/img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
     </div>
 </body>

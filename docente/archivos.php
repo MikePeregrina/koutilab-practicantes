@@ -163,9 +163,9 @@ if (isset($_GET['id'])) {
                                 <td><?php echo $data['grado_escolar']; ?></td>
                                 <td><?php echo $data['fecha']; ?></td>
                                 <td>
-                                <a href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
-                                    
-                                    <form action="" method="post" id="f-c" class="d-inline">
+                                    <a href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
+
+                                    <form action="" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-success" id="btn-trs" type="submit"><i class='fas fa-clipboard-check' id="i-group"></i> </button>
                                     </form>
                                 </td>

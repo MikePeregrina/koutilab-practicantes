@@ -120,11 +120,6 @@ $totalPuntaje = ((int)$fila['id_alumno']) * 300;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
-//Contador de conexiones
-$cont = intval($user['conexiones'] + 1);
-$sql_cont = "UPDATE `alumnos_preparatoria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_user'";
-$query_cont = mysqli_query($conexion, $sql_cont);
-
 ?>
 <!DOCTYPE html>
 
@@ -774,7 +769,7 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         </script>
 
-<dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
+        <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
             <div style="margin-left:5%; margin-bottom:2%; width: 90%; height: 40px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); display:flex; justify-content:center">
                 <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Avatar</h4>
@@ -1148,10 +1143,10 @@ $query_cont = mysqli_query($conexion, $sql_cont);
             }
         }
         ?>
-         <footer class="footerimga">
-		    <div class="imagen-footer">
-			    <img src="../primaria/img/benvenida.png" alt="No-image">
-		    </div>
-	    </footer>
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../primaria/img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
     </div>
 </body>

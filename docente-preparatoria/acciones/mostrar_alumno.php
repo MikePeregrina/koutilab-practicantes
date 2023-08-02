@@ -30,6 +30,8 @@
     $idalumno = $_REQUEST['id'];
     $query1 = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $idalumno");
     $data1 = mysqli_fetch_assoc($query1);
+    $query2 = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE id_alumno = $idalumno");
+    $data2 = mysqli_fetch_assoc($query2);
     $result_sql = mysqli_num_rows($query1);
     if ($result_sql == 0) {
         header("Location: ../../docente-preparatoria/alumnos.php");
@@ -53,7 +55,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <h5>Trofeos</h5>
+                                <h5>Logros</h5>
                             </td>
                             <td>
                                 <h5><?php echo $data1["trofeos"] ?></h5>
@@ -61,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h5>Puntaje</h5>
+                                <h5>Destreza</h5>
                             </td>
                             <td>
                                 <h5><?php echo $data1["puntos"] ?></h5>
@@ -69,7 +71,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h5>Práctico</h5>
+                                <h5>Conocimientos</h5>
                             </td>
                             <td>
                                 <h5><?php echo $data1["practico"] ?></h5>
@@ -78,10 +80,18 @@
                         </tr>
                         <tr>
                             <td>
-                                <h5>Teorico</h5>
+                                <h5>Coding</h5>
                             </td>
                             <td>
                                 <h5><?php echo $data1["teorico"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Conexiones</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data2["conexiones"] ?></h5>
                             </td>
                         </tr>
                     </tbody>
