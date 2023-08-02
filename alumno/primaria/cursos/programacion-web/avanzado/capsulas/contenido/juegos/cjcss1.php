@@ -162,8 +162,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
         function tiempoAgotado() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 3; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 17 + "&id_curso=" + 3; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd17.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
@@ -211,8 +211,8 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 3; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 17 + "&id_curso=" + 3; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd17.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
                 incorrecto.play(); //agregando sonido al juego no completado
@@ -237,8 +237,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 16 + "&id_curso=" + 3; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 17 + "&id_curso=" + 3; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd17.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             correcto.play(); //agregando sonido al juego completado

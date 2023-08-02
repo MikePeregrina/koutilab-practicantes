@@ -183,7 +183,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
 					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 46 + "&id_curso=" + 3; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+					xmlhttp.open("POST", "../../acciones/insertar_pd46.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
