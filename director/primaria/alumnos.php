@@ -25,12 +25,12 @@ if (isset($_POST['submitFecha'])) {
     $fechaInicio = $_POST['fechaInicio'];
     $fechaFin = $_POST['fechaFin'];
 
-    $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from alumnos_primaria as pp INNER JOIN directores_primaria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND fecha_registro BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+    $consulta = "SELECT COUNT(id_conexion) as total, DATE_FORMAT(created_at,'%M %Y') as mes from conexiones as co INNER JOIN alumnos_primaria as ap ON co.id_usuario = ap.id_alumno INNER JOIN directores_primaria as dp ON ap.id_escuela = dp.id_escuela WHERE tipo = 'alumno_primaria' AND dp.id_director = '$id_user' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
   }
 } else {
 
   // Consulta para obtener los datos de ganancias
-  $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from alumnos_primaria as pp INNER JOIN directores_primaria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
+  $consulta = "SELECT COUNT(id_conexion) as total, DATE_FORMAT(created_at,'%M %Y') as mes from conexiones as co INNER JOIN alumnos_primaria as ap ON co.id_usuario = ap.id_alumno INNER JOIN directores_primaria as dp ON ap.id_escuela = dp.id_escuela WHERE tipo = 'alumno_primaria' AND dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
 }
 
 
@@ -80,71 +80,6 @@ foreach ($gananciasPorMes as $mes => $ganancia) {
 // Convertir los datos a formato JSON
 $datosJSON = json_encode($datosGrafica);
 //echo "Datos recuperados de la bd" . $datosJSON;
-
-?>
-<?php
-function actualizarGrafica()
-{
-  $id_user = $_POST['id_user'];
-  $fechaInicio = $_POST['fechaInicio'];
-  $fechaFin = $_POST['fechaFin'];
-
-  /* PARA LOS DATOS DE LA GRÁFICA */
-  include('../../acciones/conexion.php');
-
-  // Verificar si hay errores en la conexión
-  if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-  }
-
-  // Consulta para obtener los datos de ganancias
-  $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from alumnos_primaria as pp INNER JOIN directores_primaria as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND fecha_registro BETWEEN '.$fechaInicio.' and '.$fechaFin.' GROUP BY(mes) ORDER BY (mes)DESC";
-  // Ejecutar la consulta
-  $resultado = $conexion->query($consulta);
-
-  // Crear un arreglo para almacenar los datos
-  $datos = array();
-
-  // Recorrer los resultados y almacenarlos en el arreglo
-  while ($fila = $resultado->fetch_assoc()) {
-    $datos[] = $fila;
-  }
-
-  // Cerrar la conexión a la base de datos
-  $conexion->close();
-
-  // Crear un arreglo para almacenar las ganancias por mes
-  $gananciasPorMes = array();
-
-  // Recorrer los datos y agrupar las ganancias por mes
-  foreach ($datos as $dato) {
-    $fecha = strtotime($dato['mes']);
-    $mes = date('Y-m', $fecha);
-    $monto = floatval($dato['total']);
-
-    if (isset($gananciasPorMes[$mes])) {
-      $gananciasPorMes[$mes] += $monto;
-    } else {
-      $gananciasPorMes[$mes] = $monto;
-    }
-  }
-
-  // Crear un arreglo para almacenar los datos de la gráfica
-  $datosGrafica = array();
-
-  // Recorrer las ganancias por mes y generar los datos para la gráfica
-  foreach ($gananciasPorMes as $mes => $ganancia) {
-    // Obtener el nombre del mes y año a partir del formato Y-m
-    $nombreMes = date('F Y', strtotime($mes));
-    $datosGrafica[] = array(
-      'label' => $nombreMes,
-      'data' => $ganancia
-    );
-  }
-
-  // Convertir los datos a formato JSON
-  $datosJSON = json_encode($datosGrafica);
-}
 
 ?>
 

@@ -25,12 +25,12 @@ if (isset($_POST['submitFecha'])) {
     $fechaInicio = $_POST['fechaInicio'];
     $fechaFin = $_POST['fechaFin'];
 
-    $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from docentes_universidad as pp INNER JOIN directores_universidad as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND fecha_registro BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+    $consulta = "SELECT COUNT(id_conexion) as total, DATE_FORMAT(created_at,'%M %Y') as mes from conexiones as co INNER JOIN docentes_universidad as ap ON co.id_usuario = ap.id_docente INNER JOIN directores_universidad as dp ON ap.id_escuela = dp.id_escuela WHERE tipo = 'docente_universidad' AND dp.id_director = '$id_user' AND created_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
   }
 } else {
 
   // Consulta para obtener los datos de ganancias
-  $consulta = "SELECT SUM(conexiones) as total, DATE_FORMAT(fecha_registro,'%M %Y') as mes from docentes_universidad as pp INNER JOIN directores_universidad as dp ON pp.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
+  $consulta = "SELECT COUNT(id_conexion) as total, DATE_FORMAT(created_at,'%M %Y') as mes from conexiones as co INNER JOIN docentes_universidad as ap ON co.id_usuario = ap.id_docente INNER JOIN directores_universidad as dp ON ap.id_escuela = dp.id_escuela WHERE tipo = 'docente_universidad' AND dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
 }
 
 

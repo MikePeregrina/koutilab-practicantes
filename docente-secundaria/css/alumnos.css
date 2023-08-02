@@ -103,7 +103,7 @@ body::-webkit-scrollbar-track {
 }
 
 #btn-trs {
-  scale: 70%;
+  /*scale: 70%;*/
   box-shadow: none;
   border-radius: 15px;
   margin: 0 0 0 -15px;

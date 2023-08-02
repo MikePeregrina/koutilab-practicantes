@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2023 a las 23:54:19
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 03-08-2023 a las 00:04:10
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -65,7 +65,10 @@ INSERT INTO `acceso_cursos_preparatoria` (`id_acceso_curso`, `id_curso`, `id_alu
 (6, 6, 1),
 (7, 7, 1),
 (8, 8, 1),
-(9, 9, 1);
+(9, 9, 1),
+(10, 10, 1),
+(11, 11, 1),
+(12, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -93,7 +96,9 @@ INSERT INTO `acceso_cursos_primaria` (`id_acceso_curso`, `id_curso`, `id_alumno`
 (7, 7, 1),
 (8, 8, 1),
 (9, 9, 1),
-(10, 1, 1);
+(10, 10, 1),
+(11, 11, 1),
+(12, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +126,9 @@ INSERT INTO `acceso_cursos_secundaria` (`id_acceso_curso`, `id_curso`, `id_alumn
 (7, 7, 1),
 (8, 8, 1),
 (9, 9, 1),
-(10, 7, 1);
+(10, 10, 1),
+(11, 11, 1),
+(12, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +155,10 @@ INSERT INTO `acceso_cursos_universidad` (`id_acceso_curso`, `id_curso`, `id_alum
 (6, 6, 1),
 (7, 7, 1),
 (8, 8, 1),
-(9, 9, 1);
+(9, 9, 1),
+(10, 10, 1),
+(11, 11, 1),
+(12, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -243,7 +253,7 @@ CREATE TABLE `alumnos_preparatoria` (
 --
 
 INSERT INTO `alumnos_preparatoria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Alumno Preparatoria', '@alumnopreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-WWRPR6OU', 'alumnopreparatoria@gmail.com', 'Mascota-Aerobot-04.png', NULL, 'portada-1.png', 3, 1, 1, 11, '2023-06-25 23:53:10');
+(1, 'Alumno Preparatoria', '@alumnopreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-WWRPR6OU', 'alumnopreparatoria@gmail.com', 'Mascota-Aerobot-04.png', NULL, 'portada-1.png', 3, 1, 1, 15, '2023-06-25 23:53:10');
 
 -- --------------------------------------------------------
 
@@ -273,7 +283,7 @@ CREATE TABLE `alumnos_primaria` (
 --
 
 INSERT INTO `alumnos_primaria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-R1U2SD8L', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1, 50, '2023-06-25 23:52:24'),
+(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-R1U2SD8L', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1, 58, '2023-06-25 23:52:24'),
 (2, 'asdf', 'asdf', 'asdf', 'asdf', 'asdfasdf', 'asdf', 'asdf', 'asdfdf', 1, 1, 1, 10, '2023-06-27 00:08:25');
 
 -- --------------------------------------------------------
@@ -349,6 +359,70 @@ CREATE TABLE `archivos` (
   `id_curso` int(11) NOT NULL,
   `id_capsula` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `archivos_preparatoria`
+--
+
+CREATE TABLE `archivos_preparatoria` (
+  `id_archivo` int(11) NOT NULL,
+  `nombre_archivo` varchar(255) NOT NULL,
+  `archivo_data` longblob NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `archivos_primaria`
+--
+
+CREATE TABLE `archivos_primaria` (
+  `id_archivo` int(11) NOT NULL,
+  `nombre_archivo` varchar(255) NOT NULL,
+  `archivo_data` longblob NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `archivos_secundaria`
+--
+
+CREATE TABLE `archivos_secundaria` (
+  `id_archivo` int(11) NOT NULL,
+  `nombre_archivo` varchar(255) NOT NULL,
+  `archivo_data` longblob NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `archivos_universidad`
+--
+
+CREATE TABLE `archivos_universidad` (
+  `id_archivo` int(11) NOT NULL,
+  `nombre_archivo` varchar(255) NOT NULL,
+  `archivo_data` longblob NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -984,6 +1058,19 @@ INSERT INTO `capsulas_universidad` (`id_capsula`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `conexiones`
+--
+
+CREATE TABLE `conexiones` (
+  `id_conexion` int(11) NOT NULL,
+  `tipo` varchar(100) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cursos_institucional`
 --
 
@@ -1051,7 +1138,10 @@ INSERT INTO `cursos_preparatoria` (`id_curso`, `curso`) VALUES
 (6, 'Python avanzado'),
 (7, 'Informatica basico'),
 (8, 'Informatica intermedio'),
-(9, 'Informatica avanzado');
+(9, 'Informatica avanzado'),
+(10, 'Unity basico'),
+(11, 'Unity intermedio'),
+(12, 'Unity avanzado');
 
 -- --------------------------------------------------------
 
@@ -1077,7 +1167,10 @@ INSERT INTO `cursos_primaria` (`id_curso`, `curso`) VALUES
 (6, 'Python avanzado'),
 (7, 'Informatica basico'),
 (8, 'Informatica intermedio'),
-(9, 'Informatica avanzado');
+(9, 'Informatica avanzado'),
+(10, 'Unity basico'),
+(11, 'Unity intermedio'),
+(12, 'Unity avanzado');
 
 -- --------------------------------------------------------
 
@@ -1103,7 +1196,10 @@ INSERT INTO `cursos_secundaria` (`id_curso`, `curso`) VALUES
 (6, 'Python avanzado'),
 (7, 'Informatica basico'),
 (8, 'Informatica intermedio'),
-(9, 'Informatica avanzado');
+(9, 'Informatica avanzado'),
+(10, 'Unity basico'),
+(11, 'Unity intermedio'),
+(12, 'Unity avanzado');
 
 -- --------------------------------------------------------
 
@@ -1129,7 +1225,10 @@ INSERT INTO `cursos_universidad` (`id_curso`, `curso`) VALUES
 (6, 'Python avanzado'),
 (7, 'Informatica basico'),
 (8, 'Informatica intermedio'),
-(9, 'Informatica avanzado');
+(9, 'Informatica avanzado'),
+(10, 'Unity basico'),
+(11, 'Unity intermedio'),
+(12, 'Unity avanzado');
 
 -- --------------------------------------------------------
 
@@ -1254,7 +1353,14 @@ CREATE TABLE `detalle_capsulas_primaria` (
 
 INSERT INTO `detalle_capsulas_primaria` (`id_detalle_capsula`, `id_capsula`, `id_curso`, `id_alumno`) VALUES
 (1, 26, 1, 1),
-(2, 26, 1, 1);
+(2, 26, 1, 1),
+(3, 1, 4, 1),
+(4, 2, 4, 1),
+(5, 32, 1, 1),
+(6, 5, 4, 1),
+(7, 7, 4, 1),
+(8, 10, 4, 1),
+(9, 22, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -1349,6 +1455,18 @@ CREATE TABLE `detalle_estadisticas_primaria` (
   `id_alumno` int(11) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_estadisticas_primaria`
+--
+
+INSERT INTO `detalle_estadisticas_primaria` (`id_detalle_estadistica`, `progreso`, `puntos`, `teorico`, `practico`, `trofeos`, `id_alumno`, `id_curso`) VALUES
+(1, 2, NULL, 10, NULL, NULL, 1, 4),
+(2, 2, NULL, NULL, NULL, 10, 1, 1),
+(3, 2, NULL, 10, NULL, NULL, 1, 4),
+(4, 2, NULL, NULL, NULL, 10, 1, 4),
+(5, 2, NULL, NULL, NULL, 10, 1, 4),
+(6, 2, NULL, NULL, NULL, 10, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -1690,7 +1808,14 @@ INSERT INTO `detalle_intentos_primaria` (`id_detalle_intento`, `id_capsula`, `id
 (2, 28, 1, 2, 6),
 (3, 3, 1, 3, 1),
 (4, 6, 1, 2, 1),
-(5, 3, 1, 2, 6);
+(5, 3, 1, 2, 6),
+(6, 2, 1, 1, 4),
+(7, 3, 1, 3, 4),
+(8, 32, 1, 1, 1),
+(9, 5, 1, 1, 4),
+(10, 7, 1, 1, 4),
+(11, 10, 1, 1, 4),
+(12, 22, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -1911,7 +2036,7 @@ CREATE TABLE `docentes_preparatoria` (
 --
 
 INSERT INTO `docentes_preparatoria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Preparatoria', '@docentepreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-IP311LQJ', 'docentepreparatoria@gmail.com', NULL, 3, 1, 1, '2023-06-25 23:54:11');
+(1, 'Docente Preparatoria', '@docentepreparatoria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-IP311LQJ', 'docentepreparatoria@gmail.com', NULL, 3, 1, 2, '2023-06-25 23:54:11');
 
 -- --------------------------------------------------------
 
@@ -1938,7 +2063,7 @@ CREATE TABLE `docentes_primaria` (
 --
 
 INSERT INTO `docentes_primaria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-EIU2XXKS', 'docenteprimaria@gmail.com', NULL, 1, 1, 12, '2023-06-25 23:53:49');
+(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-EIU2XXKS', 'docenteprimaria@gmail.com', NULL, 1, 1, 20, '2023-06-25 23:53:49');
 
 -- --------------------------------------------------------
 
@@ -1965,7 +2090,7 @@ CREATE TABLE `docentes_secundaria` (
 --
 
 INSERT INTO `docentes_secundaria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Secundaria', '@docentesecundaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-T4UR2CK1', 'docentesecundaria@gmail.com', NULL, 2, 1, 5, '2023-06-25 23:54:00');
+(1, 'Docente Secundaria', '@docentesecundaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-T4UR2CK1', 'docentesecundaria@gmail.com', NULL, 2, 1, 6, '2023-06-25 23:54:00');
 
 -- --------------------------------------------------------
 
@@ -2116,8 +2241,9 @@ CREATE TABLE `estadisticas_primaria` (
 --
 
 INSERT INTO `estadisticas_primaria` (`id_estadistica`, `progreso`, `puntos`, `teorico`, `practico`, `trofeos`, `id_alumno`, `id_curso`) VALUES
-(1, 0, 0, 0, 0, 0, 1, 1),
-(2, 0, 0, 0, 0, 0, 1, 1);
+(1, 2, 0, 0, 0, 10, 1, 1),
+(2, 2, 0, 0, 0, 10, 1, 1),
+(3, 10, 0, 20, 0, 30, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -2151,6 +2277,69 @@ CREATE TABLE `estadisticas_universidad` (
   `trofeos` int(5) DEFAULT NULL,
   `id_alumno` int(5) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estrellas_preparatoria`
+--
+
+CREATE TABLE `estrellas_preparatoria` (
+  `id_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estrellas_primaria`
+--
+
+CREATE TABLE `estrellas_primaria` (
+  `id_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estrellas_primaria`
+--
+
+INSERT INTO `estrellas_primaria` (`id_estrellas`, `estrellas`, `id_capsula`, `id_curso`, `id_alumno`) VALUES
+(1, 46, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estrellas_secundaria`
+--
+
+CREATE TABLE `estrellas_secundaria` (
+  `id_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estrellas_universidad`
+--
+
+CREATE TABLE `estrellas_universidad` (
+  `id_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_capsula` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -2580,6 +2769,30 @@ ALTER TABLE `archivos`
   ADD PRIMARY KEY (`id_archivo`);
 
 --
+-- Indices de la tabla `archivos_preparatoria`
+--
+ALTER TABLE `archivos_preparatoria`
+  ADD PRIMARY KEY (`id_archivo`);
+
+--
+-- Indices de la tabla `archivos_primaria`
+--
+ALTER TABLE `archivos_primaria`
+  ADD PRIMARY KEY (`id_archivo`);
+
+--
+-- Indices de la tabla `archivos_secundaria`
+--
+ALTER TABLE `archivos_secundaria`
+  ADD PRIMARY KEY (`id_archivo`);
+
+--
+-- Indices de la tabla `archivos_universidad`
+--
+ALTER TABLE `archivos_universidad`
+  ADD PRIMARY KEY (`id_archivo`);
+
+--
 -- Indices de la tabla `capsulas_pago_personal`
 --
 ALTER TABLE `capsulas_pago_personal`
@@ -2638,6 +2851,12 @@ ALTER TABLE `capsulas_secundaria`
 --
 ALTER TABLE `capsulas_universidad`
   ADD PRIMARY KEY (`id_capsula`);
+
+--
+-- Indices de la tabla `conexiones`
+--
+ALTER TABLE `conexiones`
+  ADD PRIMARY KEY (`id_conexion`);
 
 --
 -- Indices de la tabla `cursos_personal`
@@ -2952,6 +3171,30 @@ ALTER TABLE `estadisticas_universidad`
   ADD PRIMARY KEY (`id_estadistica`);
 
 --
+-- Indices de la tabla `estrellas_preparatoria`
+--
+ALTER TABLE `estrellas_preparatoria`
+  ADD PRIMARY KEY (`id_estrellas`);
+
+--
+-- Indices de la tabla `estrellas_primaria`
+--
+ALTER TABLE `estrellas_primaria`
+  ADD PRIMARY KEY (`id_estrellas`);
+
+--
+-- Indices de la tabla `estrellas_secundaria`
+--
+ALTER TABLE `estrellas_secundaria`
+  ADD PRIMARY KEY (`id_estrellas`);
+
+--
+-- Indices de la tabla `estrellas_universidad`
+--
+ALTER TABLE `estrellas_universidad`
+  ADD PRIMARY KEY (`id_estrellas`);
+
+--
 -- Indices de la tabla `formulario`
 --
 ALTER TABLE `formulario`
@@ -3062,25 +3305,25 @@ ALTER TABLE `acceso_cursos_personal`
 -- AUTO_INCREMENT de la tabla `acceso_cursos_preparatoria`
 --
 ALTER TABLE `acceso_cursos_preparatoria`
-  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `acceso_cursos_primaria`
 --
 ALTER TABLE `acceso_cursos_primaria`
-  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `acceso_cursos_secundaria`
 --
 ALTER TABLE `acceso_cursos_secundaria`
-  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `acceso_cursos_universidad`
 --
 ALTER TABLE `acceso_cursos_universidad`
-  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `admin`
@@ -3122,6 +3365,30 @@ ALTER TABLE `alumnos_universidad`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `archivos_preparatoria`
+--
+ALTER TABLE `archivos_preparatoria`
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `archivos_primaria`
+--
+ALTER TABLE `archivos_primaria`
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `archivos_secundaria`
+--
+ALTER TABLE `archivos_secundaria`
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `archivos_universidad`
+--
+ALTER TABLE `archivos_universidad`
   MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -3185,6 +3452,12 @@ ALTER TABLE `capsulas_universidad`
   MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
+-- AUTO_INCREMENT de la tabla `conexiones`
+--
+ALTER TABLE `conexiones`
+  MODIFY `id_conexion` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `cursos_personal`
 --
 ALTER TABLE `cursos_personal`
@@ -3194,25 +3467,25 @@ ALTER TABLE `cursos_personal`
 -- AUTO_INCREMENT de la tabla `cursos_preparatoria`
 --
 ALTER TABLE `cursos_preparatoria`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_primaria`
 --
 ALTER TABLE `cursos_primaria`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_secundaria`
 --
 ALTER TABLE `cursos_secundaria`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_universidad`
 --
 ALTER TABLE `cursos_universidad`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_capsulas_pago_personal`
@@ -3260,7 +3533,7 @@ ALTER TABLE `detalle_capsulas_preparatoria`
 -- AUTO_INCREMENT de la tabla `detalle_capsulas_primaria`
 --
 ALTER TABLE `detalle_capsulas_primaria`
-  MODIFY `id_detalle_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detalle_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_capsulas_secundaria`
@@ -3290,7 +3563,7 @@ ALTER TABLE `detalle_estadisticas_preparatoria`
 -- AUTO_INCREMENT de la tabla `detalle_estadisticas_primaria`
 --
 ALTER TABLE `detalle_estadisticas_primaria`
-  MODIFY `id_detalle_estadistica` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detalle_estadistica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_estadisticas_secundaria`
@@ -3380,7 +3653,7 @@ ALTER TABLE `detalle_intentos_preparatoria`
 -- AUTO_INCREMENT de la tabla `detalle_intentos_primaria`
 --
 ALTER TABLE `detalle_intentos_primaria`
-  MODIFY `id_detalle_intento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_detalle_intento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_intentos_secundaria`
@@ -3482,7 +3755,7 @@ ALTER TABLE `estadisticas_preparatoria`
 -- AUTO_INCREMENT de la tabla `estadisticas_primaria`
 --
 ALTER TABLE `estadisticas_primaria`
-  MODIFY `id_estadistica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estadistica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `estadisticas_secundaria`
@@ -3495,6 +3768,30 @@ ALTER TABLE `estadisticas_secundaria`
 --
 ALTER TABLE `estadisticas_universidad`
   MODIFY `id_estadistica` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estrellas_preparatoria`
+--
+ALTER TABLE `estrellas_preparatoria`
+  MODIFY `id_estrellas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estrellas_primaria`
+--
+ALTER TABLE `estrellas_primaria`
+  MODIFY `id_estrellas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `estrellas_secundaria`
+--
+ALTER TABLE `estrellas_secundaria`
+  MODIFY `id_estrellas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estrellas_universidad`
+--
+ALTER TABLE `estrellas_universidad`
+  MODIFY `id_estrellas` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `formulario`

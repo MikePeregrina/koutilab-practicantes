@@ -68,13 +68,13 @@ $data1 = mysqli_fetch_assoc($query1);
     <?php include 'header-nav.php'; ?>
 
     <div class="containers">
-        <h1>Alumnos</h1>
+        <h1>ALUMNOS</h1>
     </div>
 
     <div class="studens-add-bar">
         <div class="left-student">
             <i class="fas fa-users"></i>
-            <h2><?php echo $fila['id_alumno']; ?> <span>Alumnos(s)</span< /h2>
+            <h2><?php echo $fila['id_alumno']; ?> <span>Alumno(s)</span< /h2>
         </div>
 
     </div>

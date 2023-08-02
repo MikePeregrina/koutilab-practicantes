@@ -26,7 +26,9 @@
                 <li class="li-r"><a href="#nosotros">Nosotros</a></li>
                 <li class="li-r"><a href="#rutas">Rutas de aprendizaje</a></li>
                 <li class="li-r"><a href="#usuarios">Tipos de usuario</a></li>
-                <li class="hov li-r"><div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div></li>
+                <li class="hov li-r">
+                    <div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -247,7 +249,7 @@
 
     <script>
         const nav = document.querySelector('.nav');
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             nav.classList.toggle('down', window.scrollY > 0);
         })
 
