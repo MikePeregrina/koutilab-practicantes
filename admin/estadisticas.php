@@ -81,56 +81,8 @@ $resultusuarios = mysqli_query($conexion, $sqlusuarios);
 $filausuarios = mysqli_fetch_assoc($resultusuarios);
 
 //Contar visitas
-$sqlvisitas = "SELECT SUM(conexiones) conexiones
-FROM (
-  SELECT conexiones
-  FROM alumnos_personal AS aper
-
-  UNION ALL 
-
-  SELECT conexiones
-  FROM alumnos_primaria AS apri
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM alumnos_secundaria AS ase
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM alumnos_preparatoria AS apre
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM alumnos_universidad AS au
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM docentes_personal AS aper
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM docentes_primaria AS apri
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM docentes_secundaria AS ase
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM docentes_preparatoria AS apre
-
-  UNION ALL
-
-  SELECT conexiones
-  FROM docentes_universidad AS au
-) AS subquery";
+$sqlvisitas = "SELECT COUNT(id_conexion) total_conexiones
+FROM conexiones";
 $resultvisitas = mysqli_query($conexion, $sqlvisitas);
 $filavisitas = mysqli_fetch_assoc($resultvisitas);
 
@@ -958,7 +910,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 <canvas id="G-Visitas" width="450" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b><?php echo $filavisitas['conexiones']; ?></li> <!--Esta grafica aun no-->
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de visitas: </b><?php echo $filavisitas['total_conexiones']; ?></li> <!--Esta grafica aun no-->
                 </div>
                 <div align="center" style="margin-top: 20px;">
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">

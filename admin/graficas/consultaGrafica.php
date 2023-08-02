@@ -412,140 +412,19 @@
     if($tipo == "visitas"){
         if ($fechaInicio != null) {
             if ($fechaFin != null) {
-                $consulta = "SELECT SUM(conexiones) AS total, DATE_FORMAT(fecha_registro, '%M %Y') AS mes_anio
-                FROM (
-                  SELECT conexiones, fecha_registro
-                  FROM alumnos_personal AS aper
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-
-                  UNION ALL
-
-                  SELECT conexiones, fecha_registro
-                  FROM alumnos_primaria AS apri
-                  INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                
-                  UNION ALL
-                
-                  SELECT conexiones, fecha_registro
-                  FROM alumnos_secundaria AS ase
-                  INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                
-                  UNION ALL
-                
-                  SELECT conexiones, fecha_registro
-                  FROM alumnos_preparatoria AS apre
-                  INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                
-                  UNION ALL
-                
-                  SELECT conexiones, fecha_registro
-                  FROM alumnos_universidad AS au
-                  INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-
-                  UNION ALL
-
-                  SELECT conexiones, fecha_registro
-                  FROM docentes_personal AS aper
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-
-                  UNION ALL
-
-                  SELECT conexiones, fecha_registro
-                  FROM docentes_primaria AS apri
-                  INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                
-                  UNION ALL
-                
-                  SELECT conexiones, fecha_registro
-                  FROM docentes_secundaria AS ase
-                  INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                
-                  UNION ALL
-                
-                  SELECT conexiones, fecha_registro
-                  FROM docentes_preparatoria AS apre
-                  INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                
-                  UNION ALL
-                
-                  SELECT conexiones, fecha_registro
-                  FROM docentes_universidad AS au
-                  INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela
-                  WHERE fecha_registro BETWEEN '$fechaInicio' AND '$fechaFin'
-                ) AS subquery
-                GROUP BY DATE_FORMAT(fecha_registro, '%Y-%m')
-                ORDER BY fecha_registro ASC";
+                $consulta = "SELECT COUNT(id_conexion) AS total, DATE_FORMAT(created_at, '%M %Y') AS mes_anio
+                FROM conexiones
+                WHERE created_at BETWEEN '$fechaInicio' AND '$fechaFin'
+                GROUP BY DATE_FORMAT(created_at, '%Y-%m')
+                ORDER BY created_at ASC";
 
             }
         } else {
             // Consulta para obtener los datos de visitas
-            $consulta = "SELECT SUM(conexiones) AS total, DATE_FORMAT(fecha_registro, '%M %Y') AS mes_anio
-            FROM (
-              SELECT conexiones, fecha_registro
-              FROM alumnos_personal AS aper
-
-              UNION ALL 
-
-              SELECT conexiones, fecha_registro
-              FROM alumnos_primaria AS apri
-              INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela
-            
-              UNION ALL
-            
-              SELECT conexiones, fecha_registro
-              FROM alumnos_secundaria AS ase
-              INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela
-            
-              UNION ALL
-            
-              SELECT conexiones, fecha_registro
-              FROM alumnos_preparatoria AS apre
-              INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela
-            
-              UNION ALL
-            
-              SELECT conexiones, fecha_registro
-              FROM alumnos_universidad AS au
-              INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela
-
-              UNION ALL
-
-              SELECT conexiones, fecha_registro
-              FROM docentes_personal AS aper
-
-              UNION ALL
-
-              SELECT conexiones, fecha_registro
-              FROM docentes_primaria AS apri
-              INNER JOIN escuelas AS es ON apri.id_escuela = es.id_escuela
-            
-              UNION ALL
-            
-              SELECT conexiones, fecha_registro
-              FROM docentes_secundaria AS ase
-              INNER JOIN escuelas AS es ON ase.id_escuela = es.id_escuela
-            
-              UNION ALL
-            
-              SELECT conexiones, fecha_registro
-              FROM docentes_preparatoria AS apre
-              INNER JOIN escuelas AS es ON apre.id_escuela = es.id_escuela
-            
-              UNION ALL
-            
-              SELECT conexiones, fecha_registro
-              FROM docentes_universidad AS au
-              INNER JOIN escuelas AS es ON au.id_escuela = es.id_escuela
-            ) AS subquery
-            GROUP BY DATE_FORMAT(fecha_registro, '%Y-%m')
-            ORDER BY fecha_registro ASC";
+            $consulta = "SELECT COUNT(id_conexion) AS total, DATE_FORMAT(created_at, '%M %Y') AS mes_anio
+                FROM conexiones
+                GROUP BY DATE_FORMAT(created_at, '%Y-%m')
+                ORDER BY created_at ASC";
         }
         // Ejecutar la consulta
         $resultado = $conexion->query($consulta);

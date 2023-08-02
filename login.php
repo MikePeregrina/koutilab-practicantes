@@ -106,7 +106,7 @@ if (isset($_POST['iniciar_sesion'])) {
                  </div>';
                 session_destroy();
             }
-        }else if ($result_validar_admin_secundario > 0) {
+        } else if ($result_validar_admin_secundario > 0) {
             $query_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND rol=2");
             $resultado_admin_secundario = mysqli_num_rows($query_admin_secundario);
             if ($resultado_admin_secundario > 0) {
@@ -133,6 +133,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno_primaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_primaria', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: alumno/primaria/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -150,6 +154,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_docente_primaria'] = $dato_docente['id_docente'];
                 $_SESSION['nombre'] = $dato_docente['nombre'];
                 $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_primaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_primaria', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: docente/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -184,6 +192,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno_secundaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_secundaria', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: alumno/secundaria/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -201,6 +213,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_docente_secundaria'] = $dato_docente['id_docente'];
                 $_SESSION['nombre'] = $dato_docente['nombre'];
                 $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_secundaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_secundaria', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: docente-secundaria/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -235,6 +251,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno_preparatoria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_preparatoria', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: alumno/preparatoria/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -252,6 +272,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_docente_preparatoria'] = $dato_docente['id_docente'];
                 $_SESSION['nombre'] = $dato_docente['nombre'];
                 $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_preparatoria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_preparatoria', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: docente-preparatoria/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -286,6 +310,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_universidad'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno_universidad'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_universidad', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: alumno/universidad/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -303,6 +331,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_docente_universidad'] = $dato_docente['id_docente'];
                 $_SESSION['nombre'] = $dato_docente['nombre'];
                 $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_universidad'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_universidad', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: docente-universidad/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -337,6 +369,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_personal'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno_personal'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_personal', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: alumno/personal/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -354,6 +390,10 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_docente_personal'] = $dato_docente['id_docente'];
                 $_SESSION['nombre'] = $dato_docente['nombre'];
                 $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_personal'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_personal', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
                 header('location: docente-personal/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
@@ -460,7 +500,7 @@ if (isset($_POST['iniciar_sesion'])) {
                     <!-- /Owl-Carousel -->
                 </div>
                 <div class="form-box"><br><br>
-                <div class="logop">
+                    <div class="logop">
                         <img src="acciones/img/koutilab.png" alt="KOUTILAB">
                     </div>
                     <div class="button-box">
@@ -743,7 +783,7 @@ if (isset($_POST['iniciar_sesion'])) {
             $id_director_institucional = $data_paquete_director['id_director'];
         }
 
-        if ($result_validar_admin > 0 ||$result_validar_admin_secundario > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
+        if ($result_validar_admin > 0 || $result_validar_admin_secundario > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
             echo
             "
       <script>
@@ -1407,7 +1447,7 @@ if (isset($_POST['iniciar_sesion'])) {
         $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=1");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
 
-        
+
         //Validar inicio de sesión de un admin secundario
         $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=2");
         $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
@@ -1472,7 +1512,7 @@ if (isset($_POST['iniciar_sesion'])) {
         $query_validar_director_instituacional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$usuario_registrar'");
         $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_instituacional);
 
-        if ($result_validar_admin > 0||$result_validar_admin_secundario > 0|| $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
+        if ($result_validar_admin > 0 || $result_validar_admin_secundario > 0 || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
             echo
             "
       <script>

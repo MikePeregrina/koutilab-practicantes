@@ -10,11 +10,6 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_secun
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
-
-//Contador de conexiones
-$cont = intval($user['conexiones'] + 1);
-$sql_cont = "UPDATE `docentes_secundaria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_user'";
-$query_cont = mysqli_query($conexion, $sql_cont);
 ?>
 
 <!DOCTYPE html>
