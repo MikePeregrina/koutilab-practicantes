@@ -211,11 +211,11 @@
 		* resets the game state to start a new word.
 		*
 		*/
-
-		    //Se esta llamando los sonidos de la carpeta "sonidos"
-	var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var endTurn = function () {
 
 			// see if we formed a valid word
@@ -228,29 +228,28 @@
 				}
 
 				if (wordList.length === 0) {
-					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 7; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 12 + "&id_curso=" + 10; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd12.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
+					$('.puzzleSquare').addClass('complete');
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+						imageUrl: "img/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
 							rgba(0,143,255,0.6)
-							url("../../img/img_juegos/fondo.gif")
+							url("img/fondo.gif")
 							`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+							window.location.href = '../../../../../../rutas/ruta-vj-b.php';
 						}
-					});
-					correcto.play(); //adjuntando sonido del juego completado
+					});Correcto.play(); //Agregando sonido al juego completado
 				}
 			}
 

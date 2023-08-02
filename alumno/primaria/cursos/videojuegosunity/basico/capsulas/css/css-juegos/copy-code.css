@@ -1,54 +1,63 @@
-body{
-    color: #404040;
-    font-family: Tahoma;
-    background-image: url(../../img/img_juegos/fondo.png);    background-size: cover;
-    background-repeat: no-repeat;
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+  }
+  body{
+    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
+    background-repeat: no-repeat; /*no repite la imagen*/
+    background-size: cover;/*distribuye la imagen a toda la pantalla*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-}
+      font-family: Tahoma;
+      color: #404040;
+  }
 
-body::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     -webkit-appearance: none;
-}
-
-body::-webkit-scrollbar:vertical {
+  }
+  
+  body::-webkit-scrollbar:vertical {
     width: 10px;
-}
-
-body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button {
+  }
+  
+  body::-webkit-scrollbar-button:increment,
+  body::-webkit-scrollbar-button {
     display: none;
-}
-
-body::-webkit-scrollbar:horizontal {
+  }
+  
+  body::-webkit-scrollbar:horizontal {
     height: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
+  }
+  
+  body::-webkit-scrollbar-thumb {
     background: rgba(129, 179, 243);
     border-radius: 20px;
     border: 2px solid #f1f2f3;
-}
-
-body::-webkit-scrollbar-track {
+  }
+  
+  body::-webkit-scrollbar-track {
     border-radius: 10px;
-}
+  }
 
-.titulo-gen {
-    margin: 10px auto 0 auto;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+
+  .titulo-gen {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 12px rgba(129,179,243);
     line-height: 20px;
-    width: 1200px;
-    height: 60px;
-    border: 2px solid rgba(129, 179, 243, 0.6);
-    
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    width: 86%;
+    margin: 3% auto;
+    height: 70px;
+    margin-left: 7%;
+    justify-content: center;
 }
 
 .titulo {
@@ -57,77 +66,84 @@ body::-webkit-scrollbar-track {
 }
 
 .timer {
-    text-align: center;
-    padding: 3%;
-    margin: 40px 0 0 1050px;
-    width: 100px;
-    height: 100px;
+  text-align: center;
+  padding: 0.9%;
+  top: 4%;
+  right: 3%; /*Se cambio el pocisionamiento del timer*/
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(129, 179, 243, 0.7); /*Se cambio el fondo del timer*/
+  box-shadow: 0 0 12px rgba(129, 179, 243);
+  position: fixed;
+  border-radius: 110px;
+  z-index: 5;
+  font-size: 170%;
+}
+
+section {
+    padding: 0px;
+    width: 86%;
+    height: auto; 
+    margin-top: 40px;
+    margin-left: 7%;
     display: flex;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 12px rgba(129, 179, 243);
+    flex-wrap: wrap;
+    margin-bottom: 50px;
     justify-content: center;
     align-items: center;
-    background:  rgba(129, 179, 243, 0.7);
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
-    position: fixed;
-    border-radius: 110px;
-    border-width: 0.8px;
-    border-style: solid;
-    border-color: rgba(129, 178, 243, 0.9);
-    z-index: 5;
-    font-size: 150%;
-}
-@keyframes animation1 {
-    0% {margin: 40px 0 0 1040px;}
-    20% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    60% {margin: 40px 0 0 1060px;}
-    80% {margin: 40px 0 0 1040px;} 
-    100% {margin: 40px 0 0 1050px;}
-}
-
-  @keyframes animation2 {
-    0% {margin: 40px 0 0 1040px;}
-    15% {margin: 40px 0 0 1060px;}
-    30% {margin: 40px 0 0 1040px;} 
-    45% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    75% {margin: 40px 0 0 1060px;}
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050px;}
   }
 
-  @keyframes animation3 {
-    0% {margin: 40px 0 0 1040px;}
-    10% {margin: 40px 0 0 1060px;}
-    20% {margin: 40px 0 0 1040px;} 
-    30% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    50% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    70% {margin: 40px 0 0 1060px;} 
-    80% {margin: 40px 0 0 1040px;} 
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050px;}
-  }
-.contenido {
-    opacity: 0.9;
-    margin: 20px auto 30px auto;
-    border-radius: 5px;
-    background: rgba(255, 255, 255);
-    line-height: 20px;
-    width: 1200px;
-    height: 500px;
-    border: 2px solid rgba(129, 179, 243, 0.5);
-    box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+.cont-st {
+    width: 98%;
+    height: 65px;
+    display: flex;
+    align-items: center;
 }
 
+.btn-b {
+    width: 70px;
+    padding: 10px 10px;
+    cursor: pointer;
+    background: linear-gradient(
+      to right,
+      rgba(129, 179, 243),
+      rgba(132, 196, 44, 0.6)
+    );
+    border: 0px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10%;
+}
+
+.btn-b i {
+    font-size: 25px;
+}
+
+.titulo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.btn-v {
+    margin-top: 1%;
+    width: 100%;
+    height: 120px;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
 .verificar {
     cursor: pointer;
     color: #404040;
-    background: linear-gradient(
-        to right,
-        rgba(129, 179, 243, 0.8),
-        rgba(132, 196, 44, 0.8)
-    );
+    background: linear-gradient(to right, rgba(129, 179, 243), rgba(132, 196, 44, 0.6));
     padding: 20px;
     border-radius: 30px;
     border-style: none;
@@ -135,51 +151,23 @@ body::-webkit-scrollbar-track {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 500px 0 0 465px;
-    top: 10px;
+    margin: 0;
     width: 260px;
-    position: absolute;
+    position: relative;
 }
 
-.btn-b {
-    position: absolute;
-    width: 5%;
-    padding: 5px 5px;
-    cursor: pointer;
-    display: block;
-    margin: auto;
-    background: linear-gradient(
-        to right,
-        rgba(129, 179, 243, 0.8),
-        rgba(132, 196, 44, 0.8)
-    );
-    border: 0px;
-    outline: none;
-    border-radius: 50%;
-    float: right;
-}
-.btn-b:hover {
-    scale: 130%;
-    transition: scale 0.35s;
-  }
-  
-  .btn-b:hover::after {
-    scale: 100%;
-    transition: scale 0.35s;
-  }
 /* CSS Seccion juego*/
 .mjuego{
-    width: 1200px;
-    height: 500px;
+    width: 85%;
+    height: 300px;
     display: flex;
     justify-content: space-around;
+    margin-top: 2%;
 }
-
 
 .ejemplo{
     display: flex;
     width: 48%;
-    height: 60%;
     border-style: solid;
     border-width: 4px;
     border-color: rgba(129, 178, 243, 0.4);
@@ -208,7 +196,6 @@ body::-webkit-scrollbar-track {
 
 .copia{
     width: 48%;
-    height: 60%;
     border-style: solid;
     border-width: 4px;
     border-color: rgba(129, 178, 243, 0.4);
@@ -226,6 +213,10 @@ body::-webkit-scrollbar-track {
     text-align: center;
 }
 
+#textoej {
+  text-align: start;
+}
+
 
 .mjuego textarea{
     text-align: center;
@@ -241,12 +232,95 @@ body::-webkit-scrollbar-track {
 }
 /*---------------------*/
 
-@media (max-width: 750px) {
-    .btn-b {
-        width: 10%;
-    }
+.footerimga{
+  width: 100%;
+  height: 90px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 2%;
 }
 
-.btn-b i {
-    font-size: 25px;
+.imagen-footer {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 250px !important;
+
 }
+@media (max-width: 850px) {
+
+    .timer {
+        width: 170px;
+        height: 170px;
+        font-size: 140%;
+    }  
+
+    .mjuego{
+        width: 80%;
+        height: 700px;
+        display: flow-root;
+        margin-top: 2%;
+        text-align: center;
+        align-items: center;  
+    }
+    
+    .ejemplo{
+        width: 100%;
+        margin: 0 0 4% 0;
+    }
+    
+    .copia{
+        width: 100%;
+    }
+    
+    
+  }
+
+
+  @media (max-width: 619px) {
+  
+    
+    .verificar {
+      width: 180px;
+      height: 50px;
+    }
+  
+    .timer {
+      width: 120px;
+      height: 120px;
+      font-size: 120%;
+    }
+  
+    .titulo-gen{
+      font-size: 14px;
+    }
+  
+    .titulo{
+      font-size: 14px;
+    }
+  
+    .btn-b {
+      width: 70px;
+      padding: 10px 10px;
+      margin-left: 10%;
+    }
+  
+    .btn-b i {
+      font-size: 20px;
+    }
+  }
+  
+  
+  @media (max-width: 549px) {
+
+  
+    .html-b-t{
+      font-size: 12px;
+    }
+    .verificar {
+      width: 160px;
+      height: 50px;
+    }
+    
+  }
