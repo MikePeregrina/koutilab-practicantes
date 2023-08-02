@@ -10,15 +10,13 @@ var incorrecto = document.createElement("audio");
 incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
-document.getElementById(
-    "textoej"
-).innerHTML =
-        `.main { 
-          width:500px; <br/> 
-          height:500px; <br/>
-          margin:0 auto; <br/>
-          background-color:grey; <br/>
-        }`; 
+document.getElementById("textoej").innerHTML = `
+        .main { </br> 
+            width:500px; </br> 
+            height:500px; </br>
+            margin:0 auto; </br>
+            background-color:grey; </br>
+        }`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
 //&gt; representa (>).
@@ -42,49 +40,62 @@ window.onbeforeunload = function () {
     document.getElementById("escrito").value = "";
 };
 
-  //Agregando animacion a el juego
-    function iniciarTiempo() {
-        document.getElementById("tiempo").innerHTML =
-            segundos + " segundos";
-        if (segundos <= 60) {
-            var div = document.getElementById("timer");
-            div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
-        if (segundos <= 30) {
-            var div = document.getElementById("timer");
-            div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
-        if (segundos <= 10) {
-            var div = document.getElementById("timer");
-            div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
-        if (segundos == 0) {
-            var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 20 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd20.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
-            Swal.fire({
-                title: "Oops...",
-                text: "Se acabó el tiempo",
-                imageUrl: "../../img/img-juegos/loop.gif",
-                imageHeight: 350,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
-            incorrecto.play(); //agregando sonido al juego no completado
-            loseText.setText("Juego terminado");
-            player.setTint(0xff0000);
-            player.anims.play("turn");
-            gameoverSound();
-            gameOver = true;
-        } else {
-            segundos--;
-            setTimeout("iniciarTiempo()", count);
-        }
+//Agregando animacion a el juego
+function iniciarTiempo() {
+    document.getElementById("tiempo").innerHTML = segundos + " segundos";
+    if (segundos <= 60) {
+        var div = document.getElementById("timer");
+        div.style.cssText =
+            "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
     }
+    if (segundos <= 30) {
+        var div = document.getElementById("timer");
+        div.style.cssText =
+            "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
+    if (segundos <= 10) {
+        var div = document.getElementById("timer");
+        div.style.cssText =
+            "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
+    if (segundos == 0) {
+        var xmlhttp = new XMLHttpRequest();
+        var param =
+            "score=" +
+            0 +
+            "&validar=" +
+            "incorrecto" +
+            "&permiso=" +
+            20 +
+            "&id_curso=" +
+            2; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd20.php", true);
+        xmlhttp.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send(param);
+        Swal.fire({
+            title: "Oops...",
+            text: "Se acabó el tiempo",
+            imageUrl: "../../img/img-juegos/loop.gif",
+            imageHeight: 350,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.reload();
+            }
+        });
+        incorrecto.play(); //agregando sonido al juego no completado
+        loseText.setText("Juego terminado");
+        player.setTint(0xff0000);
+        player.anims.play("turn");
+        gameoverSound();
+        gameOver = true;
+    } else {
+        segundos--;
+        setTimeout("iniciarTiempo()", count);
+    }
+}
 
 //Alerta muestra de que el juego fue completado
 function alertExcelent() {
@@ -98,10 +109,21 @@ function alertExcelent() {
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
         var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 20 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd20.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+        var param =
+            "score=" +
+            10 +
+            "&validar=" +
+            "correcto" +
+            "&permiso=" +
+            20 +
+            "&id_curso=" +
+            2; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd20.php", true);
+        xmlhttp.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
             text: "¡Buen trabajo!",
@@ -116,7 +138,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = '../../../../../../rutas/ruta-pw-i.php';
+                window.location.href = "../../../../../../rutas/ruta-pw-i.php";
             }
         });
         correcto.play(); //agregando sonido al juego completado
