@@ -77,7 +77,7 @@ if (isset($resultadoIntentos['intentos'])) {
         </a>
 
         <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote.</b></h4>
+        <h4 class="titulo"><b>Copia el codigo antes que el tiempo se agote</b></h4>
         <br>
 
         <!--CONTENEDOR DEL JUEGO-->

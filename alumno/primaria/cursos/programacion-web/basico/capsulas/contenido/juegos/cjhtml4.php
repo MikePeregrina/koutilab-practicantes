@@ -206,7 +206,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						rgba(0,143,255,0.6)
 						url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: "#a14cd9",
-                confirmButtonText: "¡Sigue intentando",
+                confirmButtonText: "¡Sigue intentando!",
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.reload();
