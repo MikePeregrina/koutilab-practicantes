@@ -227,11 +227,6 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 
 			correcto.play(); //agregando sonido al juego completado
-			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 3; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
 				text: 'Koubot ha llegado a su nave',
