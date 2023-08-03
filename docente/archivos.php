@@ -101,6 +101,7 @@ if (isset($_GET['id'])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
@@ -165,7 +166,7 @@ if (isset($_GET['id'])) {
                                 <td>
                                     <a href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
 
-                                    <form action="" method="post" id="f-c" class="confirmar d-inline">
+                                    <form action="" method="post" id="f-c" class="enviar d-inline">
                                         <button class="btn btn-success" id="btn-trs" type="submit"><i class='fas fa-clipboard-check' id="i-group"></i> </button>
                                     </form>
                                 </td>

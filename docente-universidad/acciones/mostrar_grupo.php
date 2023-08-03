@@ -63,12 +63,13 @@ if ($result_sql == 0) {
                 <tbody>
                     <?php
                     include "../../acciones/conexion.php";
-                    $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.grado_escolar, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas_universidad e
-                    JOIN alumnos_universidad a
-                    ON e.id_alumno = a.id_alumno
-                    JOIN detalle_grupos_universidad dg
-                    ON dg.id_alumno = a.id_alumno
-                    WHERE dg.id_grupo = '$idgrupo';");
+                    $query_grupo = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.grado_escolar, SUM(e.trofeos) as total_trofeos, SUM(e.puntos) as total_puntos, SUM(e.practico) as total_practico, SUM(e.teorico) as total_teorico
+                    FROM estadisticas_universidad e
+                    JOIN alumnos_universidad a ON e.id_alumno = a.id_alumno
+                    JOIN detalle_grupos_universidad dg ON dg.id_alumno = a.id_alumno
+                    WHERE dg.id_grupo = '$idgrupo'
+                    GROUP BY a.id_alumno, a.nombre, a.grado_escolar;
+                    ");
                     $result = mysqli_num_rows($query_grupo);
                     if ($result > 0) {
                         while ($data = mysqli_fetch_assoc($query_grupo)) {
@@ -77,10 +78,10 @@ if ($result_sql == 0) {
                                 <td><?php echo $data['nombre']; ?></td>
                                 <td>Universidad</td>
                                 <td><?php echo $data['grado_escolar']; ?></td>
-                                <td><?php echo $data['trofeos']; ?></td>
-                                <td><?php echo $data['puntos']; ?></td>
-                                <td><?php echo $data['practico']; ?></td>
-                                <td><?php echo $data['teorico']; ?></td>
+                                <td><?php echo $data['total_trofeos']; ?></td>
+                                <td><?php echo $data['total_puntos']; ?></td>
+                                <td><?php echo $data['total_practico']; ?></td>
+                                <td><?php echo $data['total_teorico']; ?></td>
                             </tr>
                     <?php }
                     } ?>
