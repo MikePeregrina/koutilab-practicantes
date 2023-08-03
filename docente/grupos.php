@@ -12,6 +12,17 @@ JOIN escuelas e
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
 
+// Obtenemos el país del resultado de la consulta
+$pais = $user['pais'];
+
+// Definimos un array con las opciones de grados para cada país
+$opciones_grados = array(
+    'México' => array('1°', '2°', '3°', '4°', '5°', '6°'),
+    'Perú' => array('1°', '2°', '3°', '4°', '5°', '6°'),
+);
+
+// Obtenemos las opciones de grados dependiendo del país
+$grados_disponibles = isset($opciones_grados[$pais]) ? $opciones_grados[$pais] : array();
 
 $query = "SELECT curso FROM cursos_primaria";
 $result = $conexion->query($query);
@@ -88,12 +99,11 @@ $fila = mysqli_fetch_assoc($result);
                             <span class="details">Grado: </span>
                             <select style="height: 44px;" name="grado" type="select" required>
                                 <option value="">Elija un grado</option>
-                                <option value="1°">1°</option>
-                                <option value="2°">2°</option>
-                                <option value="3°">3°</option>
-                                <option value="4°">4°</option>
-                                <option value="5°">5°</option>
-                                <option value="6°">6°</option>
+                                <?php
+                                foreach ($grados_disponibles as $grado) {
+                                    echo '<option value="' . $grado . '">' . $grado . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="input-box">

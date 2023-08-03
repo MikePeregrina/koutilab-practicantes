@@ -769,10 +769,9 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             }
         </script>
 
-        <<<<<<< HEAD <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
-            =======
+        <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
+
             <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
-                >>>>>>> 80bd663f6190c129251911fdacec22554787f547
                 <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
                 <div style="margin-left:5%; margin-bottom:2%; width: 90%; height: 40px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); display:flex; justify-content:center">
                     <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Avatar</h4>
@@ -1153,16 +1152,16 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 }
             }
             ?>
-            <<<<<<< HEAD <footer class="footerimga">
+            <footer class="footerimga">
                 <div class="imagen-footer">
                     <img src="../secundaria/img/benvenida.png" alt="No-image">
                 </div>
-                </footer>
+            </footer>
     </div>
-    =======
+
     <div class="pie-pagina">
         <div class="imagenLogoF">
             <br>
         </div>
-        >>>>>>> 80bd663f6190c129251911fdacec22554787f547
+
 </body>
