@@ -54,6 +54,21 @@ $permiso_ruta_r9 = "9";
 $sql_verificar_r9 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_secundaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r9'");
 $existe_verificar_r9 = mysqli_num_rows($sql_verificar_r9);
 
+//Verificar si ya se tiene permiso en ruta 10
+$permiso_ruta_r10 = "10";
+$sql_verificar_r10 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_secundaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r10'");
+$existe_verificar_r10 = mysqli_num_rows($sql_verificar_r10);
+
+//Verificar si ya se tiene permiso en ruta 11
+$permiso_ruta_r11 = "11";
+$sql_verificar_r11 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_secundaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r11'");
+$existe_verificar_r11 = mysqli_num_rows($sql_verificar_r11);
+
+//Verificar si ya se tiene permiso en ruta 12
+$permiso_ruta_r12 = "12";
+$sql_verificar_r12 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_secundaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r12'");
+$existe_verificar_r12 = mysqli_num_rows($sql_verificar_r12);
+
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_secundaria WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
@@ -93,6 +108,18 @@ $data_informatica_intermedio = mysqli_fetch_assoc($query_informatica_intermedio)
 //Estadisticas informatica avanzado
 $query_informatica_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_secundaria WHERE id_alumno = $id_user AND id_curso = 9");
 $data_informatica_avanzado = mysqli_fetch_assoc($query_informatica_avanzado);
+
+//Estadisticas videojuegosunity basico
+$query_videojuegosunity_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_secundaria WHERE id_alumno = $id_user AND id_curso = 10");
+$data_videojuegosunity_basico = mysqli_fetch_assoc($query_videojuegosunity_basico);
+
+//Estadisticas videojuegosunity intermedio
+$query_videojuegosunity_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_secundaria WHERE id_alumno = $id_user AND id_curso = 11");
+$data_videojuegosunity_intermedio = mysqli_fetch_assoc($query_videojuegosunity_intermedio);
+
+//Estadisticas videojuegosunity avanzado
+$query_videojuegosunity_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_secundaria WHERE id_alumno = $id_user AND id_curso = 12");
+$data_videojuegosunity_avanzado = mysqli_fetch_assoc($query_videojuegosunity_avanzado);
 
 //Información solo de alumno
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_secundaria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
@@ -272,10 +299,10 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 </div>
                 <div class="dos1">
                     <ul class="lista-datos">
-                        <li><i class="fas fa-award"></i> &nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
-                        <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li><br>
-                        <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Conocimientos:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
-                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
+                        <li><i class="fas fa-award"></i> &nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
+                        <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
+                        <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> </li><br>
+                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
                     </ul>
                 </div>
 
@@ -413,6 +440,48 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                         </div>
                     </a>
                 </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r10 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-b.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Videojuegos Unity básico</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r11 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-i.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_intermedio)) echo $data_videojuegosunity_intermedio['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Videojuegos Unity intermedio</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r12 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-a.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Videojuegos Unity avanzado</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -422,10 +491,10 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             new Chart(ctx1, {
                 type: 'radar',
                 data: {
-                    labels: ['Logros', 'Destreza', 'Conocimientos', 'Coding'],
+                    labels: ['Conocimientos', 'Coding', 'Logros', 'Destreza'],
                     datasets: [{
                         label: 'Estadísticas',
-                        data: [<?php echo $resultadoEstadistica["trofeos"] ?>, <?php echo $resultadoEstadistica["puntos"] ?>, <?php echo $resultadoEstadistica["practico"] ?>, <?php echo $resultadoEstadistica["teorico"] ?>],
+                        data: [<?php echo $resultadoEstadistica["teorico"] ?>, <?php echo $resultadoEstadistica["practico"] ?>, <?php echo $resultadoEstadistica["trofeos"] ?>, <?php echo $resultadoEstadistica["puntos"] ?>],
                         fill: true,
                         borderWidth: 1
                     }]
@@ -770,281 +839,279 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         </script>
 
         <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
-
-            <dialog close id="modalFP" style="width:39%;border: none; border-radius: 10px;  border: 2px solid rgba(0,201,255,2556);margin-top: 170px; margin-left: 33%; background: url(img/fondoPerfil.png);">
-                <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
-                <div style="margin-left:5%; margin-bottom:2%; width: 90%; height: 40px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); display:flex; justify-content:center">
-                    <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Avatar</h4>
+            <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 7px; padding-right: 7px; padding-top: 6px; padding-bottom: 5px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer;" id="btn-cerrar-modalFP"><i class="fas fa-close"></i></button><br>
+            <div style="margin-left:5%; margin-bottom:2%; width: 90%; height: 40px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); display:flex; justify-content:center">
+                <h4 style="display: block; width: 100%; font-size: 1.75em; margin-bottom: 0.5rem; text-align: center;">Avatar</h4>
+            </div>
+            <div class="portada" style="margin-left:5%;width: 90%; height: 300px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); overflow-y: scroll; display: flex; justify-content: space-between; flex-wrap:wrap">
+                <div style="flex: 1 0 10px">
+                    <form id="cambiaravatar1" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-01" value="Mascota-Aerobot-01">
+                        <img src="img/Mascota-Aerobot-01.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar1(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-01" name="Mascota-Aerobot-01">Seleccionar</button>
+                    </form>
+                    <hr style="margin-left: 20px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                    <form id="cambiaravatar2" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-02" value="Mascota-Aerobot-02">
+                        <img src="img/Mascota-Aerobot-02.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar2(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-02" name="Mascota-Aerobot-02">Seleccionar</button>
+                    </form>
+                    <hr style="margin-left: 20px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                    <form id="cambiaravatar3" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-03" value="Mascota-Aerobot-03">
+                        <img src="img/Mascota-Aerobot-03.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar3(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-03" name="Mascota-Aerobot-03">Seleccionar</button>
+                    </form>
                 </div>
-                <div class="portada" style="margin-left:5%;width: 90%; height: 300px;  border: 2px solid rgba(0,201,255,2556); border-radius: 10px; background: rgba(255,255,255, .8); overflow-y: scroll; display: flex; justify-content: space-between; flex-wrap:wrap">
-                    <div style="flex: 1 0 10px">
-                        <form id="cambiaravatar1" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-01" value="Mascota-Aerobot-01">
-                            <img src="img/Mascota-Aerobot-01.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar1(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-01" name="Mascota-Aerobot-01">Seleccionar</button>
-                        </form>
-                        <hr style="margin-left: 20px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                        <form id="cambiaravatar2" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-02" value="Mascota-Aerobot-02">
-                            <img src="img/Mascota-Aerobot-02.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar2(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-02" name="Mascota-Aerobot-02">Seleccionar</button>
-                        </form>
-                        <hr style="margin-left: 20px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                        <form id="cambiaravatar3" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-03" value="Mascota-Aerobot-03">
-                            <img src="img/Mascota-Aerobot-03.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar3(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-03" name="Mascota-Aerobot-03">Seleccionar</button>
-                        </form>
-                    </div>
-                    <div style="flex: 1 0 10px">
-                        <form id="cambiaravatar4" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-04" value="Mascota-Aerobot-04">
-                            <img src="img/Mascota-Aerobot-04.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar4(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-04" name="Mascota-Aerobot-04">Seleccionar</button>
-                        </form>
-                        <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                        <form id="cambiaravatar5" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-05" value="Mascota-Aerobot-05">
-                            <img src="img/Mascota-Aerobot-05.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar5(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-05" name="Mascota-Aerobot-05">Seleccionar</button>
-                        </form>
-                        <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                        <form id="cambiaravatar6" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-06" value="Mascota-Aerobot-06">
-                            <img src="img/Mascota-Aerobot-06.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar6(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-06" name="Mascota-Aerobot-06">Seleccionar</button>
-                        </form>
-                    </div>
-                    <div style="flex: 1 0 10px">
-                        <form id="cambiaravatar7" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-07" value="Mascota-Aerobot-07">
-                            <img src="img/Mascota-Aerobot-07.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar7(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-07" name="Mascota-Aerobot-07">Seleccionar</button>
-                        </form>
-                        <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                        <form id="cambiaravatar8" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-08" value="Mascota-Aerobot-08">
-                            <img src="img/Mascota-Aerobot-08.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-                            <button onclick="miAvatar8(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-08" name="Mascota-Aerobot-08">Seleccionar</button>
-                        </form>
-                        <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                        <form id="cambiaravatar9" action="acciones/cambiaravatar.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="name" value="<?php echo $name; ?>">
-                            <input type="hidden" name="Mascota-Aerobot-09" value="Mascota-Aerobot-09">
-                            <img src="img/Mascota-Aerobot-09.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
-
-                            <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
-
-
-                        </form>
-
-                        <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
-                    </div>
+                <div style="flex: 1 0 10px">
+                    <form id="cambiaravatar4" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-04" value="Mascota-Aerobot-04">
+                        <img src="img/Mascota-Aerobot-04.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar4(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-04" name="Mascota-Aerobot-04">Seleccionar</button>
+                    </form>
+                    <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                    <form id="cambiaravatar5" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-05" value="Mascota-Aerobot-05">
+                        <img src="img/Mascota-Aerobot-05.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar5(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-05" name="Mascota-Aerobot-05">Seleccionar</button>
+                    </form>
+                    <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                    <form id="cambiaravatar6" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-06" value="Mascota-Aerobot-06">
+                        <img src="img/Mascota-Aerobot-06.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar6(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-06" name="Mascota-Aerobot-06">Seleccionar</button>
+                    </form>
                 </div>
-            </dialog>
+                <div style="flex: 1 0 10px">
+                    <form id="cambiaravatar7" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-07" value="Mascota-Aerobot-07">
+                        <img src="img/Mascota-Aerobot-07.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar7(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-07" name="Mascota-Aerobot-07">Seleccionar</button>
+                    </form>
+                    <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                    <form id="cambiaravatar8" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-08" value="Mascota-Aerobot-08">
+                        <img src="img/Mascota-Aerobot-08.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
+                        <button onclick="miAvatar8(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color: rgba(0,201,255,2556); color:white; cursor: pointer;" id="Mascota-Aerobot-08" name="Mascota-Aerobot-08">Seleccionar</button>
+                    </form>
+                    <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                    <form id="cambiaravatar9" action="acciones/cambiaravatar.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="name" value="<?php echo $name; ?>">
+                        <input type="hidden" name="Mascota-Aerobot-09" value="Mascota-Aerobot-09">
+                        <img src="img/Mascota-Aerobot-09.png" alt="" style="width: 100px; margin-left: 28px; margin-top: 10px; border-radius: 50%; border: rgba(61, 172, 244);"><br>
 
-            <script>
-                const btnAbrirModalFO = document.querySelector("#btn-abrir-modalFO");
-                const btnCerrarModalFO = document.querySelector("#btn-cerrar-modalFO");
-                const modalFO = document.querySelector("#modalFO");
-                btnAbrirModalFP.addEventListener("click", () => {
-                    modalFP.showModal();
-                })
+                        <button onclick="miAvatar9(); return false;" type="submit" style="width: 100px; margin-left: 27px; padding: 3px; border-radius: 5px; border: none; background-color:rgba(0,201,255,2556); color:white;" id="Mascota-Aerobot-09" name="Mascota-Aerobot-09">Seleccionar</button>
 
-                btnCerrarModalFP.addEventListener("click", () => {
-                    modalFP.close();
-                })
-            </script>
 
-            <script>
-                const btnAbrirModalCC = document.querySelector("#btn-abrir-modalCC");
-                const btnCerrarModalCC = document.querySelector("#btn-cerrar-modalCC");
-                const modalCC = document.querySelector("#modalCC");
-                btnAbrirModalCC.addEventListener("click", () => {
-                    modalCC.showModal();
-                })
+                    </form>
 
-                btnCerrarModalCC.addEventListener("click", () => {
-                    modalCC.close();
-                })
-            </script>
-            <script>
-                const btnAbrirModalFP = document.querySelector("#btn-abrir-modalFP");
-                const btnCerrarModalFP = document.querySelector("#btn-cerrar-modalFP");
-                const modalFP = document.querySelector("#modalFP");
-                btnAbrirModalFP.addEventListener("click", () => {
-                    modalFP.showModal();
-                })
+                    <hr style="margin-left: 10px; width: 115px; margin-top: 10px; color: grey; opacity: 20%;">
+                </div>
+            </div>
+        </dialog>
 
-                btnCerrarModalFP.addEventListener("click", () => {
-                    modalFP.close();
-                })
-            </script>
+        <script>
+            const btnAbrirModalFO = document.querySelector("#btn-abrir-modalFO");
+            const btnCerrarModalFO = document.querySelector("#btn-cerrar-modalFO");
+            const modalFO = document.querySelector("#modalFO");
+            btnAbrirModalFP.addEventListener("click", () => {
+                modalFP.showModal();
+            })
 
-            <script>
-                function miAvatar1() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar1').submit();
-                        }
-                    });
-                }
+            btnCerrarModalFP.addEventListener("click", () => {
+                modalFP.close();
+            })
+        </script>
 
-                function miAvatar2() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar2').submit();
-                        }
-                    });
-                }
+        <script>
+            const btnAbrirModalCC = document.querySelector("#btn-abrir-modalCC");
+            const btnCerrarModalCC = document.querySelector("#btn-cerrar-modalCC");
+            const modalCC = document.querySelector("#modalCC");
+            btnAbrirModalCC.addEventListener("click", () => {
+                modalCC.showModal();
+            })
 
-                function miAvatar3() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar3').submit();
-                        }
-                    });
-                }
+            btnCerrarModalCC.addEventListener("click", () => {
+                modalCC.close();
+            })
+        </script>
+        <script>
+            const btnAbrirModalFP = document.querySelector("#btn-abrir-modalFP");
+            const btnCerrarModalFP = document.querySelector("#btn-cerrar-modalFP");
+            const modalFP = document.querySelector("#modalFP");
+            btnAbrirModalFP.addEventListener("click", () => {
+                modalFP.showModal();
+            })
 
-                function miAvatar4() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar4').submit();
-                        }
-                    });
-                }
+            btnCerrarModalFP.addEventListener("click", () => {
+                modalFP.close();
+            })
+        </script>
 
-                function miAvatar5() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar5').submit();
-                        }
-                    });
-                }
+        <script>
+            function miAvatar1() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar1').submit();
+                    }
+                });
+            }
 
-                function miAvatar6() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar6').submit();
-                        }
-                    });
-                }
+            function miAvatar2() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar2').submit();
+                    }
+                });
+            }
 
-                function miAvatar7() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar7').submit();
-                        }
-                    });
-                }
+            function miAvatar3() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar3').submit();
+                    }
+                });
+            }
 
-                function miAvatar8() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar8').submit();
-                        }
-                    });
-                }
+            function miAvatar4() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar4').submit();
+                    }
+                });
+            }
 
-                function miAvatar9() {
-                    modalFP.close();
-                    Swal.fire({
-                        title: '¡Excelente!',
-                        text: 'Cambio de avatar exitoso',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('cambiaravatar9').submit();
-                        }
-                    });
-                }
-            </script>
+            function miAvatar5() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar5').submit();
+                    }
+                });
+            }
 
-            <?php
-            if (isset($_POST['enviarcontrasena'])) {
-                $idalumno = $_SESSION['id_alumno_secundaria'];
-                $contrasena = md5($_POST['contrasena']);
+            function miAvatar6() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar6').submit();
+                    }
+                });
+            }
 
-                $sql_update = mysqli_query($conexion, "UPDATE alumnos_secundaria SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
+            function miAvatar7() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar7').submit();
+                    }
+                });
+            }
 
-                if ($sql_update) {
-                    echo
-                    "
+            function miAvatar8() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar8').submit();
+                    }
+                });
+            }
+
+            function miAvatar9() {
+                modalFP.close();
+                Swal.fire({
+                    title: '¡Excelente!',
+                    text: 'Cambio de avatar exitoso',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('cambiaravatar9').submit();
+                    }
+                });
+            }
+        </script>
+
+        <?php
+        if (isset($_POST['enviarcontrasena'])) {
+            $idalumno = $_SESSION['id_alumno_secundaria'];
+            $contrasena = md5($_POST['contrasena']);
+
+            $sql_update = mysqli_query($conexion, "UPDATE alumnos_secundaria SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
+
+            if ($sql_update) {
+                echo
+                "
       <script>
       Swal.fire({
           title: 'Excelente!',
@@ -1059,9 +1126,9 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         });
       </script>
         ";
-                } else {
-                    echo
-                    "
+            } else {
+                echo
+                "
       <script>
       Swal.fire({
           title: '¡Advertencia!',
@@ -1076,48 +1143,48 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         });
       </script>
         ";
-                }
             }
-            ?>
+        }
+        ?>
 
-            <footer class="footerimga">
-                <div class="imagen-footer">
-                    <img src="../secundaria/img/benvenida.png" alt="No-image">
-                </div>
-            </footer>
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../secundaria/img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
 
-            <?php
-            if (isset($_POST['enviarclave'])) {
-                $idalumno = $_SESSION['id_alumno_secundaria'];
-                $clavegrupo = $_POST['clavegrupo'];
+        <?php
+        if (isset($_POST['enviarclave'])) {
+            $idalumno = $_SESSION['id_alumno_secundaria'];
+            $clavegrupo = $_POST['clavegrupo'];
 
-                $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE clave = '$clavegrupo'"));
-                if (isset($data_alumno['id_grupo'])) {
-                    $id_grupo_alumno = $data_alumno['id_grupo'];
-                    $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos_secundaria(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
-                }
-                if (isset($data_alumno['id_docente'])) {
-                    $id_docente_alumno = $data_alumno['id_docente'];
-                    $sql_update = mysqli_query($conexion, "UPDATE alumnos_secundaria SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
-                }
+            $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE clave = '$clavegrupo'"));
+            if (isset($data_alumno['id_grupo'])) {
+                $id_grupo_alumno = $data_alumno['id_grupo'];
+                $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos_secundaria(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
+            }
+            if (isset($data_alumno['id_docente'])) {
+                $id_docente_alumno = $data_alumno['id_docente'];
+                $sql_update = mysqli_query($conexion, "UPDATE alumnos_secundaria SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
+            }
 
-                if (isset($data_alumno['id_grupo'])) {
-                    $sql = "SELECT DISTINCT c.id_curso FROM grupos_secundaria g JOIN detalle_grupo_cursos_secundaria dg ON g.id_grupo = dg.id_grupo JOIN cursos_secundaria c ON dg.id_curso = c.id_curso WHERE g.clave = '$clavegrupo'";
-                    $resultado = $conexion->query($sql);
+            if (isset($data_alumno['id_grupo'])) {
+                $sql = "SELECT DISTINCT c.id_curso FROM grupos_secundaria g JOIN detalle_grupo_cursos_secundaria dg ON g.id_grupo = dg.id_grupo JOIN cursos_secundaria c ON dg.id_curso = c.id_curso WHERE g.clave = '$clavegrupo'";
+                $resultado = $conexion->query($sql);
 
-                    if ($resultado->num_rows > 0) {
-                        // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
-                        while ($fila = $resultado->fetch_assoc()) {
-                            $idcurso = $fila["id_curso"];
-                            $insertar_acceso_curso = "INSERT INTO acceso_cursos_secundaria(id_curso, id_alumno) VALUES ('$idcurso', $idalumno)";
-                            $conexion->query($insertar_acceso_curso);
-                        }
+                if ($resultado->num_rows > 0) {
+                    // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
+                    while ($fila = $resultado->fetch_assoc()) {
+                        $idcurso = $fila["id_curso"];
+                        $insertar_acceso_curso = "INSERT INTO acceso_cursos_secundaria(id_curso, id_alumno) VALUES ('$idcurso', $idalumno)";
+                        $conexion->query($insertar_acceso_curso);
                     }
                 }
+            }
 
-                if ($insertar_grupo && $insertar_acceso_curso && $sql_update) {
-                    echo
-                    "
+            if ($insertar_grupo && $insertar_acceso_curso && $sql_update) {
+                echo
+                "
       <script>
       Swal.fire({
           title: 'Excelente!',
@@ -1132,9 +1199,9 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         });
       </script>
         ";
-                } else {
-                    echo
-                    "
+            } else {
+                echo
+                "
       <script>
       Swal.fire({
           title: '¡Revisa bien tu clave!',
@@ -1149,19 +1216,8 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         });
       </script>
         ";
-                }
             }
-            ?>
-            <footer class="footerimga">
-                <div class="imagen-footer">
-                    <img src="../secundaria/img/benvenida.png" alt="No-image">
-                </div>
-            </footer>
-    </div>
-
-    <div class="pie-pagina">
-        <div class="imagenLogoF">
-            <br>
-        </div>
+        }
+        ?>
 
 </body>

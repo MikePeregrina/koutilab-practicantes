@@ -12,7 +12,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML = `
-p { color:red; margin-right:15px; } <br/>
+p { color:red; margin-right:15px; } </br>
 h1 { color:white; text-align:center; }
 .contenedorCentral { background:white; }`;
 //Entidades para que html no reconosca las etiquetas

@@ -76,7 +76,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <i class="fas fa-reply"></i>
                 </button>
             </a>
-            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+            <h4 class="titulo"><b>Copia el código mostrado en el lado izquierdo al lado derecho antes de que termine el tiempo</b></h4>
         </div>
         <br>
 

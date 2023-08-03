@@ -55,11 +55,28 @@
                     <tbody>
                         <tr>
                             <td>
+                                <h5>Conocimientos</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["teorico"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Coding</h5>
+                            </td>
+                            <td>
+                                <h5><?php echo $data1["practico"] ?></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <h5>Logros</h5>
                             </td>
                             <td>
                                 <h5><?php echo $data1["trofeos"] ?></h5>
                             </td>
+
                         </tr>
                         <tr>
                             <td>
@@ -67,23 +84,6 @@
                             </td>
                             <td>
                                 <h5><?php echo $data1["puntos"] ?></h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5>Conocimientos</h5>
-                            </td>
-                            <td>
-                                <h5><?php echo $data1["practico"] ?></h5>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5>Coding</h5>
-                            </td>
-                            <td>
-                                <h5><?php echo $data1["teorico"] ?></h5>
                             </td>
                         </tr>
                         <tr>

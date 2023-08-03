@@ -41,7 +41,7 @@ if (empty($existe)) {
     </div>
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style=""><b>MENÚ</b></h2> <!--Titulo del juego-->
+        <h2 class="titulo"><b>MENÚ</b></h2> <!--Titulo del juego-->
     </div>
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <section>

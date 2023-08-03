@@ -76,7 +76,7 @@
                      <i class="fas fa-reply"></i>
                  </button>
              </a>
-             <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+             <h4 class="titulo"><b>Copia el código de ejemplo de la izquierda a la derecha antes de que termine el tiempo</b></h4>
          </div>
          <!-- Parte que modifique Final -->
          <br>

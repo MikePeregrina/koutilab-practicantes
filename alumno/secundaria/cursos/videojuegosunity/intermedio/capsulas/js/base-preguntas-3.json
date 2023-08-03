@@ -1,0 +1,98 @@
+[
+{
+    "categoria": "#",
+    "pregunta": "Es una característica del temporizador en un juego",
+    "respuesta": "Implementar mecanismos basados en el tiempo",
+    "incorrecta1": "Apresurar al jugador",
+    "incorrecta2": "Luce atractivo para el juego",
+    "incorrecta3": "Permite pasar el siguiente nivel",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Qué elementos se usan para crear un temporizador en Unity?",
+    "respuesta": "Scripts y Funciones",
+    "incorrecta1": "Funciones",
+    "incorrecta2": "Scripts",
+    "incorrecta3": "Metódos",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Cuál es el nombre de la clase donde se anexaran variable y metódos del temporizador?",
+    "respuesta": "timer",
+    "incorrecta1": "tiempo",
+    "incorrecta2": "timers",
+    "incorrecta3": "temporizador",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Qué tipo de dato es totalTime?",
+    "respuesta": "Float",
+    "incorrecta1": "String",
+    "incorrecta2": "Int",
+    "incorrecta3": "Double",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Es una heramienta que permite limitar el tiempo de juego?",
+    "respuesta": "Temporizador",
+    "incorrecta1": "Cronometro",
+    "incorrecta2": "Generador de tiempo",
+    "incorrecta3": "Barra de tiempo",
+    "imagen": "",
+    "objectFit" : "cover"    
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Qué tipo de atributo es totalTime?",
+    "respuesta": "Public",
+    "incorrecta1": "Private",
+    "incorrecta2": "Protected",
+    "imagen": "",
+    "objectFit" : "cover" 
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Por qué la variable currentTime es categorizada como private?",
+    "respuesta": "Porque solo es accesible desde la clase que lo define",
+    "incorrecta1": "Se puede acceder desde la clase que lo hereda",
+    "incorrecta2": "Ninguna de las anteriores",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "#",
+    "pregunta": "¿En que variable se puede modificar el tiempo y adapatarlo a las necesidades del juego?",
+    "respuesta": "totalTime",
+    "incorrecta1": "currentTime",
+    "incorrecta2": "isTimerRunnnig",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Cuál es el metódo que permite iniciar el tiempo en respuesta al evento del juego?",
+    "respuesta": "StarTimer",
+    "incorrecta1": "totalTime",
+    "incorrecta2": "StopTimer",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "#",
+    "pregunta": "¿Cómo se puede detener el temporizador como finalización de un nivel o tarea?",
+    "respuesta": "StopTimer",
+    "incorrecta1": "PararTiempo",
+    "incorrecta2": "FinalizarTiempo",
+    "imagen": "",
+    "objectFit" : "cover"
+}
+
+]

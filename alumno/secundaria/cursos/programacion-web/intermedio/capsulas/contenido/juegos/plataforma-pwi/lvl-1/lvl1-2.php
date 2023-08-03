@@ -1,3 +1,18 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+    header('location: ../../../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_secundaria'];
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location: ../../../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,8 +29,7 @@
 </head>
 
 <body onload="alert1()">
-    <a href="../../../../../../../../rutas/ruta-pw-i.php"><button
-            style="float: left; position: absolute; margin: 70px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
+    <a href="../../../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 70px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
             <i class="fas fa-reply"></i>
         </button>
     </a>
@@ -23,7 +37,7 @@
 
     <div class="titulo-gen1">
         <h2>
-            ESTRUCTURA DE DIRECTORIOS       
+            ESTRUCTURA DE DIRECTORIOS
         </h2>
     </div>
     <div class="titulo-gen3">
@@ -75,25 +89,25 @@
         var count = 1000;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
@@ -127,7 +141,9 @@
             physics: {
                 default: "arcade",
                 arcade: {
-                    gravity: { y: 700 },
+                    gravity: {
+                        y: 700
+                    },
                     debug: false,
                 },
             },
@@ -224,18 +240,27 @@
             player.setBounce(0.1);
             this.anims.create({
                 key: "left",
-                frames: this.anims.generateFrameNumbers("dude", { start: 0, end: 3 }),
+                frames: this.anims.generateFrameNumbers("dude", {
+                    start: 0,
+                    end: 3
+                }),
                 frameRate: 10,
                 repeat: -1,
             });
             this.anims.create({
                 key: "turn",
-                frames: [{ key: "dude", frame: 4 }],
+                frames: [{
+                    key: "dude",
+                    frame: 4
+                }],
                 frameRate: 20,
             });
             this.anims.create({
                 key: "right",
-                frames: this.anims.generateFrameNumbers("dude", { start: 5, end: 8 }),
+                frames: this.anims.generateFrameNumbers("dude", {
+                    start: 5,
+                    end: 8
+                }),
                 frameRate: 10,
                 repeat: -1,
             });
@@ -245,13 +270,16 @@
             //Creacion de las estrellas y sus fisicas
             stars = this.physics.add.group({
                 key: "star",
-                setXY: { x: 250, y: 100 },
+                setXY: {
+                    x: 250,
+                    y: 100
+                },
             });
             stars.create(305, 500, "star");
             stars.create(560, 340, "star");
             stars.create(497, 190, "star");
             stars.create(240, 340, "star");
-            stars.children.iterate(function (child) {
+            stars.children.iterate(function(child) {
                 child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
             });
             this.physics.add.collider(stars, plataforms);
@@ -260,14 +288,20 @@
             //Portal
             portal = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 75, y: 101 },
+                setXY: {
+                    x: 75,
+                    y: 101
+                },
             });
             this.physics.add.collider(portal, plataforms);
             this.physics.add.collider(player, portal, collectKey, null, true);
 
             portal1 = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 740, y: 101 },
+                setXY: {
+                    x: 740,
+                    y: 101
+                },
             });
             this.physics.add.collider(portal1, plataforms);
             this.physics.add.collider(player, portal1, collectKey1, null, true);

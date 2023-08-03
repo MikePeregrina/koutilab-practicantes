@@ -12,9 +12,9 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 document.getElementById(
     "textoej"
 ).innerHTML =  `
-&ltp&gt Reglamento del aula de clases &lt/p&gt <br/>
-&ltoi&gt &ltli&gt Ingresar al aula de clases con el uniforme adecuado &lt/li&gt <br/>
-&ltli&gt Respetar a compañeros y profesores &lt/li&gt <br/>
+&ltp&gt Reglamento del aula de clases &lt/p&gt </br>
+&ltoi&gt &ltli&gt Ingresar al aula de clases con el uniforme adecuado &lt/li&gt </br>
+&ltli&gt Respetar a compañeros y profesores &lt/li&gt </br>
 &ltli&gt No ingresar con alimentos &lt/li&gt &lt/oi&gt`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
