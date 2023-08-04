@@ -259,3 +259,8 @@ $existe_capsula51 = mysqli_num_rows($sql_capsula51);
 $capsula52 = "capsula52";
 $sql_capsula52 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula52' AND d.id_curso = 2");
 $existe_capsula52 = mysqli_num_rows($sql_capsula52);
+
+//Verificar si capsula esta completada para mostrar sin opacidad la cápsula
+$capsula99 = "capsula99";
+$sql_capsula99 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula99' AND d.id_curso = 2");
+$existe_capsula99 = mysqli_num_rows($sql_capsula99);

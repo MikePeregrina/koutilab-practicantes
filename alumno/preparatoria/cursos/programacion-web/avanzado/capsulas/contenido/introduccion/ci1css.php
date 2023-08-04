@@ -72,21 +72,30 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                            <li style="background-image: url('../../img/css/In/49.gif'); z-index:0; opacity: 1;"></li>
-                            <li style="background-image: url('../../img/css/In/50.gif');"></li>
-                            <li style="background-image: url('../../img/css/In/51.gif');"></li>
-                            <li style="background-image: url('../../img/css/In/52.gif');"></li>
-                            <li style="background-image: url('../../img/css/In/53.gif');"></li>
-                            <li style="background-image: url('../../img/css/In/54.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/49.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/In/50.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/51.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/52.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/53.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/54.gif');"></li>
+                        <li style="background-image: url('../../img/PA.gif');">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd99.php">
+                                <input type="hidden" name="permiso" value="99">
+                                <!-- Cambiar al id del curso al que corresponda -->
+                                <input type="hidden" name="id_curso" value="3">
+                                <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
+                            </form>
+
+                        </li>
                     </ul>
                 </section>
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         function disableIE() {
             if (document.all) {
