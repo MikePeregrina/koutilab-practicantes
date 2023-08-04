@@ -194,7 +194,7 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp9.php"><button class="prem8" id="pracp" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 9-->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp3-1.php"><button class="prem9" id="gamep" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 9-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- PARTE 2 -->
                 <div class="label-2">
@@ -203,7 +203,7 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                 <!-- PY -->
                 <a href="../cursos/python/basico/capsulas/contenido/introduccion/ci2.php"><button class="btn24" id="intro"></button></a><!--Capsula introduccion a PY-->
                 <!-- TEMA 1 -->
-                <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct1python.php"><button class="btn25" id="teoria" <?php echo 'style="' . (($existe_capsula29 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
+                <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct1python.php"><button class="btn25" id="teoria" <?php echo 'style="' . (($existe_capsula99 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/python/basico/capsulas/contenido/practicas/cp11.php"><button class="btn26" id="prac" <?php echo 'style="' . (($existe_capsula30 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
                 <a href="../cursos/python/basico/capsulas/contenido/juegos/cjp2-1.php"><button class="btn27" id="game" <?php echo 'style="' . (($existe_capsula31 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
