@@ -147,41 +147,109 @@ $existe_verificar_rutas = mysqli_num_rows($sql_verificar_rutas);
 
 // Array que contiene los puntos correspondientes a cada ruta desbloqueada.
 $puntos_por_ruta = array(
-    "1" => 20,
-    "2" => 30,
-    "3" => 40,
-    "4" => 20,
-    "5" => 20,
-    "6" => 20,
-    "7" => 20,
-    "8" => 20,
-    "9" => 20,
-    "10" => 20,
-    "11" => 20,
-    "12" => 20
+    "1" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "2" => array(
+        "trofeos" => 210,
+        "teoricos" => 210,
+        "practicos" => 210,
+        "evaluativos" => 30
+    ),
+    "3" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "4" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "5" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "6" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "7" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "8" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "9" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "10" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "11" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "12" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    )
+
 );
 
 // Conjunto para llevar un registro de las rutas desbloqueadas ya procesadas.
 $rutas_procesadas = array();
 
-// Calcula el total de puntos
-$total_puntos = 0;
+// Variables para almacenar los puntos totales de cada tipo.
+$total_trofeos = 0;
+$total_puntos_teoricos = 0;
+$total_puntos_practicos = 0;
+$total_puntos_evaluativos = 0;
 
 if ($existe_verificar_rutas > 0) {
     // Si el usuario tiene desbloqueada al menos una ruta, sumar los puntos de todas las rutas desbloqueadas.
     while ($ruta = mysqli_fetch_assoc($sql_verificar_rutas)) {
         $ruta_desbloqueada = $ruta['id_curso'];
         if (isset($puntos_por_ruta[$ruta_desbloqueada]) && !isset($rutas_procesadas[$ruta_desbloqueada])) {
-            $total_puntos += $puntos_por_ruta[$ruta_desbloqueada];
+            $total_trofeos += $puntos_por_ruta[$ruta_desbloqueada]["trofeos"];
+            $total_puntos_teoricos += $puntos_por_ruta[$ruta_desbloqueada]["teoricos"];
+            $total_puntos_practicos += $puntos_por_ruta[$ruta_desbloqueada]["practicos"];
+            $total_puntos_evaluativos += $puntos_por_ruta[$ruta_desbloqueada]["evaluativos"];
             $rutas_procesadas[$ruta_desbloqueada] = true;
         }
     }
 }
 
-$totalTrofeos = ((int)$fila['id_alumno']) * 600;
-$totalPuntaje = $total_puntos;
-$totalPractico = ((int)$fila['id_alumno']) * 1000;
-$totalTeorico = ((int)$fila['id_alumno']) * 1000;
+// Ahora, las variables $total_trofeos, $total_puntos_teoricos, $total_puntos_practicos y $total_puntos_evaluativos contienen los totales de puntos máximos que el usuario puede obtener sin repetir rutas desbloqueadas y por cada tipo de punto.
+$totalTrofeos = $total_trofeos;
+$totalPuntaje = $total_puntos_evaluativos;
+$totalPractico = $total_puntos_practicos;
+$totalTeorico = $total_puntos_teoricos;
 
 
 ?>
