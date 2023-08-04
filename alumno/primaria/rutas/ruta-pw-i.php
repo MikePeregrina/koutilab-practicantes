@@ -162,7 +162,7 @@ $existe_comprada_js2 = mysqli_num_rows($sql_comprada_js2);
             </div>
 
             <!-- CSS -->
-            <a href="../cursos/programacion-web/intermedio/capsulas/contenido/introduccion/ci2css.php"><button class="btn24" id="intro" ></button></a><!--Capsula introduccion a CSS-->
+            <a href="../cursos/programacion-web/intermedio/capsulas/contenido/introduccion/ci2css.php"><button class="btn24" id="intro" <?php echo 'style="' . (($existe_capsula17 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
             <!-- TEMA 1 -->
             <!-- cambiar -->
             <div class="container-premium3">
@@ -171,7 +171,7 @@ $existe_comprada_js2 = mysqli_num_rows($sql_comprada_js2);
                 <a href="../cursos/programacion-web/intermedio/capsulas/contenido/juegos/plataforma-pwi/lvl-3/lvl3-1.php"><button class="btn27" id="gamep" <?php echo 'style="' . (($existe_verificar_css1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 1-->
             </div>
             <!-- TEMA 2 -->
-            <a href="../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct1css.php"><button class="btn28" id="teoria" <?php echo 'style="' . (($existe_capsula17 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 2-->
+            <a href="../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct1css.php"><button class="btn28" id="teoria" <?php echo 'style="' . (($existe_capsula99 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 2-->
             <a href="../cursos/programacion-web/intermedio/capsulas/contenido/practicas/cp1css.php"><button class="btn29" id="prac" <?php echo 'style="' . (($existe_capsula18 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 2-->
             <a href="../cursos/programacion-web/intermedio/capsulas/contenido/juegos/cjcss1.php"><button class="btn30" id="game" <?php echo 'style="' . (($existe_capsula19 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 2-->
             <!-- TEMA 3 -->
@@ -204,7 +204,7 @@ $existe_comprada_js2 = mysqli_num_rows($sql_comprada_js2);
             </div>
 
             <!-- JS -->
-            <a href="../cursos/programacion-web/intermedio/capsulas/contenido/introduccion/ci3js.php"><button class="btn47" id="intro" ></button></a><!--Capsula introduccion a JS-->
+            <a href="../cursos/programacion-web/intermedio/capsulas/contenido/introduccion/ci3js.php"><button class="btn47" id="intro"></button></a><!--Capsula introduccion a JS-->
             <!-- TEMA 1 -->
             <a href="../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct1js.php"><button class="btn48" id="teoria" <?php echo 'style="' . (($existe_capsula33 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
             <a href="../cursos/programacion-web/intermedio/capsulas/contenido/practicas/cp1js.php"><button class="btn49" id="prac" <?php echo 'style="' . (($existe_capsula32 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->

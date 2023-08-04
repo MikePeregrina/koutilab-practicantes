@@ -132,9 +132,9 @@ $existe_comprada_php1 = mysqli_num_rows($sql_comprada_php1);
             </div>
 
             <!-- CSS -->
-            <a href="../cursos/programacion-web/avanzado/capsulas/contenido/introduccion/ci1css.php"><button class="btn18" id="intro"></button></a><!--Capsula introduccion a CSS-->
+            <a href="../cursos/programacion-web/avanzado/capsulas/contenido/introduccion/ci1css.php"><button class="btn18" id="intro" <?php echo 'style="' . (($existe_capsula14 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
             <!-- TEMA 1 -->
-            <a href="../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct1css.php"><button class="btn19" id="teoria" <?php echo 'style="' . (($existe_capsula14 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
+            <a href="../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct1css.php"><button class="btn19" id="teoria" <?php echo 'style="' . (($existe_capsula99 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
             <a href="../cursos/programacion-web/avanzado/capsulas/contenido/practicas/cp1css.php"><button class="btn20" id="prac" <?php echo 'style="' . (($existe_capsula15 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
             <a href="../cursos/programacion-web/avanzado/capsulas/contenido/juegos/cjcss1.php"><button class="btn21" id="game" <?php echo 'style="' . (($existe_capsula16 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
             <!-- TEMA 2 -->
