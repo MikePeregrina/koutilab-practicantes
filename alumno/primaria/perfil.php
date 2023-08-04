@@ -299,7 +299,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 </div>
                 <div class="dos1">
                     <ul class="lista-datos">
-                        <li><i class="fas fa-award"></i> &nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
+                        <li><i class="fas fa-award"></i> &nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li><br>
                         <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
                         <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> </li><br>
                         <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
