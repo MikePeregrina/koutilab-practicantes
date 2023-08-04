@@ -48,56 +48,6 @@
     "incorrecta3": "!=",
     "imagen": "",
     "objectFit" : "cover"    
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Operador relacional que indica que un resultado es menor o igual al otro",
-    "respuesta": "<=",
-    "incorrecta1": ">=",
-    "incorrecta2": "==",
-    "incorrecta3": "!=",
-    "imagen": "",
-    "objectFit" : "cover" 
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "¿Cómo se representa el operador ternario?",
-    "respuesta": "?",
-    "incorrecta1": "==",
-    "incorrecta2": ">",
-    "incorrecta3": "!=",
-    "imagen": "",
-    "objectFit" : "cover"   
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "¿Cuál de los siguientes operadores NO es relacional?",
-    "respuesta": "++",
-    "incorrecta1": "!=",
-    "incorrecta2": "==",
-    "incorrecta3": "<=",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "¿Cuál de los siguientes operadores significa igual valor o tipo igual?",
-    "respuesta": "===",
-    "incorrecta1": "!=",
-    "incorrecta2": "<=",
-    "incorrecta3": ">=",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "¿Cuál de los siguientes operadores es relacional?",
-    "respuesta": ">=",
-    "incorrecta1": "++",
-    "incorrecta2": "%",
-    "incorrecta3": "*",
-    "imagen": "",
-    "objectFit" : "cover"
 }
 
 ]

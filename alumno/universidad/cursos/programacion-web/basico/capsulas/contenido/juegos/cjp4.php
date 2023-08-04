@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
@@ -76,40 +76,33 @@ if (empty($existe)) {
     </head>
 
     <body onload="iniciarTiempo();">
-        <!-- Titulo general -->
-        <div class="titulo-gen">
-            <h4 class="titulo" style="margin-left: 520px"><b>SOMBRAS</b></h4>
-        </div>
-
-        <!-- Alerta -->
-        <div id="mensaje" style="position: absolute"></div>
-
         <div class="timer" id="timer">
             <b style="margin-top: 10px"
                 >Tiempo: <br />
                 <p id="tiempo"></p>
             </b>
         </div>
+        <!-- Titulo general -->
+        <div class="titulo-gen">
+            <h4 class="titulo" style="margin-left: 0px"><b>SOMBRAS</b></h4>
+        </div>
+
+        <!-- Alerta -->
+        <div id="mensaje" style="position: absolute"></div>
 
         <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
-        <div class="contenido">
-            <a href="../../../../../../rutas/ruta-pw-b.php"
-                ><button
-                    style="
-                        float: left;
-                        position: relative;
-                        margin: 10px 0 0 10px;
-                    "
-                    class="btn-b"
-                    id="btn-cerrar-modalV">
-                    <i class="fas fa-reply"></i></button
-            ></a>
-            <!-- Titulo secundario -->
-            <h6 class="titulo">
-                <b>Busca la palabra que describe el texto</b>
-            </h6>
-            <br />
+    <section>
 
+            <div class="cont-st">
+                <a href="../../../../../../rutas/ruta-pw-b.php">
+                  <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                  </button>
+                </a>
+                <h6 class="titulo"><b>Busca la palabra que describe el texto</b></h6>
+            </div>
+            <br />
+     <div class="mjuego"> 
             <!-- Apartado donde van las frases a buscar por el usuario -->
             <div class="words">
                 <table>
@@ -146,12 +139,12 @@ if (empty($existe)) {
             <div class="linea"></div>
 
             <!-- Apartado del crucigrama junto con sus casillas -->
-            <div class="crucigrama" style="margin: 0 40px 0 0">
-                <div class="numero1" style="margin: 235px 0 0 157px">1.</div>
-                <div class="numero2" style="margin: -25px 0 0 610px">2.</div>
-                <div class="numero1-1" style="margin: 85px 0 0 45px">1.</div>
-                <div class="numero2-2" style="margin: 410px 0 0 240px">2.</div>
-                <div class="numero3-3" style="margin: 535px 0 0 105px">3.</div>
+            <div class="crucigrama" style="">
+                <div class="numero1" style="">1.</div>
+                <div class="numero2" style="">2.</div>
+                <div class="numero1-1" style="">1.</div>
+                <div class="numero2-2" style="">2.</div>
+                <div class="numero3-3" style="">3.</div>
                 <table id="crucigrama">
                     <tr>
                         <td>
@@ -1031,12 +1024,22 @@ if (empty($existe)) {
                     </tr>
                 </table>
             </div>
-
-            <!-- boton de verificar respuestas -->
+        </div>
+ <!-- boton de verificar respuestas -->
+         <div class="btn-v">
             <button class="verificar" onClick="verificar()">
                 Comprobar respuestas
             </button>
         </div>
+	    </section>
+
+<!-- CAMBIOS -->
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+            </div>
+        </footer>
+<!-- FIN CAMBIOS -->
 
         <script>
             var segundos = 240;

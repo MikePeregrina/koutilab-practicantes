@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsula31";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 32;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -55,40 +55,44 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>SINTAXIS DE CSS</b></h2>
-	</div>
-
 	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br />
 			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
 	</div>
+    <!-- Titulo general del juego -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>SINTAXIS DE CSS</b></h2>
+	</div>
 
 	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+<section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
+<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 
 	<script>
 		//Funcion que agrega el sonido al juego
@@ -149,56 +153,6 @@ if (isset($resultadoIntentos['intentos'])) {
 				correcta: "B",
 				tiempo: "30",
 			},
-			{
-				num: 6,
-				pregunta:
-					"El atributo style en que tipo de documento se emplea",
-				opA: ".txt",
-				opB: ".CSS",
-				opC: ".HTML",
-				correcta: "C",
-				tiempo: "20",
-			},
-			{
-				num: 7,
-				pregunta:
-					"¿Cual de Todos es un Selector?",
-				opA: "href",
-				opB: "h1{ }",
-				opC: "link",
-				correcta: "B",
-				tiempo: "20",
-			},
-			{
-				num: 8,
-				pregunta:
-					"¿Cual de Todas es una Propiedad?",
-				opA: "color:",
-				opB: "14px",
-				opC: "red",
-				correcta: "A",
-				tiempo: "25",
-			},
-			{
-				num: 9,
-				pregunta:
-					"¿Cual de Todos es un Valor?",
-				opA: "style",
-				opB: "color:",
-				opC: "red",
-				correcta: "C",
-				tiempo: "30",
-			},
-			{
-				num: 10,
-				pregunta:
-					"La meta principal es permitir al _____ del navegador pintar elementos de la página con características específicas, como colores, posición o decoración.",
-				opA: "Buscador",
-				opB: "Motor",
-				opC: "Documento",
-				correcta: "B",
-				tiempo: "30",
-			},
 		];
 
 		var puntos = 0; //Leva el conteo de puntos/aciertos
@@ -242,7 +196,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById("main-ctn").innerHTML =
 				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
 				this.contador +
-				"/10</p>" +
+				"/5</p>" +
 				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
 				"<p>" +
 				this.preguntas[this.random].pregunta +
@@ -271,24 +225,25 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			noRepeat++;
 			if (noRepeat < 2) {
-				this.random = getRandomInt(10); //Elige la primera pregunta a mostrar
+				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
 				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			//Permite que el timer se vuelva a cambiar de color a azul.
 			
-			if(segundos < 15){
-					var div = document.getElementById("timer");
-					div.style.cssText = " background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if(segundos < 10){
-					var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		    }else if (segundos == 15) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+			if(segundos > 15){
+			var div = document.getElementById("timer");
+			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+           }else if(segundos == 15){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+		   }else if(segundos < 10){
+			var div = document.getElementById("timer");
+            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+ 	        }
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
@@ -318,15 +273,15 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.puntos = this.puntos + 1;
 				this.contador = this.contador + 1;
 
-				if (this.puntos == 10) {
+				if (this.puntos == 5) {
 					//Cuando haya acertado las 10 preguntas
 					alertExcelent();
 				} else {
-					this.random = getRandomInt(10);
+					this.random = getRandomInt(5);
 					let found = prePas.find((element) => element == this.random);
 					while (found == this.random) {
 						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
-						this.random = getRandomInt(10);
+						this.random = getRandomInt(5);
 						found = prePas.find((element) => element == this.random);
 					}
 					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
@@ -383,6 +338,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var puntos = <?php echo $puntosGanados; ?>
+			
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
@@ -390,7 +347,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
-				text: "¡Buen trabajo!",
+				text: '¡Buen trabajo! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

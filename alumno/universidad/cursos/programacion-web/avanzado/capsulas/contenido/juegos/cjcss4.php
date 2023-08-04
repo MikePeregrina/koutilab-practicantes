@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsula25";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 26;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -56,41 +56,44 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>FORMULARIOS</b></h2>
-	</div>
-
+	<!-- CAMBIOS -->
 	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo"></p>
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-pw-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>FORMULARIOS</b></h2>
+	</div>
+	<section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o
-				que encaje con la definición dada.</b>
-		</h4>
-		<br />
+		<div class="cont-st">
+			<a href="#" onclick="history.back(); return false;">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Selecciona la opción que corresponda a la línea en blanco o la encaje con la definición dada.</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
 
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
@@ -99,11 +102,9 @@ if (isset($resultadoIntentos['intentos'])) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"La propiedad ___________ ayuda a crear un mejor control de tamaño al crear un formulario",
+				pregunta: "La propiedad ___________ ayuda a crear un mejor control de tamaño al crear un formulario",
 				opA: "box-sizing",
 				opB: "content-box",
 				opC: "border-box",
@@ -112,8 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Se trata del comportamiento por defecto de para el tamaño de una caja",
+				pregunta: "Se trata del comportamiento por defecto de para el tamaño de una caja",
 				opA: "box-sizing",
 				opB: "content-box",
 				opC: "border-box",
@@ -122,8 +122,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"La propiedad _________ determina el ancho o l alto de cualquier elemento que sea de relleno o de borde",
+				pregunta: "La propiedad _________ determina el ancho o l alto de cualquier elemento que sea de relleno o de borde",
 				opA: "box-sizing",
 				opB: "content-box",
 				opC: "border-box",
@@ -132,8 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"Las propiedades width, height, padding, margin y border, son propiedades del...",
+				pregunta: "Las propiedades width, height, padding, margin y border, son propiedades del...",
 				opA: "Tamaño de caja",
 				opB: "Fuentes",
 				opC: "Contenido",
@@ -142,8 +140,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Las propiedades font-family y font-size son propiedades de...",
+				pregunta: "Las propiedades font-family y font-size son propiedades de...",
 				opA: "Tamaño de caja",
 				opB: "Fuentes",
 				opC: "Contenido",
@@ -232,18 +229,18 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			document.getElementById("tiempo").innerHTML =
 				segundos + " segundos";
-				if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	 }
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 3; //cancatenation
@@ -301,10 +298,10 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 3; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 3; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
@@ -342,14 +339,16 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 3; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 3; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
-				text: "¡Buen trabajo!",
+				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
@@ -367,6 +366,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta, muestra que la respuesta fue correcta
 		function alertGood() {
+			correcto.play();
 			Swal.fire({
 				position: "center",
 				icon: "success",
@@ -379,6 +379,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta, muestra que la respuesta fue incorrecta
 		function alertBad() {
+			incorrecto.play();
 			Swal.fire({
 				position: "center",
 				icon: "error",

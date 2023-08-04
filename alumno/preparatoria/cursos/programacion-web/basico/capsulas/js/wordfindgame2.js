@@ -237,12 +237,12 @@
 				xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
 							rgba(0,143,255,0.6)
-							url("img/fondo.gif")
+							url("../img/img-juegos/fondo.gif")
 							`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',

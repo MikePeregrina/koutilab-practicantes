@@ -21,16 +21,6 @@
 },
 {
     "categoria": "web basico-css",
-    "pregunta": "El atributo class está definido como una _____ de elementos separados por espacio y uno de esos elementos esos elementos debe coincidir exactamente con el nombre de clase dado en el selector",
-    "respuesta": "Lista",
-    "incorrecta1": "Herramienta",
-    "incorrecta2": "Variable",
-    "incorrecta3": "Constante",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
     "pregunta": " 'Elije Una' &lt;div class = &quot;cont&quot; ; &gt; &lt;/div&gt; ",
     "respuesta": ".cont{ background: white; }",
     "incorrecta1": ".class{ background: white; }",
@@ -58,46 +48,6 @@
     "incorrecta3": ".class{ align-item: center; }",
     "imagen": "",
     "objectFit" : "cover" 
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "'Elije Una' &lt;section class =  &quot;caja&quot; ;&gt; &lt;/section&gt;",
-    "respuesta": ".caja{ align-item: center;",
-    "incorrecta1": ".seccion{ align-item: center;",
-    "incorrecta2": ".div{ align-item: center; }",
-    "incorrecta3": ".class{ align-item: center; }",
-    "imagen": "",
-    "objectFit" : "cover"   
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "'Elije Una' .seccion{ align-item: center;}",
-    "respuesta": "&lt;section class =  &quot;seccion&quot; ;&gt; &lt;/section&gt; ",
-    "incorrecta1": "&lt;section class =  &quot;sec&quot; ;&gt; &lt;/section&gt; ",
-    "incorrecta2": "&lt;section class =  &quot;items&quot; ;&gt; &lt;/section&gt;",
-    "incorrecta3": "&lt;section class =  &quot;caja&quot; ;&gt; &lt;/section&gt;",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "'Elije Una' .titulo{ color: white;}",
-    "respuesta": "&lt;h1 class = &quot;titulo&quot; ;&gt; &lt;/h1&gt;",
-    "incorrecta1": "&lt;h1 class = &quot;title&quot; ;&gt; &lt;/h1&gt;",
-    "incorrecta2": "&lt;h1 class = &quot;titulos&quot; ;&gt; &lt;/h1&gt;",
-    "incorrecta3": "&lt;h1 class = &quot;nombre&quot; ;&gt; &lt;/h1&gt;",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "'Elije Una' .parrafo{ color: white;}",
-    "respuesta": "&lt;p class = &quot;parrafo&quot; ;&gt; &lt;/p&gt;",
-    "incorrecta1": "&lt;p class = &quot;texto&quot; ;&gt; &lt;/p&gt;",
-    "incorrecta2": "&lt;p class = &quot;titulo&quot; ;&gt; &lt;/p&gt;",
-    "incorrecta3": "&lt;p class = &quot;txt&quot; ;&gt; &lt;/p&gt;",
-    "imagen": "",
-    "objectFit" : "cover"
 }
 
 ]
