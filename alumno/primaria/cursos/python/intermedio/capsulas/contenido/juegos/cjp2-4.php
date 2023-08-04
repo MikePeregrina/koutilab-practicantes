@@ -10,7 +10,7 @@ $permiso = "capsula34";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -209,6 +209,11 @@ if (isset($resultadoIntentos['intentos'])) {
             }
 
             if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 35 + "&id_curso=" + 5; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd35.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡El tiempo se acabo!',

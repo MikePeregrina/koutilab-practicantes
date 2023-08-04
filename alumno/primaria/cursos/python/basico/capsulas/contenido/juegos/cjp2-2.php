@@ -199,6 +199,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
     //funcion Error, determina que las respuestas sean correctas
     function error() {
+      var xmlhttp = new XMLHttpRequest();
+      var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 29 + "&id_curso=" + 4; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xmlhttp.send(param);
       Swal.fire({
         title: "¡Oh no!",
         text: "Comprueba tus respuestas, e intentalo nuevamente",
@@ -221,13 +226,13 @@ if (isset($resultadoIntentos['intentos'])) {
       var puntos = <?php echo $puntosGanados; ?>
 
       var xmlhttp = new XMLHttpRequest();
-      var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 29 + "&id_curso=" + 4; //cancatenation
+      var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 29 + "&id_curso=" + 4; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
       xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xmlhttp.send(param);
       Swal.fire({
         title: "¡Felicidades!",
-				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
+        text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
         imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
         imageHeight: 350,
         backdrop: `

@@ -532,7 +532,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Incorrecto.play(); //Agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
-                    "../../acciones/insertar_cp9.php",
+                    "../../acciones/insertar_cp13.php",
                     true
                 );
                 xmlhttp.setRequestHeader(

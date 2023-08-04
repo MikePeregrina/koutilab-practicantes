@@ -160,6 +160,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
         function tiempoAgotado() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 35 + "&id_curso=" + 4; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd35.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
@@ -239,7 +244,7 @@ if (isset($resultadoIntentos['intentos'])) {
             xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
-				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

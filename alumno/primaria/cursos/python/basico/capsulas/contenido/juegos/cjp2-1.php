@@ -119,7 +119,7 @@ if (isset($resultadoIntentos['intentos'])) {
         </footer>
         <!-- fIN CAMBIOS -->
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
-    <script src="../../js/seleccionador-1.js"></script>
+    <script src="../../js/seleccionador-2.js"></script>
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;

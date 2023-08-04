@@ -159,8 +159,8 @@ function mostrarResultados() {
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 4; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 4; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
@@ -181,8 +181,8 @@ function mostrarResultados() {
             });
         } else {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 16 + "&id_curso=" + 4; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 4; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             //llamamos a la alerta
