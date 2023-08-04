@@ -48,56 +48,6 @@
     "incorrecta3": "th",
     "imagen": "",
     "objectFit" : "cover"    
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Con que etiqueta se debe comenzar para crear una tabla",
-    "respuesta": "table",
-    "incorrecta1": "style",
-    "incorrecta2": "tr",
-    "incorrecta3": "th",
-    "imagen": "",
-    "objectFit" : "cover" 
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "Con que etiqueta se debe cerrar una tabla",
-    "respuesta": "/table",
-    "incorrecta1": "body",
-    "incorrecta2": "/td",
-    "incorrecta3": "tr",
-    "imagen": "",
-    "objectFit" : "cover"   
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "El elemento caption va justo despues de la etiqueta de...",
-    "respuesta": "apertura;",
-    "incorrecta1": "tr",
-    "incorrecta2": "body",
-    "incorrecta3": "style",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "La etiqueta th sirve para la creacion de...",
-    "respuesta": "celdas",
-    "incorrecta1": "margenes",
-    "incorrecta2": "tablas",
-    "incorrecta3": "estilos",
-    "imagen": "",
-    "objectFit" : "cover"
-},
-{
-    "categoria": "web basico-css",
-    "pregunta": "El atributo scop solo puede ser declarado en una celda de encabezado y tomar los valores de...",
-    "respuesta": "col, row, colgroup y rowgroup",
-    "incorrecta1": "celdas",
-    "incorrecta2": "table",
-    "incorrecta3":"h2",
-    "imagen": "",
-    "objectFit" : "cover"
 }
 
 ]

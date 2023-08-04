@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
@@ -72,12 +72,12 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/In/49.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/In/50.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/51.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/52.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/53.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/54.gif');"></li>
+                            <li style="background-image: url('../../img/css/In/49.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/css/In/50.gif');"></li>
+                            <li style="background-image: url('../../img/css/In/51.gif');"></li>
+                            <li style="background-image: url('../../img/css/In/52.gif');"></li>
+                            <li style="background-image: url('../../img/css/In/53.gif');"></li>
+                            <li style="background-image: url('../../img/css/In/54.gif');"></li>
                     </ul>
                 </section>
         </div>

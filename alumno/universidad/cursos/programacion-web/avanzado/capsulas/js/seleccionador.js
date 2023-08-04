@@ -161,6 +161,7 @@ function mostrarResultados() {
             xmlhttp.open("POST", "../../acciones/insertar_pd52.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
+            correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
@@ -176,7 +177,7 @@ function mostrarResultados() {
                 if (result.isConfirmed) {
                     window.location.reload();
                 }
-            });
+            }); 
         } else {
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 52 + "&id_curso=" + 3; //cancatenation
@@ -186,7 +187,7 @@ function mostrarResultados() {
             //llamamos a la alerta
             Swal.fire({
                 //estrucutra de la alerta
-                title: 'Resultados',
+                title: 'Obtienes ' + puntos + ' puntos de logros',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
                 imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                 imageHeight: 350,

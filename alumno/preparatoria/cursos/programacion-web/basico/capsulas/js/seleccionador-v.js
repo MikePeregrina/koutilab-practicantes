@@ -66,9 +66,9 @@ function checkAnswer(respuesta) {
             // Color de línea 
             contexto.strokeStyle = "#84c42c";
             // Comenzamos en 0, 0
-            contexto.moveTo(0, 20);
+            contexto.moveTo(0, 28);
             // Hacemos una línea hasta 48, 48
-            contexto.lineTo(610, 318);
+            contexto.lineTo(610, 295);
             contexto.stroke(); // "Guardar" cambios
             //sumamos al contador
             respuestasCorrectas++;
@@ -78,7 +78,7 @@ function checkAnswer(respuesta) {
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
             contexto.moveTo(0, 145);
-            contexto.lineTo(560, 220);
+            contexto.lineTo(560, 205);
             contexto.stroke();
             respuestasCorrectas++;
         }
@@ -89,8 +89,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 210);
-            contexto.lineTo(560, 15);
+            contexto.moveTo(0, 205);
+            contexto.lineTo(560, 20);
             contexto.stroke();
             respuestasCorrectas++;
         } else if (
@@ -100,8 +100,8 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 270);
-            contexto.lineTo(560, 147);
+            contexto.moveTo(0, 263);
+            contexto.lineTo(560, 140);
             contexto.stroke();
             respuestasCorrectas++;
 
@@ -113,7 +113,7 @@ function checkAnswer(respuesta) {
             contexto.beginPath();
             contexto.lineWidth = 3;
             contexto.strokeStyle = "#84c42c";
-            contexto.moveTo(0, 85);
+            contexto.moveTo(0, 87);
             contexto.lineTo(560, 87);
             contexto.stroke();
             respuestasCorrectas++;
@@ -185,7 +185,7 @@ function mostrarResultados() {
             //llamamos a la alerta
             Swal.fire({
                 //estrucutra de la alerta
-                title: 'Resultados',
+                title: 'Obtienes ' + puntos + ' puntos de logros',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
                 imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                 imageHeight: 350,

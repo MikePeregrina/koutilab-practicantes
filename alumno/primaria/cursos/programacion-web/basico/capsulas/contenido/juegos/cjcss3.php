@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240 ;//240
 
-        let puntos = 0;
+        var puntos = <?php echo $puntosGanados; ?>
 
         //Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
@@ -146,6 +146,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
                 }
             if (segundos == 0) {
+                
                 var xmlhttp = new XMLHttpRequest();
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 35 + "&id_curso=" + 1; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd35.php", true);

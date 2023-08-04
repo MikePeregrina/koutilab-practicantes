@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsula28";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 29;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -59,29 +59,28 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h4 class="titulo" style="margin-left: 450px;"><b>CONECTAR HTML Y CSS</b></h4>
-	</div>
-
-	<!-- Tiempo -->
+     <!-- Tiempo -->
 	<div class="timer" id="timer">
 		<b style="margin-top: 10px;">Tiempo: <br>
 			<p id="tiempo"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
-
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-				<i class="fas fa-reply"></i></button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h4>
-		<br>
-
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo" ><b>CONECTAR HTML Y CSS</b></h2>
+	</div>
+    
+	<section>
+		
+	<div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+        </div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
 			Iniciar juego
@@ -89,8 +88,14 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		<!-- Generador del tablero -->
 		<div id="tablero"></div>
-
-	</div>
+	</section>
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 
 	<script>
 		let cantidadTarjetas = 24;
@@ -103,12 +108,12 @@ if (isset($resultadoIntentos['intentos'])) {
 				'<i><img src="../../img/img-juegos/html.png" width= "85px"></i>',
 				'<i ><img src="../../img/img-juegos/codificacion.png" width= "50px"></i>',
 				'<i><img src="../../img/img-juegos/css (1).png" width= "85px" ></i>',
-				'<i><img src="../../img/img-juegos/Proyecto nuevo (1).png" width= "153px" height="40px"></i></i>',
-				'<i><img src="../../img/img-juegos/style.png" width= "153px" height="32px"></i>',
-				'<i ><img src="../../img/img-juegos/link.png" width= "183px" height="35px" ></i>',
-				'<i><img src="../../img/img-juegos/rel.png" width= "153px" height="32px" ></i>',
-				'<i ><img src="../../img/img-juegos/href.png" width= "153px" height="32px" ></i>',
-				'<i><img src="../../img/img-juegos/import.png" width= "153px" height="32px" ></i>',
+				'<i><img src="../../img/img-juegos/Proyecto nuevo (1).png" width= "103px" height="40px"></i></i>',
+				'<i><img src="../../img/img-juegos/style.png" width= "103px" height="32px"></i>',
+				'<i ><img src="../../img/img-juegos/link.png" width= "123px" height="35px" ></i>',
+				'<i><img src="../../img/img-juegos/rel.png" width= "103px" height="32px" ></i>',
+				'<i ><img src="../../img/img-juegos/href.png" width= "103px" height="32px" ></i>',
+				'<i><img src="../../img/img-juegos/import.png" width= "103px" height="32px" ></i>',
 				'<i><img src="../../img/img-juegos/navegador.png" width= "73px"></i>',
 				'<i><img src="../../img/img-juegos/error.png" width= "73px"></i>',
 				'<i><img src="../../img/img-juegos/html1.png" width= "73px"></i>'
@@ -174,6 +179,8 @@ if (isset($resultadoIntentos['intentos'])) {
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
 				if (verificar()) {
+					var puntos = <?php echo $puntosGanados; ?>
+					
 					var xmlhttp = new XMLHttpRequest();
 					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 29 + "&id_curso=" + 1; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
@@ -181,7 +188,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `

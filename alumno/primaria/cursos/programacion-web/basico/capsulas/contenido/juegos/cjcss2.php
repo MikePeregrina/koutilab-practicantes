@@ -75,7 +75,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 <i class="fas fa-reply"></i>
               </button>
             </a>
-            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+            <h4 class="titulo"><b>Responde las preguntas antes de que el tiempo termine</b></h4>
         </div>
 <!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
@@ -106,7 +106,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			{
 				num: 1,
 				pregunta:
-					"Definen las Características de los Elementos, Tiene un Valor que se le Asigna",
+					"Definen las características de los elementos, tiene un valor que se le asigna",
 				opA: "Valor",
 				opB: "Propiedad",
 				opC: "Id",
@@ -116,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			{
 				num: 2,
 				pregunta:
-					" Son las Opciones que se Pueden Asignar a una Propiedad",
+					" Son las opciones que se pueden asignar a una propiedad",
 				opA: "Valor",
 				opB: "Propiedad",
 				opC: "Selector",
@@ -126,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			{
 				num: 3,
 				pregunta:
-					"Es la Forma en que se Apunta a los Elementos.",
+					"Es la forma en que se apunta a los elementos.",
 				opA: "Identificador",
 				opB: "Valor",
 				opC: "Selector",
@@ -136,17 +136,17 @@ if (isset($resultadoIntentos['intentos'])) {
 			{
 				num: 4,
 				pregunta:
-					"Las propiedades y valores son sensibles a _______ . En css se separan por un ':' ",
-				opA: "Mayusculas",
+					"Las propiedades y valores son sensibles a _______. En css se separan por un ':' ",
+				opA: "Mayúsculas",
 				opB: "Ambas",
-				opC: "Minusculas",
+				opC: "Minúsculas",
 				correcta: "B",
 				tiempo: "20",
 			},
 			{
 				num: 5,
 				pregunta:
-					"Cuando se hace uso del atributo style.¿Ya no hace falta el empleo de selectores?",
+					"Cuando se hace uso del atributo style. ¿Ya no hace falta el empleo de selectores?",
 				opA: "Falso",
 				opB: "Verdadero",
 				opC: "Ambas",
@@ -338,6 +338,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var puntos = <?php echo $puntosGanados; ?>
+			
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
@@ -345,7 +347,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
-				text: "¡Buen trabajo!",
+				text: '¡Buen trabajo! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

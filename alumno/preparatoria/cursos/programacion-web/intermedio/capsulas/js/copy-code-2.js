@@ -1,6 +1,5 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-let puntos = 0;
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
@@ -9,14 +8,12 @@ var incorrecto = document.createElement("audio");
 incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
-document.getElementById(
-    "textoej"
-).innerHTML =  `.flex-container { <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp; display: flex; <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp; flex-wrap: wrap; <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp; background-color: blue; <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp; flex-flow: column; <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp; flex-direction: column; <br/>
+document.getElementById("textoej").innerHTML = `.flex-container { </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; display: flex; </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; flex-wrap: wrap; </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; background-color: blue; </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; flex-flow: column; </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; flex-direction: column; </br>
 }`;
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
@@ -45,22 +42,36 @@ function iniciarTiempo() {
     document.getElementById("tiempo").innerHTML = segundos + " segundos";
     if (segundos <= 60) {
         var div = document.getElementById("timer");
-             div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-         }
-         if (segundos <= 30) {
-             var div = document.getElementById("timer");
-             div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-         }
-         if (segundos <= 10) {
-             var div = document.getElementById("timer");
-             div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-         }
+        div.style.cssText =
+            " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
+    if (segundos <= 30) {
+        var div = document.getElementById("timer");
+        div.style.cssText =
+            "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
+    if (segundos <= 10) {
+        var div = document.getElementById("timer");
+        div.style.cssText =
+            "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
     if (segundos == 0) {
         var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 29 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+        var param =
+            "score=" +
+            0 +
+            "&validar=" +
+            "incorrecto" +
+            "&permiso=" +
+            29 +
+            "&id_curso=" +
+            2; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+        xmlhttp.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send(param);
         //Borra el texto escrito
         escrito.value = "";
         Swal.fire({
@@ -92,25 +103,36 @@ function alertExcelent() {
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
         var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 29 + "&id_curso=" + 2; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+        var param =
+            "score=" +
+            10 +
+            "&validar=" +
+            "correcto" +
+            "&permiso=" +
+            29 +
+            "&id_curso=" +
+            2; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+        xmlhttp.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
-            text: "¡Buen trabajo!",
+            text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
             imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
+                url("../../img/img-juegos/fondo.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "¡Genial!",
         }).then((result) => {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = '../../../../../../rutas/ruta-pw-i.php';
+                window.location.href = "../../../../../../rutas/ruta-pw-i.php";
             }
         });
         correcto.play(); //agregando sonido al juego completado
@@ -122,7 +144,7 @@ function alertExcelent() {
             imageHeight: 350,
             backdrop: `
                 rgba(0,143,255,0.6)
-                url("../../img/img-juegos/fondo.gif")`,
+                url("../../img/img-juegos/loop.gif")`,
             confirmButtonColor: "#a14cd9",
             confirmButtonText: "Reintentar",
         });

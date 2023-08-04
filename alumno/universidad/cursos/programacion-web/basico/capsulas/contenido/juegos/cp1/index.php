@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
@@ -28,23 +28,26 @@ if (empty($existe)) {
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body onload="alert1()">
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>LINEA DE TIEMPO</b></h2>
-	</div>
-
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>LINEA DE TIEMPO</b></h2>
+	</div>
     
-    <div class="contenido">
-		<a href="../../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
-		</a>
+    <section>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		<div class="cont-st">
+            <a href="../../../../../../../rutas/ruta-pw-b.php">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
+        <!--fIN CAMBIOS -->
 		<br>
 
 		<div class="slide-contenedor">
@@ -65,7 +68,15 @@ if (empty($existe)) {
 			<div class="difficulty_button">MEDIUM</div>
 			<div class="difficulty_button">HARD</div>
 		</div> -->
-	</div>
+	</section>
+
+<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		function alert1() {

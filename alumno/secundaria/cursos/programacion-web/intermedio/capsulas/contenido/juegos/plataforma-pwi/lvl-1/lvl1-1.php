@@ -6,12 +6,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
-}
+// $permiso = "capsulapago1";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+//     header("Location: ../../../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -346,9 +346,11 @@ if (empty($existe)) {
             }
         }
 
-        //Funcion de recoleccion de estrellas
+        //Funcion de recoleccion de estrellas y variable de score que contiene el numero de estrellas
         function collectStar(player, star) {
             star.disableBody(true, true);
+
+            //Variable de score que contiene el numero de estrellas
             score += 1;
 
             colectSound();
@@ -399,6 +401,7 @@ if (empty($existe)) {
             count = 10000000000;
         }
 
+        //Alerta que solo reinicia el juego
         function alertLose() {
             Swal.fire({
                 title: 'Oops...',
@@ -412,7 +415,9 @@ if (empty($existe)) {
             });
         }
 
+        //Funcion que envia los datos a la base de datos
         function alertWin() {
+            estrellas = score * 3;
             Swal.fire({
                 title: '¡Perfecto!',
                 text: 'Has completado el capitulo 1 de las aventuras de Koubot con 10 puntos y ' + score + ' estrellas de 5',
@@ -430,7 +435,7 @@ if (empty($existe)) {
                         confirmButtonColor: '#85c42c',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../../../rutas/ruta-pw-i.php';
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 2 + '&estrellas=' + estrellas;
                         }
                     });
                 }
@@ -438,6 +443,7 @@ if (empty($existe)) {
             correcto.play(); //agregando sonido al juego completado
         }
 
+        //Alerta que envia al jugador al volver a intentarlo sin estrellas
         function alertQuestion() {
             Swal.fire({
                 title: '¡Oh no!',

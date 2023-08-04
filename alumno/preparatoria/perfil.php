@@ -54,6 +54,21 @@ $permiso_ruta_r9 = "9";
 $sql_verificar_r9 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r9'");
 $existe_verificar_r9 = mysqli_num_rows($sql_verificar_r9);
 
+//Verificar si ya se tiene permiso en ruta 10
+$permiso_ruta_r10 = "10";
+$sql_verificar_r10 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r10'");
+$existe_verificar_r10 = mysqli_num_rows($sql_verificar_r10);
+
+//Verificar si ya se tiene permiso en ruta 11
+$permiso_ruta_r11 = "11";
+$sql_verificar_r11 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r11'");
+$existe_verificar_r11 = mysqli_num_rows($sql_verificar_r11);
+
+//Verificar si ya se tiene permiso en ruta 12
+$permiso_ruta_r12 = "12";
+$sql_verificar_r12 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r12'");
+$existe_verificar_r12 = mysqli_num_rows($sql_verificar_r12);
+
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_preparatoria WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
@@ -94,6 +109,18 @@ $data_informatica_intermedio = mysqli_fetch_assoc($query_informatica_intermedio)
 $query_informatica_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 9");
 $data_informatica_avanzado = mysqli_fetch_assoc($query_informatica_avanzado);
 
+//Estadisticas videojuegosunity basico
+$query_videojuegosunity_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 10");
+$data_videojuegosunity_basico = mysqli_fetch_assoc($query_videojuegosunity_basico);
+
+//Estadisticas videojuegosunity intermedio
+$query_videojuegosunity_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 11");
+$data_videojuegosunity_intermedio = mysqli_fetch_assoc($query_videojuegosunity_intermedio);
+
+//Estadisticas videojuegosunity avanzado
+$query_videojuegosunity_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 12");
+$data_videojuegosunity_avanzado = mysqli_fetch_assoc($query_videojuegosunity_avanzado);
+
 //Información solo de alumno
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
 
@@ -116,7 +143,7 @@ $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 
 $totalTrofeos = ((int)$fila['id_alumno']) * 600;
-$totalPuntaje = ((int)$fila['id_alumno']) * 300;
+$totalPuntaje = ((int)$fila['id_alumno']) * 10;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
@@ -266,16 +293,16 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                     <ul class="lista-datos">
                         <div class="val-box">
-                            <canvas id="myChart1" style="margin-left: 5%;"></canvas>
+                            <canvas id="myChart1"></canvas>
                         </div>
                     </ul>
                 </div>
                 <div class="dos1">
                     <ul class="lista-datos">
-                        <li><i class="fas fa-award"></i> &nbsp;<b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
-                        <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li><br>
-                        <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Conocimientos:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
-                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
+                        <li><i class="fas fa-award"></i> &nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li><br>
+                        <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
+                        <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> </li><br>
+                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
                     </ul>
                 </div>
 
@@ -413,6 +440,48 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                         </div>
                     </a>
                 </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r10 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-b.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Videojuegos Unity básico</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r11 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-i.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_intermedio)) echo $data_videojuegosunity_intermedio['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Videojuegos Unity intermedio</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r12 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-a.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Videojuegos Unity avanzado</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -422,10 +491,10 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             new Chart(ctx1, {
                 type: 'radar',
                 data: {
-                    labels: ['Logros', 'Destreza', 'Conocimientos', 'Coding'],
+                    labels: ['Conocimientos', 'Coding', 'Logros', 'Destreza'],
                     datasets: [{
                         label: 'Estadísticas',
-                        data: [<?php echo $resultadoEstadistica["trofeos"] ?>, <?php echo $resultadoEstadistica["puntos"] ?>, <?php echo $resultadoEstadistica["practico"] ?>, <?php echo $resultadoEstadistica["teorico"] ?>],
+                        data: [<?php echo $resultadoEstadistica["teorico"] ?>, <?php echo $resultadoEstadistica["practico"] ?>, <?php echo $resultadoEstadistica["trofeos"] ?>, <?php echo $resultadoEstadistica["puntos"] ?>],
                         fill: true,
                         borderWidth: 1
                     }]
@@ -1077,6 +1146,13 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             }
         }
         ?>
+
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../preparatoria/img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
+
         <?php
         if (isset($_POST['enviarclave'])) {
             $idalumno = $_SESSION['id_alumno_preparatoria'];
@@ -1143,10 +1219,5 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             }
         }
         ?>
-        <footer class="footerimga">
-            <div class="imagen-footer">
-                <img src="../primaria/img/benvenida.png" alt="No-image">
-            </div>
-        </footer>
-    </div>
+
 </body>

@@ -227,7 +227,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         // window.location.reload();
                     }
                 });
-               
+
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -236,6 +236,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 17 + "&id_curso=" + 3; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd17.php", true);
@@ -244,7 +246,7 @@ if (isset($resultadoIntentos['intentos'])) {
             correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 title: 'Excelente',
-                text: '¡Buen trabajo!',
+                text: '¡Buen trabajo! Obtienes ' + puntos + ' puntos de logros',
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
@@ -257,7 +259,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     window.location.href = '../../../../../../rutas/ruta-pw-a.php';
                 }
             });
-           
+
         }
     </script>
 

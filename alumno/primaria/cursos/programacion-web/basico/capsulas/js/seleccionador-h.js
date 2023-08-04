@@ -164,11 +164,11 @@ function mostrarResultados() {
                 //estrucutra de la alerta
                 title: '!Puedes seguir mejorado!',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                imageUrl: '../img/img-juegos/loop.gif',
+                imageUrl: '../../img/img-juegos/loop.gif',
                 imageHeight: 350,
                 backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../img/img-juegos/fondo.gif")`,
+                    url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
@@ -185,7 +185,7 @@ function mostrarResultados() {
             //llamamos a la alerta
             Swal.fire({
                 //estrucutra de la alerta
-                title: 'Resultados',
+                title: 'Obtienes ' + puntos + ' puntos de logros',
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
                 imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                 imageHeight: 350,
