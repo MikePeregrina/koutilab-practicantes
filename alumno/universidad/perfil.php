@@ -143,7 +143,7 @@ $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 
 $totalTrofeos = ((int)$fila['id_alumno']) * 600;
-$totalPuntaje = ((int)$fila['id_alumno']) * 300;
+$totalPuntaje = ((int)$fila['id_alumno']) * 10;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
