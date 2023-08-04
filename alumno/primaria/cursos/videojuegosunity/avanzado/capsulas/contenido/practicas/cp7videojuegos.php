@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Captura en video o imagenes el proceso de la configuración inicial. 
+                                <p>Captura en video o imagenes el proceso de la configuración inicial.
                                     Sube tu resultado. (Si es video no debe de durar mas que un minuto y medio)
                                     <br> <br>
                                 </p>
@@ -284,7 +284,7 @@ if (isset($resultadoIntentos['intentos'])) {
         $archivoData = file_get_contents($archivoTemporal);
 
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        include "../../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }

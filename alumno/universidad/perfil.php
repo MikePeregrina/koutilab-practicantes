@@ -142,10 +142,47 @@ WHERE id_alumno = $id_user";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 
+$sql_verificar_rutas = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user");
+$existe_verificar_rutas = mysqli_num_rows($sql_verificar_rutas);
+
+// Array que contiene los puntos correspondientes a cada ruta desbloqueada.
+$puntos_por_ruta = array(
+    "1" => 20,
+    "2" => 30,
+    "3" => 40,
+    "4" => 20,
+    "5" => 20,
+    "6" => 20,
+    "7" => 20,
+    "8" => 20,
+    "9" => 20,
+    "10" => 20,
+    "11" => 20,
+    "12" => 20
+);
+
+// Conjunto para llevar un registro de las rutas desbloqueadas ya procesadas.
+$rutas_procesadas = array();
+
+// Calcula el total de puntos
+$total_puntos = 0;
+
+if ($existe_verificar_rutas > 0) {
+    // Si el usuario tiene desbloqueada al menos una ruta, sumar los puntos de todas las rutas desbloqueadas.
+    while ($ruta = mysqli_fetch_assoc($sql_verificar_rutas)) {
+        $ruta_desbloqueada = $ruta['id_curso'];
+        if (isset($puntos_por_ruta[$ruta_desbloqueada]) && !isset($rutas_procesadas[$ruta_desbloqueada])) {
+            $total_puntos += $puntos_por_ruta[$ruta_desbloqueada];
+            $rutas_procesadas[$ruta_desbloqueada] = true;
+        }
+    }
+}
+
 $totalTrofeos = ((int)$fila['id_alumno']) * 600;
-$totalPuntaje = ((int)$fila['id_alumno']) * 10;
+$totalPuntaje = $total_puntos;
 $totalPractico = ((int)$fila['id_alumno']) * 1000;
 $totalTeorico = ((int)$fila['id_alumno']) * 1000;
+
 
 ?>
 <!DOCTYPE html>

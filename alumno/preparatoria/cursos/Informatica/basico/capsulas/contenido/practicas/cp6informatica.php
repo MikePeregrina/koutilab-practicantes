@@ -57,12 +57,12 @@ if (isset($resultadoIntentos['intentos'])) {
 <body>
     <div class="body">
         <div class="container">
-        <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <a href="../../../../../../cursos/informatica/basico/capsulas/contenido/teoricas/ct3informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
             <div class="new-g" style="text-align: center;">Cápsula práctica 6 Informatica</div><br>
             <div class="board">
                 <table width="100%">
-                <thead>
+                    <thead>
                         <tr>
                             <td>Instrucciones</td>
 
@@ -71,8 +71,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Explora temas como la privacidad en línea, la seguridad de los datos, el uso responsable de la inteligencia artificial y la equidad en el acceso a la tecnología. 
-                                Y presenta los resultados obtenidos.
+                                <p>Explora temas como la privacidad en línea, la seguridad de los datos, el uso responsable de la inteligencia artificial y la equidad en el acceso a la tecnología.
+                                    Y presenta los resultados obtenidos.
                                     <br>
                                 </p>
                             </td>
@@ -83,7 +83,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             </div>
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" >Evaluar</button></a>
+                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update">Evaluar</button></a>
             </form>
 
 
@@ -91,10 +91,10 @@ if (isset($resultadoIntentos['intentos'])) {
         <script src="../../js/fund.js"></script>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         /*var Correcto = document.createElement("audio");
@@ -273,10 +273,10 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-         
+
         $nombreArchivo = $_FILES['archivo']['name'];
         $archivoTemporal = $_FILES['archivo']['tmp_name'];
         $id_alumno = $_POST['id_alumno'];
@@ -284,19 +284,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        include "../../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
-       $consulta = $conexion->prepare('INSERT INTO archivos_preparatoria (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
-        $consulta->bind_param('sssss',$nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
+        $consulta = $conexion->prepare('INSERT INTO archivos_preparatoria (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
+        $consulta->bind_param('sssss', $nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -311,9 +311,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -328,8 +328,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

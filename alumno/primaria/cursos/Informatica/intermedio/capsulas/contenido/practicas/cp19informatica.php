@@ -271,7 +271,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-         
+
         $nombreArchivo = $_FILES['archivo']['name'];
         $archivoTemporal = $_FILES['archivo']['tmp_name'];
         $id_alumno = $_POST['id_alumno'];
@@ -281,14 +281,14 @@ if (isset($resultadoIntentos['intentos'])) {
         $archivoData = file_get_contents($archivoTemporal);
 
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        include "../../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
 
         // Preparar la consulta SQL para insertar el archivo en la base de datos
-       $consulta = $conexion->prepare('INSERT INTO archivos_primaria (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
-        $consulta->bind_param('sssss',$nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
+        $consulta = $conexion->prepare('INSERT INTO archivos_primaria (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
+        $consulta->bind_param('sssss', $nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
         if ($consulta->execute()) {
             echo
             "

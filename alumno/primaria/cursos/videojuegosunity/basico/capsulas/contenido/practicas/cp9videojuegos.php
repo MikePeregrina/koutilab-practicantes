@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p>Crea un cuadro comparativo de tags y layers en tu libreta.
-                                    Toma foto y sube la foto. 
+                                    Toma foto y sube la foto.
                                     <br> <br>
                                 </p>
                             </td>
@@ -279,7 +279,7 @@ if (isset($resultadoIntentos['intentos'])) {
         $archivoData = file_get_contents($archivoTemporal);
 
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        include "../../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }

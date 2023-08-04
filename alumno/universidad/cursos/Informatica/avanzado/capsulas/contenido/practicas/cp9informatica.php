@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p>Utiliza animaciones de objetos para hacer que los elementos de tus diapositivas aparezcan de forma gradual o se muevan en respuesta a clics del ratón. Por ejemplo, puedes crear una presentación en la que el texto o las imágenes aparezcan a medida que haces clic en cada diapositiva, lo que permitirá una experiencia interactiva para tu audiencia.
-                                                <br> <br>
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -82,7 +82,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             </div>
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" >Evaluar</button></a>
+                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update">Evaluar</button></a>
             </form>
 
 
@@ -268,10 +268,10 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-         
+
         $nombreArchivo = $_FILES['archivo']['name'];
         $archivoTemporal = $_FILES['archivo']['tmp_name'];
         $id_alumno = $_POST['id_alumno'];
@@ -279,19 +279,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        include "../../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
-       $consulta = $conexion->prepare('INSERT INTO archivos_universidad (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
-        $consulta->bind_param('sssss',$nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
+        $consulta = $conexion->prepare('INSERT INTO archivos_universidad (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
+        $consulta->bind_param('sssss', $nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -306,9 +306,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -323,8 +323,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();

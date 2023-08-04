@@ -64,14 +64,14 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Utiliza Excel para diseñar un horario semanal que te ayude a organizar tus actividades diarias. Crea una hoja de cálculo con columnas para los días de la semana y filas para las horas del día. Puedes asignar diferentes colores a las celdas según el tipo de actividad (clases, deporte, tiempo libre, etc.) 
-                                            <br> <br>
+                                <p>Utiliza Excel para diseñar un horario semanal que te ayude a organizar tus actividades diarias. Crea una hoja de cálculo con columnas para los días de la semana y filas para las horas del día. Puedes asignar diferentes colores a las celdas según el tipo de actividad (clases, deporte, tiempo libre, etc.)
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -82,7 +82,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </table>
             </div>
             <form class="form" id="btn-abrir-modalFP" enctype="multipart/form-data" method="">
-                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update" >Evaluar</button></a>
+                <a style="text-decoration: none;"><button onclick="//miFunc()" type="button" class="btn-grd" id="update">Evaluar</button></a>
             </form>
         </div>
     </div>
@@ -273,10 +273,10 @@ if (isset($resultadoIntentos['intentos'])) {
             modalFP.close();
         })
     </script>
-    
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-         
+
         $nombreArchivo = $_FILES['archivo']['name'];
         $archivoTemporal = $_FILES['archivo']['tmp_name'];
         $id_alumno = $_POST['id_alumno'];
@@ -284,19 +284,19 @@ if (isset($resultadoIntentos['intentos'])) {
         $id_capsula = $_POST['id_capsula'];
         // Leer el contenido del archivo
         $archivoData = file_get_contents($archivoTemporal);
-    
+
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'root', '', 'aerobotp_beta');
+        include "../../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
-    
+
         // Preparar la consulta SQL para insertar el archivo en la base de datos
-       $consulta = $conexion->prepare('INSERT INTO archivos_preparatoria (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
-        $consulta->bind_param('sssss',$nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
+        $consulta = $conexion->prepare('INSERT INTO archivos_preparatoria (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
+        $consulta->bind_param('sssss', $nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
         if ($consulta->execute()) {
-        echo
-                "
+            echo
+            "
       <script>
       Swal.fire({
         title: '¡Excelente!',
@@ -311,9 +311,9 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            } else {
-                echo
-                "
+        } else {
+            echo
+            "
       <script>
       Swal.fire({
         title: 'Error subiendo archivo',
@@ -328,8 +328,8 @@ if (isset($resultadoIntentos['intentos'])) {
         });
       </script>
         ";
-            }
-        
+        }
+
         // Cerrar la conexión y liberar recursos
         $consulta->close();
         $conexion->close();
