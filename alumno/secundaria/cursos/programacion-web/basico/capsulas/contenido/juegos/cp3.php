@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
@@ -15,7 +15,6 @@ if (empty($existe)) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,29 +24,29 @@ if (empty($existe)) {
     <link rel="stylesheet" href="../../css/css-juegos/box.css" />
     <script src="script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body onload="alert1()">
     <div class="titulo-gen">
-        <h2 class="titulo"><b>BOX MODEL</b></h2>
-    </div>
+		<h2 class="titulo"><b>BOX MODEL</b></h2>
+	</div>
 
-    <div class="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+	<div class="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
     <div class="contenido">
         <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button>
-        </a>
+			<i class="fas fa-reply"></i></button>
+		</a>
 
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Desliza las tarjetas usando el ratón para desplazarlas y colocarlas en el orden correcto</b></h4>
-
+		<!-- Titulo secundario -->
+		<h4 class="titulo"><b>Desliza las tarjetas usando el ratón para desplazarlas y colocarlas en el orden correcto</b></h4>
+        
         <div class="game">
             <div class="respuestas">
                 <div class="imagenes">
@@ -80,28 +79,28 @@ if (empty($existe)) {
             <div class="cuadro-juego">
                 <!-- Content -->
                 <div class="box1" ondrop="drop(event)" id="0" ondragover="allowDrop(event)"></div>
-
+                
                 <!-- Padding -->
                 <div class="box2" ondrop="drop(event)" id="1" ondragover="allowDrop(event)"></div>
-
+                
                 <!-- Border -->
-                <div class="box3" ondrop="drop(event)" id="2" ondragover="allowDrop(event)"></div>
-
+                <div class="box3" ondrop="drop(event)" id="2" ondragover="allowDrop(event)"></div>                    
+                
                 <!-- Margin -->
                 <div class="box4" ondrop="drop(event)" id="3" ondragover="allowDrop(event)"></div>
-
+                
                 <!-- Top -->
                 <div class="box5" ondrop="drop(event)" id="4" ondragover="allowDrop(event)"></div>
-
+                
                 <!-- Bottom -->
                 <div class="box6" ondrop="drop(event)" id="5" ondragover="allowDrop(event)"></div>
-
+                
                 <!-- Left -->
                 <div class="box7" ondrop="drop(event)" id="6" ondragover="allowDrop(event)"></div>
-
+                
                 <!-- Right -->
                 <div class="box8" ondrop="drop(event)" id="7" ondragover="allowDrop(event)"></div>
-
+                
                 <div class="cuadro"></div>
             </div>
         </div>
@@ -109,15 +108,15 @@ if (empty($existe)) {
             <button class="verificar" onclick="verificar()">Comprobar respuestas</button>
             <button class="recargar" id="recarga" onclick="recargar()">Volver a intentar</button>
         </div>
-
+        
     </div>
-    <!-- CAMBIOS -->
-    <footer class="footerimga">
-        <div class="imagen-footer">
-            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
-        </div>
-    </footer>
-    <!-- fIN CAMBIOS -->
+         <!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 </body>
 <script>
     function alert1() {
@@ -140,25 +139,25 @@ if (empty($existe)) {
     let puntos = 0;
 
     //Funcion que agrega el sonido al juego
-    var correcto = document.createElement("audio");
-    correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-    var incorrecto = document.createElement("audio");
-    incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
     function iniciarTiempo() {
         document.getElementById('tiempo').innerHTML = segundos + " segundos";
         if (segundos <= 60) {
-            var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
-        if (segundos <= 30) {
-            var div = document.getElementById("timer");
-            div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
-        if (segundos <= 10) {
-            var div = document.getElementById("timer");
-            div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-        }
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
         if (segundos == 0) {
             Swal.fire({
                 title: 'Oops...',
@@ -202,6 +201,8 @@ if (empty($existe)) {
             ev.target.appendChild(document.getElementById(data));
         }
     }
+
+
 </script>
 <script>
     //Funcion para validar las respuestas, primero si nungun campo esta vacio y luego si son las correctas

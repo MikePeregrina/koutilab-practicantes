@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula45";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
@@ -181,6 +181,8 @@ if (isset($resultadoIntentos['intentos'])) {
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
 				if (verificar()) {
+					var puntos = <?php echo $puntosGanados; ?>
+
 					var xmlhttp = new XMLHttpRequest();
 					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 46 + "&id_curso=" + 3; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd46.php", true);
@@ -188,7 +190,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `

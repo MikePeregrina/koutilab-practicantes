@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula9";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
@@ -186,7 +186,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         window.location.reload();
                     }
                 });
-              
+
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -220,16 +220,18 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 3; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
-            
+
             correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 title: "¡Felicidades!",
-                text: "¡Buen trabajo!",
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

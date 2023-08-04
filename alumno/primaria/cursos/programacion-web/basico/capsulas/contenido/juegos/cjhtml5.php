@@ -122,7 +122,8 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
-        let puntos = 0;
+        
+        var puntos = <?php echo $puntosGanados; ?>;
 
         //Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");

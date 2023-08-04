@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula25";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
@@ -339,6 +339,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 3; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
@@ -346,7 +348,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
-				text: "¡Buen trabajo!",
+				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

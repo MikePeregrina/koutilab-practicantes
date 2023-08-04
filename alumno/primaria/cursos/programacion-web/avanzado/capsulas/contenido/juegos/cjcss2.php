@@ -116,7 +116,10 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Parte que modifique Final -->
 
-<!-- Preguntar si este script se queda--doc -->
+    <!-- Preguntar si este script se queda--doc -->
+    <script>
+        var puntos = <?php echo $puntosGanados; ?>
+    </script>
     <script src="../../js/copy-code.js"></script>
 </body>
 

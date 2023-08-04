@@ -128,7 +128,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 	<script>
 		var segundos = 240;
-		let puntos = 0;
+		var puntos = <?php echo $puntosGanados; ?>
 
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");

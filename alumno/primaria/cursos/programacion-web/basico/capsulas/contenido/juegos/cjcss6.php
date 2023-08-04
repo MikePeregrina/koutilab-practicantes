@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula43";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -56,7 +56,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-<!-- Timer -->
+    <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
@@ -74,12 +74,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <div class="cont-st">
             <a href="../../../../../../rutas/ruta-pw-b.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
             </a>
             <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
-                tiempo o responde mal</b></h4>
+                    tiempo o responde mal</b></h4>
         </div>
 
 
@@ -95,8 +95,10 @@ if (isset($resultadoIntentos['intentos'])) {
                 <!--No se muestra en la pantalla pero permite que se generen las preguntas "NO MOVER" -->
                 <div class="numero" id="numero"></div>
                 <!--es donde se muestra la pregunta-->
-                <h3><b><div class="pregunta" id="pregunta">
-                </div></b></h3>
+                <h3><b>
+                        <div class="pregunta" id="pregunta">
+                        </div>
+                    </b></h3>
                 <!--muestra una imagen ilustrativa para dar pista de la respuesta pero igual es implementado para  funcionar sin la imagen-->
                 <img src="#" class="imagen" id="imagen">
             </div>
@@ -108,7 +110,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
             <!--script donde se le da funcionalidad al juego-->
             <script src="../../js/select-ans-s.js"></script>
-        
+
         </div>
         <!-- boton de verificar respuestas-->
         <!-- NOTA: SE MANDO A LLAMAR LA FUNCION "marcador()" DONDE SE LLEVA LA PUNTUACION
@@ -116,24 +118,22 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
     </div>
     <!-- Tenoch Moises -->
-       <!-- CAMBIOS -->
-	<footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
-		</div>
-	</footer>
-<!-- fIN CAMBIOS -->
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
 
     <script>
-
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -148,8 +148,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -186,31 +185,31 @@ if (isset($resultadoIntentos['intentos'])) {
         let puntos = 0;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 44 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 44 + "&id_curso=" + 1; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡El tiempo se acabo!',
@@ -231,14 +230,16 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 44 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 44 + "&id_curso=" + 1; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd44.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
-                text: '¡Buen trabajo!',
+                text: '¡Buen trabajo! Obtienes ' + puntos + ' puntos de logros',
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

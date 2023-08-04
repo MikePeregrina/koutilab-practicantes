@@ -170,7 +170,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 23 + "&id_curso=" + 3; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_pd23.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);                
+                xmlhttp.send(param);
                 incorrecto.play(); //agregando sonido al juego no completado
                 Swal.fire({
                     title: "Oops...Intentalo nuevamente, te has quedado sin tiempo",
@@ -215,16 +215,18 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 23 + "&id_curso=" + 3; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd23.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
-            
+
             correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 title: "¡Felicidades!",
-                text: "¡Buen trabajo!",
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

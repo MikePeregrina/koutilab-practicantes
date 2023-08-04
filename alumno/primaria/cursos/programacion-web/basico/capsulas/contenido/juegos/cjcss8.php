@@ -207,6 +207,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 50 + "&id_curso=" + 1; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd50.php", true);
@@ -214,7 +216,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Haz completado el laberinto',
+				text: 'Haz completado el laberinto y obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

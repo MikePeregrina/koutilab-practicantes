@@ -220,6 +220,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 3; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
@@ -229,7 +231,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			correcto.play(); //agregando sonido al juego completado
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Koubot ha llegado a su nave',
+				text: 'Koubot ha llegado a su nave y tu obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
