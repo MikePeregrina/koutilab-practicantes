@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code3.png" ">
+                                <img src="../../img/code3.png">
                                 </img>
                             </td>
                         </tr>

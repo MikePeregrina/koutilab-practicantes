@@ -116,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Conjunto de instrucciones para hacer un juego.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="27">
+                                    <input type="hidden" name="permiso" value="26">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="10">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

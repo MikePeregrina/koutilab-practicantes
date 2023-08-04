@@ -81,11 +81,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p>
                                     <br>
                                     1. Haga 1 lista, que contenga el nombre de 5 compañeros
-                                    de la escuela, esta lista debe ser no ordenada. < ul>
+                                    de la escuela, esta lista debe ser no ordenada. < ul> < li>
                                         <br>
                                         2. Haga 1 lista, que contenga el nombre de sus 5 juguetes favoritos,
                                         Estos juguetes deben estar ordenados, es claramente subjetivo
-                                        y no afecta el orden al resultado. < ol>
+                                        y no afecta el orden al resultado. < ol> < li>
                                             <br>
                                 </p>
                             </td>
@@ -118,6 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
             var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("editor").contentWindow.document;
             let ol = frame.querySelectorAll("ol").length;
+            let li = frame.querySelectorAll("li").length;
             let ul = frame.querySelectorAll("ul").length;
 
             if (ol > 0 && ol > 0) {

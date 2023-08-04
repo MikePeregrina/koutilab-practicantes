@@ -80,12 +80,13 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Supongamos que queremos que nuestro
-                                    sitio tenga un fondo principal color blanco y una cabecera
-                                    color gris. Usando variables del CSS. 'style'
+                                    sitio con un titulo color rojo (red). Usando las etiquetas del CSS. 'h1' 'style'
                                     <br>
                                 </p>
                             </td>
-
+                            <td class="ne">
+                                <img src="../../../../../../img/sintaxiscsspractica.png" style="height: 220px; width: 450px;">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -111,6 +112,7 @@ if (isset($resultadoIntentos['intentos'])) {
             var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("editor").contentWindow.document;
             let style = frame.querySelectorAll("style").length;
+            let  h1 = frame.querySelectorAll("h1").length;
 
             if (style > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto

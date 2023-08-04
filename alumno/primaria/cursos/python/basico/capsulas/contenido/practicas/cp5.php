@@ -120,7 +120,7 @@ if (isset($resultadoIntentos['intentos'])) {
             // evaluacion del string
             let val = ta.split(" ", -1);
             // para revisar que palabra manda y que posicion
-            let esCorrecto = ta == '1\n2\nnombre = ' + val[2] + ' nombre es:", nombre)';
+            let esCorrecto = ta == '1\n2\nnnombre = "Juan"\nprint("Mi nombre es:", nombre)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

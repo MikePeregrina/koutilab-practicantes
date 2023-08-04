@@ -105,24 +105,24 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            < link rel="" type"" href="">
+                                            < head >< link rel="" type"" href="">< /head>
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            < link rel type href>
+                                        < head >< link rel type href>
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            < rel="" type"" href="">
+                                        < head >< rel="" type"" href="">< head>
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4"> link rel="" type"" href="" </label>
+                                        <label for="checkbox4">  head link rel="" type"" href="" head</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="27">
                                     <input type="hidden" name="teorico" value="10">

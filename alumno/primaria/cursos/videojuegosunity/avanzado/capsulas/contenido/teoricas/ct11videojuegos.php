@@ -121,7 +121,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         Display Toggles
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="27">
+                                    <input type="hidden" name="permiso" value="26">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="12">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

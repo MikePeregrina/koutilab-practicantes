@@ -130,8 +130,8 @@
         "id": "8",
         "correctAnswer": "<body bg color=”#00ff00”>",
         "incorrectAnswers": [
-            "<FONT COLOR='RED'>los guardianes azules </font> ",
-            "<FONT SIZE='1'>cada día seré mejor </FONT>",
+            "<font color='red'>los guardianes azules </font> ",
+            "<font size='1'>cada día seré mejor </font>",
             "<p align='center'>la mejor musica</p>"
         ],
         "question": "Para definir el fondo de la página se utiliza:",

@@ -117,7 +117,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Listas enumeradas con letras y listas enumeradas con numeros</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="8">
+                                    <input type="hidden" name="permiso" value="9">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

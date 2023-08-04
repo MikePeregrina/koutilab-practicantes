@@ -82,10 +82,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p> Agregar un párrafo con su título dentro de un div (todas las etiquetas se deben de cerrar).
                                     < div>
                                         < h1>
-                                            /
-                                            < /div>
-                                                < /h1>
-
+                                        < /h1>
+                                            < /div>               
                                                     <br> <br>
                                 </p>
                             </td>

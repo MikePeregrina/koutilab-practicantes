@@ -116,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Establecer la conexión con dispositivos periféricos.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="27">
+                                    <input type="hidden" name="permiso" value="26">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="7">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

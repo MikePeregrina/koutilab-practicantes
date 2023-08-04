@@ -104,7 +104,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <!-- TEMA 1 -->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/teoricas/ct1videojuegos.php"><button class="btn2" id="teoria" <?php echo 'style="' . (($existe_capsula1 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/practicas/cp1videojuegos.php"><button class="btn3" id="prac" <?php echo 'style="' . (($existe_capsula2 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
-                <a href="../cursos/videojuegosunity/basico/capsulas/contenido/juegos/cjub1-1.php class="btn4" id="game" <?php echo 'style="' . (($existe_capsula3 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
+                <a href="../cursos/videojuegosunity/basico/capsulas/contenido/juegos/cjub1-1.php "><button class="btn4" id="game" <?php echo 'style="' . (($existe_capsula3 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/teoricas/ct2videojuegos.php"><button class="btn5" id="teoria" <?php echo 'style="' . (($existe_capsula4 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 2-->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/practicas/cp2videojuegos.php"><button class="btn6" id="prac" <?php echo 'style="' . (($existe_capsula5 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 2-->
@@ -190,7 +190,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <!-- TEMA 9 -->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/teoricas/ct20videojuegos.php"><button class="btn58" id="teoria" <?php echo 'style="' . (($existe_capsula47 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 9-->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/practicas/cp20videojuegos.php"><button class="btn59" id="prac" <?php echo 'style="' . (($existe_capsula48 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 9-->
-                <a href="../cursos/videojuegosunity/basico/capsulas/contenido/juegos/cjub2-8.php class="btn60" id="game" <?php echo 'style="' . (($existe_capsula49 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 9-->
+                <a href="../cursos/videojuegosunity/basico/capsulas/contenido/juegos/cjub2-8.php"><button class="btn60" id="game" <?php echo 'style="' . (($existe_capsula49 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 9-->
                 <!-- TEMA 10 -->
                 <div class="container-premium4">
                     <a href="../cursos/videojuegosunity/basico/capsulas/contenido/teoricas/ct16videojuegos.php"><button class="btn61" id="teoriap" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
