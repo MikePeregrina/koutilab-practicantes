@@ -449,6 +449,37 @@ form .user-details .campo {
 .is-full {
   margin-top: 20px !important;
 }
+/*Porcentaje*/
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 12px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #42fa8f, #0cfefd);
+  outline: none;
+  margin-bottom: 20px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #8c8c8c ;
+  cursor: pointer;
+
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #5a5a5a;
+}
+
+#porcentajeValor {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6d6d6d;
+}
 
 @media (max-width: 1120px) {
   h1 {

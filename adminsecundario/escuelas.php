@@ -52,10 +52,10 @@ $fila = mysqli_fetch_assoc($result);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -87,7 +87,7 @@ $fila = mysqli_fetch_assoc($result);
     <div class="popup-container" id="popupContainer">
         <div class="popup-content">
             <div class="titlec">
-                <h2>Nuevo grupo</h2>
+                <h2>Nueva Escuela</h2>
             </div>
 
             <div class="contenedor-emergente">
@@ -160,7 +160,7 @@ $fila = mysqli_fetch_assoc($result);
                         </div>
                         <div class="input-box">
                             <span class="details"></span> <br>
-                            <button type="button" class="btn-grd1" style="padding:1%;" onclick="copyToClipBoard1()">Copiar clave director</button>
+                            <button type="button" class="btn-grd1" onclick="copyToClipBoard1()">Copiar clave director</button>
                         </div>
                         <div class="input-box">
                             <span class="details">Clave docente:</span>
@@ -168,7 +168,7 @@ $fila = mysqli_fetch_assoc($result);
                         </div>
                         <div class="input-box">
                             <span class="details"></span> <br>
-                            <button type="button" class="btn-grd1" style="padding:1%;" onclick="copyToClipBoard2()">Copiar clave docente</button>
+                            <button type="button" class="btn-grd1" onclick="copyToClipBoard2()">Copiar clave docente</button>
                         </div>
                         <div class="input-box">
                             <span class="details">Clave alumnos:</span>
@@ -176,25 +176,22 @@ $fila = mysqli_fetch_assoc($result);
                         </div>
                         <div class="input-box">
                             <span class="details"></span> <br>
-                            <button type="button" class="btn-grd1" style="padding:1%;" onclick="copyToClipBoard3()">Copiar clave alumno</button>
+                            <button type="button" class="btn-grd1" onclick="copyToClipBoard3()">Copiar clave alumno</button>
                         </div>
 
-                        <button id="btn-registrar" class="btn-grd" style="margin-top: 6%; padding:1%;" type="submit">Registrar</button>
+                        <button class="btn-grd" style="margin-left: 180px; margin-top:5%" type="submit">Registrar</button>
 
                     </div>
             </div>
 
             </form>
         </div>
-        <div style="float: right;">
-            <button id="closeButton"><i class="fas fa-times"></i></button>
 
-        </div>
+        <button id="closeButton"><i class="fas fa-times"></i></button>
 
     </div>
     </div> <!-- Cierre de la pantalla emergente -->
     <section>
-
         <div class="board p-2">
             <table id="escuelas" width="100%" class="table border-top">
                 <thead>
@@ -206,6 +203,7 @@ $fila = mysqli_fetch_assoc($result);
                         <td><b>Claves</b></td>
                         <td><b>Quien autoriza</b></td>
                         <td><b>Acción</b></td>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -226,12 +224,13 @@ $fila = mysqli_fetch_assoc($result);
                                 <td>Clave director: <?php echo $data['clave_director'] ?><br>Clave docente: <?php echo $data['clave_docente'] ?><br>Clave alumno: <?php echo $data['clave_alumno'] ?></td>
                                 <td><?php echo $data['autorizacion']; ?></td>
 
-                                <td>
+                                <td id="td-btn">
                                     <a href="acciones/editar_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
                                     <form action="acciones/eliminar_escuela.php?id=<?php echo $data['id_escuela']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
                                     </form>
                                     <a href="acciones/mostrar_info.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-info-circle"></i></i></a>
+                                    <a style="background-color: purple; border:none" href="acciones/asignar_porcentaje.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-percent"></i></i></a>
                                 </td>
                             </tr>
                     <?php }
@@ -261,30 +260,6 @@ $fila = mysqli_fetch_assoc($result);
         popupContainer.addEventListener('click', function(event) {
             if (event.target === popupContainer) {
                 popupContainer.style.display = 'none';
-            }
-        });
-    </script>
-
-    <script>
-        const select = document.getElementById("nivel_educativo");
-        const input_alumno = document.getElementById("rol_alumno");
-        const input_docente = document.getElementById("rol_docente");
-        const input_director = document.getElementById("rol_director");
-
-        select.addEventListener("change", () => {
-
-            if (select.value == 'Primaria') {
-                input_alumno.value = 2;
-                input_docente.value = 3;
-                input_director.value = 4;
-            } else if (select.value == 'Secundaria') {
-                input_alumno.value = 6;
-                input_docente.value = 7;
-                input_director.value = 8;
-            } else if (select.value == 'Preparatoria') {
-                input_alumno.value = 9;
-                input_docente.value = 10;
-                input_director.value = 11;
             }
         });
     </script>

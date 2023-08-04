@@ -98,8 +98,12 @@ body::-webkit-scrollbar-track {
 }
 
 #btn-edit {
-  scale: 70%; 
+  scale: 70%;
   border-radius: 15px;
+}
+#btn-add {
+  border-radius: 7px;
+  scale: 125%;
 }
 
 #btn-trs {
@@ -109,7 +113,10 @@ body::-webkit-scrollbar-track {
   margin: 0 0 0 -15px;
 }
 
-#i-edit{
+#i-add {
+  margin: 10px 0 0 0;
+}
+#i-edit {
   margin: 10px 0 0 0;
 }
 
@@ -335,7 +342,7 @@ form {
   color: var(--border);
 }
 
-.select:not(.is-multiple):not(.is-loading)::after{
+.select:not(.is-multiple):not(.is-loading)::after {
   z-index: auto !important;
 }
 
@@ -353,7 +360,7 @@ form {
     font-weight: bolder;
     font-size: 27px;
   }
-  
+
   .studens-add-bar h2 {
     font-size: 22px;
   }
@@ -371,11 +378,11 @@ form {
   }
 }
 
-@media (max-width: 807px) and (min-width: 769px){
-  .left-student h2{
+@media (max-width: 807px) and (min-width: 769px) {
+  .left-student h2 {
     margin-top: -4%;
   }
-} 
+}
 
 @media (max-width: 768px) {
   .containers {
@@ -420,7 +427,7 @@ form {
     height: 45px;
     margin-left: 25%;
   }
-  
+
   .studens-add-bar h2 {
     font-size: 16px;
   }
@@ -483,17 +490,17 @@ form {
     height: 45px;
     margin-left: 25%;
   }
-  
+
   .studens-add-bar h2 {
     font-size: 13px;
     margin-left: 15px;
   }
 
-  .left-student i{
+  .left-student i {
     margin-top: 0%;
   }
 
-  .right-student i{
+  .right-student i {
     margin-top: 7%;
   }
 
@@ -510,9 +517,10 @@ form {
     justify-content: center;
     justify-items: center;
     text-align: center;
-}
+  }
 
-  .user-details .input-box input, .user-details .input-box select {
+  .user-details .input-box input,
+  .user-details .input-box select {
     width: 270%;
     margin-bottom: 10px;
     padding: 5px;
@@ -520,7 +528,7 @@ form {
     height: 40px;
   }
 
-  .btn-grd{
+  .btn-grd {
     font-size: 18px;
     padding: 5px;
   }
@@ -537,7 +545,7 @@ form {
     height: 110%;
   }
 
-  .contenedor-emergente{
+  .contenedor-emergente {
     height: auto;
   }
 
@@ -578,8 +586,6 @@ form {
     margin-top: 0%;
   }
 
-  
-
   .right-student h2 {
     margin-left: 4%;
   }
@@ -608,7 +614,7 @@ form {
     height: 45px;
     margin-left: 25%;
   }
-  
+
   .studens-add-bar h2 {
     font-size: 16px;
   }
