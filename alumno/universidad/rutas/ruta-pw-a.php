@@ -162,7 +162,7 @@ $existe_comprada_php1 = mysqli_num_rows($sql_comprada_php1);
             <!-- Extras -->
 
             <!-- TEMA 3 -->
-            <a href="../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct3css.php"><button class="btn25" id="teoria" <?php echo 'style="' . (($existe_capsula17 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 3-->
+            <a href="../cursos/programacion-web/avanzado/capsulas/contenido/teoricas/ct3css.php"><button class="btn25" id="teoria" <?php echo 'style="' . (($existe_capsula99 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 3-->
             <a href="../cursos/programacion-web/avanzado/capsulas/contenido/practicas/cp3css.php"><button class="btn26" id="prac" <?php echo 'style="' . (($existe_capsula18 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 3-->
             <a href="../cursos/programacion-web/avanzado/capsulas/contenido/juegos/cjcss2.php"><button class="btn27" id="game" <?php echo 'style="' . (($existe_capsula19 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 3-->
             <!-- TEMA 4 -->
