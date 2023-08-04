@@ -155,7 +155,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "../../img/img_juegos/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {

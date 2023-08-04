@@ -164,11 +164,11 @@ if (isset($resultadoIntentos['intentos'])) {
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
+                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
 						rgba(0,143,255,0.6)
-						url("../../img/img_juegos/fondo.gif")`,
+						url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: '#a14cd9',
                 confirmButtonText: '¡Genial!',
             }).then((result) => {

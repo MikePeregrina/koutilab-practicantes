@@ -193,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						imageHeight: 300,
 						backdrop: `
 									rgba(0,143,255,0.6)
-									url("../../img/img/juegos/fondo.gif")
+									url("../../img/img-juegos/fondo.gif")
 									`,
 						confirmButtonColor: '#a14cd9',
 						confirmButtonText: 'Aceptar',

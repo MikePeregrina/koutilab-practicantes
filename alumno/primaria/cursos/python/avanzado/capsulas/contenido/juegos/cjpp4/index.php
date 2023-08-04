@@ -93,7 +93,7 @@ if (empty($existe)) {
 					Swal.fire({
 					title: 'La imagen se debe ver así',
 					text: '¡Hazlo antes de que termine el tiempo!',
-					imageUrl: "img/lvl1/captura.png",
+					imageUrl: "img/lvl1/cap.png",
 					imageHeight: 320,
 					confirmButtonText: '¡Vamos!',
 					confirmButtonColor: '#85c42c',

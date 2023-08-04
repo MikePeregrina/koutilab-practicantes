@@ -522,7 +522,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Swal.fire({
                     title: "Oops...",
                     text: "¡Verifica tu respuesta!",
-                    imageUrl: "../../../../../../img/signo.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {

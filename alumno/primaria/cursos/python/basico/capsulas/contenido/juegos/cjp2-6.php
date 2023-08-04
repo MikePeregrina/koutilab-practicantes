@@ -342,7 +342,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			Swal.fire({
 				title: "Excelente",
 				text: "¡Buen trabajo!",
-				imageUrl: "./../img/img-juegos/Thumbs-Up.gif",
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
 						rgba(0,143,255,0.6)

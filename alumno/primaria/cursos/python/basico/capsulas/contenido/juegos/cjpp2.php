@@ -215,11 +215,11 @@
                         Swal.fire({
                             title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
                             text: '¡Puntuación guardada con éxito!',
-                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                             imageHeight: 350,
                             backdrop: `
                         rgba(0,143,255,0.6)
-                        url("../../../../../../img/fondo.gif")
+                        url("../../img/img-juegos/fondo.gif")
                         `,
                             confirmButtonColor: '#a14cd9',
                             confirmButtonText: 'Aceptar',
@@ -232,7 +232,7 @@
                     Swal.fire({
                         title: 'Oops...',
                         text: '¡Verifica tu respuesta!',
-                        imageUrl: "../../../../../../img/signo.gif",
+                        imageUrl: "../../img/img-juegos/loop.gif",
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
