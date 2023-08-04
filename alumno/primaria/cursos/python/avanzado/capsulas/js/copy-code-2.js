@@ -1,6 +1,5 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-let puntos = 0;
 
 //se esta llamando los sonidos de la carpeta "sonidos"
 var Correcto = document.createElement("audio");
@@ -96,7 +95,7 @@ function alertExcelent() {
         xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
-            text: "¡Buen trabajo!",
+            text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
             imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `

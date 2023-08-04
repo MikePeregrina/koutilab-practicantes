@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <!-- Timer -->
-    <div class="timer" id="timer"> 
+    <div class="timer" id="timer">
         <b>Tiempo: <br />
             <p id="tiempo" style="margin: 0 0 0 0"></p>
         </b>
@@ -68,14 +68,14 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Contenedor principal -->
     <div class="contenido">
-      <div class="cont-st">
-        <a href="../../../../../../rutas/ruta-pw-b.php">
-          <button class="btn-b">
-            <i class="fas fa-reply"></i>
-          </button>
-        </a>
-        <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-      </div>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+        </div>
 
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
@@ -106,22 +106,22 @@ if (isset($resultadoIntentos['intentos'])) {
                 </h3>
             </section>
         </div>
-        
+
         <!--Boton para verificar la respuesta-->
         <div class="btn-ctn">
-        <button class="verificar" onClick="verificar()">
-            Comprobar respuestas
-          </button>
-      </div>
-      </div>
+            <button class="verificar" onClick="verificar()">
+                Comprobar respuestas
+            </button>
+        </div>
+    </div>
     <p id="resultado"></p>
     <!-- CAMBIOS -->
     <footer class="footerimga">
-      <div class="imagen-footer">
-        <img src="../../img/benvenida.png" alt="No-image">
-      </div>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
     </footer>
-  <!-- fIN CAMBIOS -->
+    <!-- fIN CAMBIOS -->
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 120;
@@ -136,17 +136,17 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
 
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
@@ -197,6 +197,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 6; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
@@ -204,7 +206,7 @@ if (isset($resultadoIntentos['intentos'])) {
             xmlhttp.send(param);
             Swal.fire({
                 title: "¡Felicidades!",
-                text: "¡Buen trabajo!",
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

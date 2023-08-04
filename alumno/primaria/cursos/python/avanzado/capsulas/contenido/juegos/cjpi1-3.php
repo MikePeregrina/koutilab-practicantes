@@ -55,29 +55,29 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-   <!-- CAMBIOS -->
+    <!-- CAMBIOS -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
-  
+
     <!-- Titulo general -->
     <div class="titulo-gen">
-    <h2 class="titulo"><b>FUNCIONES 2.0</b></h2>
+        <h2 class="titulo"><b>FUNCIONES 2.0</b></h2>
     </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
         <div class="cont-st">
             <a href="../../../../../../rutas/ruta-py-a.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
             </a>
             <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
-                tiempo o responde mal</b></h4>
+                    tiempo o responde mal</b></h4>
         </div>
 
         <!-- Tenoch Moises -->
@@ -92,8 +92,10 @@ if (isset($resultadoIntentos['intentos'])) {
                 <!--No se muestra en la pantalla pero permite que se generen las preguntas "NO MOVER" -->
                 <div class="numero" id="numero"></div>
                 <!--es donde se muestra la pregunta-->
-                <h3><b><div class="pregunta" id="pregunta">
-                </div></b></h3>
+                <h3><b>
+                        <div class="pregunta" id="pregunta">
+                        </div>
+                    </b></h3>
                 <!--muestra una imagen ilustrativa para dar pista de la respuesta pero igual es implementado para  funcionar sin la imagen-->
                 <img src="#" class="imagen" id="imagen">
             </div>
@@ -105,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
             <!--script donde se le da funcionalidad al juego-->
             <script src="../../js/select-ans.js"></script>
-        
+
         </div>
         <!-- boton de verificar respuestas-->
         <!-- NOTA: SE MANDO A LLAMAR LA FUNCION "marcador()" DONDE SE LLEVA LA PUNTUACION
@@ -115,23 +117,21 @@ if (isset($resultadoIntentos['intentos'])) {
     <!-- Tenoch Moises -->
 
     <!-- CAMBIOS -->
-	<footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
-<!-- fIN CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
 
     <script>
-
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -146,8 +146,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "10",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -197,17 +196,17 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
 
             if (segundos == 0) {
                 Swal.fire({
@@ -230,6 +229,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 6; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
@@ -237,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
             xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
-                text: '¡Buen trabajo!',
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
@@ -247,11 +248,12 @@ if (isset($resultadoIntentos['intentos'])) {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href='../../../../../../rutas/ruta-py-a.php';
+                    window.location.href = '../../../../../../rutas/ruta-py-a.php';
                 }
             });
             Correcto.play(); //Agregando sonido al juego completado
         }
     </script>
 </body>
+
 </html>

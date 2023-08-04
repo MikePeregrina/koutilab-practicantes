@@ -115,11 +115,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/seleccionador.js"></script>
-    <script src="../../js/seleccionador - copia.js"></script>
+    <!-- <script src="../../js/seleccionador - copia.js"></script> -->
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
-        let puntos = 0;
+        var puntos = <?php echo $puntosGanados; ?>
 
         //Funcion que agrega el sonido al juego
         var correcto = document.createElement("audio");

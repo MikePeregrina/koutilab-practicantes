@@ -171,6 +171,8 @@ if (isset($resultadoIntentos['intentos'])) {
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
 				if (verificar()) {
+					var puntos = <?php echo $puntosGanados; ?>
+
 					var xmlhttp = new XMLHttpRequest();
 					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 5; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
@@ -178,7 +180,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `

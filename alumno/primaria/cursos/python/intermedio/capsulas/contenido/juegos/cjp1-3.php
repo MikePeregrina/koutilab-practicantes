@@ -228,6 +228,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 5; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
@@ -235,7 +237,7 @@ if (isset($resultadoIntentos['intentos'])) {
             xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
-                text: '¡Buen trabajo!',
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

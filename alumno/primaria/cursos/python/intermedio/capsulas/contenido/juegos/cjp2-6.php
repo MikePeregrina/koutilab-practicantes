@@ -109,7 +109,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</section>
 	<footer class="footerimga">
 		<div class="imagen-footer">
-		  <img src="../../img/benvenida.png" alt="No-image">
+			<img src="../../img/benvenida.png" alt="No-image">
 		</div>
 	</footer>
 
@@ -217,6 +217,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 5; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
@@ -224,7 +226,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Haz completado el laberinto',
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

@@ -111,6 +111,9 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/img-juegos/benvenida.png" alt="No-image">
         </div>
     </footer>
+    <script>
+        var puntos = <?php echo $puntosGanados; ?>
+    </script>
     <script src="../../js/copy-code-1.js"></script>
 </body>
 

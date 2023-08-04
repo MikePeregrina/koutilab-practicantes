@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula9";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -54,7 +54,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-<!-- Parte que modifique Inicio -->
+    <!-- Parte que modifique Inicio -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -73,20 +73,20 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- Boton para regresar -->
         <div class="cont-st">
             <a href="../../../../../../rutas/ruta-pw-b.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
             </a>
             <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
         </div>
-<!-- Parte que modifique Final -->
+        <!-- Parte que modifique Final -->
 
         <!--CONTENEDOR DEL JUEGO-->
         <div class="mjuego">
 
             <!--EJEMPLO DE CODIGO-->
-            <div class="ejemplo">   
-                <p id="textoej" >
+            <div class="ejemplo">
+                <p id="textoej">
                 </p>
             </div>
 
@@ -96,25 +96,27 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
 
         </div>
-<!-- Parte que modifique Inicio -->
+        <!-- Parte que modifique Inicio -->
         <!-- boton de verificar respuestas -->
         <div class="btn-v">
             <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
         </div>
-        
+
     </section>
-    
+
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
 
- 
-<!-- Parte que modifique Final -->    
 
-<script src="../../js/copiar-codigo.js"></script>
+    <!-- Parte que modifique Final -->
+    <script>
+        var puntos = <?php echo $puntosGanados; ?>
+    </script>
+    <script src="../../js/copiar-codigo.js"></script>
 </body>
 
 </html>

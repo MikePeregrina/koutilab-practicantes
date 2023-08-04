@@ -176,7 +176,7 @@ function mostrarResultados() {
             correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 //estrucutra de la alerta
-                title: 'Resultados',
+                title: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
                 imageUrl: '../../img/img-juegos/Thumbs-Up.gif',
                 imageHeight: 350,

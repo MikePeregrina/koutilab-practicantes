@@ -110,10 +110,10 @@ if (isset($resultadoIntentos['intentos'])) {
 	</section>
 	<footer class="footerimga">
 		<div class="imagen-footer">
-		  <img src="../../img/benvenida.png" alt="No-image">
+			<img src="../../img/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-	
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -218,6 +218,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 5; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
@@ -225,7 +227,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Haz completado el laberinto',
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

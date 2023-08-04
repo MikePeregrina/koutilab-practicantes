@@ -157,11 +157,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
             <!-- Apartado del crucigrama junto con sus casillas -->
             <div class="crucigrama">
-            <div class="numero1" style="margin: -350px 0 0 330px">1.</div>
-            <div class="numero2" style="margin: -220px 0 0 -60px">2.</div>
-            <div class="numero1-1" style="margin: -130px 0 0 -280px">1.</div>
-            <div class="numero2-2" style="margin: 270px 0 0 -280px">2.</div>
-            <div class="numero3-3" style="margin: 390px 0 0 -410px">3.</div>
+                <div class="numero1" style="margin: -350px 0 0 330px">1.</div>
+                <div class="numero2" style="margin: -220px 0 0 -60px">2.</div>
+                <div class="numero1-1" style="margin: -130px 0 0 -280px">1.</div>
+                <div class="numero2-2" style="margin: 270px 0 0 -280px">2.</div>
+                <div class="numero3-3" style="margin: 390px 0 0 -410px">3.</div>
                 <table id="crucigrama">
                     <tr>
                         <td>
@@ -485,10 +485,10 @@ if (isset($resultadoIntentos['intentos'])) {
         let puntos = 0;
 
         //se esta llamando los sonidos de la carpeta "sonidos"
-		var Correcto = document.createElement("audio");
-		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var Incorrecto = document.createElement("audio");
-		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
@@ -715,6 +715,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     1; //cancatenation
 
                 xmlhttp.onreadystatechange = function() {
+                    var puntos = <?php echo $puntosGanados; ?>
+
                     var xmlhttp = new XMLHttpRequest();
                     var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 4; //cancatenation
                     xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
@@ -722,7 +724,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     xmlhttp.send(param);
                     Swal.fire({
                         title: "¡Bien hecho!",
-                        text: "¡Puntuación guardada con éxito!",
+                        text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                         imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                         imageHeight: 350,
                         backdrop: `
@@ -988,7 +990,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
         habilitarMovimiento();
     </script>
-   
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

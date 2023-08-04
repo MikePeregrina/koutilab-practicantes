@@ -54,7 +54,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo()">
-<!-- Parte que modifique Inicio -->
+    <!-- Parte que modifique Inicio -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -73,20 +73,20 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- Boton para regresar -->
         <div class="cont-st">
             <a href="../../../../../../rutas/ruta-py-a.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
             </a>
             <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
         </div>
-<!-- Parte que modifique Final -->
+        <!-- Parte que modifique Final -->
 
         <!--CONTENEDOR DEL JUEGO-->
         <div class="mjuego">
 
             <!--EJEMPLO DE CODIGO-->
-            <div class="ejemplo">   
-                <p id="textoej" >
+            <div class="ejemplo">
+                <p id="textoej">
                 </p>
             </div>
 
@@ -96,25 +96,27 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
 
         </div>
-<!-- Parte que modifique Inicio -->
+        <!-- Parte que modifique Inicio -->
         <!-- boton de verificar respuestas -->
         <div class="btn-v">
             <button class="verificar" onClick="alertExcelent()">Comprobar respuestas</button>
         </div>
-        
+
     </section>
-    
+
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
 
- 
-<!-- Parte que modifique Final -->    
 
-<script src="../../js/copy-code-2.js"></script>
+    <!-- Parte que modifique Final -->
+    <script>
+        var puntos = <?php echo $puntosGanados; ?>
+    </script>
+    <script src="../../js/copy-code-2.js"></script>
 </body>
 
 </html>

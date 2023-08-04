@@ -56,27 +56,27 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo()">
 	<!-- CAMBIOS -->
 	<!-- Timer -->
-    <div class="timer" id="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>ESTRUCTURAS ITERATIVAS</b></h2>
 	</div>
-    <section>
+	<section>
 
 		<div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-b.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-        </div>
-<!--fIN CAMBIOS -->
+			<a href="../../../../../../rutas/ruta-py-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
@@ -91,14 +91,12 @@ if (isset($resultadoIntentos['intentos'])) {
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-<!-- fIN CAMBIOS -->
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"Cuando hablamos de la sintaxis en Python, nos referimos como en todo lenguaje al correcto _____ y orden de las palabras que utilizamos para comunicarnos.",
+				pregunta: "Cuando hablamos de la sintaxis en Python, nos referimos como en todo lenguaje al correcto _____ y orden de las palabras que utilizamos para comunicarnos.",
 				opA: "Color",
 				opB: "Uso",
 				opC: "Parametro",
@@ -107,8 +105,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Por ello, en Python también es necesario cumplir ciertos requisitos a la hora de expresarnos esta manera, se evitan _________",
+				pregunta: "Por ello, en Python también es necesario cumplir ciertos requisitos a la hora de expresarnos esta manera, se evitan _________",
 				opA: "Errores",
 				opB: "Saltos de linea",
 				opC: "Codigo",
@@ -117,8 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Parte esencial de la sintaxis en Python son los __________ que sirven para describir una variable",
+				pregunta: "Parte esencial de la sintaxis en Python son los __________ que sirven para describir una variable",
 				opA: "Codigos",
 				opB: "Etiquetas",
 				opC: "Identificadores",
@@ -127,8 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"Python diferencia entre mayúsculas y minúsculas y no admite caracteres de puntuación como @, $ o %.",
+				pregunta: "Python diferencia entre mayúsculas y minúsculas y no admite caracteres de puntuación como @, $ o %.",
 				opA: "Falso",
 				opB: "Cierto ",
 				opC: "No se",
@@ -137,8 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
+				pregunta: "Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
 				opA: "Minuscula",
 				opB: "Mayuscula",
 				opC: "Ambas",
@@ -166,7 +160,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -228,17 +222,17 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-   			}
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
@@ -334,6 +328,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var puntos = <?php echo $puntosGanados; ?>
+
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
@@ -341,7 +337,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
-				text: "¡Buen trabajo!",
+				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
