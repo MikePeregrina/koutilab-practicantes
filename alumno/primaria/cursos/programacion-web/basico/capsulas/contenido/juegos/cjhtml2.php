@@ -79,7 +79,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </button>
             </a>
             <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
-                    tiempo o responde mal</b></h4>
+                    tiempo</b></h4>
         </div>
 
 
