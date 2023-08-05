@@ -102,7 +102,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <h1>¿Cuál de los siguientes operadores se utiliza para verificar si un elemento está presente en una secuencia en Python?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">"not in"</label>
+                                        <label for="checkbox1">not in</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">

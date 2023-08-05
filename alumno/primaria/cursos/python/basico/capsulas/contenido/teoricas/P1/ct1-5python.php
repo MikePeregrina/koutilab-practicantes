@@ -101,12 +101,28 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd5.php">
-
+                                <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
+                                    <h1>¿Qué ocurre si intentas utilizar una palabra reservada como nombre de una variable en Python?</h1>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox1">Se generará un error de sintaxis</label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox2"> No ocurre nada, puedes utilizarla como cualquier otro nombre</label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox3">La palabra reservada se asignará como valor a la variable</label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox4">Python automáticamente renombrará la variable para evitar conflictos</label>
+                                    </div>
                                     <input type="hidden" name="permiso" value="5">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="4">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-
                                 </form>
                             </div>
                         </li>
