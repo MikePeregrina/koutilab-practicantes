@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 include "../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
 	header("Location:  ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
@@ -92,7 +92,7 @@ if (empty($existe)) {
 		function alert1() {
 			Swal.fire({
 				title: '¡Oh no!',
-				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
+				text: 'Koubot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
 				imageUrl: "../../../img/img-juegos/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',
@@ -129,7 +129,7 @@ if (empty($existe)) {
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
+				// var xmlhttp = new XMLHttpRequest();
 
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
@@ -225,10 +225,12 @@ if (empty($existe)) {
 			onClickOnBlock(blockIdx) { //try move block and check if puzzle was solved
 				if (this.moveBlock(blockIdx)) {
 					if (this.checkPuzzleSolved()) {
+						// var puntos = <?//php echo $puntosGanados; ?>
+
 						setTimeout(() => {
 							Swal.fire({
 								title: '¡Excelente!',
-								text: 'Haz completado todos los niveles',
+								text: "¡Buen trabajo!",
 								imageUrl: "img/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `

@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula25";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 26;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -63,8 +63,8 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
+        <!-- Titulo general del juego -->
+        <div class="titulo-gen">
         <h2 class="titulo"><b>OPERADORES LÓGICOS</b></h2>
     </div>
 
@@ -73,9 +73,9 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <div class="cont-st">
             <a href="#">
-                <button class="btn-b">
-                    <i class="fas fa-reply"></i>
-                </button>
+            <button class="btn-b">
+                <i class="fas fa-reply"></i>
+            </button>
             </a>
             <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
         </div>
@@ -98,7 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <!-- columna de lado derecho -->
             <div class="right-column">
                 <!-- Respuestas -->
-
+                
                 <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">Verdad o falso</div>
                 <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">Secuencia</div>
                 <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">Texto</div>
@@ -109,43 +109,43 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
-    </section>
+        </section>
 
-    <!-- CAMBIOS -->
-    <footer class="footerimga">
-        <div class="imagen-footer">
-            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
-        </div>
-    </footer>
-    <!-- fIN CAMBIOS -->
+        <!-- CAMBIOS -->
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+            </div>
+        </footer>
+        <!-- fIN CAMBIOS -->
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
-    <script src="../../js/seleccionador-1.js"></script>
+    <script src="../../js/seleccionador-2.js"></script>
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
-        let puntos = 0;
+        var puntos = <?php echo $puntosGanados; ?>
 
         //se esta llamando los sonidos de la carpeta "sonidos"
-        var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var Incorrecto = document.createElement("audio");
-        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            /*declarando condiciones que permiten cambiar el color de fondo del timer*/
-            if (segundos <= 60) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 30) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos <= 10) {
-                var div = document.getElementById("timer");
-                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
+             /*declarando condiciones que permiten cambiar el color de fondo del timer*/
+		if (segundos <= 60) {
+			var div = document.getElementById("timer");
+			div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}
+		if (segundos <= 30) {
+			var div = document.getElementById("timer");
+			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}
+		if (segundos <= 10) {
+			var div = document.getElementById("timer");
+			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+		}
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 26 + "&id_curso=" + 4; //cancatenation
@@ -155,7 +155,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
-                    imageUrl: "../../img/img_juegos/loop.gif",
+                    imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
