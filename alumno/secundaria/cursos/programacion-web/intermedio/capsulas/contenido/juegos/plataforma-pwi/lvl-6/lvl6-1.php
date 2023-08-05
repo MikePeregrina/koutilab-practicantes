@@ -523,6 +523,7 @@ if (empty($existe)) {
         }
 
         function alertWin() {
+            estrellas = score * 3;
             Swal.fire({
                 title: '¡Perfecto!',
                 text: 'Has completado el capitulo 6 de las aventuras de Koubot con 10 puntos y ' + score + ' estrellas de 5',
@@ -540,7 +541,7 @@ if (empty($existe)) {
                         confirmButtonColor: '#85c42c',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../../../rutas/ruta-pw-i.php';
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 6 + '&id_curso=' + 2 + '&estrellas=' + estrellas;
                         }
                     });
                 }

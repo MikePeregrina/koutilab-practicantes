@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../img/lgk.png"/>
+    <link rel="shortcut icon" href="../img/lgk.png" />
     <link rel="stylesheet" href="../css/phaser.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -14,20 +14,19 @@
 </head>
 
 <body onload="alert1()">
-    <a href="../../../../../../../../rutas/ruta-pw-i.php"><button
-            style="float: left; position: absolute; margin: 70px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
+    <a href="../../../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 70px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
             <i class="fas fa-reply"></i>
         </button>
     </a>
     <div class="instrucciones"></div>
     <div class="titulo-gen1">
         <h2 class="titulo">
-           PSEUDO CLASES
+            PSEUDO CLASES
         </h2>
     </div>
     <div class="titulo-gen3">
         <h5>
-            Son las pseudo clases que nos permiten insertar contenido después y antes del contenido del elemento al que lo apliquemos a través de la propiedad “content“       
+            Son las pseudo clases que nos permiten insertar contenido después y antes del contenido del elemento al que lo apliquemos a través de la propiedad “content“
         </h5>
     </div>
     <div class="timer" id="timer">
@@ -35,7 +34,7 @@
             <p id="tiempo" style="margin: 0 0 0 0"></p>
         </b>
     </div>
-    <br/>
+    <br />
     <div class="logotipo">
         <img src="../img/koutilab.png" id="logo" alt="">
     </div>
@@ -74,25 +73,25 @@
         var count = 1000;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
@@ -126,7 +125,9 @@
             physics: {
                 default: "arcade",
                 arcade: {
-                    gravity: { y: 600 },
+                    gravity: {
+                        y: 600
+                    },
                     debug: false,
                 },
             },
@@ -206,7 +207,7 @@
             plataforms.create(100, 150, "cloud");
             plataforms.create(30, 80, "cloud");
             plataforms.create(300, 120, "cloud");
-            plataforms.create(500,100, "cloud");
+            plataforms.create(500, 100, "cloud");
             this.add.image(720, 15, "respuesta").setScale(0.17);
             this.add.image(720, 460, "respuesta1").setScale(0.17);
             spikes = this.physics.add.staticGroup();
@@ -256,18 +257,27 @@
             player.setBounce(0.1);
             this.anims.create({
                 key: "left",
-                frames: this.anims.generateFrameNumbers("dude", { start: 0, end: 3 }),
+                frames: this.anims.generateFrameNumbers("dude", {
+                    start: 0,
+                    end: 3
+                }),
                 frameRate: 10,
                 repeat: -1,
             });
             this.anims.create({
                 key: "turn",
-                frames: [{ key: "dude", frame: 4 }],
+                frames: [{
+                    key: "dude",
+                    frame: 4
+                }],
                 frameRate: 20,
             });
             this.anims.create({
                 key: "right",
-                frames: this.anims.generateFrameNumbers("dude", { start: 5, end: 8 }),
+                frames: this.anims.generateFrameNumbers("dude", {
+                    start: 5,
+                    end: 8
+                }),
                 frameRate: 10,
                 repeat: -1,
             });
@@ -277,13 +287,16 @@
             //Creacion de las estrellas y sus fisicas
             stars = this.physics.add.group({
                 key: "star",
-                setXY: { x: 25, y: 20 },
+                setXY: {
+                    x: 25,
+                    y: 20
+                },
             });
             stars.create(32, 350, "star");
             stars.create(500, 45, "star");
             stars.create(590, 190, "star");
             stars.create(383, 200, "star");
-            stars.children.iterate(function (child) {
+            stars.children.iterate(function(child) {
                 child.setBounceY(Phaser.Math.FloatBetween(1, 0.8));
             });
             this.physics.add.collider(stars, plataforms);
@@ -292,7 +305,10 @@
             //Portal
             portal = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 720, y: 53 },
+                setXY: {
+                    x: 720,
+                    y: 53
+                },
             });
             this.physics.add.collider(portal, plataforms);
             this.physics.add.collider(player, portal, collectKey, null, true);
@@ -300,7 +316,10 @@
             //Portal
             portal1 = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 720, y: 500 },
+                setXY: {
+                    x: 720,
+                    y: 500
+                },
             });
             this.physics.add.collider(portal1, plataforms);
             this.physics.add.collider(player, portal1, collectKey1, null, true);
@@ -357,7 +376,7 @@
             //Actualizar puntuacion
             scoreText.setText("Estrellas: " + score + "/5");
 
-            
+
 
             //Cuando las estrellas se acaban, reaparecen mas estrellas y se agrega una bomba
             // if (stars.countActive(true) === 0) {
@@ -377,7 +396,7 @@
 
         function collectKey(player, portal) {
             portal.disableBody(true, true);
-            alertWin();  
+            alertWin();
             count = 10000000000;
         }
 
@@ -414,6 +433,7 @@
         }
 
         function alertWin() {
+            estrellas = score * 3;
             Swal.fire({
                 title: '¡Perfecto!',
                 text: 'Has completado el capitulo 3 de las aventuras de Koubot con 6 puntos y ' + score + ' estrellas de 5',
@@ -431,7 +451,7 @@
                         confirmButtonColor: '#85c42c',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../../../rutas/ruta-pw-i.php';
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 3 + '&id_curso=' + 2 + '&estrellas=' + estrellas;
                         }
                     });
                 }
@@ -440,16 +460,17 @@
         }
 
         function alertQuestion() {
+            estrellas = score * 3;
             Swal.fire({
                 title: '¡Buen intento!',
-                text: 'Esa no es la respuesta, pero haz completado el capitulo 3 de las aventuras de Koubot, consigue las siguientes capsulas premium para seguir con la aventura',
+                text: 'Esa no es la respuesta, pero haz completado el capitulo 3 de las aventuras de Koubot con ' + score + ' estrellas de 5, consigue las siguientes capsulas premium para seguir con la aventura',
                 imageUrl: "../img/loop.gif",
                 imageHeight: 350,
                 confirmButtonText: '¡Vamos!',
                 confirmButtonColor: '#85c42c',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../../../rutas/ruta-pw-i.php';
+                    window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 3 + '&id_curso=' + 2 + '&estrellas=' + estrellas;
                 }
             });
         }

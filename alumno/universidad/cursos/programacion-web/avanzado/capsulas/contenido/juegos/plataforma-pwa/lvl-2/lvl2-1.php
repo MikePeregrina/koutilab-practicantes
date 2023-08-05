@@ -1099,6 +1099,7 @@ if (empty($existe)) {
         }
 
         function alertWin() {
+            estrellas = score * 3;
             Swal.fire({
                 title: "¡Perfecto!",
                 text:
@@ -1119,7 +1120,7 @@ if (empty($existe)) {
                         confirmButtonColor: "#85c42c",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../../../rutas/ruta-pw-a.php';
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 2 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
                         }
                     });
                 }

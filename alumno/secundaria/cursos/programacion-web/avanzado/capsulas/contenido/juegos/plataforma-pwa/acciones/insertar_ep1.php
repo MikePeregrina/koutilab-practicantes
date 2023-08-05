@@ -35,9 +35,9 @@ if ($totalEstrellas <= 15) {
     $insertarEstrellas = mysqli_query($conexion, "UPDATE estrellas_secundaria SET estrellas = '$sumarEstrellas' WHERE id_capsula = '$id_capsula' AND id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarEstrellas) {
-        header('location: ../../../../../../../../rutas/ruta-pw-i.php');
+        header('location: ../../../../../../../../rutas/ruta-pw-a.php');
         exit();
     }
 } else {
-    header('location: ../../../../../../../../rutas/ruta-pw-i.php');
+    header('location: ../../../../../../../../rutas/ruta-pw-a.php');
 }

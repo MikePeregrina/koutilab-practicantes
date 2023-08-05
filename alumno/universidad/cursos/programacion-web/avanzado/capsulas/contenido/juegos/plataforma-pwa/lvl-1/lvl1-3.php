@@ -545,6 +545,7 @@
             }
 
             function alertWin() {
+                estrellas = score * 3;
                 Swal.fire({
                     title: "¡Perfecto!",
                     text:
@@ -565,7 +566,7 @@
                             confirmButtonColor: "#85c42c",
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = '../../../../../../../../rutas/ruta-pw-a.php';
+                                window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
                             }
                         });
                     }
@@ -574,16 +575,17 @@
             }
 
             function alertQuestion() {
+                estrellas = score * 3;
                 Swal.fire({
                     title: "¡Buen intento!",
-                    text: "Esa no es la respuesta, pero haz completado el capitulo 1 de las aventuras de Koubot, consigue la siguiente capsula premium para seguir con la aventura",
+                    text: 'Esa no es la respuesta, pero haz completado el capitulo 1 de las aventuras de Koubot con ' + score + ' estrellas de 5, consigue las siguientes capsulas premium para seguir con la aventura',
                     imageUrl: "../img/loop.gif",
                     imageHeight: 350,
                     confirmButtonText: "¡Vamos!",
                     confirmButtonColor: "#85c42c",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../../../../../../../rutas/ruta-pw-a.php';
+                        window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
                     }
                 });
             }
