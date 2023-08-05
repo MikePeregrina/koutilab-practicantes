@@ -75,10 +75,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Utiliza una sentencia "if" para verificar si el número es mayor que 5. Si es así, imprime un mensaje.
+                                    Debes de quitar los espacios de print que genera if.
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code14.png" ">
+                                <img src="../../img/code14.png">
                                 </img>
                             </td>
                         </tr>
@@ -118,7 +119,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\nif numero > 5:\n    print("El número es mayor que 5")';
+            let esCorrecto = ta == '1\n2\nif numero > 5:\nprint("El número es mayor que 5")';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

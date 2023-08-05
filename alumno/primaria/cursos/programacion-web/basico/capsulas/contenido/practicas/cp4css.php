@@ -77,9 +77,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>A continuación, se muestra un código HTML lo que tienes que hacer es
-                                    general en un código CSS que el texto que se encuentra entre < h1>, < h2> y < p> se
-                                                de un solo color (color de tu preferencia).
+                                <p>A continuación, se muestra un código HTML, lo que tienes que hacer es 
+                                    generar en un código CSS que el texto que se encuentra entre < h1>, < h2>
+                                    y < p> sé de un solo color (color de tu preferencia).
                                                 <br> <br>
                                 </p>
                             </td>

@@ -75,6 +75,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Utiliza una estructura "if-elif-else" para verificar en qué rango de edad se encuentra la persona e imprimir un mensaje correspondiente.
+                                    No le des espacios a print.
                                 </p>
                             </td>
                             <td class="ne">
@@ -118,7 +119,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\nif edad < 18:\n    print("Eres menor de edad")\nelif edad >= 18 and edad <= 65:\n    print("Eres adulto")\nelse:\n    print("Eres adulto mayor")';
+            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\nif edad < 18:\nprint("Eres menor de edad")\nelif edad >= 18 and edad <= 65:\nprint("Eres adulto")\nelse:\nprint("Eres adulto mayor")';
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();

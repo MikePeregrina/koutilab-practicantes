@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code6.png" ">
+                                <img src="../../img/code6.png">
                                 </img>
                             </td>
                         </tr>
@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
             let val = ta.split(' ');
             // para revisar que palabra manda y que posicion
             //alert(val[2]);
-            let esCorrecto = ta == '1\n2\nnumero_entero = ' + val[2] + ' número entero es:", numero_entero)';
+            let esCorrecto = ta == '1\n2\nnumero_entero = ' + val[Hola, mundo] + '"El número entero es:", numero_entero)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

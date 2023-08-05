@@ -93,7 +93,7 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 <body>
     <div class="containers">
         <a href="../perfil.php"><button class="btn-b"><i class="fas fa-reply"></i></button></a>
-        <h1>CURSO DE PYTHON BÁSICA DE KOUTILAB</h1>
+        <h1>CURSO DE PYTHON BÁSICO DE KOUTILAB</h1>
     </div>
     <aside class="sidebar">
         <div class="circle" style="background-image:url(../img/BTNINTRO1.png); background-size:cover;background-position:center ">

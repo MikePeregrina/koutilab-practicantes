@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code19.png" ">
+                                <img src="../../img/code19.png">
                                 </img>
                             </td>
                         </tr>
@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\nnumero = 2\nwhile numero <= 10:\n    print(numero)\n    numero += 2';
+            let esCorrecto = ta == '1\n2\n3\n4\nnumero = 2\nwhile numero <= 10:\nprint(numero)\nnumero += 2';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

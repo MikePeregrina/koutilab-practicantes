@@ -108,7 +108,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\nif x > 7:\n    print("x es mayor que 7")\nelse:\n    print("x es menor o igual que 7")';
+            let esCorrecto = ta == '1\n2\n3\n4\nif x > 7:\nprint("x es mayor que 7")\nelse:\nprint("x es menor o igual que 7")';
 
 
             if (!esCorrecto) {

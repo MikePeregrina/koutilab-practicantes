@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code7.png" ">
+                                <img src="../../img/code7.png">
                                 </img>
                             </td>
                         </tr>
@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
             let val = ta.split(' ');
             // para revisar que palabra manda y que posicion
             //alert(val[2]+" "+val[3]);
-            let esCorrecto = ta == '1\n2\n3\ntexto = ' + val[2] + " " + val[3] + ' texto es:", texto)\nprint("El tipo de datos de texto es:", type(texto))';
+            let esCorrecto = ta == '1\n2\n3\ntexto = "Hola, mundo!"\nprint("El texto es:", texto)\nprint("El tipo de datos de texto es:", type(texto))';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

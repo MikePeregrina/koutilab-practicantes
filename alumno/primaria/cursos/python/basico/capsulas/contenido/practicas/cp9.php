@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code9.png" ">
+                                <img src="../../img/code9.png">
                                 </img>
                             </td>
                         </tr>
@@ -112,7 +112,7 @@ if (isset($resultadoIntentos['intentos'])) {
             let val = ta.split(' ');
             // para revisar que palabra manda y que posicion
             //alert(val[2]+" "+val[3]+" "+val[4]+" "+val[5]);
-            let esCorrecto = ta == '1';
+            let esCorrecto = ta == '1\n2\nfrutas = ["manzana","plátano","naranja","pera"]\nprint("Lista de frutas:", frutas)';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

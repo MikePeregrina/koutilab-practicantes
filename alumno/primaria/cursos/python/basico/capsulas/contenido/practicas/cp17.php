@@ -118,7 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText
             // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\nif numero > 0:\n    print("El número es positivo")\nelse:\n    print("El número es negativo")';
+            let esCorrecto = ta == '1\n2\n3\n4\nif numero > 0:\nprint("El número es positivo")\nelse:\nprint("El número es negativo")';
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
