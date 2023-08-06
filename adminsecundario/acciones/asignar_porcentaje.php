@@ -32,7 +32,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 </head>
 
 <body>
-<?php
+    <?php
     require "../../acciones/conexion.php";
 
     if (!empty($_POST)) {
@@ -41,21 +41,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
         } else {
             $idescuela = $_GET['id'];
-            $nombre_escuela = $_POST['nombre_escuela'];
-            $cct = $_POST['cct'];
-            $nombre_director = $_POST['nombre_director'];
-            $calle = $_POST['calle'];
-            $num_exterior = $_POST['num_exterior'];
-            $estado = $_POST['estado'];
-            $pais = $_POST['pais'];
-            $codigo_postal = $_POST['codigo_postal'];
-            $nivel_educativo = $_POST['nivel_educativo'];
-            $autorizacion = $_POST['autorizacion'];
-            $clave_director = $_POST['clave_director'];
-            $clave_docente = $_POST['clave_docente'];
-            $clave_alumno = $_POST['clave_alumno'];
-            $id_user = $_SESSION['id_admin'];
-            $sql_update = mysqli_query($conexion, "UPDATE escuelas SET nombre_escuela = '$nombre_escuela', cct = '$cct', nombre_director = '$nombre_director', calle = '$calle', num_exterior = '$num_exterior', estado = '$estado', codigo_postal = '$codigo_postal', nivel_educativo = '$nivel_educativo', pais = '$pais', autorizacion = '$autorizacion', id_admin = '$id_user' WHERE id_escuela = $idescuela");
+            $porcentaje = $_POST['porcentaje'];
+            $sql_update = mysqli_query($conexion, "UPDATE escuelas SET porcentaje_ganancias = '$porcentaje' WHERE id_escuela = $idescuela");
             $alert = '<div class="alert alert-success" role="alert">Escuela actualizada</div>';
         }
     }
@@ -63,14 +50,14 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     // Mostrar Datos
 
     if (empty($_REQUEST['id'])) {
-        header("Location: ../../admin/escuelas.php");
+        header("Location: ../../adminsecundario/escuelas.php");
     }
     $idescuela = $_REQUEST['id'];
     $sql = mysqli_query($conexion, "SELECT * FROM escuelas WHERE id_escuela = '$idescuela'");
     $result_sql = mysqli_num_rows($sql);
 
     if ($result_sql == 0) {
-        header("Location: ../../admin/escuelas.php");
+        header("Location: ../../adminsecundario/escuelas.php");
     } else {
         if ($data = mysqli_fetch_array($sql)) {
             $idescuela = $data['id_escuela'];
@@ -88,6 +75,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $clave_director = $data['clave_director'];
             $clave_docente = $data['clave_docente'];
             $clave_alumno = $data['clave_alumno'];
+            $porcentaje_asignado = $data['porcentaje_ganancias'];
         }
     }
     ?>
@@ -115,26 +103,12 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                         <span class="details">Director</span>
                         <input type="text" name="nombre_director" id="nombre_director" value="<?php echo $nombre_director; ?>" readonly>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Quien autoriza</span>
-                        <input type="text" name="estado" id="estado" value="<?php echo $autorizacion; ?>" readonly>
-                    </div>
+
                     <div class="input-box">
                         <span class="details">Nivel educativo</span>
                         <input type="text" name="pais" id="pais" value="<?php echo $nivel_educativo; ?>" readonly>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Clave director</span>
-                        <input type="text" name="pais" id="pais" value="<?php echo $clave_director; ?>" readonly>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Clave docente</span>
-                        <input type="text" name="pais" id="pais" value="<?php echo $clave_docente; ?>" readonly>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Clave alumno</span>
-                        <input type="text" name="pais" id="pais" value="<?php echo $clave_alumno; ?>" readonly>
-                    </div>
+
                     <div class="input-box">
                         <span class="details">País</span>
                         <input type="text" name="pais" id="pais" value="<?php echo $pais; ?>" readonly>
@@ -144,30 +118,17 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                         <input type="text" name="estado" id="estado" value="<?php echo $estado; ?>" readonly>
                     </div>
                     <div class="input-box">
-                        <span class="details">Calle</span>
-                        <input type="text" name="calle" id="calle" value="<?php echo $calle; ?>" readonly>
+                        <span class="details">Porcentaje de ganancias</span>
+                        <input type="text" name="porcentaje_asignado" id="porcentaje_asignado" value="<?php echo $porcentaje_asignado . ' %'; ?>" readonly>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Número exterior</span>
-                        <input type="text" name="num_exterior" id="num_exterior" value="<?php echo $num_exterior; ?>" readonly>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Código Postal</span>
-                        <input type="text" name="codigo_postal" id="codigo_postal" value="<?php echo $codigo_postal; ?>" readonly>
-                    </div>
-
                     <div class="input-box">
                         <span class="details">Asignar porcentaje</span>
-                        <input type="range" id="porcentajeRange" min="0" max="100" step="1" value="50">
+                        <input type="range" id="porcentajeRange" name="porcentaje" min="0" max="100" step="1" value="50">
                         <span id="porcentajeValor">50%</span>
                     </div>
-
-                    <input type="hidden" name="autorizacion" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
-
-                </div>
-                <br>
-                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
-                <a href="../escuelas.php" class="btn btn-danger">Atrás</a>
+                    <br>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
+                    <a href="../escuelas.php" class="btn btn-danger">Atrás</a>
             </form>
         </div>
 
@@ -180,8 +141,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
         const porcentajeValor = document.getElementById('porcentajeValor');
 
         porcentajeRange.addEventListener('input', () => {
-        const porcentaje = porcentajeRange.value;
-        porcentajeValor.innerText = porcentaje + '%';
+            const porcentaje = porcentajeRange.value;
+            porcentajeValor.innerText = porcentaje + '%';
         });
     </script>
 </body>

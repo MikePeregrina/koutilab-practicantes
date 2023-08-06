@@ -23,6 +23,9 @@ JOIN escuelas e
 ON a.id_escuela = e.id_escuela
 WHERE a.id_director = $id_user"));
 
+$porcentaje = $user_escuela["porcentaje_ganancias"];
+$calculo_ganancias = ($porcentaje / 100);
+
 /* PARA LOS DATOS DE LA GRÁFICA */
 if (isset($_POST['submitFecha'])) {
   //echo "La fecha de inicio fue: " . $_POST['fechaInicio'];
@@ -32,12 +35,12 @@ if (isset($_POST['submitFecha'])) {
     $fechaInicio = $_POST['fechaInicio'];
     $fechaFin = $_POST['fechaFin'];
 
-    $consulta = "SELECT SUM(payment_amount * 0.1) as total, DATE_FORMAT(create_at,'%M %Y') as mes from payment_secundaria as pp INNER JOIN alumnos_secundaria as ap ON pp.id_alumno = ap.id_alumno INNER JOIN directores_secundaria as dp ON ap.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND create_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
+    $consulta = "SELECT SUM(payment_amount * $calculo_ganancias) as total, DATE_FORMAT(create_at,'%M %Y') as mes from payment_secundaria as pp INNER JOIN alumnos_secundaria as ap ON pp.id_alumno = ap.id_alumno INNER JOIN directores_secundaria as dp ON ap.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND create_at BETWEEN '$fechaInicio' and '$fechaFin' GROUP BY(mes) ORDER BY (mes)DESC";
   }
 } else {
 
   // Consulta para obtener los datos de ganancias
-  $consulta = "SELECT SUM(payment_amount * 0.1) as total, DATE_FORMAT(create_at,'%M %Y') as mes from payment_secundaria as pp INNER JOIN alumnos_secundaria as ap ON pp.id_alumno = ap.id_alumno INNER JOIN directores_secundaria as dp ON ap.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
+  $consulta = "SELECT SUM(payment_amount * $calculo_ganancias) as total, DATE_FORMAT(create_at,'%M %Y') as mes from payment_secundaria as pp INNER JOIN alumnos_secundaria as ap ON pp.id_alumno = ap.id_alumno INNER JOIN directores_secundaria as dp ON ap.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' GROUP BY(mes) ORDER BY (mes)DESC";
 }
 
 
@@ -107,7 +110,7 @@ function actualizarGrafica()
   }
 
   // Consulta para obtener los datos de ganancias
-  $consulta = "SELECT SUM(payment_amount * 0.1) as total, DATE_FORMAT(create_at,'%M %Y') as mes from payment_secundaria as pp INNER JOIN alumnos_secundaria as ap ON pp.id_alumno = ap.id_alumno INNER JOIN directores_secundaria as dp ON ap.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND create_at BETWEEN '.$fechaInicio.' and '.$fechaFin.' GROUP BY(mes) ORDER BY (mes)DESC";
+  $consulta = "SELECT SUM(payment_amount * $calculo_ganancias) as total, DATE_FORMAT(create_at,'%M %Y') as mes from payment_secundaria as pp INNER JOIN alumnos_secundaria as ap ON pp.id_alumno = ap.id_alumno INNER JOIN directores_secundaria as dp ON ap.id_escuela = dp.id_escuela WHERE dp.id_director = '$id_user' AND create_at BETWEEN '.$fechaInicio.' and '.$fechaFin.' GROUP BY(mes) ORDER BY (mes)DESC";
   // Ejecutar la consulta
   $resultado = $conexion->query($consulta);
 
@@ -259,7 +262,7 @@ function actualizarGrafica()
               include "../../acciones/conexion.php";
 
               $query_escuelas = mysqli_query($conexion, "SELECT
-            SUM(payment_amount * 0.1) AS total,
+            SUM(payment_amount * $calculo_ganancias) AS total,
             DATE_FORMAT(create_at, '%M %Y') AS mes
           FROM
             payment_secundaria AS pp
@@ -361,7 +364,7 @@ function actualizarGrafica()
           </form>
         </div>
       </div>
-        </div>
+    </div>
   </section>
 
   <?php include 'footer.php'; ?>

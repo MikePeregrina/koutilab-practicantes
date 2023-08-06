@@ -21,7 +21,7 @@ include('header.php');
 	<div class="alert alert-success hide"></div>
 	<div class="row">
 		<div class="col-sm-8" style="scale: 110%; margin-top: 50px; width: 1000px; height: 450px; margin-left: 70px;">
-		<div style="background-color: #00ffff; z-index: 5; width: 1000px; height: 20px; position: absolute; margin-left: -15px;"></div>
+			<div style="background-color: #00ffff; z-index: 5; width: 1000px; height: 20px; position: absolute; margin-left: -15px;"></div>
 			<form id="register_form" style="padding: 30px;" novalidate action="multi_form_action.php" method="post" class="form">
 				<fieldset>
 					<div class="form-group">
@@ -56,11 +56,16 @@ include('header.php');
 					</div>
 					<div class="form-group">
 						<label for="pais" class="text-f">País</label>
-						<input type="text" class="form-control" required id="pais" name="pais" placeholder="México">
+						<select class="form-control" name="pais" id="pais" type="select" required onchange="mostrarEstados()">
+							<option value="">Seleccionar país</option>
+							<option value="México">México</option>
+							<option value="Perú">Perú</option>
+						</select>
 					</div>
-					<div class="form-group">
+					<div class="form-group" id="estadosDiv" style="display: none;">
 						<label for="estado" class="text-f">Estado</label>
-						<input type="text" class="form-control" required id="estado" name="estado" placeholder="Puebla">
+						<select class="form-control" name="estado" id="estado" type="select">
+						</select>
 					</div>
 					<input type="button" name="previous" class="previous-form btn btn-default" style="margin-left: -137px;" value="Previo" />
 					<input type="button" name="next" class="next-form btn btn-info" value="Siguiente" />

@@ -323,14 +323,14 @@ $totalTeorico = $total_puntos_teoricos;
                             </div>
                             <div class="links">
 
-                                <form class="form" id="btn-abrir-modalCC" enctype="multipart/form-data" method="">
+                                <form class="link1" id="btn-abrir-modalCN" enctype="multipart/form-data" method="">
+                                    <i class="fas fa-user" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar nombre&nbsp;&nbsp;</i>
+                                </form>
+                                <form class="link2" id="btn-abrir-modalCC" enctype="multipart/form-data" method="">
                                     <i class="fas fa-file-alt" style="color: white; text-decoration: none;">&nbsp;&nbsp;Cambiar contraseña&nbsp;&nbsp;</i>
                                 </form>
 
-
-                                <a href="../../acciones/cerrarsesion.php" class="link2"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
-
-
+                                <a href="../../acciones/cerrarsesion.php" class="link3"><i class="fa fa-sign-out" style="color: white;">Cerrar sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></a>
 
                             </div>
 
@@ -713,6 +713,27 @@ $totalTeorico = $total_puntos_teoricos;
             document.oncontextmenu = new Function("return false");
         </script>
 
+        <dialog close id="modalCN" style="border: none; border-radius: 10px; margin-top: 250px; margin-left: 27%; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 45%; height: 30%; box-shadow: 0 0 12px rgba(0,201,255,2556);">
+            <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 6px; padding-right: 9px; padding-top: 4px; padding-bottom: px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer; " id="btn-cerrar-modalCN"><i class="fas fa-close"></i></button><br>
+            <div class="portada" style="width: 80%; height: 140px;border-radius: 10px; margin-top: 2.5%; margin-left: 10%;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); box-shadow: 0 0 12px rgba(0,201,255,2556); ">
+                <ul class="lista-datos">
+                    <b>&nbsp;Cambiar nombre:</b>
+
+                    <form enctype="multipart/form-data" action="" method="post">
+                        <div class="user-details1" style="margin-left:1%;">
+                            <div class="input-box1" style="width: 90%; scale: 90%; margin-top:1%; margin-left: -0;">
+                                <input type="text" name="nombrealumno" value="" placeholder="Nuevo nombre">
+                                <input type="submit" name="enviarnombre" value="Actualizar" class="btn-grd" style="width: 70%; margin-left:20%">
+                            </div>
+                        </div>
+                    </form>
+
+                </ul>
+            </div>
+
+
+        </dialog>
+
         <dialog close id="modalCC" style="border: none; border-radius: 10px; margin-top: 250px; margin-left: 27%; background: url(img/fondoPerfil.png);  border: 2px solid rgba(0,201,255,2556); width: 45%; height: 30%; box-shadow: 0 0 12px rgba(0,201,255,2556);">
             <button style="float: right; background-color: rgba(132, 196, 44, 0.6); padding-left: 6px; padding-right: 9px; padding-top: 4px; padding-bottom: px; scale: 110%; border-radius: 50%; outline: none; border: 0px; margin: 10px 10px; cursor: pointer; " id="btn-cerrar-modalCC"><i class="fas fa-close"></i></button><br>
             <div class="portada" style="width: 80%; height: 140px;border-radius: 10px; margin-top: 2.5%; margin-left: 10%;  border: 2px solid rgba(0,201,255,2556);  background: rgba(255,255,255, .8); box-shadow: 0 0 12px rgba(0,201,255,2556); ">
@@ -1046,6 +1067,19 @@ $totalTeorico = $total_puntos_teoricos;
         </script>
 
         <script>
+            const btnAbrirModalCN = document.querySelector("#btn-abrir-modalCN");
+            const btnCerrarModalCN = document.querySelector("#btn-cerrar-modalCN");
+            const modalCN = document.querySelector("#modalCN");
+            btnAbrirModalCN.addEventListener("click", () => {
+                modalCN.showModal();
+            })
+
+            btnCerrarModalCN.addEventListener("click", () => {
+                modalCN.close();
+            })
+        </script>
+
+        <script>
             const btnAbrirModalCC = document.querySelector("#btn-abrir-modalCC");
             const btnCerrarModalCC = document.querySelector("#btn-cerrar-modalCC");
             const modalCC = document.querySelector("#modalCC");
@@ -1206,6 +1240,51 @@ $totalTeorico = $total_puntos_teoricos;
                 });
             }
         </script>
+
+        <?php
+        if (isset($_POST['enviarnombre'])) {
+            $idalumno = $_SESSION['id_alumno_secundaria'];
+            $nombre = $_POST['nombrealumno'];
+
+            $sql_update = mysqli_query($conexion, "UPDATE alumnos_secundaria SET nombre = '$nombre' WHERE id_alumno = '$idalumno'");
+
+            if ($sql_update) {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Cambio de nombre exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Cambio de nombre no exitoso',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+            }
+        }
+        ?>
 
         <?php
         if (isset($_POST['enviarcontrasena'])) {

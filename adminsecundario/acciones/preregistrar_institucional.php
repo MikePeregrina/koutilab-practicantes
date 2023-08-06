@@ -8,6 +8,33 @@ include('../../acciones/conexion.php');
 
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
+// Obtenemos el país del resultado de la consulta
+$pais = $user['pais'];
+
+// Definimos los estados de México y Perú en dos arreglos asociativos
+$estados_mexico = array(
+    "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Ciudad de Mexico",
+    "Coahuila", "Colima", "Chiapas", "Chihuahua", "Durango", "Guanajuato", "Guerrero",
+    "Hidalgo", "Jalisco", "México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca",
+    "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco",
+    "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"
+);
+
+$estados_peru = array(
+    "Amazonas", "Áncash", "Apurímac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco",
+    "Huancavelica", "Huánuco", "Ica", "Junín", "La Libertad", "Lambayeque", "Lima", "Loreto",
+    "Madre de Dios", "Moquegua", "Pasco", "Piura", "Puno", "San Martín", "Tacna", "Tumbes", "Ucayali"
+);
+
+// Obtenemos los estados disponibles dependiendo del país
+$estados_disponibles = array();
+
+if ($pais === "México") {
+    $estados_disponibles = $estados_mexico;
+} elseif ($pais === "Perú") {
+    $estados_disponibles = $estados_peru;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -60,13 +87,13 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     // Mostrar Datos
 
     if (empty($_REQUEST['id'])) {
-        header("Location: ../../admin/pre-registros.php");
+        header("Location: ../../adminsecundario/pre-registros-inst.php");
     }
-    $sql = mysqli_query($conexion, "SELECT * FROM formulario");
+    $sql = mysqli_query($conexion, "SELECT * FROM formulario_institucional");
     $result_sql = mysqli_num_rows($sql);
 
     if ($result_sql == 0) {
-        header("Location: ../../admin/pre-registros.php");
+        header("Location: ../../adminsecundario/pre-registros-inst.php");
     } else {
         if ($data = mysqli_fetch_array($sql)) {
             $nombre_escuela = $data['nombre_e'];
@@ -107,18 +134,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                     </div>
                     <div class="input-box">
                         <span class="details">Nivel educativo</span>
-                        <select style="height: 44px;" name="nivel_educativo" type="select" required>
-                            <?php
-                            echo '<option value="' . $nivel_educativo . '">' . $nivel_educativo . '</option>';
-
-                            ?>
-                            <option value="Primaria">Primaria</option>
-                            <option value="Secundaria">Secundaria</option>
-                            <option value="Preparatoria">Preparatoria</option>
-                            <option value="Primaria - Secundaria">Primaria - Secundaria</option>
-                            <option value="Secundaria - Preparatoria">Secundaria - Preparatoria</option>
-                            <option value="Todos">Los tres niveles</option>
-                        </select>
+                        <input type="text" name="nivel_educativo" id="nivel_educativo" value="Institucion" required readonly>
                     </div>
                     <div class="input-box">
                         <span class="details">País</span>
@@ -136,38 +152,11 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                             echo '<option value="' . $pais . '">' . $pais . '</option>';
 
                             ?>
-                            <option value="Aguascalientes">Aguascalientes</option>
-                            <option value="Baja California">Baja California</option>
-                            <option value="Baja California Sur">Baja California Sur</option>
-                            <option value="Campeche">Campeche</option>
-                            <option value="Ciudad de Mexico">Ciudad de Mexico</option>
-                            <option value="Coahuila">Coahuila</option>
-                            <option value="Colima">Colima</option>
-                            <option value="Chiapas">Chiapas</option>
-                            <option value="Chihuahua">Chihuahua</option>
-                            <option value="Durango">Durango</option>
-                            <option value="Guanajuato">Guanajuato</option>
-                            <option value="Guerrero">Guerrero</option>
-                            <option value="Hidalgo">Hidalgo</option>
-                            <option value="Jalisco">Jalisco</option>
-                            <option value="Mexico">México</option>
-                            <option value="Michuacan">Michoacán</option>
-                            <option value="Morelos">Morelos</option>
-                            <option value="Nayarit">Nayarit</option>
-                            <option value="Nuevo Leon">Nuevo León</option>
-                            <option value="Oaxaca">Oaxaca</option>
-                            <option value="Puebla">Puebla</option>
-                            <option value="Queretaro">Querétaro</option>
-                            <option value="Quintana Roo">Quintana Roo</option>
-                            <option value="San Luis Potosi">San Luis Potosí</option>
-                            <option value="Sinaloa">Sinaloa</option>
-                            <option value="Sonora">Sonora</option>
-                            <option value="Tabasco">Tabasco</option>
-                            <option value="Tamaulipas">Tamaulipas</option>
-                            <option value="Tlaxcala">Tlaxcala</option>
-                            <option value="Veracruz">Veracruz</option>
-                            <option value="Yucatan">Yucatán</option>
-                            <option value="Zacatecas">Zacatecas</option>
+                            <?php
+                            foreach ($estados_disponibles as $estado) {
+                                echo '<option value="' . $estado . '">' . $estado . '</option>';
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="input-box" style="margin-top: 17px;">
@@ -191,7 +180,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
-                <a href="../pre-registros.php" class="btn btn-danger">Atrás</a>
+                <a href="../pre-registros-inst.php" class="btn btn-danger">Atrás</a>
             </form>
         </div>
     </section>

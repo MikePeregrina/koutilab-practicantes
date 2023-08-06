@@ -8,6 +8,11 @@ include('../acciones/conexion.php');
 
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
+//Verificar si ya se tiene permiso en ruta 1
+$permiso_1 = "1";
+$sql_verificar_p1 = mysqli_query($conexion, "SELECT d.* FROM detalle_permisos_admin d WHERE d.id_admin = $id_user AND d.id_permiso = '$permiso_1'");
+$existe_verificar_p1 = mysqli_num_rows($sql_verificar_p1);
+
 // Obtenemos el país del resultado de la consulta
 $pais = $user['pais'];
 
@@ -230,7 +235,7 @@ $fila = mysqli_fetch_assoc($result);
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
                                     </form>
                                     <a href="acciones/mostrar_info.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-info-circle"></i></i></a>
-                                    <a style="background-color: purple; border:none" href="acciones/asignar_porcentaje.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-percent"></i></i></a>
+                                    <a <?php echo 'style="background-color: purple; border:none;' . (($existe_verificar_p1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?> href="acciones/asignar_porcentaje.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-percent"></i></i></a>
                                 </td>
                             </tr>
                     <?php }

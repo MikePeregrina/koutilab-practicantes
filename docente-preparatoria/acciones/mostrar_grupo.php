@@ -58,12 +58,13 @@ if ($result_sql == 0) {
                         <td><b>Puntaje</b></td>
                         <td><b>Práctico</b></td>
                         <td><b>Teorico</b></td>
+                        <td><b>Conexiones</b></td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     include "../../acciones/conexion.php";
-                    $query_grupo = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.grado_escolar, SUM(e.trofeos) as total_trofeos, SUM(e.puntos) as total_puntos, SUM(e.practico) as total_practico, SUM(e.teorico) as total_teorico
+                    $query_grupo = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.grado_escolar, a.conexiones, SUM(e.trofeos) as total_trofeos, SUM(e.puntos) as total_puntos, SUM(e.practico) as total_practico, SUM(e.teorico) as total_teorico
                     FROM estadisticas_preparatoria e
                     JOIN alumnos_preparatoria a ON e.id_alumno = a.id_alumno
                     JOIN detalle_grupos_preparatoria dg ON dg.id_alumno = a.id_alumno
@@ -82,6 +83,7 @@ if ($result_sql == 0) {
                                 <td><?php echo $data['total_puntos']; ?></td>
                                 <td><?php echo $data['total_practico']; ?></td>
                                 <td><?php echo $data['total_teorico']; ?></td>
+                                <td><?php echo $data['conexiones']; ?></td>
                             </tr>
                     <?php }
                     } ?>

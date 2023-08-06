@@ -184,7 +184,7 @@
                         recreativos como para museos,
                         bibliotecas, etc.
                     </h4>
-                    <div class="btn-sub">
+                    <div class="btn-sub" onclick="institucional()">
                         <h5 class="us-tx1">Registrar</h5>
                     </div>
                 </div>
@@ -275,6 +275,10 @@
 
         function escolar() {
             window.location.href = "./registro/index.php";
+        }
+
+        function institucional() {
+            window.location.href = "./registro-institucional/index.php";
         }
     </script>
 </body>

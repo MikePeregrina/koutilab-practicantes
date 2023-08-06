@@ -62,7 +62,7 @@ h2 {
   margin: auto;
   text-align: center;
   font-weight: bolder;
-  font-size: 170%;/*35px;*/
+  font-size: 170%; /*35px;*/
 }
 
 .subtitle-perfil h3 {
@@ -132,7 +132,7 @@ h2 {
 section {
   padding: 0px;
   width: 86%;
-  height: 750px;
+  height: 900px;
   margin-top: 40px;
   margin-left: 10%;
   display: flex;
@@ -183,7 +183,7 @@ section {
 
 .container-info {
   width: 93%;
-  height: 45%;
+  height: 40%;
   font-weight: 400;
   margin-left: 7%;
   margin-top: 5%;
@@ -314,20 +314,20 @@ form .user-details1 .input-box1 {
   z-index: 1;
 }
 
-.hr2{
+.hr2 {
   margin-top: -38% !important;
 }
 
 @media (max-width: 1120px) {
-  h3{
+  h3 {
     font-size: 22px !important;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     font-size: 18px !important;
   }
 
-  .btn-grd{
+  .btn-grd {
     padding: 7px !important;
     font-size: 20px !important;
   }
@@ -348,18 +348,18 @@ form .user-details1 .input-box1 {
     margin: auto;
     text-align: center;
     font-weight: bolder;
-    font-size: 150%;/*35px;*/
+    font-size: 150%; /*35px;*/
   }
 
   .container-info h3 {
     font-size: 24px;
   }
 
-  .hr2{
+  .hr2 {
     margin-top: -30% !important;
   }
 
-  .change-password{
+  .change-password {
     margin-top: 5%;
   }
 
@@ -402,7 +402,7 @@ form .user-details1 .input-box1 {
   section {
     padding: 0px;
     width: 80%;
-    height: 650px;
+    height: 900px;
     margin-left: 16.2% !important;
     display: block;
   }
@@ -457,7 +457,6 @@ form .user-details1 .input-box1 {
     margin-top: -45% !important;
   }
 
-  
   .footerimga .imagen-footer img {
     position: relative !important;
     top: 760% !important;
@@ -472,7 +471,7 @@ form .user-details1 .input-box1 {
     margin-top: 25%;
   }
 
-  .change-password{
+  .change-password {
     margin-top: 5%;
   }
 
@@ -485,11 +484,11 @@ form .user-details1 .input-box1 {
     margin-top: -32% !important;
   }
 
-  .right-content{
+  .right-content {
     display: inherit !important;
   }
 
-  .card{
+  .card {
     width: 70% !important;
     text-align: center;
     align-items: center;
@@ -504,7 +503,6 @@ form .user-details1 .input-box1 {
     margin: 0 auto;
     width: 80% !important;
   }
-
 }
 
 @media (max-width: 560px) {
@@ -515,7 +513,7 @@ form .user-details1 .input-box1 {
     margin-top: 28%;
   }
 
-  .change-password{
+  .change-password {
     margin-top: 5%;
   }
 
@@ -528,7 +526,7 @@ form .user-details1 .input-box1 {
     margin-top: -32% !important;
   }
 
-  .card{
+  .card {
     width: 70% !important;
     text-align: center;
     align-items: center;
@@ -566,7 +564,7 @@ form .user-details1 .input-box1 {
   section {
     padding: 0px;
     width: 80%;
-    height: 650px;
+    height: 900px;
     margin-left: 13%;
     display: block;
     margin-left: 16%;

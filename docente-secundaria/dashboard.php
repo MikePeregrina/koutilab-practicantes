@@ -65,11 +65,23 @@ WHERE d.id_docente = $id_user"));
       <h3>Escuela: <span><?php echo $user["nombre_escuela"] ?></span></h3>
       <br>
       <h3>CCT: <span><?php echo $user["cct"] ?></span></h3>
+      <br>
+      <h3>Nivel educativo: <span><?php echo $user["nivel_educativo"] ?></span></h3>
     </div>
 
     <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
 
     <div class="change-password">
+      <h3>Cambiar nombre:</h3>
+      <form enctype="multipart/form-data" action="" method="post">
+        <div class="user-details1">
+          <div class="input-box1">
+            <input type="text" name="nombredocente" value="" placeholder="Nuevo nombre">
+            <input type="submit" name="enviarnombre" value="Actualizar" class="btn-grd">
+          </div>
+        </div>
+      </form>
+
       <h3>Contraseña:</h3>
       <form enctype="multipart/form-data" action="" method="post">
         <div class="user-details1">
@@ -182,6 +194,51 @@ WHERE d.id_docente = $id_user"));
           icon: 'success',
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'dashboard.php';
+          }
+        });
+      </script>
+        ";
+    }
+  }
+  ?>
+
+  <?php
+  if (isset($_POST['enviarnombre'])) {
+    $iddocente = $_SESSION['id_docente_secundaria'];
+    $nombre = $_POST['nombredocente'];
+
+    $sql_update = mysqli_query($conexion, "UPDATE docentes_secundaria SET nombre = '$nombre' WHERE id_docente = '$iddocente'");
+
+    if ($sql_update) {
+      echo
+      "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Cambio de nombre exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'dashboard.php';
+          }
+        });
+      </script>
+        ";
+    } else {
+      echo
+      "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Cambio de nombre no exitoso',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
               window.location.href = 'dashboard.php';
