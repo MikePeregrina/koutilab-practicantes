@@ -6,8 +6,45 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 
 include('../../acciones/conexion.php');
-// $query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");
-// $data = mysqli_fetch_assoc($query);
+
+// Función para actualizar las estrellas
+function actualizarEstrellas($id_user, $conexion)
+{
+    // Consulta para obtener el número de conexiones del alumno
+    $sql = "SELECT conexiones FROM alumnos_universidad WHERE id_alumno = $id_user";
+    $result = $conexion->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $total_conexiones = $row['conexiones'];
+        //Verificar estrellas en total_estrellas_universidad
+        $sql = mysqli_query($conexion, "SELECT * FROM total_estrellas_universidad WHERE id_alumno = '$id_user'");
+        $result_sql = mysqli_num_rows($sql);
+
+        if ($result_sql == 0) {
+            $sql =  mysqli_query($conexion, "INSERT INTO total_estrellas_universidad (id_alumno, estrellas) VALUES ($id_user, 1)");
+        }
+
+        // Si es múltiplo de 20 o es la primera conexión, insertar una estrella en la tabla total_estrellas_universidad
+        if ($total_conexiones % 20 == 0) {
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_universidad
+            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_universidad SET estrellas = estrellas + 1 WHERE id_alumno = $id_user");
+        } else {
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_universidad
+            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_universidad SET estrellas = estrellas + 0 WHERE id_alumno = $id_user");
+        }
+    }
+}
+
+
+// Verifica si la variable de sesión "actualizacion_realizada" no está definida
+if (!isset($_SESSION['actualizacion_realizada'])) {
+    // Llama a la función para actualizar las estrellas
+    actualizarEstrellas($id_user, $conexion);
+
+    // Establece la variable de sesión "actualizacion_realizada" para indicar que la actualización ya se hizo
+    $_SESSION['actualizacion_realizada'] = true;
+}
 
 //Verificar si ya se tiene permiso en ruta 1
 $permiso_ruta_r1 = "1";
@@ -251,6 +288,14 @@ $totalPuntaje = $total_puntos_evaluativos;
 $totalPractico = $total_puntos_practicos;
 $totalTeorico = $total_puntos_teoricos;
 
+// Consulta para obtener la cantidad de estrellas para el alumno específico
+$sql_estrellas = "SELECT estrellas FROM total_estrellas_universidad WHERE id_alumno = $id_user";
+$result_estrellas = $conexion->query($sql_estrellas);
+
+if ($result_estrellas->num_rows > 0) {
+    $row = $result_estrellas->fetch_assoc();
+    $cantidad_estrellas = $row['estrellas'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -407,7 +452,8 @@ $totalTeorico = $total_puntos_teoricos;
                         <li><i class="fas fa-award"></i> &nbsp;<b>Conocimientos:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li><br>
                         <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Coding:</b> <?php echo $resultadoEstadistica["practico"] ?> de <?php echo $totalPractico ?> </li><br>
                         <li><i class='fab fa-joomla'></i></i>&nbsp; <b>Logros:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> </li><br>
-                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li>
+                        <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Destreza:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li> <br>
+                        <li><i class='fas fa-star'></i></i> &nbsp;<b>Estrellas:</b> <?php echo $cantidad_estrellas ?> </li>
                     </ul>
                 </div>
 
