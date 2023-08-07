@@ -110,3 +110,6 @@ foreach ($destinatarios as $destinatario) {
 
 // Cerrar conexión a la base de datos
 mysqli_close($conexion);
+
+header('Location: ../enviar.php');
+exit();
