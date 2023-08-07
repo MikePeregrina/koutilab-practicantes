@@ -34,9 +34,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
   <div class="titlec">
     <h2>Comentarios y sugerencias</h2>
   </div>
-  <form id="contacto" method="POST" enctype="multipart/form-data">
+  <form id="contacto" method="POST" enctype="multipart/form-data" action="acciones/consulta.php">
     <div class="asunto">
-      <input type="hidden" name="nombre_usuario" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
       <input type="text" name="asunto" placeholder="Asunto">
     </div>
 
@@ -45,7 +44,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     </div>
 
     <div class="button">
-      <button type="submit" name="enviarcontacto" class="btn-submit">
+      <button type="submit" class="btn-submit">
         <h3>Enviar</h3>
       </button>
     </div>
@@ -53,75 +52,6 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 </section>
 
 <?php include 'footer.php'; ?>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contacto');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
-
-      const nombreEscuela = form.querySelector('[name="nombre_escuela"]').value;
-      const nombreUsuario = form.querySelector('[name="nombre_usuario"]').value;
-      const asunto = form.querySelector('[name="asunto"]').value;
-      const mensaje = form.querySelector('[name="mensaje"]').value;
-
-      // Realiza una solicitud AJAX para enviar los datos del formulario al servidor
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', '', true); // Deja la URL vacía para enviar el formulario al mismo archivo
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          // El formulario se envió correctamente
-          Swal.fire({
-            title: 'Excelente!',
-            text: 'Sugerencia enviada',
-            icon: 'success',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Aceptar',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = 'contact.php';
-            }
-          });
-        } else {
-          // Ocurrió un error al enviar el formulario
-          Swal.fire({
-            title: '¡Advertencia!',
-            text: 'Tu sugerencia no fue enviada',
-            icon: 'info',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Reintentar',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = 'contact.php';
-            }
-          });
-        }
-      };
-      xhr.onerror = function() {
-        // Ocurrió un error al enviar el formulario
-        Swal.fire({
-          title: '¡Advertencia!',
-          text: 'Tu sugerencia no fue enviada',
-          icon: 'info',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Reintentar',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.href = 'contact.php';
-          }
-        });
-      };
-      xhr.send(
-        'nombre_escuela=' + encodeURIComponent(nombreEscuela) +
-        '&nombre_usuario=' + encodeURIComponent(nombreUsuario) +
-        '&asunto=' + encodeURIComponent(asunto) +
-        '&mensaje=' + encodeURIComponent(mensaje)
-      );
-    });
-  });
-</script>
-
 
 <script>
   const btnAbrirModalV = document.querySelector("#btn-abrir-modalV");
