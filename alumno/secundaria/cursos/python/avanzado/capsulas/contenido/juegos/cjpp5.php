@@ -1,16 +1,16 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsulapago5";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium5.php");
+	header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium5.php");
 }
 ?>
 <!DOCTYPE html>
@@ -31,28 +31,28 @@ if (empty($existe)) {
 <body onload="iniciarTiempo()">
 	<!-- CAMBIOS -->
 	<!-- Timer -->
-    <div class="timer" id="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>DECORADORES</b></h2>
 	</div>
 
-    <section>
+	<section>
 
 		<div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-a.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-        </div>
-<!--fIN CAMBIOS -->
+			<a href="../../../../../../rutas/ruta-py-a.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
@@ -67,14 +67,12 @@ if (empty($existe)) {
 			<img src="../../img/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-<!-- fIN CAMBIOS -->
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"Los ___________ son una característica avanzada en Python que permiten modificar o extender la funcionalidad de una función sin cambiar su implementación original. ",
+				pregunta: "Los ___________ son una característica avanzada en Python que permiten modificar o extender la funcionalidad de una función sin cambiar su implementación original. ",
 				opA: "decoradores",
 				opB: "enteros",
 				opC: "numeros",
@@ -83,8 +81,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Prácticamente, un decorador es una función que manda a llamar otra función como parámetro",
+				pregunta: "Prácticamente, un decorador es una función que manda a llamar otra función como parámetro",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -93,8 +90,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Los decoradores permiten ejecutar código sin que cambie su estructura original pero dando mayor funcionalidad",
+				pregunta: "Los decoradores permiten ejecutar código sin que cambie su estructura original pero dando mayor funcionalidad",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -103,8 +99,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"Los decoradores pueden ayudarnos a crear mejores estructuras de código",
+				pregunta: "Los decoradores pueden ayudarnos a crear mejores estructuras de código",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "Tengo hambre",
@@ -113,8 +108,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"¿Tienes hambre?",
+				pregunta: "¿Tienes hambre?",
 				opA: "¡Verdadero!",
 				opB: "¡Falso!",
 				opC: "¡Tengo hambre!",
@@ -142,7 +136,7 @@ if (empty($existe)) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -204,17 +198,17 @@ if (empty($existe)) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-   			}
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
 			if (segundos == 0) {
 				Swal.fire({

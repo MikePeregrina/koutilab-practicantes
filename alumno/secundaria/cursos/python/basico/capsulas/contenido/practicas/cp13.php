@@ -116,14 +116,45 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
-            let ta = document.getElementById('editor').innerText
-            // evaluacion del string
-            //el split ayuda a dividir las cadenas de ahi tomo el nombre y lo meto a la condicion
-            //asi logra aceptar cualquier nombre
-            let val = ta.split(' ');
-            // para revisar que palabra manda y que posicion
-            //alert(val[2]+" "+val[4]);
-            let esCorrecto = ta == '1\n2\n3\n4\nnumero1 = ' + val[2] + ' = ' + val[4] + ' valor de numero1 es:", numero1)\nprint("El valor de numero2 es:", numero2)';
+            // let ta = document.getElementById('editor').innerText
+            // // evaluacion del string
+            // //el split ayuda a dividir las cadenas de ahi tomo el nombre y lo meto a la condicion
+            // //asi logra aceptar cualquier nombre
+            // let val = ta.split(' ');
+            // // para revisar que palabra manda y que posicion
+            // //alert(val[2]+" "+val[4]);
+            // let esCorrecto = ta == '1\n2\n3\n4\nnumero1 = 10\nnumero2 = 10\nprint("El valor de numero1 es:", numero1)\nprint("El valor de numero2 es:", numero2)';
+
+            function compararCodigo(usuario, esperado) {
+                const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
+                const codigoUsuarioLimpio = quitarEspaciosSaltosLinea(usuario);
+                const codigoEsperadoLimpio = quitarEspaciosSaltosLinea(esperado);
+
+                console.log("Código del usuario sin espacios ni saltos de línea:");
+                console.log(codigoUsuarioLimpio);
+                console.log("Código esperado sin espacios ni saltos de línea:");
+                console.log(codigoEsperadoLimpio);
+
+                //Convertir en minusculas
+                const codigoUsuarioMin = codigoUsuarioLimpio.toLowerCase();
+                const codigoEsperadoMin = codigoEsperadoLimpio.toLowerCase();
+
+                console.log("Código del usuario en minusculas:");
+                console.log(codigoUsuarioMin);
+                console.log("Código esperado en minusculas:");
+                console.log(codigoEsperadoMin);
+
+                return codigoUsuarioMin === codigoEsperadoMin;
+            }
+
+            let ta = document.getElementById('editor').innerText.trim();
+            console.log("Respuesta desde el editor: ", ta);
+            let esperado = '1\n2\n3\n4\nnumero1 = 10\nnumero2 = 10\nprint("El valor de numero1 es:", numero1)\nprint("El valor de numero2 es:", numero2)';
+
+            let esCorrecto = compararCodigo(ta, esperado);
+
+            console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
+
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

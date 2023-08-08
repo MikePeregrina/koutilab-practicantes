@@ -96,13 +96,13 @@ if (isset($resultadoIntentos['intentos'])) {
                 <!--
                 <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe> -->
-                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 5%; padding: 5px; margin: -30px 60px -20px 1050px; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
+                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 15%; padding: 5px; margin: -30px 60px -20px 70%; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
 
                 <div class="editor-container">
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" >Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
@@ -116,8 +116,38 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         function miFunc() {
 
-            let ta = document.getElementById('editor').innerText
-            let esCorrecto = ta == '1';
+            // let ta = document.getElementById('editor').innerText
+            // let esCorrecto = ta == '1';
+
+            function compararCodigo(usuario, esperado) {
+                const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
+                const codigoUsuarioLimpio = quitarEspaciosSaltosLinea(usuario);
+                const codigoEsperadoLimpio = quitarEspaciosSaltosLinea(esperado);
+
+                console.log("Código del usuario sin espacios ni saltos de línea:");
+                console.log(codigoUsuarioLimpio);
+                console.log("Código esperado sin espacios ni saltos de línea:");
+                console.log(codigoEsperadoLimpio);
+
+                //Convertir en minusculas
+                const codigoUsuarioMin = codigoUsuarioLimpio.toLowerCase();
+                const codigoEsperadoMin = codigoEsperadoLimpio.toLowerCase();
+
+                console.log("Código del usuario en minusculas:");
+                console.log(codigoUsuarioMin);
+                console.log("Código esperado en minusculas:");
+                console.log(codigoEsperadoMin);
+
+                return codigoUsuarioMin === codigoEsperadoMin;
+            }
+
+            let ta = document.getElementById('editor').innerText.trim();
+            console.log("Respuesta desde el editor: ", ta);
+            let esperado = '1';
+
+            let esCorrecto = compararCodigo(ta, esperado);
+
+            console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
 
 
             if (!esCorrecto) {
@@ -136,10 +166,10 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else {
-                
+
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
-              
+
                 let puntos = '<?php echo $puntosGanados; ?>';
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

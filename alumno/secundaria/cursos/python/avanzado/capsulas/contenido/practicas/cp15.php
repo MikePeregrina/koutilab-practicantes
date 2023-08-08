@@ -119,8 +119,39 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
-            let ta = document.getElementById('editor').innerText
-            let esCorrecto = ta == '1\n2\n3\nlista_numeros = [1, 2, 3, 4, 5]\ntupla_numeros = tuple(lista_numeros)\nprint(tupla_numeros)';
+            // let ta = document.getElementById('editor').innerText
+            // let esCorrecto = ta == '1\n2\n3\nlista_numeros = [1, 2, 3, 4, 5]\ntupla_numeros = tuple(lista_numeros)\nprint(tupla_numeros)';
+
+            function compararCodigo(usuario, esperado) {
+                const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
+                const codigoUsuarioLimpio = quitarEspaciosSaltosLinea(usuario);
+                const codigoEsperadoLimpio = quitarEspaciosSaltosLinea(esperado);
+
+                console.log("Código del usuario sin espacios ni saltos de línea:");
+                console.log(codigoUsuarioLimpio);
+                console.log("Código esperado sin espacios ni saltos de línea:");
+                console.log(codigoEsperadoLimpio);
+
+                //Convertir en minusculas
+                const codigoUsuarioMin = codigoUsuarioLimpio.toLowerCase();
+                const codigoEsperadoMin = codigoEsperadoLimpio.toLowerCase();
+
+                console.log("Código del usuario en minusculas:");
+                console.log(codigoUsuarioMin);
+                console.log("Código esperado en minusculas:");
+                console.log(codigoEsperadoMin);
+
+                return codigoUsuarioMin === codigoEsperadoMin;
+            }
+
+            let ta = document.getElementById('editor').innerText.trim();
+            console.log("Respuesta desde el editor: ", ta);
+            let esperado = '1\n2\n3\nlista_numeros = [1, 2, 3, 4, 5]\ntupla_numeros = tuple(lista_numeros)\nprint(tupla_numeros)';
+
+            let esCorrecto = compararCodigo(ta, esperado);
+
+            console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
+
 
             if (!esCorrecto) {
                 Incorrecto.play();

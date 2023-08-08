@@ -105,9 +105,40 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
-            let ta = document.getElementById('editor').innerText
-            // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\ncontenido_modulo1 = """\ndef saludar():\n    print("Hola desde el paquete 1!")\nmensaje = "Este es un mensaje desde el paquete 1"\n"""\nwith open(ruta_archivo_modulo, "w") as archivo_modulo1:\n    archivo_modulo.write(contenido_modulo1)';
+            // let ta = document.getElementById('editor').innerText
+            // // evaluacion del string
+            // let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\ncontenido_modulo1 = """\ndef saludar():\n    print("Hola desde el paquete 1!")\nmensaje = "Este es un mensaje desde el paquete 1"\n"""\nwith open(ruta_archivo_modulo, "w") as archivo_modulo1:\n    archivo_modulo.write(contenido_modulo1)';
+
+            function compararCodigo(usuario, esperado) {
+                const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
+                const codigoUsuarioLimpio = quitarEspaciosSaltosLinea(usuario);
+                const codigoEsperadoLimpio = quitarEspaciosSaltosLinea(esperado);
+
+                console.log("Código del usuario sin espacios ni saltos de línea:");
+                console.log(codigoUsuarioLimpio);
+                console.log("Código esperado sin espacios ni saltos de línea:");
+                console.log(codigoEsperadoLimpio);
+
+                //Convertir en minusculas
+                const codigoUsuarioMin = codigoUsuarioLimpio.toLowerCase();
+                const codigoEsperadoMin = codigoEsperadoLimpio.toLowerCase();
+
+                console.log("Código del usuario en minusculas:");
+                console.log(codigoUsuarioMin);
+                console.log("Código esperado en minusculas:");
+                console.log(codigoEsperadoMin);
+
+                return codigoUsuarioMin === codigoEsperadoMin;
+            }
+
+            let ta = document.getElementById('editor').innerText.trim();
+            console.log("Respuesta desde el editor: ", ta);
+            let esperado = '1\n2\n3\n4\n5\n6\n7\n8\n9\ncontenido_modulo1 = """\ndef saludar():\n    print("Hola desde el paquete 1!")\nmensaje = "Este es un mensaje desde el paquete 1"\n"""\nwith open(ruta_archivo_modulo, "w") as archivo_modulo1:\n    archivo_modulo.write(contenido_modulo1)';
+
+            let esCorrecto = compararCodigo(ta, esperado);
+
+            console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
+
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

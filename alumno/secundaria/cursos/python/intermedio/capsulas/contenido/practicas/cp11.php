@@ -114,9 +114,40 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
-            let ta = document.getElementById('editor').innerText
-            // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\npaises = {\n    "Mexico": "Ciudad de Mexico",\n    "Estados Unidos": "Washington D.C.",\n    "Canada": "Ottawa"\n}\nvalor_mexico = paises["Mexico"]\nvalor_estados_unidos = paises["Estados Unidos"]\nvalor_canada = paises["Canada"]';
+            // let ta = document.getElementById('editor').innerText
+            // // evaluacion del string
+            // let esCorrecto = ta == '1\n2\n3\n4\n5\n6\n7\n8\n9\npaises = {\n    "Mexico": "Ciudad de Mexico",\n    "Estados Unidos": "Washington D.C.",\n    "Canada": "Ottawa"\n}\nvalor_mexico = paises["Mexico"]\nvalor_estados_unidos = paises["Estados Unidos"]\nvalor_canada = paises["Canada"]';
+
+            function compararCodigo(usuario, esperado) {
+                const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
+                const codigoUsuarioLimpio = quitarEspaciosSaltosLinea(usuario);
+                const codigoEsperadoLimpio = quitarEspaciosSaltosLinea(esperado);
+
+                console.log("Código del usuario sin espacios ni saltos de línea:");
+                console.log(codigoUsuarioLimpio);
+                console.log("Código esperado sin espacios ni saltos de línea:");
+                console.log(codigoEsperadoLimpio);
+
+                //Convertir en minusculas
+                const codigoUsuarioMin = codigoUsuarioLimpio.toLowerCase();
+                const codigoEsperadoMin = codigoEsperadoLimpio.toLowerCase();
+
+                console.log("Código del usuario en minusculas:");
+                console.log(codigoUsuarioMin);
+                console.log("Código esperado en minusculas:");
+                console.log(codigoEsperadoMin);
+
+                return codigoUsuarioMin === codigoEsperadoMin;
+            }
+
+            let ta = document.getElementById('editor').innerText.trim();
+            console.log("Respuesta desde el editor: ", ta);
+            let esperado = '1\n2\n3\n4\n5\n6\n7\n8\n9\npaises = {\n    "Mexico": "Ciudad de Mexico",\n    "Estados Unidos": "Washington D.C.",\n    "Canada": "Ottawa"\n}\nvalor_mexico = paises["Mexico"]\nvalor_estados_unidos = paises["Estados Unidos"]\nvalor_canada = paises["Canada"]';
+
+            let esCorrecto = compararCodigo(ta, esperado);
+
+            console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
+
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto

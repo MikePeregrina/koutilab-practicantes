@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_universidad'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
@@ -17,7 +17,7 @@ if (empty($existe)) {
 <html lang="es">
 
 <head>
-    
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -87,26 +87,26 @@ if (empty($existe)) {
         var count = 1000;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
-                if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+            if (segundos <= 60) {
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: "Oops...",
@@ -140,7 +140,9 @@ if (empty($existe)) {
             physics: {
                 default: "arcade",
                 arcade: {
-                    gravity: { y: 200 },
+                    gravity: {
+                        y: 200
+                    },
                     debug: false,
                 },
             },
@@ -285,7 +287,10 @@ if (empty($existe)) {
             });
             this.anims.create({
                 key: "turn",
-                frames: [{ key: "dude", frame: 4 }],
+                frames: [{
+                    key: "dude",
+                    frame: 4
+                }],
                 frameRate: 20,
             });
             this.anims.create({
@@ -303,13 +308,16 @@ if (empty($existe)) {
             //Creacion de las estrellas y sus fisicas
             stars = this.physics.add.group({
                 key: "star",
-                setXY: { x: 320, y: 300 },
+                setXY: {
+                    x: 320,
+                    y: 300
+                },
             });
             stars.create(480, 300, "star");
             stars.create(400, 10, "star");
             stars.create(320, 10, "star");
             stars.create(480, 10, "star");
-            stars.children.iterate(function (child) {
+            stars.children.iterate(function(child) {
                 child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
             });
             this.physics.add.collider(stars, plataforms);
@@ -324,7 +332,10 @@ if (empty($existe)) {
             //Portal
             portal = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 340, y: 500 },
+                setXY: {
+                    x: 340,
+                    y: 500
+                },
             });
             this.physics.add.collider(portal, plataforms);
             this.physics.add.collider(
@@ -337,7 +348,10 @@ if (empty($existe)) {
 
             portal1 = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 460, y: 500 },
+                setXY: {
+                    x: 460,
+                    y: 500
+                },
             });
             this.physics.add.collider(portal1, plataforms);
             this.physics.add.collider(
@@ -1102,8 +1116,7 @@ if (empty($existe)) {
             estrellas = score * 3;
             Swal.fire({
                 title: "¡Perfecto!",
-                text:
-                    "Has completado el capitulo 2 de las aventuras de Koubot con 10 puntos y " +
+                text: "Has completado el capitulo 2 de las aventuras de Koubot con 10 puntos y " +
                     score +
                     " estrellas de 5",
                 imageUrl: "../img/Thumbs-Up.gif",
@@ -1164,10 +1177,10 @@ if (empty($existe)) {
             music.loop = false;
         }
 
-            // const music = new Audio('assets/8bit.mp3');
-            // music.play();
-            // music.loop =true;
-            // music.volume -= 0.8;
+        // const music = new Audio('assets/8bit.mp3');
+        // music.play();
+        // music.loop =true;
+        // music.volume -= 0.8;
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>

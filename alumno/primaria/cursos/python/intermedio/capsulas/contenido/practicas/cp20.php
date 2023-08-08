@@ -105,9 +105,40 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function miFunc() {
 
-            let ta = document.getElementById('editor').innerText
-            // evaluacion del string
-            let esCorrecto = ta == '1\n2\n3\n4\n5\n6\nclass Vehiculo:\n    def _init_(self, marca, modelo, año, color):\n        self.marca = marca\n        self.modelo = modelo\n        self.año = año\n        self.color = color';
+            // let ta = document.getElementById('editor').innerText
+            // // evaluacion del string
+            // let esCorrecto = ta == '1\n2\n3\n4\n5\n6\nclass Vehiculo:\n    def _init_(self, marca, modelo, año, color):\n        self.marca = marca\n        self.modelo = modelo\n        self.año = año\n        self.color = color';
+
+            function compararCodigo(usuario, esperado) {
+                const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
+                const codigoUsuarioLimpio = quitarEspaciosSaltosLinea(usuario);
+                const codigoEsperadoLimpio = quitarEspaciosSaltosLinea(esperado);
+
+                console.log("Código del usuario sin espacios ni saltos de línea:");
+                console.log(codigoUsuarioLimpio);
+                console.log("Código esperado sin espacios ni saltos de línea:");
+                console.log(codigoEsperadoLimpio);
+
+                //Convertir en minusculas
+                const codigoUsuarioMin = codigoUsuarioLimpio.toLowerCase();
+                const codigoEsperadoMin = codigoEsperadoLimpio.toLowerCase();
+
+                console.log("Código del usuario en minusculas:");
+                console.log(codigoUsuarioMin);
+                console.log("Código esperado en minusculas:");
+                console.log(codigoEsperadoMin);
+
+                return codigoUsuarioMin === codigoEsperadoMin;
+            }
+
+            let ta = document.getElementById('editor').innerText.trim();
+            console.log("Respuesta desde el editor: ", ta);
+            let esperado = '1\n2\n3\n4\n5\n6\nclass Vehiculo:\n    def _init_(self, marca, modelo, año, color):\n        self.marca = marca\n        self.modelo = modelo\n        self.año = año\n        self.color = color';
+
+            let esCorrecto = compararCodigo(ta, esperado);
+
+            console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
+
 
             if (false) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
