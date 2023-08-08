@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <i class="fas fa-reply"></i>
                 </button>
             </a>
-            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+            <h4 class="titulo"><b>Copia el fragmento de código del lado izquierdo al lado derecho para ganar el juego</b></h4>
         </div>
         <!-- Parte que modifique Final -->
 

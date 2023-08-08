@@ -74,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+			<h4 class="titulo"><b>Responde a la pregunta correctamente seleccionando una respuesta para poder ganar el juego</b></h4>
 		</div>
 		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
@@ -133,8 +133,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			{
 				num: 5,
 				pregunta: "Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
-				opA: "Minuscula",
-				opB: "Mayuscula",
+				opA: "Minúscula",
+				opB: "Mayúscula",
 				opC: "Ambas",
 				correcta: "B",
 				tiempo: "30",

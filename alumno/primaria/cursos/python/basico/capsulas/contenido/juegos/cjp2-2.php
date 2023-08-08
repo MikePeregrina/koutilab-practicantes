@@ -75,7 +75,7 @@ if (isset($resultadoIntentos['intentos'])) {
           <i class="fas fa-reply"></i>
         </button>
       </a>
-      <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+      <h4 class="titulo"><b>Selecciona la palabra correcta para completar la oración o responder la pregunta</b></h4>
     </div>
     <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
     <div class="container">

@@ -10,8 +10,8 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML = `mensaje = "Mensaje en una variable" <br/>
-nombre = "Tenoch Moises Vazquez" <br/>
+).innerHTML = `mensaje = "Mensaje en una variable" </br>
+nombre = "Tenoch Moises Vazquez" </br>
 telefono_personal = 2223252728`
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
