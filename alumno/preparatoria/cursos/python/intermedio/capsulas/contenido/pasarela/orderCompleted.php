@@ -18,7 +18,7 @@
             <h1>¡Éxito! Su pedido se procesó correctamente.</h1>
         </div>
         <img src="img/Thumbs-Up.gif" alt="" />
-        <div class="container-question">
+        <div>
             <button>
                 <!-- poner la ruta del curso y quitar el history -->
                 <a href="../../../../../../rutas/ruta-py-i.php" type="button">Regresar a la ruta</a>

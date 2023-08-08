@@ -11,7 +11,7 @@
 },
 {
     "categoria": "web basico-css",
-    "pregunta": "¿Cual es la etiqueta que permite subrayar un texto en HTML?",
+    "pregunta": "¿Cuál es la etiqueta que permite subrayar un texto en HTML?",
     "respuesta": "u",
     "incorrecta1": "div",
     "incorrecta2": "link",

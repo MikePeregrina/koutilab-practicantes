@@ -2,8 +2,7 @@ body {
   color: #404040;
   font-family: Tahoma;
   /*background-image: url(../img/bg1.png);*/
-  background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-  background-repeat: no-repeat; /*no repite la imagen*/
+  background-image: url(../../img/img-juegos/bg.png);  background-repeat: no-repeat; /*no repite la imagen*/
   background-size: cover;/*distribuye la imagen a toda la pantalla*/
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -51,7 +50,7 @@ body::-webkit-scrollbar-track {
 }
 
 .titulo {
-  margin: 14px 0 5px 300px;
+  margin: 14px 0 5px 390px;
   font-size: 18px;
 }
 
@@ -335,48 +334,35 @@ body::-webkit-scrollbar-track {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(129, 179, 243, 0.7);
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  background: rgba(129,179,243);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
   position: fixed;
-  border-radius: 110px;
-  border-width: 0.8px;
-  border-style: solid;
-  border-color: rgba(129, 178, 243, 0.9);
+  border-radius: 100px;
   z-index: 5;
   font-size: 150%;
 }
+/*Generando animaciones del timer*/
 @keyframes animation1 {
-  0% {margin: 30px 0 0 1100px;}
-  20% {margin: 30px 0 0 1110px;}
-  40% {margin: 30px 0 0 1100px;} 
-  60% {margin: 30px 0 0 1110px;}
-  80% {margin: 30px 0 0 1100px;} 
-  100% {margin: 30px 0 0 1100px;}
+  0% {margin: 30px 0 0 68rem;}
+  20% {margin: 30px 0 0 70rem;}
+  40% {margin: 30px 0 0 68rem;} 
+  60% {margin: 30px 0 0 70rem;}
+  80% {margin: 30px 0 0 68rem;} 
+  100% {margin: 30px 0 0 70rem;}
 }
 
 @keyframes animation2 {
-  0% {margin: 30px 0 0 1100px;}
-  15% {margin: 30px 0 0 1110px;}
-  30% {margin: 30px 0 0 1100px;} 
-  45% {margin: 30px 0 0 1110px;}
-  60% {margin: 30px 0 0 1100px;}
-  75% {margin: 30px 0 0 1110px;}
-  90% {margin: 30px 0 0 1100px;}
-  100% {margin: 30px 0 0 1100px;}
-}
-
-@keyframes animation3 {
-  0% {margin: 30px 0 0 1100px;}
-  10% {margin: 30px 0 0 1110px;}
-  20% {margin: 30px 0 0 1100px;} 
-  30% {margin: 30px 0 0 1110px;}
-  40% {margin: 30px 0 0 1100px;} 
-  50% {margin: 30px 0 0 1110px;}
-  60% {margin: 30px 0 0 1100px;} 
-  70% {margin: 30px 0 0 1110px;} 
-  80% {margin: 30px 0 0 1100px;} 
-  90% {margin: 30px 0 0 1110px;} 
-  100% {margin: 30px 0 0 1100px;}
+  0% {margin: 30px 0 0 68rem;}
+  10% {margin: 30px 0 0 70rem;}
+  20% {margin: 30px 0 0 68rem;;} 
+  30% {margin: 30px 0 0 70rem;}
+  40% {margin: 30px 0 0 68rem;;} 
+  50% {margin: 30px 0 0 70rem;}
+  60% {margin: 30px 0 0 68rem;;} 
+  70% {margin: 30px 0 0 70rem;} 
+  80% {margin: 30px 0 0 68rem;;} 
+  90% {margin: 30px 0 0 70rem;} 
+  100% {margin: 30px 0 0 69rem;}
 }
 .btn-b {
   width: 5%;
@@ -394,26 +380,15 @@ body::-webkit-scrollbar-track {
   border-radius: 50%;
   float: right;
 }
-.btn-b:hover {
+/*Se agrego la animacion del btn regresar*/
+.btn-b:hover{
   scale: 130%;
   transition: scale 0.35s;
 }
-
-.btn-b:hover::after {
+.btn-b :hover::after{
   scale: 100%;
   transition: scale 0.35s;
 }
-
-.btn-b:hover {
-  scale: 130%;
-  transition: scale 0.35s;
-}
-
-.btn-b:hover::after {
-  scale: 100%;
-  transition: scale 0.35s;
-}
-
 @media (max-width: 750px) {
   .btn-b {
     width: 10%;

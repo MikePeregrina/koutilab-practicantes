@@ -155,7 +155,7 @@ function fetchQuiz() {
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Aceptar',
                         }).then((result) => {
-                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         });
                     }
                 }

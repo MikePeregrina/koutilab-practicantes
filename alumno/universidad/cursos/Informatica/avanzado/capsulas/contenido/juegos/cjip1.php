@@ -1,13 +1,13 @@
 <?php 
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_universidad'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium1.php");
@@ -30,32 +30,27 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Titulo general del juego -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>ANIMACIONES Y TRANSICIONES</b></h2>
-    </div>
-
-    <!-- Timer -->
-    <div class="timer" id="timer">
+<div class="timer" id="timer">
         <b>Tiempo: <br>
-            <p id="tiempo"></p>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
 
-    <!-- Contenedor principal -->
-    <div class="contenido">
-        <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-in-a.php">
-            <button class="btn-b">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h2>
+	</div>
+
+	<section>
+
+		<div class="cont-st">
+            <a href="#">
+              <button class="btn-b">
                 <i class="fas fa-reply"></i>
-            </button>
-        </a>
-
-        <!-- Titulo secundario -->
-        <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo con un clic y relacionala con una del lado
-                derecho con otro clic</b></h4>
-
-        <br>
+              </button>
+            </a>
+            <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
+        </div>
         <!-- contenido del juego -->
         <div class="container-all">
             <!-- Columna de lado izquierdo -->
@@ -83,9 +78,15 @@ if (empty($existe)) {
 
         <!-- boton de verificar respuestas -->
         <button class="verificar">Comprobar respuestas</button>
-    </div>
+    </section>
 
-    <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
+    <!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
     <script>
         //Apartado de canvas para trazar lineas
 

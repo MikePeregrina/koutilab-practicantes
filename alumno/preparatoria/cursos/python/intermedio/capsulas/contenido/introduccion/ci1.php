@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
@@ -72,12 +72,13 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/In/10.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/In/8.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/In/9.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/In/10.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/In/11.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/In/12.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/In/1.jpg'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P1/In/2.jpg');"></li>
+                        <li style="background-image: url('../../../img/P1/In/3.jpg');"></li>
+                        <li style="background-image: url('../../../img/P1/In/4.jpg');"></li>
+                        <li style="background-image: url('../../../img/P1/In/5.jpg');"></li>
+                        <li style="background-image: url('../../../img/P1/In/6.jpg');"></li>
+                        <li style="background-image: url('../../../img/P1/In/7.jpg');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
                             <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                                 <input type="hidden" name="permiso" value="1">
@@ -90,11 +91,6 @@ include "../../../../../../../../acciones/conexion.php";
                 </section>
         </div>
     </div>
-    <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
     <script>
         function disableIE() {
             if (document.all) {

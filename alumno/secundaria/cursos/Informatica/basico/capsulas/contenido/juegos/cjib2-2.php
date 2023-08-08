@@ -1,40 +1,40 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula21";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 22;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 7");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 7");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
 } else {
-    $puntosGanados = 10;
+	$puntosGanados = 10;
 }
 
 ?>
@@ -60,18 +60,18 @@ if (isset($resultadoIntentos['intentos'])) {
         </b>
     </div>
 
-    <!-- Titulo general -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>PARTES Y USO DEL TECLADO</b></h2>
-    </div>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>PARTES Y USO DEL TECLADO</b></h2>
+	</div>
 
-    <section>
+	<section>
 
-        <div class="cont-st">
-            <!-- Boton para regresar -->
-            <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-                    <i class="fas fa-reply"></i></button>
-
+		<div class="cont-st">
+             <!-- Boton para regresar -->
+        <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+                <i class="fas fa-reply"></i></button>
+        
             </a>
             <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
         </div>
@@ -106,23 +106,24 @@ if (isset($resultadoIntentos['intentos'])) {
     </section>
 
     <!-- CAMBIOS -->
-    <footer class="footerimga">
-        <div class="imagen-footer">
-            <img src="../../img/img_juegos/benvenida.png" alt="No-image">
-        </div>
-    </footer>
-    <!-- fIN CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img_juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+<!-- fIN CAMBIOS -->
 
     <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script src="../../js/cjib2-2.js"></script>
 
 
     <script>
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+    
+    var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+//Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
 
         let puntos = 0;
@@ -141,8 +142,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (segundos <= 10) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-            }
-            if (segundos == 0) {
+            }   if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
@@ -172,8 +172,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //         imageUrl: "img/Thumbs-Up.gif",
         //         imageHeight: 350,
         //         backdrop: `
-        // 				rgba(0,143,255,0.6)
-        // 				url("img/fondo.gif")`,
+		// 				rgba(0,143,255,0.6)
+		// 				url("img/fondo.gif")`,
         //         confirmButtonColor: '#a14cd9',
         //         confirmButtonText: '¡Genial!',
         //     }).then((result) => {
@@ -183,6 +183,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //     });
 
         // }
+
+
     </script>
 </body>
 

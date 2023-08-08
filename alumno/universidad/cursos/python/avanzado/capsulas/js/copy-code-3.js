@@ -1,6 +1,5 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-let puntos = 0;
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
@@ -67,7 +66,7 @@ function iniciarTiempo() {
         Swal.fire({
             title: "Oops...",
             text: "¡Se te ha agotado el tiempo!",
-            imageUrl: "img/loop.gif",
+            imageUrl: "../../img/img-juegos/loop.gif",
             imageHeight: 350,
         }).then((result) => {
             if (result.isConfirmed) {
@@ -99,7 +98,7 @@ function alertExcelent() {
         xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
-            text: "¡Buen trabajo!",
+            text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
             imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `

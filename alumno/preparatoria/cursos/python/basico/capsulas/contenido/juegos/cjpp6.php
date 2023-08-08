@@ -1,13 +1,13 @@
 <?php 
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago6";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium6.php");
@@ -75,56 +75,49 @@ if (empty($existe)) {
     </head>
 
     <body onload="iniciarTiempo();">
+<!-- CAMBIOS -->
+        <div class="timer" id="timer">
+            <b>Tiempo: <br>
+                <p id="tiempo" style="margin: 0 0 0 0;"></p>
+            </b>
+        </div>
+
         <!-- Titulo general -->
         <div class="titulo-gen">
-            <h2 class="titulo" style="margin-left: 480px"><b>WHILE</b></h2>
+            <h2 class="titulo" ><b>WHILE</b></h2>
         </div>
 
         <!-- Alerta -->
         <div id="mensaje" style="position: absolute"></div>
 
-        <div class="timer" id="timer">
-            <b
-                >Tiempo: <br />
-                <p id="tiempo"></p>
-            </b>
-        </div>
-
+        <section>
         <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
-        <div class="contenido">
-            <a href="../../../../../../rutas/ruta-py-b.php"
-                ><button
-                    style="
-                        float: left;
-                        position: relative;
-                        margin: 10px 0 0 10px;
-                    "
-                    class="btn-b"
+            <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-b.php">
+                <button class="btn-b"
                     id="btn-cerrar-modalV">
                     <i class="fas fa-reply"></i></button
             ></a>
-            <!-- Titulo secundario -->
             <h6 class="titulo">
                 <b>Busca la palabra que describe el texto</b>
             </h6>
-            <br />
+            </div>
 
             <!-- Apartado donde van las frases a buscar por el usuario -->
-            <div class="words">
+            <div class="mjuego">
+                <div class="words">
                 <table>
                     <tr>
-                        <b class="tituloH">Horizontales:</b>
                         <td>
                             <div class="horizontal">
+                            <b class="tituloV">Horizontales:</b><br>
                                 1. Cuando queremos que un bloque de código se repita de forma reiterada, decimos 
                                 que va a entrar en un b____ 
                                 <br /><br />
                                 2. Los bloques de código entran en un bucles cuando queremos que se repitan de forma reiterada,
                                 pero cuando queremos que se repita un número definido de veces, decimos que entra en un c____
                                 <br /><br />
-                                <b style="margin-left: 66px" class="tituloV"
-                                    >Verticales:</b
-                                >
+                                <b class="tituloV">Verticales:</b>
                                 <div class="vertical">
                                     1. Es la forma en como pedimos información al usuario
                                     <br /><br />
@@ -138,17 +131,15 @@ if (empty($existe)) {
                         <td></td>
                     </tr>
                 </table>
-            </div>
+                </div>
 
-            <div class="linea"></div>
-
-            <!-- Apartado del crucigrama junto con sus casillas -->
-            <div class="crucigrama">
-                <div class="numero1" style="margin: 190px 0 0 -550px">1.</div>
-                <div class="numero2" style="margin: -60px 0 0 -150px">2.</div>
-                <div class="numero1-1" style="margin: -290px 0 0 -320px">1.</div>
-                <div class="numero2-2" style="margin: -410px 0 0 70px">2.</div>
-                <div class="numero3-3" style="margin: -290px 0 0 460px">3.</div>
+                <!-- Apartado del crucigrama junto con sus casillas -->
+                <div class="crucigrama">
+                <div class="numero1">1.</div>
+                <div class="numero2">2.</div>
+                <div class="numero1-1">1.</div>
+                <div class="numero2-2">2.</div>
+                <div class="numero3-3">3.</div>
                 <table id="crucigrama">
                     <tr>
                         <td>
@@ -647,16 +638,27 @@ if (empty($existe)) {
                         </td>
                     </tr>
                 </table>
+                </div>
             </div>
-
+            
             <!-- boton de verificar respuestas -->
+            <div class="btn-v">
             <button class="verificar" onClick="verificar()">
                 Comprobar respuestas
             </button>
-        </div>
+            </div>
+        </section>
+
+        <!-- CAMBIOS -->
+        <footer class="footerimga">
+            <div class="imagen-footer">
+                <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+            </div>
+        </footer>
+<!-- FIN CAMBIOS -->
 
         <script>
-            var segundos = 240;
+            var segundos = 2;
             let puntos = 0;
 
             //Funcion que agrega el sonido al juego

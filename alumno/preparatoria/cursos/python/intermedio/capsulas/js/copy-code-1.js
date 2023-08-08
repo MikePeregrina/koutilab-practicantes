@@ -1,6 +1,5 @@
 //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
 var segundos = 240;
-let puntos = 0;
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
@@ -11,7 +10,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML =  `
+).innerHTML = `
 def sumar_numeros(num1, num2): <br/>
 resultado = num1 + num2 <br/>
 return resultado <br/>
@@ -42,16 +41,16 @@ function iniciarTiempo() {
     document.getElementById("tiempo").innerHTML = segundos + " segundos";
     if (segundos <= 60) {
         var div = document.getElementById("timer");
-             div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-         }
-         if (segundos <= 30) {
-             var div = document.getElementById("timer");
-             div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-         }
-         if (segundos <= 10) {
-             var div = document.getElementById("timer");
-             div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-         }
+        div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
+    if (segundos <= 30) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
+    if (segundos <= 10) {
+        var div = document.getElementById("timer");
+        div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+    }
 
     if (segundos == 0) {
         //Borra el texto escrito
@@ -96,7 +95,7 @@ function alertExcelent() {
         xmlhttp.send(param);
         Swal.fire({
             title: "Excelente",
-            text: "¡Buen trabajo!",
+            text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
             imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
@@ -113,6 +112,7 @@ function alertExcelent() {
         });
         correcto.play(); //agregando sonido al juego completado
     } else {
+        incorrecto.play();
         Swal.fire({
             title: "Oops...",
             text: "¡Verifica tu respuesta!",

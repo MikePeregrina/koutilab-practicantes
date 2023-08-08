@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_universidad'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula12";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 13;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -91,418 +91,422 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
+    <!-- CAMBIOS -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
+
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 480px"><b>DATOS</b></h2>
+        <h2 class="titulo"><b>DATOS</b></h2>
     </div>
 
     <!-- Alerta -->
     <div id="mensaje" style="position: absolute"></div>
 
-    <div class="timer" id="timer">
-        <b style="margin-top: 10px">Tiempo: <br />
-            <p id="tiempo"></p>
-        </b>
-    </div>
 
     <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
-    <div class="contenido">
-        <a href="../../../../../../rutas/ruta-py-b.php"><button style="
-                        float: left;
-                        position: relative;
-                        margin: 10px 0 0 10px;
-                    " class="btn-b" id="btn-cerrar-modalV">
-                <i class="fas fa-reply"></i></button></a>
-        <!-- Titulo secundario -->
-        <h6 class="titulo">
-            <b>Busca la palabra que describe el texto</b>
-        </h6>
-        <br />
+    <section>
 
-        <!-- Apartado donde van las frases a buscar por el usuario -->
-        <div class="words">
-            <table>
-                <tr>
-                    <b class="tituloH">Horizontales:</b>
-                    <td>
-                        <div class="horizontal">
-                            1. Se encuentran entre los tipos de datos que,
-                            por lo general, probablemente se utilizan con
-                            mayor frecuencia.
-                            <br /><br />
-                            2. Permite representar un número positivo o
-                            negativo con decimales, es decir, números reales.
-                            <br /><br />
-                            3. Sirven para trabajar con caracteres y
-                            su representación en Unicode.
-                            <br /><br />
-                            <b style="margin-left: 66px" class="tituloV">Verticales:</b>
-                            <div class="vertical">
-                                1. Son un tipo de datos que permite representar
-                                números enteros, es decir, positivos y negativos
-                                no decimales.
-                                <br /><br />
-                                2. Conjunto ordenado e inmutable de
-                                elementos del mismo o diferente tipo.
-                            </div>
-                        </div>
-                    </td>
-
-                    <td></td>
-                </tr>
-            </table>
+        <div class="cont-st">
+            <a href="../../../../../../rutas/ruta-py-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h6 class="titulo"><b>Busca la palabra que describe el texto</b></h6>
         </div>
+        <!--FIN CAMBIOS -->
+        <div class="mjuego">
+            <!-- Apartado donde van las frases a buscar por el usuario -->
+            <div class="words">
+                <table>
+                    <tr>
 
-        <div class="linea"></div>
+                        <td>
+                            <div class="horizontal">
+                                1. Se encuentran entre los tipos de datos que,
+                                por lo general, probablemente se utilizan con
+                                mayor frecuencia.
+                                <br /><br />
+                                2. Permite representar un número positivo o
+                                negativo con decimales, es decir, números reales.
+                                <br /><br />
+                                3. Sirven para trabajar con caracteres y
+                                su representación en Unicode.
+                                <br /><br />
+                                <b style="margin-left: 66px" class="tituloV">Verticales:</b>
+                                <div class="vertical">
+                                    1. Son un tipo de datos que permite representar
+                                    números enteros, es decir, positivos y negativos
+                                    no decimales.
+                                    <br /><br />
+                                    2. Conjunto ordenado e inmutable de
+                                    elementos del mismo o diferente tipo.
+                                </div>
+                            </div>
+                        </td>
 
-        <!-- Apartado del crucigrama junto con sus casillas -->
-        <div class="crucigrama" style="margin: -50px 30px 0 0">
-            <div class="numero1" style="margin: -350px 0 0 330px">1.</div>
-            <div class="numero2" style="margin: -220px 0 0 -60px">2.</div>
-            <div class="numero1-1" style="margin: -130px 0 0 -280px">1.</div>
-            <div class="numero2-2" style="margin: 270px 0 0 -280px">2.</div>
-            <div class="numero3-3" style="margin: 390px 0 0 -410px">3.</div>
-            <table id="crucigrama">
-                <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
 
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C1" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C2" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C3" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C4" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C5" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C6" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C7" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila1C8" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C1" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C2" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C3" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C4" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C5" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C6" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
-                    <td><!--i en la palabra int-->
-                        <input class="casilla" type="text" maxlength="1" id="fila2C7" />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila2C8" style="
-                                        border-style: none;
-                                        background-color: rgba(255, 255, 255, 0);
-                                    " />
-                    </td>
 
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila3C1" style="
+            <!-- Apartado del crucigrama junto con sus casillas -->
+            <div class="crucigrama">
+                <div class="numero1" style="margin: -350px 0 0 330px">1.</div>
+                <div class="numero2" style="margin: -220px 0 0 -60px">2.</div>
+                <div class="numero1-1" style="margin: -130px 0 0 -280px">1.</div>
+                <div class="numero2-2" style="margin: 270px 0 0 -280px">2.</div>
+                <div class="numero3-3" style="margin: 390px 0 0 -410px">3.</div>
+                <table id="crucigrama">
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C1" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila3C2" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C2" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td><!--letra S en string-->
-                        <input class="casilla" type="text" maxlength="1" id="fila3C3" />
-                    </td>
-                    <td>
-                        <!--letra t en string y de tupla-->
-                        <input class="casilla" type="text" maxlength="1" id="fila3C4" />
-                    </td>
-                    <td>
-                        <!--letra r en string-->
-                        <input class="casilla" type="text" maxlength="1" id="fila3C5" />
-                    </td>
-                    <td>
-                        <!--letra i en string-->
-                        <input class="casilla" type="text" maxlength="1" id="fila3C6" />
-                    </td>
-                    <td>
-                        <!--letra n en string e int-->
-                        <input class="casilla" type="text" maxlength="1" id="fila3C7" />
-                    </td>
-                    <td>
-                        <!--letra g en string-->
-                        <input class="casilla" type="text" maxlength="1" id="fila3C8" />
-                    </td>
-
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila4C1" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C3" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila4C2" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C4" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila4C3" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C5" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td><!--u en la palabra tupla-->
-                        <input class="casilla" type="text" maxlength="1" id="fila4C4" />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila4C5" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C6" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila4C6" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C7" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-                    <td><!--t en la palabra int-->
-                        <input class="casilla" type="text" maxlength="1" id="fila4C7" />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila4C8" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila1C8" style="
                                         border-style: none;
                                         background-color: rgba(255, 255, 255, 0);
                                     " />
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C1" style="
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C1" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C2" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C3" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C4" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C5" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C6" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td><!--i en la palabra int-->
+                            <input class="casilla" type="text" maxlength="1" id="fila2C7" />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C8" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila3C1" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila3C2" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td><!--letra S en string-->
+                            <input class="casilla" type="text" maxlength="1" id="fila3C3" />
+                        </td>
+                        <td>
+                            <!--letra t en string y de tupla-->
+                            <input class="casilla" type="text" maxlength="1" id="fila3C4" />
+                        </td>
+                        <td>
+                            <!--letra r en string-->
+                            <input class="casilla" type="text" maxlength="1" id="fila3C5" />
+                        </td>
+                        <td>
+                            <!--letra i en string-->
+                            <input class="casilla" type="text" maxlength="1" id="fila3C6" />
+                        </td>
+                        <td>
+                            <!--letra n en string e int-->
+                            <input class="casilla" type="text" maxlength="1" id="fila3C7" />
+                        </td>
+                        <td>
+                            <!--letra g en string-->
+                            <input class="casilla" type="text" maxlength="1" id="fila3C8" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila4C1" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila4C2" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila4C3" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td><!--u en la palabra tupla-->
+                            <input class="casilla" type="text" maxlength="1" id="fila4C4" />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila4C5" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila4C6" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                        <td><!--t en la palabra int-->
+                            <input class="casilla" type="text" maxlength="1" id="fila4C7" />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila4C8" style="
+                                        border-style: none;
+                                        background-color: rgba(255, 255, 255, 0);
+                                    " />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C1" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C2" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C2" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C3" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C3" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td><!--p en la palabra tupla-->
-                        <input class="casilla" type="text" maxlength="1" id="fila5C4" />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C5" style="
+                        </td>
+                        <td><!--p en la palabra tupla-->
+                            <input class="casilla" type="text" maxlength="1" id="fila5C4" />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C5" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C6" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C6" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C7" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C7" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila5C8" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila5C8" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila6C1" style="
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila6C1" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila6C2" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila6C2" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td><!--f en la palabra float-->
-                        <input class="casilla" type="text" maxlength="1" id="fila6C3" />
-                    </td>
-                    <td><!--l en la palabra float  y de tupla-->
-                        <input class="casilla" type="text" maxlength="1" id="fila6C4" />
-                    </td>
-                    <td><!--o en la palabra float-->
-                        <input class="casilla" type="text" maxlength="1" id="fila6C5" />
-                    </td>
-                    <td><!--a en la palabra float-->
-                        <input class="casilla" type="text" maxlength="1" id="fila6C6" />
-                    </td>
-                    <td><!--t en la palabra float-->
-                        <input class="casilla" type="text" maxlength="1" id="fila6C7" />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila6C8" style="
+                        </td>
+                        <td><!--f en la palabra float-->
+                            <input class="casilla" type="text" maxlength="1" id="fila6C3" />
+                        </td>
+                        <td><!--l en la palabra float  y de tupla-->
+                            <input class="casilla" type="text" maxlength="1" id="fila6C4" />
+                        </td>
+                        <td><!--o en la palabra float-->
+                            <input class="casilla" type="text" maxlength="1" id="fila6C5" />
+                        </td>
+                        <td><!--a en la palabra float-->
+                            <input class="casilla" type="text" maxlength="1" id="fila6C6" />
+                        </td>
+                        <td><!--t en la palabra float-->
+                            <input class="casilla" type="text" maxlength="1" id="fila6C7" />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila6C8" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila7C1" style="
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila7C1" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td><!--c en la palabra char-->
-                        <input class="casilla" type="text" maxlength="1" id="fila7C2" />
-                    </td>
-                    <td><!--h en la palabra char-->
-                        <input class="casilla" type="text" maxlength="1" id="fila7C3" />
-                    </td>
-                    <td><!--a en la palabra char y de tupla-->
-                        <input class="casilla" type="text" maxlength="1" id="fila7C4" />
-                    </td>
-                    <td><!--r en la palabra char-->
-                        <input class="casilla" type="text" maxlength="1" id="fila7C5" />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila7C6" style="
+                        </td>
+                        <td><!--c en la palabra char-->
+                            <input class="casilla" type="text" maxlength="1" id="fila7C2" />
+                        </td>
+                        <td><!--h en la palabra char-->
+                            <input class="casilla" type="text" maxlength="1" id="fila7C3" />
+                        </td>
+                        <td><!--a en la palabra char y de tupla-->
+                            <input class="casilla" type="text" maxlength="1" id="fila7C4" />
+                        </td>
+                        <td><!--r en la palabra char-->
+                            <input class="casilla" type="text" maxlength="1" id="fila7C5" />
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila7C6" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila7C7" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila7C7" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-                    <td>
-                        <input class="casilla" type="text" maxlength="1" id="fila7C8" style="
+                        </td>
+                        <td>
+                            <input class="casilla" type="text" maxlength="1" id="fila7C8" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
                                 " />
-                    </td>
-
-                </tr>
-
-            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <!-- boton de verificar respuestas -->
-        <button class="verificar" onClick="verificar()">
-            Comprobar respuestas
-        </button>
-    </div>
+        <div class="btn-v">
+            <button class="verificar" onClick="verificar()">
+                Comprobar respuestas
+            </button>
+        </div>
+    </section>
 
+    <!-- CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- FIN CAMBIOS -->
     <script>
-        var segundos = 240;//240
-
+        var segundos = 240;
         let puntos = 0;
 
-        //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
-                if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+
+            if (segundos <= 60) {
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
 
@@ -525,7 +529,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         window.location.reload();
                     }
                 });
-                incorrecto.play(); //agregando sonido al juego no completado
+                Incorrecto.play(); //Agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
                     "../../acciones/insertar_cp13.php",
@@ -711,6 +715,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     1; //cancatenation
 
                 xmlhttp.onreadystatechange = function() {
+                    var puntos = <?php echo $puntosGanados; ?>
+
                     var xmlhttp = new XMLHttpRequest();
                     var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 4; //cancatenation
                     xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
@@ -718,7 +724,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     xmlhttp.send(param);
                     Swal.fire({
                         title: "¡Bien hecho!",
-                        text: "¡Puntuación guardada con éxito!",
+                        text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                         imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                         imageHeight: 350,
                         backdrop: `
@@ -732,7 +738,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
-                    correcto.play(); //agregando sonido al juego completado
+                    Correcto.play(); //agregando sonido al juego completado
                 };
                 xmlhttp.open(
                     "POST",
@@ -984,6 +990,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
         habilitarMovimiento();
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

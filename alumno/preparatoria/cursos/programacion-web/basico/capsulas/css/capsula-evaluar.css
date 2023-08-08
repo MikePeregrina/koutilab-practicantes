@@ -4,14 +4,16 @@
 }
 
 body {
-    color: #404040;
-    font-family: Tahoma;
-    background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; 
-    text-align: center;
+  background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Esto asegura que el fondo no se desplace con el contenido */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  font-family: Tahoma;
+  text-align: center;
+  color: #404040;
 }
 
 body::-webkit-scrollbar {
@@ -40,12 +42,11 @@ body::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
 .container{
-    max-width: 90%;
-    width: 100%;
-    padding: 25px 30px;
+    width: 90%;
+    padding: 2% 2%;
     border-radius: 5px;
     background: rgba(255,255,255,.8);
-    margin-left: 40px;
+    margin-left: 3%;
     margin-top: 40px;
     margin-bottom: 40px;
     box-shadow: 0 0 12px rgba(61,172,244, .6);
@@ -82,18 +83,12 @@ body::-webkit-scrollbar-track {
     .btn-b {
       width: 10%;
     }
+
   }
 
   .btn-b:hover {
     transform: scale(1.2);
   }
-
-@media (max-width: 750px) {
-    .container{
-      width: 90%;
-      margin-right: 150px;
-    }
-}
 
 .btne{
     width: 100%;
@@ -316,6 +311,13 @@ text-decoration: none;
     outline: none;
   }
 
-
+  
+  @media (max-width: 610px) {
+  
+    .button-15{
+      font-size: 17px;
+      width: 170px;
+    }
+  }
 
   

@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_universidad'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula6";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 7;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -53,56 +53,69 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body>
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>CONFIGURACIÓN DE LOS PARÁMETROS BÁSICOS</b></h2>
-	</div>
-
+	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i></button>
-		</a>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>LABERINTO</b></h2>
+	</div>
 
-		<h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
-			<br>
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-py-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h5 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+		</div>
 
-			<div id="page">
+		<div id="page">
 
-				<div id="Message-Container">
-					<div id="message">
-						<p id="moves"></p>
-					</div>
+			<div id="Message-Container">
+				<div id="message">
+					<p id="moves"></p>
 				</div>
-
-				<br>
-				<div id="menu" style="margin-top: -500px; position: absolute;">
-					<div class="custom-select">
-						<select id="diffSelect">
-							<option value="10">Easy</option>
-							<option value="15">Medium</option>
-							<option value="25">Hard</option>
-							<option value="38">Extreme</option>
-						</select>
-					</div>
-					<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
-				</div>
-
-				<div class="maze-contenedor">
-					<div id="view">
-						<div id="mazeContainer">
-							<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
-						</div>
-					</div>
-				</div>
-
-				<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
-
 			</div>
+
+			<br>
+			<div id="menu" style="margin-top: -500px; position: absolute;">
+				<div class="custom-select">
+					<select id="diffSelect">
+						<option value="10">Easy</option>
+						<option value="15">Medium</option>
+						<option value="25">Hard</option>
+						<option value="38">Extreme</option>
+					</select>
+				</div>
+				<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+			</div>
+
+			<div class="maze-contenedor">
+				<div id="view">
+					<div id="mazeContainer">
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
+
+		</div>
+
+	</section>
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+
+	</div>
 	</div>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -124,9 +137,9 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 	<script>
 		var incorrecto = document.createElement("audio");
-		    incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-			var correcto = document.createElement("audio");
-		   correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var segundos = 240;
 
 		let puntos = 0;
@@ -134,17 +147,17 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 

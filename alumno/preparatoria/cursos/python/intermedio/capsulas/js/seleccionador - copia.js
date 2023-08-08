@@ -151,6 +151,7 @@ function mostrarResultados() {
     });
     //validamos que ya se hizo intento de resolver todo el juego
     if (todasSeleccionadas) {
+        correcto.play();
         if (respuestasCorrectas < 3) {
             Swal.fire({
                 //estrucutra de la alerta
@@ -169,6 +170,7 @@ function mostrarResultados() {
                 }
             });
         } else {
+            incorrecto.play(); //agregando sonido al juego no completado
             //llamamos a la alerta
             Swal.fire({
                 //estrucutra de la alerta
@@ -190,6 +192,7 @@ function mostrarResultados() {
     }
     //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
     else {
+        incorrecto.play();
         Swal.fire({
             title: 'Oops...',
             text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',

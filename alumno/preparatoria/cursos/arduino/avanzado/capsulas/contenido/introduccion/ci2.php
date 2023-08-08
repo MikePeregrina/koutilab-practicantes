@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
@@ -63,11 +63,6 @@ include "../../../../../../../../acciones/conexion.php";
                 </section>
         </div>
     </div>
-    <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
     <script>
         function disableIE() {
             if (document.all) {

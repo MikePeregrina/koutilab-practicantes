@@ -1,13 +1,14 @@
+
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
@@ -15,12 +16,12 @@ if (empty($existe)) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 5;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 4");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 4");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 4");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -96,16 +97,32 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T1.5/23.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T1.5/24.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T1.5/25.gif');"></li>
-
+                        
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd5.php">
-
+                                <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
+                                    <h1>¿Qué ocurre si intentas utilizar una palabra reservada como nombre de una variable en Python?</h1>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox1">Se generará un error de sintaxis</label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox2"> No ocurre nada, puedes utilizarla como cualquier otro nombre</label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox3">La palabra reservada se asignará como valor a la variable</label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox4">Python automáticamente renombrará la variable para evitar conflictos</label>
+                                    </div>
                                     <input type="hidden" name="permiso" value="5">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="4">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-
                                 </form>
                             </div>
                         </li>
@@ -114,10 +131,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-        <div class="imagen-footer">
-            <img src="../../../img/benvenida.png" alt="No-image">
-        </div>
-    </footer>
+		<div class="imagen-footer">
+			<img src="../../../img/benvenida.png" alt="No-image">
+		</div>
+	</footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

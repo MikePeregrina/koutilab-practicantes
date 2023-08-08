@@ -5,8 +5,8 @@
 //define('ProPayPal', 1); // El 1 simboliza entorno de producción
 
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
@@ -15,12 +15,12 @@ define('ProPayPal', 0);
 if (ProPayPal) {
     define("PayPalClientId", "*********************");
     define("PayPalSecret", "*********************");
-    define("PayPalBaseUrl", "https://koutilab.com/alumno/secundaria/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "https://koutilab.com/alumno/primaria/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
     define("PayPalSecret", "EAOYI052iYSGGT2592LeeXNvDbCq9tArRGqgWRVCAxQwf55u-wHx3VVxePzGD2j-9F29mEcbXL12mPFR");
-    define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/secundaria/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/primaria/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
     define("PayPalENV", "sandbox");
 }
 $productName = "Cápsula de prueba";
@@ -65,6 +65,11 @@ $id_capsula = $_POST['id_capsula'];
                         <p>2 USD</p><br>
                         <div id="paypal-button-container"></div>
                         <div id="paypal-button"></div>
+                        <div class="button-box">
+                            <button type="button" class="toggle-btn">
+                                <a href="orderEstrellas.php?id_capsula=<?php echo $id_capsula; ?>&id_curso=<?php echo $id_curso; ?>" type="button">Comprar con estrellas</a>
+                            </button>
+                        </div>
                         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
                         <script>
                             paypal.Button.render({

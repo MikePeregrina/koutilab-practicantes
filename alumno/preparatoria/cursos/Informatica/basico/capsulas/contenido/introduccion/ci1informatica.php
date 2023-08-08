@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 ?>
@@ -51,14 +51,18 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
                     <li>
                         <a itlist="itList_7" href="#"></a>
                     </li>
+                    <li>
+                        <a itlist="itList_8" href="#"></a>
+                    </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/informatica/In/7.gif'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/informatica/In/8.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/In/9.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/In/10.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/In/11.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/In/12.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/In/1.jpg'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/informatica/In/2.jpg');"></li>
+                    <li style="background-image: url('../../img/informatica/In/3.jpg');"></li>
+                    <li style="background-image: url('../../img/informatica/In/4.jpg');"></li>
+                    <li style="background-image: url('../../img/informatica/In/5.jpg');"></li>
+                    <li style="background-image: url('../../img/informatica/In/6.jpg');"></li>
+                    <li style="background-image: url('../../img/informatica/In/7.jpg');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">
@@ -73,11 +77,6 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
             </section>
         </div>
     </div>
-    <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
     <script>
         function disableIE() {
             if (document.all) {

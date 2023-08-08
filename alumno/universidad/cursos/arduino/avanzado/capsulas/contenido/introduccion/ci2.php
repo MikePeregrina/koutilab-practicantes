@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
+$id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }

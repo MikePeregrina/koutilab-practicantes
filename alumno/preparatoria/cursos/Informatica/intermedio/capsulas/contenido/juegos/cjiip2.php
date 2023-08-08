@@ -1,17 +1,17 @@
-<?php 
-session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
-}
+<?php
+// session_start();
+// $id_user = $_SESSION['id_alumno_primaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+//     header('location: ../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_primaria'];
+// $permiso = "capsulapago2";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+//     header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,40 +29,45 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>SEGURIDAD</b></h2>
-	</div>
-
+	<!-- CAMBIOS -->
 	<!-- Timer -->
 	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo" style="margin: 0 0 0 0"></p>
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<!-- Contenedor principal -->
-	<div class="contenido">
-		<!-- Boton para regresar -->
-		<a href="../../../../../../rutas/ruta-in-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b"
-				id="btn-cerrar-modalV">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+	</div>
 
-		<!-- Titulo secundario -->
-		<h4 class="titulo">
-			<b>Selecciona la opción que corresponda a la línea en blanco o que
-				encaje con la definición dada.</b>
-		</h4>
-		<br />
+	<section>
+
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-in-i.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-	</div>
+	</section>
+
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		//Funcion que agrega el sonido al juego
@@ -72,11 +77,9 @@ if (empty($existe)) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"¿Por qué es importante mantener seguro nuestro correo electrónico?",
+				pregunta: "¿Por qué es importante mantener seguro nuestro correo electrónico?",
 				opA: "Porque dan almacenamiento en la nube de manera gratuita",
 				opB: "Porque en el correo electrónico se suele manejar información delicada",
 				opC: "Porque me facilita la navegación en páginas desconocidas",
@@ -85,8 +88,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Selecciona las características de una contraseña segura",
+				pregunta: "Selecciona las características de una contraseña segura",
 				opA: "Mayores a 8 caracteres, mayúsculas, minúsculas, símbolos, números",
 				opB: "Mayores a 5 caracteres, minúsculas",
 				opC: "Números, menores a 6 carácteres",
@@ -95,8 +97,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"¿Por qué no se recomienda usar contraseñas poco seguras?",
+				pregunta: "¿Por qué no se recomienda usar contraseñas poco seguras?",
 				opA: "No existe la probabilidad del desiframiento de la clave",
 				opB: "Porque suelen ser contraseñas menos populares",
 				opC: "Porque suele ser muy fácil de descifrar por personal no autorizado",
@@ -105,8 +106,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"¿Qué es la autenticación en dos pasos?",
+				pregunta: "¿Qué es la autenticación en dos pasos?",
 				opA: "Compartir de manera fácil la contraseña a personal diferente",
 				opB: "Medida de seguridad adicional",
 				opC: "Es una aplicación que permite colocar un pin al momento de ingresar a la cuenta",
@@ -115,8 +115,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"¿Cuál es la característica de la autenticación en dos pasos?",
+				pregunta: "¿Cuál es la característica de la autenticación en dos pasos?",
 				opA: "Genera QR fáciles de compartir",
 				opB: "Genera un código de verificación",
 				opC: "Permite restaurar la contraseña",
@@ -125,8 +124,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 6,
-				pregunta:
-					"¿Por qué es importante tener la autenticación en dos pasos en nuestras cuentas de correo?",
+				pregunta: "¿Por qué es importante tener la autenticación en dos pasos en nuestras cuentas de correo?",
 				opA: "Para recordar fácilmente la contraseña",
 				opB: "Para compartir la contraseña de manera rápida con personal ajeno",
 				opC: "Para evitar ser hackeado por personas no autorizadas",
@@ -135,8 +133,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 7,
-				pregunta:
-					"¿Qué es el uso del cifrado en el correo?",
+				pregunta: "¿Qué es el uso del cifrado en el correo?",
 				opA: "Es un permiso que se le da a la empresa de correo para crear la cuenta",
 				opB: "Es el cifrado de extremo a extremo",
 				opC: "Es la autorización de lectura a terceros",
@@ -145,8 +142,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 8,
-				pregunta:
-					"¿Cómo cuidar la seguridad del correo?",
+				pregunta: "¿Cómo cuidar la seguridad del correo?",
 				opA: "Actualizando el programa de correo, sistema operativo, cambio frecuente de contraseña",
 				opB: "Compartiendo el usuario y la contraseña a amigos",
 				opC: "Compartiendo la información de seguridad a terceros (teléfono, correos de recuperación, etc.)",
@@ -155,8 +151,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 9,
-				pregunta:
-					"¿Cuál es el uso adecuado del correo educativo y personal?",
+				pregunta: "¿Cuál es el uso adecuado del correo educativo y personal?",
 				opA: "Compartir mis cuentas de correo a personas ajenas",
 				opB: "Usar la misma cuenta para evitar el cambio de sesión",
 				opC: "Usar cuentas de correo diferentes",
@@ -165,8 +160,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 10,
-				pregunta:
-					"¿Cuántas medidas de seguridad se pueden implementar en el correo electrónico?",
+				pregunta: "¿Cuántas medidas de seguridad se pueden implementar en el correo electrónico?",
 				opA: "1 medida de seguridad",
 				opB: "4 medidas de seguridad",
 				opC: "2 medidas de seguridad",
@@ -188,7 +182,7 @@ if (empty($existe)) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -251,18 +245,18 @@ if (empty($existe)) {
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7);";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	 }
+			}
 			if (segundos == 0) {
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",

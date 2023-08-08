@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
+$id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
@@ -70,6 +70,7 @@ include "../../../../../../../../acciones/conexion.php";
                                 <input type="hidden" name="id_curso" value="2">
                                 <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
                             </form>
+
                         </li>
                     </ul>
                 </section>

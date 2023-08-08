@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_universidad'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula21";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 22;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 9");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 9");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -58,44 +58,55 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h3 class="titulo"><b>PRESENTACIONES ELECTRÓNICAS</b></h3>
-	</div>
-
-
+	<!-- CAMBIOS -->
+	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
-			<p id="tiempo"></p>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
 	</div>
 
-	<div class="contenido">
-
-		<a href="../../../../../../rutas/ruta-in-a.php">
-			<button class="btn-b">
-				<i class="fas fa-reply"></i>
-			</button>
-		</a>
-
-		<!-- Titulo secundario -->
-		<h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
-		<br>
-
-		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
-		<div class="words">
-			<h6><b>Palabras a buscar:</b></h6>
-			<div id='Palabras' style="font-size: 120%;"></div>
-		</div>
-
-		<div class="linea"></div>
-
-		<!-- Sección donde se agrega la sopa de letras -->
-		<div class="soup">
-			<div id='juego'></div>
-		</div>
-
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>SOPA DE LETRAS</b></h2>
 	</div>
+
+	<section>
+
+		<div class="cont-st">
+			<a href="#">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
+		</div>
+		<!--FIN  CAMBIOS -->
+
+		<!--CONTENEDOR DEL JUEGO-->
+		<div class="mjuego">
+			<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+			<div class="words">
+				<div class="title-h6">
+					<h4><b>Palabras a buscar:</b></h4>
+				</div>
+				<div id='Palabras'></div>
+			</div>
+
+			<!-- Sección donde se agrega la sopa de letras -->
+			<div class="soup">
+				<div id='juego' style="margin: 0 0 0 40px;"></div>
+			</div>
+		</div>
+
+	</section>
+	<!-- CAMBIOS -->
+	<footer class="footerimga">
+		<div class="imagen-footer">
+			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
+		</div>
+	</footer>
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
