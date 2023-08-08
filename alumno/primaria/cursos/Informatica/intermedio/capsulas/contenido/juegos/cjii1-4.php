@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="contenido">
         <!-- Boton para regresar -->
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-b.php">
+            <a href="../../../../../../rutas/ruta-in-i.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -212,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 +"&id_curso=" + 8; //cancatenation
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 8; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);

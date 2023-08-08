@@ -66,6 +66,11 @@ $id_capsula = $_POST['id_capsula'];
                         <p>2 USD</p><br>
                         <div id="paypal-button-container"></div>
                         <div id="paypal-button"></div>
+                        <div class="button-box">
+                            <button type="button" class="toggle-btn">
+                                <a href="orderEstrellas.php?id_capsula=<?php echo $id_capsula; ?>&id_curso=<?php echo $id_curso; ?>" type="button">Comprar con estrellas</a>
+                            </button>
+                        </div>
                         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
                         <script>
                             paypal.Button.render({

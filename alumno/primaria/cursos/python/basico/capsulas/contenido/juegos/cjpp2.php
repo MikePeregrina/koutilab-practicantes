@@ -230,7 +230,7 @@
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
                 } else {

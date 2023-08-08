@@ -19,7 +19,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
 //Verificar si la pregunta es correcta
 if ($pregunta != 'correcto') {
-    header('location: ../contenido/practicas/cp8css.php?htmlcode='.$htmlcode.'');
+    header('location: ../contenido/practicas/cp8css.php?htmlcode=' . $htmlcode . '');
 }
 
 if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {
@@ -39,9 +39,9 @@ if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_primaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-b.php');
+        header('location: ../../../../../rutas/ruta-vj-b.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $result_sql_permisos > 4) {
-    header('location: ../../../../../rutas/ruta-pw-b.php');
+    header('location: ../../../../../rutas/ruta-vj-b.php');
 }

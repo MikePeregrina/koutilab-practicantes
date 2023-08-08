@@ -85,7 +85,7 @@ if (empty($existe)) {
     <section>
 
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-b.php">
+            <a href="../../../../../../rutas/ruta-in-a.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -123,7 +123,7 @@ if (empty($existe)) {
             <div class="linea"></div>
 
             <!-- Apartado del crucigrama junto con sus casillas -->
-            <div class="crucigrama" >
+            <div class="crucigrama">
                 <div class="numero1" style="margin: 60px 0 0 -20px">2.</div>
                 <div class="numero2" style="margin: -380px 0 0 180px">2.</div>
                 <div class="numero1-1" style="margin: -170px 0 0 -260px">3.</div>
