@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 03-08-2023 a las 00:04:10
+-- Tiempo de generación: 07-08-2023 a las 16:16:28
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -283,7 +283,7 @@ CREATE TABLE `alumnos_primaria` (
 --
 
 INSERT INTO `alumnos_primaria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-R1U2SD8L', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1, 58, '2023-06-25 23:52:24'),
+(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-R1U2SD8L', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1, 60, '2023-06-25 23:52:24'),
 (2, 'asdf', 'asdf', 'asdf', 'asdf', 'asdfasdf', 'asdf', 'asdf', 'asdfdf', 1, 1, 1, 10, '2023-06-27 00:08:25');
 
 -- --------------------------------------------------------
@@ -741,7 +741,8 @@ INSERT INTO `capsulas_personal` (`id_capsula`, `nombre`) VALUES
 (58, 'capsula58'),
 (59, 'capsula59'),
 (60, 'capsula60'),
-(61, 'capsula61');
+(61, 'capsula61'),
+(99, 'capsula99');
 
 -- --------------------------------------------------------
 
@@ -819,7 +820,8 @@ INSERT INTO `capsulas_preparatoria` (`id_capsula`, `nombre`) VALUES
 (58, 'capsula58'),
 (59, 'capsula59'),
 (60, 'capsula60'),
-(61, 'capsula61');
+(61, 'capsula61'),
+(99, 'capsula99');
 
 -- --------------------------------------------------------
 
@@ -897,7 +899,8 @@ INSERT INTO `capsulas_primaria` (`id_capsula`, `nombre`) VALUES
 (58, 'capsula58'),
 (59, 'capsula59'),
 (60, 'capsula60'),
-(61, 'capsula61');
+(61, 'capsula61'),
+(99, 'capsula99');
 
 -- --------------------------------------------------------
 
@@ -975,7 +978,8 @@ INSERT INTO `capsulas_secundaria` (`id_capsula`, `nombre`) VALUES
 (58, 'capsula58'),
 (59, 'capsula59'),
 (60, 'capsula60'),
-(61, 'capsula61');
+(61, 'capsula61'),
+(99, 'capsula99');
 
 -- --------------------------------------------------------
 
@@ -1053,7 +1057,8 @@ INSERT INTO `capsulas_universidad` (`id_capsula`, `nombre`) VALUES
 (58, 'capsula58'),
 (59, 'capsula59'),
 (60, 'capsula60'),
-(61, 'capsula61');
+(61, 'capsula61'),
+(99, 'capsula99');
 
 -- --------------------------------------------------------
 
@@ -1067,6 +1072,16 @@ CREATE TABLE `conexiones` (
   `id_usuario` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `conexiones`
+--
+
+INSERT INTO `conexiones` (`id_conexion`, `tipo`, `id_usuario`, `created_at`) VALUES
+(1, 'docente_primaria', 1, '2023-08-02 22:18:06'),
+(2, 'alumno_primaria', 1, '2023-08-04 04:21:39'),
+(3, 'alumno_primaria', 1, '2023-08-04 16:04:35'),
+(4, 'docente_primaria', 1, '2023-08-05 21:08:03');
 
 -- --------------------------------------------------------
 
@@ -1848,6 +1863,18 @@ CREATE TABLE `detalle_intentos_universidad` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `detalle_permisos_admin`
+--
+
+CREATE TABLE `detalle_permisos_admin` (
+  `id_detalle_permiso` int(11) NOT NULL,
+  `id_permiso` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `directores_personal`
 --
 
@@ -2063,7 +2090,7 @@ CREATE TABLE `docentes_primaria` (
 --
 
 INSERT INTO `docentes_primaria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`, `conexiones`, `fecha_registro`) VALUES
-(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-EIU2XXKS', 'docenteprimaria@gmail.com', NULL, 1, 1, 20, '2023-06-25 23:53:49');
+(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-EIU2XXKS', 'docenteprimaria@gmail.com', NULL, 1, 1, 21, '2023-06-25 23:53:49');
 
 -- --------------------------------------------------------
 
@@ -2142,18 +2169,19 @@ CREATE TABLE `escuelas` (
   `clave_docente` varchar(100) DEFAULT NULL,
   `clave_director` varchar(100) DEFAULT NULL,
   `estatus` int(11) NOT NULL DEFAULT 1,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `porcentaje_ganancias` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `escuelas`
 --
 
-INSERT INTO `escuelas` (`id_escuela`, `nombre_escuela`, `cct`, `nombre_director`, `calle`, `num_exterior`, `estado`, `codigo_postal`, `nivel_educativo`, `pais`, `autorizacion`, `id_admin`, `clave_alumno`, `clave_docente`, `clave_director`, `estatus`, `created_at`) VALUES
-(1, 'Primaria Desarrollo', 'ABC123', 'Director Primaria', 'Desarrollo', '99', 'Puebla', '99999', 'Primaria', 'México', 'Admin', 1, 'ABC-R1U2SD8L', 'ABC-EIU2XXKS', 'ABC-HQGD5NF2', 1, '2023-07-05 03:04:52'),
-(2, 'Secundaria Desarrollo', 'ABC123', 'Director Secundaria', 'Desarrollo', '99', 'Puebla', '99999', 'Secundaria', 'México', 'Admin', 1, 'ABC-DT9VQK1', 'ABC-T4UR2CK1', 'ABC-DVB7OL5J', 1, '2023-07-05 03:04:52'),
-(3, 'Preparatoria Desarrollo', 'ABC123', 'Director Preparatoria', 'Desarrollo', '99', 'Puebla', '99999', 'Preparatoria', 'México', 'Admin', 1, 'ABC-WWRPR6OU', 'ABC-IP311LQJ', 'ABC-TCRXOMIJ', 1, '2023-07-05 03:04:52'),
-(4, 'Universidad Desarrollo', 'ABC123', 'Director Universidad', 'Desarrollo', '99', 'Puebla', '99999', 'Universidad', 'México', 'Admin', 1, 'ABC-XBZ9KHW', 'ABC-8TGBBD1Z', 'ABC-CCC5KGI', 1, '2023-07-05 03:04:52');
+INSERT INTO `escuelas` (`id_escuela`, `nombre_escuela`, `cct`, `nombre_director`, `calle`, `num_exterior`, `estado`, `codigo_postal`, `nivel_educativo`, `pais`, `autorizacion`, `id_admin`, `clave_alumno`, `clave_docente`, `clave_director`, `estatus`, `created_at`, `porcentaje_ganancias`) VALUES
+(1, 'Primaria Desarrollo', 'ABC123', 'Director Primaria', 'Desarrollo', '99', 'Puebla', '99999', 'Primaria', 'México', 'Admin', 1, 'ABC-R1U2SD8L', 'ABC-EIU2XXKS', 'ABC-HQGD5NF2', 1, '2023-07-05 03:04:52', 0),
+(2, 'Secundaria Desarrollo', 'ABC123', 'Director Secundaria', 'Desarrollo', '99', 'Puebla', '99999', 'Secundaria', 'México', 'Admin', 1, 'ABC-DT9VQK1', 'ABC-T4UR2CK1', 'ABC-DVB7OL5J', 1, '2023-07-05 03:04:52', 0),
+(3, 'Preparatoria Desarrollo', 'ABC123', 'Director Preparatoria', 'Desarrollo', '99', 'Puebla', '99999', 'Preparatoria', 'México', 'Admin', 1, 'ABC-WWRPR6OU', 'ABC-IP311LQJ', 'ABC-TCRXOMIJ', 1, '2023-07-05 03:04:52', 0),
+(4, 'Universidad Desarrollo', 'ABC123', 'Director Universidad', 'Desarrollo', '99', 'Puebla', '99999', 'Universidad', 'México', 'Admin', 1, 'ABC-XBZ9KHW', 'ABC-8TGBBD1Z', 'ABC-CCC5KGI', 1, '2023-07-05 03:04:52', 0);
 
 -- --------------------------------------------------------
 
@@ -2290,8 +2318,22 @@ CREATE TABLE `estrellas_preparatoria` (
   `estrellas` int(11) NOT NULL,
   `id_capsula` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL
+  `id_alumno` int(11) NOT NULL,
+  `estatus` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Disparadores `estrellas_preparatoria`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_limitar_estrellas_preparatoria` BEFORE INSERT ON `estrellas_preparatoria` FOR EACH ROW BEGIN
+  IF NEW.estrellas > 15 THEN
+    SET NEW.estrellas = 15;
+  END IF;
+  SET NEW.estatus = IF(NEW.estrellas >= 15, 0, 1);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2304,15 +2346,38 @@ CREATE TABLE `estrellas_primaria` (
   `estrellas` int(11) NOT NULL,
   `id_capsula` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL
+  `id_alumno` int(11) NOT NULL,
+  `estatus` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `estrellas_primaria`
 --
 
-INSERT INTO `estrellas_primaria` (`id_estrellas`, `estrellas`, `id_capsula`, `id_curso`, `id_alumno`) VALUES
-(1, 46, 1, 1, 1);
+INSERT INTO `estrellas_primaria` (`id_estrellas`, `estrellas`, `id_capsula`, `id_curso`, `id_alumno`, `estatus`) VALUES
+(1, 46, 1, 1, 1, 1);
+
+--
+-- Disparadores `estrellas_primaria`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_limitar_estrellas` BEFORE INSERT ON `estrellas_primaria` FOR EACH ROW BEGIN
+  IF NEW.estrellas > 15 THEN
+    SET NEW.estrellas = 15;
+  END IF;
+  SET NEW.estatus = IF(NEW.estrellas >= 15, 0, 1);
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tr_limitar_estrellas_primaria` BEFORE INSERT ON `estrellas_primaria` FOR EACH ROW BEGIN
+  IF NEW.estrellas > 15 THEN
+    SET NEW.estrellas = 15;
+  END IF;
+  SET NEW.estatus = IF(NEW.estrellas >= 15, 0, 1);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2325,8 +2390,22 @@ CREATE TABLE `estrellas_secundaria` (
   `estrellas` int(11) NOT NULL,
   `id_capsula` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL
+  `id_alumno` int(11) NOT NULL,
+  `estatus` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Disparadores `estrellas_secundaria`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_limitar_estrellas_secundaria` BEFORE INSERT ON `estrellas_secundaria` FOR EACH ROW BEGIN
+  IF NEW.estrellas > 15 THEN
+    SET NEW.estrellas = 15;
+  END IF;
+  SET NEW.estatus = IF(NEW.estrellas >= 15, 0, 1);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2339,8 +2418,22 @@ CREATE TABLE `estrellas_universidad` (
   `estrellas` int(11) NOT NULL,
   `id_capsula` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL
+  `id_alumno` int(11) NOT NULL,
+  `estatus` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Disparadores `estrellas_universidad`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_limitar_estrellas_universidad` BEFORE INSERT ON `estrellas_universidad` FOR EACH ROW BEGIN
+  IF NEW.estrellas > 15 THEN
+    SET NEW.estrellas = 15;
+  END IF;
+  SET NEW.estatus = IF(NEW.estrellas >= 15, 0, 1);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2360,6 +2453,31 @@ CREATE TABLE `formulario` (
   `estado` varchar(150) DEFAULT NULL,
   `grado` varchar(150) DEFAULT NULL,
   `numero_a` int(40) DEFAULT NULL,
+  `otro_c` varchar(300) DEFAULT NULL,
+  `calle` varchar(100) DEFAULT NULL,
+  `num_exterior` varchar(100) DEFAULT NULL,
+  `colonia` varchar(100) DEFAULT NULL,
+  `codigo_postal` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `formulario_institucional`
+--
+
+CREATE TABLE `formulario_institucional` (
+  `id_formulario_institucional` int(11) NOT NULL,
+  `nombre_r` varchar(200) DEFAULT NULL,
+  `cargo` varchar(200) DEFAULT NULL,
+  `contacto` varchar(10) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `nombre_e` varchar(200) DEFAULT NULL,
+  `clave` varchar(200) DEFAULT NULL,
+  `pais` varchar(200) DEFAULT NULL,
+  `estado` varchar(150) DEFAULT NULL,
+  `grado` varchar(150) DEFAULT NULL,
+  `numero_d` int(40) DEFAULT NULL,
   `otro_c` varchar(300) DEFAULT NULL,
   `calle` varchar(100) DEFAULT NULL,
   `num_exterior` varchar(100) DEFAULT NULL,
@@ -2632,6 +2750,24 @@ CREATE TABLE `payment_universidad` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `permisos_admin`
+--
+
+CREATE TABLE `permisos_admin` (
+  `id_permisos` int(11) NOT NULL,
+  `permiso` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `permisos_admin`
+--
+
+INSERT INTO `permisos_admin` (`id_permisos`, `permiso`) VALUES
+(1, 'Panel de ingresos');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `sugerencias`
 --
 
@@ -2672,6 +2808,54 @@ CREATE TABLE `temp_account` (
 INSERT INTO `temp_account` (`id`, `nombre`, `clave`, `email`, `username`, `password`, `fechaRegistro`, `status`, `image`, `fondo`, `conexiones`, `id_escuela`) VALUES
 (1, 'DiegoGod', 'ABC-R1U2SD8L', 'cuentatemporal@gmail.com', '@alumnoinstitucional', 'acbf157754bc921e70ab30b1e79c75f5', '2023-06-20', 1, 'Mascota-Aerobot-01.png', 'portada-1.png', 1, 1),
 (4, 'aasdfasdf', 'PBK-GC0EY', 'asdfasdfsadf@gmail.com', '@asdfasdfasd', 'e10adc3949ba59abbe56e057f20f883e', '2023-06-25', 1, 'Mascota-Aerobot-01.png', 'portada-1.png', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `total_estrellas_preparatoria`
+--
+
+CREATE TABLE `total_estrellas_preparatoria` (
+  `id_total_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `total_estrellas_primaria`
+--
+
+CREATE TABLE `total_estrellas_primaria` (
+  `id_total_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `total_estrellas_secundaria`
+--
+
+CREATE TABLE `total_estrellas_secundaria` (
+  `id_total_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `total_estrellas_universidad`
+--
+
+CREATE TABLE `total_estrellas_universidad` (
+  `id_total_estrellas` int(11) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3069,6 +3253,12 @@ ALTER TABLE `detalle_intentos_universidad`
   ADD PRIMARY KEY (`id_detalle_intento`);
 
 --
+-- Indices de la tabla `detalle_permisos_admin`
+--
+ALTER TABLE `detalle_permisos_admin`
+  ADD PRIMARY KEY (`id_detalle_permiso`);
+
+--
 -- Indices de la tabla `directores_personal`
 --
 ALTER TABLE `directores_personal`
@@ -3180,7 +3370,7 @@ ALTER TABLE `estrellas_preparatoria`
 -- Indices de la tabla `estrellas_primaria`
 --
 ALTER TABLE `estrellas_primaria`
-  ADD PRIMARY KEY (`id_estrellas`);
+  ADD PRIMARY KEY (`id_estrellas`) USING BTREE;
 
 --
 -- Indices de la tabla `estrellas_secundaria`
@@ -3199,6 +3389,12 @@ ALTER TABLE `estrellas_universidad`
 --
 ALTER TABLE `formulario`
   ADD PRIMARY KEY (`id_formulario`);
+
+--
+-- Indices de la tabla `formulario_institucional`
+--
+ALTER TABLE `formulario_institucional`
+  ADD PRIMARY KEY (`id_formulario_institucional`);
 
 --
 -- Indices de la tabla `grupos_personal`
@@ -3273,6 +3469,12 @@ ALTER TABLE `payment_universidad`
   ADD PRIMARY KEY (`id_payment`);
 
 --
+-- Indices de la tabla `permisos_admin`
+--
+ALTER TABLE `permisos_admin`
+  ADD PRIMARY KEY (`id_permisos`);
+
+--
 -- Indices de la tabla `sugerencias`
 --
 ALTER TABLE `sugerencias`
@@ -3283,6 +3485,30 @@ ALTER TABLE `sugerencias`
 --
 ALTER TABLE `temp_account`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `total_estrellas_preparatoria`
+--
+ALTER TABLE `total_estrellas_preparatoria`
+  ADD PRIMARY KEY (`id_total_estrellas`);
+
+--
+-- Indices de la tabla `total_estrellas_primaria`
+--
+ALTER TABLE `total_estrellas_primaria`
+  ADD PRIMARY KEY (`id_total_estrellas`);
+
+--
+-- Indices de la tabla `total_estrellas_secundaria`
+--
+ALTER TABLE `total_estrellas_secundaria`
+  ADD PRIMARY KEY (`id_total_estrellas`);
+
+--
+-- Indices de la tabla `total_estrellas_universidad`
+--
+ALTER TABLE `total_estrellas_universidad`
+  ADD PRIMARY KEY (`id_total_estrellas`);
 
 --
 -- Indices de la tabla `userdirector`
@@ -3425,37 +3651,37 @@ ALTER TABLE `capsulas_pago_universidad`
 -- AUTO_INCREMENT de la tabla `capsulas_personal`
 --
 ALTER TABLE `capsulas_personal`
-  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT de la tabla `capsulas_preparatoria`
 --
 ALTER TABLE `capsulas_preparatoria`
-  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT de la tabla `capsulas_primaria`
 --
 ALTER TABLE `capsulas_primaria`
-  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT de la tabla `capsulas_secundaria`
 --
 ALTER TABLE `capsulas_secundaria`
-  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT de la tabla `capsulas_universidad`
 --
 ALTER TABLE `capsulas_universidad`
-  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT de la tabla `conexiones`
 --
 ALTER TABLE `conexiones`
-  MODIFY `id_conexion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_conexion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_personal`
@@ -3668,6 +3894,12 @@ ALTER TABLE `detalle_intentos_universidad`
   MODIFY `id_detalle_intento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `detalle_permisos_admin`
+--
+ALTER TABLE `detalle_permisos_admin`
+  MODIFY `id_detalle_permiso` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `directores_personal`
 --
 ALTER TABLE `directores_personal`
@@ -3800,6 +4032,12 @@ ALTER TABLE `formulario`
   MODIFY `id_formulario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `formulario_institucional`
+--
+ALTER TABLE `formulario_institucional`
+  MODIFY `id_formulario_institucional` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `grupos_personal`
 --
 ALTER TABLE `grupos_personal`
@@ -3866,6 +4104,12 @@ ALTER TABLE `payment_universidad`
   MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `permisos_admin`
+--
+ALTER TABLE `permisos_admin`
+  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `sugerencias`
 --
 ALTER TABLE `sugerencias`
@@ -3876,6 +4120,30 @@ ALTER TABLE `sugerencias`
 --
 ALTER TABLE `temp_account`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `total_estrellas_preparatoria`
+--
+ALTER TABLE `total_estrellas_preparatoria`
+  MODIFY `id_total_estrellas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `total_estrellas_primaria`
+--
+ALTER TABLE `total_estrellas_primaria`
+  MODIFY `id_total_estrellas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `total_estrellas_secundaria`
+--
+ALTER TABLE `total_estrellas_secundaria`
+  MODIFY `id_total_estrellas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `total_estrellas_universidad`
+--
+ALTER TABLE `total_estrellas_universidad`
+  MODIFY `id_total_estrellas` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

@@ -1,7 +1,7 @@
 <?php
 //ProPayPal es vital para declarar si es demo o prueba las transacciones
 
-//define('ProPayPal', 0); // El cero simboliza entorno de Prueba
+//define('ProPayPal', 1); // El cero simboliza entorno de Prueba
 //define('ProPayPal', 1); // El 1 simboliza entorno de producción
 
 session_start();
@@ -11,10 +11,10 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 
-define('ProPayPal', 0);
+define('ProPayPal', 1);
 if (ProPayPal) {
-    define("PayPalClientId", "*********************");
-    define("PayPalSecret", "*********************");
+    define("PayPalClientId", "AWuU3SUmjGF7B2S3LJgWW9tAb_u_-YA1PUx2nX1fSIQll5V1N6zonfDZ-40NIcmOKEPh5FewTaQPp6n3");
+    define("PayPalSecret", "EMerBic12d3e1gHvFwUC6qSMisA00APvqKJcKb2tENmig-EN3jqmr7IzzDQjrEx_88CaleyOgb3qQqK8");
     define("PayPalBaseUrl", "https://koutilab.com/alumno/primaria/cursos/python/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {

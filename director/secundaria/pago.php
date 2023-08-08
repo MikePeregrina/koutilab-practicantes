@@ -1,7 +1,7 @@
 <?php
 //ProPayPal es vital para declarar si es demo o prueba las transacciones
 
-//define('ProPayPal', 0); // El cero simboliza entorno de Prueba
+//define('ProPayPal', 1); // El cero simboliza entorno de Prueba
 //define('ProPayPal', 1); // El 1 simboliza entorno de producción
 
 session_start();
@@ -11,10 +11,10 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../acciones/conexion.php";
 
-define('ProPayPal', 0);
+define('ProPayPal', 1);
 if (ProPayPal) {
-    define("PayPalClientId", "*********************");
-    define("PayPalSecret", "*********************");
+    define("PayPalClientId", "AWuU3SUmjGF7B2S3LJgWW9tAb_u_-YA1PUx2nX1fSIQll5V1N6zonfDZ-40NIcmOKEPh5FewTaQPp6n3");
+    define("PayPalSecret", "EMerBic12d3e1gHvFwUC6qSMisA00APvqKJcKb2tENmig-EN3jqmr7IzzDQjrEx_88CaleyOgb3qQqK8");
     define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/secundaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {
@@ -42,31 +42,31 @@ $id_capsula = 1;
     <!-- jQuery -->
     <title>Koutilab</title>
     <link rel="shortcut icon" href="img/lgk.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <body>
     <div class="container" style="margin-top: 70px; margin-left: -50px;">
         <div class="panel">
             <div class="row">
-                
+
                 <div class="liquid">
-                <div class="back-button">
-                    <i class="fas fa-rotate-left" ></i>
-                </div>
+                    <div class="back-button">
+                        <i class="fas fa-rotate-left"></i>
+                    </div>
 
                     <img src="img/foco.gif" alt="" srcset="">
-                    
+
                 </div>
 
-                
+
                 <!-- side -->
                 <div class="form-box">
-                <div class="titlec">
-                     <h1>¡Adquiere este paquete para tener acceso a su contenido!</h1>
-                </div>
+                    <div class="titlec">
+                        <h1>¡Adquiere este paquete para tener acceso a su contenido!</h1>
+                    </div>
 
-                    
+
                     <div class="s">
                         <h2>Total a pagar</h2><br>
                         <h2>2 USD</h2><br>
@@ -109,11 +109,11 @@ $id_capsula = 1;
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <footer>
-        <div class="image" >
+        <div class="image">
             <img src="img/Bienvenida.png" alt="" width="300px">
         </div>
     </footer>
