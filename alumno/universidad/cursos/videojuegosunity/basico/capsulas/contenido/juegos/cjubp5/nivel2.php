@@ -1,43 +1,43 @@
 <!-- <?php
-// session_start();
-// $id_user = $_SESSION['id_alumno_primaria'];
-// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-// 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
-// }
-// include "../../../../../../../../acciones/conexion.php";
-// $id_user = $_SESSION['id_alumno_primaria'];
-// $permiso = "capsula6";
-// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
-// $existe = mysqli_fetch_all($sql);
-// if (empty($existe) && $id_user != 1) {
-// 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
-// }
+		// session_start();
+		// $id_user = $_SESSION['id_alumno_universidad'];
+		// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+		// 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+		// }
+		// include "../../../../../../../../acciones/conexion.php";
+		// $id_user = $_SESSION['id_alumno_universidad'];
+		// $permiso = "capsula6";
+		// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+		// $existe = mysqli_fetch_all($sql);
+		// if (empty($existe) && $id_user != 1) {
+		// 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+		// }
 
-// //Verificar si ya se tiene permiso y no dar puntos de más
-// $permiso_intento = 7;
-// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
-// $result_sql_permisos = mysqli_num_rows($sql_permisos);
-// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+		// //Verificar si ya se tiene permiso y no dar puntos de más
+		// $permiso_intento = 7;
+		// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
+		// $result_sql_permisos = mysqli_num_rows($sql_permisos);
+		// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-// //Contar total de intentos
-// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
-// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-// if (isset($resultadoIntentos['intentos'])) {
-// 	$totalIntentos = $resultadoIntentos['intentos'];
-// 	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-// 		$puntosGanados = 8;
-// 	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-// 		$puntosGanados = 6;
-// 	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-// 		$puntosGanados = 0;
-// 	} else {
-// 		$puntosGanados = 0;
-// 	}
-// } else {
-// 	$puntosGanados = 10;
-// }
+		// //Contar total de intentos
+		// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
+		// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+		// if (isset($resultadoIntentos['intentos'])) {
+		// 	$totalIntentos = $resultadoIntentos['intentos'];
+		// 	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		// 		$puntosGanados = 8;
+		// 	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		// 		$puntosGanados = 6;
+		// 	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		// 		$puntosGanados = 0;
+		// 	} else {
+		// 		$puntosGanados = 0;
+		// 	}
+		// } else {
+		// 	$puntosGanados = 10;
+		// }
 
-?> -->
+		?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -102,8 +102,7 @@
 			<div class="maze-contenedor">
 				<div id="view">
 					<div id="mazeContainer">
-						<canvas id="mazeCanvas" class="border" height="1100" width="1100"
-							style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
 					</div>
 				</div>
 			</div>
@@ -113,8 +112,7 @@
 		</div>
 	</section>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		Swal.fire({
@@ -276,13 +274,13 @@
 				}
 			};
 
-			this.map = function () {
+			this.map = function() {
 				return mazeMap;
 			};
-			this.startCoord = function () {
+			this.startCoord = function() {
 				return startCoord;
 			};
-			this.endCoord = function () {
+			this.endCoord = function() {
 				return endCoord;
 			};
 
@@ -418,7 +416,7 @@
 			var drawEndMethod;
 			ctx.lineWidth = cellSize / 40;
 
-			this.redrawMaze = function (size) {
+			this.redrawMaze = function(size) {
 				cellSize = size;
 				ctx.lineWidth = cellSize / 50;
 				drawMap();
@@ -540,7 +538,7 @@
 			var cellSize = _cellsize;
 			var halfCellSize = cellSize / 2;
 
-			this.redrawPlayer = function (_cellsize) {
+			this.redrawPlayer = function(_cellsize) {
 				cellSize = _cellsize;
 				drawSpriteImg(cellCoords);
 			};
@@ -644,11 +642,11 @@
 				}
 			}
 
-			this.bindKeyDown = function () {
+			this.bindKeyDown = function() {
 				window.addEventListener("keydown", check, false);
 
 				$("#view").swipe({
-					swipe: function (
+					swipe: function(
 						event,
 						direction,
 						distance,
@@ -684,7 +682,7 @@
 				});
 			};
 
-			this.unbindKeyDown = function () {
+			this.unbindKeyDown = function() {
 				window.removeEventListener("keydown", check, false);
 				$("#view").swipe("destroy");
 			};
@@ -703,7 +701,7 @@
 		var difficulty;
 		// sprite.src = 'media/sprite.png';
 
-		window.onload = function () {
+		window.onload = function() {
 			let viewWidth = $("#view").width();
 			let viewHeight = $("#view").height();
 			if (viewHeight < viewWidth) {
@@ -720,7 +718,7 @@
 			var isComplete = () => {
 				if (completeOne === true && completeTwo === true) {
 					console.log("Runs");
-					setTimeout(function () {
+					setTimeout(function() {
 						makeMaze();
 					}, 500);
 				}
@@ -731,7 +729,7 @@
 				"?" +
 				new Date().getTime();
 			sprite.setAttribute("crossOrigin", " ");
-			sprite.onload = function () {
+			sprite.onload = function() {
 				sprite = changeBrightness(1.2, sprite);
 				completeOne = true;
 				console.log(completeOne);
@@ -743,7 +741,7 @@
 				"?" +
 				new Date().getTime();
 			finishSprite.setAttribute("crossOrigin", " ");
-			finishSprite.onload = function () {
+			finishSprite.onload = function() {
 				finishSprite = changeBrightness(1.1, finishSprite);
 				completeTwo = true;
 				console.log(completeTwo);
@@ -752,7 +750,7 @@
 
 		};
 
-		window.onresize = function () {
+		window.onresize = function() {
 			let viewWidth = $("#view").width();
 			let viewHeight = $("#view").height();
 			if (viewHeight < viewWidth) {

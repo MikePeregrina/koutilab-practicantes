@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
@@ -13,7 +13,7 @@ if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['i
     $id_curso = $_GET['id_curso'];
 
     // Verificar si el usuario tiene al menos 150 estrellas
-    $sql_estrellas = "SELECT estrellas FROM total_estrellas_primaria WHERE id_alumno = $id_user";
+    $sql_estrellas = "SELECT estrellas FROM total_estrellas_universidaddad WHERE id_alumno = $id_user";
     $result_estrellas = $conexion->query($sql_estrellas);
 
     if ($result_estrellas->num_rows > 0) {
@@ -23,10 +23,10 @@ if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['i
         if ($cantidad_estrellas >= 150) {
             // Actualizar la cantidad de estrellas restando 150
             $nueva_cantidad_estrellas = $cantidad_estrellas - 150;
-            $query_update_estrellas = mysqli_query($conexion, "UPDATE total_estrellas_primaria SET estrellas = '$nueva_cantidad_estrellas' WHERE id_alumno = '$id_user'");
+            $query_update_estrellas = mysqli_query($conexion, "UPDATE total_estrellas_universidaddad SET estrellas = '$nueva_cantidad_estrellas' WHERE id_alumno = '$id_user'");
 
-            // Insertar en detalle_capsulas_pago_primaria
-            $query_insert_permiso = mysqli_query($conexion, "INSERT INTO detalle_capsulas_pago_primaria(id_capsula, id_alumno, id_curso) VALUES ('$id_capsula', '$id_alumno', '$id_curso')");
+            // Insertar en detalle_capsulas_pago_universidaddad
+            $query_insert_permiso = mysqli_query($conexion, "INSERT INTO detalle_capsulas_pago_universidaddad(id_capsula, id_alumno, id_curso) VALUES ('$id_capsula', '$id_alumno', '$id_curso')");
 
             if ($query_update_estrellas && $query_insert_permiso) {
                 header("Location: orderCompleted.php");

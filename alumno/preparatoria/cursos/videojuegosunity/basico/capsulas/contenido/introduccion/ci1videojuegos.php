@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno_preparatoria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 ?>
@@ -50,12 +50,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                     </li>
                 </ul>
                 <ul id="slider">
-                        <li style="background-image: url('../../img/html/In/7.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/In/8.gif');"></li>
-                        <li style="background-image: url('../../img/html/In/9.gif');"></li>
-                        <li style="background-image: url('../../img/html/In/10.gif');"></li>
-                        <li style="background-image: url('../../img/html/In/11.gif');"></li>
-                        <li style="background-image: url('../../img/html/In/12.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/7.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/html/In/8.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/9.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/10.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/11.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/12.gif');"></li>
 
                 </ul>
             </section>

@@ -1,13 +1,13 @@
-<?php 
+<?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno_preparatoria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno_preparatoria'];
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium1.php");
@@ -30,24 +30,24 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo()">
-<div class="timer" id="timer">
+    <div class="timer" id="timer">
         <b>Tiempo: <br>
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
 
-	<!-- Titulo general -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h2>
-	</div>
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h2>
+    </div>
 
-	<section>
+    <section>
 
-		<div class="cont-st">
+        <div class="cont-st">
             <a href="#">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
             </a>
             <h5 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del lado derecho</b></h5>
         </div>
@@ -81,12 +81,12 @@ if (empty($existe)) {
     </section>
 
     <!-- CAMBIOS -->
-	<footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
-		</div>
-	</footer>
-<!-- fIN CAMBIOS -->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+    <!-- fIN CAMBIOS -->
     <script>
         //Apartado de canvas para trazar lineas
 
@@ -170,8 +170,7 @@ if (empty($existe)) {
                     contexto.lineTo(508, 220);
                     contexto.stroke();
                     respuestasCorrectas++;
-                }
-                else if (
+                } else if (
                     respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
                 ) {
                     palabraseleccionada.classList.add('correcto');
@@ -224,9 +223,9 @@ if (empty($existe)) {
 
         //Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	    var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 
         // Agregar evento de clic al botón de comprobar respuestas
@@ -298,31 +297,27 @@ if (empty($existe)) {
                 });
             }
         }
-
-
-
     </script>
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120
-        ;
+        var segundos = 120;
         let puntos = 0;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
@@ -349,8 +344,8 @@ if (empty($existe)) {
         //         imageUrl: "img/Thumbs-Up.gif",
         //         imageHeight: 350,
         //         backdrop: `
-		// 				rgba(0,143,255,0.6)
-		// 				url("img/fondo.gif")`,
+        // 				rgba(0,143,255,0.6)
+        // 				url("img/fondo.gif")`,
         //         confirmButtonColor: '#a14cd9',
         //         confirmButtonText: '¡Genial!',
         //     }).then((result) => {
@@ -360,8 +355,6 @@ if (empty($existe)) {
         //     });
 
         // }
-
-
     </script>
 </body>
 

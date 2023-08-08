@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 
 // Consulta para obtener la cantidad de estrellas para el alumno específico
-$sql_estrellas = "SELECT estrellas FROM total_estrellas_primaria WHERE id_alumno = $id_user";
+$sql_estrellas = "SELECT estrellas FROM total_estrellas_universidad WHERE id_alumno = $id_user";
 $result_estrellas = $conexion->query($sql_estrellas);
 
 if ($result_estrellas->num_rows > 0) {
