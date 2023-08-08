@@ -145,7 +145,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\nnumero_entero = 10\n"print("El número entero es:", numero_entero)';
+            let esperado = '1\n2\nnumero_entero = 10\nprint("El número entero es:", numero_entero)';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
