@@ -10,21 +10,31 @@ $id_capsula = $_GET['id_capsula'];
 $id_curso = $_GET['id_curso'];
 $estrellas = $_GET['estrellas'];
 
+$consultaEstrellasCurso = mysqli_query($conexion, "SELECT estrellas FROM estrellas_secundaria WHERE id_capsula = '$id_capsula' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
+$resultadoEstrellasCurso = mysqli_fetch_assoc($consultaEstrellasCurso);
+$totalEstrellasCurso = $resultadoEstrellasCurso['estrellas'];
+
+// Calcular las estrellas que se insertarán sin exceder el límite de 15
+$estrellas_a_insertar = min(15 - $totalEstrellasCurso, $estrellas);
+
 //Verificar estrellas en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM estrellas_secundaria WHERE id_capsula = '$id_capsula' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
 $result_sql = mysqli_num_rows($sql);
 
 if ($result_sql == 0) {
-    $insertarEstrellas = mysqli_query($conexion, "INSERT INTO detalle_intentos_secundaria(id_capsula, id_alumno, intentos, id_curso) VALUES ($permiso, $id_user, 1, $id_curso)");
-    //Contar total de estrellas
-    $consultaEstrellas = mysqli_query($conexion, "SELECT estrellas FROM estrellas_secundaria WHERE id_capsula = '$id_capsula' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
-    $resultadoEstrellas = mysqli_fetch_assoc($consultaEstrellas);
-    $totalIntentos = $resultadoEstrellas['estrellas'];
+    $insertarEstrellas = mysqli_query($conexion, "INSERT INTO estrellas_secundaria(id_capsula, id_alumno, estrellas, id_curso) VALUES ($id_capsula, $id_user, $estrellas, $id_curso)");
+    $insertarEstrellaTabla =  mysqli_query($conexion, "INSERT INTO total_estrellas_secundaria (estrellas, id_alumno) 
+   VALUES ('$estrellas_a_insertar', '$id_user')");
 } else {
     //Contar total de estrellas
     $consultaEstrellas = mysqli_query($conexion, "SELECT estrellas FROM estrellas_secundaria WHERE id_capsula = '$id_capsula' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");
     $resultadoEstrellas = mysqli_fetch_assoc($consultaEstrellas);
     $totalEstrellas = $resultadoEstrellas['estrellas'];
+    if ($estrellas_a_insertar > 0) {
+        // Actualizar el total de estrellas acumuladas por alumno en el curso en la tabla estrellas_curso
+        $actualizarEstrellasTabla = mysqli_query($conexion, "UPDATE total_estrellas_secundaria SET estrellas = estrellas + '$estrellas_a_insertar' 
+                                 WHERE id_alumno = '$id_user'");
+    }
 }
 
 if ($totalEstrellas <= 15) {

@@ -83,7 +83,7 @@ if (empty($existe)) {
 		function alert1() {
 			Swal.fire({
 				title: '¡Oh no!',
-				text: 'Kobot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
+				text: 'Koubot ha perdido el orden de sus fotos, ¿Podrías ayudarlo a ordenalas?',
 				imageUrl: "img/loop.gif",
 				imageHeight: 320,
 				confirmButtonText: 'Siguiente',

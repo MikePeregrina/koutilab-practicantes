@@ -73,7 +73,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h5 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h5>
+			<h5 class="titulo"><b>Usa las flechas para ayudar a Koubot a llegar hasta su cohete espacial</b></h5>
 		</div>
 
 		<div id="page">
@@ -125,7 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 		Swal.fire({
 			title: '¡Oh no!',
-			text: 'Kobot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
+			text: 'Koubot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
 			imageUrl: "../../img/img-juegos/loop.gif",
 			imageHeight: 320,
 			confirmButtonText: '¡Vamos!',
