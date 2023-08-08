@@ -1,13 +1,13 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidaddad'])) {
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_universidaddad'];
+$id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidaddad c INNER JOIN detalle_capsulas_pauniversidadrsidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pauniversidadrsidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
@@ -40,20 +40,20 @@ if (empty($existe)) {
         </b>
     </div>
     <!-- Titulo general -->
-        <div class="titulo-gen">
+    <div class="titulo-gen">
         <h2 class="titulo"><b>MENÚ</b></h2> <!--Titulo del juego-->
     </div>
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <section>
         <div class="cont-st">
-          <a href="../../../../../../rutas/ruta-pw-b.php">
-            <button class="btn-b">
-              <i class="fas fa-reply"></i>
-            </button>
-          </a>
-          <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
+            <a href="../../../../../../rutas/ruta-pw-b.php">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
         </div>
-    <!-- Parte que modifique Final -->
+        <!-- Parte que modifique Final -->
 
         <!-- Area donde se encuentran las imagenes inicialmente -->
         <div class="caja">
@@ -93,43 +93,43 @@ if (empty($existe)) {
         <div class="caja">
             <!-- Etiquetas HTML -->
             <div class="htt1" ondrop="drop(event)" id="0" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Horizontal</div>
+                <div class="html-b-t">Menú Horizontal</div>
             </div>
             <div class="htt2" ondrop="drop(event)" id="1" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Horizontal</div>
+                <div class="html-b-t">Menú Horizontal</div>
             </div>
             <div class="htt3" ondrop="drop(event)" id="2" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Horizontal</div>
+                <div class="html-b-t">Menú Horizontal</div>
             </div>
             <div class="htt4" ondrop="drop(event)" id="3" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Horizontal</div>
+                <div class="html-b-t">Menú Horizontal</div>
             </div>
             <div class="htt5" ondrop="drop(event)" id="4" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Horizontal</div>
+                <div class="html-b-t">Menú Horizontal</div>
             </div>
             <!---->
             <div class="htt6" ondrop="drop(event)" id="5" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Vertical</div>
+                <div class="html-b-t">Menú Vertical</div>
             </div>
             <div class="htt7" ondrop="drop(event)" id="6" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Vertical</div>
+                <div class="html-b-t">Menú Vertical</div>
             </div>
             <div class="htt8" ondrop="drop(event)" id="7" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Vertical</div>
+                <div class="html-b-t">Menú Vertical</div>
             </div>
             <div class="htt9" ondrop="drop(event)" id="8" ondragover="allowDrop(event)">
                 <div class="html-b-t">Menú Vertical</div>
             </div>
             <div class="htt10" ondrop="drop(event)" id="9" ondragover="allowDrop(event)">
-                <div class="html-b-t" >Menú Vertical</div>
+                <div class="html-b-t">Menú Vertical</div>
             </div>
 
         </div>
 
         <!-- Caja donde se encuentran los espacios para colocar las imagenes de CSS -->
         <!--<div class="caja-css" style="font-size: 65%;">-->
-            <!-- Etiquetas CSS -->
-            <!-- Contenedores CSS -->
+        <!-- Etiquetas CSS -->
+        <!-- Contenedores CSS -->
         <!--</div>-->
 
         <div class="btn-v">
@@ -139,35 +139,35 @@ if (empty($existe)) {
     </section>
 
     <footer class="footerimga">
-    <div class="imagen-footer">
-        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
-    </div>
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
     </footer>
     <script>
         var segundos = 240;
         let puntos = 0;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            	/*declarando condiciones que permiten cambiar el color de fondo del timer*/
-		if (segundos <= 60) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 30) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 10) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
+            /*declarando condiciones que permiten cambiar el color de fondo del timer*/
+            if (segundos <= 60) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
@@ -216,23 +216,23 @@ if (empty($existe)) {
         function verificar() {
             if (arreglo[0] != "" && arreglo[1] != "" && arreglo[2] != "" && arreglo[3] != "" && arreglo[4] != "" && arreglo[5] != "" && arreglo[6] != "" && arreglo[7] != "" && arreglo[8] != "" && arreglo[9] != "") {
                 if (arreglo[0] == "horizontal" && arreglo[1] == "horizontal" && arreglo[2] == "vertical" && arreglo[3] == "horizontal" && arreglo[4] == "vertical" && arreglo[5] == "horizontal" && arreglo[6] == "vertical" && arreglo[7] == "horizontal" && arreglo[8] == "vertical" && arreglo[9] == "vertical") {
-                        Swal.fire({
-                            title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
-                            text: '¡Puntuación guardada con éxito!',
-                            imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
-                            imageHeight: 350,
-                            backdrop: `
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
                         rgba(0,143,255,0.6)
                         url("../../img/img-juegos/fondo.gif")
                         `,
-                            confirmButtonColor: '#a14cd9',
-                            confirmButtonText: 'Aceptar',
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = '../../../../../../rutas/ruta-pw-b.php';
-                            }
-                        });
-                        correcto.play(); //agregando sonido al juego completado
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                        }
+                    });
+                    correcto.play(); //agregando sonido al juego completado
                 } else {
                     Swal.fire({
                         title: 'Oops...',
@@ -247,7 +247,6 @@ if (empty($existe)) {
                 }
             }
         }
-
     </script>
     <script>
         //Funcion para recargar pagina

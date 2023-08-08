@@ -6,7 +6,7 @@
 
 session_start();
 $id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidaddad'])) {
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
@@ -15,17 +15,17 @@ define('ProPayPal', 0);
 if (ProPayPal) {
     define("PayPalClientId", "*********************");
     define("PayPalSecret", "*********************");
-    define("PayPalBaseUrl", "https://koutilab.com/alumno/universidaddad/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "https://koutilab.com/alumno/universidad/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
     define("PayPalSecret", "EAOYI052iYSGGT2592LeeXNvDbCq9tArRGqgWRVCAxQwf55u-wHx3VVxePzGD2j-9F29mEcbXL12mPFR");
-    define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/universidaddad/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/universidad/cursos/programacion-web/intermedio/capsulas/contenido/pasarela/");
     define("PayPalENV", "sandbox");
 }
 $productName = "Cápsula de prueba";
 $currency = "USD";
-$productPrice = 2;
+$productPrice = 4;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = $_POST['id_curso'];

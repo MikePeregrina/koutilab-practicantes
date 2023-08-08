@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidaddad'])) {
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 ?>
@@ -53,12 +53,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidaddad'])) 
                     </li>
                 </ul>
                 <ul id="slider">
-                            <li style="background-image: url('../../img/bienvenidaalcurso/1.gif'); z-index:0; opacity: 1;"></li>
-                            <li style="background-image: url('../../img/bienvenidaalcurso/2.gif');"></li>
-                            <li style="background-image: url('../../img/bienvenidaalcurso/3.gif');"></li>
-                            <li style="background-image: url('../../img/bienvenidaalcurso/4.gif');"></li>
-                            <li style="background-image: url('../../img/bienvenidaalcurso/5.gif');"></li>
-                            <li style="background-image: url('../../img/bienvenidaalcurso/6.gif');"></li>
+                    <li style="background-image: url('../../img/bienvenidaalcurso/1.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/bienvenidaalcurso/2.gif');"></li>
+                    <li style="background-image: url('../../img/bienvenidaalcurso/3.gif');"></li>
+                    <li style="background-image: url('../../img/bienvenidaalcurso/4.gif');"></li>
+                    <li style="background-image: url('../../img/bienvenidaalcurso/5.gif');"></li>
+                    <li style="background-image: url('../../img/bienvenidaalcurso/6.gif');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">

@@ -26,7 +26,7 @@ if (ProPayPal) {
 }
 $productName = "Cápsula de prueba";
 $currency = "USD";
-$productPrice = 2;
+$productPrice = 4;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = $_POST['id_curso'];

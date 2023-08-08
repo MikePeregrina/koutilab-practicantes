@@ -15,7 +15,7 @@ define('ProPayPal', 0);
 if (ProPayPal) {
     define("PayPalClientId", "*********************");
     define("PayPalSecret", "*********************");
-    define("PayPalBaseUrl", "https://koutilab.com/alumno/universidad/cursos/pythom/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "https://koutilab.com/alumno/universidad/cursos/python/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
@@ -25,7 +25,7 @@ if (ProPayPal) {
 }
 $productName = "Cápsula de prueba";
 $currency = "USD";
-$productPrice = 2;
+$productPrice = 4;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = $_POST['id_curso'];
