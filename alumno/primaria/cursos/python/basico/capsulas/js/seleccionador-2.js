@@ -199,7 +199,7 @@ function mostrarResultados() {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../rutas/ruta-py-b.php';
+                    window.location.href = '../../../../../../rutas/ruta-py-b.php';
                 }
             });
             Correcto.play(); //Agregando sonido al juego completado
