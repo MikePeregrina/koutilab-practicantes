@@ -223,6 +223,11 @@
 				}
 
 				if (wordList.length === 0) {
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 +"&id_curso=" + 12; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					$('.puzzleSquare').addClass('complete');
 					Swal.fire({
 						title: '¡Bien hecho!',
@@ -237,7 +242,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '#';
+							window.location.href = '../../../../../../rutas/ruta-vj-a.php';
 						}
 					});
 				}

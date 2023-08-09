@@ -1,3 +1,44 @@
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula12";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+}
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 13;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,7 +71,7 @@
     <!-- Contenedor principal -->
     <div class="contenido">
         <div class="cont-st">
-        <a href="#" onclick="history.back();">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -125,8 +166,7 @@
                     if (mostrar_pantalla_juego_términado) {
                         swal.fire({
                             title: "Juego finalizado",
-                            text:
-                                "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
+                            text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
                             icon: "success",
                             confirmButtonText: '¡Genial!'
                         }).then((result) => {
@@ -243,20 +283,16 @@
             }
             return texto;
         }
-/* Ambos */
-
-
+        /* Ambos */
     </script>
     <script>
-
         //ambos
         //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
         function marcador() {
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -271,8 +307,7 @@
             if (mostrar_pantalla_juego_términado) {
                 swal.fire({
                     title: "Juego finalizado",
-                    text:
-                        "Puntuación: " + preguntas_correctas + "/" + "5",//preguntas_hechas
+                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
                     icon: "success",
                     confirmButtonText: '¡Genial!'
                 }).then((result) => {
@@ -285,6 +320,11 @@
 
         //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
         function tiempoAgotado() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 12; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
@@ -344,6 +384,11 @@
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 +"&id_curso=" + 12; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
                 text: '¡Buen trabajo!',
@@ -356,7 +401,7 @@
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.reload();
+                    window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                 }
             });
         }
