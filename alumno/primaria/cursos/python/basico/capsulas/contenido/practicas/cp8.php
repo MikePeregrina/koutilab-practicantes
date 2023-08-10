@@ -149,7 +149,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\nsuma = ' + val[2] + ' + ' + val[4] + ' suma es:", suma)';
+            let esperado = '1\n2\nsuma = numero1 + numero2\nprint("La suma es:", suma)';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
