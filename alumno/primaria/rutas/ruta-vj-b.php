@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "1";
+$permiso = "10";
 $sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
@@ -16,7 +16,7 @@ if (empty($existe)) {
 include "verificar-ruta-vj-b.php";
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de videojuegos unity
-$capsula_verificar_Videojuegos_Unity1= "capsula7";
+$capsula_verificar_Videojuegos_Unity1 = "capsula7";
 $sql_verificar_Videojuegos_Unity1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_Videojuegos_Unity1' AND d.id_curso = 10");
 $existe_verificar_Videojuegos_Unity1 = mysqli_num_rows($sql_verificar_Videojuegos_Unity1);
 
@@ -149,7 +149,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/evaluativas/ce1videojuegos.php"><button class="btn32" id="eva" <?php echo 'style="' . (($existe_capsula25 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas Videojuegos Unity Basico 1-->
 
                 <div class="label-css">
-                <span>Capitulo 2</span>
+                    <span>Capitulo 2</span>
                 </div>
                 <!-- Videojuegos UNITY Capitulo 2-->
                 <!-- TEMA 1 -->

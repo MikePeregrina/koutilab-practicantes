@@ -261,6 +261,26 @@ $sql_capsula52 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparat
 $existe_capsula52 = mysqli_num_rows($sql_capsula52);
 
 //Verificar si capsula esta completada para mostrar sin opacidad la cápsula
+$capsula53 = "capsula53";
+$sql_capsula53 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula53' AND d.id_curso = 3");
+$existe_capsula53 = mysqli_num_rows($sql_capsula53);
+
+//Verificar si capsula esta completada para mostrar sin opacidad la cápsula
+$capsula54 = "capsula54";
+$sql_capsula54 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula54' AND d.id_curso = 3");
+$existe_capsula54 = mysqli_num_rows($sql_capsula54);
+
+//Verificar si capsula esta completada para mostrar sin opacidad la cápsula
+$capsula55 = "capsula55";
+$sql_capsula55 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula55' AND d.id_curso = 3");
+$existe_capsula55 = mysqli_num_rows($sql_capsula55);
+
+//Verificar si capsula esta completada para mostrar sin opacidad la cápsula
+$capsula56 = "capsula56";
+$sql_capsula56 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula56' AND d.id_curso = 3");
+$existe_capsula56 = mysqli_num_rows($sql_capsula56);
+
+//Verificar si capsula esta completada para mostrar sin opacidad la cápsula
 $capsula99 = "capsula99";
 $sql_capsula99 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula99' AND d.id_curso = 3");
 $existe_capsula99 = mysqli_num_rows($sql_capsula99);

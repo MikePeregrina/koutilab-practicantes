@@ -168,34 +168,35 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <div class="label-css">
                     <span></span>
                 </div>
+                <a href="../cursos/informatica/basico/capsulas/contenido/introduccion/ci2css.php"><button class="btn33" id="intro" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct11informatica.php"><button class="btn34" id="teoria" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp11informatica.php"><button class="btn35" id="prac" <?php echo 'style="' . (($existe_capsula27 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-1.php"><button class="btn36" id="game" <?php echo 'style="' . (($existe_capsula28 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct11informatica.php"><button class="btn34" id="teoria" <?php echo 'style="' . (($existe_capsula27 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp11informatica.php"><button class="btn35" id="prac" <?php echo 'style="' . (($existe_capsula28 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-1.php"><button class="btn36" id="game" <?php echo 'style="' . (($existe_capsula29 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct13informatica.php"><button class="btn37" id="teoria" <?php echo 'style="' . (($existe_capsula29 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 2-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp13informatica.php"><button class="btn38" id="prac" <?php echo 'style="' . (($existe_capsula30 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 2-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-2.php"><button class="btn39" id="game" <?php echo 'style="' . (($existe_capsula31 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 2-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct13informatica.php"><button class="btn37" id="teoria" <?php echo 'style="' . (($existe_capsula30 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 2-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp13informatica.php"><button class="btn38" id="prac" <?php echo 'style="' . (($existe_capsula31 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 2-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-2.php"><button class="btn39" id="game" <?php echo 'style="' . (($existe_capsula32 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 2-->
                 <!-- TEMA 3 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct14informatica.php"><button class="btn40" id="teoria" <?php echo 'style="' . (($existe_capsula32 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 3-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp14informatica.php"><button class="btn41" id="prac" <?php echo 'style="' . (($existe_capsula33 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 3-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-3.php"><button class="btn42" id="game" <?php echo 'style="' . (($existe_capsula34 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 3-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct14informatica.php"><button class="btn40" id="teoria" <?php echo 'style="' . (($existe_capsula33 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 3-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp14informatica.php"><button class="btn41" id="prac" <?php echo 'style="' . (($existe_capsula34 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 3-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-3.php"><button class="btn42" id="game" <?php echo 'style="' . (($existe_capsula35 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 3-->
                 <!-- TEMA 4 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct15informatica.php"><button class="btn43" id="teoria" <?php echo 'style="' . (($existe_capsula35 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 4-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp15informatica.php"><button class="btn44" id="prac" <?php echo 'style="' . (($existe_capsula36 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 4-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-4.php"><button class="btn45" id="game" <?php echo 'style="' . (($existe_capsula37 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 4-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct15informatica.php"><button class="btn43" id="teoria" <?php echo 'style="' . (($existe_capsula36 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 4-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp15informatica.php"><button class="btn44" id="prac" <?php echo 'style="' . (($existe_capsula37 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 4-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-4.php"><button class="btn45" id="game" <?php echo 'style="' . (($existe_capsula38 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 4-->
                 <!-- TEMA 5 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct17informatica.php"><button class="btn46" id="teoria" <?php echo 'style="' . (($existe_capsula38 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 5-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp17informatica.php"><button class="btn47" id="prac" <?php echo 'style="' . (($existe_capsula39 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 5-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-5.php"><button class="btn48" id="game" <?php echo 'style="' . (($existe_capsula40 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 5-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct17informatica.php"><button class="btn46" id="teoria" <?php echo 'style="' . (($existe_capsula39 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 5-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp17informatica.php"><button class="btn47" id="prac" <?php echo 'style="' . (($existe_capsula40 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 5-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-5.php"><button class="btn48" id="game" <?php echo 'style="' . (($existe_capsula41 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 5-->
                 <!-- TEMA 6 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct18informatica.php"><button class="btn49" id="teoria" <?php echo 'style="' . (($existe_capsula41 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 6-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp18informatica.php"><button class="btn50" id="prac" <?php echo 'style="' . (($existe_capsula42 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 6-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-6.php"><button class="btn51" id="game" <?php echo 'style="' . (($existe_capsula43 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 6-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct18informatica.php"><button class="btn49" id="teoria" <?php echo 'style="' . (($existe_capsula42 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 6-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp18informatica.php"><button class="btn50" id="prac" <?php echo 'style="' . (($existe_capsula43 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 6-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-6.php"><button class="btn51" id="game" <?php echo 'style="' . (($existe_capsula44 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 6-->
                 <!-- TEMA 7 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct19informatica.php"><button class="btn52" id="teoria" <?php echo 'style="' . (($existe_capsula44 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 7-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp19informatica.php"><button class="btn53" id="prac" <?php echo 'style="' . (($existe_capsula45 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 7-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-7.php"><button class="btn54" id="game" <?php echo 'style="' . (($existe_capsula46 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 7-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct19informatica.php"><button class="btn52" id="teoria" <?php echo 'style="' . (($existe_capsula45 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 7-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp19informatica.php"><button class="btn53" id="prac" <?php echo 'style="' . (($existe_capsula46 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 7-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-7.php"><button class="btn54" id="game" <?php echo 'style="' . (($existe_capsula47 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 7-->
                 <!-- TEMA 8 -->
                 <div class="container-premium3">
                     <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp12informatica.php"><button class="btn56" id="pracp" <?php echo 'style="' . (($existe_verificar_css1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 8-->
@@ -213,9 +214,9 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <!-- Extras -->
 
                 <!-- TEMA 9 -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct20informatica.php"><button class="btn58" id="teoria" <?php echo 'style="' . (($existe_capsula47 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 9-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp20informatica.php"><button class="btn59" id="prac" <?php echo 'style="' . (($existe_capsula48 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 9-->
-                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-8.php"><button class="btn60" id="game" <?php echo 'style="' . (($existe_capsula49 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 9-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct20informatica.php"><button class="btn58" id="teoria" <?php echo 'style="' . (($existe_capsula48 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 9-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp20informatica.php"><button class="btn59" id="prac" <?php echo 'style="' . (($existe_capsula49 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 9-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjib2-8.php"><button class="btn60" id="game" <?php echo 'style="' . (($existe_capsula50 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 9-->
                 <!-- TEMA 10 -->
                 <div class="container-premium4">
                     <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct16informatica.php"><button class="btn61" id="teoriap" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
@@ -233,7 +234,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <!-- Extras -->
 
                 <!-- EVALUATIVA CSS -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce2css.php"><button class="btn64" id="eva" <?php echo 'style="' . (($existe_capsula50 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce2css.php"><button class="btn64" id="eva" <?php echo 'style="' . (($existe_capsula51 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
             </div>
         </div>
     </section>
