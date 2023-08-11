@@ -9,9 +9,9 @@ $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula2";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 
@@ -82,8 +82,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p> Agregar un párrafo con su título dentro de un div (todas las etiquetas se deben de cerrar).
                                     < div>
                                         < h1>
-                                        < /h1>
-                                            < /div>               
+                                            < /h1>
+                                                < /div>
                                                     <br> <br>
                                 </p>
                             </td>
@@ -99,7 +99,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update"  disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script src="../../js/fund.js"></script>

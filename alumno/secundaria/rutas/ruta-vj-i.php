@@ -150,7 +150,6 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <div class="label-css">
                     <span>Capitulo 2</span>
                 </div>
-                <a href="../cursos/videojuegosunity/intermedio/capsulas/contenido/introduccion/civideojuegosi.php"><button class="btn33" id="intro" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a Videojuegos Unity Capitulo 2-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/videojuegosunity/intermedio/capsulas/contenido/teoricas/ct11videojuegosi.php"><button class="btn34" id="teoria" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/videojuegosunity/intermedio/capsulas/contenido/practicas/cp11videojuegosi.php"><button class="btn35" id="prac" <?php echo 'style="' . (($existe_capsula27 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->

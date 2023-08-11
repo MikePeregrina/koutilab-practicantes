@@ -164,7 +164,7 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp2.php"><button class="prem2" id="pracp" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 2-->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp1/index.php"><button class="prem3" id="gamep" <?php echo 'style="' . (($existe_verificar_py1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 2-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- TEMA 2.5 PREMIUM -->
                 <div class="container-premium2">
@@ -179,7 +179,7 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp4.php"><button class="prem5" id="pracp" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 4-->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp2.php"><button class="prem6" id="gamep" <?php echo 'style="' . (($existe_verificar_py2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 4-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- TEMA 5.5 PREMIUM -->
                 <div class="container-premium3">
@@ -194,16 +194,15 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp9.php"><button class="prem8" id="pracp" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 9-->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp3-1.php"><button class="prem9" id="gamep" <?php echo 'style="' . (($existe_verificar_py3 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py3 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 9-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- PARTE 2 -->
                 <div class="label-2">
                     <span>CAPITULO 2</span>
                 </div>
                 <!-- PY -->
-                <a href="../cursos/python/basico/capsulas/contenido/introduccion/ci2.php"><button class="btn24" id="intro" <?php echo 'style="' . (($existe_capsula23 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a PY-->
                 <!-- TEMA 1 -->
-                <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct1python.php"><button class="btn25" id="teoria" <?php echo 'style="' . (($existe_capsula99 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
+                <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct1python.php"><button class="btn25" id="teoria" <?php echo 'style="' . (($existe_capsula23 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/python/basico/capsulas/contenido/practicas/cp11.php"><button class="btn26" id="prac" <?php echo 'style="' . (($existe_capsula24 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
                 <a href="../cursos/python/basico/capsulas/contenido/juegos/cjp2-1.php"><button class="btn27" id="game" <?php echo 'style="' . (($existe_capsula25 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
@@ -241,13 +240,13 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                     <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct1-5python.php"><button class="prem10" id="teoriap" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 2-->
                 </div>
 
-                 <!-- Extras -->
-                 <div class="container-premium-extra4">
-                    
+                <!-- Extras -->
+                <div class="container-premium-extra4">
+
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp12.php"><button class="prem11" id="pracp" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 2-->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp4.php"><button class="prem12" id="gamep" <?php echo 'style="' . (($existe_verificar_py4 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py4 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 2-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- TEMA 3.5 PREMIUM -->
                 <div class="container-premium5">
@@ -259,11 +258,11 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 
                 <!-- Extras -->
                 <div class="container-premium-extra5">
-                    
+
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp15.php"><button class="prem14" id="pracp" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 5-->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp5-1.php"><button class="prem15" id="gamep" <?php echo 'style="' . (($existe_verificar_py5 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py5 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 5-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- TEMA 6.5 PREMIUM -->
                 <div class="container-premium6">
@@ -275,11 +274,11 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 
                 <!-- Extras -->
                 <div class="container-premium-extra6">
-                    
+
                     <a href="../cursos/python/basico/capsulas/contenido/practicas/cp19.php"><button class="prem17" id="pracp" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 9 -->
                     <a href="../cursos/python/basico/capsulas/contenido/juegos/cjpp6.php"><button class="prem18" id="gamep" <?php echo 'style="' . (($existe_verificar_py6 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_py6 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 9-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
             </div>
         </div>
     </section>

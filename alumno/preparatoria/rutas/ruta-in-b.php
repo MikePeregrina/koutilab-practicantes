@@ -139,13 +139,13 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                     <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjibp1/index.php"><button class="btn28" id="gamep" <?php echo 'style="' . (($existe_verificar_html1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html1 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 9-->
                 </div>
 
-                 <!-- Extras -->
-                 <div class="container-premium-extra1">
+                <!-- Extras -->
+                <div class="container-premium-extra1">
                     <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct4informatica.php"><button class="btn26" id="teoriap" <?php echo 'style="' . (($existe_verificar_html1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 9-->
                     <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp4informatica.php"><button class="btn27" id="pracp" <?php echo 'style="' . (($existe_verificar_html1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 9-->
                     <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjibp1/index.php"><button class="btn28" id="gamep" <?php echo 'style="' . (($existe_verificar_html1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html1 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 9-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- TEMA 10 -->
                 <div class="container-premium2">
@@ -160,7 +160,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                     <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjibp2.php"><button class="btn31" id="gamep" <?php echo 'style="' . (($existe_verificar_html2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html2 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 10-->
                     <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct9informatica.php"><button class="btn29" id="teoriap" <?php echo 'style="' . (($existe_verificar_html2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- EVALUATIVA informatica-->
                 <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce1informatica.php"><button class="btn32" id="eva" <?php echo 'style="' . (($existe_capsula25 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
@@ -168,7 +168,6 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <div class="label-css">
                     <span></span>
                 </div>
-                <a href="../cursos/informatica/basico/capsulas/contenido/introduccion/ci2css.php"><button class="btn33" id="intro"></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct11informatica.php"><button class="btn34" id="teoria" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp11informatica.php"><button class="btn35" id="prac" <?php echo 'style="' . (($existe_capsula27 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
@@ -207,11 +206,11 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
 
                 <!-- Extras -->
                 <div class="container-premium-extra3">
-                   
+
                     <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjibp3/index.php"><button class="btn57" id="gamep" <?php echo 'style="' . (($existe_verificar_css1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 8-->
                     <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct12informatica.php"><button class="btn55" id="teoriap" <?php echo 'style="' . (($existe_verificar_css1 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css1 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 8-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- TEMA 9 -->
                 <a href="../cursos/informatica/basico/capsulas/contenido/teoricas/ct20informatica.php"><button class="btn58" id="teoria" <?php echo 'style="' . (($existe_capsula47 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 9-->
@@ -227,11 +226,11 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
 
                 <!-- Extras -->
                 <div class="container-premium-extra4">
-                   
+
                     <a href="../cursos/informatica/basico/capsulas/contenido/practicas/cp16informatica.php"><button class="btn62" id="pracp" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 10-->
                     <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjibp4.php"><button class="btn63" id="gamep" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 10-->
                 </div>
-                 <!-- Extras -->
+                <!-- Extras -->
 
                 <!-- EVALUATIVA CSS -->
                 <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce2css.php"><button class="btn64" id="eva" <?php echo 'style="' . (($existe_capsula50 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
