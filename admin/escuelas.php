@@ -9,7 +9,7 @@ include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
 
-$sql = "SELECT COUNT(*) id_escuela FROM escuelas";
+$sql = "SELECT COUNT(*) id_escuela FROM escuelas WHERE estatus = 1";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 ?>

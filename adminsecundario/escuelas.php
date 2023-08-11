@@ -40,7 +40,7 @@ if ($pais === "México") {
     $estados_disponibles = $estados_peru;
 }
 
-$sql = "SELECT COUNT(*) id_escuela FROM escuelas";
+$sql = "SELECT COUNT(*) id_escuela FROM escuelas WHERE estatus = 1";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 ?>
