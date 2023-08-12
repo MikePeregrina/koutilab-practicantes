@@ -12,7 +12,7 @@ if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['i
     $id_capsula = $_GET['id_capsula'];
     $id_curso = $_GET['id_curso'];
 
-    // Verificar si el usuario tiene al menos 150 estrellas
+    // Verificar si el usuario tiene al menos 50 estrellas
     $sql_estrellas = "SELECT estrellas FROM total_estrellas_preparatoria WHERE id_alumno = $id_user";
     $result_estrellas = $conexion->query($sql_estrellas);
 
@@ -20,9 +20,9 @@ if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['i
         $row = $result_estrellas->fetch_assoc();
         $cantidad_estrellas = $row['estrellas'];
 
-        if ($cantidad_estrellas >= 150) {
-            // Actualizar la cantidad de estrellas restando 150
-            $nueva_cantidad_estrellas = $cantidad_estrellas - 150;
+        if ($cantidad_estrellas >= 50) {
+            // Actualizar la cantidad de estrellas restando 50
+            $nueva_cantidad_estrellas = $cantidad_estrellas - 50;
             $query_update_estrellas = mysqli_query($conexion, "UPDATE total_estrellas_preparatoria SET estrellas = '$nueva_cantidad_estrellas' WHERE id_alumno = '$id_user'");
 
             // Insertar en detalle_capsulas_pago_preparatoria

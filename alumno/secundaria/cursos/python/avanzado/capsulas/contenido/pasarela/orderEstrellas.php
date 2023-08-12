@@ -14,8 +14,8 @@ if ($result_estrellas->num_rows > 0) {
     $row = $result_estrellas->fetch_assoc();
     $cantidad_estrellas = $row['estrellas'];
 
-    // Verificar si el usuario tiene al menos 150 estrellas
-    $puede_comprar = ($cantidad_estrellas >= 150);
+    // Verificar si el usuario tiene al menos 50 estrellas
+    $puede_comprar = ($cantidad_estrellas >= 50);
 } else {
     $cantidad_estrellas = 0;
     $puede_comprar = false;
@@ -47,7 +47,7 @@ $id_curso = $_GET['id_curso'];
         <div>
             <?php if ($puede_comprar) : ?>
                 <button>
-                    <a href="orderDetailsEstrellas.php?payment_amount=150&id_alumno=<?php echo $id_user; ?>&id_capsula=<?php echo $id_capsula; ?>&id_curso=<?php echo $id_curso; ?>" type="button">Comprar por 150 estrellas ahora mismo</a>
+                    <a href="orderDetailsEstrellas.php?payment_amount=50&id_alumno=<?php echo $id_user; ?>&id_capsula=<?php echo $id_capsula; ?>&id_curso=<?php echo $id_curso; ?>" type="button">Comprar por 50 estrellas ahora mismo</a>
                 </button>
             <?php else : ?>
                 <h1 style="color: red;">Estrellas insuficientes</h1>

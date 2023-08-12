@@ -98,11 +98,11 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <span></span>
             </div>
             <a href="../acciones/estadisticas_in-i.php" style="text-decoration: none;color: inherit;">
-                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
+                <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
             </a>
             <div class="snake">
                 <!-- informatica -->
-                <a href="../cursos/informatica/intermedio/capsulas/contenido/introduccion/ci1html.php"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a informatica-->
+                <a href="../cursos/informatica/intermedio/capsulas/contenido/introduccion/ci1informaticai.php"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a informatica-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct1informatica.php"><button class="btn2" id="teoria" <?php echo 'style="' . (($existe_capsula1 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/informatica/intermedio/capsulas/contenido/practicas/cp1informatica.php"><button class="btn3" id="prac" <?php echo 'style="' . (($existe_capsula2 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
@@ -153,7 +153,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <div class="label-css">
                     <span></span>
                 </div>
-                <a href="../cursos/informatica/intermedio/capsulas/contenido/introduccion/ci2css.php"><button class="btn33" id="intro" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
+                <a href="../cursos/informatica/intermedio/capsulas/contenido/introduccion/ci2informaticai.php"><button class="btn33" id="intro" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct11informatica.php"><button class="btn34" id="teoria" <?php echo 'style="' . (($existe_capsula27 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 1-->
                 <a href="../cursos/informatica/intermedio/capsulas/contenido/practicas/cp11informatica.php"><button class="btn35" id="prac" <?php echo 'style="' . (($existe_capsula28 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 1-->
