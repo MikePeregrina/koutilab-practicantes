@@ -118,6 +118,9 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
             <div class="label">
                 <span>CAPITULO 1</span>
             </div>
+            <a href="../acciones/estadisticas_py-b.php" style="text-decoration: none;color: inherit;">
+                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
+            </a>
             <div class="snake">
                 <!-- PY -->
                 <a href="../cursos/python/basico/capsulas/contenido/introduccion/ci1.php"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a PY-->

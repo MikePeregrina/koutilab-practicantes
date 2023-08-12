@@ -114,6 +114,9 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 
     <section>
         <div class="main-content">
+            <a href="../acciones/estadisticas_py-i.php" style="text-decoration: none;color: inherit;">
+                <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
+            </a>
             <div class="snake">
                 <div class="label">
                     <span>CAPITULO 1</span>
