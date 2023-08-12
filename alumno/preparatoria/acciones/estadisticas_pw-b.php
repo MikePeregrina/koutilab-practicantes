@@ -598,7 +598,7 @@ if ($result_estrellas->num_rows > 0) {
         <div class="left-content">
             <div class="estadisticas">
                 <div class="titlec">
-                    <h2>Estadisticas</h2>
+                    <h2>Estadísticas</h2>
                 </div>
 
                 <div class="canva">
