@@ -98,6 +98,9 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
             <div class="label">
                 <span>Capitulo 1</span>
             </div>
+            <a href="../acciones/estadisticas_vj-b.php" style="text-decoration: none;color: inherit;">
+                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
+            </a>
             <div class="snake">
                 <!-- Videojuegos Unity Basico 1-->
                 <a href="../cursos/videojuegosunity/basico/capsulas/contenido/bienvenida/cb1videojuegos.php"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a HTML-->
