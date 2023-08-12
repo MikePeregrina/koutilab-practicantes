@@ -696,6 +696,29 @@ section {
   margin-left: -18%;
 }
 
+.graphics-buttoon{
+  display: flex;
+  width: 85px; /* Ajusta el tamaño del círculo */
+  height: 85px; /* Ajusta el tamaño del círculo */
+  background-color: #41b7f6; /* Color de fondo */
+  border-radius: 50%; /* Hace que el div tenga forma de círculo */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el círculo */
+  position: fixed; /* Lo posiciona de manera fija en la pantalla */
+  bottom: 4%; /* Distancia desde la parte inferior */
+  right: 2.5%; /* Distancia desde la parte derecha */
+  transition:  0.5s; 
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.graphics-buttoon:hover {
+  transform: scale(1.1); 
+  color: white ;
+  background-color: rgb(42, 42, 42);
+}
+
 
 @media (max-width: 1150px) {
   .containers h1{
