@@ -237,7 +237,7 @@
                 <div class="f-space">
                     <h1>Síguenos</h1>
                     <h5><a href="https://www.facebook.com/KoutiLab" class="a-f"><i class="fab fa-facebook-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Facebook</a></h5>
-                    <h5 class="f-tx1"><a href="https://www.instagram.com/aerobotplanet_oficial/" class="a-f"><i class="fab fa-instagram-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Instagram</a></h5>
+                    <h5 class="f-tx1"><a href="https://instagram.com/koutilab?igshid=MzRlODBiNWFlZA==" class="a-f"><i class="fab fa-instagram-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Instagram</a></h5>
                     <h5 class="f-tx1"><a href="https://api.whatsapp.com/send?phone=522228279092" class="a-f"><i class="fab fa-whatsapp-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;WhatsApp</a></h5>
                 </div>
             </div>
