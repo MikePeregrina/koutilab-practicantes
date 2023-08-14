@@ -248,7 +248,7 @@ if (empty($existe)) {
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = '../../../../../../../rutas/ruta-pw-b.php';
+									window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 1 + '&estrellas=' + 15;
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado
