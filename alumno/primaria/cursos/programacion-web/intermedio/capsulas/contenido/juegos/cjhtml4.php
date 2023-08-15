@@ -161,8 +161,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
         function tiempoAgotado() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 2; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
@@ -217,8 +217,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 2; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
                 Swal.fire({
@@ -248,8 +248,8 @@ if (isset($resultadoIntentos['intentos'])) {
             var puntos = <?php echo $puntosGanados; ?>
 
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 2; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
