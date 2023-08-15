@@ -59,8 +59,8 @@ function iniciarTiempo() {
         //Borra el texto escrito
         escrito.value = "";
         var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 6; //cancatenation
-        xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 6 + "&redireccion=" + '../contenido/juegos/cjp1-7.php'; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send(param);
         Swal.fire({
@@ -92,8 +92,8 @@ function alertExcelent() {
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
         var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 6; //cancatenation
-        xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 6 + "&redireccion=" + '../contenido/juegos/cjp1-7.php'; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send(param);
         Swal.fire({
