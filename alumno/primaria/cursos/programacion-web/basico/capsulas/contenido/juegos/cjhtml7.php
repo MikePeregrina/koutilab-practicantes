@@ -148,8 +148,8 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 1; //cancatenation
-		        xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjhtml7.php'; //cancatenation
+		        xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 		        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		        xmlhttp.send(param);
                 Swal.fire({
