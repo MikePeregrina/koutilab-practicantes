@@ -11,11 +11,11 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
-$htmlcode = $_GET['htmlcode'];
 $redireccion = $_GET['redireccion'];
-$htmlcodeCodificado = urlencode($htmlcode);
-$mensajeConSaltosDeLinea = str_replace("%0A", "sdl", $htmlcodeCodificado);
-$urlRedireccionamiento = "{$redireccion}?htmlcode=" . $mensajeConSaltosDeLinea;
+$pythoncode = $_GET['pythoncode'];
+$pythoncodeDecodificado = urldecode($pythoncode);
+$mensajeConSaltosDeLinea = str_replace(array("\r", "\n"), array('\r', '\n'), $pythoncodeDecodificado);
+$urlRedireccionamiento = "{$redireccion}?pythoncode=" . $mensajeConSaltosDeLinea;
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_primaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");

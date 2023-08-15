@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 48;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -90,7 +90,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/videojuegosunity/T20/4.jpg');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd48.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>Si ya no juegas ¿Cuál es el nombre de la opcion que se visualiza?</h1>
                                     <div>
@@ -108,7 +108,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Menu de gears 
+                                            Menu de gears
                                         </label>
                                     </div>
                                     <div>
@@ -117,10 +117,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Menu Principal
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="48">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="10">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct20videojuegos.php">
                                 </form>
                             </div>
                         </li>

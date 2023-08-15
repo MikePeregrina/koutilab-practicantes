@@ -96,7 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/videojuegosunity/T6/5.jpg');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿De cuantas maneras se clasifican los Assets?</h1>
                                     <div>
@@ -127,6 +127,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="10">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct6videojuegos.php">
                                 </form>
                             </div>
                         </li>

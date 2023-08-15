@@ -91,37 +91,38 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/videojuegosunitya/T9/4.jpg');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd20.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué hace la función Groundcheck?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                        Genera saltos
+                                            Genera saltos
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                        Crea una secuencia de comandos
+                                            Crea una secuencia de comandos
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                        Detecta Colisiones
+                                            Detecta Colisiones
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                        Comprobar tu conexión 
+                                            Comprobar tu conexión
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="20">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="12">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct9videojuegos.php">
                                 </form>
                             </div>
                         </li>
@@ -130,10 +131,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

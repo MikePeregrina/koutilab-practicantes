@@ -94,7 +94,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd17.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es la función principal del correo electrónico?</h1>
                                     <div class="container-question">
@@ -125,6 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct6informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -133,10 +134,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

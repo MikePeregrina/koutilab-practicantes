@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula41";
+$permiso = "capsula42";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 42;
+$permiso_intento = 43;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 6");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T7/144.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd42.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué son los atributos y métodos en Python?</h1>
                                     <div class="container-question">
@@ -116,10 +116,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Son características específicas de los archivos y directorios en el sistema operativo.</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="42">
+                                    <input type="hidden" name="permiso" value="43">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="6">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/P2/ct7python.php">
                                 </form>
                             </div>
                         </li>
@@ -128,10 +129,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="acciones/img/lgk.png">
-    <link rel="stylesheet" href="acciones/css/index.css">
+    <link rel="stylesheet" href="acciones/css/indexL.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-box"><br><br>
                     <div class="button-box" style="margin: 10px 0 0 55px;">
-                        <div id="elegir"  style="width: 240px;"></div>
+                        <div id="elegir" style="width: 240px;"></div>
                         <button type="button" class="toggle-btn" style="margin: 0 0 0 35px;">Recuperar contraseña</button>
                     </div>
                     <div class="logop" style="margin: 30px 0 0 -70px;">
@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <br>
                             <div class="input-icon">
-                            <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope"></i>
                             </div>
                             <input type="email" name="email" class="input-field" placeholder="Correo electrónico" value="" required>
                         </div>

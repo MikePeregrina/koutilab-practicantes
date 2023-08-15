@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula44";
+$permiso = "capsula45";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -98,7 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/css/T7/137.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd45.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué son los selectores ID?</h1>
                                     <div class="container-question">
@@ -117,10 +117,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Todas las anteriores</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="45">
+                                    <input type="hidden" name="permiso" value="46">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct7css.php">
                                 </form>
                             </div>
                         </li>
@@ -130,10 +131,10 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

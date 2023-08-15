@@ -148,7 +148,7 @@ function fetchQuiz() {
           "&validar=" +
           "correcto" +
           "&permiso=" +
-          51 +
+          52 +
           "&id_curso=" +
           1 +
           "&redireccion=" +

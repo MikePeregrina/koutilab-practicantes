@@ -98,7 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/html/T3/32.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd8.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son los 2 tipos de listas?</h1>
                                     <div class="container-question">
@@ -117,10 +117,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Listas enumeradas con letras y listas enumeradas con numeros</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="9">
+                                    <input type="hidden" name="permiso" value="8">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct3html.php">
                                 </form>
                             </div>
                         </li>
@@ -130,11 +131,11 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
-    
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
+
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
