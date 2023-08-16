@@ -10,9 +10,9 @@ $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula8";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
@@ -81,12 +81,14 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p>
                                     <br>
                                     1. Haga 1 lista, que contenga el nombre de 5 compañeros
-                                    de la escuela, esta lista debe ser no ordenada. < ul> < li>
-                                        <br>
-                                        2. Haga 1 lista, que contenga el nombre de sus 5 juguetes favoritos,
-                                        Estos juguetes deben estar ordenados, es claramente subjetivo
-                                        y no afecta el orden al resultado. < ol> < li>
+                                    de la escuela, esta lista debe ser no ordenada. < ul>
+                                        < li>
                                             <br>
+                                            2. Haga 1 lista, que contenga el nombre de sus 5 juguetes favoritos,
+                                            Estos juguetes deben estar ordenados, es claramente subjetivo
+                                            y no afecta el orden al resultado. < ol>
+                                                < li>
+                                                    <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -103,7 +105,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update"  disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
     <script>
@@ -140,7 +142,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 1 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -156,7 +158,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
-                        window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 1 + '&practico=' + 10;
 
                     });
                 } else if (puntos == 8) {
@@ -173,7 +175,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 1 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -190,7 +192,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + encodeHTML;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + encodeHTML;
 
                         }
                     });
@@ -207,7 +209,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'incorrecto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode='+ document.getElementById("cd").value;
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 1 + '&practico=' + 10 + '&htmlcode=' + document.getElementById("cd").value + '&redireccion=' + '../contenido/practicas/cp3html.php';
 
                     }
                 });
