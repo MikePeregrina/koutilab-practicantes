@@ -319,125 +319,130 @@ $datos_por_capsula = array(
     ),
     "27" => array(
         "area" => "Teórica",
-        "tema" => "Conectar HTML y CSS",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducción CSS",
+        "tipoPuntos" => "Conocimientos",
     ),
     "28" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Conectar HTML y CSS",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Conectar HTML y CSS",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Conectar HTML y CSS",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Sintaxis de CSS",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Sintaxis de CSS",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Sintaxis de CSS",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Sintaxis de CSS",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Variables de CSS",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Variables de CSS",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Variables de CSS",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Variables de CSS",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "Selectores CSS",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "Selectores CSS",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "Selectores CSS",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "Selectores CSS",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Selector etiqueta",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Selector etiqueta",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Selector etiqueta",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Selector etiqueta",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "Selector clase",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "43" => array(
-        "area" => "Práctica",
-        "tema" => "Selector clase",
-        "tipoPuntos" => "Coding"
     ),
     "44" => array(
+        "area" => "Práctica",
+        "tema" => "Selector clase",
+        "tipoPuntos" => "Coding"
+    ),
+    "45" => array(
         "area" => "Juego",
         "tema" => "Selector clase",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Teórica",
         "tema" => "Selector id",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "46" => array(
-        "area" => "Práctica",
-        "tema" => "Selector id",
-        "tipoPuntos" => "Coding"
     ),
     "47" => array(
+        "area" => "Práctica",
+        "tema" => "Selector id",
+        "tipoPuntos" => "Coding"
+    ),
+    "48" => array(
         "area" => "Juego",
         "tema" => "Selector id",
         "tipoPuntos" => "Logros"
     ),
-    "48" => array(
+    "49" => array(
         "area" => "Teórica",
         "tema" => "Bordes",
         "tipoPuntos" => "Conocimientos"
     ),
-    "49" => array(
+    "50" => array(
         "area" => "Práctica",
         "tema" => "Bordes",
         "tipoPuntos" => "Coding"
     ),
-    "50" => array(
+    "51" => array(
         "area" => "Juego",
         "tema" => "Bordes",
         "tipoPuntos" => "Logros"
     ),
-    "51" => array(
+    "52" => array(
         "area" => "Evaluativa",
         "tema" => "CSS",
         "tipoPuntos" => "Destreza"

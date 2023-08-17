@@ -320,125 +320,130 @@ $datos_por_capsula = array(
     ),
     "27" => array(
         "area" => "Teórica",
-        "tema" => "Crear nivels(Tilemaps)",
+        "tema" => "Introducción 2",
         "tipoPuntos" => "Conocimientos"
     ),
     "28" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Crear nivels(Tilemaps)",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Crear nivels(Tilemaps)",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Crear nivels(Tilemaps)",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Juego infinito",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Juego infinito",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Juego infinito",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Juego infinito",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Siguiente nivel",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Siguiente nivel",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Siguiente nivel",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Siguiente nivel",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "Crear enemigos",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "Crear enemigos",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "Crear enemigos",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "Crear enemigos",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Temporizador",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Temporizador",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Temporizador",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Temporizador",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "Luces",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "43" => array(
-        "area" => "Práctica",
-        "tema" => "Luces",
-        "tipoPuntos" => "Coding"
     ),
     "44" => array(
+        "area" => "Práctica",
+        "tema" => "Luces",
+        "tipoPuntos" => "Coding"
+    ),
+    "45" => array(
         "area" => "Juego",
         "tema" => "Luces",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Teórica",
         "tema" => "Retroceso",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "46" => array(
-        "area" => "Práctica",
-        "tema" => "Retroceso",
-        "tipoPuntos" => "Coding"
     ),
     "47" => array(
+        "area" => "Práctica",
+        "tema" => "Retroceso",
+        "tipoPuntos" => "Coding"
+    ),
+    "48" => array(
         "area" => "Juego",
         "tema" => "Retroceso",
         "tipoPuntos" => "Logros"
     ),
-    "48" => array(
+    "49" => array(
         "area" => "Teórica",
         "tema" => "Parallax(Fondo con animación)",
         "tipoPuntos" => "Conocimientos"
     ),
-    "49" => array(
+    "50" => array(
         "area" => "Práctica",
         "tema" => "Parallax(Fondo con animación)",
         "tipoPuntos" => "Coding"
     ),
-    "50" => array(
+    "51" => array(
         "area" => "Juego",
         "tema" => "Parallax(Fondo con animación)",
         "tipoPuntos" => "Logros"
     ),
-    "51" => array(
+    "52" => array(
         "area" => "Evaluativa",
         "tema" => "Niveles Unity",
         "tipoPuntos" => "Destreza"

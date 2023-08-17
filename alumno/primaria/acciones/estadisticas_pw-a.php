@@ -259,195 +259,210 @@ $datos_por_capsula = array(
     ),
     "15" => array(
         "area" => "Teórica",
-        "tema" => "Posicionamiento",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducción CSS",
+        "tipoPuntos" => "Conocimientos",
     ),
     "16" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Posicionamiento",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "17" => array(
+        "area" => "Práctica",
+        "tema" => "Posicionamiento",
+        "tipoPuntos" => "Coding"
+    ),
+    "18" => array(
         "area" => "Juego",
         "tema" => "Posicionamiento",
         "tipoPuntos" => "Logros"
     ),
-    "18" => array(
+    "19" => array(
         "area" => "Teórica",
         "tema" => "Pseudoelementos",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "19" => array(
-        "area" => "Práctica",
-        "tema" => "Pseudoelementos",
-        "tipoPuntos" => "Coding"
     ),
     "20" => array(
+        "area" => "Práctica",
+        "tema" => "Pseudoelementos",
+        "tipoPuntos" => "Coding"
+    ),
+    "21" => array(
         "area" => "Juego",
         "tema" => "Pseudoelementos",
         "tipoPuntos" => "Logros"
     ),
-    "21" => array(
+    "22" => array(
         "area" => "Teórica",
         "tema" => "Tablas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "22" => array(
-        "area" => "Práctica",
-        "tema" => "Tablas",
-        "tipoPuntos" => "Coding"
     ),
     "23" => array(
+        "area" => "Práctica",
+        "tema" => "Tablas",
+        "tipoPuntos" => "Coding"
+    ),
+    "24" => array(
         "area" => "Juego",
         "tema" => "Tablas",
         "tipoPuntos" => "Logros"
     ),
-    "24" => array(
+    "25" => array(
         "area" => "Teórica",
         "tema" => "Formularios CSS",
         "tipoPuntos" => "Conocimientos"
     ),
-    "25" => array(
+    "26" => array(
         "area" => "Práctica",
         "tema" => "Formularios CSS",
         "tipoPuntos" => "Coding"
     ),
-    "26" => array(
+    "27" => array(
         "area" => "Juego",
         "tema" => "Formularios CSS",
         "tipoPuntos" => "Logros"
     ),
-    "27" => array(
+    "28" => array(
         "area" => "Evaluativa",
         "tema" => "CSS",
         "tipoPuntos" => "Destreza"
     ),
-    "28" => array(
-        "area" => "Teórica",
-        "tema" => "Redireccionamiento",
-        "tipoPuntos" => "Conocimientos"
-    ),
     "29" => array(
-        "area" => "Práctica",
-        "tema" => "Redireccionamiento",
-        "tipoPuntos" => "Coding"
+        "area" => "Teórica",
+        "tema" => "Introducción JS",
+        "tipoPuntos" => "Conocimientos",
     ),
     "30" => array(
+        "area" => "Teórica",
+        "tema" => "Redireccionamiento",
+        "tipoPuntos" => "Conocimientos"
+    ),
+    "31" => array(
+        "area" => "Práctica",
+        "tema" => "Redireccionamiento",
+        "tipoPuntos" => "Coding"
+    ),
+    "32" => array(
         "area" => "Juego",
         "tema" => "Redireccionamiento",
         "tipoPuntos" => "Logros"
     ),
-    "31" => array(
+    "33" => array(
         "area" => "Teórica",
         "tema" => "Funciones",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "32" => array(
-        "area" => "Práctica",
-        "tema" => "Funciones",
-        "tipoPuntos" => "Coding"
-    ),
-    "33" => array(
-        "area" => "Juego",
-        "tema" => "Funciones",
-        "tipoPuntos" => "Logros"
     ),
     "34" => array(
-        "area" => "Teórica",
-        "tema" => "Formularios JS",
-        "tipoPuntos" => "Conocimientos"
+        "area" => "Práctica",
+        "tema" => "Funciones",
+        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Juego",
+        "tema" => "Funciones",
+        "tipoPuntos" => "Logros"
+    ),
+    "36" => array(
+        "area" => "Teórica",
+        "tema" => "Formularios JS",
+        "tipoPuntos" => "Conocimientos"
+    ),
+    "37" => array(
         "area" => "Práctica",
         "tema" => "Formularios JS",
         "tipoPuntos" => "Coding"
     ),
-    "36" => array(
+    "38" => array(
         "area" => "Juego",
         "tema" => "Formularios JS",
         "tipoPuntos" => "Logros"
     ),
-    "37" => array(
+    "39" => array(
         "area" => "Teórica",
         "tema" => "Eventos",
         "tipoPuntos" => "Conocimientos"
     ),
-    "38" => array(
+    "40" => array(
         "area" => "Práctica",
         "tema" => "Eventos",
         "tipoPuntos" => "Coding"
     ),
-    "39" => array(
+    "41" => array(
         "area" => "Juego",
         "tema" => "Eventos",
         "tipoPuntos" => "Logros"
     ),
-    "40" => array(
+    "42" => array(
         "area" => "Evaluativa",
         "tema" => "JavaScript",
         "tipoPuntos" => "Destreza"
     ),
-    "41" => array(
-        "area" => "Teórica",
-        "tema" => "Variables y Operadores PHP",
-        "tipoPuntos" => "Conocimientos"
-    ),
-    "42" => array(
-        "area" => "Práctica",
-        "tema" => "Variables y Operadores PHP",
-        "tipoPuntos" => "Coding"
-    ),
     "43" => array(
-        "area" => "Juego",
-        "tema" => "Variables y Operadores PHP",
-        "tipoPuntos" => "Logros"
+        "area" => "Teórica",
+        "tema" => "Introducción Python",
+        "tipoPuntos" => "Conocimientos",
     ),
     "44" => array(
         "area" => "Teórica",
-        "tema" => "Vectores (o arrays)",
+        "tema" => "Variables y Operadores PHP",
         "tipoPuntos" => "Conocimientos"
     ),
     "45" => array(
         "area" => "Práctica",
-        "tema" => "Vectores (o arrays)",
+        "tema" => "Variables y Operadores PHP",
         "tipoPuntos" => "Coding"
     ),
     "46" => array(
         "area" => "Juego",
-        "tema" => "Vectores (o arrays)",
+        "tema" => "Variables y Operadores PHP",
         "tipoPuntos" => "Logros"
     ),
     "47" => array(
         "area" => "Teórica",
-        "tema" => "Include() y require()",
+        "tema" => "Vectores (o arrays)",
         "tipoPuntos" => "Conocimientos"
     ),
     "48" => array(
         "area" => "Práctica",
-        "tema" => "Include() y require()",
+        "tema" => "Vectores (o arrays)",
         "tipoPuntos" => "Coding"
     ),
     "49" => array(
         "area" => "Juego",
-        "tema" => "Include() y require()",
+        "tema" => "Vectores (o arrays)",
         "tipoPuntos" => "Logros"
     ),
     "50" => array(
         "area" => "Teórica",
-        "tema" => "Procesamiento de formularios",
+        "tema" => "Include() y require()",
         "tipoPuntos" => "Conocimientos"
     ),
     "51" => array(
         "area" => "Práctica",
-        "tema" => "Procesamiento de formularios",
+        "tema" => "Include() y require()",
         "tipoPuntos" => "Coding"
     ),
     "52" => array(
         "area" => "Juego",
+        "tema" => "Include() y require()",
+        "tipoPuntos" => "Logros"
+    ),
+    "53" => array(
+        "area" => "Teórica",
+        "tema" => "Procesamiento de formularios",
+        "tipoPuntos" => "Conocimientos"
+    ),
+    "54" => array(
+        "area" => "Práctica",
+        "tema" => "Procesamiento de formularios",
+        "tipoPuntos" => "Coding"
+    ),
+    "55" => array(
+        "area" => "Juego",
         "tema" => "Procesamiento de formularios",
         "tipoPuntos" => "Logros"
     ),
-    "49" => array(
+    "56" => array(
         "area" => "Evaluativa",
         "tema" => "PHP",
         "tipoPuntos" => "Destreza"
