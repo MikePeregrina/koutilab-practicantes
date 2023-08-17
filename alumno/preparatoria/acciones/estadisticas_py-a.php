@@ -304,110 +304,115 @@ $datos_por_capsula = array(
     ),
     "24" => array(
         "area" => "Teórica",
-        "tema" => "Eliminar strings vacíos",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducción 2",
+        "tipoPuntos" => "Conocimientos",
     ),
     "25" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Eliminar strings vacíos",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "26" => array(
+        "area" => "Práctica",
+        "tema" => "Eliminar strings vacíos",
+        "tipoPuntos" => "Coding"
+    ),
+    "27" => array(
         "area" => "Juego",
         "tema" => "Eliminar strings vacíos",
         "tipoPuntos" => "Logros"
     ),
-    "27" => array(
+    "28" => array(
         "area" => "Teórica",
         "tema" => "Asignar múltiples valores a múltiples variables",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "28" => array(
-        "area" => "Práctica",
-        "tema" => "Asignar múltiples valores a múltiples variables",
-        "tipoPuntos" => "Coding"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Asignar múltiples valores a múltiples variables",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Asignar múltiples valores a múltiples variables",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Asignar un mismo valor a múltiples variables",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Asignar un mismo valor a múltiples variables",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Asignar un mismo valor a múltiples variables",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Asignar un mismo valor a múltiples variables",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Asignación de valores a múltiples listas y tuplas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Asignación de valores a múltiples listas y tuplas",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Asignación de valores a múltiples listas y tuplas",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Asignación de valores a múltiples listas y tuplas",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "Convertir tipos de datos",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "Convertir tipos de datos",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "Convertir tipos de datos",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "Convertir tipos de datos",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Listas anidadas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Listas anidadas",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Listas anidadas",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Listas anidadas",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "Atributos y métodos",
         "tipoPuntos" => "Conocimientos"
     ),
-    "43" => array(
+    "44" => array(
         "area" => "Práctica",
         "tema" => "Atributos y métodos",
         "tipoPuntos" => "Coding"
     ),
-    "44" => array(
+    "45" => array(
         "area" => "Juego",
         "tema" => "Atributos y métodos",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Evaluativa",
         "tema" => "Control de flujo",
         "tipoPuntos" => "Destreza"

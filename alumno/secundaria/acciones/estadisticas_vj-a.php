@@ -320,125 +320,130 @@ $datos_por_capsula = array(
     ),
     "27" => array(
         "area" => "Teórica",
-        "tema" => "Reposicionamiento de suelo",
+        "tema" => "Introducción 2",
         "tipoPuntos" => "Conocimientos"
     ),
     "28" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Reposicionamiento de suelo",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Reposicionamiento de suelo",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Reposicionamiento de suelo",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Creación de Prefabs de obstáculos",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Creación de Prefabs de obstáculos",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Creación de Prefabs de obstáculos",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Creación de Prefabs de obstáculos",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Spawner de obstáculos",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Spawner de obstáculos",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Spawner de obstáculos",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Spawner de obstáculos",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "Condición de game over(UI)",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "Condición de game over(UI)",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "Condición de game over(UI)",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "Condición de game over(UI)",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Condición de game over(Game manager)",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Condición de game over(Game manager)",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Condición de game over(Game manager)",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Condición de game over(Game manager)",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "Puntaje",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "43" => array(
-        "area" => "Práctica",
-        "tema" => "Puntaje",
-        "tipoPuntos" => "Coding"
     ),
     "44" => array(
+        "area" => "Práctica",
+        "tema" => "Puntaje",
+        "tipoPuntos" => "Coding"
+    ),
+    "45" => array(
         "area" => "Juego",
         "tema" => "Puntaje",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Teórica",
         "tema" => "Aumento de velocidad de scroll",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "46" => array(
-        "area" => "Práctica",
-        "tema" => "Aumento de velocidad de scroll",
-        "tipoPuntos" => "Coding"
     ),
     "47" => array(
+        "area" => "Práctica",
+        "tema" => "Aumento de velocidad de scroll",
+        "tipoPuntos" => "Coding"
+    ),
+    "48" => array(
         "area" => "Juego",
         "tema" => "Aumento de velocidad de scroll",
         "tipoPuntos" => "Logros"
     ),
-    "48" => array(
+    "49" => array(
         "area" => "Teórica",
         "tema" => "Guardar y cargar",
         "tipoPuntos" => "Conocimientos"
     ),
-    "49" => array(
+    "50" => array(
         "area" => "Práctica",
         "tema" => "Guardar y cargar",
         "tipoPuntos" => "Coding"
     ),
-    "50" => array(
+    "51" => array(
         "area" => "Juego",
         "tema" => "Guardar y cargar",
         "tipoPuntos" => "Logros"
     ),
-    "51" => array(
+    "52" => array(
         "area" => "Evaluativa",
         "tema" => "Continuación de dinosaurio de chrome unity",
         "tipoPuntos" => "Destreza"

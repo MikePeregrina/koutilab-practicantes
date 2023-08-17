@@ -319,125 +319,130 @@ $datos_por_capsula = array(
     ),
     "27" => array(
         "area" => "Teórica",
-        "tema" => "Configuración de página",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducción 2",
+        "tipoPuntos" => "Conocimientos",
     ),
     "28" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Configuración de página",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Configuración de página",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Configuración de página",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Formato de fuente",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Formato de fuente",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Formato de fuente",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Formato de fuente",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Tablas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Tablas",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Tablas",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Tablas",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "Tabulaciones y listas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "Tabulaciones y listas",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "Tabulaciones y listas",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "Tabulaciones y listas",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Formularios",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Formularios",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Formularios",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Formularios",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "Imágenes y objetos de dibujo",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "43" => array(
-        "area" => "Práctica",
-        "tema" => "Imágenes y objetos de dibujo",
-        "tipoPuntos" => "Coding"
     ),
     "44" => array(
+        "area" => "Práctica",
+        "tema" => "Imágenes y objetos de dibujo",
+        "tipoPuntos" => "Coding"
+    ),
+    "45" => array(
         "area" => "Juego",
         "tema" => "Imágenes y objetos de dibujo",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Teórica",
         "tema" => "Macros",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "46" => array(
-        "area" => "Práctica",
-        "tema" => "Macros",
-        "tipoPuntos" => "Coding"
     ),
     "47" => array(
+        "area" => "Práctica",
+        "tema" => "Macros",
+        "tipoPuntos" => "Coding"
+    ),
+    "48" => array(
         "area" => "Juego",
         "tema" => "Macros",
         "tipoPuntos" => "Logros"
     ),
-    "48" => array(
+    "49" => array(
         "area" => "Teórica",
         "tema" => "Word y la web",
         "tipoPuntos" => "Conocimientos"
     ),
-    "49" => array(
+    "50" => array(
         "area" => "Práctica",
         "tema" => "Word y la web",
         "tipoPuntos" => "Coding"
     ),
-    "50" => array(
+    "51" => array(
         "area" => "Juego",
         "tema" => "Word y la web",
         "tipoPuntos" => "Logros"
     ),
-    "51" => array(
+    "52" => array(
         "area" => "Evaluativa",
         "tema" => "Word",
         "tipoPuntos" => "Destreza"

@@ -319,125 +319,130 @@ $datos_por_capsula = array(
     ),
     "27" => array(
         "area" => "Teórica",
-        "tema" => "Localizacion de los botones de encendido",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducción 2",
+        "tipoPuntos" => "Conocimientos",
     ),
     "28" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Localizacion de los botones de encendido",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Localizacion de los botones de encendido",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Localizacion de los botones de encendido",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Partes y uso del teclado",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Partes y uso del teclado",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Partes y uso del teclado",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Partes y uso del teclado",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Partes y uso del mouse",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Partes y uso del mouse",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Partes y uso del mouse",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Partes y uso del mouse",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "Entrada y uso de unidades USB",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "Entrada y uso de unidades USB",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "Entrada y uso de unidades USB",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "Entrada y uso de unidades USB",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Android",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Android",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Android",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Android",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "Linux",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "43" => array(
-        "area" => "Práctica",
-        "tema" => "Linux",
-        "tipoPuntos" => "Coding"
     ),
     "44" => array(
+        "area" => "Práctica",
+        "tema" => "Linux",
+        "tipoPuntos" => "Coding"
+    ),
+    "45" => array(
         "area" => "Juego",
         "tema" => "Linux",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Teórica",
         "tema" => "IOS",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "46" => array(
-        "area" => "Práctica",
-        "tema" => "IOS",
-        "tipoPuntos" => "Coding"
     ),
     "47" => array(
+        "area" => "Práctica",
+        "tema" => "IOS",
+        "tipoPuntos" => "Coding"
+    ),
+    "48" => array(
         "area" => "Juego",
         "tema" => "IOS",
         "tipoPuntos" => "Logros"
     ),
-    "48" => array(
+    "49" => array(
         "area" => "Teórica",
         "tema" => "Windows",
         "tipoPuntos" => "Conocimientos"
     ),
-    "49" => array(
+    "50" => array(
         "area" => "Práctica",
         "tema" => "Windows",
         "tipoPuntos" => "Coding"
     ),
-    "50" => array(
+    "51" => array(
         "area" => "Juego",
         "tema" => "Windows",
         "tipoPuntos" => "Logros"
     ),
-    "51" => array(
+    "52" => array(
         "area" => "Evaluativa",
         "tema" => "Software y Hardware",
         "tipoPuntos" => "Destreza"

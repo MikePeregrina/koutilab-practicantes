@@ -274,160 +274,170 @@ $datos_por_capsula = array(
     ),
     "18" => array(
         "area" => "Teórica",
-        "tema" => "Fondos",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducción CSS",
+        "tipoPuntos" => "Conocimientos",
     ),
     "19" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Fondos",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "20" => array(
+        "area" => "Práctica",
+        "tema" => "Fondos",
+        "tipoPuntos" => "Coding"
+    ),
+    "21" => array(
         "area" => "Juego",
         "tema" => "Fondos",
         "tipoPuntos" => "Logros"
     ),
-    "21" => array(
+    "22" => array(
         "area" => "Teórica",
         "tema" => "Color",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "22" => array(
-        "area" => "Práctica",
-        "tema" => "Color",
-        "tipoPuntos" => "Coding"
     ),
     "23" => array(
+        "area" => "Práctica",
+        "tema" => "Color",
+        "tipoPuntos" => "Coding"
+    ),
+    "24" => array(
         "area" => "Juego",
         "tema" => "Color",
         "tipoPuntos" => "Logros"
     ),
-    "24" => array(
+    "25" => array(
         "area" => "Teórica",
         "tema" => "Texto",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "25" => array(
-        "area" => "Práctica",
-        "tema" => "Texto",
-        "tipoPuntos" => "Coding"
     ),
     "26" => array(
+        "area" => "Práctica",
+        "tema" => "Texto",
+        "tipoPuntos" => "Coding"
+    ),
+    "27" => array(
         "area" => "Juego",
         "tema" => "Texto",
         "tipoPuntos" => "Logros"
     ),
-    "27" => array(
+    "28" => array(
         "area" => "Teórica",
         "tema" => "Flex container",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "28" => array(
-        "area" => "Práctica",
-        "tema" => "Flex container",
-        "tipoPuntos" => "Coding"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Flex container",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Flex container",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Grid container",
         "tipoPuntos" => "Conocimientos"
     ),
-    "31" => array(
+    "32" => array(
         "area" => "Práctica",
         "tema" => "Grid container",
         "tipoPuntos" => "Coding"
     ),
-    "32" => array(
+    "33" => array(
         "area" => "Juego",
         "tema" => "Grid container",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Evaluativa",
         "tema" => "CSS",
         "tipoPuntos" => "Destreza"
     ),
-    "34" => array(
-        "area" => "Teórica",
-        "tema" => "Variables JS",
-        "tipoPuntos" => "Conocimientos"
-    ),
     "35" => array(
-        "area" => "Práctica",
-        "tema" => "Variables JS",
-        "tipoPuntos" => "Coding"
+        "area" => "Teórica",
+        "tema" => "Introducción JS",
+        "tipoPuntos" => "Conocimientos",
     ),
     "36" => array(
+        "area" => "Teórica",
+        "tema" => "Variables JS",
+        "tipoPuntos" => "Conocimientos"
+    ),
+    "37" => array(
+        "area" => "Práctica",
+        "tema" => "Variables JS",
+        "tipoPuntos" => "Coding"
+    ),
+    "38" => array(
         "area" => "Juego",
         "tema" => "Variables JS",
         "tipoPuntos" => "Logros"
     ),
-    "37" => array(
+    "39" => array(
         "area" => "Teórica",
         "tema" => "Constantes JS",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "38" => array(
-        "area" => "Práctica",
-        "tema" => "Constantes JS",
-        "tipoPuntos" => "Coding"
-    ),
-    "39" => array(
-        "area" => "Juego",
-        "tema" => "Constantes JS",
-        "tipoPuntos" => "Logros"
     ),
     "40" => array(
-        "area" => "Teórica",
-        "tema" => "Operadores Matemáticos",
-        "tipoPuntos" => "Conocimientos"
+        "area" => "Práctica",
+        "tema" => "Constantes JS",
+        "tipoPuntos" => "Coding"
     ),
     "41" => array(
-        "area" => "Práctica",
-        "tema" => "Operadores Matemáticos",
-        "tipoPuntos" => "Coding"
+        "area" => "Juego",
+        "tema" => "Constantes JS",
+        "tipoPuntos" => "Logros"
     ),
     "42" => array(
+        "area" => "Teórica",
+        "tema" => "Operadores Matemáticos",
+        "tipoPuntos" => "Conocimientos"
+    ),
+    "43" => array(
+        "area" => "Práctica",
+        "tema" => "Operadores Matemáticos",
+        "tipoPuntos" => "Coding"
+    ),
+    "44" => array(
         "area" => "Juego",
         "tema" => "Operadores Matemáticos",
         "tipoPuntos" => "Logros"
     ),
-    "43" => array(
+    "45" => array(
         "area" => "Teórica",
         "tema" => "Operadores Relacionales",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "44" => array(
-        "area" => "Práctica",
-        "tema" => "Operadores Relacionales",
-        "tipoPuntos" => "Coding"
-    ),
-    "45" => array(
-        "area" => "Juego",
-        "tema" => "Operadores Relacionales",
-        "tipoPuntos" => "Logros"
     ),
     "46" => array(
+        "area" => "Práctica",
+        "tema" => "Operadores Relacionales",
+        "tipoPuntos" => "Coding"
+    ),
+    "47" => array(
+        "area" => "Juego",
+        "tema" => "Operadores Relacionales",
+        "tipoPuntos" => "Logros"
+    ),
+    "48" => array(
         "area" => "Teórica",
         "tema" => "Entrada de Datos por Teclado",
         "tipoPuntos" => "Conocimientos"
     ),
-    "47" => array(
+    "49" => array(
         "area" => "Práctica",
         "tema" => "Entrada de Datos por Teclado",
         "tipoPuntos" => "Coding"
     ),
-    "48" => array(
+    "50" => array(
         "area" => "Juego",
         "tema" => "Entrada de Datos por Teclado",
         "tipoPuntos" => "Logros"
     ),
-    "49" => array(
+    "51" => array(
         "area" => "Evaluativa",
         "tema" => "JavaScript",
         "tipoPuntos" => "Destreza"

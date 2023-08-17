@@ -304,110 +304,115 @@ $datos_por_capsula = array(
     ),
     "24" => array(
         "area" => "Teórica",
-        "tema" => "Operadores lógicos",
-        "tipoPuntos" => "Conocimientos"
+        "tema" => "Introducció 2 Python",
+        "tipoPuntos" => "Conocimientos",
     ),
     "25" => array(
-        "area" => "Práctica",
+        "area" => "Teórica",
         "tema" => "Operadores lógicos",
-        "tipoPuntos" => "Coding"
+        "tipoPuntos" => "Conocimientos"
     ),
     "26" => array(
+        "area" => "Práctica",
+        "tema" => "Operadores lógicos",
+        "tipoPuntos" => "Coding"
+    ),
+    "27" => array(
         "area" => "Juego",
         "tema" => "Operadores lógicos",
         "tipoPuntos" => "Logros"
     ),
-    "27" => array(
+    "28" => array(
         "area" => "Teórica",
         "tema" => "Operadores de identidad",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "28" => array(
-        "area" => "Práctica",
-        "tema" => "Operadores de identidad",
-        "tipoPuntos" => "Coding"
     ),
     "29" => array(
+        "area" => "Práctica",
+        "tema" => "Operadores de identidad",
+        "tipoPuntos" => "Coding"
+    ),
+    "30" => array(
         "area" => "Juego",
         "tema" => "Operadores de identidad",
         "tipoPuntos" => "Logros"
     ),
-    "30" => array(
+    "31" => array(
         "area" => "Teórica",
         "tema" => "Sentencias compuestas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "31" => array(
-        "area" => "Práctica",
-        "tema" => "Sentencias compuestas",
-        "tipoPuntos" => "Coding"
     ),
     "32" => array(
+        "area" => "Práctica",
+        "tema" => "Sentencias compuestas",
+        "tipoPuntos" => "Coding"
+    ),
+    "33" => array(
         "area" => "Juego",
         "tema" => "Sentencias compuestas",
         "tipoPuntos" => "Logros"
     ),
-    "33" => array(
+    "34" => array(
         "area" => "Teórica",
         "tema" => "Estructuras condicionales",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "34" => array(
-        "area" => "Práctica",
-        "tema" => "Estructuras condicionales",
-        "tipoPuntos" => "Coding"
     ),
     "35" => array(
+        "area" => "Práctica",
+        "tema" => "Estructuras condicionales",
+        "tipoPuntos" => "Coding"
+    ),
+    "36" => array(
         "area" => "Juego",
         "tema" => "Estructuras condicionales",
         "tipoPuntos" => "Logros"
     ),
-    "36" => array(
+    "37" => array(
         "area" => "Teórica",
         "tema" => "if/else/elif",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "37" => array(
-        "area" => "Práctica",
-        "tema" => "if/else/elif",
-        "tipoPuntos" => "Coding"
     ),
     "38" => array(
+        "area" => "Práctica",
+        "tema" => "if/else/elif",
+        "tipoPuntos" => "Coding"
+    ),
+    "39" => array(
         "area" => "Juego",
         "tema" => "if/else/elif",
         "tipoPuntos" => "Logros"
     ),
-    "39" => array(
+    "40" => array(
         "area" => "Teórica",
         "tema" => "Estructuras iterativas",
         "tipoPuntos" => "Conocimientos"
-    ),
-    "40" => array(
-        "area" => "Práctica",
-        "tema" => "Estructuras iterativas",
-        "tipoPuntos" => "Coding"
     ),
     "41" => array(
+        "area" => "Práctica",
+        "tema" => "Estructuras iterativas",
+        "tipoPuntos" => "Coding"
+    ),
+    "42" => array(
         "area" => "Juego",
         "tema" => "Estructuras iterativas",
         "tipoPuntos" => "Logros"
     ),
-    "42" => array(
+    "43" => array(
         "area" => "Teórica",
         "tema" => "for",
         "tipoPuntos" => "Conocimientos"
     ),
-    "43" => array(
+    "44" => array(
         "area" => "Práctica",
         "tema" => "for",
         "tipoPuntos" => "Coding"
     ),
-    "44" => array(
+    "45" => array(
         "area" => "Juego",
         "tema" => "for",
         "tipoPuntos" => "Logros"
     ),
-    "45" => array(
+    "46" => array(
         "area" => "Evaluativa",
         "tema" => "Sentencias y Loop",
         "tipoPuntos" => "Destreza"
