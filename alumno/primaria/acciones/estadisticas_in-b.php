@@ -595,7 +595,7 @@ if ($result_estrellas->num_rows > 0) {
 
 
     <div class="containers">
-        <a href="../perfil.php"><button class="btn-b"><i class="fas fa-reply fa-lg"></i></button></a>
+        <a href="../rutas/ruta-in-b.php"><button class="btn-b"><i class="fas fa-reply fa-lg"></i></button></a>
         <h1>CURSO DE INFORMÁTICA BÁSICO DE KOUTILAB</h1>
     </div>
 
