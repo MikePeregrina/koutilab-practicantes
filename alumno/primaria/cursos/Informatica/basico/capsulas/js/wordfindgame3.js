@@ -226,7 +226,7 @@ var correcto = document.createElement("audio");
                 if (wordList.length === 0) {
                     $(".puzzleSquare").addClass("complete");
                     var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-6.php'; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 48 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-7.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
