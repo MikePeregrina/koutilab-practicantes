@@ -117,9 +117,6 @@ $fila = mysqli_fetch_assoc($result);
                                 <option value="4">Python básico</option>
                                 <option value="5">Python intermedio</option>
                                 <option value="6">Python avanzado</option>
-                                <option value="7">Informática básico</option>
-                                <option value="8">Informática intermedio</option>
-                                <option value="9">Informática avanzado</option>
                             </select>
                         </div>
                         <div class="input-box">
