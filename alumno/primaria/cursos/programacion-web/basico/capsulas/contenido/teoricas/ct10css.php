@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T8.5/153.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T8.5/154.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/155.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/156.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/157.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/158.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/147.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T8.5/148.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/149.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/150.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/151.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/152.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp10.php">
@@ -130,10 +130,10 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -160,7 +160,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var checkbox2 = document.getElementById('checkbox2');
         var checkbox3 = document.getElementById('checkbox3');
         var checkbox4 = document.getElementById('checkbox4');
-       var puntos = <?php echo $puntosGanados; ?>;
+        var puntos = <?php echo $puntosGanados; ?>;
         checkbox1.addEventListener("change", comprueba, true);
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);

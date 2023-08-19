@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T5.5/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T5.5/77.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/78.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/79.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/80.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/81.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/49.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T5.5/50.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/51.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/52.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/53.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/54.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp4.php">
@@ -137,10 +137,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
