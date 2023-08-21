@@ -125,6 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="12">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct6videojuegos.php">
                                 </form>
                             </div>
                         </li>

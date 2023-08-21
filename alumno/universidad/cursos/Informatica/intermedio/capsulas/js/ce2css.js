@@ -148,9 +148,11 @@ function fetchQuiz() {
           "&validar=" +
           "correcto" +
           "&permiso=" +
-          51 +
+          52 +
           "&id_curso=" +
-          1; //cancatenation
+          8 +
+          "&redireccion=" +
+          "..contenido/evaluativas/ce2informatica.php"; //cancatenation
 
         xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
@@ -172,7 +174,7 @@ function fetchQuiz() {
             });
           }
         };
-        xmlhttp.open("POST", "../../acciones/insertar_pd51.php", true);
+        xmlhttp.open("POST", "../../acciones/insertar_evaluativa.php", true);
         xmlhttp.setRequestHeader(
           "Content-Type",
           "application/x-www-form-urlencoded"

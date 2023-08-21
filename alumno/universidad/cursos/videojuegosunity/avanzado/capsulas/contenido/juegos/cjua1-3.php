@@ -1,44 +1,43 @@
-<!--<?php
-	// session_start();
-	// $id_user = $_SESSION['id_alumno_universidad'];
-	// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
-	// 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
-	// }
-	// include "../../../../../../../../acciones/conexion.php";
-	// $id_user = $_SESSION['id_alumno_universidad'];
-	// $permiso = "capsula6";
-	// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
-	// $existe = mysqli_fetch_all($sql);
-	// if (empty($existe) && $id_user != 1) {
-	// 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
-	// }
+<?php
+session_start();
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_universidad'];
+$permiso = "capsula9";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+	header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+}
 
-	// //Verificar si ya se tiene permiso y no dar puntos de más
-	// $permiso_intento = 7;
-	// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
-	// $result_sql_permisos = mysqli_num_rows($sql_permisos);
-	// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 10;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-	// //Contar total de intentos
-	// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 4");
-	// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-	// if (isset($resultadoIntentos['intentos'])) {
-	// 	$totalIntentos = $resultadoIntentos['intentos'];
-	// 	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-	// 		$puntosGanados = 8;
-	// 	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-	// 		$puntosGanados = 6;
-	// 	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-	// 		$puntosGanados = 0;
-	// 	} else {
-	// 		$puntosGanados = 0;
-	// 	}
-	// } else {
-	// 	$puntosGanados = 10;
-	// }
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
+} else {
+	$puntosGanados = 10;
+}
 
-	?>
--->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,8 +162,10 @@
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 4; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 12; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -176,9 +177,6 @@
 					}
 				});
 				incorrecto.play(); //agregando sonido al juego no completado
-				//xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
-				//xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				//xmlhttp.send(param);
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -224,8 +222,8 @@
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 4; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 12; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
@@ -240,7 +238,7 @@
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					//window.location.href = '../../../../../../rutas/ruta-py-b.php';
+					window.location.href = '../../../../../../rutas/ruta-vj-a.php';
 				}
 			})
 			correcto.play(); //agregando sonido al juego completado

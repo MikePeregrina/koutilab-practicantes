@@ -225,7 +225,8 @@ if (empty($existe)) {
 			onClickOnBlock(blockIdx) { //try move block and check if puzzle was solved
 				if (this.moveBlock(blockIdx)) {
 					if (this.checkPuzzleSolved()) {
-						// var puntos = <?//php echo $puntosGanados; ?>
+						// var puntos = <? //php echo $puntosGanados; 
+										?>
 
 						setTimeout(() => {
 							Swal.fire({

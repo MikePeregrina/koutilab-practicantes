@@ -89,15 +89,15 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T2/20.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T2/21.gif');"></li>
-                        <li style="background-image: url('../../img/html/T2/22.gif');"></li>
-                        <li style="background-image: url('../../img/html/T2/23.gif');"></li>
-                        <li style="background-image: url('../../img/html/T2/24.gif');"></li>
-                        <li style="background-image: url('../../img/html/T2/25.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/14.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T2/15.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/16.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/17.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/18.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/19.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuantos formatos de texto existen?</h1>
                                     <div class="container-question">
@@ -120,6 +120,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct2html.php">
                                 </form>
                             </div>
                         </li>
@@ -129,10 +130,10 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

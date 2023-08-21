@@ -106,25 +106,25 @@ if (isset($resultadoIntentos['intentos'])) {
                             <li style="background-image: url('../../img/videojuegosunityi/T4/8.jpg');"></li>
                             <li>
                                 <div>
-                                    <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd11.php">
+                                    <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                         <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                         <h1>¿Cuál es el menu que permite a los jugadores seleccionar y acceder a diferentes niveles o escenas del juego?</h1>
                                         <div class="container-question">
                                             <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                             <label for="checkbox1">
-                                            Menu de Niveles
+                                                Menu de Niveles
                                             </label>
                                         </div>
                                         <div class="container-question">
                                             <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                             <label for="checkbox2">
-                                            Menu Game Over
+                                                Menu Game Over
                                             </label>
                                         </div>
                                         <div class="container-question">
                                             <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                             <label for="checkbox3">
-                                            Menu de Selecciones
+                                                Menu de Selecciones
                                             </label>
                                         </div>
                                         <div class="container-question">
@@ -135,6 +135,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="hidden" name="teorico" value="10">
                                         <input type="hidden" name="id_curso" value="11">
                                         <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                        <input type="hidden" name="redireccion" value="../contenido/teoricas/ct4videojuegosi.php">
                                     </form>
                                 </div>
                             </li>
@@ -143,10 +144,10 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
         </div>
         <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+            <div class="imagen-footer">
+                <img src="../../img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
         <script>
             window.addEventListener("load", function() {
                 var form = document.querySelector("form");

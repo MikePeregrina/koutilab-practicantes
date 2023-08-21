@@ -12,23 +12,23 @@ $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula8";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 
@@ -236,7 +236,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
-            
+
             let htmlcode = document.getElementById("html-code").value;
 
             if (table == 1 && tr == 4 && th == 3 && td == 9 && h1 == 1) {
@@ -259,7 +259,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -276,7 +276,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -293,7 +293,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -310,7 +310,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
@@ -331,7 +331,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'incorrecto' + '&permiso=' + 9 + '&id_curso=' + 2 + '&practico=' + 0  + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS;
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 2 + '&practico=' + 0 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp4html.php';
 
                     }
                 });

@@ -98,7 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/videojuegosunity/T18/6.jpg');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd42.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué es Top-Down?</h1>
                                     <div>
@@ -122,13 +122,14 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Pelear con enemigo 
+                                            Pelear con enemigo
                                         </label>
                                     </div>
                                     <input type="hidden" name="permiso" value="42">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="10">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct18videojuegos.php">
                                 </form>
                             </div>
                         </li>

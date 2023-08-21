@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula30";
+$permiso = "capsula31";
 if (isset($_GET['pythoncode'])) {
     $pythoncode = $_GET['pythoncode'];
 } else {
@@ -20,7 +20,7 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 31; //Poner el mismo permiso que corresponde a la lista
+$permiso_intento = 32; //Poner el mismo permiso que corresponde a la lista
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 6");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -169,7 +169,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 6 + '&practico=' + 10 + '&pythoncode=' + encodeV;
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 6 + '&practico=' + 10 + '&pythoncode=' + encodeV + '&redireccion=' + '../contenido/practicas/cp13.php';
                     }
                 });
             } else {
@@ -192,7 +192,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -209,7 +209,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -226,7 +226,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -243,7 +243,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 6 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 6 + '&practico=' + 10;
                         }
                     });
                 }

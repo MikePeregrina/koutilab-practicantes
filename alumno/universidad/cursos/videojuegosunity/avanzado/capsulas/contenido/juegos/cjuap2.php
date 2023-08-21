@@ -667,7 +667,7 @@
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "cj18.php";
+                        window.location.reload();
                     }
                 });
                 xmlhttp.open(
@@ -875,8 +875,7 @@
                         confirmButtonText: "Aceptar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href =
-                                "../../../../../../rutas/ruta-vj-a.php";
+                            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                         }
                     });
                 };

@@ -137,7 +137,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
         function miFunc() {
 
-            
+
             let htmlcode = document.getElementById("html-code").value;
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
@@ -170,24 +170,24 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
-              
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+
+                Swal.fire({
+                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp13.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
-                        }
-                    });
-                
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_cp13.php?validar=' + 'correcto' + '&permiso=' + 22 + '&id_curso=' + 7 + '&practico=' + 10;
+                    }
+                });
+
             } else {
                 // fallo, quitar vidas
                 fail();

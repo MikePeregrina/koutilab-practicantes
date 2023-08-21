@@ -6,7 +6,13 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 
-
+$id_user = $_SESSION['id_alumno_universidad'];
+$permiso = "capsula14";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+}
 ?>
 <!DOCTYPE css>
 
@@ -79,8 +85,8 @@ include "../../../../../../../../acciones/conexion.php";
                         <li style="background-image: url('../../img/css/In/53.gif');"></li>
                         <li style="background-image: url('../../img/css/In/54.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
-                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd99.php">
-                                <input type="hidden" name="permiso" value="99">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
+                                <input type="hidden" name="permiso" value="15">
                                 <!-- Cambiar al id del curso al que corresponda -->
                                 <input type="hidden" name="id_curso" value="3">
                                 <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>

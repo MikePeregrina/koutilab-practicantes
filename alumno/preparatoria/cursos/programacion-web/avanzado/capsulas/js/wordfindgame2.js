@@ -229,8 +229,8 @@
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 3; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd33.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 35 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjjs2.php'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({

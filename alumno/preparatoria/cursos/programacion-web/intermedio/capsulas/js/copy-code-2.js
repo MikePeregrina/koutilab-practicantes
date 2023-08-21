@@ -63,10 +63,10 @@ function iniciarTiempo() {
             "&validar=" +
             "incorrecto" +
             "&permiso=" +
-            29 +
+            30 +
             "&id_curso=" +
-            2; //cancatenation
-        xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+            2 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader(
             "Content-Type",
             "application/x-www-form-urlencoded"
@@ -109,10 +109,10 @@ function alertExcelent() {
             "&validar=" +
             "correcto" +
             "&permiso=" +
-            29 +
+            30 +
             "&id_curso=" +
-            2; //cancatenation
-        xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+            2 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader(
             "Content-Type",
             "application/x-www-form-urlencoded"

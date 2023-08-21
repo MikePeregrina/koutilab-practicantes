@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T8.5/153.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T8.5/154.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/155.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/156.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/157.gif');"></li>
-                        <li style="background-image: url('../../img/css/T8.5/158.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/147.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T8.5/148.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/149.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/150.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/151.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/152.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp10.php">

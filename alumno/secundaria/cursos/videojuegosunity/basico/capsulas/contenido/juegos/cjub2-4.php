@@ -134,7 +134,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 37 +"&id_curso=" + 10; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 37 + "&id_curso=" + 10; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd37.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);

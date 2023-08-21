@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsulapago4";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
+	header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
 ?>
 <!DOCTYPE html>
@@ -31,28 +31,28 @@ if (empty($existe)) {
 <body onload="iniciarTiempo()">
 	<!-- CAMBIOS -->
 	<!-- Timer -->
-    <div class="timer" id="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>OPERADORES DE ASIGNACIÓN</b></h2>
 	</div>
 
-    <section>
+	<section>
 
 		<div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-b.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-        </div>
-<!--fIN CAMBIOS -->
+			<a href="../../../../../../rutas/ruta-py-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Responde la serie de preguntas antes de que acabe el tiempo para poder ganar el juego</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
@@ -67,107 +67,99 @@ if (empty($existe)) {
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-<!-- fIN CAMBIOS -->
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
-		var preguntas = [
+		var preguntas = [{
+				num: 1,
+				pregunta: "Los operadores de asignación permiten realizar una operación y almacenar su resultado en una <br>_____.",
+				opA: "opción",
+				opB: "variable",
+				opC: "entero",
+				correcta: "B",
+				tiempo: "30",
+			},
 			{
-          num: 1,
-          pregunta:
-            "Los operadores de asignacion permiten  realizar una operacion y alamacenar su resultado en una <br>_____.",
-          opA: "opción",
-          opB: "variable",
-          opC: "entero",
-          correcta: "B",
-          tiempo: "30",
-        },
-        {
-          num: 2,
-          pregunta:
-            "¿Cuál es el operador que alamacena el resultado en el objeto específicado por el primer operando?",
-          opA: "+=",
-          opB: "&&",
-          opC: "%=",
-          correcta: "A",
-          tiempo: "20",
-        },
-        {
-          num: 3,
-          pregunta:
-            "¿Cuál es el operador qué es equivalente a la siguiente expresión x=x-1?",
-          opA: "-",
-          opB: "*=",
-          opC: "-=",
-          correcta: "C",
-          tiempo: "30",
-        },
-        {
-          num: 4,
-          pregunta: "¿Cuál es el valor de una expresión de asignación?",
-          opA: "No exite un valor",
-          opB: "Valor en L",
-          opC: "Valor de izquierda",
-          correcta: "B",
-          tiempo: "30",
-        },
-        {
-          num: 5,
-          pregunta: "¿Cuántos operadores de asignación se utilizan en Python?",
-          opA: "4 Valores",
-          opB: "5 Valores",
-          opC: "7 Valores",
-          correcta: "B",
-          tiempo: "30",
-        },
-        {
-          num: 6,
-          pregunta:
-            "¿Cuál es el operador qué puede generar el modulo de la división de 2 números?",
-          opA: "*=",
-          opB: "/=",
-          opC: "%=",
-          correcta: "C",
-          tiempo: "30",
-        },
-        {
-          num: 7,
-          pregunta:
-            "¿Cuál es la expresión equivalente del siguiente operador de asignación *=?",
-          opA: "x=X*1",
-          opB: "x=x*2",
-          opC: "x=x-1",
-          correcta: "B",
-          tiempo: "30",
-        },
-        {
-          num: 8,
-          pregunta: "¿Qué representa un valor en 'L'?",
-          opA: "Representa un valor localizador",
-          opB: "No representa nada",
-          opC: "Representa un formateador de código",
-          correcta: "A",
-          tiempo: "25",
-        },
-        {
-          num: 9,
-          pregunta:
-            "¿Cuál es la funcionalidad del siguiente operador de asignación /=?",
-          opA: "Resta y asigna el valor a una variable inicial",
-          opB: "Obtiene el modulo de una división",
-          opC: "Divide una variable por otra",
-          correcta: "C",
-          tiempo: "30",
-        },
-        {
-          num: 10,
-          pregunta:
-            "¿Qué tipo de operador almacena un valor en el objeto por el operando izquierdo?",
-          opA: "Operadores Lógicos",
-          opB: "Operadores de Asignación",
-          opC: "Operadores de identidad",
-          correcta: "B",
-          tiempo: "25",
-        },
+				num: 2,
+				pregunta: "¿Cuál es el operador que almacena el resultado en el objeto especificado por el primer operando?",
+				opA: "+=",
+				opB: "&&",
+				opC: "%=",
+				correcta: "A",
+				tiempo: "20",
+			},
+			{
+				num: 3,
+				pregunta: "¿Cuál es el operador qué es equivalente a la siguiente expresión x=x-1?",
+				opA: "-",
+				opB: "*=",
+				opC: "-=",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 4,
+				pregunta: "¿Cuál es el valor de una expresión de asignación?",
+				opA: "No exite un valor",
+				opB: "Valor en L",
+				opC: "Valor de izquierda",
+				correcta: "B",
+				tiempo: "30",
+			},
+			{
+				num: 5,
+				pregunta: "¿Cuántos operadores de asignación se utilizan en Python?",
+				opA: "4 Valores",
+				opB: "5 Valores",
+				opC: "7 Valores",
+				correcta: "B",
+				tiempo: "30",
+			},
+			{
+				num: 6,
+				pregunta: "¿Cuál es el operador qué puede generar el modulo de la división de 2 números?",
+				opA: "*=",
+				opB: "/=",
+				opC: "%=",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 7,
+				pregunta: "¿Cuál es la expresión equivalente del siguiente operador de asignación *=?",
+				opA: "x=X*1",
+				opB: "x=x*2",
+				opC: "x=x-1",
+				correcta: "B",
+				tiempo: "30",
+			},
+			{
+				num: 8,
+				pregunta: "¿Qué representa un valor en 'L'?",
+				opA: "Representa un valor localizador",
+				opB: "No representa nada",
+				opC: "Representa un formateador de código",
+				correcta: "A",
+				tiempo: "25",
+			},
+			{
+				num: 9,
+				pregunta: "¿Cuál es la funcionalidad del siguiente operador de asignación /=?",
+				opA: "Resta y asigna el valor a una variable inicial",
+				opB: "Obtiene el modulo de una división",
+				opC: "Divide una variable por otra",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 10,
+				pregunta: "¿Qué tipo de operador almacena un valor en el objeto por el operando izquierdo?",
+				opA: "Operadores Lógicos",
+				opB: "Operadores de Asignación",
+				opC: "Operadores de identidad",
+				correcta: "B",
+				tiempo: "25",
+			},
 		];
 
 		var puntos = 0; //Leva el conteo de puntos/aciertos
@@ -189,7 +181,7 @@ if (empty($existe)) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -251,17 +243,17 @@ if (empty($existe)) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-   			}
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
 			if (segundos == 0) {
 				Swal.fire({

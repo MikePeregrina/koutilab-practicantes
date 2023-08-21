@@ -50,7 +50,7 @@ if (empty($existe)) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+			<h4 class="titulo"><b>Responde la serie de preguntas antes de que acabe el tiempo para poder ganar el juego</b></h4>
 		</div>
 		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
@@ -72,7 +72,7 @@ if (empty($existe)) {
 		//Arreglo de preguntas
 		var preguntas = [{
 				num: 1,
-				pregunta: "Los operadores de asignacion permiten  realizar una operacion y alamacenar su resultado en una <br>_____.",
+				pregunta: "Los operadores de asignación permiten realizar una operación y almacenar su resultado en una <br>_____.",
 				opA: "opción",
 				opB: "variable",
 				opC: "entero",
@@ -81,7 +81,7 @@ if (empty($existe)) {
 			},
 			{
 				num: 2,
-				pregunta: "¿Cuál es el operador que alamacena el resultado en el objeto específicado por el primer operando?",
+				pregunta: "¿Cuál es el operador que almacena el resultado en el objeto especificado por el primer operando?",
 				opA: "+=",
 				opB: "&&",
 				opC: "%=",

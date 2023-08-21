@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pauniversidadrsidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T5.5/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T5.5/77.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/78.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/79.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/80.gif');"></li>
-                        <li style="background-image: url('../../img/html/T5.5/81.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/49.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T5.5/50.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/51.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/52.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/53.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/54.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp4.php">

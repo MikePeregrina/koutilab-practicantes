@@ -518,7 +518,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     "&permiso=" +
                     13 +
                     "&id_curso=" +
-                    4; //cancatenation
+                    4 + "&redireccion=" + '../contenido/juegos/cjp1-4.php'; //cancatenation
                 Swal.fire({
                     title: "Oops...",
                     text: "¡Verifica tu respuesta!",
@@ -532,7 +532,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Incorrecto.play(); //Agregando sonido al juego no completado
                 xmlhttp.open(
                     "POST",
-                    "../../acciones/insertar_cp13.php",
+                    "../../acciones/insertar_juego.php",
                     true
                 );
                 xmlhttp.setRequestHeader(
@@ -718,8 +718,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     var puntos = <?php echo $puntosGanados; ?>
 
                     var xmlhttp = new XMLHttpRequest();
-                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 4; //cancatenation
-                    xmlhttp.open("POST", "../../acciones/insertar_pd13.php", true);
+                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp1-4.php'; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xmlhttp.send(param);
                     Swal.fire({
@@ -740,16 +740,6 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                     Correcto.play(); //agregando sonido al juego completado
                 };
-                xmlhttp.open(
-                    "POST",
-                    "../../acciones/insertar_cp9.php",
-                    true
-                );
-                xmlhttp.setRequestHeader(
-                    "Content-Type",
-                    "application/x-www-form-urlencoded"
-                );
-                xmlhttp.send(param);
             } else {
                 if (palabra1.toLowerCase() != "string") {
                     palabra1_letra1.value = "";

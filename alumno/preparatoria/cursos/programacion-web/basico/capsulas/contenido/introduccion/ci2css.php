@@ -5,7 +5,13 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-
+$id_user = $_SESSION['id_alumno_preparatoria'];
+$permiso = "capsula26";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -57,15 +63,15 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/In/84.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/In/85.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/86.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/87.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/88.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/89.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/78.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/In/79.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/80.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/81.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/82.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/83.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
-                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd99.php">
-                                <input type="hidden" name="permiso" value="99">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
+                                <input type="hidden" name="permiso" value="27">
                                 <!-- Cambiar al id del curso al que corresponda -->
                                 <input type="hidden" name="id_curso" value="1">
                                 <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>

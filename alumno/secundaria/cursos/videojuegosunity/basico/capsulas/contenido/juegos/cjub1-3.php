@@ -232,7 +232,7 @@ if (isset($resultadoIntentos['intentos'])) {
     //Alerta muestra de que el juego fue completado
     function alertExcelent() {
       var xmlhttp = new XMLHttpRequest();
-      var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 9 +"&id_curso=" + 10; //cancatenation
+      var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 9 + "&id_curso=" + 10; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_pd9.php", true);
       xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xmlhttp.send(param);

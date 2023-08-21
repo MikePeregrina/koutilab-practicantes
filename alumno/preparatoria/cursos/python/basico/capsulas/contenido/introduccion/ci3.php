@@ -75,6 +75,9 @@ include "../../../../../../../../acciones/conexion.php";
             <li>
               <a itlist="itList_14" href="#"></a>
             </li>
+            <li>
+              <a itlist="itList_15" href="#"></a>
+            </li>
           </ul>
           <ul id="slider">
             <li style="background-image: url('../../img/CI3.gif'); z-index:0; opacity: 1;"></li>
@@ -91,6 +94,14 @@ include "../../../../../../../../acciones/conexion.php";
             <li style="background-image: url('../../img/CI333333333333.gif');"></li>
             <li style="background-image: url('../../img/CI3333333333333.gif');"></li>
             <li style="background-image: url('../../img/CI33333333333333.gif');"></li>
+            <li style="background-image: url('../../img/PA.gif');">
+              <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
+                <input type="hidden" name="permiso" value="1">
+                <!-- Cambiar al id del curso al que corresponda -->
+                <input type="hidden" name="id_curso" value="4">
+                <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
+              </form>
+            </li>
           </ul>
         </section>
     </div>

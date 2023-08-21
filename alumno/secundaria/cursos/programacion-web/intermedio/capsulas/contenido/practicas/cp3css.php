@@ -200,7 +200,7 @@ if (empty($existe)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-             
+
                 Swal.fire({
                     title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
                     text: '¡Puntuación guardada con éxito!',
@@ -228,7 +228,7 @@ if (empty($existe)) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10 ;
+                        window.location.href = '../../acciones/insertar_cp10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 2 + '&practico=' + 10;
 
                     }
                 });

@@ -4,6 +4,15 @@ $id_user = $_SESSION['id_alumno_preparatoria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
+include "../../../../../../../../acciones/conexion.php";
+
+$id_user = $_SESSION['id_alumno_preparatoria'];
+$permiso = "capsula28";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +70,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
                         <li style="background-image: url('../../img/js/In/94.gif');"></li>
                         <li style="background-image: url('../../img/js/In/95.gif');"></li>
                         <li style="background-image: url('../../img/js/In/96.gif');"></li>
+                        <li style="background-image: url('../../img/PA.gif');">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
+                                <input type="hidden" name="permiso" value="29">
+                                <!-- Cambiar al id del curso al que corresponda -->
+                                <input type="hidden" name="id_curso" value="3">
+                                <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
+                            </form>
+
+                        </li>
                     </ul>
                 </section>
         </div>

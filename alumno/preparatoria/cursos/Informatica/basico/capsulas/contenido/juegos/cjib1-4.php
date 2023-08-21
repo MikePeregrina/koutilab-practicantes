@@ -173,6 +173,11 @@ if (isset($resultadoIntentos['intentos'])) {
       }
 
       if (segundos == 0) {
+        var xmlhttp = new XMLHttpRequest();
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-4.php'; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send(param);
         Swal.fire({
           title: "Oops...Inténtalo nuevamente, te has quedado sin tiempo",
           text: "",
@@ -184,9 +189,7 @@ if (isset($resultadoIntentos['intentos'])) {
           }
         });
         incorrecto.play(); //agregando sonido al juego no completado
-        xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
-        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xmlhttp.send(param);
+
       } else {
         segundos--;
         setTimeout("iniciarTiempo()", 1000);
@@ -195,6 +198,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
     //funcion Error, determina que las respuestas sean correctas
     function error() {
+      var xmlhttp = new XMLHttpRequest();
+      var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-4.php'; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xmlhttp.send(param);
       Swal.fire({
         title: "¡Oh no!",
         text: "Comprueba tus respuestas, e intentalo nuevamente",
@@ -214,6 +222,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
     //Alerta muestra de que el juego fue completado
     function alertExcelent() {
+      var xmlhttp = new XMLHttpRequest();
+      var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-4.php'; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xmlhttp.send(param);
       Swal.fire({
         title: "¡Felicidades!",
         text: "¡Buen trabajo!",
@@ -226,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
         confirmButtonText: "¡Genial!",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.reload();
+          window.location.href = '../../../../../../rutas/ruta-in-b.php';
         }
       });
       correcto.play(); //agregando sonido al juego completado

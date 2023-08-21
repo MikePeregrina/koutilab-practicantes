@@ -59,7 +59,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
-	<!-- Titulo general --> 
+	<!-- Titulo general -->
 	<div class="timer" id="timer">
 		<b style="margin-top: 10px;">Tiempo: <br>
 			<p id="tiempo"></p>
@@ -72,24 +72,24 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
 
-     <section>
-	    <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-b.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
-        </div>
+	<section>
+		<div class="cont-st">
+			<a href="../../../../../../rutas/ruta-pw-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h4>
+		</div>
 
-			<!--CONTENEDOR DEL JUEGO-->
-			<div class="mjuego">
+		<!--CONTENEDOR DEL JUEGO-->
+		<div class="mjuego">
 			<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
 			<div class="words">
 				<div class="title-h6">
 					<h4><b>Palabras a buscar:</b></h4>
-				</div>	
-				<div id='Palabras' ></div>
+				</div>
+				<div id='Palabras'></div>
 			</div>
 
 			<!-- Sección donde se agrega la sopa de letras -->
@@ -98,14 +98,14 @@ if (isset($resultadoIntentos['intentos'])) {
 			</div>
 		</div>
 
-	    </section>
-		<!-- CAMBIOS -->
+	</section>
+	<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-<!-- fIN CAMBIOS -->
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
@@ -137,22 +137,22 @@ if (isset($resultadoIntentos['intentos'])) {
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
-		if (segundos <= 60) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 30) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
-		if (segundos <= 10) {
-			var div = document.getElementById("timer");
-			div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-		}
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjhtml8.php'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({

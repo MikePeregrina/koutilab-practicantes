@@ -120,9 +120,9 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
     <p id="resultado"></p>
     <footer class="footerimga">
-      <div class="imagen-footer">
-        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
-      </div>
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
     </footer>
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
@@ -152,8 +152,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-1.php'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
                 incorrecto.play(); //agregando sonido al juego no completado
@@ -176,8 +176,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //funcion Error, determina que las respuestas sean correctas
         function error() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-1.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             incorrecto.play();
@@ -203,8 +203,8 @@ if (isset($resultadoIntentos['intentos'])) {
             var puntos = <?php echo $puntosGanados; ?>
 
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 5; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-1.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             correcto.play(); //agregando sonido al juego completado

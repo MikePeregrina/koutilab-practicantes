@@ -157,8 +157,8 @@ function mostrarResultados() {
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 52 + "&id_curso=" + 3; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd52.php", true);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 55 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjphp4.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             correcto.play(); //agregando sonido al juego completado
@@ -180,8 +180,8 @@ function mostrarResultados() {
             }); 
         } else {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 52 + "&id_curso=" + 3; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd52.php", true);
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 55 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjphp4.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             //llamamos a la alerta

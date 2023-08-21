@@ -155,7 +155,7 @@ if (empty($existe)) {
 			}
 		}
 	</script>
-	
+
 	<script>
 		const GameDifficulty = [20, 50, 70];
 		class Game {

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -97,11 +96,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T1.5/23.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T1.5/24.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T1.5/25.gif');"></li>
-                        
+
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd5.php">
-                                <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
+                                    <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué ocurre si intentas utilizar una palabra reservada como nombre de una variable en Python?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
@@ -131,10 +130,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

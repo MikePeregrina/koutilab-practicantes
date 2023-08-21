@@ -16,185 +16,209 @@ Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //fetch API then create the quiz
 function fetchQuiz() {
-    fetch('../../js/ce1vji.json')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            let i = 0;
-            var score = 0;
+  fetch("../../js/ce1vji.json")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      let i = 0;
+      var score = 0;
 
-            //create the questions and choices
-            function create() {
-                question.innerHTML = data[i].question;
-                const array = [data[i].correctAnswer,
-                data[i].incorrectAnswers[0],
-                data[i].incorrectAnswers[1],
-                data[i].incorrectAnswers[2]];
-                shuffle(array);
-                for (let j = 0; j < div.length; j++) {
-                    var id = document.createAttribute("id");
-                    var draggable = document.createAttribute("draggable");
-                    var ondragstart = document.createAttribute("ondragstart");
-                    id.value = j;
-                    draggable.value = "true";
-                    ondragstart.value = "drag(event)";
-                    var p = document.createElement("p");
-                    p.setAttributeNode(id);
-                    p.setAttributeNode(draggable);
-                    p.setAttributeNode(ondragstart);
-                    p.innerText = array[j];
-                    div[j].appendChild(p);
-                }
-            }
+      //create the questions and choices
+      function create() {
+        question.innerHTML = data[i].question;
+        const array = [
+          data[i].correctAnswer,
+          data[i].incorrectAnswers[0],
+          data[i].incorrectAnswers[1],
+          data[i].incorrectAnswers[2],
+        ];
+        shuffle(array);
+        for (let j = 0; j < div.length; j++) {
+          var id = document.createAttribute("id");
+          var draggable = document.createAttribute("draggable");
+          var ondragstart = document.createAttribute("ondragstart");
+          id.value = j;
+          draggable.value = "true";
+          ondragstart.value = "drag(event)";
+          var p = document.createElement("p");
+          p.setAttributeNode(id);
+          p.setAttributeNode(draggable);
+          p.setAttributeNode(ondragstart);
+          p.innerText = array[j];
+          div[j].appendChild(p);
+        }
+      }
 
-            //remove the questions and choices
-            function remove() {
-                if (div1.hasChildNodes()) {
-                    div1.removeChild(div1.children[0]);
-                }
-                for (let j = 0; j < div.length; j++) {
-                    if (div[j].hasChildNodes()) {
-                        div[j].removeChild(div[j].children[0]);
-                    }
-                }
-            }
+      //remove the questions and choices
+      function remove() {
+        if (div1.hasChildNodes()) {
+          div1.removeChild(div1.children[0]);
+        }
+        for (let j = 0; j < div.length; j++) {
+          if (div[j].hasChildNodes()) {
+            div[j].removeChild(div[j].children[0]);
+          }
+        }
+      }
 
-            //submit answer button
-            submit.addEventListener("click", () => {
-                if (div1.hasChildNodes()) {
-                    const answer = div1.children;
-                    if (answer[0].innerText == data[i].correctAnswer) {
-                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                        Correcto.play();
-                        score++;
-                        Swal.fire({
-                            title: 'Buen trabajo',
-                            text: '¡Respuesta correcta!',
-                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                            imageHeight: 350,
-                        })
-                    } else {
-                        //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                        Incorrecto.play();
-                        Swal.fire({
-                            title: 'Oops...',
-                            text: '¡Verifica tu respuesta!',
-                            imageUrl: "../../../../../../img/signo.gif",
-                            imageHeight: 350,
-                        })
-                    }
-                } else {
-                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                    Incorrecto.play();
-                    Swal.fire({
-                        title: 'Oops...',
-                        text: '¡No has seleccionado una respuesta!',
-                        imageUrl: "../../../../../../img/loop.gif",
-                        imageHeight: 350,
-                    })
-                }
-                document.getElementById("score").innerHTML = score + "/" + (i + 1);
-                submit.style.display = "none";
-                next.style.display = "inline";
+      //submit answer button
+      submit.addEventListener("click", () => {
+        if (div1.hasChildNodes()) {
+          const answer = div1.children;
+          if (answer[0].innerText == data[i].correctAnswer) {
+            //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            Correcto.play();
+            score++;
+            Swal.fire({
+              title: "Buen trabajo",
+              text: "¡Respuesta correcta!",
+              imageUrl: "../../../../../../img/Thumbs-Up.gif",
+              imageHeight: 350,
             });
-
-            //next question button
-            next.addEventListener("click", () => {
-                i++;
-                if (i >= 10) {
-                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                    Correcto.play();
-                    inform.style.display = "block";
-                    save.style.display = "inline";
-                    next.style.display = "none";
-                    div1.style.display = "none";
-                    question.style.display = "none";
-                    for (let j = 0; j < div.length; j++) {
-                        div[j].style.display = "none";
-                    }
-                    inform.innerHTML = "¡Felicidades! Obtuviste " + score + " puntos. Vuelva a cargar nuevas preguntas.";
-                } else {
-                    submit.style.display = "inline";
-                    next.style.display = "none";
-                    remove();
-                    create();
-                }
+          } else {
+            //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+            Incorrecto.play();
+            Swal.fire({
+              title: "Oops...",
+              text: "¡Verifica tu respuesta!",
+              imageUrl: "../../../../../../img/signo.gif",
+              imageHeight: 350,
             });
+          }
+        } else {
+          //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+          Incorrecto.play();
+          Swal.fire({
+            title: "Oops...",
+            text: "¡No has seleccionado una respuesta!",
+            imageUrl: "../../../../../../img/loop.gif",
+            imageHeight: 350,
+          });
+        }
+        document.getElementById("score").innerHTML = score + "/" + (i + 1);
+        submit.style.display = "none";
+        next.style.display = "inline";
+      });
 
-            //start quiz button
-            start.addEventListener("click", () => {
-                submit.style.display = "inline";
-                question.style.display = "block";
-                div1.style.display = "block";
-                for (let j = 0; j < div.length; j++) {
-                    div[j].style.display = "block";
-                }
-                inform.style.display = "none";
-                start.style.display = "none";
-                create();
-            });
+      //next question button
+      next.addEventListener("click", () => {
+        i++;
+        if (i >= 10) {
+          //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+          Correcto.play();
+          inform.style.display = "block";
+          save.style.display = "inline";
+          next.style.display = "none";
+          div1.style.display = "none";
+          question.style.display = "none";
+          for (let j = 0; j < div.length; j++) {
+            div[j].style.display = "none";
+          }
+          inform.innerHTML =
+            "¡Felicidades! Obtuviste " +
+            score +
+            " puntos. Vuelva a cargar nuevas preguntas.";
+        } else {
+          submit.style.display = "inline";
+          next.style.display = "none";
+          remove();
+          create();
+        }
+      });
 
-            //save score button
-            save.addEventListener("click", () => {
-                var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 11; //cancatenation
+      //start quiz button
+      start.addEventListener("click", () => {
+        submit.style.display = "inline";
+        question.style.display = "block";
+        div1.style.display = "block";
+        for (let j = 0; j < div.length; j++) {
+          div[j].style.display = "block";
+        }
+        inform.style.display = "none";
+        start.style.display = "none";
+        create();
+      });
 
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                        Correcto.play();
-                        Swal.fire({
-                            title: '+' + score + ' puntos',
-                            text: '¡Puntuación guardada con éxito!',
-                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                            imageHeight: 350,
-                            backdrop: `
+      //save score button
+      save.addEventListener("click", () => {
+        var xmlhttp = new XMLHttpRequest();
+        var param =
+          "score=" +
+          score +
+          "&validar=" +
+          "correcto" +
+          "&permiso=" +
+          26 +
+          "&id_curso=" +
+          11 +
+          "&redireccion=" +
+          "..contenido/evaluativas/ce1videojuegos.php"; //cancatenation
+
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+            Correcto.play();
+            Swal.fire({
+              title: "+" + score + " puntos",
+              text: "¡Puntuación guardada con éxito!",
+              imageUrl: "../../../../../../img/Thumbs-Up.gif",
+              imageHeight: 350,
+              backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Aceptar',
-                        }).then((result) => {
-                            window.location.href = '../../../../../../rutas/ruta-vj-i.php';
-                        });
-                    }
-                }
-                xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Aceptar",
+            }).then((result) => {
+              window.location.href = "../../../../../../rutas/ruta-vj-i.php";
             });
-        })
-        .catch(() => {
-            error.innerHTML = "No puedo cargar preguntas";
-        });
+          }
+        };
+        xmlhttp.open("POST", "../../acciones/insertar_evaluativa.php", true);
+        xmlhttp.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send(param);
+      });
+    })
+    .catch(() => {
+      error.innerHTML = "No puedo cargar preguntas";
+    });
 }
 
 fetchQuiz();
 
 //drag and drop api
 function allowDrop(ev) {
-    ev.preventDefault();
+  ev.preventDefault();
 }
 function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
+  ev.dataTransfer.setData("text", ev.target.id);
 }
 function drop(ev) {
-    ev.preventDefault();
-    if (ev.target.tagName == "P") { return; }
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+  ev.preventDefault();
+  if (ev.target.tagName == "P") {
+    return;
+  }
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
 }
 
 //shuffle the choices
 function shuffle(array) {
-    let currentIndex = array.length, randomIndex;
+  let currentIndex = array.length,
+    randomIndex;
 
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-    }
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
 
-    return array;
+  return array;
 }

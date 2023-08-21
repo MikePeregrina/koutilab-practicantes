@@ -98,7 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             <li style="background-image: url('../../img/videojuegosunitya/T4/6.jpg');"></li>
                             <li>
                                 <div>
-                                    <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd11.php">
+                                    <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                         <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                         <h1>¿Qué se debe llevar dentro de los Scripts para controlar el deslizamiento?</h1>
                                         <div class="container-question">
@@ -127,6 +127,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="hidden" name="teorico" value="10">
                                         <input type="hidden" name="id_curso" value="12">
                                         <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                        <input type="hidden" name="redireccion" value="../contenido/teoricas/ct4videojuegos.php">
                                     </form>
                                 </div>
                             </li>

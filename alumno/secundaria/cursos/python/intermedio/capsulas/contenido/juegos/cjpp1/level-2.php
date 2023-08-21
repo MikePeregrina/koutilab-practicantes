@@ -41,14 +41,14 @@ if (empty($existe)) {
 
 	<section>
 
-	<div class="cont-st">
-            <a href="../../../../../../../rutas/ruta-py-i.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-        </div>
+		<div class="cont-st">
+			<a href="../../../../../../../rutas/ruta-py-i.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container" style="width: 421px; height: 422px;">

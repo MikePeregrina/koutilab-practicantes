@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula40";
+$permiso = "capsula41";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 41;
+$permiso_intento = 42;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -74,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+			<h4 class="titulo"><b>Responde correctamente a las preguntas antes de que acabe el tiempo para poder ganar el juego</b></h4>
 		</div>
 		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
@@ -133,8 +133,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			{
 				num: 5,
 				pregunta: "Analizando en profundidad la sintaxis en Python, recordamos y recalcamos que los nombres de clase empiezan con una letra _________",
-				opA: "Minuscula",
-				opB: "Mayuscula",
+				opA: "Minúscula",
+				opB: "Mayúscula",
 				opC: "Ambas",
 				correcta: "B",
 				tiempo: "30",
@@ -236,8 +236,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 42 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-6.php'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
@@ -287,8 +287,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 42 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-6.php'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
@@ -331,8 +331,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			var puntos = <?php echo $puntosGanados; ?>
 
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 4; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd41.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 42 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-6.php'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({

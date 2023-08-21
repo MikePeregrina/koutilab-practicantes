@@ -90,15 +90,15 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T7/55.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T7/56.gif');"></li>
-                        <li style="background-image: url('../../img/html/T7/57.gif');"></li>
-                        <li style="background-image: url('../../img/html/T7/58.gif');"></li>
-                        <li style="background-image: url('../../img/html/T7/59.gif');"></li>
-                        <li style="background-image: url('../../img/html/T7/60.gif');"></li>
+                        <li style="background-image: url('../../img/html/T7/63.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T7/64.gif');"></li>
+                        <li style="background-image: url('../../img/html/T7/65.gif');"></li>
+                        <li style="background-image: url('../../img/html/T7/66.gif');"></li>
+                        <li style="background-image: url('../../img/html/T7/67.gif');"></li>
+                        <li style="background-image: url('../../img/html/T7/68.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd20.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son las 3 etiquetas para integrar PDF?</h1>
                                     <div class="container-question">
@@ -121,6 +121,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct7html.php">
                                 </form>
                             </div>
                         </li>
@@ -130,10 +131,10 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

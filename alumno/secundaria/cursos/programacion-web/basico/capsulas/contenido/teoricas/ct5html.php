@@ -90,15 +90,15 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T5/41.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T5/42.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5/42.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/html/T5/43.gif');"></li>
                         <li style="background-image: url('../../img/html/T5/44.gif');"></li>
                         <li style="background-image: url('../../img/html/T5/45.gif');"></li>
                         <li style="background-image: url('../../img/html/T5/46.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5/47.gif');"></li>
                         <li>
-                            <div >
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                            <div>
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Para definir los hipervínculos se utiliza la etiqueta?</h1>
                                     <div class="container-question">
@@ -129,6 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct5html.php">
                                 </form>
                             </div>
                         </li>
@@ -138,10 +139,10 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

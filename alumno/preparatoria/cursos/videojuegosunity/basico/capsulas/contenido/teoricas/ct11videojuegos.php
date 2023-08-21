@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 5;
+$permiso_intento = 27;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -89,7 +89,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/videojuegosunity/T11/4.jpg');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd27.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Qué significa Programar?</h1>
                                     <div>
@@ -116,10 +116,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Conjunto de instrucciones para hacer un juego.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="26">
+                                    <input type="hidden" name="permiso" value="27">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="10">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct11videojuegos.php">
                                 </form>
                             </div>
                         </li>

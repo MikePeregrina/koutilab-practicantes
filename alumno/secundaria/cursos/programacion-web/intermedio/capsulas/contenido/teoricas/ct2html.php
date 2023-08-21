@@ -128,10 +128,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -158,8 +158,8 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox3.addEventListener("change", comprueba, true);
         checkbox4.addEventListener("change", comprueba, true);
 
-         //se esta llamando los sonidos de la carpeta "sonidos"
-         var Correcto = document.createElement("audio");
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";

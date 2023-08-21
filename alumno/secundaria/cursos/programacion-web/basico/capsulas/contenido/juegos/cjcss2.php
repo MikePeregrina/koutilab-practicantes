@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula31";
+$permiso = "capsula32";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 32;
+$permiso_intento = 33;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -61,30 +61,30 @@ if (isset($resultadoIntentos['intentos'])) {
 			<p id="tiempo" style="margin: 0 0 0 0"></p>
 		</b>
 	</div>
-    <!-- Titulo general del juego -->
+	<!-- Titulo general del juego -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>SINTAXIS DE CSS</b></h2>
 	</div>
 
 	<!-- Contenedor principal -->
-<section>
+	<section>
 
 		<div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-b.php">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Responde las preguntas antes de que el tiempo termine</b></h4>
-        </div>
-<!--fIN CAMBIOS -->
+			<a href="../../../../../../rutas/ruta-pw-b.php">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Responde las preguntas antes de que el tiempo termine</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
 		<!-- boton de verificar respuestas - No necesario para la sección-->
 		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
-</section>
+	</section>
 
 	<!-- CAMBIOS -->
 	<footer class="footerimga">
@@ -92,7 +92,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-<!-- fIN CAMBIOS -->
+	<!-- fIN CAMBIOS -->
 
 	<script>
 		//Funcion que agrega el sonido al juego
@@ -102,11 +102,9 @@ if (isset($resultadoIntentos['intentos'])) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"Definen las características de los elementos, tiene un valor que se le asigna",
+				pregunta: "Definen las características de los elementos, tiene un valor que se le asigna",
 				opA: "Valor",
 				opB: "Propiedad",
 				opC: "Id",
@@ -115,8 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					" Son las opciones que se pueden asignar a una propiedad",
+				pregunta: " Son las opciones que se pueden asignar a una propiedad",
 				opA: "Valor",
 				opB: "Propiedad",
 				opC: "Selector",
@@ -125,8 +122,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Es la forma en que se apunta a los elementos.",
+				pregunta: "Es la forma en que se apunta a los elementos.",
 				opA: "Identificador",
 				opB: "Valor",
 				opC: "Selector",
@@ -135,8 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"Las propiedades y valores son sensibles a _______. En css se separan por un ':' ",
+				pregunta: "Las propiedades y valores son sensibles a _______. En css se separan por un ':' ",
 				opA: "Mayúsculas",
 				opB: "Ambas",
 				opC: "Minúsculas",
@@ -145,8 +140,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Cuando se hace uso del atributo style. ¿Ya no hace falta el empleo de selectores?",
+				pregunta: "Cuando se hace uso del atributo style. ¿Ya no hace falta el empleo de selectores?",
 				opA: "Falso",
 				opB: "Verdadero",
 				opC: "Ambas",
@@ -168,7 +162,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -231,23 +225,23 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
 			//Permite que el timer se vuelva a cambiar de color a azul.
-			
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
- 	        }
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
@@ -297,8 +291,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
@@ -339,10 +333,10 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
 			var puntos = <?php echo $puntosGanados; ?>
-			
+
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 1; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({

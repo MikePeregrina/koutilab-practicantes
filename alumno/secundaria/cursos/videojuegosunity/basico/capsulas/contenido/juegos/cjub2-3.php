@@ -102,8 +102,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			<div class="maze-contenedor">
 				<div id="view">
 					<div id="mazeContainer">
-						<canvas id="mazeCanvas" class="border" height="1100" width="1100"
-							style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
 					</div>
 				</div>
 			</div>
@@ -114,8 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</section>
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		Swal.fire({
@@ -277,13 +275,13 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 			};
 
-			this.map = function () {
+			this.map = function() {
 				return mazeMap;
 			};
-			this.startCoord = function () {
+			this.startCoord = function() {
 				return startCoord;
 			};
-			this.endCoord = function () {
+			this.endCoord = function() {
 				return endCoord;
 			};
 
@@ -419,7 +417,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			var drawEndMethod;
 			ctx.lineWidth = cellSize / 40;
 
-			this.redrawMaze = function (size) {
+			this.redrawMaze = function(size) {
 				cellSize = size;
 				ctx.lineWidth = cellSize / 50;
 				drawMap();
@@ -541,7 +539,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			var cellSize = _cellsize;
 			var halfCellSize = cellSize / 2;
 
-			this.redrawPlayer = function (_cellsize) {
+			this.redrawPlayer = function(_cellsize) {
 				cellSize = _cellsize;
 				drawSpriteImg(cellCoords);
 			};
@@ -645,11 +643,11 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 			}
 
-			this.bindKeyDown = function () {
+			this.bindKeyDown = function() {
 				window.addEventListener("keydown", check, false);
 
 				$("#view").swipe({
-					swipe: function (
+					swipe: function(
 						event,
 						direction,
 						distance,
@@ -685,7 +683,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				});
 			};
 
-			this.unbindKeyDown = function () {
+			this.unbindKeyDown = function() {
 				window.removeEventListener("keydown", check, false);
 				$("#view").swipe("destroy");
 			};
@@ -704,7 +702,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var difficulty;
 		// sprite.src = 'media/sprite.png';
 
-		window.onload = function () {
+		window.onload = function() {
 			let viewWidth = $("#view").width();
 			let viewHeight = $("#view").height();
 			if (viewHeight < viewWidth) {
@@ -721,7 +719,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			var isComplete = () => {
 				if (completeOne === true && completeTwo === true) {
 					console.log("Runs");
-					setTimeout(function () {
+					setTimeout(function() {
 						makeMaze();
 					}, 500);
 				}
@@ -732,7 +730,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				"?" +
 				new Date().getTime();
 			sprite.setAttribute("crossOrigin", " ");
-			sprite.onload = function () {
+			sprite.onload = function() {
 				sprite = changeBrightness(1.2, sprite);
 				completeOne = true;
 				console.log(completeOne);
@@ -744,7 +742,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				"?" +
 				new Date().getTime();
 			finishSprite.setAttribute("crossOrigin", " ");
-			finishSprite.onload = function () {
+			finishSprite.onload = function() {
 				finishSprite = changeBrightness(1.1, finishSprite);
 				completeTwo = true;
 				console.log(completeTwo);
@@ -753,7 +751,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		};
 
-		window.onresize = function () {
+		window.onresize = function() {
 			let viewWidth = $("#view").width();
 			let viewHeight = $("#view").height();
 			if (viewHeight < viewWidth) {

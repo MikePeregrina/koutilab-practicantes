@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula42";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 10");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -106,7 +106,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <footer class="footerimga">
         <div class="imagen-footer">
-        <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
         </div>
     </footer>
 
@@ -132,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //&quot; representa (").
 
         //Funcion para bloquear copiar y pegar
-        document.addEventListener("keydown", function (event) {
+        document.addEventListener("keydown", function(event) {
             //con event se detecta si se presiono la tecla control y la tecla c o C
             if (event.ctrlKey && (event.key === "c" || event.key === "C")) {
                 event.preventDefault(); //con prevent defaul el navegador bloquea la accion
@@ -144,7 +144,7 @@ if (isset($resultadoIntentos['intentos'])) {
         });
 
         //Funcion que borra lo escrito dentro del textarea cuando se actualiza la pagina
-        window.onbeforeunload = function () {
+        window.onbeforeunload = function() {
             document.getElementById("escrito").value = "";
         };
 

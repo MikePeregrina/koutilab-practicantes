@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,7 +10,7 @@ $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
+	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
 }
 ?>
 <!DOCTYPE html>
@@ -54,36 +54,21 @@ if (empty($existe)) {
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container" style="width: 412px; height: 412px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-0.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-0.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-0.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-0.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-1.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-1.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-1.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-1.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-2.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-2.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-2.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-2.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-3.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-3.png"
-						class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-3.png"
-						class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-3.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -154,22 +139,22 @@ if (empty($existe)) {
 	<script>
 		const GameDifficulty = [20, 50, 70];
 		class Game {
-			difficulty;//difficulty based on GameDifficulty array
-			cols = 4;//how many colomns
-			rows = 4;//how many rows
-			count;//cols*rows
-			blocks;//the html elements with className="puzzle_block"
-			emptyBlockCoords = [3, 3];//the coordinates of the empty block
-			indexes = [];//keeps track of the order of the blocks
+			difficulty; //difficulty based on GameDifficulty array
+			cols = 4; //how many colomns
+			rows = 4; //how many rows
+			count; //cols*rows
+			blocks; //the html elements with className="puzzle_block"
+			emptyBlockCoords = [3, 3]; //the coordinates of the empty block
+			indexes = []; //keeps track of the order of the blocks
 
 			constructor(difficultyLevel = 1) {
 				this.difficulty = GameDifficulty[difficultyLevel - 1];
 				this.count = this.cols * this.rows;
-				this.blocks = document.getElementsByClassName("puzzle_block");//grab the blocks
+				this.blocks = document.getElementsByClassName("puzzle_block"); //grab the blocks
 				this.init();
 			}
 
-			init() {//position each block in its proper position
+			init() { //position each block in its proper position
 				for (let y = 0; y < this.rows; y++) {
 					for (let x = 0; x < this.cols; x++) {
 						let blockIdx = x + y * this.cols;
@@ -184,7 +169,7 @@ if (empty($existe)) {
 				this.randomize(this.difficulty);
 			}
 
-			randomize(iterationCount) {//move a random block (x iterationCount)
+			randomize(iterationCount) { //move a random block (x iterationCount)
 				for (let i = 0; i < iterationCount; i++) {
 					let randomBlockIdx = Math.floor(Math.random() * (this.count - 1));
 					let moved = this.moveBlock(randomBlockIdx);
@@ -192,7 +177,7 @@ if (empty($existe)) {
 				}
 			}
 
-			moveBlock(blockIdx) {//moves a block and return true if the block has moved
+			moveBlock(blockIdx) { //moves a block and return true if the block has moved
 				let block = this.blocks[blockIdx];
 				let blockCoords = this.canMoveBlock(block);
 				if (blockCoords != null) {
@@ -204,7 +189,7 @@ if (empty($existe)) {
 				}
 				return false;
 			}
-			canMoveBlock(block) {//return the block coordinates if he can move else return null
+			canMoveBlock(block) { //return the block coordinates if he can move else return null
 				let blockPos = [parseInt(block.style.left), parseInt(block.style.top)];
 				let blockWidth = block.clientWidth;
 				let blockCoords = [blockPos[0] / blockWidth, blockPos[1] / blockWidth];
@@ -214,13 +199,13 @@ if (empty($existe)) {
 				else return null;
 			}
 
-			positionBlockAtCoord(blockIdx, x, y) {//position the block at a certain coordinates
+			positionBlockAtCoord(blockIdx, x, y) { //position the block at a certain coordinates
 				let block = this.blocks[blockIdx];
 				block.style.left = (x * block.clientWidth) + "px";
 				block.style.top = (y * block.clientWidth) + "px";
 			}
 
-			onClickOnBlock(blockIdx) {//try move block and check if puzzle was solved
+			onClickOnBlock(blockIdx) { //try move block and check if puzzle was solved
 				if (this.moveBlock(blockIdx)) {
 					if (this.checkPuzzleSolved()) {
 						setTimeout(() => {
@@ -244,7 +229,7 @@ if (empty($existe)) {
 				}
 			}
 
-			checkPuzzleSolved() {//return if puzzle was solved
+			checkPuzzleSolved() { //return if puzzle was solved
 				for (let i = 0; i < this.indexes.length; i++) {
 					//console.log(this.indexes[i],i);
 					if (i == this.emptyBlockCoords[0] + this.emptyBlockCoords[1] * this.cols) continue;
@@ -253,14 +238,14 @@ if (empty($existe)) {
 				return true;
 			}
 
-			setDifficulty(difficultyLevel) {//set difficulty
+			setDifficulty(difficultyLevel) { //set difficulty
 				this.difficulty = GameDifficulty[difficultyLevel - 1];
 				this.randomize(this.difficulty);
 			}
 
 		}
 
-		var game = new Game(1);//instantiate a new Game
+		var game = new Game(1); //instantiate a new Game
 
 
 		//taking care of the difficulty buttons

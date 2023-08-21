@@ -156,8 +156,8 @@ function mostrarResultados() {
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
             var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 35 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd35.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
             Swal.fire({
@@ -178,8 +178,8 @@ function mostrarResultados() {
             });
         } else {
             var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 35 + "&id_curso=" + 1; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd35.php", true);
+				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 36 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
             //llamamos a la alerta

@@ -66,12 +66,12 @@ if (empty($existe)) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T2.5/139.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T2.5/140.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/141.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/142.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/143.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/144.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/98.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T2.5/99.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/100.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/101.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/101.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/103.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp7.php">

@@ -180,7 +180,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 49 +"&id_curso=" + 10; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 49 + "&id_curso=" + 10; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -227,10 +227,10 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById('tiempo').innerHTML = segundos + "<br>segundos";
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 49 + "&id_curso=" + 10; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 49 + "&id_curso=" + 10; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd49.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',

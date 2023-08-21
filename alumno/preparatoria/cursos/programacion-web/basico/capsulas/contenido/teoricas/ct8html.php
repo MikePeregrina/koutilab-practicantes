@@ -90,15 +90,15 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T8/62.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T8/63.gif');"></li>
-                        <li style="background-image: url('../../img/html/T8/64.gif');"></li>
-                        <li style="background-image: url('../../img/html/T8/65.gif');"></li>
-                        <li style="background-image: url('../../img/html/T8/66.gif');"></li>
-                        <li style="background-image: url('../../img/html/T8/67.gif');"></li>
+                        <li style="background-image: url('../../img/html/T8/70.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T8/71.gif');"></li>
+                        <li style="background-image: url('../../img/html/T8/72.gif');"></li>
+                        <li style="background-image: url('../../img/html/T8/73.gif');"></li>
+                        <li style="background-image: url('../../img/html/T8/74.gif');"></li>
+                        <li style="background-image: url('../../img/html/T8/75.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd23.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es la etiqueta para insertar un boton?</h1>
                                     <div class="container-question">
@@ -129,6 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct8html.php">
                                 </form>
                             </div>
                         </li>

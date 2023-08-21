@@ -112,7 +112,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <div>
                                             <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                             <label for="checkbox1">
-                                                Una colección de firmas y propiedades  de firmas y propiedades.
+                                                Una colección de firmas y propiedades de firmas y propiedades.
                                             </label>
                                         </div>
                                         <div>
@@ -129,7 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         </div>
                                         <div>
                                             <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                            <label for="checkbox4">Una  clase.</label>
+                                            <label for="checkbox4">Una clase.</label>
                                         </div>
                                         <input type="hidden" name="permiso" value="11">
                                         <input type="hidden" name="teorico" value="10">

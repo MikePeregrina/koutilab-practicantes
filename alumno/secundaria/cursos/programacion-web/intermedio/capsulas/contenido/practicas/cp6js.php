@@ -17,23 +17,23 @@ if (empty($existe)) {
 
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
-    $htmlcode = str_replace("sdl", "%0A",$htmlcode);
+    $htmlcode = str_replace("sdl", "%0A", $htmlcode);
     $htmlcode = urldecode($htmlcode);
-}else{
+} else {
     $htmlcode = "";
 }
 if (isset($_GET['csscode'])) {
     $csscode = $_GET['csscode'];
-    $csscode = str_replace("sdl", "%0A",$csscode);
+    $csscode = str_replace("sdl", "%0A", $csscode);
     $csscode = urldecode($csscode);
-}else{
+} else {
     $csscode = "";
 }
 if (isset($_GET['htmlcode'])) {
     $jscode = $_GET['jscode'];
-    $jscode = str_replace("sdl", "%0A",$jscode);
+    $jscode = str_replace("sdl", "%0A", $jscode);
     $jscode = urldecode($jscode);
-}else{
+} else {
     $jscode = "";
 }
 

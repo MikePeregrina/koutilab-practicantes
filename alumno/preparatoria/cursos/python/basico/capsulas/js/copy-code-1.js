@@ -10,8 +10,8 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById(
     "textoej"
-).innerHTML = `mensaje = "Mensaje en una variable" <br/>
-nombre = "Tenoch Moises Vazquez" <br/>
+).innerHTML = `mensaje = "Mensaje en una variable" </br>
+nombre = "Tenoch Moises Vazquez" </br>
 telefono_personal = 2223252728`
 //Entidades para que html no reconosca las etiquetas
 //&lt; representa (<).
@@ -53,8 +53,8 @@ function iniciarTiempo() {
         //Borra el texto escrito
         escrito.value = "";
         var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 4; //cancatenation
-		xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-3.php'; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xmlhttp.send(param);
         Swal.fire({
@@ -86,8 +86,8 @@ function alertExcelent() {
     //Compara y valida si el texto es igual o no y muestra mensajes.
     if (text1 === text2) {
         var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 4; //cancatenation
-		xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-3.php'; //cancatenation
+		xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xmlhttp.send(param);
         Swal.fire({

@@ -226,25 +226,10 @@ var correcto = document.createElement("audio");
                 if (wordList.length === 0) {
                     $(".puzzleSquare").addClass("complete");
                     var xmlhttp = new XMLHttpRequest();
-                    var param =
-                        "score=" +
-                        10 +
-                        "&validar=" +
-                        "correcto" +
-                        "&permiso=" +
-                        19 +
-                        "&id_curso=" +
-                        7; //cancatenation
-                    xmlhttp.open(
-                        "POST",
-                        "../../acciones/insertar_pd19.php",
-                        true
-                    );
-                    xmlhttp.setRequestHeader(
-                        "Content-Type",
-                        "application/x-www-form-urlencoded"
-                    );
-                    xmlhttp.send(param);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-6.php'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
                     Swal.fire({
                         title: "¡Bien hecho!",
                         text: "¡Puntuación guardada con éxito!",
