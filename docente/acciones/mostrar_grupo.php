@@ -45,6 +45,98 @@ if ($result_sql == 0) {
         <h1>Lista de alumnos y puntajes</h1>
     </div>
 
+    <section class="modal-1" id="modalPW">
+        <div class="modal-1container">
+            <div class="close-modal1" id="closeModalPW"><i class="fas fa-times"></i></div>
+            <div class="titl"><h1>Resumen de programación web por niveles</h1></div>
+            <div class="res">
+                <h2>Estadísticas totales</h2>
+                <div class="estd">
+                    <h3>Trofeos: 100</h3>
+                    <h3>Puntaje: 100</h3>
+                    <h3>Práctico: 100</h3>
+                    <h3>Teórico: 100</h3>
+                </div>
+            </div>
+            <hr style="background-color: rgba(61, 171, 244, 0.5); width: 90%; margin: 30px auto 0 auto;">
+            <div class="cont-card">
+                <div class="cardC">
+                    <h3>Básico</h3>
+                    <div class="estd1">
+                        <h2>Trofeos: 100/N</h2> 
+                        <h2>Puntaje: 100/N</h2> 
+                        <h2>Práctico: 100/N</h3> 
+                        <h2>Teórico: 100/N</h2>
+                    </div>
+                </div>
+                <div class="cardC">
+                    <h3>Intermedio</h3>
+                    <div class="estd1">
+                        <h2>Trofeos: 100/N</h2> 
+                        <h2>Puntaje: 100/N</h2> 
+                        <h2>Práctico: 100/N</h3> 
+                        <h2>Teórico: 100/N</h2>
+                    </div>
+                </div>
+                <div class="cardC">
+                    <h3>Avanzado</h3>
+                    <div class="estd1">
+                        <h2>Trofeos: 100/N</h2> 
+                        <h2>Puntaje: 100/N</h2> 
+                        <h2>Práctico: 100/N</h3> 
+                        <h2>Teórico: 100/N</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modal-1" id="modalPY">
+        <div class="modal-1container">
+            <div class="close-modal1" id="closeModalPY"><i class="fas fa-times"></i></div>
+            <div class="titl"><h1>Resumen de python por niveles</h1></div>
+            <div class="res">
+                <h2>Estadísticas totales</h2>
+                <div class="estd">
+                    <h3>Trofeos: 100</h3>
+                    <h3>Puntaje: 100</h3>
+                    <h3>Práctico: 100</h3>
+                    <h3>Teórico: 100</h3>
+                </div>
+            </div>
+            <hr style="background-color: rgba(61, 171, 244, 0.5); width: 90%; margin: 30px auto 0 auto;">
+            <div class="cont-card">
+                <div class="cardC">
+                    <h3>Básico</h3>
+                    <div class="estd1">
+                        <h2>Trofeos: 100/N</h2> 
+                        <h2>Puntaje: 100/N</h2> 
+                        <h2>Práctico: 100/N</h3> 
+                        <h2>Teórico: 100/N</h2>
+                    </div>
+                </div>
+                <div class="cardC">
+                    <h3>Intermedio</h3>
+                    <div class="estd1">
+                        <h2>Trofeos: 100/N</h2> 
+                        <h2>Puntaje: 100/N</h2> 
+                        <h2>Práctico: 100/N</h3> 
+                        <h2>Teórico: 100/N</h2>
+                    </div>
+                </div>
+                <div class="cardC">
+                    <h3>Avanzado</h3>
+                    <div class="estd1">
+                        <h2>Trofeos: 100/N</h2> 
+                        <h2>Puntaje: 100/N</h2> 
+                        <h2>Práctico: 100/N</h3> 
+                        <h2>Teórico: 100/N</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section>
         <div class="board p-2" style="width: 95%;">
@@ -54,10 +146,12 @@ if ($result_sql == 0) {
                         <td><b>Nombre</b></td>
                         <td><b>Nivel educativo</b></td>
                         <td><b>Grado escolar</b></td>
-                        <td><b>Trofeos</b></td>
+                        <td><b>Programación web</b></td>
+                        <td><b>Python</b></td>
+                        <!-- <td><b>Trofeos</b></td>
                         <td><b>Puntaje</b></td>
                         <td><b>Práctico</b></td>
-                        <td><b>Teorico</b></td>
+                        <td><b>Teorico</b></td> -->
                         <td><b>Conexiones</b></td>
                     </tr>
                 </thead>
@@ -79,11 +173,16 @@ if ($result_sql == 0) {
                                 <td><?php echo $data['nombre']; ?></td>
                                 <td>Primaria</td>
                                 <td><?php echo $data['grado_escolar']; ?></td>
-                                <td><?php echo $data['total_trofeos']; ?></td>
-                                <td><?php echo $data['total_puntos']; ?></td>
-                                <td><?php echo $data['total_practico']; ?></td>
-                                <td><?php echo $data['total_teorico']; ?></td>
-                                <td><?php echo $data['conexiones']; ?></td>
+                                <td>10/10 <div class="info-alm" id="infoPWButton">!</div> </td>
+                                <td>8/10 <div class="info-alm" id="infoPYButton">!</div> </td>
+                                <!-- 
+                                <td><?php //echo $data['total_trofeos']; ?></td>
+                                <td><?php //echo $data['total_puntos']; ?></td>
+                                <td><?php //echo $data['total_practico']; ?></td>
+                                <td><?php //echo $data['total_teorico']; ?></td> 
+                                -->
+                                <td><?php echo $data['conexiones']; ?></td> 
+                                
                             </tr>
                     <?php }
                     } ?>
@@ -93,6 +192,35 @@ if ($result_sql == 0) {
         </div>
     </section>
     <?php include '../footer.php'; ?>
+
+    <script>
+        const openModal = document.getElementById('infoPWButton');
+        const modalPW = document.getElementById('modalPW');
+        const closeModal = document.getElementById('closeModalPW');
+
+        openModal.addEventListener('click', ()=> {
+            modalPW.style.cssText = 'opacity: 1; pointer-events: unset; transition: opacity .5s;';
+        });
+
+        closeModal.addEventListener('click', ()=> {
+            modalPW.style.cssText = 'opacity: 0; pointer-events: none;  transition: opacity .5s;';
+        });
+    </script>
+
+    <script>
+        const openModalPY = document.getElementById('infoPYButton');
+        const modalPY = document.getElementById('modalPY');
+        const closeModalPY = document.getElementById('closeModalPY');
+
+        openModalPY.addEventListener('click', ()=> {
+            modalPY.style.cssText = 'opacity: 1; pointer-events: unset;  transition: opacity .5s;';
+        });
+
+        closeModalPY.addEventListener('click', ()=> {
+            modalPY.style.cssText = 'opacity: 0; pointer-events: none;  transition: opacity .5s;';
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             var table = $('#alumnos').DataTable({
