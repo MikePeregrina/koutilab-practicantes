@@ -180,9 +180,8 @@
                     <h1>Institucional</h1>
                     <div class="us-bar"></div>
                     <h4 class="us-tx">
-                        Enfocado tanto para centros
-                        recreativos como para museos,
-                        bibliotecas, etc.
+                        Para centros no escolares de
+                        enseñanza de programación.
                     </h4>
                     <div class="btn-sub" onclick="institucional()">
                         <h5 class="us-tx1">Registrar</h5>
@@ -197,7 +196,7 @@
                     <h4 class="us-tx">
                         Para la adquisición
                         individual y el también
-                        aprendizaje personalizados
+                        aprendizaje personalizados.
                     </h4>
                     <div class="btn-sub" onclick="login()">
                         <h5 class="us-tx1">Registrar</h5>
@@ -229,8 +228,8 @@
                 <div class="f-space">
                     <h1>Otros servicios</h1>
                     <h5><a href="https://grupoaerobot.com/" class="a-f">Aerobot</a></h5>
-                    <h5 class="f-tx1"><a href="#" class="a-f">Aviso de privacidad</a></h5>
-                    <h5 class="f-tx1"><a href="#" class="a-f">Términos y condiciones</a></h5>
+                    <h5 class="f-tx1"><a href="./acciones/pdf/Aviso de privacidad_KoutiLab.pdf" class="a-f">Aviso de privacidad</a></h5>
+                    <h5 class="f-tx1"><a href="./acciones/pdf/Términos y condiciones_KoutiLab.pdf" class="a-f">Términos y condiciones</a></h5>
                 </div>
             </div>
             <div class="f-card">
