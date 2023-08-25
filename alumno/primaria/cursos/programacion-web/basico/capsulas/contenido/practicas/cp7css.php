@@ -78,8 +78,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crear un selector id. Té propongo un ejercicio práctico solo usando
-                                    el archivo HTML: Pintáremos todos los párrafos de un mismo color con excepción de uno.
+                                <p> Crear un selector id. Te propongo un ejercicio práctico solo usando
+                                    el archivo HTML: Pintaremos todos los párrafos de un mismo color con excepción de uno.
                                     Crea una regla dentro de la etiqueta style con el selector para un atributo determinado.
                                     Escribe diferentes párrafos. Asígnale a uno de ellos ese atributo id. < p>
                                         <br> <br>
@@ -178,7 +178,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

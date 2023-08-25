@@ -163,7 +163,7 @@ if (empty($existe)) {
 
                 //resultado();
                 Swal.fire({
-                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
+                    title: '¡Excelente sigue así! ' + 'Obtuviste ' + 10 + ' puntos prácticos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

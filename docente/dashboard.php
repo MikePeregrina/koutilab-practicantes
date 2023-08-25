@@ -94,25 +94,37 @@ WHERE d.id_docente = $id_user"));
     </div>
     </div>
 
-    <div class="right-content">
+    <div class="right-content"> <!-- Contenedor de pdf -->
+
+      <!-- Titulo -->
       <div class="titlec">
         <h2>Cursos</h2>
       </div>
 
-      <div class="card" style="margin-bottom: 0px; width: 40%; height: 40%; padding: 7%;">
-        <a href="../acciones/pdf/temario-pwb.pdf" target="_blank">
-          <div><i class="fab fa-html5 fa-6x"></i></div>
-          <h2>Programación web básico</h2>
-        </a>
-      </div>
+      <!-- Aqui agregar los pdf -->
+      <div class="left-content-pdf">
 
-      <div class="card" style="margin-bottom: 0px; width: 40%; height: 40%; padding: 7%;">
-        <a href="../acciones/pdf/temario-pwi.pdf" target="_blank">
-          <div><i class="fab fa-html5 fa-6x"></i></div>
-          <h2>Programación web intermedio</h2>
-        </a>
-      </div>
+        <!-- Copiar de aqui -->
+        <div class="titl-pdf"><h3>Programación web</h3></div>
+        <ul class="titl-temas">
+          <a href="../acciones/pdf/MPWB.pdf">Programación web básico</a> <br>
+          <a href="../acciones/pdf/MPWI.pdf">Programación web intermedio</a> <br>
+          <a href="../acciones/pdf/MPWA.pdf">Programación web avanzado</a>
+        </ul>
+        <!-- Hasta aqui -->
 
+        <div class="titl-pdf"><h3>Python</h3></div>
+        <ul class="titl-temas">
+          <a href="../acciones/pdf/MPHB.pdf">Python básico</a> <br>
+          <a href="../acciones/pdf/MPHI.pdf">Python intermedio</a> <br>
+          <a href="../acciones/pdf/MPHA.pdf">Python avanzado</a>
+        </ul>
+
+      </div>
+      <div class="division"></div>
+      <div class="right-content-pdf">
+        <!-- Aqui van mas cursos como en el left content -->
+      </div>
     </div>
 
   </section>

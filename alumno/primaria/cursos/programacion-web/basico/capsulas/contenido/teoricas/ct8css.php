@@ -146,7 +146,7 @@ if (empty($existe)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 Swal.fire({
-                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
+                    title: '¡Excelente sigue así! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

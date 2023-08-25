@@ -175,7 +175,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 Swal.fire({
-                    title: '¡Excelente sigue asi! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
+                    title: '¡Excelente sigue así! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,
