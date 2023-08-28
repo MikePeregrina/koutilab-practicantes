@@ -51,10 +51,6 @@ include('header.php');
 						<input type="text" class="form-control" required id="nombre_e" name="nombre_e" placeholder="Escribe el nombre de tu institución">
 					</div>
 					<div class="form-group">
-						<label for="clave" class="text-f">Clave centro del trabajo</label>
-						<input type="text" class="form-control" required id="clave" name="clave" placeholder="eee1415e4e1">
-					</div>
-					<div class="form-group">
 						<label for="pais" class="text-f">País</label>
 						<select class="form-control" name="pais" id="pais" type="select" required onchange="mostrarEstados()">
 							<option value="">Seleccionar país</option>

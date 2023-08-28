@@ -24,8 +24,8 @@ if (ProPayPal) {
     define("PayPalENV", "sandbox");
 }
 $productName = "Cápsula de prueba";
-$currency = "USD";
-$productPrice = 2;
+$currency = "MXN";
+$productPrice = 80;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = $_POST['id_curso'];
@@ -62,7 +62,7 @@ $id_capsula = $_POST['id_capsula'];
                     </div>
                     <div class="s">
                         <p>Total a pagar</p><br>
-                        <p>2 USD</p><br>
+                        <p>80 MXN</p><br>
                         <div id="paypal-button-container"></div>
                         <div id="paypal-button"></div>
                         <div class="button-box">

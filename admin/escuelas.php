@@ -9,9 +9,17 @@ include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
 
-$sql = "SELECT COUNT(*) id_escuela FROM escuelas WHERE estatus = 1";
-$result = mysqli_query($conexion, $sql);
-$fila = mysqli_fetch_assoc($result);
+$sql = "SELECT 
+nivel_educativo,
+COUNT(DISTINCT CASE 
+    WHEN nivel_educativo = 'Institucional' THEN nivel_educativo
+    ELSE cct
+END) AS conteo
+FROM escuelas
+WHERE estatus = 1
+GROUP BY nivel_educativo";
+$result = $conexion->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +56,14 @@ $fila = mysqli_fetch_assoc($result);
     <div class="studens-add-bar">
         <div class="left-student">
             <i class="fas fa-user-shield"></i>
-            <h2><?php echo $fila['id_escuela']; ?> Escuela(s)</h2>
+            <h2><?php if ($result->num_rows > 0) {
+                    // Mostrar los resultados
+                    while ($row = $result->fetch_assoc()) {
+                        echo $row["nivel_educativo"] . " - Total: " . $row["conteo"] . "<br>";
+                    }
+                } else {
+                    echo "No se encontraron escuelas.";
+                } ?> Escuela(s)</h2>
         </div>
 
         <div class="right-student" id="addCourseButton">
@@ -221,7 +236,14 @@ $fila = mysqli_fetch_assoc($result);
                                 <td><?php echo $data['cct']; ?></td>
                                 <td><?php echo $data['pais']; ?></td>
                                 <td><?php echo $data['nivel_educativo']; ?></td>
-                                <td>Clave director: <?php echo $data['clave_director'] ?><br>Clave docente: <?php echo $data['clave_docente'] ?><br>Clave alumno: <?php echo $data['clave_alumno'] ?></td>
+                                <td>
+                                    Clave director: <?php echo $data['clave_director'] ?><br>
+                                    <?php if ($data['nivel_educativo'] !== 'Institucional') : ?>
+                                        Clave docente: <?php echo $data['clave_docente'] ?><br>
+                                    <?php endif; ?>
+                                    Clave alumno: <?php echo $data['clave_alumno'] ?>
+                                </td>
+
                                 <td><?php echo $data['autorizacion']; ?></td>
 
                                 <td id="td-btn">

@@ -14,13 +14,12 @@ include_once("../../acciones/conexion.php");
 			$contacto = mysqli_real_escape_string($conexion, $_POST['contacto']);
 			$email = mysqli_real_escape_string($conexion, $_POST['email']);
 			$nombre_e = mysqli_real_escape_string($conexion, $_POST['nombre_e']);
-			$clave = mysqli_real_escape_string($conexion, $_POST['clave']);
 			$pais = mysqli_real_escape_string($conexion, $_POST['pais']);
 			$estado = mysqli_real_escape_string($conexion, $_POST['estado']);
 			$grado = mysqli_real_escape_string($conexion, $_POST['grado']);
 			$numero_a = mysqli_real_escape_string($conexion, $_POST['numero_a']);
 			$otro_c = mysqli_real_escape_string($conexion, $_POST['otro_c']);
-			if (mysqli_query($conexion, "INSERT INTO formulario_institucional(nombre_r, cargo, contacto, email, nombre_e, clave, pais, estado, grado, numero_d, otro_c) VALUES('" . $nombre_r . "', '" . $cargo . "', '" . $contacto . "', '" . $email . "', '" . $nombre_e . "', '" . $clave . "', '" . $pais . "', '" . $estado . "', '" . $grado . "', '" . $numero_a . "', '" . $otro_c . "')")) {
+			if (mysqli_query($conexion, "INSERT INTO formulario_institucional(nombre_r, cargo, contacto, email, nombre_e, pais, estado, grado, numero_d, otro_c) VALUES('" . $nombre_r . "', '" . $cargo . "', '" . $contacto . "', '" . $email . "', '" . $nombre_e . "', '" . $pais . "', '" . $estado . "', '" . $grado . "', '" . $numero_a . "', '" . $otro_c . "')")) {
 				echo "¡Está registrado con éxito!";
 			} else {
 				echo "Error al registrarte... ¡Vuelve a intentarlo más tarde!";

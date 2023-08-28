@@ -23,7 +23,7 @@ if (ProPayPal) {
     define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/personal/");
     define("PayPalENV", "sandbox");
 }
-$currency = "USD";
+$currency = "MXN";
 $productPrice = 10;
 $id_curso = 2;
 $id_capsula = 1;
@@ -59,7 +59,7 @@ $id_capsula = 1;
                     </div>
                     <div class="s">
                         <p>Total a pagar</p><br>
-                        <p>2 USD</p><br>
+                        <p>40 MXN</p><br>
                         <div id="paypal-button-container"></div>
                         <div id="paypal-button"></div>
                         <script src="https://www.paypalobjects.com/api/checkout.js"></script>

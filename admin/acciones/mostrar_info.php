@@ -126,8 +126,13 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                     </div>
                     <div class="input-box">
                         <span class="details">Clave docente</span>
-                        <input type="text" name="pais" id="pais" value="<?php echo $clave_docente; ?>" readonly>
+                        <?php if ($nivel_educativo !== 'Institucional') : ?>
+                            <input type="text" name="clave_docente" id="clave_docente" value="<?php echo $clave_docente; ?>" readonly>
+                        <?php else : ?>
+                            <input type="text" name="clave_docente" id="clave_docente" value="No aplicable" readonly>
+                        <?php endif; ?>
                     </div>
+
                     <div class="input-box">
                         <span class="details">Clave alumno</span>
                         <input type="text" name="pais" id="pais" value="<?php echo $clave_alumno; ?>" readonly>

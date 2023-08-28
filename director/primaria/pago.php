@@ -24,8 +24,8 @@ if (ProPayPal) {
     define("PayPalENV", "sandbox");
 }
 $productName = "Cápsula de prueba";
-$currency = "USD";
-$productPrice = 2;
+$currency = "MXN";
+$productPrice = 40;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = 1;
@@ -69,7 +69,7 @@ $id_capsula = 1;
 
                     <div class="s">
                         <h2>Total a pagar</h2><br>
-                        <h2>2 USD</h2><br>
+                        <h2>40 MXN</h2><br>
                         <div id="paypal-button-container" class=""></div>
                         <div id="paypal-button"></div>
                         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
