@@ -84,22 +84,19 @@ $result = $conexion->query($sql);
     </div>
 
     <div class="studens-add-bar">
-        <div class="left-student">
-            <i class="fas fa-user-shield"></i>
-            <h2><?php if ($result->num_rows > 0) {
-                    // Mostrar los resultados
-                    while ($row = $result->fetch_assoc()) {
-                        echo $row["nivel_educativo"] . " - Total: " . $row["conteo"] . "<br>";
-                    }
-                } else {
-                    echo "No se encontraron escuelas.";
-                } ?> Escuela(s)</h2>
+        <?php if ($result->num_rows > 0) {
+            // Mostrar los resultados
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="left-student"> <i class="fas fa-school"></i> <h2>' . $row["nivel_educativo"] . " - Total: " . $row["conteo"] . " Escuela(s)</h2> </div>";
+            }
+        } else {
+            echo "No se encontraron escuelas.";
+        } ?>
         </div>
-
-        <div class="right-student" id="addCourseButton">
-            <i class="fas fa-user-shield"></i>
-            <h2>Añadir escuela</h2>
-        </div>
+    </div>
+    <div class="right-student" id="addCourseButton">
+        <i class="fas fa-plus-circle"></i>
+        <h2>Añadir escuela</h2>
     </div>
 
     <!-- Contenido de la pantalla emergente -->

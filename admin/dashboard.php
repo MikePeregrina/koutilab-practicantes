@@ -91,30 +91,29 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
         <h2>Cursos</h2>
       </div>
 
+      <!-- Aqui agregar los pdf -->
+      <div class="left-content-pdf">
 
-      <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#">
-          <div><i class="fas fa-money-check-alt fa-6x"></i></div>
-          <h2>Acceso 1</h2>
-        </a>
+        <!-- Copiar de aqui -->
+        <div class="titl-pdf"><h3>Programación web</h3></div>
+        <ul class="titl-temas">
+          <a href="../acciones/pdf/MPWB.pdf">Programación web básico</a> <br>
+          <a href="../acciones/pdf/MPWI.pdf">Programación web intermedio</a> <br>
+          <a href="../acciones/pdf/MPWA.pdf">Programación web avanzado</a>
+        </ul>
+        <!-- Hasta aqui -->
+
+        <div class="titl-pdf"><h3>Python</h3></div>
+        <ul class="titl-temas">
+          <a href="../acciones/pdf/MPHB.pdf">Python básico</a> <br>
+          <a href="../acciones/pdf/MPHI.pdf">Python intermedio</a> <br>
+          <a href="../acciones/pdf/MPHA.pdf">Python avanzado</a>
+        </ul>
+
       </div>
-      <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#">
-          <div><i class="fas fa-chalkboard fa-6x"></i></div>
-          <h2>Acceso 2</h2>
-        </a>
-      </div>
-      <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#">
-          <div><i class="fas fa-chart-pie fa-6x"></i></div>
-          <h2>Acceso 3</h2>
-        </a>
-      </div>
-      <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#">
-          <div><i class="fas fa-project-diagram fa-6x"></i></div>
-          <h2>Acceso 4</h2>
-        </a>
+      <div class="division"></div>
+      <div class="right-content-pdf">
+        <!-- Aqui van mas cursos como en el left content -->
       </div>
     </div>
   </section>

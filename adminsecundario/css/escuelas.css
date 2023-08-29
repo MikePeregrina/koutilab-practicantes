@@ -142,10 +142,10 @@ body::-webkit-scrollbar-track, .popup-content::-webkit-scrollbar-track, select::
   border: 3px solid var(--border);
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   box-sizing: border-box;
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
-  cursor: pointer;
+  margin: auto 5px auto 5px;
 }
 
 .left-student i {
@@ -155,7 +155,8 @@ body::-webkit-scrollbar-track, .popup-content::-webkit-scrollbar-track, select::
 }
 
 .left-student h2 {
-  margin-left: 10%;
+  margin-left: 0%;
+  font-size: 20px;
 }
 
 .right-student {
@@ -165,21 +166,25 @@ body::-webkit-scrollbar-track, .popup-content::-webkit-scrollbar-track, select::
   border: 3px solid var(--border);
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   box-sizing: border-box;
-  width: 50%;
+  width: 86%;
   height: 100%;
+  margin-top: 1%;
   margin-left: 10%;
   display: flex;
   cursor: pointer;
 }
 
 .right-student i {
-  margin-left: 7%;
+  margin-left: 41%;
   font-size: 30px;
-  margin-top: 2.5%;
+  margin-top: 1%;
 }
 
 .right-student h2 {
-  margin-left: 10%;
+  margin: auto 0 auto 0;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 28px;
 }
 
 section {

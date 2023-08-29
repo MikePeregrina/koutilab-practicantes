@@ -313,6 +313,39 @@ form .user-details1 .input-box1 {
   z-index: 1;
 }
 
+.left-content-pdf {
+  width: 49.9%;
+  height: 90%;
+}
+
+.right-content-pdf {
+  float: left;
+  width: 49.9%;
+  height: 90%;
+}
+
+.titl-pdf h3 {
+  margin: 30px auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 170%; /*35px;*/
+}
+
+.titl-temas a {
+  margin: 0 auto 0 40px;
+  text-align: start;
+  font-weight: bolder;
+  font-size: 130%; /*35px;*/
+  text-decoration: none;
+}
+
+.division {
+  float: left;
+  width: 1px;
+  height: 90%;
+  background-color: #00000023;
+}
+
 @media (max-width: 1120px) {
   .camera-icon {
     margin-left: 13%;
