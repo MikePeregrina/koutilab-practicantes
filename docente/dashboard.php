@@ -105,19 +105,23 @@ WHERE d.id_docente = $id_user"));
       <div class="left-content-pdf">
 
         <!-- Copiar de aqui -->
-        <div class="titl-pdf"><h3>Programación web</h3></div>
+        <div class="titl-pdf">
+          <h3>Programación web</h3>
+        </div>
         <ul class="titl-temas">
-          <a href="../acciones/pdf/MPWB.pdf">Programación web básico</a> <br>
-          <a href="../acciones/pdf/MPWI.pdf">Programación web intermedio</a> <br>
-          <a href="../acciones/pdf/MPWA.pdf">Programación web avanzado</a>
+          <a href="img/temario-pw-b.pdf">Programación web básico</a> <br>
+          <a href="img/temario-pw-i.pdf">Programación web intermedio</a> <br>
+          <a href="img/temario-pw-a.pdf">Programación web avanzado</a>
         </ul>
         <!-- Hasta aqui -->
 
-        <div class="titl-pdf"><h3>Python</h3></div>
+        <div class="titl-pdf">
+          <h3>Python</h3>
+        </div>
         <ul class="titl-temas">
-          <a href="../acciones/pdf/MPHB.pdf">Python básico</a> <br>
-          <a href="../acciones/pdf/MPHI.pdf">Python intermedio</a> <br>
-          <a href="../acciones/pdf/MPHA.pdf">Python avanzado</a>
+          <a href="img/temario-py-b.pdf">Python básico</a> <br>
+          <a href="img/temario-py-i.pdf">Python intermedio</a> <br>
+          <a href="img/temario-py-a.pdf">Python avanzado</a>
         </ul>
 
       </div>
