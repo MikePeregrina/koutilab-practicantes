@@ -111,6 +111,29 @@ if (isset($resultadoIntentos['intentos'])) {
                             <li style="background-image: url('../../img/informatica/T4/41.gif');"></li>
                             <li style="background-image: url('../../img/informatica/T4/42.gif');"></li>
                             <li>
+                                <!-- Copiar de aqui -->
+                                <div class="mjuego">
+                                    <!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+                                    <div class="words">
+
+                                        <h4><b>Palabras a buscar:</b> <br>
+                                            - HTML <br>
+                                            - KOUTILAB <br>
+                                            - CLASES <br>
+                                            - LLAVES <br>
+                                        </h4>
+
+                                    </div>
+
+                                    <!-- Sección donde se agrega la sopa de letras -->
+                                    <div class="soup">
+                                        <div id='juego'></div>
+                                    </div>
+                                </div>
+                                <!-- Hasta aqui -->
+                            </li>
+                            <li style="background-image: url('../../img/html/T6/61.gif');"></li>
+                            <li>
                                 <div>
                                     <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd11.php">
                                         <h2>Para poder avanzar, responde la siguiente pregunta.</h2>

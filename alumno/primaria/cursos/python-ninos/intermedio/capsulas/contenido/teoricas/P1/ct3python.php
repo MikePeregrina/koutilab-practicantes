@@ -111,6 +111,47 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../../img/P1/T3/38.gif');"></li>
                         <li style="background-image: url('../../../../img/P1/T3/39.gif');"></li>
                         <li>
+                            <!-- Copiar de aqui -->
+                            <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
+                                    lado derecho</b></h4>
+                            <div class="columnas">
+                                <div class="container-all">
+                                    <!-- Columna de lado izquierdo -->
+                                    <div class="left-column">
+                                        <!-- opciones estas son las principales -->
+                                        <div class="word-box" id="css">CSS</div>
+                                        <div class="word-box" id="sql">SQL</div>
+                                        <div class="word-box" id="html">HTML</div>
+                                        <div class="word-box" id="javascript">JavaScript</div>
+                                        <div class="word-box" id="php">PHP</div>
+                                    </div>
+                                    <!-- Mapeo donde se trazan las lineas -->
+                                    <canvas id="canvas"> </canvas>
+
+                                    <!-- columna de lado derecho -->
+                                    <div class="right-column">
+                                        <!-- Respuestas -->
+                                        <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
+                                            Interactividad</div>
+                                        <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
+                                            Funcionalidad</div>
+                                        <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
+                                            Estructura
+                                        </div>
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        </div>
+                                        <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
+                                            Administrar</div>
+                                    </div>
+                                </div>
+
+                                <!-- boton de verificar respuestas -->
+                                <button class="verificar">Comprobar respuestas</button>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>

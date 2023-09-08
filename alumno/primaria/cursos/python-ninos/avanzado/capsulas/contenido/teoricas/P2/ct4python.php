@@ -110,6 +110,44 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T4/115.gif');"></li>
                         <li style="background-image: url('../../../img/P2/T4/116.gif');"></li>
                         <li>
+                            <!-- Copiar de aqui -->
+                            <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
+                            <div id="page">
+
+                                <div id="Message-Container">
+                                    <div id="message">
+                                        <p id="moves"></p>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div id="menu" style="margin-top: -500px; position: absolute;">
+                                    <div class="custom-select">
+                                        <select id="diffSelect">
+                                            <option value="6">Easy</option>
+                                            <option value="15">Medium</option>
+                                            <option value="25">Hard</option>
+                                            <option value="38">Extreme</option>
+                                        </select>
+                                    </div>
+                                    <input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+                                </div>
+
+                                <div class="maze-contenedor">
+                                    <div id="view">
+                                        <div id="mazeContainer">
+                                            <canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
+
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/html/T2/19.gif');"></li>
+                        <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>

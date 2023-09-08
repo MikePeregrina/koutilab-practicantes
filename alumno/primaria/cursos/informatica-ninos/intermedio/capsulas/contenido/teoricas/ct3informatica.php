@@ -107,7 +107,20 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/informatica/T3/30.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T3/31.gif');"></li>
                         <li style="background-image: url('../../img/informatica/T3/32.gif');"></li>
+                        <li>
+                            <!-- Copiar de aqui -->
+                            <div class="memorama">
+                                <!-- Generador del tablero -->
+                                <div id="tablero"></div>
+                                <!-- Boton de iniciar juego, al iniciar, desaparece -->
 
+                                <div class="nuevo-juego" id="generar" onclick="generarTablero()">
+                                    Iniciar juego
+                                </div>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../../img/P1/T2.5/39.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

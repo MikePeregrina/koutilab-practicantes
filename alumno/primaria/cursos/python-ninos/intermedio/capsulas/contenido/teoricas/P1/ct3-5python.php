@@ -110,6 +110,29 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../../img/P1/T3.5/45.gif');"></li>
                         <li style="background-image: url('../../../../img/P1/T3.5/46.gif');"></li>
                         <li>
+                            <!-- Copiar de aqui -->
+                            <div class="mjuego">
+                                <!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+                                <div class="words">
+
+                                    <h4><b>Palabras a buscar:</b> <br>
+                                        - HTML <br>
+                                        - KOUTILAB <br>
+                                        - CLASES <br>
+                                        - LLAVES <br>
+                                    </h4>
+
+                                </div>
+
+                                <!-- Sección donde se agrega la sopa de letras -->
+                                <div class="soup">
+                                    <div id='juego'></div>
+                                </div>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/html/T6/61.gif');"></li>
+                        <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_ct3-5py.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>

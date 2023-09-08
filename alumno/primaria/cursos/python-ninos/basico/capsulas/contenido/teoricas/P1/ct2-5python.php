@@ -109,6 +109,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T2.5/36.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T2.5/37.gif');"></li>
                         <li style="background-image: url('../../../img/P1/T2.5/38.gif');"></li>
+                        <li>
+                            <!-- Copiar de aqui -->
+                            <div class="memorama">
+                                <!-- Generador del tablero -->
+                                <div id="tablero"></div>
+                                <!-- Boton de iniciar juego, al iniciar, desaparece -->
+
+                                <div class="nuevo-juego" id="generar" onclick="generarTablero()">
+                                    Iniciar juego
+                                </div>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
                         <li style="background-image: url('../../../img/P1/T2.5/39.gif');"></li>
                         <li>
                             <div>
