@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula38";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 13");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 39;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 13");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 13");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+        <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
 
@@ -163,7 +163,7 @@ h1 { color:white; text-align:center; }
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -200,7 +200,7 @@ h1 { color:white; text-align:center; }
                 var puntos = <?php echo $puntosGanados; ?>
                 
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 39 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 39 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -218,7 +218,7 @@ h1 { color:white; text-align:center; }
                     if (result.isConfirmed) {
                         //Borra el texto escrito
                         escrito.value = "";
-                        window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                        window.location.href = "../../../../../../rutas/ruta-pw-b-ninos.php";
                     }
                 });
                 correcto.play(); //agregando sonido al juego completado

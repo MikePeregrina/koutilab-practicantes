@@ -231,7 +231,7 @@
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 48 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss7.php'; //cancatenation
+				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 48 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss7.php'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -248,7 +248,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+							window.location.href = "../../../../../../rutas/ruta-pw-b-ninos.php";
 						}
 					});
 					correcto.play(); //agregando sonido al juego completado
