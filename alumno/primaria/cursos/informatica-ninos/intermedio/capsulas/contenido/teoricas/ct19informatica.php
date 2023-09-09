@@ -99,22 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T19/143.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T19/144.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/145.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/146.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/147.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/148.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/149.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T7/110.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/2/T7/111.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T7/112.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="memorama">
@@ -128,7 +117,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../../img/P1/T2.5/39.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T7/113.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

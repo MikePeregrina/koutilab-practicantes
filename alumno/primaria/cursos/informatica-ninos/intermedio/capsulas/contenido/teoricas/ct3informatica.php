@@ -99,14 +99,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T3/28.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T3/29.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T3/30.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T3/31.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T3/32.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T3/19.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/1/T3/20.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T3/21.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="memorama">
@@ -120,7 +120,8 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../../img/P1/T2.5/39.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T3/22.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T3/23.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

@@ -99,25 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_9" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T13/93.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T13/94.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T13/95.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T13/96.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T13/97.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T13/98.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T13/99.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T13/100.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T3/78.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/2/T3/79.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T3/80.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -158,7 +144,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T3/81.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

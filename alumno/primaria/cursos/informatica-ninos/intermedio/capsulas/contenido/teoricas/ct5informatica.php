@@ -102,11 +102,9 @@ if (isset($resultadoIntentos['intentos'])) {
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T5/40.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T5/41.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/42.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/43.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/44.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T5/30.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/1/T5/31.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T5/32.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -147,7 +145,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T5/33.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

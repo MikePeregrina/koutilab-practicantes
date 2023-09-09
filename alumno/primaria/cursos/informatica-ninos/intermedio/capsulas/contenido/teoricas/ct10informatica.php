@@ -99,17 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T10/65.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T10/66.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/67.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/68.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/69.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/70.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T8.5/59.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/1/T8.5/60.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T8.5/61.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
@@ -147,7 +141,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T2/19.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T8.5/62.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">

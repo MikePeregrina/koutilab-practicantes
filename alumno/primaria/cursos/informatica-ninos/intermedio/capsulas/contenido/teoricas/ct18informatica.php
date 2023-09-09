@@ -99,18 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T18/136.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T18/137.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/138.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/139.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/140.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/141.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T6/105.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/2/T6/106.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T6/107.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
@@ -148,7 +141,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T2/19.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T6/108.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
