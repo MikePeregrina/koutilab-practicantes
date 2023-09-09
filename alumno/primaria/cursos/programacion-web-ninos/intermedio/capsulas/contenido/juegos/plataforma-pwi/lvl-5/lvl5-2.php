@@ -501,7 +501,7 @@
                         confirmButtonColor: '#85c42c',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 5 + '&id_curso=' + 2 + '&estrellas=' + estrellas;
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 5 + '&id_curso=' + 14 + '&estrellas=' + estrellas;
                         }
                     });
                 }

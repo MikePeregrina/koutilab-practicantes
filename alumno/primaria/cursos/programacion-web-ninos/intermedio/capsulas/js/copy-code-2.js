@@ -65,7 +65,7 @@ function iniciarTiempo() {
             "&permiso=" +
             30 +
             "&id_curso=" +
-            2 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+            14 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
         xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader(
             "Content-Type",
@@ -111,7 +111,7 @@ function alertExcelent() {
             "&permiso=" +
             30 +
             "&id_curso=" +
-            2 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+            14 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
         xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader(
             "Content-Type",
@@ -132,7 +132,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = "../../../../../../rutas/ruta-pw-i.php";
+                window.location.href = '../../../../../../rutas/ruta-pw-i-ninos.php';
             }
         });
         correcto.play(); //agregando sonido al juego completado
