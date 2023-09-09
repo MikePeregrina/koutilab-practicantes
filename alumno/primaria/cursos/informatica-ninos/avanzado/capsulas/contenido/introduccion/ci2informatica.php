@@ -9,7 +9,7 @@ include "../../../../../../../../acciones/conexion.php";
 
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula26";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 21");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -66,18 +66,18 @@ if (empty($existe) && $id_user != 1) {
                     </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/informatica/In/1.jpg'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/informatica/In/2.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/3.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/4.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/5.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/6.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/7.jpg');"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/63.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/64.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/65.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/66.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/67.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/68.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/2/In/69.gif');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                             <input type="hidden" name="permiso" value="27">
                             <!-- Cambiar al id del curso al que corresponda -->
-                            <input type="hidden" name="id_curso" value="9">
+                            <input type="hidden" name="id_curso" value="21">
                             <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
                         </form>
 
