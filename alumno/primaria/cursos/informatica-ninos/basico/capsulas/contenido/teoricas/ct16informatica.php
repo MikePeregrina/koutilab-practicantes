@@ -98,18 +98,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T16/122.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T16/123.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/124.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/125.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/126.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/127.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T4.5/104.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/2/T4.5/105.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T4.5/106.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="mjuego">
@@ -132,7 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T6/61.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T4.5/107.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">

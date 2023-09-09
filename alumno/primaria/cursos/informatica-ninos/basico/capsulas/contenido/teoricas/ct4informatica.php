@@ -99,17 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                             <li>
                                 <a itlist="itList_6" href="#"></a>
                             </li>
-                            <li>
-                                <a itlist="itList_7" href="#"></a>
-                            </li>
                         </ul>
                         <ul id="slider">
-                            <li style="background-image: url('../../img/informatica/T4/37.gif'); z-index:0; opacity: 1;"></li>
-                            <li style="background-image: url('../../img/informatica/T4/38.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/39.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/40.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/41.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/42.gif');"></li>
+                            <li style="background-image: url('../../img/informatica/1/T3.5/25.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/informatica/1/T3.5/26.gif');"></li>
+                            <li style="background-image: url('../../img/informatica/1/T3.5/27.gif');"></li>
                             <li>
                                 <!-- Copiar de aqui -->
                                 <div class="mjuego">
@@ -132,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </div>
                                 <!-- Hasta aqui -->
                             </li>
-                            <li style="background-image: url('../../img/html/T6/61.gif');"></li>
+                            <li style="background-image: url('../../img/informatica/1/T3.5/28.gif');"></li>
                             <li>
                                 <div>
                                     <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd11.php">

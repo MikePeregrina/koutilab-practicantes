@@ -99,26 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_9" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T12/94.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T12/95.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/96.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/97.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/98.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/99.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/100.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/101.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T1.5/77.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/2/T1.5/78.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T1.5/79.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="mjuego">
@@ -141,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T6/61.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T1.5/80.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
