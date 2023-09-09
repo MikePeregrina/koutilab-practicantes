@@ -89,9 +89,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T1.5/20.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T1.5/21.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1.5/22.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/12.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T1.5/13.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/14.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
@@ -130,7 +130,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1.5/25.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/15.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct2html.php">

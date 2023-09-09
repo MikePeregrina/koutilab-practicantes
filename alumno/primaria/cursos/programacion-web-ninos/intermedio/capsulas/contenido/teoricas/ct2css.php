@@ -91,9 +91,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T2/83.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T2/84.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2/85.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/54.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T2/55.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/56.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -135,7 +135,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/css/T2/88.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/57.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php

@@ -63,12 +63,11 @@ if (empty($existe) && $id_user != 1) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/In/78.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/In/79.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/80.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/81.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/82.gif');"></li>
-                        <li style="background-image: url('../../img/css/In/83.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/57.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/In/58.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/59.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/60.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/61.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
                             <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                                 <input type="hidden" name="permiso" value="27">

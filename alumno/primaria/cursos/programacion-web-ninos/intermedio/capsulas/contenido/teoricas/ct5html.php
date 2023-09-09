@@ -87,9 +87,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T3.5/48.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T3.5/49.gif');"></li>
-                        <li style="background-image: url('../../img/html/T3.5/50.gif');"></li>
+                        <li style="background-image: url('../../img/html/T3.5/27.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T3.5/28.gif');"></li>
+                        <li style="background-image: url('../../img/html/T3.5/29.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -131,7 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T3.5/53.gif');"></li>
+                        <li style="background-image: url('../../img/html/T3.5/30.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd8.php">

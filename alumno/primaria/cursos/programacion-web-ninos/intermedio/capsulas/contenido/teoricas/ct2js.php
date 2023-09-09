@@ -100,9 +100,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/js/T2/132.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/js/T2/133.gif');"></li>
-                        <li style="background-image: url('../../img/js/T2/134.gif');"></li>
+                        <li style="background-image: url('../../img/js/T2/98.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/T2/99.gif');"></li>
+                        <li style="background-image: url('../../img/js/T2/100.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="mjuego">
@@ -125,7 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/js/T2/137.gif');"></li>
+                        <li style="background-image: url('../../img/js/T2/101.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

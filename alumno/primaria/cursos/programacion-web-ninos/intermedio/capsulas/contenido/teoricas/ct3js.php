@@ -87,9 +87,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/js/T3/139.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/js/T3/140.gif');"></li>
-                        <li style="background-image: url('../../img/js/T3/141.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/108.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/T3/109.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/110.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -131,7 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/js/T3/144.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/111.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct3js.php">
