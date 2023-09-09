@@ -566,7 +566,7 @@
                             confirmButtonColor: "#85c42c",
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
+                                window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 15 + '&estrellas=' + estrellas;
                             }
                         });
                     }
@@ -585,7 +585,7 @@
                     confirmButtonColor: "#85c42c",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
+                        window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 1 + '&id_curso=' + 15 + '&estrellas=' + estrellas;
                     }
                 });
             }
