@@ -221,13 +221,13 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
-			var puntos = <?php echo $puntosGanados; ?>
+            var puntos = <?php echo $puntosGanados; ?>
 
-			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 3; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd39.php", true);
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xmlhttp.send(param);
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjjs4.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
 				text: 'Koubot ha llegado a su nave y tu obtienes ' + puntos + ' puntos de logros',

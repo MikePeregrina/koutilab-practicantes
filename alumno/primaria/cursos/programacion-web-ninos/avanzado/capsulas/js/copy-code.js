@@ -65,7 +65,7 @@ function iniciarTiempo() {
             "&permiso=" +
             21 +
             "&id_curso=" +
-            3 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
+            15 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
         xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader(
             "Content-Type",
@@ -112,7 +112,7 @@ function alertExcelent() {
             "&permiso=" +
             21 +
             "&id_curso=" +
-            3 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
+            15 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
         xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader(
             "Content-Type",
@@ -135,7 +135,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = "../../../../../../rutas/ruta-pw-a.php";
+                window.location.href = "../../../../../../rutas/ruta-pw-a-ninos.php";
             }
         });
     } else {
