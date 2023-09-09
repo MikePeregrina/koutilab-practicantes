@@ -38,7 +38,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                     <li style="background-image: url('../../img/Alertas.gif'); z-index:0; opacity: 1;">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../pasarela/orderPasarela.php">
                             <input type="hidden" name="id_capsula" value="5">
-                            <input type="hidden" name="id_curso" value="2">
+                            <input type="hidden" name="id_curso" value="14">
                             <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Comprar!</button>
                         </form>
                     </li>

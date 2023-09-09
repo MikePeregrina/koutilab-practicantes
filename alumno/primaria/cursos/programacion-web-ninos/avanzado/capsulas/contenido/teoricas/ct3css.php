@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula18";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 15");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 19;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 15");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 15");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -100,9 +100,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T2/69.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T2/70.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2/71.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/50.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T2/51.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/52.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="mjuego">
@@ -125,7 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/css/T2/74.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/53.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -149,7 +149,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <input type="hidden" name="permiso" value="19">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="3">
+                                    <input type="hidden" name="id_curso" value="15">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                     <input type="hidden" name="redireccion" value="../contenido/teoricas/ct3css.php">
                                 </form>

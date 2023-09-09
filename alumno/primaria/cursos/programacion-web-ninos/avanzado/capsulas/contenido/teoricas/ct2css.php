@@ -13,12 +13,12 @@ if (empty($existe)) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 3;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 15");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 15");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -99,9 +99,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T1.5/62.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T1.5/63.gif');"></li>
-                        <li style="background-image: url('../../img/css/T1.5/64.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1.5/45.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T1.5/46.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1.5/47.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="memorama">
@@ -115,7 +115,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/css/T1.5/67.gif');"></li>
+                        <li style="background-image: url('../../img/css/T1.5/48.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct2css.php">
@@ -139,7 +139,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <input type="hidden" name="permiso" value="3">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="3">
+                                    <input type="hidden" name="id_curso" value="15">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
