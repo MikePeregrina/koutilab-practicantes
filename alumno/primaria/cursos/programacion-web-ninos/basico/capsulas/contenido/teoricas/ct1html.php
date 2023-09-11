@@ -91,6 +91,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/html/T1/8.gif');"></li>
                         <!--NUEVO SLIDER PARA JUEGO-->
                         <li>
+                            <!-- Acoplado -->
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
                                     lado derecho</b></h4>
@@ -99,11 +100,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">&lt;p&gt;</div>
+                                        <div class="word-box" id="sql">&lt;b&gt;</div>
+                                        <div class="word-box" id="html">&lt;h1&gt;</div>
+                                        <div class="word-box" id="javascript">Comentario</div>
+                                        <div class="word-box" id="php">Llaves</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -112,16 +113,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="right-column">
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                        &lt!-- <i>Hola</i> --&gt; </div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                        &lt; &gt;</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                        &lt;/h1&gt;
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">&lt;/p&gt;
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                        &lt;/b&gt;</div>
                                     </div>
                                 </div>
 

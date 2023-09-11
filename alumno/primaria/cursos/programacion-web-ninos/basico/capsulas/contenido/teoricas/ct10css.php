@@ -109,10 +109,10 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <div class="words">
 
                                     <h4><b>Palabras a buscar:</b> <br>
+                                        - CSS <br>
                                         - HTML <br>
-                                        - KOUTILAB <br>
-                                        - CLASES <br>
-                                        - LLAVES <br>
+                                        - BOX <br>
+                                        - SHADOW <br>
                                     </h4>
 
                                 </div>
@@ -167,7 +167,7 @@ if (isset($resultadoIntentos['intentos'])) {
      <script>
         // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
         // para mantener proporcion
-        var words = ['HTML', 'LLAVES', 'CLASES', 'KOUTILAB'];
+        var words = ['HTML', 'CSS', 'BOX', 'SHADOW'];
         var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
 
         var puzzle = wordfind.newPuzzle(words, {

@@ -76,11 +76,11 @@ if (empty($existe)) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Contenido</div>
+                                        <div class="word-box" id="sql">Relleno</div>
+                                        <div class="word-box" id="html">Fondo</div>
+                                        <div class="word-box" id="javascript">Borde</div>
+                                        <div class="word-box" id="php">Margen</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -90,16 +90,16 @@ if (empty($existe)) {
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad"
                                             onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            Border</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            Margin</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            Background
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Content
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            Padding</div>
                                     </div>
                                 </div>
 

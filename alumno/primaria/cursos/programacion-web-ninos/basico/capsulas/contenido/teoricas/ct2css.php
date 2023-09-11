@@ -103,16 +103,17 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/css/T2/68.gif');"></li>
                         <li style="background-image: url('../../img/css/T2/69.gif');"></li>
                         <li>
+                            <!-- Acoplado -->
                             <!-- Copiar de aqui -->
                             <div class="mjuego">
                                 <!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
                                 <div class="words">
 
                                     <h4><b>Palabras a buscar:</b> <br>
+                                        - CSS <br>
+                                        - COLOR <br>
+                                        - ORANGE <br>
                                         - HTML <br>
-                                        - KOUTILAB <br>
-                                        - CLASES <br>
-                                        - LLAVES <br>
                                     </h4>
 
                                 </div>
@@ -168,7 +169,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
         // para mantener proporcion
-        var words = ['HTML', 'LLAVES', 'CLASES', 'KOUTILAB'];
+        var words = ['HTML', 'COLOR', 'ORANGE', 'CSS'];
         var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
 
         var puzzle = wordfind.newPuzzle(words, {

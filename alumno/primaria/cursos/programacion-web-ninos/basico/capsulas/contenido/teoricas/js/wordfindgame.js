@@ -226,7 +226,7 @@
 					$('.puzzleSquare').addClass('complete');
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Encontraste todas las palabras!',
 						imageUrl: "img/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `

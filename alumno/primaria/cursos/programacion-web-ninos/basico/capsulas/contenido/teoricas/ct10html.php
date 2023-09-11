@@ -105,6 +105,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/html/T5.5/37.gif');"></li>
                         <li style="background-image: url('../../img/html/T5.5/38.gif');"></li>
                         <li>
+                            <!-- Acoplado -->
                             <!-- Copiar de aqui -->
                             <div class="memorama">
                                 <!-- Generador del tablero -->
@@ -383,11 +384,11 @@ if (isset($resultadoIntentos['intentos'])) {
         function cargarIconos() {
             iconos = [
                 '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
-                '<i class="fas fa-keyboard"></i>',
+                '&lt;nav&gt;',
+                '&lt;a&gt;',
+                '<i class="fas fa-code"></i>',
                 '<i class="fab fa-html5"></i>',
-                'Mari'
+                '<i class="far fa-file-code"></i>'
             ]
         }
 
