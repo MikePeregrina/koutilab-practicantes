@@ -1,41 +1,41 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 18;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
-}
-//Verificar si ya se tiene permiso y no dar puntos de más
-//Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+// session_start();
+// $id_user = $_SESSION['id_alumno_primaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+//     header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_primaria'];
+// $permiso = "capsulapago3";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 18;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+//     header("Location: ../../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
+// }
+// //Verificar si ya se tiene permiso y no dar puntos de más
+// //Verificar si permiso_intento es correcto
+// $permiso_intento = 28;
+// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+// $result_sql_permisos = mysqli_num_rows($sql_permisos);
+// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
+// //Contar total de intentos
+// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+// if (isset($resultadoIntentos['intentos'])) {
+//     $totalIntentos = $resultadoIntentos['intentos'];
+//     if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+//         $puntosGanados = 8;
+//     } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 6;
+//     } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 0;
+//     } else {
+//         $puntosGanados = 0;
+//     }
+// } else {
+//     $puntosGanados = 10;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -118,11 +118,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Importar expresiones regulares</div>
+                                        <div class="word-box" id="sql">Encontrar coincidencias</div>
+                                        <div class="word-box" id="html">Compilar expresiones regulares</div>
+                                        <div class="word-box" id="javascript">Comparar algo</div>
+                                        <div class="word-box" id="php">Tema visto hoy</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -131,16 +131,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="right-column">
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            re.match</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            Expresiones regulares</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            re.compile
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">import re
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            re.findall</div>
                                     </div>
                                 </div>
 
