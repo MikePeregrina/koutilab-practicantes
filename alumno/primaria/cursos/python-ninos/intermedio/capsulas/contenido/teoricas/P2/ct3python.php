@@ -119,11 +119,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Tema que estamos viendo</div>
+                                        <div class="word-box" id="sql">¿Dónde se almacena un conjunto?</div>
+                                        <div class="word-box" id="html">Forma en que se define un set</div>
+                                        <div class="word-box" id="javascript">Mandar a imprimir un set</div>
+                                        <div class="word-box" id="php">Python</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -132,16 +132,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="right-column">
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            print(numeros)</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            Lenguaje de programación aprendido</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            numeros = set([1, 2, 3])
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Conjuntos
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            Variable</div>
                                     </div>
                                 </div>
 

@@ -1,41 +1,41 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsulapago5";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 17;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../capsulas/contenido/alertas/paquete_premium5.php");
-}
-//Verificar si ya se tiene permiso y no dar puntos de más
-//Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+// session_start();
+// $id_user = $_SESSION['id_alumno_primaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+//     header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_primaria'];
+// $permiso = "capsulapago5";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 17;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+//     header("Location: ../../../../capsulas/contenido/alertas/paquete_premium5.php");
+// }
+// //Verificar si ya se tiene permiso y no dar puntos de más
+// //Verificar si permiso_intento es correcto
+// $permiso_intento = 28;
+// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+// $result_sql_permisos = mysqli_num_rows($sql_permisos);
+// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
+// //Contar total de intentos
+// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+// if (isset($resultadoIntentos['intentos'])) {
+//     $totalIntentos = $resultadoIntentos['intentos'];
+//     if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+//         $puntosGanados = 8;
+//     } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 6;
+//     } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 0;
+//     } else {
+//         $puntosGanados = 0;
+//     }
+// } else {
+//     $puntosGanados = 10;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -112,41 +112,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../../img/P2/T6.5/144.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
-                            <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
-                                    lado derecho</b></h4>
-                            <div class="columnas">
-                                <div class="container-all">
-                                    <!-- Columna de lado izquierdo -->
-                                    <div class="left-column">
-                                        <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
-                                    </div>
-                                    <!-- Mapeo donde se trazan las lineas -->
-                                    <canvas id="canvas"> </canvas>
+                            <div class="memorama">
+                                <!-- Generador del tablero -->
+                                <div id="tablero"></div>
+                                <!-- Boton de iniciar juego, al iniciar, desaparece -->
 
-                                    <!-- columna de lado derecho -->
-                                    <div class="right-column">
-                                        <!-- Respuestas -->
-                                        <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
-                                        <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
-                                        <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
-                                        </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
-                                        </div>
-                                        <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
-                                    </div>
+                                <div class="nuevo-juego" id="generar" onclick="generarTablero()">
+                                    Iniciar juego
                                 </div>
-
-                                <!-- boton de verificar respuestas -->
-                                <button class="verificar">Comprobar respuestas</button>
                             </div>
                             <!-- Hasta aqui -->
                         </li>
@@ -398,205 +371,6 @@ if (isset($resultadoIntentos['intentos'])) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../../js/functions.js"></script>
     <script>
-        //Apartado de canvas para trazar lineas
-
-        //variables para la medida del canvas
-        const ALTURA_CANVAS = 290,
-            ANCHURA_CANVAS = 535;
-
-        // Obtener el elemento del DOM
-        const canvas = document.querySelector("#canvas");
-        canvas.width = ANCHURA_CANVAS;
-        canvas.height = ALTURA_CANVAS;
-
-        // Del canvas, obtener el contexto para poder dibujar
-        const contexto = canvas.getContext("2d");
-
-
-
-
-        // Apartado para seleccinador para relacionar columas
-        const palabras = document.querySelectorAll('.word-box');
-
-        //variables a utilizar y contadores
-        let palabraseleccionada = null;
-        let respuestasCorrectas = 0;
-        let respuestasIncorrectas = 0;
-
-        // Agregar eventos de clic a las palabras
-        palabras.forEach(word => {
-            word.addEventListener('click', selectWord);
-        });
-
-        // Función para seleccionar una palabra
-        function selectWord() {
-            if (palabraseleccionada) {
-                // Si ya hay una palabra seleccionada, la deseleccionamos
-                palabraseleccionada.classList.remove('seleccionado');
-            }
-            palabraseleccionada = this;
-            if (
-                palabraseleccionada.id !== 'interactividad' &&
-                palabraseleccionada.id !== 'funcionalidad' &&
-                palabraseleccionada.id !== 'estructura' &&
-                palabraseleccionada.id !== 'estilos' &&
-                palabraseleccionada.id !== 'administrar'
-            ) {
-                palabraseleccionada.classList.add('seleccionado');
-            } else {
-                palabraseleccionada = null;
-            }
-        }
-
-        // Función para verificar la respuesta
-        function checkAnswer(respuesta) {
-            const idPalabraSeleccionada = palabraseleccionada.id;
-            const estadopalabra = document.getElementById(respuesta);
-
-            //validamos que ya haya seleccionado una palabra
-            if (palabraseleccionada) {
-                //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
-                if (respuesta === 'estilos' && idPalabraSeleccionada === 'css') {
-                    palabraseleccionada.classList.add('correcto');
-                    // Comenzar
-                    contexto.beginPath();
-                    // Grosor de línea
-                    contexto.lineWidth = 3;
-                    // Color de línea 
-                    contexto.strokeStyle = "#84c42c";
-                    // Comenzamos en 0, 0
-                    contexto.moveTo(0, 30);
-                    // Hacemos una línea hasta 48, 48
-                    contexto.lineTo(560, 210);
-                    contexto.stroke(); // "Guardar" cambios
-                    //sumamos al contador
-                    respuestasCorrectas++;
-                } else if (respuesta === 'estructura' && idPalabraSeleccionada === 'html') {
-                    palabraseleccionada.classList.add('correcto');
-                    contexto.beginPath();
-                    contexto.lineWidth = 3;
-                    contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 145);
-                    contexto.lineTo(560, 145);
-                    contexto.stroke();
-                    respuestasCorrectas++;
-                } else if (
-                    respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
-                ) {
-                    palabraseleccionada.classList.add('correcto');
-                    contexto.beginPath();
-                    contexto.lineWidth = 3;
-                    contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 205);
-                    contexto.lineTo(560, 20);
-                    contexto.stroke();
-                    respuestasCorrectas++;
-                } else if (
-                    respuesta === 'funcionalidad' && idPalabraSeleccionada === 'php'
-                ) {
-                    palabraseleccionada.classList.add('correcto');
-                    contexto.beginPath();
-                    contexto.lineWidth = 3;
-                    contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 260);
-                    contexto.lineTo(560, 75);
-                    contexto.stroke();
-                    respuestasCorrectas++;
-
-
-                } else if (
-                    respuesta === 'administrar' && idPalabraSeleccionada === 'sql'
-                ) {
-                    palabraseleccionada.classList.add('correcto');
-                    contexto.beginPath();
-                    contexto.lineWidth = 3;
-                    contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 95);
-                    contexto.lineTo(560, 270);
-                    contexto.stroke();
-                    respuestasCorrectas++;
-                } else {
-                    palabraseleccionada.classList.add('incorrecto');
-                    respuestasIncorrectas++;
-                }
-
-                //una vez seleccionada la desabilitamos
-                palabraseleccionada.classList.remove('seleccionado');
-                palabraseleccionada.classList.add('deshabilitado');
-                palabraseleccionada.removeEventListener('click', selectWord);
-                //limpiamos la palabra seleccionada
-                palabraseleccionada = null;
-                estadopalabra.classList.add('deshabilitado');
-                estadopalabra.removeEventListener('click', selectWord);
-            }
-        }
-
-
-
-
-        // Agregar evento de clic al botón de comprobar respuestas
-        const botonComprobar = document.querySelector('.verificar');
-        botonComprobar.addEventListener('click', mostrarResultados);
-
-        // Función para mostrar los resultados
-        function mostrarResultados() {
-            let todasSeleccionadas = true;
-
-            // Verificar si todas las opciones han sido seleccionadas
-            palabras.forEach(word => { //se recorre cada opción utilizando el método forEach en la lista palabras
-                if (!word.classList.contains('deshabilitado')) { // verifica si no tiene la clase deshabilitado
-                    todasSeleccionadas = false;
-                }
-            });
-            //validamos que ya se hizo intento de resolver todo el juego
-            if (todasSeleccionadas) {
-                if (respuestasCorrectas < 3) {
-                    Swal.fire({
-                        //estrucutra de la alerta
-                        title: '!Puedes seguir mejorado!',
-                        html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                        imageUrl: 'img/loop.gif',
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: '¡Genial!',
-                    });
-                } else {
-                    //llamamos a la alerta
-                    Swal.fire({
-                        //estrucutra de la alerta
-                        title: 'Resultados',
-                        html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
-                        imageUrl: 'img/Thumbs-Up.gif',
-                        imageHeight: 350,
-                        backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("img/fondo.gif")`,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: '¡Genial!',
-                    });
-                }
-            }
-            //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
-            else {
-                Swal.fire({
-                    title: 'Oops...',
-                    text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
-                    imageUrl: 'img/loop.gif',
-                    imageHeight: 350,
-                    backdrop: `
-                rgba(0,143,255,0.6)
-                url("img/fondo.gif")`,
-                    confirmButtonColor: '#a14cd9',
-                    confirmButtonText: '¡Genial!',
-                });
-            }
-        }
-    </script>
-    <script src="js/laberinto.js"></script><!-- Agregar js de columnas -->
-    <script>
         let cantidadTarjetas = 12;
         let iconos = []
         let selecciones = []
@@ -605,12 +379,12 @@ if (isset($resultadoIntentos['intentos'])) {
         //Solo modificar iconos
         function cargarIconos() {
             iconos = [
-                '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
+                '<i class="fab fa-python"></i>',
+                '<i class="fas fa-code"></i>',
+                '<i class="fas fa-terminal"></i>',
                 '<i class="fas fa-keyboard"></i>',
-                '<i class="fab fa-html5"></i>',
-                'Mari'
+                '<i class="fas fa-folder"></i>',
+                '<i class="fas fa-coffee"></i>'
             ]
         }
 
@@ -679,7 +453,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 if (verificar()) {
                     Swal.fire({
                         title: '¡Bien hecho!',
-                        text: '¡Puntuación guardada con éxito!',
+                        text: '¡Encontraste todos los pares!',
                         imageUrl: "img/Thumbs-Up.gif",
                         imageHeight: 300,
                         backdrop: `
@@ -705,22 +479,5 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             return true;
         }
-    </script>
-    <script>
-        // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
-        // para mantener proporcion
-        var words = ['HTML', 'LLAVES', 'CLASES', 'KOUTILAB'];
-        var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
-
-        var puzzle = wordfind.newPuzzle(words, {
-            height: 18,
-            width: 18,
-            fillBlanks: false
-        });
-        wordfind.print(puzzle);
-
-        $('#solve').click(function() {
-            wordfindgame.solve(gamePuzzle, words);
-        });
     </script>
 </body>

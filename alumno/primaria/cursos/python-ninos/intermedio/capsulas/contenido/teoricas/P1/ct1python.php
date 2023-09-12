@@ -120,11 +120,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Sintaxis que define una función</div>
+                                        <div class="word-box" id="sql">Va despues del nombre de la función</div>
+                                        <div class="word-box" id="html">Signo de puntuación que va despues de los paréntesis de una función</div>
+                                        <div class="word-box" id="javascript">Es lo que compone a una función</div>
+                                        <div class="word-box" id="php">Es lo que se retorna al final de una función</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -133,16 +133,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="right-column">
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            contenido o cuerpo</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            return</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            :
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">def
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            ( )</div>
                                     </div>
                                 </div>
 
@@ -598,132 +598,5 @@ if (isset($resultadoIntentos['intentos'])) {
             }
         }
     </script>
-    <script src="js/laberinto.js"></script><!-- Agregar js de columnas -->
-    <script>
-        let cantidadTarjetas = 12;
-        let iconos = []
-        let selecciones = []
-
-        //Iconos pertenecientes a las tarjetas
-        //Solo modificar iconos
-        function cargarIconos() {
-            iconos = [
-                '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
-                '<i class="fas fa-keyboard"></i>',
-                '<i class="fab fa-html5"></i>',
-                'Mari'
-            ]
-        }
-
-        //Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
-        function generarTablero() {
-            cargarIconos();
-            document.getElementById("tablero").style.display = "block"; //Agregar este coso
-            $('#generar').remove();
-            let len = iconos.length
-            selecciones = []
-            let tablero = document.getElementById("tablero")
-            let tarjetas = []
-
-            for (let i = 0; i < cantidadTarjetas; i++) {
-                tarjetas.push(`
-                <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
-                    <div class="tarjeta" id="tarjeta${i}">
-                        <div class="cara trasera" style="display: flex;
-    justify-content: center;
-    align-items: center;" id="trasera${i}">
-                            ${iconos[0]}
-                        </div>
-                        <div class="cara superior" style="display: flex;
-    justify-content: center;
-    align-items: center;">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </div>
-                </div>        
-                `)
-                if (i % 2 == 1) {
-                    iconos.splice(0, 1)
-                }
-            }
-            tarjetas.sort(() => Math.random() - 0.5)
-            tablero.innerHTML = tarjetas.join(" ")
-        }
-
-        //Selecionador de tarjetas
-        function seleccionarTarjeta(i) {
-            let tarjeta = document.getElementById("tarjeta" + i)
-            if (tarjeta.style.transform != "rotateY(180deg)") {
-                tarjeta.style.transform = "rotateY(180deg)"
-                selecciones.push(i)
-            }
-            if (selecciones.length == 2) {
-                deseleccionar(selecciones)
-                selecciones = []
-            }
-        }
-
-        //Quitar seleccion y verificar que la tarjeta sea identica a su par
-        function deseleccionar(selecciones) {
-            setTimeout(() => {
-                let trasera1 = document.getElementById("trasera" + selecciones[0])
-                let trasera2 = document.getElementById("trasera" + selecciones[1])
-                if (trasera1.innerHTML != trasera2.innerHTML) {
-                    let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
-                    let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
-                    tarjeta1.style.transform = "rotateY(0deg)"
-                    tarjeta2.style.transform = "rotateY(0deg)"
-                } else {
-                    trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
-                    trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
-                }
-                if (verificar()) {
-                    Swal.fire({
-                        title: '¡Bien hecho!',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "img/Thumbs-Up.gif",
-                        imageHeight: 300,
-                        backdrop: `
-									rgba(0,143,255,0.6)
-									url("img/fondo.gif")
-									`,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    });
-
-
-                }
-            }, 1000);
-        }
-
-        //Verificar si ambas son iguales
-        function verificar() {
-            for (let i = 0; i < cantidadTarjetas; i++) {
-                let trasera = document.getElementById("trasera" + i);
-                if (trasera.style.background != "rgba(149, 255, 0, 0.45)") {
-                    return false;
-                }
-            }
-            return true;
-        }
-    </script>
-    <script>
-        // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
-        // para mantener proporcion
-        var words = ['HTML', 'LLAVES', 'CLASES', 'KOUTILAB'];
-        var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
-
-        var puzzle = wordfind.newPuzzle(words, {
-            height: 18,
-            width: 18,
-            fillBlanks: false
-        });
-        wordfind.print(puzzle);
-
-        $('#solve').click(function() {
-            wordfindgame.solve(gamePuzzle, words);
-        });
-    </script>
+    
 </body>

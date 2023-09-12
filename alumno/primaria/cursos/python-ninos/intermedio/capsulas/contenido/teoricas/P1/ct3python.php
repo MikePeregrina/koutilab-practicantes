@@ -119,11 +119,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Definir una función</div>
+                                        <div class="word-box" id="sql">Llamar una función</div>
+                                        <div class="word-box" id="html">Argumentos de función</div>
+                                        <div class="word-box" id="javascript">Valores de retorno</div>
+                                        <div class="word-box" id="php">Función sin parametros</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -132,16 +132,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="right-column">
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            return valor1</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            def suma():</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            print("Hola " + nombre)
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">def saludar(nombre):
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            saludar("Jaime")</div>
                                     </div>
                                 </div>
 
