@@ -99,11 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Flex Items</div>
+                                        <div class="word-box" id="sql">flex-order</div>
+                                        <div class="word-box" id="html">flex-basis</div>
+                                        <div class="word-box" id="javascript">flex-grow</div>
+                                        <div class="word-box" id="php">flex-shrink</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -113,16 +113,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad"
                                             onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            Define la capacidad de encogimiento de un elemento</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            Capacidad de encogimiento dependiendo del número de elementos</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            Define el tamaño de inicial del elemento
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Es el tema que estamos viendo
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            Maneja el orden de los objetos</div>
                                     </div>
                                 </div>
 

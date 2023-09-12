@@ -364,12 +364,12 @@ if (isset($resultadoIntentos['intentos'])) {
         //Solo modificar iconos
         function cargarIconos() {
             iconos = [
-                '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
+                '<i class="fas fa-text-height"></i>',
+                '<i class="fas fa-heading"></i>',
+                '<i class="fas fa-font"></i>',
                 '<i class="fas fa-keyboard"></i>',
                 '<i class="fab fa-html5"></i>',
-                'Mari'
+                '<i class="fab fa-css3-alt"></i>'
             ]
         }
 
@@ -438,7 +438,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 if (verificar()) {
                     Swal.fire({
                         title: '¡Bien hecho!',
-                        text: '¡Puntuación guardada con éxito!',
+                        text: '¡Encontraste todos los pares!',
                         imageUrl: "img/Thumbs-Up.gif",
                         imageHeight: 300,
                         backdrop: `

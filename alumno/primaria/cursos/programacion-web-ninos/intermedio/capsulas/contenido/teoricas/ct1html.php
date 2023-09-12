@@ -92,6 +92,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/html/T1/8.gif');"></li>
                         <li style="background-image: url('../../img/html/T1/9.gif');"></li>
                         <li>
+                            <!-- Acoplado -->
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
                                     lado derecho</b></h4>
@@ -100,11 +101,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Lenguaje de etiquetas</div>
+                                        <div class="word-box" id="sql">Texto acentuado</div>
+                                        <div class="word-box" id="html">Comentario</div>
+                                        <div class="word-box" id="javascript">Espacio en blanco</div>
+                                        <div class="word-box" id="php">Lenguaje de cascada de estilos</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -114,16 +115,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad"
                                             onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            &amp;nbsp;</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            CSS</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            &lt;!-- <i>Hola</i> --&gt;
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">HTML
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            &amp;eacute;</div>
                                     </div>
                                 </div>
 
