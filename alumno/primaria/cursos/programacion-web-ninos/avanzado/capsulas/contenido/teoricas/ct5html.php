@@ -100,11 +100,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Crea imágenes bidimensionales</div>
+                                        <div class="word-box" id="sql">Crea una línea recta dentro de un svg</div>
+                                        <div class="word-box" id="html">Define el color de la línea</div>
+                                        <div class="word-box" id="javascript">Define el ancho de la línea</div>
+                                        <div class="word-box" id="php">Define el estilo de la línea</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -114,16 +114,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad"
                                             onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            stroke-width</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            stroke-linecap</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            stroke
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">&lt;svg&gt;
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            &lt;rect&gt;</div>
                                     </div>
                                 </div>
 

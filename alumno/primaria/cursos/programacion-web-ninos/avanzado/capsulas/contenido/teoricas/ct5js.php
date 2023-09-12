@@ -369,12 +369,12 @@ if (isset($resultadoIntentos['intentos'])) {
         //Solo modificar iconos
         function cargarIconos() {
             iconos = [
-                '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
+                '<i class="fab fa-js-square"></i>',
+                '<i class="fab fa-css3-alt"></i>',
+                '<i class="fas fa-heart"></i>',
                 '<i class="fas fa-keyboard"></i>',
                 '<i class="fab fa-html5"></i>',
-                'Mari'
+                '<i class="fas fa-share-alt"></i>'
             ]
         }
 

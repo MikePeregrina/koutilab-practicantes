@@ -100,11 +100,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="css">Posiciona el título</div>
+                                        <div class="word-box" id="sql">Etiqueta que genera una tabla</div>
+                                        <div class="word-box" id="html">Etiqueta que genera el título de la tabla</div>
+                                        <div class="word-box" id="javascript">Etiqueta que genera el cuerpo de la tabla</div>
+                                        <div class="word-box" id="php">Da formato a la tabla</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -114,16 +114,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <!-- Respuestas -->
                                         <div class="word-box" id="interactividad"
                                             onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
+                                            &lt;tbody&gt;</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
+                                            table-layout</div>
                                         <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                            &lt;thead&gt;
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">caption-side
                                         </div>
                                         <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                            &lt;table&gt;</div>
                                     </div>
                                 </div>
 

@@ -112,10 +112,10 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <div class="words">
 
                                     <h4><b>Palabras a buscar:</b> <br>
-                                        - HTML <br>
-                                        - KOUTILAB <br>
-                                        - CLASES <br>
-                                        - LLAVES <br>
+                                        - PHP <br>
+                                        - VARIABLES <br>
+                                        - OPERADORES <br>
+                                        - FUNCIONES <br>
                                     </h4>
 
                                 </div>

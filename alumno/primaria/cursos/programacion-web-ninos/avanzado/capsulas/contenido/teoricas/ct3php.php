@@ -95,6 +95,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/php/T2/121.gif');"></li>
                         <li style="background-image: url('../../img/php/T2/122.gif');"></li>
                         <li>
+                            <!-- Acoplado -->
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
                             <div id="page">
