@@ -13,6 +13,33 @@ if (empty($existe)) {
     header("Location: ../cursos/arduino/intermedio/capsulas/acciones/acceso_cursos.php");
 }
 
+// Función para actualizar conexiones a ruta
+function actualizarConexiones($permiso, $conexion)
+{
+    // Consulta para obtener el número de conexiones
+    $sql = "SELECT conexiones FROM conexiones_curso_preparatoria WHERE id_curso = $permiso";
+    $result = $conexion->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $total_conexiones = $row['conexiones'];
+
+        if ($total_conexiones >= 0) {
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_preparatoria
+            $sql =  mysqli_query($conexion, "UPDATE conexiones_curso_preparatoria SET conexiones = conexiones + 1 WHERE id_curso = $permiso");
+        }
+    }
+}
+
+// Verifica si la variable de sesión "actualizacion_realizada" no está definida
+if (!isset($_SESSION['actualizacion_realizada_pwb'])) {
+    // Llama a la función para actualizar las conexiones
+    actualizarConexiones($permiso, $conexion);
+
+    // Establece la variable de sesión "actualizacion_realizada" para indicar que la actualización ya se hizo
+    $_SESSION['actualizacion_realizada_pwb'] = true;
+}
+
 ?>
 
 <!DOCTYPE html>

@@ -74,6 +74,32 @@ $capsula_comprada_py6 = "capsulapago6";
 $sql_comprada_py6 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py6' AND d.id_curso = 6;");
 $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 
+// Función para actualizar conexiones a ruta
+function actualizarConexiones($permiso, $conexion)
+{
+    // Consulta para obtener el número de conexiones
+    $sql = "SELECT conexiones FROM conexiones_curso_primaria WHERE id_curso = $permiso";
+    $result = $conexion->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $total_conexiones = $row['conexiones'];
+
+        if ($total_conexiones >= 0) {
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_primaria
+            $sql =  mysqli_query($conexion, "UPDATE conexiones_curso_primaria SET conexiones = conexiones + 1 WHERE id_curso = $permiso");
+        }
+    }
+}
+
+// Verifica si la variable de sesión "actualizacion_realizada" no está definida
+if (!isset($_SESSION['actualizacion_realizada_pwb'])) {
+    // Llama a la función para actualizar las conexiones
+    actualizarConexiones($permiso, $conexion);
+
+    // Establece la variable de sesión "actualizacion_realizada" para indicar que la actualización ya se hizo
+    $_SESSION['actualizacion_realizada_pwb'] = true;
+}
 ?>
 
 <!DOCTYPE html>
