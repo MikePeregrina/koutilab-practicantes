@@ -74,12 +74,12 @@ function actualizarConexiones($permiso, $conexion)
 }
 
 // Verifica si la variable de sesión "actualizacion_realizada" no está definida
-if (!isset($_SESSION['actualizacion_realizada_pwb'])) {
+if (!isset($_SESSION['actualizacion_realizada_vjb'])) {
     // Llama a la función para actualizar las conexiones
     actualizarConexiones($permiso, $conexion);
 
     // Establece la variable de sesión "actualizacion_realizada" para indicar que la actualización ya se hizo
-    $_SESSION['actualizacion_realizada_pwb'] = true;
+    $_SESSION['actualizacion_realizada_vjb'] = true;
 }
 ?>
 
