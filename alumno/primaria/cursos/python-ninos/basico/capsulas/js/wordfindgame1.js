@@ -229,7 +229,7 @@
             "&permiso=" +
             13 +
             "&id_curso=" +
-            4 +
+            16 +
             "&redireccion=" +
             "../contenido/juegos/cjp1-4.php"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

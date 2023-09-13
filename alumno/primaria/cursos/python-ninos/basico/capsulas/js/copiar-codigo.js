@@ -65,7 +65,7 @@ function iniciarTiempo() {
       "&permiso=" +
       10 +
       "&id_curso=" +
-      4 +
+      16 +
       "&redireccion=" +
       "../contenido/juegos/cjp1-3.php"; //cancatenation
     xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -111,7 +111,7 @@ function alertExcelent() {
       "&permiso=" +
       10 +
       "&id_curso=" +
-      4 +
+      16 +
       "&redireccion=" +
       "../contenido/juegos/cjp1-3.php"; //cancatenation
     xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

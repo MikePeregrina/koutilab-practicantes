@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<section>
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-py-b-ninos.php">
+		<a href="#" onclick="history.back();">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -150,7 +150,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-7.php'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 16 + "&redireccion=" + '../contenido/juegos/cjp2-7.php'; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -212,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			var puntos = <?php echo $puntosGanados; ?>
 
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 45 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-7.php'; //cancatenation
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 45 + "&id_curso=" + 16 + "&redireccion=" + '../contenido/juegos/cjp2-7.php'; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
