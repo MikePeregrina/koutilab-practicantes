@@ -24,7 +24,13 @@ ON a.id_escuela = e.id_escuela
 WHERE a.id_director = $id_user"));
 
 $porcentaje = $user_escuela["porcentaje_ganancias"];
+$id_escuela = $user_escuela["id_escuela"];
 $calculo_ganancias = ($porcentaje / 100);
+
+//Verificar si ya se tiene permiso de ganancias
+$permiso_escuela_1 = "1";
+$sql_escuela_1 = mysqli_query($conexion, "SELECT dp.* FROM detalle_permisos_escuela dp WHERE dp.id_escuela = $id_escuela AND dp.id_permiso = '$permiso_escuela_1'");
+$existe_escuela_1 = mysqli_num_rows($sql_escuela_1);
 
 /* PARA LOS DATOS DE LA GRÁFICA */
 if (isset($_POST['submitFecha'])) {
@@ -244,7 +250,7 @@ function actualizarGrafica()
     </div>
     </div>
 
-    <div class="right-content">
+    <div class="right-content" <?php echo 'style="' . (($existe_escuela_1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
       <div class="titlec">
         <h2 class="subtitulos">Datos de compras</h2>
       </div>

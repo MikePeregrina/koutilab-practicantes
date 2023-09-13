@@ -248,6 +248,7 @@ $result = $conexion->query($sql);
                                 <td><?php echo $data['autorizacion']; ?></td>
 
                                 <td id="td-btn">
+                                    <a style="background-color:#FF5733; border:none;" href="acciones/asignar_permisos_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-add"><i id="i-add" class='fa-solid fa-elevator fa-lg'></i></a>
                                     <a href="acciones/editar_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
                                     <form action="acciones/eliminar_escuela.php?id=<?php echo $data['id_escuela']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>

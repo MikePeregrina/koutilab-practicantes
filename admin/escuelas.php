@@ -247,6 +247,7 @@ $result = $conexion->query($sql);
                                     <form action="acciones/eliminar_escuela.php?id=<?php echo $data['id_escuela']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
                                     </form>
+                                    <a style="background-color:#FF5733; border:none;" href="acciones/asignar_permisos_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-add"><i id="i-add" class='fa-solid fa-elevator fa-lg'></i></a>
                                     <a href="acciones/mostrar_info.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-info-circle"></i></i></a>
                                     <a style="background-color: purple; border:none" href="acciones/asignar_porcentaje.php?id=<?php echo $data['id_escuela']; ?>" id="btn-inf" class="btn btn-info"><i id="i-inf" class="fas fa-percent"></i></i></a>
                                 </td>
