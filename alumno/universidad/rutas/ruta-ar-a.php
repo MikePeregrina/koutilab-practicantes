@@ -36,31 +36,31 @@ if (empty($existe)) {
     </audio>
     <div class="body">
         <div class="containers">CURSO DE ARDUINO AVANZADO DE KOUTILAB
-            <a href="../perfil.php"><button style="float: right;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="../perfil.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" style="float: right;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
         </div>
         <div class="container">
             <img class="igm" src="../img/PPP.png">
             <img class="gif" src="../img/loop.gif">
             <img class="gif1" src="../img/foco.gif">
             <div class="ruta">
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/introduccion/ci1.php"><button class="btn1"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/teoricas/ct1.php"><button class="btn2"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn3"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp1.php"><button class="btn4"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/teoricas/ct2.php"><button class="btn5"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn6"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp2.php"><button class="btn7"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn8"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp3.php"><button class="btn9"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn10"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp4.php"><button class="btn11"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/evaluativas/ce1.php"><button class="btn12"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/introduccion/ci2.php"><button class="btn13"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/teoricas/ct2.php"><button class="btn14"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn15"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp5.php"><button class="btn16"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button class="btn17"></button></a>
-                <a href="../cursos/arduino/avanzado/capsulas/contenido/evaluativas/ce2.php"><button class="btn18"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/introduccion/ci1.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn1"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/teoricas/ct1.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn2"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn3"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp1.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn4"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/teoricas/ct2.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn5"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn6"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp2.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn7"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn8"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp3.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn9"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn10"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp4.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn11"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/evaluativas/ce1.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn12"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/introduccion/ci2.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn13"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/teoricas/ct2.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn14"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn15"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/practicas/cp5.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn16"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/juegos/cj6.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn17"></button></a>
+                <a href="../cursos/arduino/avanzado/capsulas/contenido/evaluativas/ce2.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn18"></button></a>
             </div>
         </div>
     </div>
@@ -140,6 +140,24 @@ if (empty($existe)) {
                 if (tecla === 83)
                     console.log("Ha presionado las teclas Ctrl + S");
             }
+        }
+    </script>
+    <script>
+        // Funciones para reproducir sonidos
+        function playHoverSound() {
+            var popAudio = document.getElementById("popAudio");
+            popAudio.currentTime = 0; // Reiniciar el sonido si ya se está reproduciendo
+            var hoverAudio = document.getElementById("hoverAudio");
+            hoverAudio.currentTime = 0; // Reiniciar el sonido si ya se está reproduciendo
+            hoverAudio.play();
+        }
+
+        function playClickSound() {
+            var hoverAudio = document.getElementById("hoverAudio");
+            hoverAudio.currentTime = 0; // Reiniciar el sonido si ya se está reproduciendo
+            var popAudio = document.getElementById("popAudio");
+            popAudio.currentTime = 0; // Reiniciar el sonido si ya se está reproduciendo
+            popAudio.play();
         }
     </script>
 </body>
