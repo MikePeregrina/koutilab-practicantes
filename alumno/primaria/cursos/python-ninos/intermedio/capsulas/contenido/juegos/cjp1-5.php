@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
         <div class="cont-st">
             <!-- Boton para regresar -->
-            <a href="../../../../../../rutas/ruta-py-i-ninos.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+            <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                     <i class="fas fa-reply"></i></button>
             </a>
 
@@ -144,7 +144,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-5.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 17 + "&redireccion=" + '../contenido/juegos/cjp1-5.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
