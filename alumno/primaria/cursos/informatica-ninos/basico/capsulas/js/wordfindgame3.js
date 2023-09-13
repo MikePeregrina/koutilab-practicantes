@@ -227,7 +227,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
             "&permiso=" +
             48 +
             "&id_curso=" +
-            7 +
+            19 +
             "&redireccion=" +
             "../contenido/juegos/cjib2-7.php"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -238,7 +238,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
           xmlhttp.send(param);
           Swal.fire({
             title: "¡Bien hecho!",
-            text: "¡Puntuación guardada con éxito!",
+            text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
             imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `

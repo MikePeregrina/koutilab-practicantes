@@ -229,7 +229,7 @@
             "&permiso=" +
             10 +
             "&id_curso=" +
-            7 +
+            19 +
             "&redireccion=" +
             "../contenido/juegos/cjib1-3.php"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -240,7 +240,7 @@
           xmlhttp.send(param);
           Swal.fire({
             title: "¡Bien hecho!",
-            text: "¡Puntuación guardada con éxito!",
+            text:' ¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
             imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `

@@ -231,7 +231,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Lograste completar el laberinto',
+				text: ' ¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
@@ -241,7 +241,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-py-b.php';
+					window.location.href = '../../../../../../rutas/ruta-in-b.php';
 				}
 			})
 			correcto.play(); //agregando sonido al juego completado

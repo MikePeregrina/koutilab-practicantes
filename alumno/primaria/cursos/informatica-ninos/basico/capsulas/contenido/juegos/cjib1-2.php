@@ -231,7 +231,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Lograste completar el laberinto',
+				text: ' ¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

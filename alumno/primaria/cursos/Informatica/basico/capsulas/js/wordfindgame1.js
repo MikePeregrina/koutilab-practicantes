@@ -231,12 +231,12 @@
 					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
 					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-3.php'; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+					xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `

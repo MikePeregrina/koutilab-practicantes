@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula28";
+$permiso = "capsula29";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 29;
+$permiso_intento = 30;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -158,8 +158,10 @@ if (isset($resultadoIntentos['intentos'])) {
                 }
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 29 + "&id_curso=" + 9; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 30 +"&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia2-1.php)'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd30.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -218,14 +220,15 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var puntos = <?php echo $puntosGanados; ?>
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 29 +"&id_curso=" + 9; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 30 +"&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia2-1.php)'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd30.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Haz completado el laberinto',
+				text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

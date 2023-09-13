@@ -231,7 +231,7 @@
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 9; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 21 + "&redireccion=" + '../contenido/juegos/cjia1-2.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);

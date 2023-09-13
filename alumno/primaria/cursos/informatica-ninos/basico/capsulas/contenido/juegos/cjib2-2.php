@@ -155,7 +155,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.reload();
+                        window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
                     }
                 });
                 incorrecto.play(); //asignando sonido al juego no completado

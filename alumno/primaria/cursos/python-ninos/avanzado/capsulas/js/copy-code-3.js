@@ -68,9 +68,9 @@ function iniciarTiempo() {
       "&permiso=" +
       22 +
       "&id_curso=" +
-      6 +
+      18 +
       "&redireccion=" +
-      "../contenido/juegos/cjp1-7.php"; //cancatenation
+      "../contenido/juegos/cjpi1-7.php"; //cancatenation
     xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
     xmlhttp.setRequestHeader(
       "Content-Type",
@@ -114,9 +114,9 @@ function alertExcelent() {
       "&permiso=" +
       22 +
       "&id_curso=" +
-      6 +
+      18 +
       "&redireccion=" +
-      "../contenido/juegos/cjp1-7.php"; //cancatenation
+      "../contenido/juegos/cjpi1-7.php"; //cancatenation
     xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
     xmlhttp.setRequestHeader(
       "Content-Type",

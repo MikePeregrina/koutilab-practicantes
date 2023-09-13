@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula31";
+$permiso = "capsula32";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 32;
+$permiso_intento = 33;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -178,9 +178,15 @@ if (isset($resultadoIntentos['intentos'])) {
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
 				if (verificar()) {
+					var puntos = <?php echo $puntosGanados; ?>
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-2.php)'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd33.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
@@ -237,6 +243,11 @@ if (isset($resultadoIntentos['intentos'])) {
 				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-2.php)'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd33 .php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',

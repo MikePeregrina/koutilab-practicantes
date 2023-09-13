@@ -159,7 +159,7 @@ if (isset($resultadoIntentos['intentos'])) {
         function tiempoAgotado() {
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-3.php'; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+            xmlhttp.open("POST", "../../acciones/insertar_pd36.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
@@ -212,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-3.php'; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.open("POST", "../../acciones/insertar_pd36.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
                 Swal.fire({
@@ -239,14 +239,15 @@ if (isset($resultadoIntentos['intentos'])) {
         //Alerta muestra de que el juego fue completado
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 36 +"&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-3.php'; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+            xmlhttp.open("POST", "../../acciones/insertar_pd36.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
-                text: '¡Buen trabajo!',
+                text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
                 imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

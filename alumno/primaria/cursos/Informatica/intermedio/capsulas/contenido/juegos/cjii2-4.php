@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula37";
+$permiso = "capsula38";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 38;
+$permiso_intento = 39;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -236,6 +236,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
 			}
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-4.php)'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd39.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: "Oops... Te has quedado sin tiempo",
 					text: "¡Intentalo de nuevo!",
@@ -282,6 +287,11 @@ if (isset($resultadoIntentos['intentos'])) {
 				console.log("Incorrecto");
 				this.errores = this.errores + 1;
 				if (this.errores > 1) {
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-4.php)'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd39.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: "Oops... Has perdido el juego",
 						text: "¡Inténtalo de nuevo!",
@@ -319,9 +329,15 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Alerta muestra que el juego fue completado
 		function alertExcelent() {
+			var puntos = <?php echo $puntosGanados; ?>
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-4.php)'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd39.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: "Excelente",
-				text: "¡Buen trabajo!",
+				text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

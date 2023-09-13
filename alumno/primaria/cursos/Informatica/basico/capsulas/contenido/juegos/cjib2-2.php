@@ -118,6 +118,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
     <script>
+        var puntos = <?php echo $puntosGanados; ?>
         var correcto = document.createElement("audio");
         correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var incorrecto = document.createElement("audio");
@@ -145,7 +146,7 @@ if (isset($resultadoIntentos['intentos'])) {
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 +"&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-2.php'; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.open("POST", "../../acciones/insertar_pd33.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
                 Swal.fire({

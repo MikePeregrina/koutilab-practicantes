@@ -322,8 +322,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
         function tiempoAgotado() {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 8; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd16.php", true);
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-6.php)'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
@@ -390,14 +390,15 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 8; //cancatenation
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-6.php)'; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
-                text: '¡Buen trabajo!',
+                text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `

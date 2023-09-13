@@ -62,7 +62,6 @@ if (isset($resultadoIntentos['intentos'])) {
             <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
-
     <div class="titulo-gen">
         <h2 class="titulo"><b>IMÁGENES</b></h2>
     </div>

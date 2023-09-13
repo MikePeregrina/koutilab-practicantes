@@ -158,7 +158,7 @@ function mostrarResultados() {
         if (respuestasCorrectas < 3) {
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-2.php'; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+            xmlhttp.open("POST", "../../acciones/insertar_pd33.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({
@@ -181,7 +181,7 @@ function mostrarResultados() {
             //llamamos a la alerta
             var xmlhttp = new XMLHttpRequest();
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib2-2.php'; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+            xmlhttp.open("POST", "../../acciones/insertar_pd33.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
             Swal.fire({

@@ -158,8 +158,10 @@ if (isset($resultadoIntentos['intentos'])) {
                 }
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 9; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 +"&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-8.php)'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -218,14 +220,15 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var puntos = <?php echo $puntosGanados; ?>
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 +"&id_curso=" + 9; //cancatenation
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 +"&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-8.php)'; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Haz completado el laberinto',
+				text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `

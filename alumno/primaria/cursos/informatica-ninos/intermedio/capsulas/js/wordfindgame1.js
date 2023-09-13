@@ -229,7 +229,7 @@
             "&permiso=" +
             10 +
             "&id_curso=" +
-            8; //cancatenation
+            20  + "&redireccion=" + '../contenido/juegos/cjii1-3.php)'; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
           xmlhttp.setRequestHeader(
             "Content-Type",

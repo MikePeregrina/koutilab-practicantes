@@ -231,13 +231,13 @@
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 35 + "&id_curso=" + 9; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd35.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 36 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia2-3.php)'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd36.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
