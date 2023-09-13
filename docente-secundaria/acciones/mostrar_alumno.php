@@ -123,6 +123,11 @@
                             ?>
                         </tr> -->
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>NOTA: Conocimientos = Teórico, Coding = Práctico, Logros = Trofeos, Destreza = Puntos</td>
+                        </tr>
+                    </tfoot>
                 </table>
                 <a href="../grupos.php" class="btn btn-danger">Atrás</a>
             </div>

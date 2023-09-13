@@ -92,6 +92,12 @@ $existe_comprada_js2 = mysqli_num_rows($sql_comprada_js2);
 </head>
 
 <body>
+    <audio id="popAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hoverAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop2.mp3" type="audio/mpeg">
+    </audio>
     <div class="containers">
         <a href="../perfil.php"><button class="btn-b"><i class="fas fa-reply"></i></button></a>
         <h1>CURSO DE PROGRAMACIÓN INTERMEDIO DE KOUTILAB</h1>
@@ -120,7 +126,7 @@ $existe_comprada_js2 = mysqli_num_rows($sql_comprada_js2);
                 <span>HTML</span>
             </div>
             <a href="../acciones/estadisticas_pw-i.php" style="text-decoration: none;color: inherit;">
-                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
+                <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
             </a>
             <!-- HTML -->
             <a href="../cursos/programacion-web/intermedio/capsulas/contenido/introduccion/ci1html.php"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a HTML-->

@@ -90,6 +90,12 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 </head>
 
 <body>
+    <audio id="popAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hoverAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop2.mp3" type="audio/mpeg">
+    </audio>
     <div class="containers">
         <a href="../perfil.php"><button class="btn-b"><i class="fas fa-reply"></i></button></a>
         <h1>CURSO DE PHYTON INTERMEDIO DE KOUTILAB</h1>

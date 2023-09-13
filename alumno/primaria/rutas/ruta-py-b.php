@@ -91,6 +91,12 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 </head>
 
 <body>
+    <audio id="popAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hoverAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop2.mp3" type="audio/mpeg">
+    </audio>
     <div class="containers">
         <a href="../perfil.php"><button class="btn-b"><i class="fas fa-reply"></i></button></a>
         <h1>CURSO DE PYTHON BÁSICA DE KOUTILAB</h1>
@@ -119,7 +125,7 @@ $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
                 <span>CAPITULO 1</span>
             </div>
             <a href="../acciones/estadisticas_py-b.php" style="text-decoration: none;color: inherit;">
-                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
+                <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
             </a>
             <div class="snake">
                 <!-- PY -->

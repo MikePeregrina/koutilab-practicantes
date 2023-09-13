@@ -221,7 +221,7 @@ $result = $conexion->query($sql);
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1");
+                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1 AND id_admin = $id_user");
                     $result = mysqli_num_rows($query_escuelas);
                     if ($result > 0) {
                         while ($data = mysqli_fetch_assoc($query_escuelas)) {

@@ -28,6 +28,12 @@ if (empty($existe)) {
 </head>
 
 <body>
+    <audio id="popAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hoverAudio" preload="auto">
+        <source src="../../../acciones/sonidos/pop2.mp3" type="audio/mpeg">
+    </audio>
     <div class="body">
         <div class="containers">CURSO DE ARDUINO AVANZADO DE KOUTILAB
             <a href="../perfil.php"><button style="float: right;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
