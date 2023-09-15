@@ -52,7 +52,7 @@ $id_alumno = $_REQUEST['id_alumno'];
 $id_curso = $_REQUEST['id_curso'];
 $id_capsula = $_REQUEST['id_capsula'];
 
-$sql = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, ar.id_curso, ar.calificacion, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_primaria ar 
+$sql = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, ar.id_curso, ar.calificacion, ar.comentario, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_primaria ar 
                     JOIN alumnos_primaria ap
                     ON ar.id_alumno = ap.id_alumno
                     JOIN docentes_primaria dp
@@ -66,13 +66,15 @@ $result_sql = mysqli_num_rows($sql);
 
 if ($result_sql == 0) {
     //header("Location: ../../docente/grupos.php");
-    //$calificacion = 0;
+    $calificacion = -1;
+    $comentario = '';
 } else {
     if ($data = mysqli_fetch_array($sql)) {
-        //$calificacion = $data['calificacion'];
+        $calificacion = $data['calificacion'];
         $nombre = $data['nombre'];
         $curso = $data['curso'];
         $id_capsula = $data['id_capsula'];
+        $comentario = $data['comentario'];
     }
 }
 ?>
@@ -108,10 +110,10 @@ if ($result_sql == 0) {
                 <div style="text-align: center; font-size: 18px; padding-bottom: 20px;" class="input-box">
                     <span style="padding: 0px 0px 0px 20px;" class="details"><b>Alumno: </b></span>
                     <span style="padding: 0px 20px 0px 0px;" class="details"><?php echo $nombre; ?></span>
-                
+
                     <span style="padding: 0px 0px 0px 20px;" class="details"><b>Curso: </b></span>
                     <span style="padding: 0px 20px 0px 0px;" class="details"><?php echo $curso; ?></span>
-                
+
                     <span style="padding: 0px 0px 0px 20px;" class="details"><b>Capsula: </b></span>
                     <span style="padding: 0px 20px 0px 0px;" class="details"><?php echo $id_capsula; ?></span>
                 </div>
@@ -130,12 +132,33 @@ if ($result_sql == 0) {
 
                     <div class="input-box">
                         <span class="details">Calificación: </span>
-                        <input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10">
+                        <?php
+                        if ($calificacion >= 0) {
+                        ?>
+                            <input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10" value="<?php echo $calificacion; ?>">
+                        <?php
+                        } else { ?>
+                            <input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10">
+                        <?php
+                        }
+                        ?>
+                        <!--<input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10">-->
                     </div>
 
                     <div class="input-box">
                         <span class="details">Comentario (opcional): </span>
-                        <input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta">
+                        <?php
+                        if (!empty($comentario)) {
+                        ?>
+
+                            <input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta" value="<?php echo $comentario; ?>">
+                        <?php
+                        } else { ?>
+                            <input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10">
+                        <?php
+                        }
+                        ?>
+                        <!--<input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta">-->
                     </div>
 
                 </div>
