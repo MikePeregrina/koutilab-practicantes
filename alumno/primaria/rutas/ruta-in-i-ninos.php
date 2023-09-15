@@ -93,6 +93,27 @@ if (!isset($_SESSION['actualizacion_realizada_inin'])) {
 
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #intro {
+            background-image: url(../img/BTNINTRO2.png);
+        }
+
+        #teoria {
+            background-image: url(../img/BTNTEO2.png);
+        }
+
+        #prac {
+            background-image: url(../img/BTNPRA2.png);
+        }
+
+        #game {
+            background-image: url(../img/BTNJU2.png);
+        }
+
+        #eva {
+            background-image: url(../img/BTNEV2.png);
+        }
+    </style>
 </head>
 
 <body>
