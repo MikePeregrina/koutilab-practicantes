@@ -113,7 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <p id="moves"></p>
                                     </div>
                                 </div>
-
+    
                                 <br>
                                 <div id="menu" style="margin-top: -500px; position: absolute;">
                                     <div class="custom-select">
@@ -124,7 +124,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             <option value="38">Extreme</option>
                                         </select>
                                     </div>
-                                    <input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+                                    <input id="startMazeBtn" type="button" onclick="makeMaze();" value="Start" />
                                 </div>
 
                                 <div class="maze-contenedor">
@@ -179,6 +179,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
+    <script  src="js/laberinto.js"></script>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

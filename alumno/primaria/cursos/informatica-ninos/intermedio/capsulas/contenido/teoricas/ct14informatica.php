@@ -116,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div id="message">
                                         <p id="moves"></p>
                                     </div>
-                                </div>
+                                </div> 
 
                                 <br>
                                 <div id="menu" style="margin-top: -500px; position: absolute;">

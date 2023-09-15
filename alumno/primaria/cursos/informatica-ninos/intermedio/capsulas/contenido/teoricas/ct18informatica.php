@@ -108,7 +108,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
                             <div id="page">
-
+ 
                                 <div id="Message-Container">
                                     <div id="message">
                                         <p id="moves"></p>

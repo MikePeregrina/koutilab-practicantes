@@ -142,7 +142,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </form>
                             </div>
                         </li>
-                    </ul>
+                    </ul> 
                 </section>
         </div>
     </div>
@@ -357,6 +357,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
+        
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../js/functions.js"></script>
@@ -370,12 +371,12 @@ if (isset($resultadoIntentos['intentos'])) {
         //Solo modificar iconos
         function cargarIconos() {
             iconos = [
-                '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
-                '<i class="fas fa-keyboard"></i>',
-                '<i class="fab fa-html5"></i>',
-                'Mari'
+                '<img src="img/img-minijuegos/p1.png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/p2.png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/p3.png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/p4.png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/p5.png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/p6.png" height="60px" width="50px" >'
             ]
         }
 

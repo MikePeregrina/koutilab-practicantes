@@ -113,11 +113,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="computacion">Computacion</div>
+                                        <div class="word-box" id="sistemas">Sistemas</div>
+                                        <div class="word-box" id="maquinas">Maquinas</div>
+                                        <div class="word-box" id="procesamiento">Procesamiento</div>
+                                        <div class="word-box" id="componente">Componente</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -125,17 +125,18 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- columna de lado derecho -->
                                     <div class="right-column">
                                         <!-- Respuestas -->
-                                        <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
-                                        <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
-                                        <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                        <div class="word-box" id="hardware" onclick="checkAnswer('hardware')">
+                                          Hardware</div>
+                                        <div class="word-box" id="logicas" onclick="checkAnswer('logicas')">
+                                           Logicas</div>
+                                        <div class="word-box" id="automatico" onclick="checkAnswer('automatico')">
+                                          Automatico
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="automatizados" onclick="checkAnswer('automatizados')">
+                                           Automatizados
                                         </div>
-                                        <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                        <div class="word-box" id="informatica" onclick="checkAnswer('informatica')">
+                                         Informatica</div>
                                     </div>
                                 </div>
 
@@ -431,11 +432,11 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             palabraseleccionada = this;
             if (
-                palabraseleccionada.id !== 'interactividad' &&
-                palabraseleccionada.id !== 'funcionalidad' &&
-                palabraseleccionada.id !== 'estructura' &&
-                palabraseleccionada.id !== 'estilos' &&
-                palabraseleccionada.id !== 'administrar'
+                palabraseleccionada.id !== 'informatica' &&
+                palabraseleccionada.id !== 'automatizados' &&
+                palabraseleccionada.id !== 'logicas' &&
+                palabraseleccionada.id !== 'automatico' &&
+                palabraseleccionada.id !== 'hardware'
             ) {
                 palabraseleccionada.classList.add('seleccionado');
             } else {
@@ -451,7 +452,7 @@ if (isset($resultadoIntentos['intentos'])) {
             //validamos que ya haya seleccionado una palabra
             if (palabraseleccionada) {
                 //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
-                if (respuesta === 'estilos' && idPalabraSeleccionada === 'css') {
+                if (respuesta === 'informatica' && idPalabraSeleccionada === 'computacion') {
                     palabraseleccionada.classList.add('correcto');
                     // Comenzar
                     contexto.beginPath();
@@ -460,54 +461,54 @@ if (isset($resultadoIntentos['intentos'])) {
                     // Color de línea 
                     contexto.strokeStyle = "#84c42c";
                     // Comenzamos en 0, 0
-                    contexto.moveTo(0, 30);
+                    contexto.moveTo(0, 25);
                     // Hacemos una línea hasta 48, 48
-                    contexto.lineTo(560, 210);
+                    contexto.lineTo(560, 260);
                     contexto.stroke(); // "Guardar" cambios
                     //sumamos al contador
                     respuestasCorrectas++;
-                } else if (respuesta === 'estructura' && idPalabraSeleccionada === 'html') {
+                } else if (respuesta === 'automatizados' && idPalabraSeleccionada === 'sistemas') {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 145);
-                    contexto.lineTo(560, 145);
+                    contexto.moveTo(0, 90);
+                    contexto.lineTo(560, 200);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else if (
-                    respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
+                    respuesta === 'logicas' && idPalabraSeleccionada === 'maquinas'
                 ) {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 205);
-                    contexto.lineTo(560, 20);
+                    contexto.moveTo(0, 145);
+                    contexto.lineTo(560, 90);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else if (
-                    respuesta === 'funcionalidad' && idPalabraSeleccionada === 'php'
+                    respuesta === 'automatico' && idPalabraSeleccionada === 'procesamiento'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(0, 200);
+                    contexto.lineTo(560, 145);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+
+
+                } else if (
+                    respuesta === 'hardware' && idPalabraSeleccionada === 'componente'
                 ) {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
                     contexto.moveTo(0, 260);
-                    contexto.lineTo(560, 75);
-                    contexto.stroke();
-                    respuestasCorrectas++;
-
-
-                } else if (
-                    respuesta === 'administrar' && idPalabraSeleccionada === 'sql'
-                ) {
-                    palabraseleccionada.classList.add('correcto');
-                    contexto.beginPath();
-                    contexto.lineWidth = 3;
-                    contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 95);
-                    contexto.lineTo(560, 270);
+                    contexto.lineTo(560, 25);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else {

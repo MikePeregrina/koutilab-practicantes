@@ -114,7 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <p id="moves"></p>
                                     </div>
                                 </div>
-
+  
                                 <br>
                                 <div id="menu" style="margin-top: -500px; position: absolute;">
                                     <div class="custom-select">

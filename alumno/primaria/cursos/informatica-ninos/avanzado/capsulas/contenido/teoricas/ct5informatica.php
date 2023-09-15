@@ -100,11 +100,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- Columna de lado izquierdo -->
                                     <div class="left-column">
                                         <!-- opciones estas son las principales -->
-                                        <div class="word-box" id="css">CSS</div>
-                                        <div class="word-box" id="sql">SQL</div>
-                                        <div class="word-box" id="html">HTML</div>
-                                        <div class="word-box" id="javascript">JavaScript</div>
-                                        <div class="word-box" id="php">PHP</div>
+                                        <div class="word-box" id="transicion">Transicion</div>
+                                        <div class="word-box" id="animacion">Animacion</div>
+                                        <div class="word-box" id="visual">Visual</div>
+                                        <div class="word-box" id="estructura">Estructura</div>
+                                        <div class="word-box" id="audiencia">Audiencia</div>
                                     </div>
                                     <!-- Mapeo donde se trazan las lineas -->
                                     <canvas id="canvas"> </canvas>
@@ -112,18 +112,17 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- columna de lado derecho -->
                                     <div class="right-column">
                                         <!-- Respuestas -->
-                                        <div class="word-box" id="interactividad"
-                                            onclick="checkAnswer('interactividad')">
-                                            Interactividad</div>
-                                        <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
-                                            Funcionalidad</div>
-                                        <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">
-                                            Estructura
+                                        <div class="word-box" id="imagen" onclick="checkAnswer('imagen')">
+                                            Imagen</div>
+                                        <div class="word-box" id="pestaña" onclick="checkAnswer('pestaña')">
+                                            Pestaña</div>
+                                        <div class="word-box" id="brevedad" onclick="checkAnswer('brevedad')">
+                                             Brevedad
                                         </div>
-                                        <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Estilos
+                                        <div class="word-box" id="objeto" onclick="checkAnswer('objeto')">Objeto
                                         </div>
-                                        <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">
-                                            Administrar</div>
+                                        <div class="word-box" id="atencion" onclick="checkAnswer('atencion')">
+                                            Atencion</div>
                                     </div>
                                 </div>
 
@@ -219,11 +218,11 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             palabraseleccionada = this;
             if (
-                palabraseleccionada.id !== 'interactividad' &&
-                palabraseleccionada.id !== 'funcionalidad' &&
-                palabraseleccionada.id !== 'estructura' &&
-                palabraseleccionada.id !== 'estilos' &&
-                palabraseleccionada.id !== 'administrar'
+                palabraseleccionada.id !== 'pestaña' &&
+                palabraseleccionada.id !== 'objeto' &&
+                palabraseleccionada.id !== 'imagen' &&
+                palabraseleccionada.id !== 'brevedad' &&
+                palabraseleccionada.id !== 'atencion'
             ) {
                 palabraseleccionada.classList.add('seleccionado');
             } else {
@@ -239,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
             //validamos que ya haya seleccionado una palabra
             if (palabraseleccionada) {
                 //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
-                if (respuesta === 'estilos' && idPalabraSeleccionada === 'css') {
+                if (respuesta === 'pestaña' && idPalabraSeleccionada === 'transicion') {
                     palabraseleccionada.classList.add('correcto');
                     // Comenzar
                     contexto.beginPath();
@@ -248,55 +247,55 @@ if (isset($resultadoIntentos['intentos'])) {
                     // Color de línea 
                     contexto.strokeStyle = "#84c42c";
                     // Comenzamos en 0, 0
-                    contexto.moveTo(0, 30);
+                    contexto.moveTo(10, 25);
                     // Hacemos una línea hasta 48, 48
-                    contexto.lineTo(560, 210);
+                    contexto.lineTo(520, 90);
                     contexto.stroke(); // "Guardar" cambios
                     //sumamos al contador
                     respuestasCorrectas++;
-                } else if (respuesta === 'estructura' && idPalabraSeleccionada === 'html') {
+                } else if (respuesta === 'objeto' && idPalabraSeleccionada === 'animacion') {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 145);
-                    contexto.lineTo(560, 145);
+                    contexto.moveTo(10, 90);
+                    contexto.lineTo(520, 200);
                     contexto.stroke();
                     respuestasCorrectas++;
                 }
                 else if (
-                    respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
+                    respuesta === 'imagenes' && idPalabraSeleccionada === 'visual'
                 ) {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 205);
-                    contexto.lineTo(560, 20);
+                    contexto.moveTo(10, 145);
+                    contexto.lineTo(520, 25);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else if (
-                    respuesta === 'funcionalidad' && idPalabraSeleccionada === 'php'
+                    respuesta === 'brevedad' && idPalabraSeleccionada === 'estructura'
                 ) {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 260);
-                    contexto.lineTo(560, 75);
+                    contexto.moveTo(10, 200);
+                    contexto.lineTo(520, 145);
                     contexto.stroke();
                     respuestasCorrectas++;
 
 
                 } else if (
-                    respuesta === 'administrar' && idPalabraSeleccionada === 'sql'
+                    respuesta === 'audiencia' && idPalabraSeleccionada === 'atencion'
                 ) {
                     palabraseleccionada.classList.add('correcto');
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(0, 95);
-                    contexto.lineTo(560, 270);
+                    contexto.moveTo(10, 260);
+                    contexto.lineTo(220, 260);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else {

@@ -573,12 +573,12 @@ if (isset($resultadoIntentos['intentos'])) {
         //Solo modificar iconos
         function cargarIconos() {
             iconos = [
-                '<i class="fas fa-image"></i>',
-                '<i class="far fa-images"></i>',
-                '<i class="fab fa-php"></i>',
-                '<i class="fas fa-keyboard"></i>',
-                '<i class="fab fa-html5"></i>',
-                'Mari'
+                '<img src="img/img-minijuegos/c (1).png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/c (2).png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/c (3).png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/c (4).png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/c (5).png" height="60px" width="50px" >',
+                '<img src="img/img-minijuegos/c (6).png" height="60px" width="50px" >'
             ]
         }
 

@@ -535,7 +535,7 @@ window.onload = function () {
         }
     };
     sprite = new Image();
-    sprite.src = "img/mascota-1.png" + "?" + new Date().getTime(); //poner ruta exacta de la imagen
+    sprite.src = "../img/mascota-1.png" + "?" + new Date().getTime(); //poner ruta exacta de la imagen
     sprite.setAttribute("crossOrigin", " ");
     sprite.onload = function () {
         sprite = changeBrightness(1.2, sprite);

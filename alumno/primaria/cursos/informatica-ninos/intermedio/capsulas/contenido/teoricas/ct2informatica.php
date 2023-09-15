@@ -101,7 +101,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-
+  
                     </ul>
                     <ul id="slider">
                         <li style="background-image: url('../../img/informatica/1/T2/13.gif'); z-index:0; opacity: 1;"></li>
