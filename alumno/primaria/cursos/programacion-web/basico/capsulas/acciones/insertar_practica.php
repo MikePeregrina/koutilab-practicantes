@@ -59,7 +59,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $totalPuntos = $resultadoEstadistica['total_puntos'];
     $totalPractico = $resultadoEstadistica['total_practico'];
     $totalTeorico = $resultadoEstadistica['total_teorico'];
-    $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_primaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
+    $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_primaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = '$id_user' AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
         header('location: ../../../../../rutas/ruta-pw-b.php');
