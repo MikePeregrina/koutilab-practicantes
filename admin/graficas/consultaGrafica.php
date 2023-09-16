@@ -819,3 +819,70 @@
         }
         echo json_encode($datosGrafica);
     }
+
+    if($tipo == "Cursos"){
+        if ($fechaInicio != null) {
+            if ($fechaFin != null) {
+
+            }
+        } else {
+            // Consulta para obtener los datos de visitas
+            $consulta = "SELECT SUM(total) as total, mes_anio FROM (SELECT conexiones AS total, nombre AS mes_anio
+            FROM conexiones_curso_primaria
+            UNION
+            SELECT conexiones AS total, nombre AS mes_anio
+            FROM conexiones_curso_secundaria
+            UNION
+            SELECT conexiones AS total, nombre AS mes_anio
+            FROM conexiones_curso_preparatoria
+            UNION
+            SELECT conexiones AS total, nombre AS mes_anio
+            FROM conexiones_curso_universidad)as subquery
+           
+            GROUP BY mes_anio
+            ORDER BY mes_anio;";
+        }
+        // Ejecutar la consulta
+        $resultado = $conexion->query($consulta);
+        
+        // Crear un arreglo para almacenar los datos
+        $datos = array();
+        
+        // Recorrer los resultados y almacenarlos en el arreglo
+        while ($fila = $resultado->fetch_assoc()) {
+            $datos[] = $fila;
+        }
+        
+        // Cerrar la conexión a la base de datos
+        $conexion->close();
+        
+        // Crear un arreglo para almacenar las visitas por mes
+        $gananciasPorMes = array();
+        
+        // Recorrer los datos y agrupar las visitas por mes
+        foreach ($datos as $dato) {
+            $fecha = $dato['mes_anio'];
+            $mes = $fecha;
+            $monto = floatval($dato['total']);
+        
+            if (isset($gananciasPorMes[$mes])) {
+                $gananciasPorMes[$mes] += $monto;
+            } else {
+                $gananciasPorMes[$mes] = $monto;
+            }
+        }
+        
+        // Crear un arreglo para almacenar los datos de la gráfica
+        $datosGrafica = array();
+        
+        // Recorrer las visitas por mes y generar los datos para la gráfica
+        foreach ($gananciasPorMes as $mes => $ganancia) {
+            // Obtener el nombre del mes y año a partir del formato Y-m
+            $nombreMes = $mes;
+            $datosGrafica[] = array(
+                'label' => $nombreMes,
+                'data' => $ganancia
+            );
+        }
+        echo json_encode($datosGrafica);
+    }
