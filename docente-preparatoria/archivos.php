@@ -126,6 +126,34 @@ if (isset($_GET['id'])) {
         </div>
 
     </div>
+    <!-- Contenido de la pantalla emergente -->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+            <div class="titlec">
+                <h2>Calificar Tarea</h2>
+            </div>
+
+            <div class="contenedor-emergente">
+                <form id="grupos" method="POST" enctype="multipart/form-data" action="acciones/insertar_grupo.php" autocomplete="off">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Calificación: </span>
+                            <input type="number" name="materia" placeholder="Ejemplo: 9" required min="0" max="10">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Comentario (opcional): </span>
+                            <input type="text" name="nombre_grupo" id="nombre_grupo" placeholder="Ejemplo: Tarea incompleta">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-grd">Calificar</button>
+                </form>
+            </div>
+
+
+        </div>
+        <button id="closeButton"><i class="fas fa-times"></i></button>
+
+    </div> <!-- Cierre de la pantalla emergente -->
     <section>
         <div class="board p-2">
             <table id="alumnos" width="100%" class="table border-top" style="z-index: 1;">
@@ -136,7 +164,9 @@ if (isset($_GET['id'])) {
                         <td><b>Alumno</b></td>
                         <td><b>Grado Escolar</b></td>
                         <td><b>Fecha</b></td>
-                        <td><b>Acción</b></td>
+                        <td><b>Calificación</b></td>
+                        <td><b>Comentario</b></td>
+                        <td><b>Acciones</b></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -144,7 +174,7 @@ if (isset($_GET['id'])) {
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_alumnos = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_preparatoria ar 
+                    $query_alumnos = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, ar.id_curso, ar.calificacion, ar.comentario, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_preparatoria ar 
                     JOIN alumnos_preparatoria ap
                     ON ar.id_alumno = ap.id_alumno
                     JOIN docentes_preparatoria dp
@@ -163,12 +193,11 @@ if (isset($_GET['id'])) {
                                 <td><?php echo $data['nombre']; ?></td>
                                 <td><?php echo $data['grado_escolar']; ?></td>
                                 <td><?php echo $data['fecha']; ?></td>
+                                <td><?php echo $data['calificacion']; ?></td>
+                                <td><?php echo $data['comentario']; ?></td>
                                 <td>
-                                    <a href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
-
-                                    <form action="" method="post" id="f-c" class="confirmar d-inline">
-                                        <button class="btn btn-success" id="btn-trs" type="submit"><i class='fas fa-clipboard-check' id="i-group"></i> </button>
-                                    </form>
+                                    <a style="margin-top: 5px;"  href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
+                                    <a style="margin-top: 5px;" href="acciones/calificar_tarea.php?id_alumno=<?php echo $data['id_alumno']; ?>&id_curso=<?php echo $data['id_curso']; ?>&id_capsula=<?php echo $data['id_capsula']; ?>&id_archivo=<?php echo $data['id_archivo']; ?>" class="btn btn-success" id="" type="submit"><i class='fas fa-clipboard-check' id="i-group"></i> </a>
                                 </td>
                             </tr>
                     <?php }

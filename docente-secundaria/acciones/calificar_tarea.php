@@ -13,27 +13,27 @@ if (!empty($_POST)) {
         $calificacion = $_POST['calificacion'];
         $comentario = $_POST['comentario'];
 
-        //$sql_update = mysqli_query($conexion, "UPDATE grupos_primaria SET materia = '$materia', nombre_grupo = '$nombregrupo' , grado = '$grado' WHERE id_grupo = $idgrupo");
+        //$sql_update = mysqli_query($conexion, "UPDATE grupos_secundaria SET materia = '$materia', nombre_grupo = '$nombregrupo' , grado = '$grado' WHERE id_grupo = $idgrupo");
         //$alert = '<div class="alert alert-success" role="alert">Grupo actualizado</div>';
         //$fecha_calificado = date("d-m-Y");
 
         //ACTUALIZA CALIFICACIÓN Y COMENTARIO EN ARCHIVOS
-        $sql_update = mysqli_query($conexion, "UPDATE archivos_primaria SET calificacion = '$calificacion', fecha_calificado = current_timestamp(), comentario = '$comentario' WHERE id_archivo = $id_archivo");
+        $sql_update = mysqli_query($conexion, "UPDATE archivos_secundaria SET calificacion = '$calificacion', fecha_calificado = current_timestamp(), comentario = '$comentario' WHERE id_archivo = $id_archivo");
         $alert = '<div class="alert alert-success" role="alert">¡Calificación asignada!</div>';
 
-        //INSERTA EN DETALLE_ESTADISTICAS_PRIMARIA
-        $query = "INSERT INTO detalle_estadisticas_primaria (progreso, practico, id_alumno, id_curso, id_capsula) VALUES ('2', $calificacion, '$id_alumno', $id_curso, $id_capsula)";
+        //INSERTA EN DETALLE_ESTADISTICAS_secundaria
+        $query = "INSERT INTO detalle_estadisticas_secundaria (progreso, practico, id_alumno, id_curso, id_capsula) VALUES ('2', $calificacion, '$id_alumno', $id_curso, $id_capsula)";
         $query_run = mysqli_query($conexion, $query);
 
         //Sumar trofeos
-        $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_primaria WHERE id_alumno = '$id_alumno' AND id_curso = '$id_curso'");
+        $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_secundaria WHERE id_alumno = '$id_alumno' AND id_curso = '$id_curso'");
         $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
         $totalTrofeos = $resultadoEstadistica['total_trofeos'];
         $totalProgreso = $resultadoEstadistica['total_progreso'];
         $totalPuntos = $resultadoEstadistica['total_puntos'];
         $totalPractico = $resultadoEstadistica['total_practico'];
         $totalTeorico = $resultadoEstadistica['total_teorico'];
-        $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_primaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_alumno AND id_curso = '$id_curso'");
+        $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_secundaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_alumno AND id_curso = '$id_curso'");
 
         if ($insertarEstadisticas) {
             header('location: ../archivos.php');
@@ -52,12 +52,12 @@ $id_alumno = $_REQUEST['id_alumno'];
 $id_curso = $_REQUEST['id_curso'];
 $id_capsula = $_REQUEST['id_capsula'];
 
-$sql = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, ar.id_curso, ar.calificacion, ar.comentario, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_primaria ar 
-                    JOIN alumnos_primaria ap
+$sql = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, ar.id_curso, ar.calificacion, ar.comentario, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_secundaria ar 
+                    JOIN alumnos_secundaria ap
                     ON ar.id_alumno = ap.id_alumno
-                    JOIN docentes_primaria dp
+                    JOIN docentes_secundaria dp
                     ON ap.id_docente = dp.id_docente
-                    JOIN cursos_primaria cp
+                    JOIN cursos_secundaria cp
                     ON ar.id_curso = cp.id_curso
                     WHERE ar.id_archivo = $id_archivo");
 $result_sql = mysqli_num_rows($sql);
@@ -155,7 +155,7 @@ if ($result_sql == 0) {
                         <?php
                         } else { ?>
                             <input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta">
-                       <?php
+                        <?php
                         }
                         ?>
                         <!--<input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta">-->
