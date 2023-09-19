@@ -85,14 +85,25 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T17/129.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T17/130.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T17/131.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T17/132.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T17/133.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/183.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T17/184.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/185.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/186.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/187.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/188.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T17/189.gif');"></li>
 
                         <li>
                             <div>

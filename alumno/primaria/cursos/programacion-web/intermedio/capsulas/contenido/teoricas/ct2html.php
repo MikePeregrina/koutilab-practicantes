@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T1.5/20.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T1.5/21.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1.5/22.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1.5/23.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1.5/24.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1.5/25.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/14.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T1.5/15.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/16.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/17.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/18.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1.5/19.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct2html.php">
@@ -128,10 +128,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -158,8 +158,8 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox3.addEventListener("change", comprueba, true);
         checkbox4.addEventListener("change", comprueba, true);
 
-         //se esta llamando los sonidos de la carpeta "sonidos"
-         var Correcto = document.createElement("audio");
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";

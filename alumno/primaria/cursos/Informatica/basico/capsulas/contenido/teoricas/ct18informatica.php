@@ -82,13 +82,20 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
-
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T18/135.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T18/136.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/137.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/138.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/192.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T18/193.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/194.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/195.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/196.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T18/197.gif');"></li>
 
                         <li>
                             <div>

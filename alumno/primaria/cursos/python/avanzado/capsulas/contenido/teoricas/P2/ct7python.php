@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P2/T7/139.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P2/T7/140.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T7/141.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T7/142.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T7/143.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T7/144.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T7/182.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P2/T7/183.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T7/184.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T7/185.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T7/186.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T7/187.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">

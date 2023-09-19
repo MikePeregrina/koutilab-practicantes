@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../../img/P1/T3.5/41.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../../img/P1/T3.5/37.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../../img/P1/T3.5/38.gif');"></li>
+                        <li style="background-image: url('../../../../img/P1/T3.5/39.gif');"></li>
+                        <li style="background-image: url('../../../../img/P1/T3.5/40.gif');"></li>
+                        <li style="background-image: url('../../../../img/P1/T3.5/41.gif');"></li>
                         <li style="background-image: url('../../../../img/P1/T3.5/42.gif');"></li>
-                        <li style="background-image: url('../../../../img/P1/T3.5/43.gif');"></li>
-                        <li style="background-image: url('../../../../img/P1/T3.5/44.gif');"></li>
-                        <li style="background-image: url('../../../../img/P1/T3.5/45.gif');"></li>
-                        <li style="background-image: url('../../../../img/P1/T3.5/46.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_ct3-5py.php">
@@ -128,10 +128,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

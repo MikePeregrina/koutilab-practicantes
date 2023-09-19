@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                             </li>
                         </ul>
                         <ul id="slider">
-                            <li style="background-image: url('../../img/informatica/T4/37.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/informatica/T4/35.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/informatica/T4/36.gif');"></li>
+                            <li style="background-image: url('../../img/informatica/T4/37.gif');"></li>
                             <li style="background-image: url('../../img/informatica/T4/38.gif');"></li>
                             <li style="background-image: url('../../img/informatica/T4/39.gif');"></li>
                             <li style="background-image: url('../../img/informatica/T4/40.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/41.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/42.gif');"></li>
                             <li>
                                 <div>
                                     <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd11.php">
@@ -135,10 +135,10 @@ if (isset($resultadoIntentos['intentos'])) {
             </div>
         </div>
         <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+            <div class="imagen-footer">
+                <img src="../../img/benvenida.png" alt="No-image">
+            </div>
+        </footer>
         <script>
             window.addEventListener("load", function() {
                 var form = document.querySelector("form");

@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/T2.5/34.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/T2.5/35.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T2.5/36.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T2.5/37.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T2.5/38.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T2.5/39.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T2.5/29.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P1/T2.5/30.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T2.5/31.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T2.5/32.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T2.5/33.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T2.5/34.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd11.php">
@@ -130,10 +130,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

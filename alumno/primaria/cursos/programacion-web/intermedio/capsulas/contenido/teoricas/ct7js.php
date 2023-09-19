@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/js/T5.5/167.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/js/T5.5/168.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/169.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/170.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/171.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/172.gif');"></li>
+                        <li style="background-image: url('../../img/js/T5.5/202.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/T5.5/203.gif');"></li>
+                        <li style="background-image: url('../../img/js/T5.5/204.gif');"></li>
+                        <li style="background-image: url('../../img/js/T5.5/205.gif');"></li>
+                        <li style="background-image: url('../../img/js/T5.5/206.gif');"></li>
+                        <li style="background-image: url('../../img/js/T5.5/207.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct7js.php">
@@ -128,10 +128,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -170,25 +170,25 @@ if (isset($resultadoIntentos['intentos'])) {
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-                 Swal.fire({
-                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                Swal.fire({
+                    title: '¡Excelente sigue así! ' + 'Obtuviste ' + 10 + ' puntos teóricos',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var inputValidar = document.getElementById("validar");
+                        inputValidar.value = "correcto";
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+
             } else if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();

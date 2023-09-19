@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P2/T3.5/118.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/119.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/120.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/121.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/122.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/123.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/145.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/146.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/147.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/148.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/149.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/150.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct3-5py.php">
@@ -129,10 +129,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

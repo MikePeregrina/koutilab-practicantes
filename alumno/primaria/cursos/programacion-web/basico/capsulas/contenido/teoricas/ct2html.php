@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T2/14.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T2/15.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/15.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/html/T2/16.gif');"></li>
                         <li style="background-image: url('../../img/html/T2/17.gif');"></li>
                         <li style="background-image: url('../../img/html/T2/18.gif');"></li>
                         <li style="background-image: url('../../img/html/T2/19.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/20.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
