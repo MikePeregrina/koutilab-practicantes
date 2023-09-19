@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula33";
+$permiso = "capsula48";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,8 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 34;
+//VERIFICAR QUE EL permiso_intento sea correto
+$permiso_intento = 49;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +61,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 3 CSS</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 8 CSS</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,40 +89,44 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/2/T3/151.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/2/T3/152.gif');"></li>
-                        <li style="background-image: url('../../img/2/T3/153.gif');"></li>
-                        <li style="background-image: url('../../img/2/T3/154.gif');"></li>
-                        <li style="background-image: url('../../img/2/T3/155.gif');"></li>
-                        <li style="background-image: url('../../img/2/T3/156.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9/200.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/T9/201.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9/202.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9/203.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9/204.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9/205.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9/206.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué es una variable?</h1>
+                                    <h1>¿Para qué sirve la propiedad 'border-style'?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">Es un dato</label>
+                                        <label for="checkbox1">Establece el estilo de linea</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Es una cosa que almacena un dato</label>
+                                        <label for="checkbox2">Es una linea con estilo</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">Es un dato incognito</label>
+                                        <label for="checkbox3">Es una linea</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Es una caja donde se almacena un dato</label>
+                                        <label for="checkbox4">Todas las anteriores</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="34">
+                                    <input type="hidden" name="permiso" value="49">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct3css.php">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct9css.php">
                                 </form>
                             </div>
                         </li>
@@ -135,7 +140,6 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
-
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -168,7 +172,7 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox4.addEventListener("change", comprueba, true);
 
         function comprueba() {
-            if (checkbox2.checked) {
+            if (checkbox1.checked) {
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
@@ -258,7 +262,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 }
 
-            } else if (checkbox1.checked) {
+            } else if (checkbox2.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
                 Swal.fire({
