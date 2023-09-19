@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/T7/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/T7/77.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7/78.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7/79.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7/80.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7/81.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7/71.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P1/T7/72.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7/73.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7/74.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7/75.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7/76.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
@@ -238,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

@@ -87,15 +87,37 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_10" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_11" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_12" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_13" href="#"></a>
+                        </li>
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T16/122.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T16/123.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/124.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/125.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/126.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/127.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/171.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T16/172.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/173.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/174.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/175.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/176.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/177.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/178.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/179.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T16/180.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">

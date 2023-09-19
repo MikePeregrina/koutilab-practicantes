@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T2/91.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T2/92.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2/93.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2/94.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2/95.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2/96.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/137.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T2/138.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/139.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/140.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/141.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2/142.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Es el conjunto de reglas que definen como escribir codigo CSS</label>
+                                        <label for="checkbox2">Es el conjunto de reglas que definen como escribir código CSS</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
@@ -115,7 +115,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Es el conjunto de reglas que definen como escribir codigo</label>
+                                        <label for="checkbox4">Es el conjunto de reglas que definen como escribir código</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="31">
                                     <input type="hidden" name="teorico" value="10">
@@ -238,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

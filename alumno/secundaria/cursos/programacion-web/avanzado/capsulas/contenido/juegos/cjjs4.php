@@ -224,8 +224,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			var puntos = <?php echo $puntosGanados; ?>
 
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 3; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd39.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjjs4.php'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({

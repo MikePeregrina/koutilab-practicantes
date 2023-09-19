@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../../img/P2/T7.5/153.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../../img/P2/T7.5/154.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T7.5/155.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T7.5/156.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T7.5/157.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T7.5/158.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T7.5/181.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../../img/P2/T7.5/182.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T7.5/183.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T7.5/184.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T7.5/185.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T7.5/186.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct7-5py.php">
@@ -236,7 +236,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

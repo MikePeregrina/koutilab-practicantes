@@ -91,12 +91,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T1/13.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T1/14.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1/15.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1/16.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1/17.gif');"></li>
-                        <li style="background-image: url('../../img/html/T1/18.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/7.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T1/8.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/10.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/11.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/12.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -241,7 +241,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

@@ -90,12 +90,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T5/44.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T5/45.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/46.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/47.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/48.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T5/49.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T9/73.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T9/74.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T9/75.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T9/76.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T9/77.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">

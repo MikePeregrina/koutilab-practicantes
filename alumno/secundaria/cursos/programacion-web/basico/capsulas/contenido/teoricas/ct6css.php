@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T6/126.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T6/127.gif');"></li>
-                        <li style="background-image: url('../../img/css/T6/128.gif');"></li>
-                        <li style="background-image: url('../../img/css/T6/129.gif');"></li>
-                        <li style="background-image: url('../../img/css/T6/130.gif');"></li>
-                        <li style="background-image: url('../../img/css/T6/131.gif');"></li>
+                        <li style="background-image: url('../../img/css/T6/172.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T6/173.gif');"></li>
+                        <li style="background-image: url('../../img/css/T6/174.gif');"></li>
+                        <li style="background-image: url('../../img/css/T6/175.gif');"></li>
+                        <li style="background-image: url('../../img/css/T6/176.gif');"></li>
+                        <li style="background-image: url('../../img/css/T6/177.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -107,7 +107,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">Son elementos con ciertas caracteristicas</label>
+                                        <label for="checkbox2">Son elementos con ciertas características</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
@@ -238,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

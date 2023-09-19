@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T4.5/104.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T4.5/105.gif');"></li>
-                        <li style="background-image: url('../../img/css/T4.5/106.gif');"></li>
-                        <li style="background-image: url('../../img/css/T4.5/107.gif');"></li>
-                        <li style="background-image: url('../../img/css/T4.5/108.gif');"></li>
-                        <li style="background-image: url('../../img/css/T4.5/109.gif');"></li>
+                        <li style="background-image: url('../../img/css/T4.5/118.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T4.5/119.gif');"></li>
+                        <li style="background-image: url('../../img/css/T4.5/120.gif');"></li>
+                        <li style="background-image: url('../../img/css/T4.5/121.gif');"></li>
+                        <li style="background-image: url('../../img/css/T4.5/122.gif');"></li>
+                        <li style="background-image: url('../../img/css/T4.5/123.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct6css.php">
@@ -230,7 +230,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

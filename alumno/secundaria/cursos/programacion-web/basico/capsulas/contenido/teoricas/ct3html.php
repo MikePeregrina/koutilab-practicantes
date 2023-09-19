@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T3/21.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T3/22.gif');"></li>
+                        <li style="background-image: url('../../img/html/T3/22.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/html/T3/23.gif');"></li>
                         <li style="background-image: url('../../img/html/T3/24.gif');"></li>
                         <li style="background-image: url('../../img/html/T3/25.gif');"></li>
                         <li style="background-image: url('../../img/html/T3/26.gif');"></li>
+                        <li style="background-image: url('../../img/html/T3/27.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -115,7 +115,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Listas enumeradas con letras y listas enumeradas con numeros</label>
+                                        <label for="checkbox4">Listas enumeradas con letras y listas enumeradas con números</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="8">
                                     <input type="hidden" name="teorico" value="10">
@@ -239,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

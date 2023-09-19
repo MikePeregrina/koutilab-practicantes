@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P2/T1.5/97.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P2/T1.5/98.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T1.5/99.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T1.5/100.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T1.5/101.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T1.5/102.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1.5/124.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P2/T1.5/125.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1.5/126.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1.5/127.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1.5/128.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1.5/129.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct1-5py.php">
@@ -237,7 +237,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

@@ -128,7 +128,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 		var segundos = 240;
 		let puntos = 0;
-
+		var puntos = <?php echo $puntosGanados; ?>
 		//Se esta llamando los sonidos de la carpeta "sonidos"
 		var correcto = document.createElement("audio");
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
@@ -151,7 +151,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 9; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-7.php)'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);

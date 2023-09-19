@@ -156,7 +156,7 @@ function mostrarResultados() {
     if (todasSeleccionadas) {
         if (respuestasCorrectas < 3) {
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 8; //cancatenation
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-8.php)'; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);

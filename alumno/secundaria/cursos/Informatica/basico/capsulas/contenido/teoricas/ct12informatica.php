@@ -97,14 +97,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T12/94.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T12/95.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/96.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/97.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/98.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/99.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/100.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/101.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/139.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/T12/140.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/141.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/142.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/143.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/144.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/145.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/T12/146.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">

@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T2.5/69.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T2.5/70.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/71.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/72.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/73.gif');"></li>
-                        <li style="background-image: url('../../img/css/T2.5/74.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/83.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T2.5/84.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/85.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/86.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/87.gif');"></li>
+                        <li style="background-image: url('../../img/css/T2.5/88.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct3css.php">
@@ -231,7 +231,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

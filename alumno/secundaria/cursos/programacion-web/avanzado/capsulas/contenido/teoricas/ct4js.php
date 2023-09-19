@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/js/T4/118.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/js/T4/119.gif');"></li>
-                        <li style="background-image: url('../../img/js/T4/120.gif');"></li>
-                        <li style="background-image: url('../../img/js/T4/121.gif');"></li>
-                        <li style="background-image: url('../../img/js/T4/122.gif');"></li>
-                        <li style="background-image: url('../../img/js/T4/123.gif');"></li>
+                        <li style="background-image: url('../../img/js/T4/139.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/T4/140.gif');"></li>
+                        <li style="background-image: url('../../img/js/T4/141.gif');"></li>
+                        <li style="background-image: url('../../img/js/T4/142.gif');"></li>
+                        <li style="background-image: url('../../img/js/T4/143.gif');"></li>
+                        <li style="background-image: url('../../img/js/T4/144.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -232,7 +232,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

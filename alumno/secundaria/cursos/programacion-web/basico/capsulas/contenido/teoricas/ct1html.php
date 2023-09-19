@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/html/T1/7.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/html/T1/8.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/8.gif'); z-index:0; opacity: 1;"></li>
                         <li style="background-image: url('../../img/html/T1/9.gif');"></li>
                         <li style="background-image: url('../../img/html/T1/10.gif');"></li>
                         <li style="background-image: url('../../img/html/T1/11.gif');"></li>
                         <li style="background-image: url('../../img/html/T1/12.gif');"></li>
+                        <li style="background-image: url('../../img/html/T1/13.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -237,7 +237,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

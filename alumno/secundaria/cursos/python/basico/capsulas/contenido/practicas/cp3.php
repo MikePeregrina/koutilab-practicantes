@@ -62,7 +62,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 3</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 2</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
@@ -228,7 +228,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

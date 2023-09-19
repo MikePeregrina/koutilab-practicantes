@@ -80,8 +80,8 @@ if (isset($resultadoIntentos['intentos'])) {
                             <td class="nombre">
                                 <p> En un documento CSS con ayuda de un archivo HTML coloca un fondo de color,
                                     así también como títulos de diferentes tamaños y párrafos. En el archivo CSS donde se le dará
-                                    el estilo se debe de seguir la sintaxis anteriormente mencionada, como por ejemplo debe llevar
-                                    un selector,propiedad, valor y las declaraciones.
+                                    el estilo se debe de seguir la sintaxis anteriormente mencionada, como por ejemplo, debe llevar
+                                    un selector, una propiedad, un valor y las declaraciones.
                                     < h1>
                                         < p>
                                             <br> <br>
@@ -177,7 +177,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>HIPERVINCULOS</b></h2>
+        <h2 class="titulo"><b>HIPERVÍNCULOS</b></h2>
     </div>
 
     <!-- Contenedor principal -->
