@@ -103,12 +103,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/T4/41.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/T4/42.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4/43.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4/44.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4/45.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4/46.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4/28.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P1/T4/29.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4/30.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
@@ -146,7 +143,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T2/19.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4/31.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
@@ -187,9 +184,8 @@ if (isset($resultadoIntentos['intentos'])) {
     </footer>
     <script src="js/laberinto.js"></script><!-- Agregar js de columnas -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Agregar este -->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script> <!-- Agregar este -->
-	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> <!-- Y este -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script> <!-- Agregar este -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> <!-- Y este -->
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

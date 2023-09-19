@@ -103,12 +103,9 @@
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/T7.5/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/T7.5/77.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7.5/78.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7.5/79.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7.5/80.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T7.5/81.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7.5/55.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P1/T7.5/56.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7.5/57.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -149,7 +146,8 @@
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7.5/58.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T7.5/59.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_ct7-5py.php">

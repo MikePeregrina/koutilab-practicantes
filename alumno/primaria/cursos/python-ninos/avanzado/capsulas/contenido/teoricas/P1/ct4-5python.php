@@ -103,12 +103,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/T4.5/48.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/T4.5/49.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4.5/50.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4.5/51.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4.5/52.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T4.5/53.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4.5/33.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P1/T4.5/34.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4.5/35.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -149,7 +146,8 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4.5/36.gif');"></li>
+                        <li style="background-image: url('../../../img/P1/T4.5/37.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_ct4-5py.php">

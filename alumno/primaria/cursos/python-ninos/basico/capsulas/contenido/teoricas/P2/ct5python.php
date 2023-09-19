@@ -103,12 +103,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P2/T5/132.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P2/T5/133.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T5/134.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T5/135.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T5/136.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T5/137.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T5/98.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P2/T5/99.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T5/100.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -149,7 +146,8 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T5/101.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T5/102.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">

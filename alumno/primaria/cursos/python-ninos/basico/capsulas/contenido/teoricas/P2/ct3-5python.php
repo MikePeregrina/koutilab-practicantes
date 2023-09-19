@@ -103,12 +103,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P2/T3.5/118.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/119.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/120.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/121.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/122.gif');"></li>
-                        <li style="background-image: url('../../../img/P2/T3.5/123.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/87.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/88.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/89.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
@@ -146,7 +143,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T2/19.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T3.5/90.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct3-5py.php">

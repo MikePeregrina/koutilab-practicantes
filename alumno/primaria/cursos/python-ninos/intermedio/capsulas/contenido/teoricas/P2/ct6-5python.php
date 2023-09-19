@@ -104,12 +104,9 @@
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../../img/P2/T6.5/139.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../../img/P2/T6.5/140.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T6.5/141.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T6.5/142.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T6.5/143.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T6.5/144.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T6.5/105.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../../img/P2/T6.5/106.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T6.5/107.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="memorama">
@@ -123,7 +120,8 @@
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T1/9.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T6.5/108.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T6.5/109.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_P2ct6-5py.php">

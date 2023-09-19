@@ -104,12 +104,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../../img/P2/T5/118.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../../img/P2/T5/119.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T5/120.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T5/121.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T5/122.gif');"></li>
-                        <li style="background-image: url('../../../../img/P2/T5/123.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T5/88.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../../img/P2/T5/89.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T5/90.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <div class="mjuego">
@@ -132,7 +129,8 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/html/T6/61.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T5/91.gif');"></li>
+                        <li style="background-image: url('../../../../img/P2/T5/92.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
