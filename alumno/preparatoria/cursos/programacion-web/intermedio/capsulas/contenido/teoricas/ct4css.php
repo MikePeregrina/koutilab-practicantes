@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/css/T3/90.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/css/T3/91.gif');"></li>
-                        <li style="background-image: url('../../img/css/T3/92.gif');"></li>
-                        <li style="background-image: url('../../img/css/T3/93.gif');"></li>
-                        <li style="background-image: url('../../img/css/T3/94.gif');"></li>
-                        <li style="background-image: url('../../img/css/T3/95.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/104.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/T3/105.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/106.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/107.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/108.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/109.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

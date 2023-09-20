@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/T3.5/42.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/T3.5/43.gif');"></li>
-                        <li style="background-image: url('../../img/1/T3.5/44.gif');"></li>
-                        <li style="background-image: url('../../img/1/T3.5/45.gif');"></li>
-                        <li style="background-image: url('../../img/1/T3.5/46.gif');"></li>
-                        <li style="background-image: url('../../img/1/T3.5/47.gif');"></li>
+                        <li style="background-image: url('../../img/1/T6.5/62.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/T6.5/63.gif');"></li>
+                        <li style="background-image: url('../../img/1/T6.5/64.gif');"></li>
+                        <li style="background-image: url('../../img/1/T6.5/65.gif');"></li>
+                        <li style="background-image: url('../../img/1/T6.5/66.gif');"></li>
+                        <li style="background-image: url('../../img/1/T6.5/67.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd8.php">
