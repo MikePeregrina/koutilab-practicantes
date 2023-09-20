@@ -5,22 +5,20 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula46";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
 }
-
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 47;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
+$permiso_intento = 3;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -39,7 +37,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE css>
 
 <head>
     <meta charset="UTF-8" />
@@ -60,7 +58,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 3 PHP</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 2 CSS</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -85,43 +83,38 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/4/T1.5/186.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/4/T1.5/187.gif');"></li>
-                        <li style="background-image: url('../../img/4/T1.5/188.gif');"></li>
-                        <li style="background-image: url('../../img/4/T1.5/189.gif');"></li>
-                        <li style="background-image: url('../../img/4/T1.5/190.gif');"></li>
-                        <li style="background-image: url('../../img/4/T1.5/191.gif');"></li>
+                        <li style="background-image: url('../../img/2/T5.5/104.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/T5.5/105.gif');"></li>
+                        <li style="background-image: url('../../img/2/T5.5/106.gif');"></li>
+                        <li style="background-image: url('../../img/2/T5.5/107.gif');"></li>
+                        <li style="background-image: url('../../img/2/T5.5/108.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct2css.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cómo se define una función?</h1>
+                                    <h1>¿Con que propiedad se establece el posicionamiento de una caja?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">function</label>
+                                        <label for="checkbox1">position</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">funcion</label>
+                                        <label for="checkbox2">relative</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">functtion</label>
+                                        <label for="checkbox3">absolute</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">Ninguna de las anteriores</label>
+                                        <label for="checkbox4">Todas las anteriores</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="47">
+                                    <input type="hidden" name="permiso" value="3">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="3">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct3php.php">
                                 </form>
                             </div>
                         </li>
