@@ -1066,7 +1066,7 @@ section {
     height: 110px;
   }
 
-  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4{
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4, .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
     display: inherit;
     padding-top: 10px;
   }
@@ -1082,6 +1082,10 @@ section {
 
   .container-premium4{
     padding-left: 15%;
+  }
+
+  .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
+    padding-left: 18%;
   }
 }
 
@@ -1122,7 +1126,7 @@ section {
     height: 105px;
   }
 
-  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4{
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4, .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
     display: inherit;
     padding-top: 10px;
   }
@@ -1138,6 +1142,10 @@ section {
 
   .container-premium4{
     padding-left: 15%;
+  }
+
+  .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
+    padding-left: 18%;
   }
 }
 
@@ -1178,7 +1186,7 @@ section {
     height: 102px;
   }
 
-  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4{
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4, .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
     display: inherit;
     padding-top: 10px;
   }
@@ -1194,6 +1202,10 @@ section {
 
   .container-premium4{
     padding-left: 15%;
+  }
+
+  .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
+    padding-left: 18%;
   }
 }
 
@@ -1234,7 +1246,7 @@ section {
     height: 102px;
   }
 
-  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4{
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium-extra1, .container-premium-extra2, .container-premium-extra3, .container-premium-extra4, .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
     display: inherit;
     padding-top: 10px;
   }
@@ -1250,6 +1262,10 @@ section {
 
   .container-premium4{
     padding-left: 15%;
+  }
+
+  .container-premium-extra8-5, .container-premium-extra11-5html, .container-premium-extra9-5, .container-premium-extra11-5css{
+    padding-left: 18%;
   }
 }
 
