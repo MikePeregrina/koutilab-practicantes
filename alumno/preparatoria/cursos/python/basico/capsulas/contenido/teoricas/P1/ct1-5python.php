@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/P1/T1.5/20.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/P1/T1.5/21.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T1.5/22.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T1.5/23.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T1.5/24.gif');"></li>
-                        <li style="background-image: url('../../../img/P1/T1.5/25.gif');"></li>
+                        <li style="background-image: url('../../../img/1/T1.5/15.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/1/T1.5/16.gif');"></li>
+                        <li style="background-image: url('../../../img/1/T1.5/17.gif');"></li>
+                        <li style="background-image: url('../../../img/1/T1.5/18.gif');"></li>
+                        <li style="background-image: url('../../../img/1/T1.5/19.gif');"></li>
+                        <li style="background-image: url('../../../img/1/T1.5/20.gif');"></li>
 
                         <li>
                             <div>
