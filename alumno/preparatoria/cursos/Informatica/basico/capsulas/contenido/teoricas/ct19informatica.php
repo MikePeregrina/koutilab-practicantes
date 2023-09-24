@@ -79,13 +79,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_4" href="#"></a>
                         </li>
-
+                        <li>
+                            <a itlist="itList_5" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T19/140.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T19/141.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/142.gif');"></li>
-
+                        <li style="background-image: url('../../img/2/T3/157.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/T3/158.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/159.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/160.gif');"></li>
+                        <li style="background-image: url('../../img/2/T3/161.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">

@@ -6,15 +6,14 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula36";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
-
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 37;
+$permiso_intento = 14;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +59,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 4 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 4.5 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,53 +87,47 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/T12/119.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/T12/120.gif');"></li>
-                        <li style="background-image: url('../../img/1/T12/121.gif');"></li>
-                        <li style="background-image: url('../../img/1/T12/122.gif');"></li>
-                        <li style="background-image: url('../../img/1/T12/123.gif');"></li>
-                        <li style="background-image: url('../../img/1/T12/124.gif');"></li>
-                        <li style="background-image: url('../../img/1/T12/125.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9.5/225.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/T9.5/226.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9.5/227.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9.5/228.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9.5/229.gif');"></li>
+                        <li style="background-image: url('../../img/2/T9.5/230.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la función principal del puerto USB en una computadora?</h1>
+                                    <h1>¿Qué tipo de dispositivos de almacenamiento guarda información en la memoria del computador de manera continua?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Conectar periféricos a la computadora.
+                                            Gestionar los recursos de hardware y proporcionar servicios a los programas de aplicación.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Realizar copias de seguridad de archivos.
+                                            Manejar archivos de datos multimedia.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Almacenar datos de forma permanente.
+                                            Manejar archivos de datos multimedia.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Transferir energía a la computadora.
+                                            Generar salidas y resultados del sistema.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="37">
+                                    <input type="hidden" name="permiso" value="14">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="7">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct15informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -200,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -222,7 +215,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -243,7 +236,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -264,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 }
@@ -279,7 +272,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct16informatica.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -292,7 +285,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct16informatica.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -305,7 +298,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct16informatica.php';
                     }
                 });
             }
