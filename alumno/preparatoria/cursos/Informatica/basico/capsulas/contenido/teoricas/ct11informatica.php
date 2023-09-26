@@ -81,12 +81,28 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T11/89.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T11/90.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T11/91.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T11/92.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/88.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/T9/89.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/90.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/91.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/92.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/93.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/94.gif');"></li>
+                        <li style="background-image: url('../../img/1/T9/95.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
