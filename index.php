@@ -29,6 +29,9 @@
                 <li class="hov li-r">
                     <div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div>
                 </li>
+                <li class="hov li-r">
+                    <div class="singin"><a href="alumno/prueba/rutas/ruta-prueba.php" style="color: #ffffff">Prueba gratis</a></div>
+                </li>
             </ul>
         </nav>
     </header>

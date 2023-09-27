@@ -1,0 +1,267 @@
+.columnas {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin: 150px 0 0 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo {
+    width: 100%;
+    margin: 50px auto 0 auto;
+    position: absolute;
+    text-align: center;
+}
+
+.container-all {
+    width: 70%;
+    display: flex;
+    margin-bottom: 120px;
+}
+
+#canvas {
+    background-color: rgba(51, 50, 50, 0);
+    display: flex;
+    width: 60%;
+}
+
+.left-column {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-column {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.word-box {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background: rgba(61, 172, 244);
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid rgba(61, 172, 244, 0.6);
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.word-box:hover {
+    background: rgba(61, 171, 244, 0.6);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+@keyframes anim1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(-5deg);
+    }
+    20% {
+        transform: rotate(5deg);
+    }
+    30% {
+        transform: rotate(-5deg);
+    }
+    40% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    70% {
+        transform: rotate(-5deg);
+    }
+    80% {
+        transform: rotate(5deg);
+    }
+    90% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+.seleccionado {
+    background-color: #005baf !important;
+    border: 2px solid #005baf !important;
+    color: white;
+    animation-name: anim1;
+    animation-duration: 7s;
+    animation-delay: 0.1s;
+}
+
+.correcto {
+    background-color: rgb(54, 228, 54);
+    cursor: default;
+}
+
+.incorrecto {
+    background-color: rgb(243, 57, 25);
+    cursor: default;
+}
+
+.deshabilitado {
+    pointer-events: none;
+    opacity: 0.5;
+}
+h4 {
+    font-weight: bold;
+}
+
+.verificar {
+    cursor: pointer;
+    color: #404040;
+    background: linear-gradient(
+        to right,
+        rgb(61, 172, 244),
+        rgba(132, 196, 44, 0.6)
+    );
+    padding: 20px;
+    border-radius: 30px;
+    border-style: none;
+    font-size: 130%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    margin-top: -100px;
+}
+
+/* Agregar de aqui */
+
+@media (max-width: 1100px) {
+    .container-all {
+        width: 90%;
+        height: 150px;
+        margin-top: 20px;
+    }
+
+    .verificar{
+        margin-top: 0px;
+    }
+}
+
+@media(max-width: 900px){
+    .container-all {
+        width: 90%;
+        height: 100px;
+        margin-top: 30px;
+    }
+
+    .verificar{
+        margin-top: 0px;
+        scale: 80%;
+    }
+}
+
+@media (max-width: 840px) {
+    .container-all {
+        width: 90%;
+        height: 100px;
+    }
+}
+
+@media (max-width: 619px) {
+    .container-all {
+        width: 97%;
+        height: 100px;
+    }
+
+    .word-box {
+        font-size: 16px;
+    }
+
+    .btn-b {
+        width: 70px;
+        padding: 10px 10px;
+        margin-left: 5%;
+    }
+
+    .btn-b i {
+        font-size: 20px;
+    }
+
+    .verificar{
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 615px) {
+    .container-all {
+        width: 97%;
+        height: 100px;
+    }
+
+    .word-box {
+        font-size: 12px;
+    }
+
+    .columnas .verificar {
+        scale: 60%;
+        height: 10%;
+        margin: 0px 0 0 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-all {
+        width: 97%;
+        height: 100px;
+        margin-top: -10px;
+    }
+
+    .word-box {
+        font-size: 10px;
+        height: 1px;
+    }
+
+    .columnas .verificar {
+        scale: 50%;
+        height: 10%;
+        margin: -80px 0 0 0;
+    }
+}
+
+@media (max-width: 518px) {
+    .container-all {
+        width: 97%;
+        height: 100px;
+    }
+
+    .word-box {
+        font-size: 8px;
+        height: 1px;
+    }
+
+    .columnas .verificar {
+        scale: 50%;
+        height: 10%;
+        margin: -80px 0 0 0;
+    }
+}
+/* Hasta aqui */
