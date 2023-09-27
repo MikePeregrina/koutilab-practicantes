@@ -9,7 +9,7 @@ include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
 
 
-$sql = "SELECT COUNT(*) id_admin FROM admin";
+$sql = "SELECT COUNT(*) id_admin_secundario FROM admin_secundario";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 ?>
@@ -48,7 +48,7 @@ $fila = mysqli_fetch_assoc($result);
     <div class="studens-add-bar">
         <div class="left-student">
             <i class="fas fa-user-shield"></i>
-            <h2><?php echo $fila['id_admin']; ?> Administrador(s)</h2>
+            <h2><?php echo $fila['id_admin_secundario']; ?> Administrador(s)</h2>
         </div>
 
         <div class="right-student" id="addCourseButton">
@@ -115,7 +115,7 @@ $fila = mysqli_fetch_assoc($result);
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM admin");
+                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM admin_secundario");
                     $result = mysqli_num_rows($query_escuelas);
                     if ($result > 0) {
                         while ($data = mysqli_fetch_assoc($query_escuelas)) {
@@ -126,9 +126,9 @@ $fila = mysqli_fetch_assoc($result);
                                 <td><?php echo $data['nombre']; ?></td>
                                 <td><?php echo $data['pais']; ?></td>
                                 <td>
-                                    <a style="background-color:#FF5733; border:none;" href="acciones/asignar_permisos.php?id=<?php echo $data['id_admin']; ?>" class="btn btn-success" id="btn-add"><i id="i-add" class='fa-solid fa-elevator fa-lg'></i></a>
-                                    <a href="acciones/editar_admin.php?id=<?php echo $data['id_admin']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
-                                    <form style="padding: 0px 0px;" action="acciones/eliminar_admin.php?id=<?php echo $data['id_admin']; ?>" method="post" id="f-c" class="confirmar d-inline">
+                                    <a style="background-color:#FF5733; border:none;" href="acciones/asignar_permisos.php?id=<?php echo $data['id_admin_secundario']; ?>" class="btn btn-success" id="btn-add"><i id="i-add" class='fa-solid fa-elevator fa-lg'></i></a>
+                                    <a href="acciones/editar_admin.php?id=<?php echo $data['id_admin_secundario']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
+                                    <form style="padding: 0px 0px;" action="acciones/eliminar_admin.php?id=<?php echo $data['id_admin_secundario']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
                                     </form>
 

@@ -168,7 +168,7 @@ $result = $conexion->query($sql);
 
                         <div class="input-box">
                             <span class="details">Clave director:</span>
-                            <input type="text" id="clave_director" name="clave_director" required readlink>
+                            <input type="text" id="clave_director" name="clave_director" required readonly>
                         </div>
                         <div class="input-box">
                             <span class="details"></span> <br>
@@ -221,7 +221,7 @@ $result = $conexion->query($sql);
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1 AND id_admin = $id_user");
+                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1");
                     $result = mysqli_num_rows($query_escuelas);
                     if ($result > 0) {
                         while ($data = mysqli_fetch_assoc($query_escuelas)) {

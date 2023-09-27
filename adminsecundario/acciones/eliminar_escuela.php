@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("../../acciones/conexion.php");
-$id_user = $_SESSION['id_admin'];
+$id_user = $_SESSION['id_admin_secundario'];
 
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];

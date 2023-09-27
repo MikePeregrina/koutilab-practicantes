@@ -10,53 +10,53 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
 ?>
 <?php
-    require "../../acciones/conexion.php";
+require "../../acciones/conexion.php";
 
-    if (!empty($_POST)) {
-        $alert = "";
-        if (empty($_POST['usuario']) || empty($_POST['nombre'])) {
-            $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
-        } else if (($_POST['usuario']) && ($_POST['nombre']) && empty($_POST['contrasena'])) {
-            $idadmin = $_GET['id'];
-            $usuario = $_POST['usuario'];
-            $nombre = $_POST['nombre'];
-            $pais = $_POST['pais'];
-            $id_user = $_SESSION['id_admin'];
-            $sql_update = mysqli_query($conexion, "UPDATE admin SET usuario = '$usuario', nombre = '$nombre', pais = '$pais' WHERE id_admin = $idadmin");
-            $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
-        } else if (($_POST['usuario']) && ($_POST['nombre']) && ($_POST['contrasena'])) {
-            $idadmin = $_GET['id'];
-            $usuario = $_POST['usuario'];
-            $nombre = $_POST['nombre'];
-            $pais = $_POST['pais'];
-            $contrasena = md5($_POST['contrasena']);
-            $id_user = $_SESSION['id_admin'];
-            $sql_update = mysqli_query($conexion, "UPDATE admin SET usuario = '$usuario', nombre = '$nombre', contrasena = '$contrasena', pais = '$pais' WHERE id_admin = $idadmin");
-            $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
-        }
+if (!empty($_POST)) {
+    $alert = "";
+    if (empty($_POST['usuario']) || empty($_POST['nombre'])) {
+        $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
+    } else if (($_POST['usuario']) && ($_POST['nombre']) && empty($_POST['contrasena'])) {
+        $idadmin = $_GET['id'];
+        $usuario = $_POST['usuario'];
+        $nombre = $_POST['nombre'];
+        $pais = $_POST['pais'];
+        $id_user = $_SESSION['id_admin'];
+        $sql_update = mysqli_query($conexion, "UPDATE admin_secundario SET usuario = '$usuario', nombre = '$nombre', pais = '$pais' WHERE id_admin_secundario = $idadmin");
+        $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
+    } else if (($_POST['usuario']) && ($_POST['nombre']) && ($_POST['contrasena'])) {
+        $idadmin = $_GET['id'];
+        $usuario = $_POST['usuario'];
+        $nombre = $_POST['nombre'];
+        $pais = $_POST['pais'];
+        $contrasena = md5($_POST['contrasena']);
+        $id_user = $_SESSION['id_admin'];
+        $sql_update = mysqli_query($conexion, "UPDATE admin_secundario SET usuario = '$usuario', nombre = '$nombre', contrasena = '$contrasena', pais = '$pais' WHERE id_admin_secundario = $idadmin");
+        $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
     }
+}
 
-    // Mostrar Datos
+// Mostrar Datos
 
-    if (empty($_REQUEST['id'])) {
-        header("Location: ../../admin/administradores.php");
+if (empty($_REQUEST['id'])) {
+    header("Location: ../../admin/administradores.php");
+}
+$idadmin = $_REQUEST['id'];
+$sql = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE id_admin_secundario = '$idadmin'");
+$result_sql = mysqli_num_rows($sql);
+
+if ($result_sql == 0) {
+    header("Location: ../../admin/administradores.php");
+} else {
+    if ($data = mysqli_fetch_array($sql)) {
+        $idadmin = $data['id_admin_secundario'];
+        $usuario = $data['usuario'];
+        $nombre = $data['nombre'];
+        $contrasena = $data['contrasena'];
+        $pais = $data['pais'];
     }
-    $idadmin = $_REQUEST['id'];
-    $sql = mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = '$idadmin'");
-    $result_sql = mysqli_num_rows($sql);
-
-    if ($result_sql == 0) {
-        header("Location: ../../admin/administradores.php");
-    } else {
-        if ($data = mysqli_fetch_array($sql)) {
-            $idadmin = $data['id_admin'];
-            $usuario = $data['usuario'];
-            $nombre = $data['nombre'];
-            $contrasena = $data['contrasena'];
-            $pais = $data['pais'];
-        }
-    }
-    ?>
+}
+?>
 
 <!DOCTYPE html>
 
@@ -77,48 +77,48 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body >
-    
-<div class="containers">
-    <h1>Editar grupos</h1>  
-  </div>
+<body>
 
-
-  <section> 
-    <div class="contenedor-emergente">
-    <form class="" action="" method="post" style="box-shadow: none;">
-        <div class="user-details">
-            <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idadmin; ?>">
-            <div class="input-box">
-                <span class="details">Usuario</span>
-                <input type="text" name="usuario" id="usuario" value="<?php echo $usuario; ?>" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Nombre</span>
-                <input type="text" name="nombre" id="nombre" value="<?php echo $nombre; ?>" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Contraseña</span>
-                <input type="text" name="contrasena" id="contrasena" value="">
-            </div>
-            <div class="input-box">
-                <span class="details">País</span>
-                <select name="pais" type="select" style="height: 44px;" required>
-                    <option><?php echo $pais; ?></option>
-                    <option value="Estados Unidos">Estados Unidos</option>
-                    <option value="México">México</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="Perú">Perú</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
-        <a href="../administradores.php" class="btn btn-danger">Atrás</a>
-    </form>
+    <div class="containers">
+        <h1>Editar grupos</h1>
     </div>
-    
- </section>
- <?php include '../footer.php'; ?>
+
+
+    <section>
+        <div class="contenedor-emergente">
+            <form class="" action="" method="post" style="box-shadow: none;">
+                <div class="user-details">
+                    <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idadmin; ?>">
+                    <div class="input-box">
+                        <span class="details">Usuario</span>
+                        <input type="text" name="usuario" id="usuario" value="<?php echo $usuario; ?>" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nombre</span>
+                        <input type="text" name="nombre" id="nombre" value="<?php echo $nombre; ?>" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Contraseña</span>
+                        <input type="text" name="contrasena" id="contrasena" value="">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">País</span>
+                        <select name="pais" type="select" style="height: 44px;" required>
+                            <option><?php echo $pais; ?></option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="México">México</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Perú">Perú</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
+                <a href="../administradores.php" class="btn btn-danger">Atrás</a>
+            </form>
+        </div>
+
+    </section>
+    <?php include '../footer.php'; ?>
 
 </body>

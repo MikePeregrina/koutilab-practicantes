@@ -1,5 +1,5 @@
 <?php
-$id = $user["id_admin"];
+$id = $user["id_admin_secundario"];
 $name = $user["nombre"];
 $image = $user["image"];
 $username = $user["usuario"];

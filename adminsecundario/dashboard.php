@@ -1,14 +1,14 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_admin'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+$id_user = $_SESSION['id_admin_secundario'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
   header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE id_admin_secundario = $id_user"));
 
-$sql = "SELECT COUNT(*) id_admin FROM admin";
+$sql = "SELECT COUNT(*) id_admin_secundario FROM admin_secundario";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 ?>
@@ -31,92 +31,92 @@ $fila = mysqli_fetch_assoc($result);
 </head>
 
 <body>
- 
-   <!-- Header nav -->
-   <?php include 'header-nav.php'; ?>
 
-<div class="containers">
-  <h1>DASHBOARD</h1>
-</div>
+  <!-- Header nav -->
+  <?php include 'header-nav.php'; ?>
 
-<section>
-  <div class="left-content">
-    <div class="titlec">
-      <h2>Usuario</h2>
-    </div><br>
-
-    <div class="subtitle-perfil">
-      <h3></h3>
-    </div>
-
-
-    <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
-      <div class="perfil-usuario-avatar">
-
-        <div class="avatar-img">
-          <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
-        </div>
-
-        <div class="camera-icon">
-          <input type="hidden" name="id" value="<?php echo $id; ?>">
-          <input type="hidden" name="name" value="<?php echo $name; ?>">
-          <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
-          <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
-        </div>
-    </form>
+  <div class="containers">
+    <h1>DASHBOARD</h1>
   </div>
 
-  <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
+  <section>
+    <div class="left-content">
+      <div class="titlec">
+        <h2>Usuario</h2>
+      </div><br>
 
-  <div class="container-info">
-    <h3>Nombre:<span><?php echo $name; ?></span></h3>
-    <br>
-    <h3>Usuario:<span><?php echo $username ?></span></h3>
-    <br>
-    <h3>Pais:<span><?php echo $pais ?></span></h3>
-  </div>
-
-  <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
-
-  <div class="change-password">
-    <h3>Contraseña:</h3>
-    <form enctype="multipart/form-data" action="" method="post">
-      <div class="user-details1">
-        <div class="input-box1">
-          <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-          <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
-        </div>
+      <div class="subtitle-perfil">
+        <h3></h3>
       </div>
-    </form>
-    </div>
-  </div>
 
-  <div class="right-content">
-    <div class="titlec">
-      <h2>Cursos</h2>
+
+      <form class="form" id="form" action="" enctype="multipart/form-data" method="post">
+        <div class="perfil-usuario-avatar">
+
+          <div class="avatar-img">
+            <img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
+          </div>
+
+          <div class="camera-icon">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="name" value="<?php echo $name; ?>">
+            <input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
+            <i class="fa fa-camera" style="color: white; font-size:30px;"></i>
+          </div>
+      </form>
     </div>
 
-    <div class="latd" style="scale:100%;justify-content: center; align-items: center;">
+    <hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
+
+    <div class="container-info">
+      <h3>Nombre:<span><?php echo $name; ?></span></h3>
+      <br>
+      <h3>Usuario:<span><?php echo $username ?></span></h3>
+      <br>
+      <h3>Pais:<span><?php echo $pais ?></span></h3>
+    </div>
+
+    <hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
+
+    <div class="change-password">
+      <h3>Contraseña:</h3>
+      <form enctype="multipart/form-data" action="" method="post">
+        <div class="user-details1">
+          <div class="input-box1">
+            <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+            <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd">
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+
+    <div class="right-content">
+      <div class="titlec">
+        <h2>Cursos</h2>
+      </div>
+
+      <div class="latd" style="scale:100%;justify-content: center; align-items: center;">
         <canvas id="G-Alumnos" width="450" height="280"></canvas>
         <div align="center" style="margin-top: 10%;">
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-          <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-          <input type="date" name="fechaInicio" id="fechaInicioAlumnos" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-          <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-          <input type="date" name="fechaFin" id="fechaFinAlumnos" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-          <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-          <br><br>
-          <input onclick="filtrarGAlumnos()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
-        </form>
+          <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+            <input type="date" name="fechaInicio" id="fechaInicioAlumnos" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+            <input type="date" name="fechaFin" id="fechaFinAlumnos" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+            <br><br>
+            <input onclick="filtrarGAlumnos()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+          </form>
+        </div>
       </div>
-      </div>
-      
-  
-</section>
 
 
-<?php include 'footer.php'; ?>
-<script>
+  </section>
+
+
+  <?php include 'footer.php'; ?>
+  <script>
     let graficaAlumnos;
     document.addEventListener('DOMContentLoaded', function() {
       filtrarGAlumnos();
@@ -219,7 +219,7 @@ $fila = mysqli_fetch_assoc($result);
 
 
 
-<script>
+  <script>
     const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");
     const btnCerrarModalA = document.querySelector("#btn-cerrar-modalA");
     const modalA = document.querySelector("#modalA");
@@ -237,11 +237,11 @@ $fila = mysqli_fetch_assoc($result);
       <button style="float: right;" class="btn-b" id="btn-cerrar-modalC"><i class="fas fa-close"></i></button>
       <?php
       if (isset($_POST['enviar'])) {
-        $id = $_POST['id_admin'];
+        $id = $_POST['id_admin_secundario'];
         $name = $_POST['nombre'];
         $contrasena = $_POST['contrasena'];
 
-        $sql = "UPDATE admin SET contrasena='" . $contrasena . "'";
+        $sql = "UPDATE admin_secundario SET contrasena='" . $contrasena . "'";
         $resultado = mysqli_query($conexion, $sql);
 
         if ($resultado) {
@@ -254,7 +254,7 @@ $fila = mysqli_fetch_assoc($result);
                   </script>";
         }
       } else {
-        $id = $user["id_admin"];
+        $id = $user["id_admin_secundario"];
         $name = $user["nombre"];
         $contrasena = $user["contrasena"];
 
@@ -264,7 +264,7 @@ $fila = mysqli_fetch_assoc($result);
           <h2>Cambiar contraseña</h2>
           <div class="user-details1">
 
-            <input type="hidden" name="id_admin" value="<?php echo $id ?>">
+            <input type="hidden" name="id_admin_secundario" value="<?php echo $id ?>">
             <input type="hidden" name="name" value="<?php echo $name ?>">
             <div class="input-box1" style="width: 100%;">
               <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
@@ -405,7 +405,7 @@ $fila = mysqli_fetch_assoc($result);
     } else {
       $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
       $newImageName .= '.' . $imageExtension;
-      $query = "UPDATE admin SET image = '$newImageName' WHERE id_admin = $id";
+      $query = "UPDATE admin_secundario SET image = '$newImageName' WHERE id_admin_secundario = $id";
       mysqli_query($conexion, $query);
       move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
       echo
@@ -433,7 +433,7 @@ $fila = mysqli_fetch_assoc($result);
     $idadmin = $_SESSION['id_admin_secundario'];
     $contrasena = md5($_POST['contrasena']);
 
-    $sql_update = mysqli_query($conexion, "UPDATE admin SET contrasena = '$contrasena' WHERE id_admin = '$idadmin'");
+    $sql_update = mysqli_query($conexion, "UPDATE admin_secundario SET contrasena = '$contrasena' WHERE id_admin_secundario = '$idadmin'");
 
     if ($sql_update) {
       echo

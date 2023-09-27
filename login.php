@@ -14,11 +14,11 @@ if (isset($_POST['iniciar_sesion'])) {
         $contrasena = md5(mysqli_real_escape_string($conexion, $_POST['contrasena']));
 
         //Validar inicio de sesión de un admin principal
-        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND rol = '1'");
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user'");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
 
         //Validar inicio de sesión de un admin secundario
-        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND rol = '2'");
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$user'");
         $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
 
         //Validar inicio de sesión de un alumno de primaria
@@ -90,7 +90,7 @@ if (isset($_POST['iniciar_sesion'])) {
         //$result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
 
         if ($result_validar_admin > 0) {
-            $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND rol=1");
+            $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_admin = mysqli_num_rows($query_admin);
             if ($resultado_admin > 0) {
                 $dato_admin = mysqli_fetch_array($query_admin);
@@ -107,13 +107,13 @@ if (isset($_POST['iniciar_sesion'])) {
                 session_destroy();
             }
         } else if ($result_validar_admin_secundario > 0) {
-            $query_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND rol=2");
+            $query_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_admin_secundario = mysqli_num_rows($query_admin_secundario);
             if ($resultado_admin_secundario > 0) {
                 $dato_admin_secundario = mysqli_fetch_array($query_admin_secundario);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 2;
-                $_SESSION['id_admin'] = $dato_admin_secundario['id_admin'];
+                $_SESSION['id_admin_secundario'] = $dato_admin_secundario['id_admin_secundario'];
                 $_SESSION['nombre'] = $dato_admin_secundario['nombre'];
                 $_SESSION['user'] = $dato_admin_secundario['usuario'];
                 header('location: adminsecundario/dashboard.php');
@@ -635,11 +635,11 @@ if (isset($_POST['iniciar_sesion'])) {
         $email_registrar = $_POST['email_registrar'];
 
         //Validar inicio de sesión de un admin principal
-        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=1");
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
 
         //Validar inicio de sesión de un admin secundario
-        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=2");
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$usuario_registrar'");
         $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
 
         //Validar inicio de sesión de un alumno de primaria
@@ -1489,12 +1489,12 @@ if (isset($_POST['iniciar_sesion'])) {
         $email_registrar = $_POST['email_registrar'];
 
         //Validar inicio de sesión de un admin principal
-        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=1");
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
         $result_validar_admin = mysqli_fetch_array($query_validar_admin);
 
 
         //Validar inicio de sesión de un admin secundario
-        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar' AND rol=2");
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$usuario_registrar'");
         $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
 
         //Validar inicio de sesión de un alumno de primaria

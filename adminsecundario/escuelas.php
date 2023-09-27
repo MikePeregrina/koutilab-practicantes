@@ -1,12 +1,12 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_admin'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+$id_user = $_SESSION['id_admin_secundario'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
     header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE id_admin_secundario = $id_user"));
 
 //Verificar si ya se tiene permiso en ruta 1
 $permiso_1 = "1";
@@ -226,7 +226,7 @@ $result = $conexion->query($sql);
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1 AND id_admin = $id_user");
+                    $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1 AND id_admin_secundario = $id_user");
                     $result = mysqli_num_rows($query_escuelas);
                     if ($result > 0) {
                         while ($data = mysqli_fetch_assoc($query_escuelas)) {

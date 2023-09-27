@@ -29,14 +29,14 @@ if (empty($_REQUEST['id'])) {
     header("Location: ../../admin/administradores.php");
 }
 $idadmin = $_REQUEST['id'];
-$sql = mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = '$idadmin'");
+$sql = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE id_admin_secundario = '$idadmin'");
 $result_sql = mysqli_num_rows($sql);
 
 if ($result_sql == 0) {
     header("Location: ../../admin/administradores.php");
 } else {
     if ($data = mysqli_fetch_array($sql)) {
-        $idadmin = $data['id_admin'];
+        $idadmin = $data['id_admin_secundario'];
         $usuario = $data['usuario'];
         $nombre = $data['nombre'];
         $contrasena = $data['contrasena'];
