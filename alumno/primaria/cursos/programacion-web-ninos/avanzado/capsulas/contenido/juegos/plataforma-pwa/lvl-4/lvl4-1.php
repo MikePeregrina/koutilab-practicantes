@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 15;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../../../avanzado/capsulas/contenido/alertas/paquete_premium4.php");
@@ -86,25 +86,26 @@ if (empty($existe)) {
         var count = 1000;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
-                if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+            if (segundos <= 60) {
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: "Oops...",
@@ -138,7 +139,9 @@ if (empty($existe)) {
             physics: {
                 default: "arcade",
                 arcade: {
-                    gravity: { y: -100 },
+                    gravity: {
+                        y: -100
+                    },
                     debug: false,
                 },
             },
@@ -274,7 +277,10 @@ if (empty($existe)) {
             });
             this.anims.create({
                 key: "turn",
-                frames: [{ key: "dude", frame: 4 }],
+                frames: [{
+                    key: "dude",
+                    frame: 4
+                }],
                 frameRate: 20,
             });
             this.anims.create({
@@ -292,13 +298,16 @@ if (empty($existe)) {
             //Creacion de las estrellas y sus fisicas
             stars = this.physics.add.group({
                 key: "star",
-                setXY: { x: 600, y: 500 },
+                setXY: {
+                    x: 600,
+                    y: 500
+                },
             });
             stars.create(100, 400, "star");
             stars.create(400, 220, "star");
             stars.create(200, 500, "star");
             stars.create(700, 400, "star");
-            stars.children.iterate(function (child) {
+            stars.children.iterate(function(child) {
                 child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
             });
             this.physics.add.collider(stars, plataforms);
@@ -333,7 +342,10 @@ if (empty($existe)) {
 
             key = this.physics.add.group({
                 key: "key",
-                setXY: { x: 400, y: 340 },
+                setXY: {
+                    x: 400,
+                    y: 340
+                },
             });
             this.physics.add.collider(key, plataforms);
             this.physics.add.collider(
@@ -346,7 +358,10 @@ if (empty($existe)) {
 
             power = this.physics.add.group({
                 key: "power",
-                setXY: { x: 60, y: 140 },
+                setXY: {
+                    x: 60,
+                    y: 140
+                },
             });
             this.physics.add.collider(power, plataforms);
             this.physics.add.collider(
@@ -1072,7 +1087,7 @@ if (empty($existe)) {
 
         function collectKey2(player, key) {
             key.disableBody(true, true);
-            var portals = portal.create(340, 540, "portal");  
+            var portals = portal.create(340, 540, "portal");
             var portals1 = portal1.create(460, 540, "portal");
         }
 
@@ -1112,8 +1127,7 @@ if (empty($existe)) {
             estrellas = score * 3;
             Swal.fire({
                 title: "¡Perfecto!",
-                text:
-                    "Has completado el capitulo 4 de las aventuras de Koubot con 10 puntos y " +
+                text: "Has completado el capitulo 4 de las aventuras de Koubot con 10 puntos y " +
                     score +
                     " estrellas de 5",
                 imageUrl: "../img/Thumbs-Up.gif",
@@ -1130,7 +1144,7 @@ if (empty($existe)) {
                         confirmButtonColor: "#85c42c",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 4 + '&id_curso=' + 15 + '&estrellas=' + estrellas;                        
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 4 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
                         }
                     });
                 }

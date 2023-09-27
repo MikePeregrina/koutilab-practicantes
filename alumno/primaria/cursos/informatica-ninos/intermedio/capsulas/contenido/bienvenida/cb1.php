@@ -62,7 +62,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">
-                            <input type="hidden" name="id_curso" value="20">
+                            <input type="hidden" name="id_curso" value="8">
                             <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
                         </form>
 

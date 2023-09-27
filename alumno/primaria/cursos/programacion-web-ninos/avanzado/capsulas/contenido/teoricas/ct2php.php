@@ -16,12 +16,12 @@ if (empty($existe)) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 3;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 15");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 15");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -114,8 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <!-- columna de lado derecho -->
                                     <div class="right-column">
                                         <!-- Respuestas -->
-                                        <div class="word-box" id="interactividad"
-                                            onclick="checkAnswer('interactividad')">
+                                        <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
                                             PHP</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
                                             { }</div>
@@ -158,7 +157,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <input type="hidden" name="permiso" value="53">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="15">
+                                    <input type="hidden" name="id_curso" value="3">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
@@ -168,10 +167,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/benvenida.png" alt="No-image">
-		</div>
-	</footer>
+        <div class="imagen-footer">
+            <img src="../../img/benvenida.png" alt="No-image">
+        </div>
+    </footer>
     <!-- Copiar de aqui -->
     <script>
         //Apartado de canvas para trazar lineas
@@ -256,8 +255,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     contexto.lineTo(560, 145);
                     contexto.stroke();
                     respuestasCorrectas++;
-                }
-                else if (
+                } else if (
                     respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
                 ) {
                     palabraseleccionada.classList.add('correcto');

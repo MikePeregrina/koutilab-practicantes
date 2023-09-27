@@ -63,7 +63,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">
                             <!-- Cambiar al id del curso al que corresponda -->
-                            <input type="hidden" name="id_curso" value="21">
+                            <input type="hidden" name="id_curso" value="9">
                             <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
                         </form>
 

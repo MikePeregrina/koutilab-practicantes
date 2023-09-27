@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 13;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
@@ -88,8 +88,7 @@ if (empty($existe)) {
                                     <!-- columna de lado derecho -->
                                     <div class="right-column">
                                         <!-- Respuestas -->
-                                        <div class="word-box" id="interactividad"
-                                            onclick="checkAnswer('interactividad')">
+                                        <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">
                                             Border</div>
                                         <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">
                                             Margin</div>
@@ -132,7 +131,7 @@ if (empty($existe)) {
                                     </div>
                                     <input type="hidden" name="permiso" value="7">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="13">
+                                    <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
@@ -231,8 +230,7 @@ if (empty($existe)) {
                     contexto.lineTo(560, 145);
                     contexto.stroke();
                     respuestasCorrectas++;
-                }
-                else if (
+                } else if (
                     respuesta === 'interactividad' && idPalabraSeleccionada === 'javascript'
                 ) {
                     palabraseleccionada.classList.add('correcto');

@@ -98,7 +98,7 @@ include "../../../../../../../../acciones/conexion.php";
               <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                 <input type="hidden" name="permiso" value="1">
                 <!-- Cambiar al id del curso al que corresponda -->
-                <input type="hidden" name="id_curso" value="16">
+                <input type="hidden" name="id_curso" value="4">
                 <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
               </form>
             </li>

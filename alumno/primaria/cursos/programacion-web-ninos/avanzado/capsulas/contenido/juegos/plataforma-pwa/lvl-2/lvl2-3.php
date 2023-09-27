@@ -25,7 +25,7 @@
     </div>
     <div class="titulo-gen3">
         <h5>
-            ¿Cuál es el tipo de posicionamiento que hace que nuestros elementos aparezcan de forma relativa?        
+            ¿Cuál es el tipo de posicionamiento que hace que nuestros elementos aparezcan de forma relativa?
         </h5>
     </div>
 
@@ -71,26 +71,26 @@
         var count = 1000;
 
         //Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =
                 segundos + " segundos";
-                if (segundos <= 60) {
-               var div = document.getElementById("timer");
-                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 30) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
-                if (segundos <= 10) {
-                    var div = document.getElementById("timer");
-                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-                }
+            if (segundos <= 60) {
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
             if (segundos == 0) {
                 Swal.fire({
                     title: "Oops...",
@@ -124,7 +124,9 @@
             physics: {
                 default: "arcade",
                 arcade: {
-                    gravity: { y: 200 },
+                    gravity: {
+                        y: 200
+                    },
                     debug: false,
                 },
             },
@@ -269,7 +271,10 @@
             });
             this.anims.create({
                 key: "turn",
-                frames: [{ key: "dude", frame: 4 }],
+                frames: [{
+                    key: "dude",
+                    frame: 4
+                }],
                 frameRate: 20,
             });
             this.anims.create({
@@ -287,13 +292,16 @@
             //Creacion de las estrellas y sus fisicas
             stars = this.physics.add.group({
                 key: "star",
-                setXY: { x: 320, y: 300 },
+                setXY: {
+                    x: 320,
+                    y: 300
+                },
             });
             stars.create(480, 300, "star");
             stars.create(400, 10, "star");
             stars.create(320, 10, "star");
             stars.create(480, 10, "star");
-            stars.children.iterate(function (child) {
+            stars.children.iterate(function(child) {
                 child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
             });
             this.physics.add.collider(stars, plataforms);
@@ -308,7 +316,10 @@
             //Portal
             portal = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 340, y: 500 },
+                setXY: {
+                    x: 340,
+                    y: 500
+                },
             });
             this.physics.add.collider(portal, plataforms);
             this.physics.add.collider(
@@ -321,7 +332,10 @@
 
             portal1 = this.physics.add.group({
                 key: "portal",
-                setXY: { x: 460, y: 500 },
+                setXY: {
+                    x: 460,
+                    y: 500
+                },
             });
             this.physics.add.collider(portal1, plataforms);
             this.physics.add.collider(
@@ -1086,8 +1100,7 @@
             estrellas = score * 3;
             Swal.fire({
                 title: "¡Perfecto!",
-                text:
-                    "Has completado el capitulo 2 de las aventuras de Koubot con 6 puntos y " +
+                text: "Has completado el capitulo 2 de las aventuras de Koubot con 6 puntos y " +
                     score +
                     " estrellas de 5",
                 imageUrl: "../img/Thumbs-Up.gif",
@@ -1104,7 +1117,7 @@
                         confirmButtonColor: "#85c42c",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 2 + '&id_curso=' + 15 + '&estrellas=' + estrellas;
+                            window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 2 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
                         }
                     });
                     correcto.play(); //agregando sonido al juego completado
@@ -1123,7 +1136,7 @@
                 confirmButtonColor: "#85c42c",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 2 + '&id_curso=' + 15 + '&estrellas=' + estrellas;
+                    window.location.href = '../acciones/insertar_ep1.php?id_capsula=' + 2 + '&id_curso=' + 3 + '&estrellas=' + estrellas;
                 }
             });
         }
@@ -1149,10 +1162,10 @@
             music.loop = false;
         }
 
-            // const music = new Audio('assets/8bit.mp3');
-            // music.play();
-            // music.loop =true;
-            // music.volume -= 0.8;
+        // const music = new Audio('assets/8bit.mp3');
+        // music.play();
+        // music.loop =true;
+        // music.volume -= 0.8;
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
