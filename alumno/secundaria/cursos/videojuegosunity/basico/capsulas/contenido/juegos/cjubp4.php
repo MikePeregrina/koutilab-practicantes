@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
@@ -10,844 +10,755 @@ $permiso = "capsulapago4";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
+	header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="../../css/css-juegos/crucigrama.css" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Maze</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
+	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body onload="iniciarTiempo();">
+<body>
+	<!-- Timer -->
+	<div class="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
-    <div class="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>TAGS Y LAYERS</b></h2>
+	</div>
 
-    <!-- Titulo general -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>CRUCIGRAMA</b></h2>
-    </div>
+	<section>
+		<div class="cont-st">
+			<a href="#" onclick="history.back();">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h5 class="titulo"><b>Usa las flechas para ayudar a Koubot a llegar hasta su cohete espacial</b></h5>
+		</div>
 
-    <!-- Alerta -->
-    <div id="mensaje" style="position: absolute"></div>
+		<div id="page">
 
+			<div id="Message-Container">
+				<div id="message">
+					<p id="moves"></p>
+				</div>
+			</div>
 
-    <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
-    <section>
+			<br>
+			<div id="menu" style="margin-top: -500px; position: absolute;">
+				<div class="custom-select">
+					<select id="diffSelect">
+						<option value="10">Easy</option>
+						<option value="15">Medium</option>
+						<option value="25">Hard</option>
+						<option value="38">Extreme</option>
+					</select>
+				</div>
+				<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+			</div>
 
-        <div class="cont-st">
-            <a href="#" onclick="history.back();">
-                <button class="btn-b">
-                    <i class="fas fa-reply"></i>
-                </button>
-            </a>
-            <h6 class="titulo"><b>Busca la palabra que describe el texto</b></h6>
-        </div>
+			<div class="maze-contenedor">
+				<div id="view">
+					<div id="mazeContainer">
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+					</div>
+				</div>
+			</div>
 
-        <div class="mjuego">
-            <!-- Apartado donde van las frases a buscar por el usuario -->
-            <div class="words">
-                <table>
-                    <tr>
+			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
 
-                        <td>
-                            <div class="horizontal">
-                                <b class="tituloV">Horizontales:</b>
-                                <br>
-                                1. Es la forma en como se escribe el lenguaje de programación c#
-                                <br /><br />
-                                2. Es la propiedad de Unity que nos permite agregar físicas a nuestros componentes,
-                                como gravedad, peso y más
-                                <br /><br />
-                                <b class="tituloV">Verticales:</b>
-                                <div class="vertical">
-                                    1. Es el componente de Unity que nos permite tener colisiones de un objeto y otro
-                                    <br /><br />
-                                    2. Se trata del nombre del curso que actualmente estamos tomando
-                                    <br /><br />
-                                    3. Es el nombre en inglés de la caja que puede contener distintos objetos, agregar colisiones y más
-                                    <br /><br />
-                                </div>
-                            </div>
-                        </td>
+		</div>
+	</section>
 
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script>
+		Swal.fire({
+			title: '¡Oh no!',
+			text: 'Koubot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
+			imageUrl: "../../img/img-juegos/img/loop.gif",
+			imageHeight: 320,
+			confirmButtonText: '¡Vamos!',
+			confirmButtonColor: '#85c42c',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				iniciarTiempo();
+			}
+		});
+	</script>
+	<script>
+		var segundos = 240;
+		let puntos = 0;
 
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-            <!-- Apartado del crucigrama junto con sus casillas -->
-            <div class="crucigrama">
-                <div class="numero1" style="margin: -500px 0 0 -350px;">1.</div>
-                <div class="numero2" style="margin: -260px 0 0 -110px;">2.</div>
-                <div class="numero1-1" style="margin: -410px 0 0 -440px;">1.</div>
-                <div class="numero2-2" style="margin: 60px 0 0 -560px;">2.</div>
-                <div class="numero3-3" style="margin: -140px 0 0 240px;">3.</div>
-                <table id="crucigrama">
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C3" style="background-color: rgb(92, 92, 92)" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C4" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C5" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C6" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C7" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C8" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C4" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C8" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C4" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C8" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C4" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C7" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C8" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C1" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C3" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C4" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C5" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C6" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C7" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C8" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C9" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C4" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C7" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C8" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C4" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C8" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C2" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C4" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C8" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                        <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C9" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
 
-        <!-- boton de verificar respuestas -->
-        <div class="btn-v">
-            <button class="verificar" onClick="verificar()">
-                Comprobar respuestas
-            </button>
-        </div>
-    </section>
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 24 + "&id_curso=" + 10; //cancatenation
+				Swal.fire({
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
+					imageUrl: "../../img/img-juegos/loop.gif",
+					imageHeight: 350,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.reload();
+					}
+				});
+				incorrecto.play(); //agregando sonido al juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd24.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
+			} else {
+				segundos--;
+				setTimeout("iniciarTiempo()", 1000);
+			}
+		}
+	</script>
+	<script>
+		function rand(max) {
+			return Math.floor(Math.random() * max);
+		}
 
-    <script>
-        var segundos = 240;
+		function shuffle(a) {
+			for (let i = a.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[a[i], a[j]] = [a[j], a[i]];
+			}
+			return a;
+		}
 
-        let puntos = 0;
+		function changeBrightness(factor, sprite) {
+			var virtCanvas = document.createElement("canvas");
+			virtCanvas.width = 500;
+			virtCanvas.height = 500;
+			var context = virtCanvas.getContext("2d");
+			context.drawImage(sprite, 0, 0, 500, 500);
 
-        function iniciarTiempo() {
-            document.getElementById("tiempo").innerHTML =
-                segundos + " segundos";
-            if (segundos == 0) {
-                var xmlhttp = new XMLHttpRequest();
+			var imgData = context.getImageData(0, 0, 500, 500);
 
-                var param =
-                    "score=" +
-                    0 +
-                    "&validar=" +
-                    "incorrecto" +
-                    "&permiso=" +
-                    9 +
-                    "&id_curso=" +
-                    1; //cancatenation
-                Swal.fire({
-                    title: "Oops...",
-                    text: "¡Verifica tu respuesta!",
-                    imageUrl: "../../img/img-juegos/loop.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.reload();
-                    }
-                });
-                xmlhttp.open(
-                    "POST",
-                    "../../acciones/insertar_cp9.php",
-                    true
-                );
-                xmlhttp.setRequestHeader(
-                    "Content-Type",
-                    "application/x-www-form-urlencoded"
-                );
-                xmlhttp.send(param);
-            } else {
-                segundos--;
-                setTimeout("iniciarTiempo()", 1000);
-            }
-        }
-    </script>
+			for (let i = 0; i < imgData.data.length; i += 4) {
+				imgData.data[i] = imgData.data[i] * factor;
+				imgData.data[i + 1] = imgData.data[i + 1] * factor;
+				imgData.data[i + 2] = imgData.data[i + 2] * factor;
+			}
+			context.putImageData(imgData, 0, 0);
 
-    <script>
-        // Deshabilitar todas las casillas
-        for (fila = 1; fila <= 8; fila++) {
-            for (columna = 1; columna <= 9; columna++) {
-                document.getElementById(
-                    "fila" + fila + "C" + columna
-                ).readOnly = true;
-            }
-        }
+			var spriteOutput = new Image();
+			spriteOutput.src = virtCanvas.toDataURL();
+			virtCanvas.remove();
+			return spriteOutput;
+		}
 
-        //Palabra Collider
-        var palabra1_letra1 = document.getElementById("fila1C2");
-        var palabra1_letra2 = document.getElementById("fila2C2");
-        var palabra1_letra3 = document.getElementById("fila3C2");
-        var palabra1_letra4 = document.getElementById("fila4C2");
-        var palabra1_letra5 = document.getElementById("fila5C2");
-        var palabra1_letra6 = document.getElementById("fila6C2");
-        var palabra1_letra7 = document.getElementById("fila7C2");
-        var palabra1_letra8 = document.getElementById("fila8C2");
+		function displayVictoryMess(moves) {
+			document.getElementById("moves").innerHTML = moves;
+			toggleVisablity("Message-Container");
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 24 + "&id_curso=" + 10; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd24.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
+			Swal.fire({
+				title: '¡Muy bien!',
+				text: 'Lograste completar el laberinto',
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+				imageHeight: 350,
+				backdrop: `
+			rgba(0,143,255,0.6)
+			url("../../img/img-juegos/fondo.gif")`,
+				confirmButtonColor: '#a14cd9',
+				confirmButtonText: '¡Vamos!',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					window.location.href = '../../../../../../rutas/ruta-vj-b.php';
+				}
+			})
+			correcto.play(); //agregando sonido al juego completado
+		}
 
-        //Palabra rigidbody
-        var palabra2_letra1 = document.getElementById("fila5C1");
-        var palabra2_letra2 = document.getElementById("fila5C2");
-        var palabra2_letra3 = document.getElementById("fila5C3");
-        var palabra2_letra4 = document.getElementById("fila5C4");
-        var palabra2_letra5 = document.getElementById("fila5C5");
-        var palabra2_letra6 = document.getElementById("fila5C6");
-        var palabra2_letra7 = document.getElementById("fila5C7");
-        var palabra2_letra8 = document.getElementById("fila5C8");
-        var palabra2_letra9 = document.getElementById("fila5C9");
+		function toggleVisablity(id) {
+			if (document.getElementById(id).style.visibility == "visible") {
+				document.getElementById(id).style.visibility = "hidden";
+			} else {
+				document.getElementById(id).style.visibility = "visible";
+			}
+		}
 
-        //Palabra unity
-        var palabra3_letra1 = document.getElementById("fila3C4");
-        var palabra3_letra2 = document.getElementById("fila4C4");
-        var palabra3_letra3 = document.getElementById("fila5C4");
-        var palabra3_letra4 = document.getElementById("fila6C4");
-        var palabra3_letra5 = document.getElementById("fila7C4");
+		function Maze(Width, Height) {
+			var mazeMap;
+			var width = Width;
+			var height = Height;
+			var startCoord, endCoord;
+			var dirs = ["n", "s", "e", "w"];
+			var modDir = {
+				n: {
+					y: -1,
+					x: 0,
+					o: "s"
+				},
+				s: {
+					y: 1,
+					x: 0,
+					o: "n"
+				},
+				e: {
+					y: 0,
+					x: 1,
+					o: "w"
+				},
+				w: {
+					y: 0,
+					x: -1,
+					o: "e"
+				}
+			};
 
-        //Palabra box
-        var palabra4_letra1 = document.getElementById("fila4C7");
-        var palabra4_letra2 = document.getElementById("fila5C7");
-        var palabra4_letra3 = document.getElementById("fila6C7");
+			this.map = function() {
+				return mazeMap;
+			};
+			this.startCoord = function() {
+				return startCoord;
+			};
+			this.endCoord = function() {
+				return endCoord;
+			};
 
-        //Palabra c sharp
-        var palabra5_letra1 = document.getElementById("fila1C2");
-        var palabra5_letra2 = document.getElementById("fila1C4");
-        var palabra5_letra3 = document.getElementById("fila1C5");
-        var palabra5_letra4 = document.getElementById("fila1C6");
-        var palabra5_letra5 = document.getElementById("fila1C7");
-        var palabra5_letra6 = document.getElementById("fila1C8");
+			function genMap() {
+				mazeMap = new Array(height);
+				for (y = 0; y < height; y++) {
+					mazeMap[y] = new Array(width);
+					for (x = 0; x < width; ++x) {
+						mazeMap[y][x] = {
+							n: false,
+							s: false,
+							e: false,
+							w: false,
+							visited: false,
+							priorPos: null
+						};
+					}
+				}
+			}
 
-        palabra1_letra1.readOnly = false;
-        palabra1_letra2.readOnly = false;
-        palabra1_letra3.readOnly = false;
-        palabra1_letra4.readOnly = false;
-        palabra1_letra5.readOnly = false;
-        palabra1_letra6.readOnly = false;
-        palabra1_letra7.readOnly = false;
-        palabra1_letra8.readOnly = false;
+			function defineMaze() {
+				var isComp = false;
+				var move = false;
+				var cellsVisited = 1;
+				var numLoops = 0;
+				var maxLoops = 0;
+				var pos = {
+					x: 0,
+					y: 0
+				};
+				var numCells = width * height;
+				while (!isComp) {
+					move = false;
+					mazeMap[pos.x][pos.y].visited = true;
 
-        palabra2_letra1.readOnly = false;
-        palabra2_letra2.readOnly = false;
-        palabra2_letra3.readOnly = false;
-        palabra2_letra4.readOnly = false;
-        palabra2_letra5.readOnly = false;
-        palabra2_letra6.readOnly = false;
-        palabra2_letra7.readOnly = false;
-        palabra2_letra8.readOnly = false;
-        palabra2_letra9.readOnly = false;
+					if (numLoops >= maxLoops) {
+						shuffle(dirs);
+						maxLoops = Math.round(rand(height / 8));
+						numLoops = 0;
+					}
+					numLoops++;
+					for (index = 0; index < dirs.length; index++) {
+						var direction = dirs[index];
+						var nx = pos.x + modDir[direction].x;
+						var ny = pos.y + modDir[direction].y;
 
-        palabra3_letra1.readOnly = false;
-        palabra3_letra2.readOnly = false;
-        palabra3_letra3.readOnly = false;
-        palabra3_letra4.readOnly = false;
-        palabra3_letra5.readOnly = false;
+						if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+							//Check if the tile is already visited
+							if (!mazeMap[nx][ny].visited) {
+								//Carve through walls from this tile to next
+								mazeMap[pos.x][pos.y][direction] = true;
+								mazeMap[nx][ny][modDir[direction].o] = true;
 
-        palabra4_letra1.readOnly = false;
-        palabra4_letra2.readOnly = false;
-        palabra4_letra3.readOnly = false;
+								//Set Currentcell as next cells Prior visited
+								mazeMap[nx][ny].priorPos = pos;
+								//Update Cell position to newly visited location
+								pos = {
+									x: nx,
+									y: ny
+								};
+								cellsVisited++;
+								//Recursively call this method on the next tile
+								move = true;
+								break;
+							}
+						}
+					}
 
-        palabra5_letra1.readOnly = false;
-        palabra5_letra2.readOnly = false;
-        palabra5_letra3.readOnly = false;
-        palabra5_letra4.readOnly = false;
-        palabra5_letra5.readOnly = false;
-        palabra5_letra6.readOnly = false;
+					if (!move) {
+						//  If it failed to find a direction,
+						//  move the current position back to the prior cell and Recall the method.
+						pos = mazeMap[pos.x][pos.y].priorPos;
+					}
+					if (numCells == cellsVisited) {
+						isComp = true;
+					}
+				}
+			}
 
-        for (fila = 1; fila <= 8; fila++) {
-            for (columna = 1; columna <= 9; columna++) {
-                if (
-                    document.getElementById("fila" + fila + "C" + columna)
-                    .readOnly == false
-                ) {
-                    document.getElementById(
-                        "fila" + fila + "C" + columna
-                    ).style.backgroundColor = "rgba(61, 172, 244)";
-                }
-            }
-        }
+			function defineStartEnd() {
+				switch (rand(4)) {
+					case 0:
+						startCoord = {
+							x: 0,
+							y: 0
+						};
+						endCoord = {
+							x: height - 1,
+							y: width - 1
+						};
+						break;
+					case 1:
+						startCoord = {
+							x: 0,
+							y: width - 1
+						};
+						endCoord = {
+							x: height - 1,
+							y: 0
+						};
+						break;
+					case 2:
+						startCoord = {
+							x: height - 1,
+							y: 0
+						};
+						endCoord = {
+							x: 0,
+							y: width - 1
+						};
+						break;
+					case 3:
+						startCoord = {
+							x: height - 1,
+							y: width - 1
+						};
+						endCoord = {
+							x: 0,
+							y: 0
+						};
+						break;
+				}
+			}
 
-        //Mensaje de verificar respuesta en caso de haber respuestas erroneas
-        var errorActivo = 0;
+			genMap();
+			defineStartEnd();
+			defineMaze();
+		}
 
-        function error() {
-            Swal.fire({
-                title: "Verifica tus respuestas",
-                text: "Corrige tus respuestas antes de que termine el tiempo",
-                icon: "info",
-                confirmButtonColor: "#3085d6",
-                confirmButtonText: "Continuar",
-            });
-            errorActivo = 1;
-        }
+		function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
+			var map = Maze.map();
+			var cellSize = cellsize;
+			var drawEndMethod;
+			ctx.lineWidth = cellSize / 40;
 
-        //Esta funcion es para ejecutarse cada 5 segundos en caso de haber errores
-        setInterval("ocultarError()", 5000);
+			this.redrawMaze = function(size) {
+				cellSize = size;
+				ctx.lineWidth = cellSize / 50;
+				drawMap();
+				drawEndMethod();
+			};
 
-        function ocultarError() {
-            if (errorActivo == 1) {
-                document.getElementById("mensaje").innerHTML = "";
-                document.getElementById("mensaje").className = "";
-                errorActivo = 0;
-            }
-        }
+			function drawCell(xCord, yCord, cell) {
+				var x = xCord * cellSize;
+				var y = yCord * cellSize;
 
-        //Verificar las palabras por casillas sumando sus letras y formar la palabra
-        function verificar() {
-            document.getElementById("mensaje").innerHTML = "";
-            palabra1 =
-                palabra1_letra1.value +
-                palabra1_letra2.value +
-                palabra1_letra3.value +
-                palabra1_letra4.value +
-                palabra1_letra5.value +
-                palabra1_letra6.value +
-                palabra1_letra7.value +
-                palabra1_letra8.value;
-            palabra2 =
-                palabra2_letra1.value +
-                palabra2_letra2.value +
-                palabra2_letra3.value +
-                palabra2_letra4.value +
-                palabra2_letra5.value +
-                palabra2_letra6.value +
-                palabra2_letra7.value +
-                palabra2_letra8.value +
-                palabra2_letra9.value;
-            palabra3 =
-                palabra3_letra1.value +
-                palabra3_letra2.value +
-                palabra3_letra3.value +
-                palabra3_letra4.value +
-                palabra3_letra5.value;
-            palabra4 =
-                palabra4_letra1.value +
-                palabra4_letra2.value +
-                palabra4_letra3.value;
-            palabra5 =
-                palabra5_letra1.value +
-                palabra5_letra2.value +
-                palabra5_letra3.value +
-                palabra5_letra4.value +
-                palabra5_letra5.value +
-                palabra5_letra6.value;
+				if (cell.n == false) {
+					ctx.beginPath();
+					ctx.moveTo(x, y);
+					ctx.lineTo(x + cellSize, y);
+					ctx.stroke();
+				}
+				if (cell.s === false) {
+					ctx.beginPath();
+					ctx.moveTo(x, y + cellSize);
+					ctx.lineTo(x + cellSize, y + cellSize);
+					ctx.stroke();
+				}
+				if (cell.e === false) {
+					ctx.beginPath();
+					ctx.moveTo(x + cellSize, y);
+					ctx.lineTo(x + cellSize, y + cellSize);
+					ctx.stroke();
+				}
+				if (cell.w === false) {
+					ctx.beginPath();
+					ctx.moveTo(x, y);
+					ctx.lineTo(x, y + cellSize);
+					ctx.stroke();
+				}
+			}
 
-            //Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
-            if (
-                palabra1.toLowerCase() == "collider" &&
-                palabra2.toLowerCase() == "rigidbody" &&
-                palabra3.toLowerCase() == "unity" &&
-                palabra4.toLowerCase() == "box" &&
-                palabra5.toLowerCase() == "csharp"
-            ) {
-                var xmlhttp = new XMLHttpRequest();
+			function drawMap() {
+				for (x = 0; x < map.length; x++) {
+					for (y = 0; y < map[x].length; y++) {
+						drawCell(x, y, map[x][y]);
+					}
+				}
+			}
 
-                var param =
-                    "score=" +
-                    10 +
-                    "&validar=" +
-                    "correcto" +
-                    "&permiso=" +
-                    9 +
-                    "&id_curso=" +
-                    1; //cancatenation
+			function drawEndFlag() {
+				var coord = Maze.endCoord();
+				var gridSize = 4;
+				var fraction = cellSize / gridSize - 2;
+				var colorSwap = true;
+				for (let y = 0; y < gridSize; y++) {
+					if (gridSize % 2 == 0) {
+						colorSwap = !colorSwap;
+					}
+					for (let x = 0; x < gridSize; x++) {
+						ctx.beginPath();
+						ctx.rect(
+							coord.x * cellSize + x * fraction + 4.5,
+							coord.y * cellSize + y * fraction + 4.5,
+							fraction,
+							fraction
+						);
+						if (colorSwap) {
+							ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+						} else {
+							ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+						}
+						ctx.fill();
+						colorSwap = !colorSwap;
+					}
+				}
+			}
 
-                xmlhttp.onreadystatechange = function() {
-                    Swal.fire({
-                        title: "¡Bien hecho!",
-                        text: "¡Puntuación guardada con éxito!",
-                        imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
-					rgba(0,143,255,0.6)
-					url("../../img/img-juegos/fondo.gif")
-					`,
-                        confirmButtonColor: "#a14cd9",
-                        confirmButtonText: "Aceptar",
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-vj-b.php';
-                        }
-                    });
-                };
-                xmlhttp.open(
-                    "POST",
-                    "../../acciones/insertar_cp9.php",
-                    true
-                );
-                xmlhttp.setRequestHeader(
-                    "Content-Type",
-                    "application/x-www-form-urlencoded"
-                );
-                xmlhttp.send(param);
-            } else {
-                if (palabra1.toLowerCase() != "collider") {
-                    palabra1_letra1.value = "";
-                    palabra1_letra2.value = "";
-                    palabra1_letra3.value = "";
-                    palabra1_letra4.value = "";
-                    palabra1_letra5.value = "";
-                    palabra1_letra6.value = "";
-                    palabra1_letra7.value = "";
-                    palabra1_letra8.value = "";
-                    error();
-                }
+			function drawEndSprite() {
+				var offsetLeft = cellSize / 50;
+				var offsetRight = cellSize / 25;
+				var coord = Maze.endCoord();
+				ctx.drawImage(
+					endSprite,
+					2,
+					2,
+					endSprite.width,
+					endSprite.height,
+					coord.x * cellSize + offsetLeft,
+					coord.y * cellSize + offsetLeft,
+					cellSize - offsetRight,
+					cellSize - offsetRight
+				);
+			}
 
-                if (palabra2.toLowerCase() != "rigidbody") {
-                    palabra2_letra1.value = "";
-                    palabra2_letra2.value = "";
-                    palabra2_letra3.value = "";
-                    palabra2_letra4.value = "";
-                    palabra2_letra5.value = "";
-                    palabra2_letra6.value = "";
-                    palabra2_letra7.value = "";
-                    palabra2_letra8.value = "";
-                    palabra2_letra9.value = "";
-                    error();
-                }
+			function clear() {
+				var canvasSize = cellSize * map.length;
+				ctx.clearRect(0, 0, canvasSize, canvasSize);
+			}
 
-                if (palabra3.toLowerCase() != "unity") {
-                    palabra3_letra1.value = "";
-                    palabra3_letra2.value = "";
-                    palabra3_letra3.value = "";
-                    palabra3_letra4.value = "";
-                    palabra3_letra5.value = "";
-                    error();
-                }
+			if (endSprite != null) {
+				drawEndMethod = drawEndSprite;
+			} else {
+				drawEndMethod = drawEndFlag;
+			}
+			clear();
+			drawMap();
+			drawEndMethod();
+		}
 
-                if (palabra4.toLowerCase() != "box") {
-                    palabra4_letra1.value = "";
-                    palabra4_letra2.value = "";
-                    palabra4_letra3.value = "";
-                    error();
-                }
+		function Player(maze, c, _cellsize, onComplete, sprite = null) {
+			var ctx = c.getContext("2d");
+			var drawSprite;
+			var moves = 0;
+			drawSprite = drawSpriteCircle;
+			if (sprite != null) {
+				drawSprite = drawSpriteImg;
+			}
+			var player = this;
+			var map = maze.map();
+			var cellCoords = {
+				x: maze.startCoord().x,
+				y: maze.startCoord().y
+			};
+			var cellSize = _cellsize;
+			var halfCellSize = cellSize / 2;
 
-                if (palabra5.toLowerCase() != "csharp") {
-                    palabra5_letra1.value = "";
-                    palabra5_letra2.value = "";
-                    palabra5_letra3.value = "";
-                    palabra5_letra4.value = "";
-                    palabra5_letra5.value = "";
-                    palabra5_letra6.value = "";
-                    error();
-                }
+			this.redrawPlayer = function(_cellsize) {
+				cellSize = _cellsize;
+				drawSpriteImg(cellCoords);
+			};
 
-                //Corrector de palabras agregando la letra que estaba bien de las que palabras ya agregadas
-                if (palabra1.toLowerCase() == "collider") {
-                    palabra2_letra2.value = "i";
-                    palabra5_letra1.value = "c";
-                }
+			function drawSpriteCircle(coord) {
+				ctx.beginPath();
+				ctx.fillStyle = "yellow";
+				ctx.arc(
+					(coord.x + 1) * cellSize - halfCellSize,
+					(coord.y + 1) * cellSize - halfCellSize,
+					halfCellSize - 2,
+					0,
+					2 * Math.PI
+				);
+				ctx.fill();
+				if (coord.x === maze.endCoord().x && coord.y === maze.endCoord().y) {
+					onComplete(moves);
+					player.unbindKeyDown();
+				}
+			}
 
-                if (palabra2.toLowerCase() == "rigidbody") {
-                    palabra1_letra5.value = "i";
-                    palabra3_letra3.value = "i";
-                    palabra4_letra2.value = "o";
-                }
+			function drawSpriteImg(coord) {
+				var offsetLeft = cellSize / 50;
+				var offsetRight = cellSize / 25;
+				ctx.drawImage(
+					sprite,
+					0,
+					0,
+					sprite.width,
+					sprite.height,
+					coord.x * cellSize + offsetLeft,
+					coord.y * cellSize + offsetLeft,
+					cellSize - offsetRight,
+					cellSize - offsetRight
+				);
+				if (coord.x === maze.endCoord().x && coord.y === maze.endCoord().y) {
+					onComplete(moves);
+					player.unbindKeyDown();
+				}
+			}
 
-                if (palabra3.toLowerCase() == "unity") {
-                    palabra2_letra4.value = "i";
-                }
+			function removeSprite(coord) {
+				var offsetLeft = cellSize / 50;
+				var offsetRight = cellSize / 25;
+				ctx.clearRect(
+					coord.x * cellSize + offsetLeft,
+					coord.y * cellSize + offsetLeft,
+					cellSize - offsetRight,
+					cellSize - offsetRight
+				);
+			}
 
-                if (palabra4.toLowerCase() == "box") {
-                    palabra2_letra7.value = "o";
-                }
+			function check(e) {
+				var cell = map[cellCoords.x][cellCoords.y];
+				moves++;
+				switch (e.keyCode) {
+					case 65:
+					case 37: // west
+						if (cell.w == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x - 1,
+								y: cellCoords.y
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+					case 87:
+					case 38: // north
+						if (cell.n == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x,
+								y: cellCoords.y - 1
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+					case 68:
+					case 39: // east
+						if (cell.e == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x + 1,
+								y: cellCoords.y
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+					case 83:
+					case 40: // south
+						if (cell.s == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x,
+								y: cellCoords.y + 1
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+				}
+			}
 
-                if (palabra5.toLowerCase() == "csharp") {
-                    palabra1_letra1.value = "c";
-                }
-            }
-        }
-    </script>
+			this.bindKeyDown = function() {
+				window.addEventListener("keydown", check, false);
 
-    <script>
-        function habilitarMovimiento() {
-            var inputs = document.querySelectorAll("#crucigrama input");
+				$("#view").swipe({
+					swipe: function(
+						event,
+						direction,
+						distance,
+						duration,
+						fingerCount,
+						fingerData
+					) {
+						console.log(direction);
+						switch (direction) {
+							case "up":
+								check({
+									keyCode: 38
+								});
+								break;
+							case "down":
+								check({
+									keyCode: 40
+								});
+								break;
+							case "left":
+								check({
+									keyCode: 37
+								});
+								break;
+							case "right":
+								check({
+									keyCode: 39
+								});
+								break;
+						}
+					},
+					threshold: 0
+				});
+			};
 
-            for (var i = 0; i < inputs.length; i++) {
-                inputs[i].addEventListener("input", function(e) {
-                    var maxLength = parseInt(
-                        e.target.getAttribute("maxlength")
-                    );
-                    var currentLength = e.target.value.length;
+			this.unbindKeyDown = function() {
+				window.removeEventListener("keydown", check, false);
+				$("#view").swipe("destroy");
+			};
 
-                    if (currentLength >= maxLength) {
-                        // Mover el enfoque al siguiente input en la dirección elegida
-                        var nextInput = getNextInput(e.target);
+			drawSprite(maze.startCoord());
 
-                        if (nextInput) {
-                            nextInput.focus();
-                        }
-                    }
-                });
-            }
+			this.bindKeyDown();
+		}
 
-            function getNextInput(currentInput) {
-                var tdParent = currentInput.parentElement;
-                var trParent = tdParent.parentElement;
-                var tdIndex = Array.prototype.indexOf.call(
-                    trParent.children,
-                    tdParent
-                );
-                var trIndex = Array.prototype.indexOf.call(
-                    trParent.parentElement.children,
-                    trParent
-                );
-                var direction = getMovementDirection(currentInput);
+		var mazeCanvas = document.getElementById("mazeCanvas");
+		var ctx = mazeCanvas.getContext("2d");
+		var sprite;
+		var finishSprite;
+		var maze, draw, player;
+		var cellSize;
+		var difficulty;
+		// sprite.src = 'media/sprite.png';
 
-                if (direction === "horizontal") {
-                    // Mover horizontalmente
-                    return getNextHorizontalInput(
-                        trParent,
-                        tdIndex,
-                        direction,
-                        currentInput
-                    );
-                } else if (direction === "vertical") {
-                    // Mover verticalmente
-                    return getNextVerticalInput(
-                        trParent,
-                        tdIndex,
-                        direction,
-                        currentInput
-                    );
-                }
+		window.onload = function() {
+			let viewWidth = $("#view").width();
+			let viewHeight = $("#view").height();
+			if (viewHeight < viewWidth) {
+				ctx.canvas.width = viewHeight - viewHeight / 100;
+				ctx.canvas.height = viewHeight - viewHeight / 100;
+			} else {
+				ctx.canvas.width = viewWidth - viewWidth / 100;
+				ctx.canvas.height = viewWidth - viewWidth / 100;
+			}
 
-                return null;
-            }
+			//Load and edit sprites
+			var completeOne = false;
+			var completeTwo = false;
+			var isComplete = () => {
+				if (completeOne === true && completeTwo === true) {
+					console.log("Runs");
+					setTimeout(function() {
+						makeMaze();
+					}, 500);
+				}
+			};
+			sprite = new Image();
+			sprite.src =
+				"../../img/img-juegos/mascota-1.png" +
+				"?" +
+				new Date().getTime();
+			sprite.setAttribute("crossOrigin", " ");
+			sprite.onload = function() {
+				sprite = changeBrightness(1.2, sprite);
+				completeOne = true;
+				console.log(completeOne);
+				isComplete();
+			};
 
-            function getMovementDirection(currentInput) {
-                var tdParent = currentInput.parentElement;
-                var trParent = tdParent.parentElement;
-                var tdIndex = Array.prototype.indexOf.call(
-                    trParent.children,
-                    tdParent
-                );
-                var trIndex = Array.prototype.indexOf.call(
-                    trParent.parentElement.children,
-                    trParent
-                );
+			finishSprite = new Image();
+			finishSprite.src = "../../img/img-juegos/cohete.png" +
+				"?" +
+				new Date().getTime();
+			finishSprite.setAttribute("crossOrigin", " ");
+			finishSprite.onload = function() {
+				finishSprite = changeBrightness(1.1, finishSprite);
+				completeTwo = true;
+				console.log(completeTwo);
+				isComplete();
+			};
 
-                // Verificar si hay inputs disponibles en la misma fila (horizontal)
-                for (
-                    var i = tdIndex + 1; i < trParent.children.length; i++
-                ) {
-                    var input = trParent.children[i].querySelector("input");
-                    if (
-                        !input.disabled &&
-                        !input.value &&
-                        !input.readOnly
-                    ) {
-                        return "horizontal";
-                    }
-                }
+		};
 
-                // Verificar si hay inputs disponibles en la misma columna (vertical)
-                for (
-                    var i = trIndex + 1; i < trParent.parentElement.children.length; i++
-                ) {
-                    var input =
-                        trParent.parentElement.children[i].children[
-                            tdIndex
-                        ].querySelector("input");
-                    if (
-                        !input.disabled &&
-                        !input.value &&
-                        !input.readOnly
-                    ) {
-                        return "vertical";
-                    }
-                }
+		window.onresize = function() {
+			let viewWidth = $("#view").width();
+			let viewHeight = $("#view").height();
+			if (viewHeight < viewWidth) {
+				ctx.canvas.width = viewHeight - viewHeight / 100;
+				ctx.canvas.height = viewHeight - viewHeight / 100;
+			} else {
+				ctx.canvas.width = viewWidth - viewWidth / 100;
+				ctx.canvas.height = viewWidth - viewWidth / 100;
+			}
+			cellSize = mazeCanvas.width / difficulty;
+			if (player != null) {
+				draw.redrawMaze(cellSize);
+				player.redrawPlayer(cellSize);
+			}
+		};
 
-                return "";
-            }
-
-            function getNextHorizontalInput(
-                trParent,
-                tdIndex,
-                direction,
-                currentInput
-            ) {
-                // Mover horizontalmente
-                if (direction === "horizontal") {
-                    for (
-                        var i = tdIndex + 1; i < trParent.children.length; i++
-                    ) {
-                        var nextInput =
-                            trParent.children[i].querySelector("input");
-                        if (
-                            !nextInput.disabled &&
-                            !nextInput.value &&
-                            !nextInput.readOnly
-                        ) {
-                            return nextInput;
-                        }
-                    }
-                }
-
-                return null;
-            }
-
-            function getNextVerticalInput(
-                trParent,
-                tdIndex,
-                direction,
-                currentInput
-            ) {
-                // Mover verticalmente
-                var trIndex = Array.prototype.indexOf.call(
-                    trParent.parentElement.children,
-                    trParent
-                );
-
-                for (
-                    var i = trIndex + 1; i < trParent.parentElement.children.length; i++
-                ) {
-                    var nextInput =
-                        trParent.parentElement.children[i].children[
-                            tdIndex
-                        ].querySelector("input");
-                    if (
-                        !nextInput.disabled &&
-                        !nextInput.value &&
-                        !nextInput.readOnly
-                    ) {
-                        return nextInput;
-                    }
-                }
-
-                return null;
-            }
-        }
-
-        habilitarMovimiento();
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+		function makeMaze() {
+			if (player != undefined) {
+				player.unbindKeyDown();
+				player = null;
+			}
+			var e = document.getElementById("diffSelect");
+			difficulty = e.options[e.selectedIndex].value;
+			cellSize = mazeCanvas.width / difficulty;
+			maze = new Maze(difficulty, difficulty);
+			draw = new DrawMaze(maze, ctx, cellSize, finishSprite);
+			player = new Player(maze, mazeCanvas, cellSize, displayVictoryMess, sprite);
+			if (document.getElementById("mazeContainer").style.opacity < "100") {
+				document.getElementById("mazeContainer").style.opacity = "100";
+			}
+		}
+	</script>
 </body>
 
 </html>

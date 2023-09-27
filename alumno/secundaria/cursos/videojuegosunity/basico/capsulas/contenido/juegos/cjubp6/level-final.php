@@ -1,17 +1,17 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
-}
+// session_start();
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+// 	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// $permiso = "capsulapago2";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+// 	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +20,14 @@ if (empty($existe)) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>KOUTILAB</title>
-	<link rel="stylesheet" href="css/slide.css">
+	<title>SLIDE PUZZLE</title>
+	<link rel="stylesheet" href="css/slide-koala.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body onload="alert1()">
-
 	<!-- Timer -->
 	<div class="timer" id="timer">
 		<b>Tiempo: <br>
@@ -38,7 +37,7 @@ if (empty($existe)) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>ASSETS</b></h2>
+		<h2 class="titulo"><b>PREFABS</b></h2>
 	</div>
 
 	<section>
@@ -54,14 +53,30 @@ if (empty($existe)) {
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="img/lvl1/1.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/2.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/3.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/4.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/5.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/6.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/7.jpg" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/8.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/4.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/5.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/6.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/7.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/8.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/9.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/10.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/11.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/12.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/13.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/14.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/15.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/16.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/17.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/18.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/19.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/20.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/21.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/22.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/23.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl3/24.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -71,7 +86,6 @@ if (empty($existe)) {
 			<div class="difficulty_button">HARD</div>
 		</div> -->
 	</section>
-
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		function alert1() {
@@ -87,7 +101,7 @@ if (empty($existe)) {
 					Swal.fire({
 						title: 'La imagen se debe ver así',
 						text: '¡Hazlo antes de que termine el tiempo!',
-						imageUrl: "img/2.png",
+						imageUrl: "img/3.png",
 						imageHeight: 320,
 						confirmButtonText: '¡Vamos!',
 						confirmButtonColor: '#85c42c',
@@ -107,9 +121,10 @@ if (empty($existe)) {
 		var Incorrecto = document.createElement("audio");
 		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
 
-		var segundos = 240;
+		var segundos = 40;
 
 		let puntos = 0;
+
 		var count = 1000;
 		//Agregando animacion a el timer
 		function iniciarTiempo() {
@@ -129,7 +144,6 @@ if (empty($existe)) {
 			}
 			if (segundos == 0) {
 				Swal.fire({
-
 					title: "Oops...",
 					text: "Se acabó el tiempo",
 					imageUrl: "img/loop.gif",
@@ -155,11 +169,11 @@ if (empty($existe)) {
 		const GameDifficulty = [20, 50, 70];
 		class Game {
 			difficulty; //difficulty based on GameDifficulty array
-			cols = 3; //how many colomns
-			rows = 3; //how many rows
+			cols = 5; //how many colomns
+			rows = 5; //how many rows
 			count; //cols*rows
 			blocks; //the html elements with className="puzzle_block"
-			emptyBlockCoords = [2, 2]; //the coordinates of the empty block
+			emptyBlockCoords = [4, 4]; //the coordinates of the empty block
 			indexes = []; //keeps track of the order of the blocks
 
 			constructor(difficultyLevel = 1) {
@@ -225,19 +239,18 @@ if (empty($existe)) {
 					if (this.checkPuzzleSolved()) {
 						setTimeout(() => {
 							Swal.fire({
-								title: '¡Muy bien!',
-								text: 'Ahora pasemos al siguiente nivel',
+								title: '¡Excelente!',
+								text: 'Haz completado todos los niveles',
 								imageUrl: "img/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
-								rgba(0,143,255,0.6)
-								url("img/fondo.gif")`,
+							rgba(0,143,255,0.6)
+							url("img/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
-
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = 'level-2.php';
+									window.location.href = '../../../../../../../rutas/ruta-vj-b.php';
 								}
 							})
 						}, "800");
@@ -245,6 +258,7 @@ if (empty($existe)) {
 					}
 				}
 			}
+
 
 			checkPuzzleSolved() { //return if puzzle was solved
 				for (let i = 0; i < this.indexes.length; i++) {

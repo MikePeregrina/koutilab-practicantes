@@ -1,17 +1,17 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
-}
+// session_start();
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+// 	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// $permiso = "capsulapago2";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+// 	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@ if (empty($existe)) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>ASSETS</b></h2>
+		<h2 class="titulo"><b>PREFABS</b></h2>
 	</div>
 
 	<section>
@@ -92,7 +92,7 @@ if (empty($existe)) {
 					Swal.fire({
 						title: 'La imagen se debe ver así',
 						text: '¡Hazlo antes de que termine el tiempo!',
-						imageUrl: "img/1_2.jpeg",
+						imageUrl: "img/2.jpg",
 						imageHeight: 320,
 						confirmButtonText: '¡Vamos!',
 						confirmButtonColor: '#85c42c',
@@ -250,6 +250,7 @@ if (empty($existe)) {
 					}
 				}
 			}
+
 
 			checkPuzzleSolved() { //return if puzzle was solved
 				for (let i = 0; i < this.indexes.length; i++) {

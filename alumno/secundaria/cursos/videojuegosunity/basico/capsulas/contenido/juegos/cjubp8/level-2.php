@@ -1,17 +1,17 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
-}
+// session_start();
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+// 	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// $permiso = "capsulapago3";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+// 	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ if (empty($existe)) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>KOUTILAB</title>
+	<title>SLIDE PUZZLE</title>
 	<link rel="stylesheet" href="css/slide.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -28,9 +28,8 @@ if (empty($existe)) {
 </head>
 
 <body onload="alert1()">
-
 	<!-- Timer -->
-	<div class="timer" id="timer">
+	<div class="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
@@ -38,7 +37,7 @@ if (empty($existe)) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>PREFABS</b></h2>
+		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
 	</div>
 
 	<section>
@@ -49,19 +48,27 @@ if (empty($existe)) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen
+					real</b></h4>
 		</div>
 
 		<div class="slide-contenedor">
-			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="img/lvl1/1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/4.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/5.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/6.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/7.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/8.png" class="contenedor-img" alt=""></div>
+			<div id="puzzle_container" style="width: 412px; height: 412px;">
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-0.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-3.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -71,8 +78,6 @@ if (empty($existe)) {
 			<div class="difficulty_button">HARD</div>
 		</div> -->
 	</section>
-
-
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
 		function alert1() {
@@ -88,7 +93,7 @@ if (empty($existe)) {
 					Swal.fire({
 						title: 'La imagen se debe ver así',
 						text: '¡Hazlo antes de que termine el tiempo!',
-						imageUrl: "img/1.png",
+						imageUrl: "img/lvl2/mascota-1.png",
 						imageHeight: 320,
 						confirmButtonText: '¡Vamos!',
 						confirmButtonColor: '#85c42c',
@@ -102,37 +107,19 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
-		//se esta llamando los sonidos de la carpeta "sonidos"
-		var Correcto = document.createElement("audio");
-		Correcto.src = "../../acciones/sonidos/correcto.mp3";
-		var Incorrecto = document.createElement("audio");
-		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
-
 		var segundos = 240;
 
 		let puntos = 0;
-		var count = 1000;
-		//Agregando animacion a el timer
-		function iniciarTiempo() {
-			document.getElementById("tiempo").innerHTML =
-				segundos + " segundos";
-			if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 30) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 10) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos == 0) {
-				Swal.fire({
 
-					title: "Oops...",
-					text: "Se acabó el tiempo",
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
+				Swal.fire({
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
 					imageUrl: "img/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
@@ -140,15 +127,12 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
-				Incorrecto.play(); //Agregando sonido al juego no completado
-				loseText.setText("Juego terminado");
-				player.setTint(0xff0000);
-				player.anims.play("turn");
-				gameoverSound();
-				gameOver = true;
+				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 			} else {
 				segundos--;
-				setTimeout("iniciarTiempo()", count);
+				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
 	</script>
@@ -156,11 +140,11 @@ if (empty($existe)) {
 		const GameDifficulty = [20, 50, 70];
 		class Game {
 			difficulty; //difficulty based on GameDifficulty array
-			cols = 3; //how many colomns
-			rows = 3; //how many rows
+			cols = 4; //how many colomns
+			rows = 4; //how many rows
 			count; //cols*rows
 			blocks; //the html elements with className="puzzle_block"
-			emptyBlockCoords = [2, 2]; //the coordinates of the empty block
+			emptyBlockCoords = [3, 3]; //the coordinates of the empty block
 			indexes = []; //keeps track of the order of the blocks
 
 			constructor(difficultyLevel = 1) {
@@ -231,22 +215,19 @@ if (empty($existe)) {
 								imageUrl: "img/Thumbs-Up.gif",
 								imageHeight: 350,
 								backdrop: `
-							rgba(0,143,255,0.6)
-							url("img/fondo.gif")`,
+								rgba(0,143,255,0.6)
+								url("img/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
-
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = 'level-2.php';
+									window.location.href = 'level-final.php';
 								}
 							})
 						}, "800");
-						Correcto.play(); //Agregando sonido al juego completado
 					}
 				}
 			}
-
 
 			checkPuzzleSolved() { //return if puzzle was solved
 				for (let i = 0; i < this.indexes.length; i++) {

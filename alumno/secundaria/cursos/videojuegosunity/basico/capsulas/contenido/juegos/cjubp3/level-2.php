@@ -1,17 +1,17 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
-}
+// session_start();
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+// 	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_secundaria'];
+// $permiso = "capsulapago1";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+// 	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium1.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ if (empty($existe)) {
 
 <body onload="alert1()">
 	<!-- Timer -->
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
@@ -37,7 +37,7 @@ if (empty($existe)) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>ASSETS</b></h2>
 	</div>
 
 	<section>
@@ -48,27 +48,26 @@ if (empty($existe)) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen
-					real</b></h4>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
 		</div>
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container" style="width: 412px; height: 412px;">
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-3-2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-0-3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-1-3.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/mascota-1-2-3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/1.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/3.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/4.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/5.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/6.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/7.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/8.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/9.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/10.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/11.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/12.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/13.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/14.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block" style="width: 103px; height: 103px;"><img src="img/lvl2/15.png" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -93,7 +92,7 @@ if (empty($existe)) {
 					Swal.fire({
 						title: 'La imagen se debe ver así',
 						text: '¡Hazlo antes de que termine el tiempo!',
-						imageUrl: "img/lvl2/mascota-1.png",
+						imageUrl: "img/1_2.jpeg",
 						imageHeight: 320,
 						confirmButtonText: '¡Vamos!',
 						confirmButtonColor: '#85c42c',
@@ -107,19 +106,37 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
+
 		var segundos = 240;
 
 		let puntos = 0;
 
+		var count = 1000;
+		//Agregando animacion a el timer
 		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			document.getElementById("tiempo").innerHTML =
+				segundos + " segundos";
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
-					title: 'Oops...',
-					text: '¡Verifica tu respuesta!',
+					title: "Oops...",
+					text: "Se acabó el tiempo",
 					imageUrl: "img/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
@@ -127,12 +144,15 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+				Incorrecto.play(); //Agregando sonido al juego no completado
+				loseText.setText("Juego terminado");
+				player.setTint(0xff0000);
+				player.anims.play("turn");
+				gameoverSound();
+				gameOver = true;
 			} else {
 				segundos--;
-				setTimeout("iniciarTiempo()", 1000);
+				setTimeout("iniciarTiempo()", count);
 			}
 		}
 	</script>
@@ -219,11 +239,13 @@ if (empty($existe)) {
 								url("img/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
+
 							}).then((result) => {
 								if (result.isConfirmed) {
 									window.location.href = 'level-final.php';
 								}
-							})
+							});
+							Correcto.play(); //Agregando sonido al juego completado
 						}, "800");
 					}
 				}

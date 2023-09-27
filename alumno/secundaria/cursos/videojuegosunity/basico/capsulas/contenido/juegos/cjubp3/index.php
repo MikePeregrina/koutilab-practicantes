@@ -30,7 +30,7 @@ if (empty($existe)) {
 <body onload="alert1()">
 
 	<!-- Timer -->
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
@@ -38,7 +38,7 @@ if (empty($existe)) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>ASSETS</b></h2>
 	</div>
 
 	<section>
@@ -49,20 +49,19 @@ if (empty($existe)) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen
-					real</b></h4>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
 		</div>
 
 		<div class="slide-contenedor">
 			<div id="puzzle_container">
-				<div class="puzzle_block"><img src="img/lvl1/Unity-0-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-1-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-2-0.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-0-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-1-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-2-1.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-0-2.png" class="contenedor-img" alt=""></div>
-				<div class="puzzle_block"><img src="img/lvl1/Unity-1-2.png" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/1.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/2.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/3.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/4.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/5.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/6.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/7.jpg" class="contenedor-img" alt=""></div>
+				<div class="puzzle_block"><img src="img/lvl1/8.jpg" class="contenedor-img" alt=""></div>
 			</div>
 		</div>
 
@@ -72,7 +71,6 @@ if (empty($existe)) {
 			<div class="difficulty_button">HARD</div>
 		</div> -->
 	</section>
-
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script>
@@ -89,7 +87,7 @@ if (empty($existe)) {
 					Swal.fire({
 						title: 'La imagen se debe ver así',
 						text: '¡Hazlo antes de que termine el tiempo!',
-						imageUrl: "img/lvl1/Unity.png",
+						imageUrl: "img/2.png",
 						imageHeight: 320,
 						confirmButtonText: '¡Vamos!',
 						confirmButtonColor: '#85c42c',
@@ -103,19 +101,37 @@ if (empty($existe)) {
 		}
 	</script>
 	<script>
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
+
 		var segundos = 240;
 
 		let puntos = 0;
-
+		var count = 1000;
+		//Agregando animacion a el timer
 		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			document.getElementById("tiempo").innerHTML =
+				segundos + " segundos";
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
-					title: 'Oops...',
-					text: '¡Verifica tu respuesta!',
+
+					title: "Oops...",
+					text: "Se acabó el tiempo",
 					imageUrl: "img/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
@@ -123,12 +139,15 @@ if (empty($existe)) {
 						window.location.reload();
 					}
 				});
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+				Incorrecto.play(); //Agregando sonido al juego no completado
+				loseText.setText("Juego terminado");
+				player.setTint(0xff0000);
+				player.anims.play("turn");
+				gameoverSound();
+				gameOver = true;
 			} else {
 				segundos--;
-				setTimeout("iniciarTiempo()", 1000);
+				setTimeout("iniciarTiempo()", count);
 			}
 		}
 	</script>
@@ -215,12 +234,14 @@ if (empty($existe)) {
 								url("img/fondo.gif")`,
 								confirmButtonColor: '#a14cd9',
 								confirmButtonText: '¡Vamos!',
+
 							}).then((result) => {
 								if (result.isConfirmed) {
 									window.location.href = 'level-2.php';
 								}
 							})
 						}, "800");
+						Correcto.play(); //Agregando sonido al juego completado
 					}
 				}
 			}

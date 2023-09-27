@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula45";
+$permiso = "capsula5";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 46;
+$permiso_intento = 6;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -38,6 +38,8 @@ if (isset($resultadoIntentos['intentos'])) {
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -58,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body>
 	<!-- CAMBIOS -->
 	<!-- Timer -->
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
@@ -66,7 +68,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>MENÚ PRICIPAL</b></h2>
+		<h2 class="titulo"><b>CREACIÓN DE EFECTOS DE SONIDO</b></h2>
 	</div>
 
 	<section>
@@ -105,18 +107,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fas fa-gamepad"></i>',
-				'<i class="fas fa-trophy"></i>',
-				'<i class="fas fa-heart"></i>',
-				'<i class="fas fa-keyboard"></i>',
-				'<i class="fab fa-xbox"></i>',
-				'<i class="fab fa-playstation"></i>',
-				'<i class="fab fa-steam"></i>',
-				'<i class="fas fa-mouse-pointer"></i>',
-				'<i class="fas fa-tv"></i>',
-				'<i class="fas fa-coffee"></i>',
-				'<i class="fas fa-play"></i>',
-				'<i class="fas fa-hand-scissors"></i>'
+				'<i class="fa-brands fa-unity"></i>',
+				'<i class="fa-solid fa-gamepad"></i>',
+				'<i class="fa-solid fa-trophy"></i>',
+				'<i class="fa-solid fa-puzzle-piece"></i>',
+				'<i class="fa-solid fa-vr-cardboard"></i>',
+				'<i class="fa-solid fa-ghost"></i>',
+				'<i class="fa-solid fa-headset"></i>',
+				'<i class="fa-solid fa-skull-crossbones"></i>',
+				'<i class="fa-solid fa-dungeon"></i>',
+				'<i class="fa-solid fa-chess-board"></i>',
+				'<i class="fa-solid fa-chess"></i>',
+				'<i class="fa-solid fa-chess-king"></i>'
 			]
 		}
 
@@ -180,8 +182,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 46 + "&id_curso=" + 10; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd46.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 6 + "&id_curso=" + 10; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd6.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
@@ -200,6 +202,8 @@ if (isset($resultadoIntentos['intentos'])) {
 							window.location.href = '../../../../../../rutas/ruta-vj-b.php';
 						}
 					});
+					Correcto.play(); //Agregando sonido al juego completado
+
 
 
 				}
@@ -219,31 +223,58 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 	<script>
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
+
 		var segundos = 300;
 		let puntos = 0;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
+		var count = 1000;
+		//Agregando animacion a el timer
 		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + "<br>segundos";
+			document.getElementById("tiempo").innerHTML =
+				segundos + " segundos";
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 46 + "&id_curso=" + 10; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd46.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 6 + "&id_curso=" + 10; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd6.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
-					title: 'Oops...',
-					text: '¡Verifica tu respuesta!',
+					title: "Oops...",
+					text: "Se acabó el tiempo",
 					imageUrl: "../../img/img-juegos/loop.gif",
-					imageHeight: 300,
+					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				Incorrecto.play(); //Agregando sonido al juego no completado
+
+				loseText.setText("Juego terminado");
+				player.setTint(0xff0000);
+				player.anims.play("turn");
+				gameoverSound();
+				gameOver = true;
 			} else {
 				segundos--;
-				setTimeout("iniciarTiempo()", 1000);
+				setTimeout("iniciarTiempo()", count);
 			}
 		}
 	</script>

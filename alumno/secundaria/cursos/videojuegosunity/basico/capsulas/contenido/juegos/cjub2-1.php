@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>COPIAR CÓDIGO EN UN CIERTO TIEMPO</b></h2>
+        <h2 class="titulo"><b>FUNDAMENTOS DE PROGRAMACIÓN C#</b></h2>
     </div>
 
     <!-- Contenedor principal -->

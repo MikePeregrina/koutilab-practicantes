@@ -6,37 +6,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula36";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+	header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
 }
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 37;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 10");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
-} else {
-	$puntosGanados = 10;
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +25,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/wordfind.js"></script>
-	<script type="text/javascript" src="../../js/wordfindgame3.js"></script>
+	<script type="text/javascript" src="../../js/wordfindgame1.js"></script>
 	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -61,7 +36,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo();">
 	<!-- CAMBIOS -->
 	<!-- Timer -->
-	<div class="timer">
+	<div class="timer" id="timer">
 		<b>Tiempo: <br>
 			<p id="tiempo" style="margin: 0 0 0 0;"></p>
 		</b>
@@ -69,13 +44,13 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>FÍSICAS (COLLIDERS Y RIGIDBODY)</b></h2>
+		<h2 class="titulo"><b> INTERFACE Y VENTANAS </b></h2>
 	</div>
 
 	<section>
 
 		<div class="cont-st">
-			<a href="#" onclick="history.back();">
+			<a href="#" onclick="history.back();" s>
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -111,7 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
-		var words = ['COLLIDER', 'RIGIDBODY', 'UNITY', 'CSHARP', 'PHYSICS', 'MATERIAL', 'BOX', 'GAMEOVER'];
+		var words = ['INTERFAZ', 'VENTANAS', 'HERRAMIENTAS', 'VISTA', '3D', 'PROYECTO', 'PROPIEDADES', '2D'];
 		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
 		var puzzle = wordfind.newPuzzle(words, {
@@ -126,31 +101,56 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		var segundos = 240;
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
 
+		var segundos = 240;
+		var count = 1000;
 		let puntos = 0;
 
 		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			document.getElementById("tiempo").innerHTML =
+				segundos + " segundos";
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 37 + "&id_curso=" + 10; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd37.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 12 + "&id_curso=" + 10; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd12.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
-					title: 'Oops...',
-					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../img/img-juegos/oop.gif",
+					title: "Oops...",
+					text: "Se acabó el tiempo",
+					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.reload();
 					}
 				});
+				Incorrecto.play(); //Agregando sonido al juego no completado
+				loseText.setText("Juego terminado");
+				player.setTint(0xff0000);
+				player.anims.play("turn");
+				gameoverSound();
+				gameOver = true;
 			} else {
 				segundos--;
-				setTimeout("iniciarTiempo()", 1000);
+				setTimeout("iniciarTiempo()", count);
 			}
 		}
 	</script>
