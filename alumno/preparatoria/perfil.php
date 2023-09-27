@@ -106,6 +106,21 @@ $permiso_ruta_r12 = "12";
 $sql_verificar_r12 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r12'");
 $existe_verificar_r12 = mysqli_num_rows($sql_verificar_r12);
 
+//Verificar si ya se tiene permiso en ruta 13
+$permiso_ruta_r13 = "13";
+$sql_verificar_r13 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r13'");
+$existe_verificar_r13 = mysqli_num_rows($sql_verificar_r13);
+
+//Verificar si ya se tiene permiso en ruta 14
+$permiso_ruta_r14 = "14";
+$sql_verificar_r14 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r14'");
+$existe_verificar_r14 = mysqli_num_rows($sql_verificar_r14);
+
+//Verificar si ya se tiene permiso en ruta 15
+$permiso_ruta_r15 = "15";
+$sql_verificar_r15 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r15'");
+$existe_verificar_r15 = mysqli_num_rows($sql_verificar_r15);
+
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_preparatoria WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
@@ -157,6 +172,18 @@ $data_videojuegosunity_intermedio = mysqli_fetch_assoc($query_videojuegosunity_i
 //Estadisticas videojuegosunity avanzado
 $query_videojuegosunity_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 12");
 $data_videojuegosunity_avanzado = mysqli_fetch_assoc($query_videojuegosunity_avanzado);
+
+//Estadisticas appsmoviles basico
+$query_appsmoviles_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 13");
+$data_appsmoviles_basico = mysqli_fetch_assoc($query_appsmoviles_basico);
+
+//Estadisticas appsmoviles intermedio
+$query_appsmoviles_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 14");
+$data_appsmoviles_intermedio = mysqli_fetch_assoc($query_appsmoviles_intermedio);
+
+//Estadisticas appsmoviles avanzado
+$query_appsmoviles_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 15");
+$data_appsmoviles_avanzado = mysqli_fetch_assoc($query_appsmoviles_avanzado);
 
 //Información solo de alumno
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
@@ -251,6 +278,24 @@ $puntos_por_ruta = array(
         "evaluativos" => 20
     ),
     "12" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "13" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "14" => array(
+        "trofeos" => 200,
+        "teoricos" => 200,
+        "practicos" => 200,
+        "evaluativos" => 20
+    ),
+    "15" => array(
         "trofeos" => 200,
         "teoricos" => 200,
         "practicos" => 200,
@@ -629,6 +674,48 @@ if ($result_estrellas->num_rows > 0) {
                                 <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
                                 <br>
                                 <h2>Videojuegos Unity avanzado</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r13 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-b.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_appsmoviles_basico)) echo $data_appsmoviles_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_appsmoviles_basico)) echo $data_appsmoviles_basico['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 15px; ">
+                                <br>
+                                <h2>Apps móviles básico</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r14 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-i.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_appsmoviles_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_appsmoviles_intermedio)) echo $data_appsmoviles_intermedio['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Apps móviles intermedio</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r15 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                    <a href="rutas/ruta-vj-a.php">
+                        <div class="container">
+                            <div class="box">
+                                <div class="chart" data-percent="<?php if (isset($data_appsmoviles_avanzado)) echo $data_appsmoviles_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                    <?php if (isset($data_appsmoviles_avanzado)) echo $data_appsmoviles_avanzado['progreso']; ?>%
+                                </div>
+                                <hr style="background-color:rgba(205, 249, 254); width: 170px; height:5px; border:none; margin-top: 5px; ">
+                                <br>
+                                <h2>Apps móviles avanzado</h2>
                             </div>
                         </div>
                     </a>

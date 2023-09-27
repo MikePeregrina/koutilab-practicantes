@@ -104,6 +104,15 @@ $fila = mysqli_fetch_assoc($result);
                                 <option value="4">Python básico</option>
                                 <option value="5">Python intermedio</option>
                                 <option value="6">Python avanzado</option>
+                                <option value="7">Informática básico</option>
+                                <option value="8">Informática intermedio</option>
+                                <option value="9">Informática avanzado</option>
+                                <option value="10">Unity básico</option>
+                                <option value="11">Unity intermedio</option>
+                                <option value="12">Unity avanzado</option>
+                                <option value="13">Apps móviles básico</option>
+                                <option value="14">Apps móviles intermedio</option>
+                                <option value="15">Apps móviles avanzado</option>
                             </select>
                         </div>
                         <div class="input-box">
