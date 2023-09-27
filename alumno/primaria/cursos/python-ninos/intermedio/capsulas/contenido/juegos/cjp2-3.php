@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<section>
 		<div class="cont-st">
-		<a href="#" onclick="history.back();"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+			<a href="#" onclick="history.back();"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
 					<i class="fas fa-reply"></i></button>
 			</a>
 
@@ -191,7 +191,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = "../../../../../../rutas/ruta-py-i-ninos.php";
+							window.location.href = "../../../../../../rutas/ruta-py-i.php";
 						}
 					});
 					correcto.play(); //agregando sonido al juego completado

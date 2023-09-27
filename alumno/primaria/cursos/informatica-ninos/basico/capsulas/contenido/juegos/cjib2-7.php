@@ -74,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-b-ninos.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+			<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
 					<i class="fas fa-reply"></i></button>
 			</a>
 			<h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>

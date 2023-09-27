@@ -83,7 +83,7 @@ if (empty($existe)) {
     <section>
         <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
         <div class="cont-st">
-        <a href="#" onclick="history.back();">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b" id="btn-cerrar-modalV">
                     <i class="fas fa-reply"></i></button></a>
             <h6 class="titulo">
@@ -632,7 +632,7 @@ if (empty($existe)) {
                         confirmButtonText: "Aceptar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-py-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
                     correcto.play(); //agregando sonido al juego completado

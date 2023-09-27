@@ -21,7 +21,7 @@
         <div>
             <button>
                 <!-- poner la ruta del curso y quitar el history -->
-                <a href="../../../../../../rutas/ruta-py-i-ninos.php" type="button">Regresar a la ruta</a>
+                <a href="../../../../../../rutas/ruta-py-i.php" type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>

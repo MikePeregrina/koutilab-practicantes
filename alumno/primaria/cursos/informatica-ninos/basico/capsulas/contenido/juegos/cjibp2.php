@@ -46,7 +46,7 @@ if (empty($existe)) {
     </div>
     <section>
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-in-b-ninos.php">
+            <a href="../../../../../../rutas/ruta-in-b.php">
                 <button class="btn-b" style="float: left; position: relative; margin: 10px 0 0 10px;">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -245,7 +245,7 @@ if (empty($existe)) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                     correcto.play();
@@ -257,7 +257,7 @@ if (empty($existe)) {
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 }

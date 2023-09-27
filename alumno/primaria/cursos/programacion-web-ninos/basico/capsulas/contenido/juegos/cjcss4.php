@@ -198,7 +198,7 @@ h1 { color:white; text-align:center; }
             //Compara y valida si el texto es igual o no y muestra mensajes.
             if (text1 === text2) {
                 var puntos = <?php echo $puntosGanados; ?>
-                
+
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 39 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -218,7 +218,7 @@ h1 { color:white; text-align:center; }
                     if (result.isConfirmed) {
                         //Borra el texto escrito
                         escrito.value = "";
-                        window.location.href = "../../../../../../rutas/ruta-pw-b-ninos.php";
+                        window.location.href = "../../../../../../rutas/ruta-pw-b.php";
                     }
                 });
                 correcto.play(); //agregando sonido al juego completado

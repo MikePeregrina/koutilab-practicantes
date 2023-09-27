@@ -126,16 +126,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="right-column">
                                         <!-- Respuestas -->
                                         <div class="word-box" id="almacenamiento" onclick="checkAnswer('almacenamiento')">
-                                          Almacenamiento</div>
+                                            Almacenamiento</div>
                                         <div class="word-box" id="ram" onclick="checkAnswer('ram')">
-                                          RAM</div>
+                                            RAM</div>
                                         <div class="word-box" id="rigido" onclick="checkAnswer('rigido')">
-                                         Rigido
+                                            Rigido
                                         </div>
                                         <div class="word-box" id="informacion" onclick="checkAnswer('informacion')">Informacion
                                         </div>
                                         <div class="word-box" id="almacenar" onclick="checkAnswer('almacenar')">
-                                          Almacenar</div>
+                                            Almacenar</div>
                                     </div>
                                 </div>
 
@@ -243,7 +243,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -265,7 +265,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -286,7 +286,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -307,7 +307,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
                         }
                     });
                 }

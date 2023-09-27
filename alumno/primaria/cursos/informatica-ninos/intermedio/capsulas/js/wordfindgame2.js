@@ -229,7 +229,9 @@
             "&permiso=" +
             22 +
             "&id_curso=" +
-            20  + "&redireccion=" + '../contenido/juegos/cjii1-7.php)'; //cancatenation
+            20 +
+            "&redireccion=" +
+            "../contenido/juegos/cjii1-7.php)"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
           xmlhttp.setRequestHeader(
             "Content-Type",
@@ -238,7 +240,10 @@
           xmlhttp.send(param);
           Swal.fire({
             title: "¡Bien hecho!",
-            text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
+            text:
+              "¡Puntuación guardada con éxito! Obtienes " +
+              puntos +
+              " puntos de logros",
             imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
@@ -249,8 +254,7 @@
             confirmButtonText: "Aceptar",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.href =
-                "../../../../../../rutas/ruta-in-i-ninos.php";
+              window.location.href = "../../../../../../rutas/ruta-in-i.php";
             }
           });
           correcto.play(); //agregando el sonido de juego ganado

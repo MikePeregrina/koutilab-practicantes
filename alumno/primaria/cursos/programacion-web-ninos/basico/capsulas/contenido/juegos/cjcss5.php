@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</div>
 	<section>
 		<div class="cont-st">
-        <a href="#" onclick="history.back();">
+			<a href="#" onclick="history.back();">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -179,7 +179,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var puntos = <?php echo $puntosGanados; ?>
-					
+
 					var xmlhttp = new XMLHttpRequest();
 					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 42 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss5.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -198,7 +198,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = "../../../../../../rutas/ruta-pw-b-ninos.php";
+							window.location.href = "../../../../../../rutas/ruta-pw-b.php";
 						}
 					});
 					correcto.play(); //agregando sonido al juego completado

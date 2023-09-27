@@ -54,7 +54,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
- <!-- Parte que modifique Inicio -->
+    <!-- Parte que modifique Inicio -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -163,7 +163,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var aciertos = 0;
         var errores = 0;
 
-       /* Palabras */
+        /* Palabras */
         palabras_array.push("VACIOS");
         palabras_array.push("REMOVE");
         palabras_array.push("ELEMENTO");
@@ -417,7 +417,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../../../../../../rutas/ruta-py-a-ninos.php";
+                        window.location.href = "../../../../../../rutas/ruta-py-a.php";
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado

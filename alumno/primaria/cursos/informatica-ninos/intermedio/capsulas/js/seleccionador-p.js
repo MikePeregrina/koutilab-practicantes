@@ -160,7 +160,9 @@ function mostrarResultados() {
         "&permiso=" +
         25 +
         "&id_curso=" +
-        20 + "&redireccion=" + '../contenido/juegos/cjii1-8.php)'; //cancatenation
+        20 +
+        "&redireccion=" +
+        "../contenido/juegos/cjii1-8.php)"; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
       xmlhttp.setRequestHeader(
         "Content-Type",
@@ -214,7 +216,7 @@ function mostrarResultados() {
         confirmButtonText: "¡Genial!",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../../../../../../rutas/ruta-in-i-ninos.php";
+          window.location.href = "../../../../../../rutas/ruta-in-i.php";
         }
       });
     }

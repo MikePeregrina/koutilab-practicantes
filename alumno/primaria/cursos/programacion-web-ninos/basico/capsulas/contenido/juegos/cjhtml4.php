@@ -409,7 +409,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../../../../../../rutas/ruta-pw-b-ninos.php";
+                        window.location.href = "../../../../../../rutas/ruta-pw-b.php";
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado

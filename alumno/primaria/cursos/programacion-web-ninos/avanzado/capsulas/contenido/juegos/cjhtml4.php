@@ -249,7 +249,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = "../../../../../../rutas/ruta-pw-a-ninos.php";
+					window.location.href = "../../../../../../rutas/ruta-pw-a.php";
 				}
 			})
 		}

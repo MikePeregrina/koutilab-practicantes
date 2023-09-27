@@ -229,7 +229,9 @@
             "&permiso=" +
             10 +
             "&id_curso=" +
-            20  + "&redireccion=" + '../contenido/juegos/cjii1-3.php)'; //cancatenation
+            20 +
+            "&redireccion=" +
+            "../contenido/juegos/cjii1-3.php)"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
           xmlhttp.setRequestHeader(
             "Content-Type",
@@ -249,8 +251,7 @@
             confirmButtonText: "Aceptar",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.href =
-                "../../../../../../rutas/ruta-in-i-ninos.php";
+              window.location.href = "../../../../../../rutas/ruta-in-i.php";
             }
           });
           correcto.play(); //agregando el sonido de juego ganado

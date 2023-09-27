@@ -54,7 +54,7 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
-      <!-- Parte que modifique Inicio -->
+    <!-- Parte que modifique Inicio -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -66,7 +66,7 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <div class="cont-st">
-        <a href="../../../../../../rutas/ruta-in-b-ninos.php" ><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+        <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
         <h4 class="titulo"><b>Descubre la palabra o frase mediante la pista y da click sobre las letras para escribirla, si te equivocas se construirá Koubot y al finalizar perderás</b></h4>
@@ -227,30 +227,30 @@ if (isset($resultadoIntentos['intentos'])) {
         /// Funcion para dar una pista la usuario ////
         function pistaFunction(palabra) {
             let pista = ""; // Se crea la variable local pista que contendra nuestra frase de pista
-    switch (
-        palabra // Se crea un switch para poder controlar las pistas segun la palabra
-    ) {
-        case "FORMULARIO": // Se debera hacer un case por cada palabra
-            pista = "Es un documento que se estructura a partir de preguntas las cuales permiten recolectar datos. ";
-            break; // Es importante el break en cada case
-        case "WORD": 
-            pista =
-                "Donde puedes crear formularios interactivos mediante la función de Controles de contenido.";
-            break;
-        case "USUARIO":
-            pista =
-                "Estos formularios a quien permiten introducir información y responder a preguntas de manera estructurada.";
-            break;
-        case "CALENDARIO":
-            pista = "Al crear un formulario en Word, puedes utilizar un control de contenido adicionale que sirve para representar el dd,mm,aa";
-            break;
-        case "INFORMACION":
-            pista =
-                "Es lo que se busca obtener al utilizar estos intrumentos para realizar foromularios.";
-            break;
-        default: // El defaul se puede omitir //
-            pista = "No hay pista aun xP";
-    }
+            switch (
+                palabra // Se crea un switch para poder controlar las pistas segun la palabra
+            ) {
+                case "FORMULARIO": // Se debera hacer un case por cada palabra
+                    pista = "Es un documento que se estructura a partir de preguntas las cuales permiten recolectar datos. ";
+                    break; // Es importante el break en cada case
+                case "WORD":
+                    pista =
+                        "Donde puedes crear formularios interactivos mediante la función de Controles de contenido.";
+                    break;
+                case "USUARIO":
+                    pista =
+                        "Estos formularios a quien permiten introducir información y responder a preguntas de manera estructurada.";
+                    break;
+                case "CALENDARIO":
+                    pista = "Al crear un formulario en Word, puedes utilizar un control de contenido adicionale que sirve para representar el dd,mm,aa";
+                    break;
+                case "INFORMACION":
+                    pista =
+                        "Es lo que se busca obtener al utilizar estos intrumentos para realizar foromularios.";
+                    break;
+                default: // El defaul se puede omitir //
+                    pista = "No hay pista aun xP";
+            }
             // Pintamos la palabra en el canvas , en este ejemplo se pinta arriba a la izquierda //
             ctx.fillStyle = "gray"; // Aqui ponemos el color de la letra
             ctx.font = "bold 15px arial"; // aqui ponemos el tipo y tamaño de la letra
@@ -417,7 +417,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../../../../../../rutas/ruta-in-i-ninos.php";
+                        window.location.href = "../../../../../../rutas/ruta-in-i.php";
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado

@@ -43,7 +43,7 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-py-a-ninos.php">
+			<a href="../../../../../../rutas/ruta-py-a.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -246,7 +246,7 @@ if (empty($existe)) {
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = '../../../../../../../rutas/ruta-py-a-ninos.php';
+									window.location.href = '../../../../../../../rutas/ruta-py-a.php';
 								}
 							})
 						}, "800");

@@ -274,11 +274,11 @@ if (isset($resultadoIntentos['intentos'])) {
             //validamos que ya se hizo intento de resolver todo el juego
             if (todasSeleccionadas) {
                 if (respuestasCorrectas < 3) {
-                var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+                    var xmlhttp = new XMLHttpRequest();
+                    var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                     Swal.fire({
                         //estrucutra de la alerta
                         title: '!Puedes seguir mejorado!',
@@ -297,11 +297,11 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else {
                     var puntos = <?php echo $puntosGanados; ?>
-					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					xmlhttp.send(param);
+                    var xmlhttp = new XMLHttpRequest();
+                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                     //llamamos a la alerta
                     Swal.fire({
                         //estrucutra de la alerta
@@ -316,7 +316,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "../../../../../../rutas/ruta-in-i-ninos.php";
+                            window.location.href = "../../../../../../rutas/ruta-in-i.php";
                         }
                     });
 
@@ -362,10 +362,10 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',

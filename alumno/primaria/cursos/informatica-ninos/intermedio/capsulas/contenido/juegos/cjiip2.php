@@ -45,7 +45,7 @@
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-i-ninos.php">
+			<a href="../../../../../../rutas/ruta-in-i.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -353,7 +353,7 @@
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-in-i-ninos.php';
+					window.location.href = '../../../../../../rutas/ruta-in-i.php';
 				}
 			});
 			correcto.play(); //agregando sonido añ juego completado

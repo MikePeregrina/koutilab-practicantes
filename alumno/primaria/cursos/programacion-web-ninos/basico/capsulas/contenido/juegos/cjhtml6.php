@@ -67,7 +67,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<section>
 		<div class="cont-st">
-        <a href="#" onclick="history.back();">
+			<a href="#" onclick="history.back();">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -219,7 +219,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
-            var puntos = <?php echo $puntosGanados; ?>
+			var puntos = <?php echo $puntosGanados; ?>
 
 			var xmlhttp = new XMLHttpRequest();
 			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjhtml6.php'; //cancatenation
@@ -238,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = "../../../../../../rutas/ruta-pw-b-ninos.php";
+					window.location.href = "../../../../../../rutas/ruta-pw-b.php";
 				}
 			})
 			correcto.play(); //agregando sonido al juego completado

@@ -238,7 +238,10 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
           xmlhttp.send(param);
           Swal.fire({
             title: "¡Bien hecho!",
-            text: ' ¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
+            text:
+              " ¡Puntuación guardada con éxito! Obtienes " +
+              puntos +
+              " puntos de logros",
             imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
             imageHeight: 350,
             backdrop: `
@@ -249,8 +252,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
             confirmButtonText: "Aceptar",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.href =
-                "../../../../../../rutas/ruta-in-b-ninos.php";
+              window.location.href = "../../../../../../rutas/ruta-in-b.php";
             }
           });
           correcto.play();

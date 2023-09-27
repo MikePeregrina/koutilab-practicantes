@@ -108,7 +108,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
                             <div id="page">
-  
+
                                 <div id="Message-Container">
                                     <div id="message">
                                         <p id="moves"></p>
@@ -240,7 +240,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -262,7 +262,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -283,7 +283,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -304,7 +304,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 }

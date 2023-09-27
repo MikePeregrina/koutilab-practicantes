@@ -32,11 +32,11 @@ if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['i
                 header("Location: orderCompleted.php");
             }
         } else {
-            header('Location: ../../../../../../rutas/ruta-in-i-ninos.php');
+            header('Location: ../../../../../../rutas/ruta-in-i.php');
         }
     } else {
-        header('Location: ../../../../../../rutas/ruta-in-i-ninos.php');
+        header('Location: ../../../../../../rutas/ruta-in-i.php');
     }
 } else {
-    header('Location: ../../../../../../rutas/ruta-in-i-ninos.php');
+    header('Location: ../../../../../../rutas/ruta-in-i.php');
 }

@@ -213,7 +213,7 @@ function mostrarResultados() {
         confirmButtonText: "¡Genial!",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../../../../../../rutas/ruta-in-b-ninos.php";
+          window.location.href = "../../../../../../rutas/ruta-in-b.php";
         }
       });
       correcto.play(); //asignando sonido al juego completado

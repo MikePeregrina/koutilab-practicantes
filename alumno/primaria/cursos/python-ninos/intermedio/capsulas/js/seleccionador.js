@@ -212,7 +212,7 @@ function mostrarResultados() {
         confirmButtonText: "¡Genial!",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../../../../../../rutas/ruta-py-i-ninos.php";
+          window.location.href = "../../../../../../rutas/ruta-py-i.php";
         }
       });
     }

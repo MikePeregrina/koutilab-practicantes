@@ -297,7 +297,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Aceptar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+              window.location.href = '../../../../../../rutas/ruta-in-b.php';
           }
         });
       </script>
@@ -314,7 +314,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+              window.location.href = '../../../../../../rutas/ruta-in-b.php';
           }
         });
       </script>

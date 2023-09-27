@@ -170,8 +170,7 @@ function fetchQuiz() {
               confirmButtonColor: "#3085d6",
               confirmButtonText: "Aceptar",
             }).then((result) => {
-              window.location.href =
-                "../../../../../../rutas/ruta-in-i-ninos.php";
+              window.location.href = "../../../../../../rutas/ruta-in-i.php";
             });
           }
         };

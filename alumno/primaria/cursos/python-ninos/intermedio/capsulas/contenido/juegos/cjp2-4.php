@@ -406,7 +406,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../../../../../../rutas/ruta-py-i-ninos.php";
+                        window.location.href = "../../../../../../rutas/ruta-py-i.php";
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado
@@ -414,7 +414,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 var puntos = <?php echo $puntosGanados; ?>
 
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 +"&id_curso=" + 17 + "&redireccion=" + '../contenido/juegos/cjp2-4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 17 + "&redireccion=" + '../contenido/juegos/cjp2-4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

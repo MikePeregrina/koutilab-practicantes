@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -10,7 +10,7 @@ $permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 16;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-	header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
+    header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
 }
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ if (empty($existe)) {
 
     <section>
         <div class="cont-st">
-        <a href="#" onclick="history.back();">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -245,7 +245,7 @@ if (empty($existe)) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-py-b-ninos.php';
+                            window.location.href = '../../../../../../rutas/ruta-py-b.php';
                         }
                     });
                 } else {

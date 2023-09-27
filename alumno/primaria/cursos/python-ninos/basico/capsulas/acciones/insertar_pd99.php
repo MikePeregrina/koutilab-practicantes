@@ -13,6 +13,6 @@ $id_curso = $_POST['id_curso'];
 $insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_primaria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
 if ($insertarPermisos) {
-    header('location: ../../../../../rutas/ruta-py-b-ninos.php');
+    header('location: ../../../../../rutas/ruta-py-b.php');
     exit();
 }

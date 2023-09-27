@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -10,7 +10,7 @@ $permiso = "capsula50";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 20");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 20");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -42,19 +42,19 @@ if (isset($resultadoIntentos['intentos'])) {
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/robot.css" /><!--Linkeo de la hoja de estilos-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/css-juegos/robot.css" /><!--Linkeo de la hoja de estilos-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
-      <!-- Parte que modifique Inicio -->
+    <!-- Parte que modifique Inicio -->
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -66,7 +66,7 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <div class="cont-st">
-        <a href="../../../../../../rutas/ruta-in-b-ninos.php" ><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+        <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
         <h4 class="titulo"><b>Descubre la palabra o frase mediante la pista y da click sobre las letras para escribirla, si te equivocas se construirá Koubot y al finalizar perderás</b></h4>
@@ -163,12 +163,12 @@ if (isset($resultadoIntentos['intentos'])) {
         var aciertos = 0;
         var errores = 0;
 
-		/* Palabras */
-		palabras_array.push("SENCILLO");
-		palabras_array.push("WORD");
-		palabras_array.push("ONLINE");
-		palabras_array.push("EXPLORADOR");
-		palabras_array.push("MAC");
+        /* Palabras */
+        palabras_array.push("SENCILLO");
+        palabras_array.push("WORD");
+        palabras_array.push("ONLINE");
+        palabras_array.push("EXPLORADOR");
+        palabras_array.push("MAC");
         /* Objetos */
         function Tecla(x, y, ancho, alto, letra) {
             this.x = x;
@@ -226,30 +226,30 @@ if (isset($resultadoIntentos['intentos'])) {
         /// Funcion para dar una pista la usuario ////
         function pistaFunction(palabra) {
             let pista = ""; // Se crea la variable local pista que contendra nuestra frase de pista
-	switch (
-        palabra // Se crea un switch para poder controlar las pistas segun la palabra
-    ) {
-        case "SENCILLO": // Se debera hacer un case por cada palabra
-            pista = "Trabajar en word es facil pero desde la web es aun más.";
-            break; // Es importante el break en cada case
-        case "WORD": 
-            pista =
-                "Lo creó Microsoft y está integrado por defecto en el paquete de Microsoft Office.";
-            break;
-        case "ONLINE":
-            pista =
-                "Este tipo de word es una aplicación gratuita de Microsoft que se ejecuta en internet.";
-            break;
-        case "EXPLORADOR":
-            pista = "Es el lugar donde se ejecuta Word para la web";
-            break;
-        case "MAC":
-            pista =
-                "Aparte de Windows  que otro sistema operativo es compatible con la paqueteria de Office .";
-            break;
-        default: // El defaul se puede omitir //
-            pista = "No hay pista aun xP";
-    }
+            switch (
+                palabra // Se crea un switch para poder controlar las pistas segun la palabra
+            ) {
+                case "SENCILLO": // Se debera hacer un case por cada palabra
+                    pista = "Trabajar en word es facil pero desde la web es aun más.";
+                    break; // Es importante el break en cada case
+                case "WORD":
+                    pista =
+                        "Lo creó Microsoft y está integrado por defecto en el paquete de Microsoft Office.";
+                    break;
+                case "ONLINE":
+                    pista =
+                        "Este tipo de word es una aplicación gratuita de Microsoft que se ejecuta en internet.";
+                    break;
+                case "EXPLORADOR":
+                    pista = "Es el lugar donde se ejecuta Word para la web";
+                    break;
+                case "MAC":
+                    pista =
+                        "Aparte de Windows  que otro sistema operativo es compatible con la paqueteria de Office .";
+                    break;
+                default: // El defaul se puede omitir //
+                    pista = "No hay pista aun xP";
+            }
             // Pintamos la palabra en el canvas , en este ejemplo se pinta arriba a la izquierda //
             ctx.fillStyle = "gray"; // Aqui ponemos el color de la letra
             ctx.font = "bold 15px arial"; // aqui ponemos el tipo y tamaño de la letra
@@ -416,7 +416,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../../../../../../rutas/ruta-in-i-ninos.php";
+                        window.location.href = "../../../../../../rutas/ruta-in-i.php";
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado
@@ -462,4 +462,5 @@ if (isset($resultadoIntentos['intentos'])) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
+
 </html>

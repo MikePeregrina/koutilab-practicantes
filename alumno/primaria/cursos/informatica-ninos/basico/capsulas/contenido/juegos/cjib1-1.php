@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-b-ninos.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+			<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
 					<i class="fas fa-reply"></i></button>
 			</a>
 
@@ -184,7 +184,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text:' ¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
+						text: ' ¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img_juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
@@ -195,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+							window.location.href = '../../../../../../rutas/ruta-in-b.php';
 						}
 					});
 					Correcto.play(); //agregando sonido al juego completado

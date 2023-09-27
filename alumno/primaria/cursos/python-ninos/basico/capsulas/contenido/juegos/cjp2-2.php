@@ -303,7 +303,7 @@ if (isset($resultadoIntentos['intentos'])) {
             xmlhttp.send(param);
             Swal.fire({
                 title: "¡Felicidades!",
-				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
+                text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
@@ -313,7 +313,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 confirmButtonText: "¡Genial!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-py-b-ninos.php';
+                    window.location.href = '../../../../../../rutas/ruta-py-b.php';
                 }
             });
             Correcto.play(); //Agregando sonido al juego completado

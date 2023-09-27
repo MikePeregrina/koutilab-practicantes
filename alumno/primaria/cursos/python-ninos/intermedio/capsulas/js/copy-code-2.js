@@ -133,7 +133,7 @@ function alertExcelent() {
       if (result.isConfirmed) {
         //Borra el texto escrito
         escrito.value = "";
-        window.location.href = "../../../../../../rutas/ruta-py-i-ninos.php";
+        window.location.href = "../../../../../../rutas/ruta-py-i.php";
       }
     });
     correcto.play(); //agregando sonido al juego completado

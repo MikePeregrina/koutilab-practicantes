@@ -185,7 +185,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 20  + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -202,7 +202,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-i-ninos.php';
+							window.location.href = '../../../../../../rutas/ruta-in-i.php';
 						}
 					});
 					correcto.play(); // se manda a traer la variable del sonido declarada en la linea 61
@@ -244,7 +244,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 20  + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);

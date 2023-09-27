@@ -74,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-b-ninos.php">
+			<a href="../../../../../../rutas/ruta-in-b.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>

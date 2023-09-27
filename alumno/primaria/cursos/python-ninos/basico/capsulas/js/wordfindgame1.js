@@ -251,8 +251,7 @@
             confirmButtonText: "Aceptar",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.href =
-                "../../../../../../rutas/ruta-py-b-ninos.php";
+              window.location.href = "../../../../../../rutas/ruta-py-b.php";
             }
           });
           correcto.play(); //agregando sonido al juego completado

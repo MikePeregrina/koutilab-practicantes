@@ -69,7 +69,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <div class="cont-st">
             <!-- Boton para regresar -->
-            <a href="../../../../../../rutas/ruta-in-b-ninos.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+            <a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                     <i class="fas fa-reply"></i></button>
 
             </a>
@@ -155,7 +155,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../../../../../rutas/ruta-in-b-ninos.php';
+                        window.location.href = '../../../../../../rutas/ruta-in-b.php';
                     }
                 });
                 incorrecto.play(); //asignando sonido al juego no completado

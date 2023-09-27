@@ -52,11 +52,11 @@ $id_curso = $_GET['id_curso'];
             <?php else : ?>
                 <h1 style="color: red;">Estrellas insuficientes</h1>
                 <button disabled>
-                    <a href="../../../../../../rutas/ruta-in-i-ninos.php" type="button">¡Ir a recolectar estrellas!</a>
+                    <a href="../../../../../../rutas/ruta-in-i.php" type="button">¡Ir a recolectar estrellas!</a>
                 </button>
             <?php endif; ?>
             <button>
-                <a href="../../../../../../rutas/ruta-in-i-ninos.php" type="button">Regresar a la ruta</a>
+                <a href="../../../../../../rutas/ruta-in-i.php" type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>

@@ -134,7 +134,7 @@ function alertExcelent() {
       if (result.isConfirmed) {
         //Borra el texto escrito
         escrito.value = "";
-        window.location.href = "../../../../../../rutas/ruta-py-b-ninos.php";
+        window.location.href = "../../../../../../rutas/ruta-py-b.php";
       }
     });
     correcto.play(); //agregando sonido al juego completado

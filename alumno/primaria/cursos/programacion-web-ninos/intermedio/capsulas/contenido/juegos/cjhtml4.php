@@ -407,13 +407,13 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../../../../../rutas/ruta-pw-i-ninos.php';
+                        window.location.href = '../../../../../../rutas/ruta-pw-i.php';
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado
             } else {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 +"&id_curso=" + 14 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 14 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

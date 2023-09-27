@@ -304,7 +304,7 @@ if (isset($resultadoIntentos['intentos'])) {
             var puntos = <?php echo $puntosGanados; ?>
 
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 27 +"&id_curso=" + 14 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 27 + "&id_curso=" + 14 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
@@ -320,7 +320,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 confirmButtonText: "¡Genial!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-pw-i-ninos.php';
+                    window.location.href = '../../../../../../rutas/ruta-pw-i.php';
                 }
             });
             Correcto.play(); //Agregando sonido al juego completado

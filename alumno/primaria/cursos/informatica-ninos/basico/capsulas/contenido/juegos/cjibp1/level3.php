@@ -43,7 +43,7 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../../rutas/ruta-in-b-ninos.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+			<a href="../../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 					<i class="fas fa-reply"></i></button>
 			</a>
 
@@ -245,7 +245,7 @@ if (empty($existe)) {
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = '../../../../../../../rutas/ruta-in-b-ninos.php';
+									window.location.href = '../../../../../../../rutas/ruta-in-b.php';
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado

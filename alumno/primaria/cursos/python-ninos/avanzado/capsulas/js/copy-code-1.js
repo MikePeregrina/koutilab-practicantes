@@ -58,7 +58,16 @@ function iniciarTiempo() {
     escrito.value = "";
     var xmlhttp = new XMLHttpRequest();
     var param =
-      "score=" + 0 + "&validar=" + "incorrecto" +"&permiso=" + 4 + "&id_curso=" + 18 + "&redireccion=" + "../contenido/juegos/cjpi1-1.php"; //cancatenation
+      "score=" +
+      0 +
+      "&validar=" +
+      "incorrecto" +
+      "&permiso=" +
+      4 +
+      "&id_curso=" +
+      18 +
+      "&redireccion=" +
+      "../contenido/juegos/cjpi1-1.php"; //cancatenation
     xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
     xmlhttp.setRequestHeader(
       "Content-Type",
@@ -125,7 +134,7 @@ function alertExcelent() {
       if (result.isConfirmed) {
         //Borra el texto escrito
         escrito.value = "";
-        window.location.href = "../../../../../../rutas/ruta-py-a-ninos.php";
+        window.location.href = "../../../../../../rutas/ruta-py-a.php";
       }
     });
     correcto.play(); //agregando sonido al juego completado

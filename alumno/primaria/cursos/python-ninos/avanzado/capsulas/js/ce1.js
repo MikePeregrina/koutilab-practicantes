@@ -175,8 +175,7 @@ function fetchQuiz() {
               confirmButtonColor: "#3085d6",
               confirmButtonText: "Aceptar",
             }).then((result) => {
-              window.location.href =
-                "../../../../../../rutas/ruta-py-a-ninos.php";
+              window.location.href = "../../../../../../rutas/ruta-py-a.php";
             });
           }
         };

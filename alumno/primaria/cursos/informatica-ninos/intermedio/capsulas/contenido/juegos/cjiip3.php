@@ -85,7 +85,7 @@ if (empty($existe)) {
     <section>
 
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-in-i-ninos.php">
+            <a href="../../../../../../rutas/ruta-in-i.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -725,7 +725,7 @@ if (empty($existe)) {
                         confirmButtonText: "Aceptar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "../../../../../../rutas/ruta-in-i-ninos.php";
+                            window.location.href = "../../../../../../rutas/ruta-in-i.php";
                         }
                     });
                     correcto.play(); //asignación de sonido al juego completado

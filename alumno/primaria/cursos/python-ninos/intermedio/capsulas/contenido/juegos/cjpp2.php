@@ -45,7 +45,7 @@ if (empty($existe)) {
 	<section>
 		<div class="cont-st">
 			<!-- Boton para regresar -->
-            <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
+			<a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
@@ -308,7 +308,7 @@ if (empty($existe)) {
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = "../../../../../../rutas/ruta-py-i-ninos.php";
+					window.location.href = "../../../../../../rutas/ruta-py-i.php";
 				}
 			});
 		}
