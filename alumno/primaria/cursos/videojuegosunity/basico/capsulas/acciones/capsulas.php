@@ -23,7 +23,7 @@
         </ul>
         <ul id="slider">
           <li style="background-image: url('../img/PA2.gif'); z-index:0; opacity: 1;">
-            <a href="../../../../../rutas/ruta-vj-b.php" style="text-decoration: none;"><button type="submit" class="btn-grd1" style="margin-left: 61.5%;">Regresar</button></a>
+            <a href="../../../../../rutas/ruta-in-b.php" style="text-decoration: none;"><button type="submit" class="btn-grd1" style="margin-left: 61.5%;">Regresar</button></a>
           </li>
         </ul>
       </section>

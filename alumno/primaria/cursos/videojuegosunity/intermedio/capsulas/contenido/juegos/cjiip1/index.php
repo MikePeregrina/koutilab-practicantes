@@ -45,7 +45,7 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-vj-i.php">
+			<a href="../../../../../../rutas/ruta-in-i.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -138,7 +138,7 @@ if (empty($existe)) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 20; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',

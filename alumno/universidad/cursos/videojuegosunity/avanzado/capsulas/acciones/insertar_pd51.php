@@ -37,7 +37,7 @@ if ($result_sql == 0) {
 if ($pregunta != 'correcto') {
     $sumaIntentos = ($totalIntentos) + 1;
     $insertarIntentos = mysqli_query($conexion, "UPDATE detalle_intentos_universidad SET intentos = '$sumaIntentos' WHERE id_capsula = '$permiso' AND id_alumno = $id_user AND id_curso = '$id_curso'");
-    header('location: ../contenido/evaluativas/ce2videojuegos.php');
+    header('location: ../contenido/evaluativas/ce2informatica.php');
 }
 
 if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0) {
@@ -57,7 +57,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_universidad SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-vj-a.php');
+        header('location: ../../../../../rutas/ruta-in-a.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 2 && $result_sql_permisos == 0) {
@@ -77,7 +77,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_universidad SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-vj-a.php');
+        header('location: ../../../../../rutas/ruta-in-a.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 3 && $result_sql_permisos == 0) {
@@ -97,7 +97,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_universidad SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-vj-a.php');
+        header('location: ../../../../../rutas/ruta-in-a.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 4 && $result_sql_permisos == 0) {
@@ -117,9 +117,9 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_universidad SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-vj-a.php');
+        header('location: ../../../../../rutas/ruta-in-a.php');
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 1 && $result_sql_permisos > 0) {
-    header('location: ../../../../../rutas/ruta-vj-a.php');
+    header('location: ../../../../../rutas/ruta-in-a.php');
 }

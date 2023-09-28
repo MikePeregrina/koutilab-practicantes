@@ -10,17 +10,16 @@
   }
 html, body {
     width: 100vw;
-    height: 100vh;
+    height: 130vh;
     color: #404040;
     font-family: Tahoma;
-    background-image: url(../../img/img-juegos/bg.png);
+    background-image: url(../../img/img_juegos/bg.png);
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -76,7 +75,23 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
   }
+  .footerimga{
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2%;
+  }
   
+  .imagen-footer {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 250px !important;
+  
+  }
+ 
   .timer {
     text-align: center;
     padding: 3%;
@@ -86,15 +101,50 @@ body::-webkit-scrollbar-track {
     justify-content: center;
     align-items: center;
     background: rgba(129,179,243,0.7);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
     position: fixed;
-    border-radius: 100px;
+    border-radius: 110px;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: rgba(129, 178, 243, 0.9);
     z-index: 5;
     font-size: 150%;
     margin-left: 82.5%;
-    margin-top:2%;
+    margin-top:1%;
   }
-  
+  @keyframes animation1 {
+    0% {margin: -1.5% 0 0 82.4%;}
+    20% {margin: -1.5% 0 0 82.6%;}
+    40% {margin: -1.5% 0 0 82.4%;} 
+    60% {margin: -1.5% 0 0 82.6%;}
+    80% {margin: -1.5% 0 0 82.4%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
+}
+
+  @keyframes animation2 {
+    0% {margin: -1.5% 0 0 82.2%;}
+    15% {margin: -1.5% 0 0 82.8%;}
+    30% {margin: -1.5% 0 0 82.2%;} 
+    45% {margin: -1.5% 0 0 82.8%;}
+    60% {margin: -1.5% 0 0 82.2%;} 
+    75% {margin: -1.5% 0 0 82.8%;;}
+    90% {margin: -1.5% 0 0 82.2%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
+  }
+
+  @keyframes animation3 {
+    0% {margin: -1.5% 0 0 81.4%;}
+    10% {margin: -1.5% 0 0 83.6%;}
+    20% {margin: -1.5% 0 0 81.4%;} 
+    30% {margin: -1.5% 0 0 83.6%;}
+    40% {margin: -1.5% 0 0 81.4%;} 
+    50% {margin: -1.5% 0 0 83.6%;}
+    60% {margin: -1.5% 0 0 81.4%;} 
+    70% {margin: -1.5% 0 0 83.6%;} 
+    80% {margin: -1.5% 0 0 81.4%;} 
+    90% {margin: -1.5% 0 0 83.6%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
+  }
   section {
     padding: 0px;
     width: 86%;
@@ -124,10 +174,9 @@ body::-webkit-scrollbar-track {
     width: 70px;
     padding: 10px 10px;
     cursor: pointer;
-    background: linear-gradient(
-      to right,
-      rgba(129, 179, 243),
-      rgba(132, 196, 44, 0.6)
+    background: linear-gradient(to right,
+    rgba(129, 179, 243,0.7), 
+    rgba(132,196,44,0.6)
     );
     border: 0px;
     border-radius: 50%;
@@ -145,39 +194,7 @@ body::-webkit-scrollbar-track {
   }
   
   
-  @keyframes animation1 {
-    0% {margin: 40px 0 0 1040px;}
-    20% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    60% {margin: 40px 0 0 1060px;}
-    80% {margin: 40px 0 0 1040px;} 
-    100% {margin: 40px 0 0 1050px;}
-}
 
-  @keyframes animation2 {
-    0% {margin: 40px 0 0 1040px;}
-    15% {margin: 40px 0 0 1060px;}
-    30% {margin: 40px 0 0 1040px;} 
-    45% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    75% {margin: 40px 0 0 1060px;}
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050px;}
-  }
-
-  @keyframes animation3 {
-    0% {margin: 40px 0 0 1040px;}
-    10% {margin: 40px 0 0 1060px;}
-    20% {margin: 40px 0 0 1040px;} 
-    30% {margin: 40px 0 0 1060px;}
-    40% {margin: 40px 0 0 1040px;} 
-    50% {margin: 40px 0 0 1060px;}
-    60% {margin: 40px 0 0 1040px;} 
-    70% {margin: 40px 0 0 1060px;} 
-    80% {margin: 40px 0 0 1040px;} 
-    90% {margin: 40px 0 0 1060px;} 
-    100% {margin: 40px 0 0 1050px;}
-  }
   
   #timer {
     background: rgba(129, 179, 243, 0.7);

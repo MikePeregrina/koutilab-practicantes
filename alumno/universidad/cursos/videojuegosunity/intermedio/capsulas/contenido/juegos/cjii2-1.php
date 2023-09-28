@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="contenido">
         <!-- Boton para regresar -->
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-vj-i.php">
+            <a href="../../../../../../rutas/ruta-in-i.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
