@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="7">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct17informatica.php">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct16informatica.php">
                                 </form>
                             </div>
                         </li>
