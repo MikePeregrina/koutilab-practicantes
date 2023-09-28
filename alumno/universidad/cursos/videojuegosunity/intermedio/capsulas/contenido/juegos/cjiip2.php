@@ -7,7 +7,7 @@
 // include "../../../../../../../../acciones/conexion.php";
 // $id_user = $_SESSION['id_alumno_universidad'];
 // $permiso = "capsulapago2";
-// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11");
 // $existe = mysqli_fetch_all($sql);
 // if (empty($existe)) {
 //     header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
@@ -45,7 +45,7 @@
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-i.php">
+			<a href="../../../../../../rutas/ruta-vj-i.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -353,7 +353,7 @@
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-in-i.php';
+					window.location.href = '../../../../../../rutas/ruta-vj-i.php';
 				}
 			});
 			correcto.play(); //agregando sonido añ juego completado

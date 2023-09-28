@@ -17,6 +17,6 @@ $query = "INSERT INTO estadisticas_universidad(trofeos, progreso, puntos, practi
 $query_run = mysqli_query($conexion, $query);
 
 if ($insertarPermisos) {
-    header('location: ../../../../../rutas/ruta-in-a.php');
+    header('location: ../../../../../rutas/ruta-vj-a.php');
     exit();
 }

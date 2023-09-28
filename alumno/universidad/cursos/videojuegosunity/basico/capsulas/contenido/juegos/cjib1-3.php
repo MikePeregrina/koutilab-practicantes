@@ -15,7 +15,7 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 10;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
@@ -68,13 +68,13 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b> ASPECTOS GENERALES DE LA INFORMATICA</b></h2>
+		<h2 class="titulo"><b> ASPECTOS GENERALES DE LA videojuegosunity</b></h2>
 	</div>
 
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-b.php">
+			<a href="../../../../../../rutas/ruta-vj-b.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -111,7 +111,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
 
-		var words = ['INFORMATICA', 'DESARROLLO', 'ALGORITMO', 'ALMACENAR', 'REDES', 'COMPUTACION', 'TRANSMICION', 'PROCESAR'];
+		var words = ['videojuegosunity', 'DESARROLLO', 'ALGORITMO', 'ALMACENAR', 'REDES', 'COMPUTACION', 'TRANSMICION', 'PROCESAR'];
 		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
 		var puzzle = wordfind.newPuzzle(words, {

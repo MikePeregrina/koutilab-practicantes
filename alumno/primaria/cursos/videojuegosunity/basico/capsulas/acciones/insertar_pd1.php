@@ -17,6 +17,6 @@ $query = "INSERT INTO estadisticas_primaria(trofeos, progreso, puntos, practico,
 $query_run = mysqli_query($conexion, $query);
 
 if ($insertarPermisos) {
-    header('location: ../../../../../rutas/ruta-in-b.php');
+    header('location: ../../../../../rutas/ruta-vj-b.php');
     exit();
 }

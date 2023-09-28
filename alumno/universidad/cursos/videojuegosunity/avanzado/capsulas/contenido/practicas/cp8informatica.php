@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsula17";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -16,12 +16,12 @@ if (empty($existe) && $id_user != 1) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //VERIFICAR QUE PERMISO INTENTO SEA EL CORRECTO
 $permiso_intento = 18;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 9");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -249,7 +249,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="upload-img">
                 <form id="subirArchivo" enctype="multipart/form-data" action="" method="POST">
                     <input type="hidden" name="id_alumno" value="<?php echo $id_user; ?>">
-                    <input type="hidden" name="id_curso" value="9">
+                    <input type="hidden" name="id_curso" value="12">
                     <input type="hidden" name="id_capsula" value="<?php echo $permiso_intento; ?>">
                     <input type="file" name="archivo" id="inputArchivos" style="margin-left: 20%;" required>
                     <button type="submit" style="width: 150px; margin-left: 27px; border: none; background-color: #85c32e; color:white; font-size: 15px;" id="btnEnviar" name="btnEnviar">Subir Archivo</button>
@@ -303,7 +303,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Aceptar',
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
           }
         });
       </script>
@@ -320,7 +320,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
           }
         });
       </script>

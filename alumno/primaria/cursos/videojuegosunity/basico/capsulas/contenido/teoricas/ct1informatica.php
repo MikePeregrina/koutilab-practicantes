@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 7");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 10");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -74,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 1 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 1 videojuegosunity</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -101,9 +101,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/1/T1/7.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/1/T1/8.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/1/T1/9.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/1/T1/7.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/1/T1/8.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/1/T1/9.gif');"></li>
                         <li>
                             <!-- Copiar de aqui -->
                             <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
@@ -135,8 +135,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <div class="word-box" id="automatizados" onclick="checkAnswer('automatizados')">
                                             Automatizados
                                         </div>
-                                        <div class="word-box" id="informatica" onclick="checkAnswer('informatica')">
-                                            Informatica</div>
+                                        <div class="word-box" id="videojuegosunity" onclick="checkAnswer('videojuegosunity')">
+                                            videojuegosunity</div>
                                     </div>
                                 </div>
 
@@ -145,7 +145,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             </div>
                             <!-- Hasta aqui -->
                         </li>
-                        <li style="background-image: url('../../img/informatica/1/T1/10.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/1/T1/10.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -169,9 +169,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="7">
+                                    <input type="hidden" name="id_curso" value="10">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct1informatica.php">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct1videojuegosunity.php">
                                 </form>
                             </div>
                         </li>
@@ -432,7 +432,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             palabraseleccionada = this;
             if (
-                palabraseleccionada.id !== 'informatica' &&
+                palabraseleccionada.id !== 'videojuegosunity' &&
                 palabraseleccionada.id !== 'automatizados' &&
                 palabraseleccionada.id !== 'logicas' &&
                 palabraseleccionada.id !== 'automatico' &&
@@ -452,7 +452,7 @@ if (isset($resultadoIntentos['intentos'])) {
             //validamos que ya haya seleccionado una palabra
             if (palabraseleccionada) {
                 //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
-                if (respuesta === 'informatica' && idPalabraSeleccionada === 'computacion') {
+                if (respuesta === 'videojuegosunity' && idPalabraSeleccionada === 'computacion') {
                     palabraseleccionada.classList.add('correcto');
                     // Comenzar
                     contexto.beginPath();

@@ -24,7 +24,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Introducción a Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Introducción a videojuegosunity</div><br>
             <section id="container-slider">
                 <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
                 <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
@@ -53,17 +53,17 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                     </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/informatica/1/In/1.gif'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/informatica/1/In/2.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/1/In/3.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/1/In/4.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/1/In/5.gif');"></li>
-                    <li style="background-image: url('../../img/informatica/1/In/6.gif');"></li>
+                    <li style="background-image: url('../../img/videojuegosunity/1/In/1.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/videojuegosunity/1/In/2.gif');"></li>
+                    <li style="background-image: url('../../img/videojuegosunity/1/In/3.gif');"></li>
+                    <li style="background-image: url('../../img/videojuegosunity/1/In/4.gif');"></li>
+                    <li style="background-image: url('../../img/videojuegosunity/1/In/5.gif');"></li>
+                    <li style="background-image: url('../../img/videojuegosunity/1/In/6.gif');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">
                             <!-- Cambiar al id del curso al que corresponda -->
-                            <input type="hidden" name="id_curso" value="9">
+                            <input type="hidden" name="id_curso" value="12">
                             <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
                         </form>
 

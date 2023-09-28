@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //VERIFICAR QUE PERMISO INTENTO SEA EL CORRECTO
 $permiso_intento = 24;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 11");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 11");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -56,8 +56,8 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <a href="../../../../../../cursos/informatica/intermedio/capsulas/contenido/teoricas/ct9informatica.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 9 informatica</div><br>
+            <a href="../../../../../../cursos/videojuegosunity/intermedio/capsulas/contenido/teoricas/ct9videojuegosunity.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 9 videojuegosunity</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
@@ -246,7 +246,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="upload-img">
                 <form id="subirArchivo" enctype="multipart/form-data" action="" method="POST">
                     <input type="hidden" name="id_alumno" value="<?php echo $id_user; ?>">
-                    <input type="hidden" name="id_curso" value="8">
+                    <input type="hidden" name="id_curso" value="11">
                     <input type="hidden" name="id_capsula" value="<?php echo $permiso_intento; ?>">
                     <input type="file" name="archivo" id="inputArchivos" style="margin-left: 20%;" required>
                     <button type="submit" style="width: 150px; margin-left: 27px; border: none; background-color: #85c32e; color:white; font-size: 15px;" id="btnEnviar" name="btnEnviar">Subir Archivo</button>
@@ -300,7 +300,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Aceptar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = '../../../../../../rutas/ruta-in-i.php';
+              window.location.href = '../../../../../../rutas/ruta-vj-i.php';
           }
         });
       </script>
@@ -317,7 +317,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = '../../../../../../rutas/ruta-in-i.php';
+              window.location.href = '../../../../../../rutas/ruta-vj-i.php';
           }
         });
       </script>

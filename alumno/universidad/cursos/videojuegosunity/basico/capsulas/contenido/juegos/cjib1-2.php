@@ -15,7 +15,7 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 7;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
@@ -65,12 +65,12 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>HISTORIA DE LA INFORMATICA</b></h2>
+		<h2 class="titulo"><b>HISTORIA DE LA videojuegosunity</b></h2>
 	</div>
 
 	<section>
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-b.php">
+			<a href="../../../../../../rutas/ruta-vj-b.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -241,7 +241,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-in-b.php';
+					window.location.href = '../../../../../../rutas/ruta-vj-b.php';
 				}
 			})
 			correcto.play(); //agregando sonido al juego completado

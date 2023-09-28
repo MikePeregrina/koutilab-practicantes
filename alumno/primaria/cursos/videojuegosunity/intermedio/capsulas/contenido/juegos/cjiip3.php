@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium3.php");
@@ -85,7 +85,7 @@ if (empty($existe)) {
     <section>
 
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-in-i.php">
+            <a href="../../../../../../rutas/ruta-vj-i.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -725,7 +725,7 @@ if (empty($existe)) {
                         confirmButtonText: "Aceptar",
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "../../../../../../rutas/ruta-in-i.php";
+                            window.location.href = "../../../../../../rutas/ruta-vj-i.php";
                         }
                     });
                     correcto.play(); //asignación de sonido al juego completado

@@ -150,9 +150,9 @@ function fetchQuiz() {
           "&permiso=" +
           52 +
           "&id_curso=" +
-          8 +
+          11 +
           "&redireccion=" +
-          "..contenido/evaluativas/ce2informatica.php"; //cancatenation
+          "..contenido/evaluativas/ce2videojuegosunity.php"; //cancatenation
 
         xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
@@ -170,7 +170,7 @@ function fetchQuiz() {
               confirmButtonColor: "#3085d6",
               confirmButtonText: "Aceptar",
             }).then((result) => {
-              window.location.href = "../../../../../../rutas/ruta-in-i.php";
+              window.location.href = "../../../../../../rutas/ruta-vj-i.php";
             });
           }
         };

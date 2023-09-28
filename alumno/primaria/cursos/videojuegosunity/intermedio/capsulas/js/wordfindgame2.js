@@ -254,7 +254,7 @@
             confirmButtonText: "Aceptar",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.href = "../../../../../../rutas/ruta-in-i.php";
+              window.location.href = "../../../../../../rutas/ruta-vj-i.php";
             }
           });
           correcto.play(); //agregando el sonido de juego ganado

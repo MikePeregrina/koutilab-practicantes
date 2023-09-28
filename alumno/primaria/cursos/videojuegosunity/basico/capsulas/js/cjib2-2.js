@@ -217,7 +217,7 @@ function mostrarResultados() {
         confirmButtonText: "¡Genial!",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../../../../../../rutas/ruta-in-b.php";
+          window.location.href = "../../../../../../rutas/ruta-vj-b.php";
         }
       });
       correcto.play(); //asignando sonido al juego completado

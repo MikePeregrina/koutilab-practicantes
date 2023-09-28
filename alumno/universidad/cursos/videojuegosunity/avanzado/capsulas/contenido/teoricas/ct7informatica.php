@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
@@ -15,12 +15,12 @@ if (empty($existe)) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 14;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 9");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 5.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 5.5 videojuegosunity</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -96,14 +96,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T7/54.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T7/55.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/56.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/57.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/58.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/59.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/60.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/61.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/54.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/55.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/56.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/57.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/58.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/59.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/60.gif');"></li>
+                        <li style="background-image: url('../../img/videojuegosunity/T7/61.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
@@ -135,7 +135,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     </div>
                                     <input type="hidden" name="permiso" value="14">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="9">
+                                    <input type="hidden" name="id_curso" value="12">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
                                 </form>
                             </div>
@@ -202,7 +202,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -224,7 +224,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -245,7 +245,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -266,7 +266,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                         }
                     });
                 }
@@ -281,7 +281,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        window.location.href = '../teoricas/ct7videojuegosunity.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -294,7 +294,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        window.location.href = '../teoricas/ct7videojuegosunity.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -307,7 +307,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        window.location.href = '../teoricas/ct7videojuegosunity.php';
                     }
                 });
             }

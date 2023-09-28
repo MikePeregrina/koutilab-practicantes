@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");
@@ -46,7 +46,7 @@ if (empty($existe)) {
     </div>
     <section>
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-in-b.php">
+            <a href="../../../../../../rutas/ruta-vj-b.php">
                 <button class="btn-b" style="float: left; position: relative; margin: 10px 0 0 10px;">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -245,7 +245,7 @@ if (empty($existe)) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-vj-b.php';
                         }
                     });
                     correcto.play();
@@ -257,7 +257,7 @@ if (empty($existe)) {
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-vj-b.php';
                         }
                     });
                 }
