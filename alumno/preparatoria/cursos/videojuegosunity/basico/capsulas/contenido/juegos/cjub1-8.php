@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula23";
+$permiso = "capsula2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 24;
+$permiso_intento = 3;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -65,7 +65,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>SOPA DE LETRAS</b></h2>
+		<h2 class="titulo"><b>CAMARAS</b></h2>
 	</div>
 
 	<section>
@@ -119,7 +119,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		Swal.fire({
 			title: '¡Oh no!',
 			text: 'Koubot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
-			imageUrl: "../../img/img-juegos/img/loop.gif",
+			imageUrl: "../../img/img-juegos/loop.gif",
 			imageHeight: 320,
 			confirmButtonText: '¡Vamos!',
 			confirmButtonColor: '#85c42c',
@@ -156,7 +156,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 24 + "&id_curso=" + 10; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 3 + "&id_curso=" + 10; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -168,7 +168,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					}
 				});
 				incorrecto.play(); //agregando sonido al juego no completado
-				xmlhttp.open("POST", "../../acciones/insertar_pd24.php", true);
+				xmlhttp.open("POST", "../../acciones/insertar_pd3.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -216,8 +216,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 24 + "&id_curso=" + 10; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd24.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 3 + "&id_curso=" + 10; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd3.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({

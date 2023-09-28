@@ -2,19 +2,19 @@
 session_start();
 $id_user = $_SESSION['id_alumno_preparatoria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula30";
+$permiso = "capsula33";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 31;
+$permiso_intento = 34;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 10");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -23,382 +23,767 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 10");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
 } else {
-    $puntosGanados = 10;
+	$puntosGanados = 10;
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-1.css">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-2.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>KOUTILAB</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Maze</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
+	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body onload="iniciarTiempo(), iniciar() ">
-    <!-- CAMBIOS -->
-    <!-- Timer -->
-    <div class="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+<body>
+	<!-- Timer -->
+	<div class="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
-    <!-- Titulo general -->
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>SELECCIÓN DE RESPUESTA PARA UN ENUNCIADO</b></h2>
-    </div>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>AUDIO O SFX</b></h2>
+	</div>
 
-    <!-- Contenedor principal -->
-    <div class="contenido">
-        <div class="cont-st">
-            <a href="#" onclick="history.back();">
-                <button class="btn-b">
-                    <i class="fas fa-reply"></i>
-                </button>
-            </a>
-            <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
-                    tiempo o responde mal</b></h4>
-        </div>
+	<section>
+		<div class="cont-st">
+			<a href="#" onclick="history.back();">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h5 class="titulo"><b>Usa las flechas para ayudar a Koubot a llegar hasta su cohete espacial</b></h5>
+		</div>
 
-        <!-- Tenoch Moises -->
-        <!--contenedor principal-->
-        <div class="contenedor">
-            <!--para mostrar la puntuacion-->
-            <div class="puntaje" id="puntaje"></div>
-            <!--es el encabezado donde se muestra la categoria, numero, pregunta e imagen-->
-            <div class="encabezado">
-                <!--es opcional la parte de mostrar categoria y esta implementado para funcionar sin ella tambien-->
-                <div class="categoria" id="categoria"></div>
-                <!--No se muestra en la pantalla pero permite que se generen las preguntas "NO MOVER" -->
-                <div class="numero" id="numero"></div>
-                <!--es donde se muestra la pregunta-->
-                <h3><b>
-                        <div class="pregunta" id="pregunta">
-                        </div>
-                    </b></h3>
-                <!--muestra una imagen ilustrativa para dar pista de la respuesta pero igual es implementado para  funcionar sin la imagen-->
-                <img src="#" class="imagen" id="imagen">
-            </div>
-            <!--Funcionan con un "onclick" y solo tiene una respuesta correcta-->
+		<div id="page">
 
-            <div class="btn" id="btn1" onclick="oprimir_btn(0)"></div>
-            <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
-            <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
-            <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
-            <!--script donde se le da funcionalidad al juego-->
-            <script>
-                /* Ambos */
-                let preguntas_aleatorias = true;
-                let mostrar_pantalla_juego_términado = true;
-                let reiniciar_puntos_al_reiniciar_el_juego = true;
-                //sirve para que al inicial la pagina que cargen las preguntas guardadas en el archivo json
-                function iniciar() {
-                    base_preguntas = readText("../../js/base-preguntas-2.json");
-                    interprete_bp = JSON.parse(base_preguntas);
-                    escogerPreguntaAleatoria();
-                };
+			<div id="Message-Container">
+				<div id="message">
+					<p id="moves"></p>
+				</div>
+			</div>
 
-                let pregunta;
-                let posibles_respuestas;
-                btn_correspondiente = [
-                    select_id("btn1"),
-                    select_id("btn2"),
-                    select_id("btn3"),
-                    select_id("btn4")
-                ];
-                let npreguntas = [];
+			<br>
+			<div id="menu" style="margin-top: -500px; position: absolute;">
+				<div class="custom-select">
+					<select id="diffSelect">
+						<option value="10">Easy</option>
+						<option value="15">Medium</option>
+						<option value="25">Hard</option>
+						<option value="38">Extreme</option>
+					</select>
+				</div>
+				<input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+			</div>
 
-                let preguntas_hechas = 0;
-                let preguntas_correctas = 0;
+			<div class="maze-contenedor">
+				<div id="view">
+					<div id="mazeContainer">
+						<canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+					</div>
+				</div>
+			</div>
 
-                function escogerPreguntaAleatoria() {
-                    let n;
-                    if (preguntas_aleatorias) {
-                        n = Math.floor(Math.random() * interprete_bp.length);
-                    } else {
-                        n = 0;
-                    }
+			<!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
 
-                    while (npreguntas.includes(n)) {
-                        n++;
-                        if (n >= interprete_bp.length) {
-                            n = 0;
-                        }
-                        if (npreguntas.length == interprete_bp.length) {
-                            //Aquí es donde el juego se reinicia
-                            if (mostrar_pantalla_juego_términado) {
-                                swal.fire({
-                                    title: "Juego finalizado",
-                                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
-                                    icon: "success",
-                                    confirmButtonText: '¡Genial!'
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        alertExcelent();
-                                    }
-                                });
-                            }
-                            if (reiniciar_puntos_al_reiniciar_el_juego) {
-                                preguntas_correctas = 0
-                                preguntas_hechas = 0
-                            }
-                            npreguntas = [];
-                        }
-                    }
-                    npreguntas.push(n);
-                    preguntas_hechas++;
+		</div>
+	</section>
 
-                    escogerPregunta(n);
-                }
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script>
+		Swal.fire({
+			title: '¡Oh no!',
+			text: 'Koubot se ha perdido y necesita llegar hasta su cohete espacial, ¿Podrías ayudarlo a llegar hasta el?',
+			imageUrl: "../../img/img-juegos/loop.gif",
+			imageHeight: 320,
+			confirmButtonText: '¡Vamos!',
+			confirmButtonColor: '#85c42c',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				iniciarTiempo();
+			}
+		});
+	</script>
+	<script>
+		var segundos = 240;
+		let puntos = 0;
 
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-                function escogerPregunta(n) {
-                    pregunta = interprete_bp[n];
-                    select_id("categoria").innerHTML = pregunta.categoria;
-                    select_id("pregunta").innerHTML = pregunta.pregunta;
-                    select_id("numero").innerHTML = n;
-                    let pc = preguntas_correctas;
-                    if (preguntas_hechas > 1) {
-                        select_id("puntaje").innerHTML = pc + "/" + "5";
-                    } else {
-                        select_id("puntaje").innerHTML = "";
-                    }
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos <= 60) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 30) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos <= 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
+			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
 
-                    style("imagen").objectFit = pregunta.objectFit;
-                    desordenarRespuestas(pregunta);
-                    if (pregunta.imagen) {
-                        select_id("imagen").setAttribute("src", pregunta.imagen);
-                        style("imagen").height = "200px";
-                        style("imagen").width = "100%";
-                    } else {
-                        style("imagen").height = "0px";
-                        style("imagen").width = "0px";
-                        setTimeout(() => {
-                            select_id("imagen").setAttribute("src", "");
-                        }, 500);
-                    }
-                }
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 34 + "&id_curso=" + 10; //cancatenation
+				Swal.fire({
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
+					imageUrl: "../../img/img-juegos/loop.gif",
+					imageHeight: 350,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.reload();
+					}
+				});
+				incorrecto.play(); //agregando sonido al juego no completado
+				xmlhttp.open("POST", "../../acciones/insertar_pd34.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
+			} else {
+				segundos--;
+				setTimeout("iniciarTiempo()", 1000);
+			}
+		}
+	</script>
+	<script>
+		function rand(max) {
+			return Math.floor(Math.random() * max);
+		}
 
-                function desordenarRespuestas(pregunta) {
-                    posibles_respuestas = [
-                        pregunta.respuesta,
-                        pregunta.incorrecta1,
-                        pregunta.incorrecta2,
-                        pregunta.incorrecta3,
-                    ];
-                    posibles_respuestas.sort(() => Math.random() - 0.5);
+		function shuffle(a) {
+			for (let i = a.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[a[i], a[j]] = [a[j], a[i]];
+			}
+			return a;
+		}
 
-                    select_id("btn1").innerHTML = posibles_respuestas[0];
-                    select_id("btn2").innerHTML = posibles_respuestas[1];
-                    select_id("btn3").innerHTML = posibles_respuestas[2];
-                    select_id("btn4").innerHTML = posibles_respuestas[3];
-                }
+		function changeBrightness(factor, sprite) {
+			var virtCanvas = document.createElement("canvas");
+			virtCanvas.width = 500;
+			virtCanvas.height = 500;
+			var context = virtCanvas.getContext("2d");
+			context.drawImage(sprite, 0, 0, 500, 500);
 
-                let suspender_botones = false;
+			var imgData = context.getImageData(0, 0, 500, 500);
 
-                function oprimir_btn(i) {
-                    if (suspender_botones) {
-                        return;
-                    }
-                    suspender_botones = true;
-                    if (posibles_respuestas[i] == pregunta.respuesta) {
-                        preguntas_correctas++;
-                        btn_correspondiente[i].style.background = "#85c42caf";
-                    } else {
-                        btn_correspondiente[i].style.background = "red";
-                    }
-                    for (let j = 0; j < 4; j++) {
-                        if (posibles_respuestas[j] == pregunta.respuesta) {
-                            btn_correspondiente[j].style.background = "#85c42caf";
-                            break;
-                        }
-                    }
-                    setTimeout(() => {
-                        reiniciar();
-                        suspender_botones = false;
-                    }, 1000);
-                }
+			for (let i = 0; i < imgData.data.length; i += 4) {
+				imgData.data[i] = imgData.data[i] * factor;
+				imgData.data[i + 1] = imgData.data[i + 1] * factor;
+				imgData.data[i + 2] = imgData.data[i + 2] * factor;
+			}
+			context.putImageData(imgData, 0, 0);
 
-                // let p = prompt("numero")
+			var spriteOutput = new Image();
+			spriteOutput.src = virtCanvas.toDataURL();
+			virtCanvas.remove();
+			return spriteOutput;
+		}
 
-                function reiniciar() {
-                    for (const btn of btn_correspondiente) {
-                        btn.style.background = "rgba(61, 172, 244, 0.7)";
-                    }
-                    escogerPreguntaAleatoria();
-                }
-                //sirve para seleccionar un objeto segun su ID
-                function select_id(id) {
-                    return document.getElementById(id);
-                }
-                //sirve para seleccionar el estilo segun su ID
-                function style(id) {
-                    return select_id(id).style;
-                }
-                //sirve para leer rutas de texto local que en este caso serian las preguntas que estan en el archivo "base-preguntas.json"
-                function readText(ruta_local) {
-                    var texto = null;
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.open("GET", ruta_local, false);
-                    xmlhttp.send();
-                    if (xmlhttp.status == 200) {
-                        texto = xmlhttp.responseText;
-                    }
-                    return texto;
-                }
-                /* Ambos */
-            </script>
-        </div>
-        <!-- boton de verificar respuestas-->
-        <!-- NOTA: SE MANDO A LLAMAR LA FUNCION "marcador()" DONDE SE LLEVA LA PUNTUACION
-            EN ESA FUNCION SE MANDA A LLAMAR LA FUNCION ORIGINAL "alertExcelent()" -->
-        <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
-    </div>
-    <!-- Tenoch Moises -->
+		function displayVictoryMess(moves) {
+			document.getElementById("moves").innerHTML = moves;
+			toggleVisablity("Message-Container");
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 34 + "&id_curso=" + 10; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_pd10.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
+			Swal.fire({
+				title: '¡Muy bien!',
+				text: 'Lograste completar el laberinto',
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+				imageHeight: 350,
+				backdrop: `
+			rgba(0,143,255,0.6)
+			url("../../img/img-juegos/fondo.gif")`,
+				confirmButtonColor: '#a14cd9',
+				confirmButtonText: '¡Vamos!',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					window.location.href = '../../../../../../rutas/ruta-vj-b.php';
+				}
+			})
+			correcto.play(); //agregando sonido al juego completado
+		}
 
-    <!-- CAMBIOS -->
-    <footer class="footerimga">
-        <div class="imagen-footer">
-            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
-        </div>
-    </footer>
-    <!-- fIN CAMBIOS -->
+		function toggleVisablity(id) {
+			if (document.getElementById(id).style.visibility == "visible") {
+				document.getElementById(id).style.visibility = "hidden";
+			} else {
+				document.getElementById(id).style.visibility = "visible";
+			}
+		}
 
-    <script>
-        //ambos
-        //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
-        function marcador() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        alertExcelent();
-                    }
-                });
-            }
-        }
-        //funciona para mostrar el resultado al agotarse el tiempo
-        function marcadorTiempoAgotado() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        tiempoAgotado();
-                    }
-                });
-            }
-        }
+		function Maze(Width, Height) {
+			var mazeMap;
+			var width = Width;
+			var height = Height;
+			var startCoord, endCoord;
+			var dirs = ["n", "s", "e", "w"];
+			var modDir = {
+				n: {
+					y: -1,
+					x: 0,
+					o: "s"
+				},
+				s: {
+					y: 1,
+					x: 0,
+					o: "n"
+				},
+				e: {
+					y: 0,
+					x: 1,
+					o: "w"
+				},
+				w: {
+					y: 0,
+					x: -1,
+					o: "e"
+				}
+			};
 
-        //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
-        function tiempoAgotado() {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 31 + "&id_curso=" + 10; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd31.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-            Swal.fire({
-                title: 'Mala Suerte',
-                text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
-        }
-        //ambos
+			this.map = function() {
+				return mazeMap;
+			};
+			this.startCoord = function() {
+				return startCoord;
+			};
+			this.endCoord = function() {
+				return endCoord;
+			};
 
+			function genMap() {
+				mazeMap = new Array(height);
+				for (y = 0; y < height; y++) {
+					mazeMap[y] = new Array(width);
+					for (x = 0; x < width; ++x) {
+						mazeMap[y][x] = {
+							n: false,
+							s: false,
+							e: false,
+							w: false,
+							visited: false,
+							priorPos: null
+						};
+					}
+				}
+			}
 
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
+			function defineMaze() {
+				var isComp = false;
+				var move = false;
+				var cellsVisited = 1;
+				var numLoops = 0;
+				var maxLoops = 0;
+				var pos = {
+					x: 0,
+					y: 0
+				};
+				var numCells = width * height;
+				while (!isComp) {
+					move = false;
+					mazeMap[pos.x][pos.y].visited = true;
 
-        let puntos = 0;
+					if (numLoops >= maxLoops) {
+						shuffle(dirs);
+						maxLoops = Math.round(rand(height / 8));
+						numLoops = 0;
+					}
+					numLoops++;
+					for (index = 0; index < dirs.length; index++) {
+						var direction = dirs[index];
+						var nx = pos.x + modDir[direction].x;
+						var ny = pos.y + modDir[direction].y;
 
-        function iniciarTiempo() {
-            document.getElementById('tiempo').innerHTML = segundos + " segundos";
-            if (segundos == 0) {
-                var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 31 + "&id_curso=" + 10; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_pd31.php", true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡El tiempo se acabo!',
-                    imageUrl: "../../img/img-juegos/loop.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        marcadorTiempoAgotado();
-                        // window.location.reload();
-                    }
-                });
-            } else {
-                segundos--;
-                setTimeout("iniciarTiempo()", 1000);
-            }
-        }
+						if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+							//Check if the tile is already visited
+							if (!mazeMap[nx][ny].visited) {
+								//Carve through walls from this tile to next
+								mazeMap[pos.x][pos.y][direction] = true;
+								mazeMap[nx][ny][modDir[direction].o] = true;
 
-        //Alerta muestra de que el juego fue completado
-        function alertExcelent() {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 31 + "&id_curso=" + 10; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_pd31.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-            Swal.fire({
-                title: 'Excelente',
-                text: '¡Buen trabajo!',
-                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-vj-b.php';
-                }
-            });
-        }
-    </script>
+								//Set Currentcell as next cells Prior visited
+								mazeMap[nx][ny].priorPos = pos;
+								//Update Cell position to newly visited location
+								pos = {
+									x: nx,
+									y: ny
+								};
+								cellsVisited++;
+								//Recursively call this method on the next tile
+								move = true;
+								break;
+							}
+						}
+					}
 
+					if (!move) {
+						//  If it failed to find a direction,
+						//  move the current position back to the prior cell and Recall the method.
+						pos = mazeMap[pos.x][pos.y].priorPos;
+					}
+					if (numCells == cellsVisited) {
+						isComp = true;
+					}
+				}
+			}
 
+			function defineStartEnd() {
+				switch (rand(4)) {
+					case 0:
+						startCoord = {
+							x: 0,
+							y: 0
+						};
+						endCoord = {
+							x: height - 1,
+							y: width - 1
+						};
+						break;
+					case 1:
+						startCoord = {
+							x: 0,
+							y: width - 1
+						};
+						endCoord = {
+							x: height - 1,
+							y: 0
+						};
+						break;
+					case 2:
+						startCoord = {
+							x: height - 1,
+							y: 0
+						};
+						endCoord = {
+							x: 0,
+							y: width - 1
+						};
+						break;
+					case 3:
+						startCoord = {
+							x: height - 1,
+							y: width - 1
+						};
+						endCoord = {
+							x: 0,
+							y: 0
+						};
+						break;
+				}
+			}
+
+			genMap();
+			defineStartEnd();
+			defineMaze();
+		}
+
+		function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
+			var map = Maze.map();
+			var cellSize = cellsize;
+			var drawEndMethod;
+			ctx.lineWidth = cellSize / 40;
+
+			this.redrawMaze = function(size) {
+				cellSize = size;
+				ctx.lineWidth = cellSize / 50;
+				drawMap();
+				drawEndMethod();
+			};
+
+			function drawCell(xCord, yCord, cell) {
+				var x = xCord * cellSize;
+				var y = yCord * cellSize;
+
+				if (cell.n == false) {
+					ctx.beginPath();
+					ctx.moveTo(x, y);
+					ctx.lineTo(x + cellSize, y);
+					ctx.stroke();
+				}
+				if (cell.s === false) {
+					ctx.beginPath();
+					ctx.moveTo(x, y + cellSize);
+					ctx.lineTo(x + cellSize, y + cellSize);
+					ctx.stroke();
+				}
+				if (cell.e === false) {
+					ctx.beginPath();
+					ctx.moveTo(x + cellSize, y);
+					ctx.lineTo(x + cellSize, y + cellSize);
+					ctx.stroke();
+				}
+				if (cell.w === false) {
+					ctx.beginPath();
+					ctx.moveTo(x, y);
+					ctx.lineTo(x, y + cellSize);
+					ctx.stroke();
+				}
+			}
+
+			function drawMap() {
+				for (x = 0; x < map.length; x++) {
+					for (y = 0; y < map[x].length; y++) {
+						drawCell(x, y, map[x][y]);
+					}
+				}
+			}
+
+			function drawEndFlag() {
+				var coord = Maze.endCoord();
+				var gridSize = 4;
+				var fraction = cellSize / gridSize - 2;
+				var colorSwap = true;
+				for (let y = 0; y < gridSize; y++) {
+					if (gridSize % 2 == 0) {
+						colorSwap = !colorSwap;
+					}
+					for (let x = 0; x < gridSize; x++) {
+						ctx.beginPath();
+						ctx.rect(
+							coord.x * cellSize + x * fraction + 4.5,
+							coord.y * cellSize + y * fraction + 4.5,
+							fraction,
+							fraction
+						);
+						if (colorSwap) {
+							ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+						} else {
+							ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+						}
+						ctx.fill();
+						colorSwap = !colorSwap;
+					}
+				}
+			}
+
+			function drawEndSprite() {
+				var offsetLeft = cellSize / 50;
+				var offsetRight = cellSize / 25;
+				var coord = Maze.endCoord();
+				ctx.drawImage(
+					endSprite,
+					2,
+					2,
+					endSprite.width,
+					endSprite.height,
+					coord.x * cellSize + offsetLeft,
+					coord.y * cellSize + offsetLeft,
+					cellSize - offsetRight,
+					cellSize - offsetRight
+				);
+			}
+
+			function clear() {
+				var canvasSize = cellSize * map.length;
+				ctx.clearRect(0, 0, canvasSize, canvasSize);
+			}
+
+			if (endSprite != null) {
+				drawEndMethod = drawEndSprite;
+			} else {
+				drawEndMethod = drawEndFlag;
+			}
+			clear();
+			drawMap();
+			drawEndMethod();
+		}
+
+		function Player(maze, c, _cellsize, onComplete, sprite = null) {
+			var ctx = c.getContext("2d");
+			var drawSprite;
+			var moves = 0;
+			drawSprite = drawSpriteCircle;
+			if (sprite != null) {
+				drawSprite = drawSpriteImg;
+			}
+			var player = this;
+			var map = maze.map();
+			var cellCoords = {
+				x: maze.startCoord().x,
+				y: maze.startCoord().y
+			};
+			var cellSize = _cellsize;
+			var halfCellSize = cellSize / 2;
+
+			this.redrawPlayer = function(_cellsize) {
+				cellSize = _cellsize;
+				drawSpriteImg(cellCoords);
+			};
+
+			function drawSpriteCircle(coord) {
+				ctx.beginPath();
+				ctx.fillStyle = "yellow";
+				ctx.arc(
+					(coord.x + 1) * cellSize - halfCellSize,
+					(coord.y + 1) * cellSize - halfCellSize,
+					halfCellSize - 2,
+					0,
+					2 * Math.PI
+				);
+				ctx.fill();
+				if (coord.x === maze.endCoord().x && coord.y === maze.endCoord().y) {
+					onComplete(moves);
+					player.unbindKeyDown();
+				}
+			}
+
+			function drawSpriteImg(coord) {
+				var offsetLeft = cellSize / 50;
+				var offsetRight = cellSize / 25;
+				ctx.drawImage(
+					sprite,
+					0,
+					0,
+					sprite.width,
+					sprite.height,
+					coord.x * cellSize + offsetLeft,
+					coord.y * cellSize + offsetLeft,
+					cellSize - offsetRight,
+					cellSize - offsetRight
+				);
+				if (coord.x === maze.endCoord().x && coord.y === maze.endCoord().y) {
+					onComplete(moves);
+					player.unbindKeyDown();
+				}
+			}
+
+			function removeSprite(coord) {
+				var offsetLeft = cellSize / 50;
+				var offsetRight = cellSize / 25;
+				ctx.clearRect(
+					coord.x * cellSize + offsetLeft,
+					coord.y * cellSize + offsetLeft,
+					cellSize - offsetRight,
+					cellSize - offsetRight
+				);
+			}
+
+			function check(e) {
+				var cell = map[cellCoords.x][cellCoords.y];
+				moves++;
+				switch (e.keyCode) {
+					case 65:
+					case 37: // west
+						if (cell.w == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x - 1,
+								y: cellCoords.y
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+					case 87:
+					case 38: // north
+						if (cell.n == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x,
+								y: cellCoords.y - 1
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+					case 68:
+					case 39: // east
+						if (cell.e == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x + 1,
+								y: cellCoords.y
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+					case 83:
+					case 40: // south
+						if (cell.s == true) {
+							removeSprite(cellCoords);
+							cellCoords = {
+								x: cellCoords.x,
+								y: cellCoords.y + 1
+							};
+							drawSprite(cellCoords);
+						}
+						break;
+				}
+			}
+
+			this.bindKeyDown = function() {
+				window.addEventListener("keydown", check, false);
+
+				$("#view").swipe({
+					swipe: function(
+						event,
+						direction,
+						distance,
+						duration,
+						fingerCount,
+						fingerData
+					) {
+						console.log(direction);
+						switch (direction) {
+							case "up":
+								check({
+									keyCode: 38
+								});
+								break;
+							case "down":
+								check({
+									keyCode: 40
+								});
+								break;
+							case "left":
+								check({
+									keyCode: 37
+								});
+								break;
+							case "right":
+								check({
+									keyCode: 39
+								});
+								break;
+						}
+					},
+					threshold: 0
+				});
+			};
+
+			this.unbindKeyDown = function() {
+				window.removeEventListener("keydown", check, false);
+				$("#view").swipe("destroy");
+			};
+
+			drawSprite(maze.startCoord());
+
+			this.bindKeyDown();
+		}
+
+		var mazeCanvas = document.getElementById("mazeCanvas");
+		var ctx = mazeCanvas.getContext("2d");
+		var sprite;
+		var finishSprite;
+		var maze, draw, player;
+		var cellSize;
+		var difficulty;
+		// sprite.src = 'media/sprite.png';
+
+		window.onload = function() {
+			let viewWidth = $("#view").width();
+			let viewHeight = $("#view").height();
+			if (viewHeight < viewWidth) {
+				ctx.canvas.width = viewHeight - viewHeight / 100;
+				ctx.canvas.height = viewHeight - viewHeight / 100;
+			} else {
+				ctx.canvas.width = viewWidth - viewWidth / 100;
+				ctx.canvas.height = viewWidth - viewWidth / 100;
+			}
+
+			//Load and edit sprites
+			var completeOne = false;
+			var completeTwo = false;
+			var isComplete = () => {
+				if (completeOne === true && completeTwo === true) {
+					console.log("Runs");
+					setTimeout(function() {
+						makeMaze();
+					}, 500);
+				}
+			};
+			sprite = new Image();
+			sprite.src =
+				"../../img/img-juegos/mascota-1.png" +
+				"?" +
+				new Date().getTime();
+			sprite.setAttribute("crossOrigin", " ");
+			sprite.onload = function() {
+				sprite = changeBrightness(1.2, sprite);
+				completeOne = true;
+				console.log(completeOne);
+				isComplete();
+			};
+
+			finishSprite = new Image();
+			finishSprite.src = "../../img/img-juegos/cohete.png" +
+				"?" +
+				new Date().getTime();
+			finishSprite.setAttribute("crossOrigin", " ");
+			finishSprite.onload = function() {
+				finishSprite = changeBrightness(1.1, finishSprite);
+				completeTwo = true;
+				console.log(completeTwo);
+				isComplete();
+			};
+
+		};
+
+		window.onresize = function() {
+			let viewWidth = $("#view").width();
+			let viewHeight = $("#view").height();
+			if (viewHeight < viewWidth) {
+				ctx.canvas.width = viewHeight - viewHeight / 100;
+				ctx.canvas.height = viewHeight - viewHeight / 100;
+			} else {
+				ctx.canvas.width = viewWidth - viewWidth / 100;
+				ctx.canvas.height = viewWidth - viewWidth / 100;
+			}
+			cellSize = mazeCanvas.width / difficulty;
+			if (player != null) {
+				draw.redrawMaze(cellSize);
+				player.redrawPlayer(cellSize);
+			}
+		};
+
+		function makeMaze() {
+			if (player != undefined) {
+				player.unbindKeyDown();
+				player = null;
+			}
+			var e = document.getElementById("diffSelect");
+			difficulty = e.options[e.selectedIndex].value;
+			cellSize = mazeCanvas.width / difficulty;
+			maze = new Maze(difficulty, difficulty);
+			draw = new DrawMaze(maze, ctx, cellSize, finishSprite);
+			player = new Player(maze, mazeCanvas, cellSize, displayVictoryMess, sprite);
+			if (document.getElementById("mazeContainer").style.opacity < "100") {
+				document.getElementById("mazeContainer").style.opacity = "100";
+			}
+		}
+	</script>
 </body>
 
 </html>

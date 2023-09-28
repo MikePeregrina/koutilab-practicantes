@@ -66,7 +66,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>MEMORAMA</b></h2>
+		<h2 class="titulo"><b>MENÚ PRICIPAL</b></h2>
 	</div>
 
 	<section>

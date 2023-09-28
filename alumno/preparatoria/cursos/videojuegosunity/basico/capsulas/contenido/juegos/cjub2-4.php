@@ -50,7 +50,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/wordfind.js"></script>
-	<script type="text/javascript" src="../../js/wordfindgame.js"></script>
+	<script type="text/javascript" src="../../js/wordfindgame3.js"></script>
 	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -69,7 +69,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>SOPA DE LETRAS</b></h2>
+		<h2 class="titulo"><b>FÍSICAS (COLLIDERS Y RIGIDBODY)</b></h2>
 	</div>
 
 	<section>

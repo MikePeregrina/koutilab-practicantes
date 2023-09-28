@@ -77,7 +77,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+			<h6 class="titulo"><b>ENEMIGOS Y PERSONAJES NO JUGABLES</b></h6>
 		</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
