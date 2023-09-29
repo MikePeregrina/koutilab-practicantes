@@ -152,7 +152,7 @@ function fetchQuiz() {
           "&id_curso=" +
           9 +
           "&redireccion=" +
-          "..contenido/evaluativas/ce2informatica.php"; //cancatenation
+          "..contenido/evaluativas/ce2apps-moviles.php"; //cancatenation
 
         xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
