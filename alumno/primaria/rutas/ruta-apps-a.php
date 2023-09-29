@@ -13,7 +13,7 @@ if (empty($existe)) {
     header("Location: ../cursos/apps-moviles/avanzado/capsulas/acciones/acceso_cursos.php");
 }
 
-include "verificar-ruta-in-a.php";
+include "verificar-ruta-apps-a.php";
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de html
 $capsula_verificar_html1 = "capsula13";
@@ -74,12 +74,12 @@ function actualizarConexiones($permiso, $conexion)
 }
 
 // Verifica si la variable de sesión "actualizacion_realizada" no está definida
-if (!isset($_SESSION['actualizacion_realizada_inan'])) {
+if (!isset($_SESSION['actualizacion_realizada_appsa'])) {
     // Llama a la función para actualizar las conexiones
     actualizarConexiones($permiso, $conexion);
 
     // Establece la variable de sesión "actualizacion_realizada" para indicar que la actualización ya se hizo
-    $_SESSION['actualizacion_realizada_inan'] = true;
+    $_SESSION['actualizacion_realizada_appsa'] = true;
 }
 ?>
 <!DOCTYPE html>
