@@ -152,7 +152,7 @@ function fetchQuiz() {
           "&id_curso=" +
           7 +
           "&redireccion=" +
-          "..contenido/evaluativas/ce1informatica.php"; //cancatenation
+          "..contenido/evaluativas/ce1apps-moviles.php"; //cancatenation
 
         xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {

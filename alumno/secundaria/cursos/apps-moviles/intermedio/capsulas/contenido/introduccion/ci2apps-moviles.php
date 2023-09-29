@@ -9,7 +9,7 @@ include "../../../../../../../../acciones/conexion.php";
 
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula26";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
@@ -34,7 +34,7 @@ if (empty($existe) && $id_user != 1) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Introducción a Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Introducción a Apps Móviles</div><br>
             <section id="container-slider">
                 <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
                 <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
@@ -66,13 +66,13 @@ if (empty($existe) && $id_user != 1) {
                     </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/informatica/In/1.jpg'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/informatica/In/2.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/3.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/4.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/5.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/6.jpg');"></li>
-                    <li style="background-image: url('../../img/informatica/In/7.jpg');"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/1.jpg'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/2.jpg');"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/3.jpg');"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/4.jpg');"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/5.jpg');"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/6.jpg');"></li>
+                    <li style="background-image: url('../../img/apps-moviles/In/7.jpg');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                             <input type="hidden" name="permiso" value="27">

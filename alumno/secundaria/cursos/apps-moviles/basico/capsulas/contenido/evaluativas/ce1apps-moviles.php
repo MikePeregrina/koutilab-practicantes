@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula25";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 13");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
   header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -35,7 +35,7 @@ if (empty($existe) && $id_user != 1) {
   <div class="body">
     <div class="container">
       <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-      <div class="new-g" style="text-align: center;">Evaluación Informatica</div><br>
+      <div class="new-g" style="text-align: center;">Evaluación Apps Móviles</div><br>
       <div class="quiz-wrapper">
         <hr>
         <p id="inform" class="question-description">Obtenga tantos puntajes como desee en el cuestionario de 10 preguntas. Arrastre y suelte las opciones en el cuadro de arriba.</p>

@@ -11,7 +11,7 @@ $pregunta = $_GET['validar'];
 $permiso = $_GET['permiso'];
 $id_curso = $_GET['id_curso'];
 $puntos = $_GET['practico'];
-$urlRedireccionamiento = "../contenido/practicas/cp20informatica.php";
+$urlRedireccionamiento = "../contenido/practicas/cp20apps-moviles.php";
 
 //Verificar si ya hay intentos en la capsula
 $sql = mysqli_query($conexion, "SELECT * FROM detalle_intentos_secundaria WHERE id_capsula = '$permiso' AND id_alumno = '$id_user' AND id_curso = '$id_curso'");

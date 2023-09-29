@@ -7,19 +7,19 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 13;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium4.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 14;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 13");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 7");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 13");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -59,7 +59,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 4.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 4.5 Apps Móviles</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -108,16 +108,16 @@ if (isset($resultadoIntentos['intentos'])) {
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T16/171.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T16/172.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/173.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/174.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/175.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/176.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/177.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/178.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/179.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/180.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/171.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/172.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/173.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/174.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/175.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/176.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/177.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/178.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/179.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T16/180.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
@@ -295,7 +295,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct16informatica.php';
+                        window.location.href = '../teoricas/ct16apps-moviles.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -308,7 +308,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct16informatica.php';
+                        window.location.href = '../teoricas/ct16apps-moviles.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -321,7 +321,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct16informatica.php';
+                        window.location.href = '../teoricas/ct16apps-moviles.php';
                     }
                 });
             }
