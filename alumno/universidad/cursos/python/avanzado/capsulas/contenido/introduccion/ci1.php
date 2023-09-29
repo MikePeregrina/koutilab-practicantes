@@ -60,13 +60,13 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/P1/In/1.jpg'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/P1/In/2.jpg');"></li>
-                        <li style="background-image: url('../../img/P1/In/3.jpg');"></li>
-                        <li style="background-image: url('../../img/P1/In/4.jpg');"></li>
-                        <li style="background-image: url('../../img/P1/In/5.jpg');"></li>
-                        <li style="background-image: url('../../img/P1/In/6.jpg');"></li>
-                        <li style="background-image: url('../../img/P1/In/7.jpg');"></li>
+                        <li style="background-image: url('../../img/1/I/1.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/I/2.gif');"></li>
+                        <li style="background-image: url('../../img/1/I/3.gif');"></li>
+                        <li style="background-image: url('../../img/1/I/4.gif');"></li>
+                        <li style="background-image: url('../../img/1/I/5.gif');"></li>
+                        <li style="background-image: url('../../img/1/I/6.gif');"></li>
+                        <li style="background-image: url('../../img/1/I/7.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
                             <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                                 <input type="hidden" name="permiso" value="1">

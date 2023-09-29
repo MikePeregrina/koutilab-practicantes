@@ -6,15 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7;");
+$permiso = "capsula28";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../basico/capsulas/contenido/alertas/paquete_premium3.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 29;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 1.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 2 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -85,59 +85,47 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_9" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T12/94.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T12/95.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/96.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/97.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/98.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/99.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/100.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/101.gif');"></li>
+                        <li style="background-image: url('../../img/1/T10/98.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/T10/99.gif');"></li>
+                        <li style="background-image: url('../../img/1/T10/100.gif');"></li>
+                        <li style="background-image: url('../../img/1/T10/101.gif');"></li>
+                        <li style="background-image: url('../../img/1/T10/102.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál de los siguientes no es un tipo de conector analógico mencionado en el texto?</h1>
+                                    <h1>¿En cuántas áreas se clasifican las teclas del teclado mencionadas en el texto?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Cables HDMI.
+                                            6 áreas.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Cables TS.
+                                            4 áreas.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Cables XLR.
+                                            3 áreas.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Cables RCA.
+                                            5 áreas.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="29">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="7">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct12informatica.php">
                                 </form>
                             </div>
                         </li>

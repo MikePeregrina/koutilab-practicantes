@@ -89,12 +89,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/js/T5.5/167.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/js/T5.5/168.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/169.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/170.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/171.gif');"></li>
-                        <li style="background-image: url('../../img/js/T5.5/172.gif');"></li>
+                        <li style="background-image: url('../../img/3/T5.5/202.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/3/T5.5/203.gif');"></li>
+                        <li style="background-image: url('../../img/3/T5.5/204.gif');"></li>
+                        <li style="background-image: url('../../img/3/T5.5/205.gif');"></li>
+                        <li style="background-image: url('../../img/3/T5.5/206.gif');"></li>
+                        <li style="background-image: url('../../img/3/T5.5/207.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct7js.php">

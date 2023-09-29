@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula33";
+$permiso = "capsula31";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 34;
+$permiso_intento = 32;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 7");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -88,11 +88,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T14/110.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T14/111.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/112.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/113.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/114.gif');"></li>
+                        <li style="background-image: url('../../img/1/T11/112.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/T11/113.gif');"></li>
+                        <li style="background-image: url('../../img/1/T11/114.gif');"></li>
+                        <li style="background-image: url('../../img/1/T11/115.gif');"></li>
+                        <li style="background-image: url('../../img/1/T11/116.gif');"></li>
 
                         <li>
                             <div>
@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Controlar el volumen del sonido.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="34">
+                                    <input type="hidden" name="permiso" value="32">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="7">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

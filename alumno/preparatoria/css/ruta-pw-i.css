@@ -13,20 +13,21 @@ body {
   padding-top: 20px;
   font-family: Arial, sans-serif;
 }
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, .main-content::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
-body::-webkit-scrollbar:vertical {
+body::-webkit-scrollbar:vertical, .main-content::-webkit-scrollbar:vertical {
   width: 10px;
 }
 
 body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button, .main-content::-webkit-scrollbar-button:increment,
+.main-content::-webkit-scrollbar-button {
   display: none;
 }
 
-body::-webkit-scrollbar:horizontal {
+body::-webkit-scrollbar:horizontal, .main-content::-webkit-scrollbar:horizontal {
   height: 10px;
 }
 
@@ -34,6 +35,12 @@ body::-webkit-scrollbar-thumb {
   background: rgba(129, 179, 243);
   border-radius: 20px;
   border: 2px solid #f1f2f3;
+}
+
+main-content::-webkit-scrollbar-thumb {
+  background: rgba(129, 178, 243, 0);
+  border-radius: 20px;
+  border: 2px solid #f1f2f300;
 }
 
 body::-webkit-scrollbar-track {

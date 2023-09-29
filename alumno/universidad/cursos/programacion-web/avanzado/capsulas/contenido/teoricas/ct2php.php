@@ -91,12 +91,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/php/T2/146.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/php/T2/147.gif');"></li>
-                        <li style="background-image: url('../../img/php/T2/148.gif');"></li>
-                        <li style="background-image: url('../../img/php/T2/149.gif');"></li>
-                        <li style="background-image: url('../../img/php/T2/150.gif');"></li>
-                        <li style="background-image: url('../../img/php/T2/151.gif');"></li>
+                        <li style="background-image: url('../../img/4/T2/179.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/4/T2/180.gif');"></li>
+                        <li style="background-image: url('../../img/4/T2/181.gif');"></li>
+                        <li style="background-image: url('../../img/4/T2/182.gif');"></li>
+                        <li style="background-image: url('../../img/4/T2/183.gif');"></li>
+                        <li style="background-image: url('../../img/4/T2/184.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_ct2php.php">
