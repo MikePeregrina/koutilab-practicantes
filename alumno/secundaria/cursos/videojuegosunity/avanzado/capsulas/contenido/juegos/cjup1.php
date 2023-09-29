@@ -2,42 +2,18 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-  header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula37";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-  header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
 }
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 38;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-  $totalIntentos = $resultadoIntentos['intentos'];
-  if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-    $puntosGanados = 8;
-  } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-    $puntosGanados = 6;
-  } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-    $puntosGanados = 0;
-  } else {
-    $puntosGanados = 0;
-  }
-} else {
-  $puntosGanados = 10;
-}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -63,7 +39,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
   <!-- Titulo general -->
   <div class="titulo-gen">
-    <h2 class="titulo"><b>CONDICION DE GAME OVER (GAME MANAGER)</b></h2>
+    <h2 class="titulo"><b>TRANSICIÓN DE CÁMARA</b></h2>
   </div>
 
   <!-- Contenedor principal -->
@@ -82,47 +58,47 @@ if (isset($resultadoIntentos['intentos'])) {
         <!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
         <!--Generando pregunta 1-->
         <h3>
-          1- ¿Qué componente se debe añadir al Canvas para mostrar el mensaje de Game Over?
+          1- ¿Qué son las transitions en UNITY?
           <select class="select" id="respuesta0">
             <!--Generando lista de opciones de respuesta de la pregunta 1-->
             <option value="----">...</option>
-            <option value="incorrecto">Mensaje</option>
-            <option value="incorrecto">Texto</option>
-            <option value="correcto">TextoMensaje</option>
+            <option value="incorrecto">MAGIA</option>
+            <option value="incorrecto">CÁMARAS</option>
+            <option value="correcto">TRANSICIONES</option>
           </select>
         </h3>
         <!--Generando pregunta 2-->
         <h3>
-          2- ¿Dónde debe estar posicionado el TextoMensaje en la pantalla?
+          2- ¿Solamente puede haber una transición activa en cualquier momento?
           <select class="select" id="respuesta1">
             <!--Generando lista de opciones de respuesta de la pregunta 2-->
             <option value="----">...</option>
-            <option value="incorrecto">Arriva</option>
-            <option value="incorrecto">Derecha</option>
-            <option value="correcto">Centro</option>
+            <option value="incorrecto">NO SE</option>
+            <option value="incorrecto">FALSO</option>
+            <option value="correcto">CIERTO</option>
           </select>
         </h3>
         <!--Generando pregunta 3-->
         <h3>
-          3- ¿Qué tipo de componente UI se debe utilizar para mostrar el mensaje de Game Over?
+          3- ¿la transición actualmente activa puede ser interrumpida con otra transición?
           <select class="select" id="respuesta2">
             <!--Generando lista de opciones de respuesta de la pregunta 3-->
             <option value="----">...</option>
-            <option value="correcto">Text</option>
-            <option value="incorrecto">Texto</option>
-            <option value="incorrecto">Comentario</option>
+            <option value="correcto">CIERTO</option>
+            <option value="incorrecto">FALSO</option>
+            <option value="incorrecto">AMBAS</option>
           </select>
         </h3>
         <!--Generando primer pregunta-->
 
         <h3>
-          4- ¿Qué tipo de mensaje se mostrará una vez que el usuario gana un juego por completo?
+          4- ¿Una transición puede tener una sola condición,?
           <select class="select" id="respuesta3">
             <!--Generando opciones de respuesta de la pregunta-->
             <option value="----">...</option>
-            <option value="incorrecto">Juego Iniciada</option>
-            <option value="incorrecto">Pausa</option>
-            <option value="correcto">Juego Terminado</option>
+            <option value="incorrecto">NO SE</option>
+            <option value="incorrecto">CORRECTO</option>
+            <option value="correcto">FALSO</option>
           </select>
         </h3>
         <!--Generando primer pregunta-->
@@ -169,8 +145,8 @@ if (isset($resultadoIntentos['intentos'])) {
 
       if (segundos == 0) {
         var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 38 + "&id_curso=" + 12; //cancatenation
-        xmlhttp.open("POST", "../../acciones/insertar_pd38.php", true);
+        var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 12; //cancatenation
+        xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send(param);
         Swal.fire({
@@ -192,8 +168,8 @@ if (isset($resultadoIntentos['intentos'])) {
     //funcion Error, determina que las respuestas sean correctas
     function error() {
       var xmlhttp = new XMLHttpRequest();
-      var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 38 + "&id_curso=" + 12; //cancatenation
-      xmlhttp.open("POST", "../../acciones/insertar_pd38.php", true);
+      var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 12; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
       xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xmlhttp.send(param);
       Swal.fire({
@@ -216,8 +192,8 @@ if (isset($resultadoIntentos['intentos'])) {
     //Alerta muestra de que el juego fue completado
     function alertExcelent() {
       var xmlhttp = new XMLHttpRequest();
-      var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 38 + "&id_curso=" + 12; //cancatenation
-      xmlhttp.open("POST", "../../acciones/insertar_pd38.php", true);
+      var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 12; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
       xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xmlhttp.send(param);
       Swal.fire({

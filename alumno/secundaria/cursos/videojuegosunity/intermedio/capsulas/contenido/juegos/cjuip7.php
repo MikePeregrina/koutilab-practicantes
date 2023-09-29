@@ -6,37 +6,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula24";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
+$permiso = "capsulapago2";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
 }
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 25;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
-} else {
-	$puntosGanados = 10;
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,39 +33,39 @@ if (isset($resultadoIntentos['intentos'])) {
 </head>
 
 <body onload="iniciarTiempo();">
-	<!-- CAMBIOS -->
+<!-- CAMBIOS -->
 	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>SALTO CON GROUND CHECK</b></h2>
+		<h2 class="titulo"><b>CICLO DE DIA  Y NOCHE</b></h2>
 	</div>
 
 	<section>
 
 		<div class="cont-st">
-			<a href="#" onclick="history.back();">
-				<button class="btn-b">
-					<i class="fas fa-reply"></i>
-				</button>
-			</a>
-			<h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
-		</div>
-		<!--FIN  CAMBIOS -->
+            <a href="#" onclick="history.back();">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
+        </div>
+<!--FIN  CAMBIOS -->
 
 		<!--CONTENEDOR DEL JUEGO-->
-		<div class="mjuego">
+        <div class="mjuego">
 			<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
 			<div class="words">
 				<div class="title-h6">
 					<h4><b>Palabras a buscar:</b></h4>
-				</div>
-				<div id='Palabras'></div>
+				</div>	
+				<div id='Palabras' ></div>
 			</div>
 
 			<!-- Sección donde se agrega la sopa de letras -->
@@ -100,17 +75,17 @@ if (isset($resultadoIntentos['intentos'])) {
 		</div>
 
 	</section>
-	<!-- CAMBIOS -->
+<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-	<!-- fIN CAMBIOS -->
+<!-- fIN CAMBIOS -->
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
-		var words = ['FUNCION', 'COLISIONES', 'COMANDOS', 'GROUND', 'CHECK', 'OBJETO', 'SECUENCIA', 'SUELO'];
+		var words = ['DIA', 'NOCHE', 'CICLO', 'JUEGO', 'ENTORNO', 'UNITY', 'INTENSIDAD', 'LUZ'];
 		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
 
 		var puzzle = wordfind.newPuzzle(words, {
@@ -125,31 +100,30 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
+			var correcto = document.createElement("audio");
+		correcto.src = "../sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../sonidos/incorrecto.mp3";
 		var segundos = 240;
 
 		let puntos = 0;
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
-			if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 30) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 10) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
+			    if (segundos <= 60) {
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
 
 			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 12; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -157,9 +131,9 @@ if (isset($resultadoIntentos['intentos'])) {
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.reload();
+						window.location.href = '#';
 					}
-				});
+				});incorrecto.play();
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

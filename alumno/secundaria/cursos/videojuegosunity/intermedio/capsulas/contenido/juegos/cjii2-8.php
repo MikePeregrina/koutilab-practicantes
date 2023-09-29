@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>PUBLICACION Y DISTRIBUCION</b></h2>
 	</div>
 
 	<section>
@@ -104,45 +104,45 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Arreglo de preguntas
 		var preguntas = [{
 				num: 1,
-				pregunta: "¿A qué nos referimos cuando hablamos de Word y la Web?",
-				opA: "A poder crear o editar un documento de word en la web",
-				opB: "A subir un documento Word a la web",
-				opC: "A ver documentos de Word en la web",
+				pregunta: "¿Antes de publicar tu juego, debes determinar en qué plataformas deseas que esté disponible?",
+				opA: "¡Si!",
+				opB: "¡No! ",
+				opC: "No lo se",
 				correcta: "A",
 				tiempo: "30",
 			},
 			{
 				num: 2,
-				pregunta: "¿Puedo ver, crear o editar un documento de Word desde un celular, tablet o computadora siempre y cuando sea en la web?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿Cada plataforma de juegos puede requerir diferentes adaptaciones y aprobaciones?",
+				opA: "¡Si!",
+				opB: "¡No! ",
 				opC: "No lo se",
 				correcta: "A",
 				tiempo: "20",
 			},
 			{
 				num: 3,
-				pregunta: "¿Pueden otras personas editar los documentos que haga si estás en la web?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿Algunas plataformas, como las consolas, pueden requerir un proceso de certificación antes de que tu juego pueda ser publicado?",
+				opA: "¡Si!",
+				opB: "¡No!",
 				opC: "No lo se",
 				correcta: "A",
 				tiempo: "30",
 			},
 			{
 				num: 4,
-				pregunta: "¿Puedo trabajar en un documento de Word en la web si no tengo conexión a internet?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿No Debes seguir los procedimientos y estándares establecidos por la plataforma.?",
+				opA: "¡Si!",
+				opB: "¡No!",
 				opC: "No lo se",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 5,
-				pregunta: "¿Puedo añadir imágenes, tipos de formatos de texto o cualquier otro elemento en Word para la web?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿Debes empaquetar tu juego de acuerdo con las especificaciones de la plataforma?",
+				opA: "¡Si!",
+				opB: "¡No!",
 				opC: "No lo se",
 				correcta: "A",
 				tiempo: "30",

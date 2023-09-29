@@ -66,7 +66,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>MEMORAMA</b></h2>
+		<h2 class="titulo"><b>INTERACCION DEL JUGADOR</b></h2>
 	</div>
 
 	<section>
@@ -110,18 +110,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fab fa-windows"></i>',
-				'<i class="fas fa-tv"></i>',
-				'<i class="fas fa-window-close"></i>',
-				'<i class="fas fa-keyboard"></i>',
-				'<i class="far fa-save"></i>',
-				'<i class="fas fa-download"></i>',
-				'<i class="fas fa-upload"></i>',
-				'<i class="fas fa-heading"></i>',
-				'<i class="fas fa-file-word"></i>',
-				'<i class="fas fa-print"></i>',
-				'<i class="far fa-window-maximize"></i>',
-				'<i class="fas fa-power-off"></i>'
+				'<i>JUGADOR</i>',
+				'<i>JUEGO</i>',
+				'<i>ENTORNO</i>',
+				'<i>TECLADO</i>',
+				'<i>RATON</i>',
+				'<i>CONTROL</i>',
+				'<i>PANTALLA</i>',
+				'<i>TACTIL</i>',
+				'<i>SENSOR</i>',
+				'<i>MOVER</i>',
+				'<i>SALTAR</i>',
+				'<i>VOLAR</i>'
 			]
 		}
 

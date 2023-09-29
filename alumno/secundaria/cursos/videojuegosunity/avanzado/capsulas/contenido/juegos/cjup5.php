@@ -2,41 +2,16 @@
 session_start();
 $id_user = $_SESSION['id_alumno_secundaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula40";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$permiso = "capsulapago5";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium5.php");
 }
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 41;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -45,13 +20,12 @@ if (isset($resultadoIntentos['intentos'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-1.css">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-2.css">
+    <link rel="stylesheet" href="../../css/css-juegos/seleccionar-respuesta2.css">
+    <link rel="stylesheet" href="../../css/css-juegos/seleccionar-respuesta1.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo(), iniciar() ">
@@ -65,13 +39,13 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>LUCES</b></h2>
+        <h2 class="titulo"><b>CREACION DE PREFABS DE OBSTACULOS</b></h2>
     </div>
 
     <!-- Contenedor principal -->
     <div class="contenido">
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-vj-i.php">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -106,7 +80,6 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
             <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
             <!--script donde se le da funcionalidad al juego-->
-            <script src="index.js"></script>
 
         </div>
         <!-- boton de verificar respuestas-->
@@ -125,12 +98,6 @@ if (isset($resultadoIntentos['intentos'])) {
     <!-- fIN CAMBIOS -->
 
     <script>
-        //Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
         /* Ambos */
         let preguntas_aleatorias = true;
         let mostrar_pantalla_juego_términado = true;
@@ -203,7 +170,7 @@ if (isset($resultadoIntentos['intentos'])) {
             select_id("numero").innerHTML = n;
             let pc = preguntas_correctas;
             if (preguntas_hechas > 1) {
-                select_id("puntaje").innerHTML = pc + "/" + "10";
+                select_id("puntaje").innerHTML = pc + "/" + "5";
             } else {
                 select_id("puntaje").innerHTML = "";
             }
@@ -328,6 +295,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
         function tiempoAgotado() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 32 + "&id_curso=" + 12; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: 'Mala Suerte',
                 text: '¡Mejora tu Tiempo!',
@@ -343,13 +315,12 @@ if (isset($resultadoIntentos['intentos'])) {
                     window.location.reload();
                 }
             });
-
         }
         //ambos
 
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 240;
+        var segundos = 62;
 
         let puntos = 0;
 
@@ -367,6 +338,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
+
             if (segundos == 0) {
                 Swal.fire({
                     title: 'Oops...',
@@ -379,7 +351,6 @@ if (isset($resultadoIntentos['intentos'])) {
                         // window.location.reload();
                     }
                 });
-                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
@@ -388,6 +359,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
         //Alerta muestra de que el juego fue completado
         function alertExcelent() {
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 12; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
             Swal.fire({
                 title: 'Excelente',
                 text: '¡Buen trabajo!',
@@ -400,10 +376,9 @@ if (isset($resultadoIntentos['intentos'])) {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                    window.location.href = '../../../../../../rutas/ruta-vj-a.php';
                 }
             });
-            correcto.play(); //asignado sonido al juego completado
         }
     </script>
 

@@ -63,7 +63,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h2>
+        <h2 class="titulo"><b>PARALLAX(FONDO CON ANIMACION)</b></h2>
     </div>
 
     <section>
@@ -81,11 +81,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <!-- Columna de lado izquierdo -->
             <div class="left-column">
                 <!-- opciones estas son las principales -->
-                <div class="word-box" id="css">Imágenes</div>
-                <div class="word-box" id="sql">Tablas</div>
-                <div class="word-box" id="html">Gráficos</div>
-                <div class="word-box" id="javascript">Formas</div>
-                <div class="word-box" id="php">Cuadros de texto</div>
+                <div class="word-box" id="css">Efecto</div>
+                <div class="word-box" id="sql">Juegos</div>
+                <div class="word-box" id="html">Ilusion</div>
+                <div class="word-box" id="javascript">Graficos</div>
+                <div class="word-box" id="php">Capas</div>
             </div>
             <!-- Mapeo donde se trazan las lineas -->
             <canvas id="canvas"> </canvas>
@@ -93,11 +93,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <!-- columna de lado derecho -->
             <div class="right-column">
                 <!-- Respuestas -->
-                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')"><i class="fas fa-circle fa-lg"></i></div>
-                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')"><i class="fas fa-text-height fa-lg"></i></div>
-                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')"><i class="fas fa-chart-line fa-lg"></i></div>
-                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')"><i class="fas fa-image fa-lg"></i></div>
-                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')"><i class="fas fa-table fa-lg"></i></div>
+                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">Formato</div>
+                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">Fondo</div>
+                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">Profundidad</div>
+                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Parallax</div>
+                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">Crear</div>
             </div>
         </div>
 
