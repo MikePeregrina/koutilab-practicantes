@@ -125,7 +125,7 @@ if (!isset($_SESSION['actualizacion_realizada_inbn'])) {
     </audio>
     <div class="containers">
         <a href="../perfil.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" class="btn-b"><i class="fas fa-reply"></i></button></a>
-        <h1>CURSO DE APLICACIONES MÓVILES BÁSICO DE KOUTILAB</h1>
+        <h1>CURSO DE APPS MÓVILES BÁSICO DE KOUTILAB</h1>
     </div>
     <aside class="sidebar">
         <div class="circle" style="background-image:url(../img/BTNINTRO1.png); background-size:cover;background-position:center ">
