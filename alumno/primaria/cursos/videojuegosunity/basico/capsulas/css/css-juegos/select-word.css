@@ -11,7 +11,7 @@
 }
 
 body{
-  background-image: url(../../img/img_juegos/bg.png);/*Se cambio el fondo*/
+  background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
   background-repeat: no-repeat; /*no repite la imagen*/
   background-size: cover;/*distribuye la imagen a toda la pantalla*/
   -webkit-user-select: none;
@@ -521,6 +521,9 @@ h4 {
   }
   
   @media (max-width: 480px) {
+    .timer{
+      margin-left: 68%;
+    }
     .contenido h4 {
       font-size: 90%;
     }

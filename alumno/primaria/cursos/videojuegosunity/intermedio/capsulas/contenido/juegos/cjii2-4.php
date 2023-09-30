@@ -2,39 +2,39 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula38";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11");
+$permiso = "capsula37";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 39;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 11");
+$permiso_intento = 38;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 11");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
 } else {
-    $puntosGanados = 10;
+	$puntosGanados = 10;
 }
 
 ?>
@@ -42,31 +42,33 @@ if (isset($resultadoIntentos['intentos'])) {
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/css-juegos/robot.css" /><!--Linkeo de la hoja de estilos-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../../css/css-juegos/robot.css" /><!--Linkeo de la hoja de estilos-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
-    <!-- Parte que modifique Inicio -->
-    <!-- Timer -->
-    <div class="timer" id="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
-    <div class="titulo-gen">
-        <h2 class="titulo"><b>TABULACIONES Y LISTAS</b></h2>
-    </div>
+	<!-- CAMBIOS -->
+	<!-- Timer -->
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
-    <div class="cont-st">
-        <a href="../../../../../../rutas/ruta-vj-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo"><b>TEMPORIZADOR</b></h2>
+	</div>
+
+	<div class="cont-st">
+        <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
         <h4 class="titulo"><b>Descubre la palabra o frase mediante la pista y da click sobre las letras para escribirla, si te equivocas se construirá Koubot y al finalizar perderás</b></h4>
@@ -112,8 +114,9 @@ if (isset($resultadoIntentos['intentos'])) {
                 div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
+
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -145,7 +148,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var ctx;
         var canvas;
         var palabra;
-        var letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
+        var letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM()";
         var colorTecla = "rgba(61, 172, 244)";
         var colorMargen = "white";
         var inicioX = 330;
@@ -164,11 +167,8 @@ if (isset($resultadoIntentos['intentos'])) {
         var errores = 0;
 
         /* Palabras */
-        palabras_array.push("LISTAS");
-        palabras_array.push("TABULACIONES");
-        palabras_array.push("DOS");
-        palabras_array.push("VIÑETAS");
-        palabras_array.push("NUMERADAS");
+        palabras_array.push("TEMPORIZADOR");
+        palabras_array.push("STARTTIMER()");
 
         /* Objetos */
         function Tecla(x, y, ancho, alto, letra) {
@@ -230,23 +230,12 @@ if (isset($resultadoIntentos['intentos'])) {
             switch (
                 palabra // Se crea un switch para poder controlar las pistas segun la palabra
             ) {
-                case "LISTAS": // Se debera hacer un case por cada palabra
-                    pista = "Son herramientas que te permiten organizar y estructurar el contenido. ";
+                case "TEMPORIZADOR": // Se debera hacer un case por cada palabra
+                    pista = "Es una herramienta útil en muchos juegos, para limitar el tiempo de juego.";
                     break; // Es importante el break en cada case
-                case "TABULACIONES":
+                case "STARTTIMER()":
                     pista =
-                        "Son puntos de referencia que estableces en el documento para alinear el texto de manera precisa";
-                    break;
-                case "DOS":
-                    pista =
-                        "Es la cantidas de tipos principales de listas en Word.";
-                    break;
-                case "VIÑETAS":
-                    pista = "Se utilizan para crear una lista en la que cada elemento está precedido por un símbolo en lugar de una numeración";
-                    break;
-                case "NUMERADAS":
-                    pista =
-                        "Se utilizan para crear una lista en la que cada elemento está numerado en orden secuencial.";
+                        "Puedes iniciar el temporizador llamando a.";
                     break;
                 default: // El defaul se puede omitir //
                     pista = "No hay pista aun xP";
@@ -400,7 +389,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 var puntos = <?php echo $puntosGanados; ?>
 
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 39 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-4.php'; //cancatenation
+                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -417,13 +406,13 @@ if (isset($resultadoIntentos['intentos'])) {
                     confirmButtonText: "Aceptar",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../../../../../../rutas/ruta-vj-i.php";
+                        window.location.href = "../../../../../../rutas/ruta-pw-b.php";
                     }
                 });
                 Correcto.play(); //Agregando sonido al juego completado
             } else {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss2.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -463,6 +452,5 @@ if (isset($resultadoIntentos['intentos'])) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
 
 </html>

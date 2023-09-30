@@ -6,21 +6,21 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsula44";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11");
+$permiso = "capsula43";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 45;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 11");
+$permiso_intento = 44;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 11");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -63,7 +63,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>RELACIONA LAS COLUMNAS</b></h2>
+        <h2 class="titulo"><b>PARALLAX(FONDO CON ANIMACION)</b></h2>
     </div>
 
     <section>
@@ -81,11 +81,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <!-- Columna de lado izquierdo -->
             <div class="left-column">
                 <!-- opciones estas son las principales -->
-                <div class="word-box" id="css">Imágenes</div>
-                <div class="word-box" id="sql">Tablas</div>
-                <div class="word-box" id="html">Gráficos</div>
-                <div class="word-box" id="javascript">Formas</div>
-                <div class="word-box" id="php">Cuadros de texto</div>
+                <div class="word-box" id="css">Efecto</div>
+                <div class="word-box" id="sql">Juegos</div>
+                <div class="word-box" id="html">Ilusion</div>
+                <div class="word-box" id="javascript">Graficos</div>
+                <div class="word-box" id="php">Capas</div>
             </div>
             <!-- Mapeo donde se trazan las lineas -->
             <canvas id="canvas"> </canvas>
@@ -93,11 +93,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <!-- columna de lado derecho -->
             <div class="right-column">
                 <!-- Respuestas -->
-                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')"><i class="fas fa-circle fa-lg"></i></div>
-                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')"><i class="fas fa-text-height fa-lg"></i></div>
-                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')"><i class="fas fa-chart-line fa-lg"></i></div>
-                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')"><i class="fas fa-image fa-lg"></i></div>
-                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')"><i class="fas fa-table fa-lg"></i></div>
+                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">Formato</div>
+                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">Fondo</div>
+                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">Profundidad</div>
+                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Parallax</div>
+                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">Crear</div>
             </div>
         </div>
 
@@ -274,11 +274,6 @@ if (isset($resultadoIntentos['intentos'])) {
             //validamos que ya se hizo intento de resolver todo el juego
             if (todasSeleccionadas) {
                 if (respuestasCorrectas < 3) {
-                    var xmlhttp = new XMLHttpRequest();
-                    var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
-                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    xmlhttp.send(param);
                     Swal.fire({
                         //estrucutra de la alerta
                         title: '!Puedes seguir mejorado!',
@@ -296,12 +291,6 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 } else {
-                    var puntos = <?php echo $puntosGanados; ?>
-                    var xmlhttp = new XMLHttpRequest();
-                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
-                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    xmlhttp.send(param);
                     //llamamos a la alerta
                     Swal.fire({
                         //estrucutra de la alerta
@@ -316,7 +305,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "../../../../../../rutas/ruta-vj-i.php";
+                            window.location.href = "../../../../../../rutas/ruta-in-i.php";
                         }
                     });
 
@@ -361,11 +350,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
-                var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
-                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',

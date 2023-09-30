@@ -345,7 +345,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 62;
+        var segundos = 240;
 
         let puntos = 0;
 
