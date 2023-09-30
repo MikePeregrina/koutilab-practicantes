@@ -6,37 +6,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula28";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
+$permiso = "capsulapago3";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium3.php");
 }
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 29;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
-} else {
-	$puntosGanados = 10;
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +41,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>REPOSICIONAMIENTO DE SUELO</b></h2>
+		<h2 class="titulo"><b>INTRODUCCIÓN Y CONFIGURACIÓN INICIAL</b></h2>
 	</div>
 
 	<section>
@@ -105,18 +80,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fa-brands fa-unity"></i>',
-				'<i class="fa-regular fa-hand"></i>',
-				'<i class="fa-solid fa-up-down-left-right"></i>',
-				'<i class="fa-solid fa-maximize"></i>',
-				'<i class="fa-solid fa-up-right-and-down-left-from-center"></i>',
-				'<i class="fa-solid fa-magnifying-glass-plus"></i>',
-				'<i class="fa-solid fa-scroll"></i>',
-				'<i class="fa-solid fa-street-view"></i>',
-				'<i class="fa-solid fa-arrows-spin"></i>',
-				'<i class="fa-solid fa-down-left-and-up-right-to-center"></i>',
-				'<i class="fa-solid fa-arrows-up-to-line"></i>',
-				'<i class="fa-solid fa-arrows-down-to-line"></i>'
+				'<i><img src="../../img/img-juegos/consola-de-juegos.png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/consola-de-video (2).png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/consola-de-video (3).png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/consola-de-video (4).png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/consola-de-video.png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/control-de-juego (1).png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/ganador.png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/juego-de-carreras.png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/juego-de-mesa.png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/juego-de-pc.png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/punto-de-control (2).png" width= "55px"></i>',
+				'<i><img src="../../img/img-juegos/visualizacion-de-video.png" width= "55px"></i>'
 			]
 		}
 
@@ -180,8 +155,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 29 + "&id_curso=" + 12; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 12; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
@@ -239,14 +214,14 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 29 + "&id_curso=" + 12; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 12; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
-					imageUrl: "../../img/img-juegos/loop.gif",
+					imageUrl: "img/loop.gif",
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {

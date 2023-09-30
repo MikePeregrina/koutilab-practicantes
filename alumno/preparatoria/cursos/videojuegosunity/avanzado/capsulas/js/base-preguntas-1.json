@@ -1,11 +1,11 @@
 [
 {
     "categoria": "prefabs",
-    "pregunta": "Es conveniente construir un GameObject en la escena añadiendo _______",
-    "respuesta": "Componentes",
-    "incorrecta1": "Problemas",
-    "incorrecta2": "Objetos",
-    "incorrecta3": "Duplicaciones",
+    "pregunta": "¿El comportamiento predeterminado de crear objetos generados a partir de prefabricados en el cliente se puede personalizar?",
+    "respuesta": "SI",
+    "incorrecta1": "NO",
+    "incorrecta2": "NO SE",
+    "incorrecta3": "AMBAS",
     "imagen": "",
     "objectFit" : "cover"  
 },

@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
   <!-- Titulo general -->
   <div class="titulo-gen">
-    <h2 class="titulo"><b>TRANSICIÓN DE CÁMARA</b></h2>
+    <h2 class="titulo"><b>CORRER</b></h2>
   </div>
 
   <!-- Contenedor principal -->
@@ -83,47 +83,47 @@ if (isset($resultadoIntentos['intentos'])) {
         <!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
         <!--Generando pregunta 1-->
         <h3>
-          1- ¿Qué son las transitions en UNITY?
+          1- ¿Para que el jugador pueda correr, se tienen que realizar seis aproximaciones diferentes?
           <select class="select" id="respuesta0">
             <!--Generando lista de opciones de respuesta de la pregunta 1-->
             <option value="----">...</option>
-            <option value="incorrecto">MAGIA</option>
-            <option value="incorrecto">CÁMARAS</option>
-            <option value="correcto">TRANSICIONES</option>
+            <option value="incorrecto">NO LO SE</option>
+            <option value="incorrecto">CIERTO</option>
+            <option value="correcto">FALSO</option>
           </select>
         </h3>
         <!--Generando pregunta 2-->
         <h3>
-          2- ¿Solamente puede haber una transición activa en cualquier momento?
+          2- ¿Cuantas aproximaciones diferentes se tienen que realizar para que el jugador pueda correr?
           <select class="select" id="respuesta1">
             <!--Generando lista de opciones de respuesta de la pregunta 2-->
             <option value="----">...</option>
-            <option value="incorrecto">NO SE</option>
-            <option value="incorrecto">FALSO</option>
-            <option value="correcto">CIERTO</option>
+            <option value="incorrecto">CUATRO</option>
+            <option value="incorrecto">SEIS</option>
+            <option value="correcto">DOS</option>
           </select>
         </h3>
         <!--Generando pregunta 3-->
         <h3>
-          3- ¿la transición actualmente activa puede ser interrumpida con otra transición?
+          3- ¿La condicion que se le agrega a FixedUpdate que es lo que permite triplicar?
           <select class="select" id="respuesta2">
             <!--Generando lista de opciones de respuesta de la pregunta 3-->
             <option value="----">...</option>
-            <option value="correcto">CIERTO</option>
-            <option value="incorrecto">FALSO</option>
-            <option value="incorrecto">AMBAS</option>
+            <option value="correcto">VELOCIDAD</option>
+            <option value="incorrecto">ALTURA</option>
+            <option value="incorrecto">COLOR</option>
           </select>
         </h3>
         <!--Generando primer pregunta-->
 
         <h3>
-          4- ¿Una transición puede tener una sola condición,?
+          4- ¿El jugador puede empezar a correr desde parado, con lo que esto nos obliga a hacer un Animator más complejo?
           <select class="select" id="respuesta3">
             <!--Generando opciones de respuesta de la pregunta-->
             <option value="----">...</option>
             <option value="incorrecto">NO SE</option>
-            <option value="incorrecto">CORRECTO</option>
-            <option value="correcto">FALSO</option>
+            <option value="incorrecto">FALSO</option>
+            <option value="correcto">CORRECTO</option>
           </select>
         </h3>
         <!--Generando primer pregunta-->

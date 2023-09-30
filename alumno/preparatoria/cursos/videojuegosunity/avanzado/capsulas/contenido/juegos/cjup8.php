@@ -6,37 +6,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula28";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
+$permiso = "capsulapago8";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium8.php");
 }
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 29;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 12");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
-} else {
-	$puntosGanados = 10;
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +41,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>REPOSICIONAMIENTO DE SUELO</b></h2>
+		<h2 class="titulo"><b>COMPILAR EL PROYECTO</b></h2>
 	</div>
 
 	<section>
@@ -105,15 +80,15 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fa-brands fa-unity"></i>',
-				'<i class="fa-regular fa-hand"></i>',
-				'<i class="fa-solid fa-up-down-left-right"></i>',
-				'<i class="fa-solid fa-maximize"></i>',
-				'<i class="fa-solid fa-up-right-and-down-left-from-center"></i>',
-				'<i class="fa-solid fa-magnifying-glass-plus"></i>',
-				'<i class="fa-solid fa-scroll"></i>',
-				'<i class="fa-solid fa-street-view"></i>',
-				'<i class="fa-solid fa-arrows-spin"></i>',
+				'<i class="fa-solid fa-cube"></i>',
+				'<i class="fa-solid fa-file"></i>',
+				'<i class="fa-solid fa-file-export"></i>',
+				'<i class="fa-solid fa-file-import"></i>',
+				'<i class="fa-solid fa-folder-open"></i>',
+				'<i class="fa-regular fa-folder-open"></i>',
+				'<i class="fa-solid fa-rotate"></i>',
+				'<i class="fa-solid fa-arrow-rotate-right"></i>',
+				'<i class="fa-solid fa-arrow-rotate-left"></i>',
 				'<i class="fa-solid fa-down-left-and-up-right-to-center"></i>',
 				'<i class="fa-solid fa-arrows-up-to-line"></i>',
 				'<i class="fa-solid fa-arrows-down-to-line"></i>'
@@ -180,8 +155,8 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 29 + "&id_curso=" + 12; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 47 + "&id_curso=" + 12; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd47.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
@@ -239,8 +214,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 29 + "&id_curso=" + 12; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd29.php", true);
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 47 + "&id_curso=" + 12; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_pd47.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 				Swal.fire({

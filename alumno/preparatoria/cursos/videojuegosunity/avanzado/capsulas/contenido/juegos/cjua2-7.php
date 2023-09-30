@@ -66,7 +66,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>COMPILAR EL PROYECTO</b></h2>
+		<h2 class="titulo"><b>DIFICULTAD DEL JUEGO</b></h2>
 	</div>
 
 	<section>
@@ -105,18 +105,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fa-solid fa-cube"></i>',
-				'<i class="fa-solid fa-file"></i>',
-				'<i class="fa-solid fa-file-export"></i>',
-				'<i class="fa-solid fa-file-import"></i>',
-				'<i class="fa-solid fa-folder-open"></i>',
-				'<i class="fa-regular fa-folder-open"></i>',
-				'<i class="fa-solid fa-rotate"></i>',
-				'<i class="fa-solid fa-arrow-rotate-right"></i>',
-				'<i class="fa-solid fa-arrow-rotate-left"></i>',
-				'<i class="fa-solid fa-down-left-and-up-right-to-center"></i>',
-				'<i class="fa-solid fa-arrows-up-to-line"></i>',
-				'<i class="fa-solid fa-arrows-down-to-line"></i>'
+				'<i>JUEGO</i>',
+				'<i>CHROME</i>',
+				'<i>CANTIDAD</i>',
+				'<i>VARIABLE</i>',
+				'<i>CONTADOR</i>',
+				'<i>NIVEL</i>',
+				'<i>MINUTO</i>',
+				'<i>DISEÑO</i>',
+				'<i>AVANZAR</i>',
+				'<i>POWER</i>',
+				'<i>UPS</i>',
+				'<i>AYUDA</i>'
 			]
 		}
 
