@@ -633,8 +633,18 @@ form {
 }
 
 /*PARA BANDEJA NUEVA*/
-.button-box {
+.button-box2 {
   width: 240px;
+  margin: 0px auto;
+  background-color: #757575;
+  position: relative;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold !important;
+}
+
+.button-box {
+  width: 280px;
   margin: 0px auto;
   background-color: #757575;
   position: relative;
@@ -654,7 +664,7 @@ color: white;
   position: relative;
 }
 
-#elegir {
+#elegir2 {
   top: 0;
   left: 0;
   right: 120px;
@@ -664,7 +674,18 @@ color: white;
   background-color: #38b6ff;
   border-radius: 30px;
   transition: 0.8s;
+}
 
+#elegir {
+  top: 0;
+  left: 0;
+  right: 120px;
+  position: absolute;
+  width: 140px;
+  height: 100%;
+  background-color: #38b6ff;
+  border-radius: 30px;
+  transition: 0.8s;
 }
 
 #Ingresar {

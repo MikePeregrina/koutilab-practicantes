@@ -18,9 +18,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 <link rel="stylesheet" href="css/nav-barra.css">
 <link rel="stylesheet" href="css/administradores.css">
 <link rel="stylesheet" href="css/footer.css">
-<!--AGREGADO PARA BANDAJE SALIDA-->
-<link rel="stylesheet" href="css/contact.css">
-<!--AGREGADO PARA BANDAJE SALIDA-->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -40,85 +38,58 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <?php include 'header-nav.php'; ?>
 
     <div class="containers">
-        <h1>BANDEJA</h1>
+        <h1>BANDEJA DE ENTRADA </h1>
     </div>
 
-    <div class="button-box">
-        <div id="elegir"></div>
-        <button type="button" class="toggle-btn" onclick="Ingresar()">Entrada</button>
-        <button type="button" class="toggle-btn" onclick="Registrarse()">Salida</button>
-    </div>
 
-    <section style="overflow:hidden;">
-        <div style="width: 200%; display:flex;">
-            <div class="board p-2" id="Ingresar" style="width: 50%;">
-                <table id="bandeja" width="100%" class="table border-top">
-                    <thead>
-                        <tr>
-                            <td><b>Nombre</b></td>
-                            <td><b>Escuela</b></td>
-                            <td><b>Asunto</b></td>
-                            <td><b>Sugerencia</b></td>
-                            <td><b>Estado</b></td>
-                            <td><b>Acción</b></td>
-                        </tr>
-                    </thead>
-                    <tbody>
+    <section>
+        <div class="board p-2">
+            <table id="bandeja" width="100%" class="table border-top">
+                <thead>
+                    <tr>
+                        <td><b>Nombre</b></td>
+                        <td><b>Escuela</b></td>
+                        <td><b>Asunto</b></td>
+                        <td><b>Sugerencia</b></td>
+                        <td><b>Estado</b></td>
+                        <td><b>Acción</b></td>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <?php
-                        include "../acciones/conexion.php";
+                    <?php
+                    include "../acciones/conexion.php";
 
-                        $query_sugerencias = mysqli_query($conexion, "SELECT * FROM sugerencias ORDER BY estado DESC");
-                        $result = mysqli_num_rows($query_sugerencias);
-                        if ($result > 0) {
-                            while ($data = mysqli_fetch_assoc($query_sugerencias)) {
-                                if ($data['estado'] == 1) {
-                                    $estado = 'Pendiente';
-                                } else {
-                                    $estado = 'Completado';
-                                }
-                        ?>
-                                <tr>
-                                    <td><?php echo $data['nombre_usuario']; ?></td>
-                                    <td><?php echo $data['nombre_escuela']; ?></td>
-                                    <td><?php echo $data['asunto']; ?></td>
-                                    <td><?php echo $data['mensaje']; ?></td>
-                                    <td><?php echo $estado; ?></td>
+                    $query_sugerencias = mysqli_query($conexion, "SELECT * FROM sugerencias ORDER BY estado DESC");
+                    $result = mysqli_num_rows($query_sugerencias);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_sugerencias)) {
+                            if ($data['estado'] == 1) {
+                                $estado = 'Pendiente';
+                            } else {
+                                $estado = 'Completado';
+                            }
+                    ?>
+                            <tr>
+                                <td><?php echo $data['nombre_usuario']; ?></td>
+                                <td><?php echo $data['nombre_escuela']; ?></td>
+                                <td><?php echo $data['asunto']; ?></td>
+                                <td><?php echo $data['mensaje']; ?></td>
+                                <td><?php echo $estado; ?></td>
 
-                                    <td>
-                                        <?php if ($data['estado'] == 1) { ?>
-                                            <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" id="f-c" class="confirmar d-inline">
-                                                <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-check'></i> </button>
-                                            </form>
-                                        <?php } ?>
-                                    </td>
-                                </tr>
-                        <?php }
-                        } ?>
+                                <td>
+                                    <?php if ($data['estado'] == 1) { ?>
+                                        <form style="padding: 0px 0px;" action="acciones/eliminar_sugerencia.php?id=<?php echo $data['id_sugerencia']; ?>" method="post" id="f-c" class="confirmar d-inline">
+                                            <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-check'></i> </button>
+                                        </form>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                    <?php }
+                    } ?>
 
-                    </tbody>
-                </table>
-            </div>
-            <div id="Registrarse" style="width: 50%;">
-                <div class="titlec">
-                    <h2>Comentarios y sugerencias</h2>
-                </div>
-                <form id="contacto" method="POST" enctype="multipart/form-data" action="acciones/consulta.php">
-                    <div class="asunto">
-                        <input type="text" name="asunto" placeholder="Asunto">
-                    </div>
-
-                    <div class="mensaje">
-                        <textarea name="mensaje" id="contacto" placeholder="Escriba aqu&iacute; su mensaje" rows="5" cols="40"></textarea>
-                    </div>
-
-                    <div class="button">
-                        <button type="submit" class="btn-submit">
-                            <h3>Enviar</h3>
-                        </button>
-                    </div>
-                </form>
-            </div>
+                </tbody>
+            </table>
         </div>
 
     </section>
@@ -275,23 +246,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     </script>
     <script src="js/bar.js"></script>
     <script src="js/funciones.js"></script>
-    <script>
-        var x = document.getElementById("Ingresar");
-        var y = document.getElementById("Registrarse");
-        var z = document.getElementById("elegir");
 
-        function Registrarse() {
-            x.style.left = "-50%"//"-1150px"
-            y.style.left = "-50%"//"-1130px"
-            z.style.left = "50%"//"120px"
-        }
-
-        function Ingresar() {
-            x.style.left = "0%"//"0px"
-            y.style.left = "50%"//"450px"
-            z.style.left = "0%"//"0px"
-        }
-    </script>
 </body>
 
 </html>

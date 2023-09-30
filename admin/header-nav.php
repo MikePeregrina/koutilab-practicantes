@@ -49,22 +49,10 @@ $pais = $user["pais"];
         <span class="nav-item">Pre-Registros</span>
       </a>
     </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'pre-registros-inst.php') ? ' class="active"' : ''; ?>>
-      <a href="pre-registros-inst.php">
-        <i class="fas fa-clipboard-list"></i>
-        <span class="nav-item">Pre-Registros Inst</span>
-      </a>
-    </li>
     <li<?php echo (basename($_SERVER['PHP_SELF']) == 'bandeja.php') ? ' class="active"' : ''; ?>>
       <a   href="bandeja.php">
         <i class="fas fa-envelope"></i>
-        <span class="nav-item">Bandeja entrada</span>
-      </a>
-    </li>
-    <li<?php echo (basename($_SERVER['PHP_SELF']) == 'enviar.php') ? ' class="active"' : ''; ?>>
-      <a  href="enviar.php">
-        <i class="fas fa-address-book"></i>
-        <span class="nav-item">Bandeja de salida</span>
+        <span class="nav-item">Bandeja</span>
       </a>
     </li>
     <li<?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>

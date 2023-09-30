@@ -45,16 +45,11 @@ $pais = $user['pais'];
         <h1>PRE-REGISTROS</h1>
     </div>
 
-    <div class="button-box">
-        <div id="elegir"></div>
-        <button type="button" class="toggle-btn" onclick="Ingresar()">Escolares</button>
-        <button type="button" class="toggle-btn" onclick="Registrarse()">Institucionales</button>
-    </div>
 
-    <section style="overflow:hidden;">
-    <div style="width: 200%; display:flex;">
-        <div class="board p-2" id="Ingresar" style="width: 50%;">
-            <table id="preregistrosE" width="100%" class="table border-top">
+    <section>
+
+        <div class="board p-2">
+            <table id="preregistros" width="100%" class="table border-top">
                 <thead>
                     <tr>
                         <td><b>Nombre</b></td>
@@ -103,57 +98,7 @@ $pais = $user['pais'];
                 </tbody>
             </table>
         </div>
-        <div class="board p-2" id="Registrarse" style="width: 50%;">
-            <table id="preregistrosI" width="100%" class="table border-top">
-                <thead>
-                    <tr>
-                        <td><b>Nombre</b></td>
-                        <td><b>Cargo</b></td>
-                        <td><b>WhatsApp</b></td>
-                        <td><b>Correo</b></td>
-                        <td><b>Escuela</b></td>
-                        <td><b>País</b></td>
-                        <td><b>Estado</b></td>
-                        <td><b>Grado</b></td>
-                        <td><b>Total docentes</b></td>
-                        <td><b>Otro</b></td>
-                        <td><b>Acción</b></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    include "../acciones/conexion.php";
 
-                    $query_formulario = mysqli_query($conexion, "SELECT * FROM formulario_institucional WHERE pais = '$pais'");
-                    $result = mysqli_num_rows($query_formulario);
-                    if ($result > 0) {
-                        while ($data = mysqli_fetch_assoc($query_formulario)) {
-
-                    ?>
-                            <tr>
-                                <td><?php echo $data['nombre_r']; ?></td>
-                                <td><?php echo $data['cargo']; ?></td>
-                                <td><?php echo $data['contacto']; ?></td>
-                                <td><?php echo $data['email']; ?></td>
-                                <td><?php echo $data['nombre_e']; ?></td>
-                                <td><?php echo $data['pais']; ?></td>
-                                <td><?php echo $data['estado']; ?></td>
-                                <td><?php echo $data['grado']; ?></td>
-                                <td><?php echo $data['numero_d']; ?></td>
-                                <td><?php echo $data['otro_c']; ?></td>
-                                <td>
-                                    <a href="acciones/preregistrar_institucional.php?id=<?php echo $data['id_formulario_institucional']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-check'></i></a>
-                                    <form style="padding: 0px 0px;" action="acciones/eliminar_preregistro_institucional.php?id=<?php echo $data['id_formulario_institucional']; ?>" method="post" class="confirmar d-inline">
-                                        <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-                                    </form>
-                                </td>
-                            </tr>
-                    <?php }
-                    } ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
     </section>
 
 
@@ -299,32 +244,7 @@ $pais = $user['pais'];
     </script>
     <script>
         $(document).ready(function() {
-            var table = $('#preregistrosE').DataTable({
-                responsive: true,
-                autoWidth: false,
-                lengthChange: false,
-                searching: true,
-                paging: true,
-                ordering: false,
-                info: false,
-                buttons: [{
-                    extend: 'pdf',
-                    split: ['excel', 'print'],
-                }],
-                "language": {
-                    "paginate": {
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    }
-                }
-            });
-
-
-            table.buttons().container().appendTo($('div.column.is-half', table.table().container()).eq(0));
-        });
-
-        $(document).ready(function() {
-            var table = $('#preregistrosI').DataTable({
+            var table = $('#preregistros').DataTable({
                 responsive: true,
                 autoWidth: false,
                 lengthChange: false,
@@ -350,23 +270,7 @@ $pais = $user['pais'];
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="js/funciones.js"></script>
-<script>
-        var x = document.getElementById("Ingresar");
-        var y = document.getElementById("Registrarse");
-        var z = document.getElementById("elegir");
 
-        function Registrarse() {
-            x.style.left = "-50%"//"-1150px"
-            y.style.left = "-50%"//"-1130px"
-            z.style.left = "50%"//"120px"
-        }
-
-        function Ingresar() {
-            x.style.left = "0%"//"0px"
-            y.style.left = "50%"//"450px"
-            z.style.left = "0%"//"0px"
-        }
-    </script>
 </body>
 
 </html>
