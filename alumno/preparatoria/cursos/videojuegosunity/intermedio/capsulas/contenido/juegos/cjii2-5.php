@@ -45,8 +45,8 @@ if (isset($resultadoIntentos['intentos'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-1.css">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-2.css">
+    <link rel="stylesheet" href="../../css/css-juegos/seleccionar-respuesta1.css">
+    <link rel="stylesheet" href="../../css/css-juegos/seleccionar-respuesta2.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -65,7 +65,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Titulo general -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>SELECCIÓN DE RESPUESTA PARA UN ENUNCIADO</b></h2>
+        <h2 class="titulo"><b>LUCES</b></h2>
     </div>
 
     <!-- Contenedor principal -->
@@ -137,7 +137,7 @@ if (isset($resultadoIntentos['intentos'])) {
         let reiniciar_puntos_al_reiniciar_el_juego = true;
         //sirve para que al inicial la pagina que cargen las preguntas guardadas en el archivo json
         function iniciar() {
-            base_preguntas = readText("../../js/base-preguntas.json");
+            base_preguntas = readText("../../js/base-preguntas-1.json");
             interprete_bp = JSON.parse(base_preguntas);
             escogerPreguntaAleatoria();
         };

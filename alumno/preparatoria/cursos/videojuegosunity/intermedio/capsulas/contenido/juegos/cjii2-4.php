@@ -45,7 +45,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/preg-ag.css" /><!--Linkeo de la hoja de estilos-->
+	<link rel="stylesheet" href="../../css/css-juegos/preguntas-agiles.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>TEMPORIZADOR</b></h2>
 	</div>
 
 	<section>
@@ -103,46 +103,46 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Arreglo de preguntas
 		var preguntas = [{
 				num: 1,
-				pregunta: "¿A que se refieren las tabulaciones?",
-				opA: "A alinear el texto de manera precisa",
-				opB: "Desordenar el texto",
-				opC: "Hacer que el texto se vea igual",
+				pregunta: "¿Un temporizador es una?",
+				opA: "Herramienta",
+				opB: "Variable",
+				opC: "Funcion",
 				correcta: "A",
 				tiempo: "30",
 			},
 			{
 				num: 2,
-				pregunta: "¿Cuántos tipos de tabulaciones existen o son los mas ocupados?",
-				opA: "6",
-				opB: "4",
-				opC: "1",
+				pregunta: "¿En Unity, puedes crear un temporizador utilizando?",
+				opA: "Codigo",
+				opB: "Scripts",
+				opC: "Etiquetas",
 				correcta: "B",
 				tiempo: "20",
 			},
 			{
 				num: 3,
-				pregunta: "¿Qué icono en el teclado tiene la tecla de tabulación?",
-				opA: "Un par de flechas",
-				opB: "un número",
-				opC: "Está vacío",
+				pregunta: "¿Se Asocia con el script 'Timer' de tu elección en la escena ?",
+				opA: "Objeto",
+				opB: "Metodo",
+				opC: "Unity",
 				correcta: "A",
 				tiempo: "30",
 			},
 			{
 				num: 4,
-				pregunta: "¿Cuántos tipos de listas hay?",
-				opA: "5",
-				opB: "9",
-				opC: "2",
+				pregunta: "¿Puedes iniciar el temporizador llamando al metodo?",
+				opA: "Time()",
+				opB: "ScriptStop()",
+				opC: "StartTimer()",
 				correcta: "C",
 				tiempo: "30",
 			},
 			{
 				num: 5,
-				pregunta: "Uno de los siguientes tipos de listas NO existe.",
-				opA: "Listas con viñetas",
-				opB: "Listas enumeradas",
-				opC: "Listas con letras",
+				pregunta: "Puedes detener el temporizador llamando al metodo",
+				opA: "Time()",
+				opB: "ScriptStop()",
+				opC: "StopTimer()",
 				correcta: "C",
 				tiempo: "30",
 			}

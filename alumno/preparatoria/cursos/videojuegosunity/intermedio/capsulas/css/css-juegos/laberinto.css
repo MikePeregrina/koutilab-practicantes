@@ -91,7 +91,7 @@ body::-webkit-scrollbar-track {
     width: 250px !important;
   
   }
-  
+ 
   .timer {
     text-align: center;
     padding: 3%;
@@ -110,42 +110,41 @@ body::-webkit-scrollbar-track {
     z-index: 5;
     font-size: 150%;
     margin-left: 82.5%;
-    margin-top:2%;
+    margin-top:1%;
   }
   @keyframes animation1 {
-    0% {margin: 2% 0 0 82.4%;}
-    20% {margin: 2% 0 0 82.6%;}
-    40% {margin: 2% 0 0 82.4%;} 
-    60% {margin: 2% 0 0 82.6%;}
-    80% {margin: 2% 0 0 82.4%;} 
-    100% {margin: 2% 0 0 82.5%;}
+    0% {margin: -1.5% 0 0 82.4%;}
+    20% {margin: -1.5% 0 0 82.6%;}
+    40% {margin: -1.5% 0 0 82.4%;} 
+    60% {margin: -1.5% 0 0 82.6%;}
+    80% {margin: -1.5% 0 0 82.4%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
 }
 
   @keyframes animation2 {
-    0% {margin: 2% 0 0 82.2%;}
-    15% {margin: 2% 0 0 82.8%;}
-    30% {margin: 2% 0 0 82.2%;} 
-    45% {margin: 2% 0 0 82.8%;}
-    60% {margin: 2% 0 0 82.2%;} 
-    75% {margin: 2% 0 0 82.8%;;}
-    90% {margin: 2% 0 0 82.2%;} 
-    100% {margin: 2% 0 0 82.5%;}
+    0% {margin: -1.5% 0 0 82.2%;}
+    15% {margin: -1.5% 0 0 82.8%;}
+    30% {margin: -1.5% 0 0 82.2%;} 
+    45% {margin: -1.5% 0 0 82.8%;}
+    60% {margin: -1.5% 0 0 82.2%;} 
+    75% {margin: -1.5% 0 0 82.8%;;}
+    90% {margin: -1.5% 0 0 82.2%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
   }
 
   @keyframes animation3 {
-    0% {margin: 2% 0 0 81.4%;}
-    10% {margin: 2% 0 0 83.6%;}
-    20% {margin: 2% 0 0 81.4%;} 
-    30% {margin: 2% 0 0 83.6%;}
-    40% {margin: 2% 0 0 81.4%;} 
-    50% {margin: 2% 0 0 83.6%;}
-    60% {margin: 2% 0 0 81.4%;} 
-    70% {margin: 2% 0 0 83.6%;} 
-    80% {margin: 2% 0 0 81.4%;} 
-    90% {margin: 2% 0 0 83.6%;} 
-    100% {margin:2% 0 0 82.5%;}
+    0% {margin: -1.5% 0 0 81.4%;}
+    10% {margin: -1.5% 0 0 83.6%;}
+    20% {margin: -1.5% 0 0 81.4%;} 
+    30% {margin: -1.5% 0 0 83.6%;}
+    40% {margin: -1.5% 0 0 81.4%;} 
+    50% {margin: -1.5% 0 0 83.6%;}
+    60% {margin: -1.5% 0 0 81.4%;} 
+    70% {margin: -1.5% 0 0 83.6%;} 
+    80% {margin: -1.5% 0 0 81.4%;} 
+    90% {margin: -1.5% 0 0 83.6%;} 
+    100% {margin: -1.5% 0 0 82.5%;}
   }
-  
   section {
     padding: 0px;
     width: 86%;

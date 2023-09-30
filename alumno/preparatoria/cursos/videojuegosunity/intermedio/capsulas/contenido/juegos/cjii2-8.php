@@ -45,7 +45,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/preg-ag.css" /><!--Linkeo de la hoja de estilos-->
+	<link rel="stylesheet" href="../../css/css-juegos/preguntas-agiles.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>JUEGO DE DESLIZAR</b></h2>
+		<h2 class="titulo"><b>PUBLICACION Y DISTRIBUCION</b></h2>
 	</div>
 
 	<section>
@@ -104,45 +104,45 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Arreglo de preguntas
 		var preguntas = [{
 				num: 1,
-				pregunta: "¿A qué nos referimos cuando hablamos de Word y la Web?",
-				opA: "A poder crear o editar un documento de word en la web",
-				opB: "A subir un documento Word a la web",
-				opC: "A ver documentos de Word en la web",
+				pregunta: "¿Antes de publicar tu juego, debes determinar en qué plataformas deseas que esté disponible?",
+				opA: "¡Si!",
+				opB: "¡No! ",
+				opC: "No lo se",
 				correcta: "A",
 				tiempo: "30",
 			},
 			{
 				num: 2,
-				pregunta: "¿Puedo ver, crear o editar un documento de Word desde un celular, tablet o computadora siempre y cuando sea en la web?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿Cada plataforma de juegos puede requerir diferentes adaptaciones y aprobaciones?",
+				opA: "¡Si!",
+				opB: "¡No! ",
 				opC: "No lo se",
 				correcta: "A",
 				tiempo: "20",
 			},
 			{
 				num: 3,
-				pregunta: "¿Pueden otras personas editar los documentos que haga si estás en la web?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿Algunas plataformas, como las consolas, pueden requerir un proceso de certificación antes de que tu juego pueda ser publicado?",
+				opA: "¡Si!",
+				opB: "¡No!",
 				opC: "No lo se",
 				correcta: "A",
 				tiempo: "30",
 			},
 			{
 				num: 4,
-				pregunta: "¿Puedo trabajar en un documento de Word en la web si no tengo conexión a internet?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿No Debes seguir los procedimientos y estándares establecidos por la plataforma.?",
+				opA: "¡Si!",
+				opB: "¡No!",
 				opC: "No lo se",
 				correcta: "B",
 				tiempo: "30",
 			},
 			{
 				num: 5,
-				pregunta: "¿Puedo añadir imágenes, tipos de formatos de texto o cualquier otro elemento en Word para la web?",
-				opA: "¡Si! se puede hacer",
-				opB: "¡No! es imposible",
+				pregunta: "¿Debes empaquetar tu juego de acuerdo con las especificaciones de la plataforma?",
+				opA: "¡Si!",
+				opB: "¡No!",
 				opC: "No lo se",
 				correcta: "A",
 				tiempo: "30",

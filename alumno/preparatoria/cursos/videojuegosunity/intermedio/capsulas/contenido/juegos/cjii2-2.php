@@ -66,7 +66,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
-		<h2 class="titulo"><b>MEMORAMA</b></h2>
+		<h2 class="titulo"><b>SIGUIENTE NIVEL</b></h2>
 	</div>
 
 	<section>
@@ -104,18 +104,18 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				'<i class="fas fa-image"></i>',
-				'<i class="far fa-images"></i>',
-				'<i class="fas fa-window-close"></i>',
-				'<i class="fas fa-keyboard"></i>',
-				'<i class="far fa-save"></i>',
-				'<i class="fas fa-download"></i>',
-				'<i class="fas fa-upload"></i>',
-				'<i class="fas fa-heading"></i>',
-				'<i class="fas fa-bold"></i>',
-				'<i class="fas fa-italic"></i>',
-				'<i class="far fa-window-maximize"></i>',
-				'<i class="fas fa-power-off"></i>'
+				'<i>MECANICA</i>',
+				'<i>JUEGOS</i>',
+				'<i>NIVEL</i>',
+				'<i>ESCENA</i>',
+				'<i>SCRIPTS</i>',
+				'<i>UNITY</i>',
+				'<i>CODIGO</i>',
+				'<i>METODO</i>',
+				'<i>OBJETO</i>',
+				'<i>ENEMY</i>',
+				'<i>AREA</i>',
+				'<i>PUNTO</i>'
 			]
 		}
 

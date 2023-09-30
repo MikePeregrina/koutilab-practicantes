@@ -45,7 +45,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/css-juegos/select-word.css">
+    <link rel="stylesheet" href="../../css/css-juegos/seleccion-palabras.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -56,7 +56,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo()">
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>CONFIGURACIÓN DE PÁGINA</b></h2>
+        <h2 class="titulo"><b>CREAR NIVELES(TILEMAPS)</b></h2>
     </div>
 
     <!-- Timer -->
@@ -81,39 +81,39 @@ if (isset($resultadoIntentos['intentos'])) {
         <div class="container">
             <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
                 <!--Generando pregunta 1-->
-                <h3>1. ¿En qué año fue creado Microsoft Word?
+                <h3>1. ¿Que SON Los Tilemaps?
                     <select class="select" id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
                         <option value="----">...</option>
-                        <option value="correcto">1981</option>
-                        <option value="incorrecto">1810</option>
-                        <option value="incorrecto">2001</option>
+                        <option value="correcto">Herramientas</option>
+                        <option value="incorrecto">Mapas</option>
+                        <option value="incorrecto">Tiempos</option>
                     </select>
                 </h3>
                 <!--Generando pregunta 2-->
-                <h3>2. ¿Qué es Microsoft Word?
+                <h3>2. ¿Que Pueden Crear Los Tilemaps?
                     <select class="select" id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
                         <option value="----">...</option>
-                        <option value="incorrecto">Un programa para poder jugar</option>
-                        <option value="correcto">Un procesador de textos y creador de documentos digitales</option>
-                        <option value="incorrecto">Un programa para ver películas</option>
+                        <option value="incorrecto">Graficos</option>
+                        <option value="correcto">Niveles</option>
+                        <option value="incorrecto">Barcos</option>
                     </select>
                 </h3>
                 <!--Generando pregunta 3-->
-                <h3>3. ¿Para qué podemos ocupar Microsoft Word?
+                <h3>3. ¿Que Pasa Si Haces Clic En "SAVE"?
                     <select class="select" id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
                         <option value="----">...</option>
-                        <option value="correcto">Para poder realizar textos procesados como libros, tareas, etc...</option>
-                        <option value="incorrecto">Para jugar</option>
-                        <option value="incorrecto">Para copiar y pegar algún texto</option>
+                        <option value="correcto">Se guarda el tile en la paleta</option>
+                        <option value="incorrecto">Se borra</option>
+                        <option value="incorrecto">Se edita</option>
                     </select>
                 </h3><!--Generando primer pregunta-->
 
-                <h3>4- ¿Cómo puedo crear un documento de Word?
+                <h3>4- ¿Donde Se Hace Click Para Crear Una Paleta De Tiles?
                     <select class="select" id="respuesta3"><!--Generando opciones de respuesta de la pregunta-->
                         <option value="----">...</option>
-                        <option value="correcto">Abriendo el programa y dar clic en nuevo documento</option>
-                        <option value="incorrecto">Entrando y abriendo un documento existente</option>
-                        <option value="incorrecto">No se puede crear</option>
+                        <option value="correcto">Create</option>
+                        <option value="incorrecto">Creacion</option>
+                        <option value="incorrecto">Nuevo</option>
                     </select>
                 </h3><!--Generando primer pregunta-->
             </section>
