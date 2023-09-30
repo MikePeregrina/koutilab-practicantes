@@ -321,7 +321,7 @@ form {
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 20px;
-  box-shadow: 0 0 12px rgba(106, 106, 106, 0.75);
+  /*box-shadow: 0 0 12px rgba(106, 106, 106, 0.75); Comentado al unir bandejas*/
 }
 
 #closeButton {
@@ -630,4 +630,52 @@ form {
   .titlec h2 {
     font-size: 20px;
   }
+}
+
+/*PARA BANDEJA NUEVA*/
+.button-box {
+  width: 240px;
+  margin: 0px auto;
+  background-color: #757575;
+  position: relative;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold !important;
+}
+.button-box button{
+color: white;
+}
+.toggle-btn {
+  padding: 15px 22px;
+  cursor: pointer;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  position: relative;
+}
+
+#elegir {
+  top: 0;
+  left: 0;
+  right: 120px;
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  background-color: #38b6ff;
+  border-radius: 30px;
+  transition: 0.8s;
+
+}
+
+#Ingresar {
+  left: 0;
+  position: relative;
+  width: 200%;
+}
+
+#Registrarse {
+  left: 3000;
+  position: relative;
+  
+  width: 200%;
 }

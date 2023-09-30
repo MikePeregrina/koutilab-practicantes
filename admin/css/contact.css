@@ -159,11 +159,12 @@ input {
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1%;
-  margin-bottom: 2%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 1% !important;
+  margin-bottom: 2% !important;
+  border: 0 !important;
 }
 
 button{
