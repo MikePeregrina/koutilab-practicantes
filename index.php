@@ -23,9 +23,9 @@
                 <li class="menu visible" id="abrir"><i class="fas fa-bars"></i></li>
                 <li class="close" id="cerrar"><i class="fas fa-times"></i></li>
                 <li class="space-right"><a href="#inicio"><img src="img/koutilab.png" class="logo-img" alt=""></a></li>
-                <li class="li-r"><a href="#nosotros">Nosotros</a></li>
-                <li class="li-r"><a href="#rutas">Rutas de aprendizaje</a></li>
-                <li class="li-r"><a href="#usuarios">Tipos de usuario</a></li>
+                <li class="li-rr"><a href="#nosotros">Nosotros</a></li>
+                <li class="li-rr"><a href="#rutas">Rutas de aprendizaje</a></li>
+                <li class="li-rr"><a href="#usuarios">Tipos de usuario</a></li>
                 <li class="hov li-r">
                     <div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div>
                 </li>
@@ -43,7 +43,14 @@
 
     <!-- Nosotros -->
     <section class="content-1" id="nosotros">
-        <div class="tittle-1">
+
+    <div class="hallowen-img">
+    </div>
+
+    <div class="hallowen-img2">
+    </div>
+ 
+    <div class="tittle-1">
             <h1>Descubre nuestras&nbsp;</h1>
             <h1 class="white-1">RUTAS DE APRENDIZAJE&nbsp;&nbsp;</h1>
             <h1>y juegos interactivos</h1>
@@ -94,6 +101,15 @@
                 <h2 class="white-2 t2">Alumnos</h2>
             </div>
         </div>
+        
+        <div class="spider-image">
+            
+        </div>
+
+        <div class="spider-image2">
+            
+        </div>
+
         <div class="content-2-1">
             <div class="tittle-4">
                 <h1 class="t4-t1">RUTAS DE APRENDIZAJE</h1>
@@ -212,7 +228,7 @@
     <footer>
         <div class="footer">
             <div class="f-card1">
-                <img src="img/koutilab.png" class="logo-f-img" alt="">
+                <img src="img/benvenida.png" class="logo-f-img" alt="">
                 <h5 class="f-tx">
                     Somos una plataforma educativa
                     enfocada en brindar una
@@ -283,6 +299,30 @@
             window.location.href = "./registro-institucional/index.php";
         }
     </script>
+    
+    <script>
+     function activarHalloween() {
+  document.body.classList.add('halloween');
+  
+  // Espera 5 segundos (5000 milisegundos) para cambiar los colores después del efecto de Halloween
+  setTimeout(function() {
+    document.body.classList.remove('halloween');
+    
+    // Cambiar los colores de los botones
+    const buttons = document.querySelectorAll('.singin, .tittle-1, .white-1, .line-3, .line-1, .content-2, .line-4, .cp-bar, .users, .bottom, .card3, .btn-sub, .us-tx1, .us-bar, .circle, .us-tx, .footer, .hallowen-img, .hallowen-img2, .spider-image, .spider-image2, .li-rr, .col3, .tittle-7, i, h5,.a-f, b, a');
+    buttons.forEach(function(button) {
+      button.classList.add('hallowen');
+    });
+  }, 2000); // Cambia el valor a la cantidad de tiempo que desees que dure el efecto de Halloween (en milisegundos)
+}
+
+// Espera 3 segundos (3000 milisegundos) antes de iniciar la transición
+setTimeout(function() {
+  activarHalloween();
+}, 1500); // Cambia el valor a la cantidad de tiempo que desees esperar antes de iniciar el efecto de Halloween (en milisegundos)
+
+
+</script>
 </body>
 
 </html>

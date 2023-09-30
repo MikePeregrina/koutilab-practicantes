@@ -10,7 +10,29 @@ body {
     font-family: "Comfortaa";
     box-sizing: border-box;
 }
+ 
+  /* Estilos para el diseño de Halloween */
+  body.halloween {
+    background-color: #000000;
+ 
+  }
+  
+  /* Animación de parpadeo rápido */
+  @keyframes parpadeo-rapido {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
 
+    }
+  }
+  
+  /* Aplicar la animación de parpadeo a body cuando tiene la clase "halloween" */
+  body.halloween {
+    animation: parpadeo-rapido 0.2s infinite;
+  }
+  
 body::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -81,6 +103,11 @@ nav ul li:hover {
     background-color: #38b6ff;
 }
 
+nav ul .li-rr:hover.hallowen {
+    background-color: #ffa601af;
+}
+
+
 nav ul li a:hover {
     color: white;
 }
@@ -111,6 +138,17 @@ nav ul li a:hover {
     background-color: #38b6ff;
     transition: 0.5s;
 }
+
+.singin.hallowen{
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    background-color: #400096;
+    transition: 0.5s;
+}
+
+.singin a.hallowen{
+    color: #FFA801 !important;
+   }
 
 .reg {
     color: #38b6ff;
@@ -147,6 +185,28 @@ nav ul li a:hover {
     position: relative;
 }
 
+.hallowen-img.hallowen{
+    position: absolute;
+    width: 20%;
+    height: 395px;
+    background-image: url("../img/murcielagos.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.hallowen-img2.hallowen{
+    position: absolute;
+    width: 20%;
+    height: 395px;
+    background-image: url("../img/muñeco-calabaza.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    right: 0;
+}
+
+
 .tittle-1 {
     margin: 30px auto 0 auto;
     border-radius: 30px;
@@ -157,6 +217,19 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tittle-1.hallowen {
+    margin: 30px auto 0 auto;
+    border-radius: 30px;
+    background: #400096;
+    border: 2px solid rgba(129, 179, 243, 0.5);
+    width: 900px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .tittle-2 {
@@ -188,6 +261,14 @@ nav ul li a:hover {
     background-color: #38b6ff;
 }
 
+.line-1.hallowen {
+    width: 30px;
+    height: 5px;
+    margin-right: 15px;
+    border-radius: 3px;
+    background-color: #400096;
+}
+
 .line-2 {
     color: rgb(113, 113, 113);
     margin-right: 15px;
@@ -202,12 +283,45 @@ nav ul li a:hover {
     background-color: #38b6ff;
 }
 
+.line-3.hallowen {
+    width: 180px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: #400096;
+}
+
 .white-1 {
     color: #ffffff;
     font-style: italic;
 }
 
+.white-1.hallowen {
+    color: #FFA801 !important;
+    font-style: italic;
+}
+
 /* Rutas de aprendizaje */
+
+.spider-image.hallowen{
+    position: absolute;
+    height: 648px;
+    width: 255px;
+    background-image: url("../img/spider.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.spider-image2.hallowen{
+    position: absolute;
+    height: 543px;
+    width: 255px;
+    background-image: url("../img/spider.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    right: 0;
+    z-index: -1;
+}
 
 .content-2 {
     width: 100%;
@@ -217,6 +331,24 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     background-color: #38b6ff;
+}
+
+.content-2.hallowen {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/happyhallowen.jpg") !important;
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el elemento */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-position: center center;
+}
+
+.content-2 img.hallowen{
+    height: 100%;
+    z-index: auto;
 }
 
 .content-2-1 {
@@ -303,6 +435,17 @@ nav ul li a:hover {
     );
 }
 
+.line-4.hallowen {
+    width: 385px;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(
+        to right,
+        #8C52FF,
+        #FF914D
+    );
+}
+
 .t4-t1 {
     font-size: 30px;
 }
@@ -354,6 +497,20 @@ nav ul li a:hover {
     background-color: rgb(139, 139, 139);
 }
 
+.cp-bar.hallowen {
+    width: 350px;
+    height: 100px;
+    margin: -125px 0 0 60px;
+    border-radius: 50px;
+    z-index: -1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background-color: #400096;
+}
+
 .cp-t1 {
     color: #ffffff;
     margin-left: 40px;
@@ -375,15 +532,33 @@ nav ul li a:hover {
     );
 }
 
+.users.hallowen {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-image: url("../img/morado-hallowen.jpg") !important;
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el elemento */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-position: center center;
+    padding-top: 10px;
+}
+
 .tittle-7 {
     margin: 10px auto 0 auto;
     border-radius: 30px;
-    width: 900px;
+    width: 35%;
     height: 60px;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+
+.tittle-7.hallowen {
+   background-color: #0000009c;
+   font-weight: bold;
+   color: white;
 }
 
 .col3 {
@@ -392,6 +567,10 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.col3.hallowen {
+    margin-top: 30px;
 }
 
 .card3 {
@@ -408,6 +587,24 @@ nav ul li a:hover {
     background-color: #ffffff;
 }
 
+.card3.hallowen {
+    margin: 75px;
+    width: 280px;
+    height: 400px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 20px;
+   /* border: 2px solid rgba(129, 179, 243, 0.5);
+    background-color: #ffffff;*/
+    background-color: rgba(0, 0, 0, 0.639);
+    color: white;
+    padding-top: 35px;
+    border: none;
+}
+
 .us-img {
     width: 100px;
     margin-top: 15px;
@@ -421,6 +618,14 @@ nav ul li a:hover {
     background-color: #38b6ff;
 }
 
+.circle.hallowen {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    background-color: #400096;
+}
+
 .us-bar {
     width: 150px;
     height: 5px;
@@ -429,13 +634,30 @@ nav ul li a:hover {
     background-color: #38b6ff;
 }
 
+.us-bar.hallowen {
+    width: 150px;
+    height: 5px;
+    margin-top: -10px;
+    border-radius: 20px;
+    background-color: #FFA801;
+}
+
 .us-tx {
     width: 75%;
     text-align: justify;
 }
 
+.us-tx.hallowen {
+    width: 65%;
+    text-align: justify;
+}
+
 .us-tx1 {
     margin-top: 5px;
+}
+
+.us-tx1.hallowen {
+    margin-top: 10px;
 }
 
 .btn-sub {
@@ -444,6 +666,15 @@ nav ul li a:hover {
     height: 25px;
     border-radius: 20px;
     background-color: #38b6ff;
+    transition: 0.5s;
+}
+
+.btn-sub.hallowen {
+    cursor: pointer;
+    width: 135px;
+    height: 34px;
+    border-radius: 20px;
+    background-color: #FFA801;
     transition: 0.5s;
 }
 
@@ -461,6 +692,17 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer.hallowen {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #020202;
+    color: white;
 }
 
 .f-card1 {
@@ -487,6 +729,11 @@ nav ul li a:hover {
     color: black;
 }
 
+.a-f.hallowen {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
 .f-card {
     width: 300px;
     height: 100%;
@@ -498,6 +745,10 @@ nav ul li a:hover {
 
 .f-space {
     margin-top: 30px;
+}
+
+.f-space h5 i.hallowen{
+    color: #FFA801 !important;
 }
 
 .logo-f-img {
@@ -512,6 +763,27 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.bottom.hallowen {
+    width: 100%;
+    height: 40px;
+    background-color: #400096;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.bottom b.hallowen {
+    color: #FFA801;
+}
+
+
+/* Estilos para la transicion de HALLOWEN */
+
+ /* Animación de parpadeo rápido en negro */
+
+  
+
 
 /* Responsive */
 
