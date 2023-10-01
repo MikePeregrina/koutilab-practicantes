@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula19";
+$permiso = "capsula22";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 20;
+$permiso_intento = 23;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 7 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 8 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -79,45 +79,54 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_4" href="#"></a>
                         </li>
-
-
+                        <li>
+                            <a itlist="itList_5" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T8/63.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T8/64.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T8/65.gif');"></li>
-
+                        <li style="background-image: url('../../img/1/8/64.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/8/65.gif');"></li>
+                        <li style="background-image: url('../../img/1/8/66.gif');"></li>
+                        <li style="background-image: url('../../img/1/8/67.gif');"></li>
+                        <li style="background-image: url('../../img/1/8/68.gif');"></li>
+                        <li style="background-image: url('../../img/1/8/69.gif');"></li>
 
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué se debe agregar en el campo "Para" según el texto?</h1>
+                                    <h1>¿Qué se puede hacer al tocar en una dirección de correo en los campos según el texto?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            El destinatario del correo.
+                                            Abrir un menú contextual.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            El motivo o descripción del correo.
+                                            Copiar la dirección de correo al portapapeles.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            El mensaje que se desea enviar.
+                                            Quitar el destinatario de la lista.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            No se menciona qué se debe agregar en el campo "Para".
+                                            No se menciona qué se puede hacer al tocar en una dirección de correo.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="20">
+                                    <input type="hidden" name="permiso" value="23">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

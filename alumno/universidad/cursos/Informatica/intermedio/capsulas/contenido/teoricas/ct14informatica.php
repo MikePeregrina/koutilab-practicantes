@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula36";
+$permiso = "capsula42";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 37;
+$permiso_intento = 43;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -91,16 +91,19 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_8" href="#"></a>
                         </li>
-
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T14/102.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T14/103.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/104.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/105.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/106.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/107.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/108.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/126.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/2/127.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/128.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/129.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/130.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/131.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/132.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/133.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -130,7 +133,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Ninguna de las anteriores.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="37">
+                                    <input type="hidden" name="permiso" value="43">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

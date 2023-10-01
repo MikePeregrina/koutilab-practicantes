@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula39";
+$permiso = "capsula48";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 40;
+$permiso_intento = 49;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -85,15 +85,21 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-
-
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T16/124.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T16/125.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/126.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/127.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T16/128.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/144.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/4/145.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/146.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/147.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/148.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/149.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/150.gif');"></li>
 
                         <li>
                             <div>
@@ -124,7 +130,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Agregar formato de color al formulario
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="40">
+                                    <input type="hidden" name="permiso" value="49">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

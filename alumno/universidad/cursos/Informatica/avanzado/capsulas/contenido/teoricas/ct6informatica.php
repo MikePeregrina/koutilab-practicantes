@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula13";
+$permiso = "capsula16";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 17;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -39,7 +39,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE informatica>
 
 <head>
     <meta charset="UTF-8" />
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,45 +88,45 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T6/47.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T6/48.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/49.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/50.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/51.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T6/52.gif');"></li>
+                        <li style="background-image: url('../../img/1/6/57.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/6/58.gif');"></li>
+                        <li style="background-image: url('../../img/1/6/59.gif');"></li>
+                        <li style="background-image: url('../../img/1/6/60.gif');"></li>
+                        <li style="background-image: url('../../img/1/6/61.gif');"></li>
+                        <li style="background-image: url('../../img/1/6/62.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué se debe tener en cuenta al seleccionar una plantilla en PowerPoint?</h1>
+                                    <h1>¿Qué se debe revisar y corregir en el texto de cada diapositiva en PowerPoint?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            La combinación de colores armoniosa y fuentes legibles.
+                                            Los errores gramaticales, ortográficos y de formato.
+
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            La inclusión de animaciones y transiciones predefinidas.
+                                            Los tiempos y la duración de las animaciones.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            La combinación de colores armoniosa y fuentes legibles.
+                                            La posición y el tamaño de las imágenes.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            La búsqueda en línea de plantillas predefinidas.
+                                            La resolución adecuada de las imágenes y gráficos.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="17">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -196,8 +196,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 6) {
@@ -219,8 +218,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 8) {
@@ -241,8 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 10) {
@@ -263,8 +260,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 }
@@ -279,7 +275,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct6informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox3.checked) {
@@ -292,7 +288,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct6informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox4.checked) {
@@ -305,7 +301,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct6informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             }

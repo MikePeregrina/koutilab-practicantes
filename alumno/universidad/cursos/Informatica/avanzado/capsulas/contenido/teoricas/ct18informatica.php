@@ -6,14 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9;");
+$permiso = "capsula54";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
+
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 55;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -59,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 7 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -90,46 +91,47 @@ if (isset($resultadoIntentos['intentos'])) {
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T18/136.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T18/137.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/138.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/139.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/140.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T18/141.gif');"></li>
+                        <li style="background-image: url('../../img/2/8/170.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/8/171.gif');"></li>
+                        <li style="background-image: url('../../img/2/8/172.gif');"></li>
+                        <li style="background-image: url('../../img/2/8/173.gif');"></li>
+                        <li style="background-image: url('../../img/2/8/174.gif');"></li>
+                        <li style="background-image: url('../../img/2/8/175.gif');"></li>
+
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál de las siguientes acciones no está relacionada con trabajar con datos en Excel?</h1>
+                                    <h1>¿Cuál es la forma correcta de cambiar el nombre de una hoja de cálculo en Excel?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Realizar cálculos y análisis de datos.
+                                            Todas las opciones anteriores.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Ingresar datos en las celdas.
-
+                                            Haciendo doble clic en la pestaña de la hoja y escribiendo el nuevo nombre.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Copiar y pegar datos.
+                                            Haciendo clic con el botón derecho del ratón en la pestaña de la hoja y seleccionando "Cambiar nombre".
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Seleccionar y editar datos.
+                                            Utilizando la función "Renombrar hoja" en la pestaña "Inicio".
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="55">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct18informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -275,7 +277,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
-                        window.location.href = '../teoricas/ct18informatica.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -289,7 +290,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
-                        window.location.href = '../teoricas/ct18informatica.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -303,7 +303,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
-                        window.location.href = '../teoricas/ct18informatica.php';
                     }
                 });
             }

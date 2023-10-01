@@ -88,11 +88,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
                         </ul>
                         <ul id="slider">
-                            <li style="background-image: url('../../img/informatica/T4/34.gif'); z-index:0; opacity: 1;"></li>
-                            <li style="background-image: url('../../img/informatica/T4/35.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/36.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/37.gif');"></li>
-                            <li style="background-image: url('../../img/informatica/T4/38.gif');"></li>
+                            <li style="background-image: url('../../img/1/4/28.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/1/4/29.gif');"></li>
+                            <li style="background-image: url('../../img/1/4/30.gif');"></li>
+                            <li style="background-image: url('../../img/1/4/31.gif');"></li>
+                            <li style="background-image: url('../../img/1/4/32.gif');"></li>
 
                             <li>
                                 <div>

@@ -6,15 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9;");
+$permiso = "capsula19";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 20;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 5.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 7 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,55 +88,48 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T7/54.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T7/55.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/56.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/57.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/58.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/59.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/60.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/61.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/64.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/7/65.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/66.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/67.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/68.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/69.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué es el formato de diapositivas en PowerPoint?</h1>
+                                    <h1>¿Cuál es una ventaja de las presentaciones electrónicas en comparación con los métodos tradicionales?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            La forma en que se presenta y organiza el contenido visual en cada diapositiva.
+                                            Mayor versatilidad para incorporar diferentes tipos de contenido.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Los colores, fuentes y efectos de estilo aplicados a todas las diapositivas.
+                                            Un diseño visual atractivo.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Los diferentes diseños predefinidos disponibles en PowerPoint.
+                                            Diseño y formato personalizados.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            La selección de temas y formatos de fondo para personalizar las diapositivas.
+                                            Adaptación al tono y nivel de detalle de la audiencia.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="20">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct7informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -202,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 6) {
@@ -224,7 +217,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 8) {
@@ -245,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 10) {
@@ -266,7 +259,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 }
@@ -281,7 +274,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox3.checked) {
@@ -294,7 +287,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox4.checked) {
@@ -307,7 +300,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             }
