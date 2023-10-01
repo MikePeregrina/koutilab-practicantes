@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula22";
+$permiso = "capsula28";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 23;
+$permiso_intento = 29;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -90,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T10/77.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T10/78.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/79.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/80.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/81.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/82.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/90.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/10/91.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/92.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/93.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/94.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/95.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -125,7 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Facilita la colaboración y el intercambio de presentaciones.
                                         </label>
                                         <div class="container-question">
-                                            <input type="hidden" name="permiso" value="23">
+                                            <input type="hidden" name="permiso" value="29">
                                             <input type="hidden" name="teorico" value="10">
                                             <input type="hidden" name="id_curso" value="9">
                                             <input type="hidden" name="validar" id="validar" value="incorrecto">

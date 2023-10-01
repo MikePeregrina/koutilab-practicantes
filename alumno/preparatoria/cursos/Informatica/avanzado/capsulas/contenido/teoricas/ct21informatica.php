@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula16";
+$permiso = "capsula63";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 17;
+$permiso_intento = 64;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -39,7 +39,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 ?>
 
-<!DOCTYPE informatica>
+<!DOCTYPE html>
 
 <head>
     <meta charset="UTF-8" />
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 8 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -85,52 +85,47 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/6/57.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/6/58.gif');"></li>
-                        <li style="background-image: url('../../img/1/6/59.gif');"></li>
-                        <li style="background-image: url('../../img/1/6/60.gif');"></li>
-                        <li style="background-image: url('../../img/1/6/61.gif');"></li>
-                        <li style="background-image: url('../../img/1/6/62.gif');"></li>
+                        <li style="background-image: url('../../img/2/11/194.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/11/195.gif');"></li>
+                        <li style="background-image: url('../../img/2/11/196.gif');"></li>
+                        <li style="background-image: url('../../img/2/11/197.gif');"></li>
+                        <li style="background-image: url('../../img/2/11/198.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué se debe revisar y corregir en el texto de cada diapositiva en PowerPoint?</h1>
+                                    <h1>¿Cómo se puede exportar datos desde Excel a la web?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Los errores gramaticales, ortográficos y de formato.
-
+                                            Guardando la hoja de cálculo como un archivo en formato HTML o CSV.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Los tiempos y la duración de las animaciones.
+                                            Copiando y pegando los datos en un sitio web.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            La posición y el tamaño de las imágenes.
+                                            Utilizando la función "Exportar a la web" en la pestaña "Datos".
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            La resolución adecuada de las imágenes y gráficos.
+                                            Enviando los datos por correo electrónico a través de Excel.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="17">
+                                    <input type="hidden" name="permiso" value="64">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct6informatica.php">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct21informatica.php">
                                 </form>
                             </div>
                         </li>

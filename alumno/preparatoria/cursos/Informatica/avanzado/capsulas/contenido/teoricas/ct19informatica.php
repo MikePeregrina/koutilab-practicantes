@@ -6,14 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9;");
+$permiso = "capsula57";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium4.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
+
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 58;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -84,60 +85,49 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_9" href="#"></a>
-                        </li>
-
 
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T19/143.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T19/142.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/144.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/145.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/146.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/147.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/148.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T19/149.gif');"></li>
+                        <li style="background-image: url('../../img/2/9/177.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/9/178.gif');"></li>
+                        <li style="background-image: url('../../img/2/9/179.gif');"></li>
+                        <li style="background-image: url('../../img/2/9/180.gif');"></li>
+                        <li style="background-image: url('../../img/2/9/181.gif');"></li>
+
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cómo se crea una macro en Excel?</h1>
+                                    <h1>¿Cuál es la forma correcta de cambiar el nombre de una hoja de cálculo en Excel?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Utilizando la función "Grabar macro" para registrar las acciones realizadas en la hoja de cálculo.
+                                            Todas las opciones anteriores.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Importando una macro desde otro archivo de Excel.
+                                            Haciendo doble clic en la pestaña de la hoja y escribiendo el nuevo nombre.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Utilizando una función predefinida de Excel para crear la macro.
+                                            Haciendo clic con el botón derecho del ratón en la pestaña de la hoja y seleccionando "Cambiar nombre".
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Escribiendo directamente el código VBA en la hoja de cálculo.
+                                            Utilizando la función "Renombrar hoja" en la pestaña "Inicio".
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="58">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct19informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -283,7 +273,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
-                        window.location.href = '../teoricas/ct19informatica.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -297,7 +286,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
-                        window.location.href = '../teoricas/ct19informatica.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -311,7 +299,6 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();
-                        window.location.href = '../teoricas/ct19informatica.php';
                     }
                 });
             }

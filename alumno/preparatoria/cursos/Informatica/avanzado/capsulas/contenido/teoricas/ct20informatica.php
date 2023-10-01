@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula48";
+$permiso = "capsula60";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 49;
+$permiso_intento = 61;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -82,20 +82,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_6" href="#"></a>
-                        </li>
-                        <li>
-                            <a itlist="itList_6" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T20/151.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T20/152.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/153.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/154.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/155.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T20/156.gif');"></li>
+                        <li style="background-image: url('../../img/2/10/183.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/10/184.gif');"></li>
+                        <li style="background-image: url('../../img/2/10/185.gif');"></li>
+                        <li style="background-image: url('../../img/2/10/186.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -125,7 +117,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Enviando los datos por correo electrónico a través de Excel.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="49">
+                                    <input type="hidden" name="permiso" value="61">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
