@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula22";
+$permiso = "capsula30";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 23;
+$permiso_intento = 31;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 8 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 2 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -88,48 +88,53 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T10/77.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T10/78.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/79.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/80.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/81.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/82.gif');"></li>
+                        <li style="background-image: url('../../img/2/3/123.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/3/124.gif');"></li>
+                        <li style="background-image: url('../../img/2/3/125.gif');"></li>
+                        <li style="background-image: url('../../img/2/3/126.gif');"></li>
+                        <li style="background-image: url('../../img/2/3/127.gif');"></li>
+                        <li style="background-image: url('../../img/2/3/128.gif');"></li>
+                        <li style="background-image: url('../../img/2/3/129.gif');"></li>
+
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es una ventaja de descargar plantillas y temas para PowerPoint desde sitios web?</h1>
+                                    <h1>¿Qué es una referencia mixta en Excel?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Mejora el diseño visual de la presentación.
+                                            Una combinación de partes relativas y partes absolutas en una referencia.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Permite insertar enlaces a sitios web relevantes.
+                                            Una referencia que se utiliza para vincular celdas entre diferentes hojas de cálculo.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Permite incorporar contenido de redes sociales.
+                                            Una referencia que se ajusta automáticamente al copiar una fórmula.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Facilita la colaboración y el intercambio de presentaciones.
+                                            Una referencia que no cambia al copiar una fórmula.
                                         </label>
-                                        <div class="container-question">
-                                            <input type="hidden" name="permiso" value="23">
-                                            <input type="hidden" name="teorico" value="10">
-                                            <input type="hidden" name="id_curso" value="9">
-                                            <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                            <input type="hidden" name="redireccion" value="../contenido/teoricas/ct10informatica.php">
+                                    </div>
+                                    <input type="hidden" name="permiso" value="31">
+                                    <input type="hidden" name="teorico" value="10">
+                                    <input type="hidden" name="id_curso" value="9">
+                                    <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct10informatica.php">
                                 </form>
                             </div>
                         </li>

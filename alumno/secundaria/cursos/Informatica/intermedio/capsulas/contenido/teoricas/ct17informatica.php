@@ -6,15 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
+$permiso = "capsula51";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium4.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 52;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 5.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 8 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -86,48 +86,50 @@ if (isset($resultadoIntentos['intentos'])) {
                             <a itlist="itList_6" href="#"></a>
                         </li>
 
+
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T17/130.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T17/131.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T17/132.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T17/133.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T17/134.gif');"></li>
+                        <li style="background-image: url('../../img/2/7/135.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/7/136.gif');"></li>
+                        <li style="background-image: url('../../img/2/7/137.gif');"></li>
+                        <li style="background-image: url('../../img/2/7/138.gif');"></li>
+                        <li style="background-image: url('../../img/2/7/139.gif');"></li>
+
 
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es una ventaja de dividir un documento extenso en secciones en Word?</h1>
+                                    <h1>¿Qué se puede hacer en Word para la Web?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Proporciona diferentes formatos de página y encabezados en diferentes partes del documento
-
+                                            Todas las opciones son correctas.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Permite cambiar el tamaño de página en todo el documento
+                                            Crear y dar formato a documentos.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Mejora la velocidad de carga del documento en Word
+                                            Acceder a documentos en diferentes dispositivos.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Facilita la eliminación de secciones innecesarias
+                                            Compartir y colaborar con otros usuarios.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="52">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct17informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -193,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 6) {
@@ -215,7 +217,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 8) {
@@ -236,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 10) {
@@ -257,7 +259,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 }
@@ -272,7 +274,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct17informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox3.checked) {
@@ -285,7 +287,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct17informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox4.checked) {
@@ -298,7 +300,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct17informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             }

@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula36";
+$permiso = "capsula42";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 37;
+$permiso_intento = 43;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -60,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 4 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 6 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -91,46 +91,45 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_8" href="#"></a>
                         </li>
-
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T14/102.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T14/103.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/104.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/105.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/106.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/107.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T14/108.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/107.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/4/108.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/109.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/110.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/111.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/112.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/113.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es el propósito de utilizar tabulaciones en Word según el texto?</h1>
+                                    <h1>¿Cómo se puede ajustar el tamaño y la posición de un objeto después de agregarlo en Word?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Establecer puntos de referencia para alinear el texto de manera precisa.
+                                            Utilizando las opciones disponibles en las pestañas "Formato" y "Diseño".
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Organizar información en forma de elementos enumerados o viñetas.
+                                            Haciendo doble clic en el objeto.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Personalizar la apariencia de la lista según las preferencias.
+                                            Haciendo clic derecho en el objeto y seleccionando "Propiedades".
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Ninguna de las anteriores.
+                                            Se ajusta automáticamente al agregarlo.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="37">
+                                    <input type="hidden" name="permiso" value="43">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

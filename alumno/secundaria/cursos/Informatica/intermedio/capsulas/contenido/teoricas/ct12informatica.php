@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula30";
+$permiso = "capsula36";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 31;
+$permiso_intento = 37;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -97,14 +97,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T12/84.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T12/85.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/86.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/87.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/88.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/89.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/90.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T12/91.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/89.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/2/90.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/91.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/92.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/93.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/94.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/95.gif');"></li>
+                        <li style="background-image: url('../../img/2/2/96.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -134,7 +134,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             No se menciona qué es el formato de fuente en Microsoft Word.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="31">
+                                    <input type="hidden" name="permiso" value="37">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

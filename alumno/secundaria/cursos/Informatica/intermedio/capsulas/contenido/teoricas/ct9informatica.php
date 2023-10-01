@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula22";
+$permiso = "capsula25";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 23;
+$permiso_intento = 26;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -82,13 +82,20 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
-
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T9/67.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T9/68.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T9/69.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T9/70.gif');"></li>
+                        <li style="background-image: url('../../img/1/9/64.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/9/65.gif');"></li>
+                        <li style="background-image: url('../../img/1/9/66.gif');"></li>
+                        <li style="background-image: url('../../img/1/9/67.gif');"></li>
+                        <li style="background-image: url('../../img/1/9/68.gif');"></li>
+                        <li style="background-image: url('../../img/1/9/69.gif');"></li>
 
                         <li>
                             <div>
@@ -119,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             No se menciona qué se puede hacer al tocar en una dirección de correo.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="23">
+                                    <input type="hidden" name="permiso" value="26">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

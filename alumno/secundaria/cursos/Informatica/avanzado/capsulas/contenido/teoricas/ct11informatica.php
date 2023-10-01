@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsula27";
+$permiso = "capsula33";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 28;
+$permiso_intento = 34;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -36,6 +36,7 @@ if (isset($resultadoIntentos['intentos'])) {
 } else {
     $puntosGanados = 10;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 1 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 3 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -81,47 +82,43 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_6" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T11/91.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T11/92.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T11/93.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T11/94.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T11/95.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/131.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/2/4/132.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/133.gif');"></li>
+                        <li style="background-image: url('../../img/2/4/134.gif');"></li>
 
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué función principal cumple Excel en el entorno empresarial, educativo y personal?</h1>
+                                    <h1>¿Qué es un formato de texto en Excel?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Almacenar y manejar datos.
+                                            La forma en que se muestra el contenido de una celda.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Crear presentaciones visuales.
+                                            El proceso de llenar una columna o fila con valores consecutivos.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Administrar redes y servidores.
+                                            El conjunto de reglas o criterios para resaltar automáticamente valores.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Realizar edición y diseño de imágenes.
+                                            La secuencia de valores que siguen un patrón específico.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="28">
+                                    <input type="hidden" name="permiso" value="34">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -170,7 +167,7 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox4.addEventListener("change", comprueba, true);
 
         function comprueba() {
-            if (checkbox1.checked) {
+            if (checkbox2.checked) {
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
@@ -260,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 }
 
-            } else if (checkbox2.checked) {
+            } else if (checkbox1.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
                 Swal.fire({

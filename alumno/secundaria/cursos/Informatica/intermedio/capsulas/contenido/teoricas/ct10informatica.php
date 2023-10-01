@@ -6,15 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
+$permiso = "capsula28";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 29;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -88,47 +88,49 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T10/65.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T10/66.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/67.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/68.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/69.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T10/70.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/71.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/10/72.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/73.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/74.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/75.gif');"></li>
+                        <li style="background-image: url('../../img/1/10/76.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
-                                    <<h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                        <h1>¿Cuál de las siguientes opciones NO es una medida de seguridad física para proteger los datos?</h1>
-                                        <div class="container-question">
-                                            <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                            <label for="checkbox1">
-                                                Cifrado de datos
-                                            </label>
-                                        </div>
-                                        <div class="container-question">
-                                            <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                            <label for="checkbox2">
-                                                Monitoreo de cámaras de seguridad
-                                            </label>
-                                        </div>
-                                        <div class="container-question">
-                                            <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                            <label for="checkbox3">
-                                                Almacenamiento en un lugar seguro
-                                            </label>
-                                        </div>
-                                        <div class="container-question">
-                                            <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                            <label for="checkbox4">
-                                                Cerraduras y controles de acceso
-                                            </label>
-                                        </div>
-                                        <input type="hidden" name="permiso" value="14">
-                                        <input type="hidden" name="teorico" value="10">
-                                        <input type="hidden" name="id_curso" value="8">
-                                        <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
+                                    <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
+                                    <h1>¿Qué se puede hacer al tocar en una dirección de correo en los campos según el texto?</h1>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox1">
+                                            Abrir un menú contextual.
+                                        </label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox2">
+                                            Copiar la dirección de correo al portapapeles.
+                                        </label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox3">
+                                            Quitar el destinatario de la lista.
+                                        </label>
+                                    </div>
+                                    <div class="container-question">
+                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox4">
+                                            No se menciona qué se puede hacer al tocar en una dirección de correo.
+                                        </label>
+                                    </div>
+                                    <input type="hidden" name="permiso" value="29">
+                                    <input type="hidden" name="teorico" value="10">
+                                    <input type="hidden" name="id_curso" value="8">
+                                    <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct10informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -194,7 +196,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 6) {
@@ -216,7 +218,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 8) {
@@ -237,7 +239,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 10) {
@@ -258,7 +260,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 }
@@ -273,7 +275,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct10informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox3.checked) {
@@ -286,7 +288,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct10informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox4.checked) {
@@ -299,7 +301,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct10informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             }

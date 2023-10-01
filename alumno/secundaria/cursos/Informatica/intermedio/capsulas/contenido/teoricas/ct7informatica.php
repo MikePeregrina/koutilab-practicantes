@@ -6,14 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
+$permiso = "capsula19";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
+
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 14;
+$permiso_intento = 20;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -59,7 +60,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 6.5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 7 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -81,47 +82,72 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
-
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_10" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_11" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/informatica/T7/58.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/informatica/T7/59.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/60.gif');"></li>
-                        <li style="background-image: url('../../img/informatica/T7/61.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/45.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/1/7/46.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/47.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/48.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/49.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/50.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/51.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/52.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/53.gif');"></li>
+                        <li style="background-image: url('../../img/1/7/54.gif');"></li>
+
 
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Qué se debe hacer en la pantalla de inicio para configurar una cuenta de correo electrónico según el texto?</h1>
+                                    <h1>¿Qué se debe agregar en el campo "Para" según el texto?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Navegar hasta Aplicaciones > Configuración > Cuentas > Correo electrónico.
+                                            El destinatario del correo.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Navegar hasta Aplicaciones > Configuración > Cuentas.
+                                            El motivo o descripción del correo.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Navegar hasta Aplicaciones > Configuración > Correo electrónico.
+                                            El mensaje que se desea enviar.
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            No se menciona qué hacer en la pantalla de inicio.
+                                            No se menciona qué se debe agregar en el campo "Para".
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="14">
+                                    <input type="hidden" name="permiso" value="20">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
+                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct7informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -187,7 +213,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 6) {
@@ -209,7 +235,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 8) {
@@ -230,7 +256,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 } else if (puntos == 10) {
@@ -251,7 +277,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            document.getElementById('evaluar').submit();
                         }
                     });
                 }
@@ -266,7 +292,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox3.checked) {
@@ -279,7 +305,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             } else if (checkbox4.checked) {
@@ -292,7 +318,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../teoricas/ct7informatica.php';
+                        document.getElementById('evaluar').submit();
                     }
                 });
             }
