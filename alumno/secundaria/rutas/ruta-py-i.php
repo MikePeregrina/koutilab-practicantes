@@ -113,6 +113,27 @@ if (!isset($_SESSION['actualizacion_realizada_pyi'])) {
     <link rel="stylesheet" href="../css/ruta-py-i.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #intro {
+            background-image: url(../img/BTNINTRO2.png);
+        }
+
+        #teoria {
+            background-image: url(../img/BTNTEO2.png);
+        }
+
+        #prac {
+            background-image: url(../img/BTNPRA2.png);
+        }
+
+        #game {
+            background-image: url(../img/BTNJU2.png);
+        }
+
+        #eva {
+            background-image: url(../img/BTNEV2.png);
+        }
+    </style>
 </head>
 
 <body>
@@ -127,19 +148,19 @@ if (!isset($_SESSION['actualizacion_realizada_pyi'])) {
         <h1>CURSO DE PHYTON INTERMEDIO DE KOUTILAB</h1>
     </div>
     <aside class="sidebar">
-        <div class="circle" style="background-image:url(../img/BTNINTRO1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNINTRO2.png); background-size:cover;background-position:center ">
             <p>Introducción</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNPRA1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNPRA2.png); background-size:cover;background-position:center ">
             <p>Práctica</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNTEO1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNTEO2.png); background-size:cover;background-position:center ">
             <p>Teórica</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNJU.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNJU2.png); background-size:cover;background-position:center ">
             <p>Juegos</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNEV1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNEV2.png); background-size:cover;background-position:center ">
             <p>Evaluativa</p>
         </div>
     </aside>

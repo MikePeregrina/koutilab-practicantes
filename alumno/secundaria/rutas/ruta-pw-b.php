@@ -108,19 +108,19 @@ if (!isset($_SESSION['actualizacion_realizada_pwb'])) {
         <h1>CURSO DE PROGRAMACIÓN WEB BÁSICA DE KOUTILAB</h1>
     </div>
     <aside class="sidebar">
-        <div class="circle" style="background-image:url(../img/BTNINTRO1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNINTRO2.png); background-size:cover;background-position:center ">
             <p>Introducción</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNPRA1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNPRA2.png); background-size:cover;background-position:center ">
             <p>Práctica</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNTEO1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNTEO2.png); background-size:cover;background-position:center ">
             <p>Teórica</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNJU.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNJU2.png); background-size:cover;background-position:center ">
             <p>Juegos</p>
         </div>
-        <div class="circle" style="background-image:url(../img/BTNEV1.png); background-size:cover;background-position:center ">
+        <div class="circle" style="background-image:url(../img/BTNEV2.png); background-size:cover;background-position:center ">
             <p>Evaluativa</p>
         </div>
     </aside>
