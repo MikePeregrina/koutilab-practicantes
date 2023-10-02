@@ -52,8 +52,8 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $clave_director = $_POST['clave_director'];
             $clave_docente = $_POST['clave_docente'];
             $clave_alumno = $_POST['clave_alumno'];
-            $id_user = $_SESSION['id_admin'];
-            $sql_update = mysqli_query($conexion, "UPDATE escuelas SET nombre_escuela = '$nombre_escuela', cct = '$cct', nombre_director = '$nombre_director', calle = '$calle', num_exterior = '$num_exterior', estado = '$estado', codigo_postal = '$codigo_postal', nivel_educativo = '$nivel_educativo', pais = '$pais', autorizacion = '$autorizacion', id_admin = '$id_user' WHERE id_escuela = $idescuela");
+            $id_user = $_SESSION['id_admin_secundario'];
+            $sql_update = mysqli_query($conexion, "UPDATE escuelas SET nombre_escuela = '$nombre_escuela', cct = '$cct', nombre_director = '$nombre_director', calle = '$calle', num_exterior = '$num_exterior', estado = '$estado', codigo_postal = '$codigo_postal', nivel_educativo = '$nivel_educativo', pais = '$pais', autorizacion = '$autorizacion', id_admin_secundario = '$id_user' WHERE id_escuela = $idescuela");
             $alert = '<div class="alert alert-success" role="alert">Escuela actualizada</div>';
         }
     }
@@ -82,7 +82,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $codigo_postal = $data['codigo_postal'];
             $nivel_educativo = $data['nivel_educativo'];
             $autorizacion = $data['autorizacion'];
-            $id_user = $data['id_admin'];
+            $id_user = $data['id_admin_secundario'];
             $clave_director = $data['clave_director'];
             $clave_docente = $data['clave_docente'];
             $clave_alumno = $data['clave_alumno'];

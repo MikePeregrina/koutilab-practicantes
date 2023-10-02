@@ -6,6 +6,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
 }
 include('../acciones/conexion.php');
 
+// ALTER TABLE `escuelas` ADD `id_admin_secundario` INT NOT NULL AFTER `id_admin`;
+
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE id_admin_secundario = $id_user"));
 
 //Verificar si ya se tiene permiso en ruta 1
@@ -47,7 +49,7 @@ COUNT(DISTINCT CASE
     ELSE cct
 END) AS conteo
 FROM escuelas
-WHERE estatus = 1
+WHERE estatus = 1 AND id_admin_secundario = $id_user
 GROUP BY nivel_educativo";
 $result = $conexion->query($sql);
 ?>

@@ -202,7 +202,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                   <td><?php echo $data['nombre_escuela']; ?></td>
                   <td><?php echo $data['nivel_educativo']; ?></td>
                   <td><?php echo $data['ganancias_ultimo_mes']; ?></td>
-                  <td><?php echo $data['total']; ?></td>
+                  <td><?php echo $data['total'] * 0.84; ?> MXN</td>
                 </tr>
             <?php }
             } ?>
@@ -213,7 +213,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         <canvas id="G-IEscuelas" width="450" height="280"></canvas>
         <hr style="opacity: 10%;">
         <div class="info">
-          <li><i class='fa-solid fa-school me-3'></i><b>Total de ingresos por escuelas: </b>$<?php echo $filaescuelas['total']; ?></li>
+          <li><i class='fa-solid fa-school me-3'></i><b>Total de ingresos por escuelas: </b>$<?php echo $filaescuelas['total'] * 0.84; ?></li>
         </div>
         <div align="center" style="margin-top: 20px;">
           <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
