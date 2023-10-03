@@ -69,7 +69,7 @@ $fila = mysqli_fetch_assoc($result);
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">Usuario:</span>
-                            <input type="text" placeholder="Usuario" name="usuario" required>
+                            <input type="text" placeholder="Usuario" name="usuario" id="usuario_admin" onkeydown="agregarArroba()" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Nombre:</span>
@@ -145,7 +145,14 @@ $fila = mysqli_fetch_assoc($result);
 
     <?php include 'footer.php'; ?>
 
-
+    <script>
+        function agregarArroba() {
+            var input = document.getElementById("usuario_admin");
+            if (!input.value.startsWith("@")) {
+                input.value = "@" + input.value;
+            }
+        }
+    </script>
     <script>
         const addCourseButton = document.getElementById('addCourseButton');
         const popupContainer = document.getElementById('popupContainer');
