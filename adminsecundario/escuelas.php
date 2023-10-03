@@ -50,7 +50,15 @@ COUNT(DISTINCT CASE
 END) AS conteo
 FROM escuelas
 WHERE estatus = 1 AND id_admin_secundario = $id_user
-GROUP BY nivel_educativo";
+GROUP BY nivel_educativo
+ORDER BY
+CASE
+  WHEN nivel_educativo = 'Primaria' THEN 1
+  WHEN nivel_educativo = 'Secundaria' THEN 2
+  WHEN nivel_educativo = 'Preparatoria' THEN 3
+  WHEN nivel_educativo = 'Universidad' THEN 4
+END;
+";
 $result = $conexion->query($sql);
 ?>
 
@@ -250,7 +258,6 @@ $result = $conexion->query($sql);
                                 <td><?php echo $data['autorizacion']; ?></td>
 
                                 <td id="td-btn">
-                                    <a style="background-color:#FF5733; border:none;" href="acciones/asignar_permisos_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-add"><i id="i-add" class='fa-solid fa-elevator fa-lg'></i></a>
                                     <a href="acciones/editar_escuela.php?id=<?php echo $data['id_escuela']; ?>" class="btn btn-success" id="btn-edit"><i id="i-edit" class='fas fa-edit'></i></a>
                                     <form action="acciones/eliminar_escuela.php?id=<?php echo $data['id_escuela']; ?>" method="post" id="f-c" class="confirmar d-inline">
                                         <button class="btn btn-danger" id="btn-trs" type="submit"><i id="i-trs" class='fas fa-trash-alt'></i> </button>
@@ -350,9 +357,9 @@ $result = $conexion->query($sql);
             var cct = document.getElementById("cct").value;
             var prefijo;
             prefijo = cct.substr(0, 3);
-            document.getElementById("clave_alumno").value = prefijo.toUpperCase() + "-" + generarClaveAlumno();
-            document.getElementById("clave_docente").value = prefijo.toUpperCase() + "-" + generarClaveDocente();
-            document.getElementById("clave_director").value = prefijo.toUpperCase() + "-" + generarClaveDirector();
+            document.getElementById("clave_alumno").value = prefijo.toUpperCase() + generarClaveAlumno();
+            document.getElementById("clave_docente").value = prefijo.toUpperCase() + generarClaveDocente();
+            document.getElementById("clave_director").value = prefijo.toUpperCase() + generarClaveDirector();
         }
     </script>
 

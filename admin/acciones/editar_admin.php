@@ -16,22 +16,13 @@ if (!empty($_POST)) {
     $alert = "";
     if (empty($_POST['usuario']) || empty($_POST['nombre'])) {
         $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
-    } else if (($_POST['usuario']) && ($_POST['nombre']) && empty($_POST['contrasena'])) {
+    } else if (($_POST['usuario']) && ($_POST['nombre'])) {
         $idadmin = $_GET['id'];
         $usuario = $_POST['usuario'];
         $nombre = $_POST['nombre'];
         $pais = $_POST['pais'];
         $id_user = $_SESSION['id_admin'];
         $sql_update = mysqli_query($conexion, "UPDATE admin_secundario SET usuario = '$usuario', nombre = '$nombre', pais = '$pais' WHERE id_admin_secundario = $idadmin");
-        $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
-    } else if (($_POST['usuario']) && ($_POST['nombre']) && ($_POST['contrasena'])) {
-        $idadmin = $_GET['id'];
-        $usuario = $_POST['usuario'];
-        $nombre = $_POST['nombre'];
-        $pais = $_POST['pais'];
-        $contrasena = md5($_POST['contrasena']);
-        $id_user = $_SESSION['id_admin'];
-        $sql_update = mysqli_query($conexion, "UPDATE admin_secundario SET usuario = '$usuario', nombre = '$nombre', contrasena = '$contrasena', pais = '$pais' WHERE id_admin_secundario = $idadmin");
         $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
     }
 }
@@ -52,7 +43,6 @@ if ($result_sql == 0) {
         $idadmin = $data['id_admin_secundario'];
         $usuario = $data['usuario'];
         $nombre = $data['nombre'];
-        $contrasena = $data['contrasena'];
         $pais = $data['pais'];
     }
 }
@@ -96,10 +86,6 @@ if ($result_sql == 0) {
                     <div class="input-box">
                         <span class="details">Nombre</span>
                         <input type="text" name="nombre" id="nombre" value="<?php echo $nombre; ?>" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Contraseña</span>
-                        <input type="text" name="contrasena" id="contrasena" value="">
                     </div>
                     <div class="input-box">
                         <span class="details">País</span>

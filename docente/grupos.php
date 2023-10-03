@@ -262,7 +262,7 @@ $fila = mysqli_fetch_assoc($result);
             var prefijo;
             var resultado;
             prefijo = nombre.substr(0, 3);
-            resultado = prefijo.toUpperCase() + "-" + generarClaveGrupo().toUpperCase();
+            resultado = prefijo.toUpperCase() + generarClaveGrupo().toUpperCase();
             document.getElementById("clave").value = resultado.split(" ").join("");
         }
     </script>

@@ -25,36 +25,18 @@ $pais = $user["pais"];
           <span class="nav-item">Escuelas</span>
         </a>
         </li>
-        <li<?php echo (basename($_SERVER['PHP_SELF']) == 'bandeja.php') ? ' class="active"' : ''; ?>>
-          <a href="bandeja.php">
-            <i class="fas fa-envelope"></i>
-            <span class="nav-item">Bandeja entrada</span>
+        <li<?php echo (basename($_SERVER['PHP_SELF']) == 'help.php') ? ' class="active"' : ''; ?>>
+          <a id="btn-abrir-modalV">
+            <i class="fas fa-question-circle"></i>
+            <span class="nav-item">Help</span>
           </a>
           </li>
-          <li<?php echo (basename($_SERVER['PHP_SELF']) == 'pre-registros.php') ? ' class="active"' : ''; ?>>
-            <a href="pre-registros.php">
-              <i class="fas fa-clipboard-list"></i>
-              <span class="nav-item">Pre-Registros</span>
+          <li class="li-ultimo" <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
+            <a href="../acciones/cerrarsesion.php" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item2">Salir</span>
             </a>
-            </li>
-            <li<?php echo (basename($_SERVER['PHP_SELF']) == 'pre-registros-inst.php') ? ' class="active"' : ''; ?>>
-              <a href="pre-registros-inst.php">
-                <i class="fas fa-clipboard-list"></i>
-                <span class="nav-item">Pre-Registros Inst</span>
-              </a>
-              </li>
-              <li<?php echo (basename($_SERVER['PHP_SELF']) == 'help.php') ? ' class="active"' : ''; ?>>
-                <a id="btn-abrir-modalV">
-                  <i class="fas fa-question-circle"></i>
-                  <span class="nav-item">Help</span>
-                </a>
-                </li>
-                <li class="li-ultimo" <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? ' class="active"' : ''; ?>>
-                  <a href="../acciones/cerrarsesion.php" class="logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="nav-item2">Salir</span>
-                  </a>
-                </li>
+          </li>
   </ul>
 </nav>
 
