@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
 }
 include('../../acciones/conexion.php');
 
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin_secundario = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE id_admin_secundario = $id_user"));
 
 ?>
 
