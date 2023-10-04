@@ -1,0 +1,52 @@
+[
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "En muchos lenguajes de programación, los valores nulos pueden causar errores difíciles de detectar",
+        "respuesta": "Cierto",
+        "incorrecta1": "Falso",
+        "incorrecta2": "No lo se",
+        "incorrecta3": "Ninguna",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "Kotlin aborda este problema obligando a los programadores a ser explícitos sobre la posibilidad de que un valor sea nulo. ",
+        "respuesta": "Cierto",
+        "incorrecta1": "Falso",
+        "incorrecta2": "No lo se",
+        "incorrecta3": "Ninguna",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "Pueden contener valores nulos o no nulos",
+        "respuesta": "Nulleables",
+        "incorrecta1": "No nulleables ",
+        "incorrecta2": "No lo se",
+        "incorrecta3": "Ninguna",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "En Kotlin, los tipos se dividen en dos categorías: tipos nullable y tipos no nullable.",
+        "respuesta": "Cierto",
+        "incorrecta1": "Falso",
+        "incorrecta2": "No lo se",
+        "incorrecta3": "Ninguna",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "¿Que operador es una herramienta poderosa para proporcionar un valor por defecto en caso de que un valor nullable sea nulo.",
+        "respuesta": "Elvis",
+        "incorrecta1": "Aritmetico",
+        "incorrecta2": "Nulo",
+        "incorrecta3": "Suma",
+        "imagen": "",
+        "objectFit": "cover"
+    }
+]
