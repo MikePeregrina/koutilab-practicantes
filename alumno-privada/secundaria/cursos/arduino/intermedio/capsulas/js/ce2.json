@@ -1,0 +1,74 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Para que las maquinas perciban cosas del exterior",
+        "incorrectAnswers": [
+            "Para que se perciban cosas",
+            "Para que recepcione sonidos",
+            "No recuerdo"
+        ],
+        "question": "¿Para que sirve un sensor?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Humedad, Distancia, Luminucidad, etc",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Imagenes, Videos, Sonidos, etc",
+            "Olores, Conversaciones, etc"
+        ],
+        "question": "¿Qué es lo que detectan los sensores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Detector Infrarojo, Giroscopio, Sonido, etc",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Detector de imagenes, Detector de videos, Detector de sonidos,etc",
+            "Detector colores, Detector de olores, Detector de conversaciones,etc"
+        ],
+        "question": "3 ejemplos de sensores",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Sensor Ultrasonico",
+        "incorrectAnswers": [
+            "Sensor Detector Infrarojo",
+            "Sensor de Distancia",
+            "Todas las anteriores"
+        ],
+        "question": "¿Cuál es el sensor que sirve para detectar objetos enfrente",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

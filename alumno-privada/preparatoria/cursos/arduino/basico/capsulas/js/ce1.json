@@ -1,0 +1,183 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Es una tarjeta de circuito programable de codigo abierto",
+        "incorrectAnswers": [
+            "Es una tarjeta madre",
+            "Es una linea de codigo programable",
+            "Son clases que hacen un programa"
+        ],
+        "question": "¿Qué es arduino?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Boton reset, AREF, GND pin",
+        "incorrectAnswers": [
+            "Sensor",
+            "Led",
+            "Cables"
+        ],
+        "question": "3 principales partes de una tarjeta arduino 'UNO'",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Son pines donde se conecta la tierra",
+        "incorrectAnswers": [
+            "Es el boton donde se reinicia el codigo",
+            "Se utiliza para restablecer una referencia externa de voltaje",
+            "Se usa para darle energia al arduino"
+        ],
+        "question": "¿Qué es un  GND pin?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Regulador de Voltaje, LED de encendido, Microcontrolador ATmega",
+        "incorrectAnswers": [
+            "Multimetro",
+            "Protoboar",
+            "Sensores"
+        ],
+        "question": "Selecciona otras 3 principales partes de una tarjeta arduino 'UNO'",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Controla la cantidad de voltaje que entra en el arduino",
+        "incorrectAnswers": [
+            "Son pines donde se conecta la tierra",
+            "Este es el cerebro del arduino",
+            "Indica cuando el arduino se encuentra energizado"
+        ],
+        "question": "¿Qué es un Regulador de voltaje?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Fuente de poder",
+        "incorrectAnswers": [
+            "Pin",
+            "Sensores",
+            "Cables"
+        ],
+        "question": "¿Que es lo principal que necesita cualquier arduino?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Directamente a tu pc o movil o utilizar una bateria(9v)",
+        "incorrectAnswers": [
+            "Directamente a la luz",
+            "Directamente a la TV",
+            "Directamente a una consola"
+        ],
+        "question": "¿Donde se conecta la fuente de poder?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Protoboard y Resistencias",
+        "incorrectAnswers": [
+            "Controladores y Resistencias",
+            "Protoboard y Targeta madre",
+            "Jumpers y Multimetro"
+        ],
+        "question": "Selecciona 2 materiales basicos",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Sirve para acomodar tus circuitos en ella sin la necesidad de soldar",
+        "incorrectAnswers": [
+            "Sirven para realizan las practicas",
+            "Sirven para realizan circuitos pequeños",
+            "Sirve para guardar tus componentes"
+        ],
+        "question": "¿Qué es un protoboard?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Debe de ir conectado con una resistencia",
+        "incorrectAnswers": [
+            "Debe de ir conectado a otro LED",
+            "Debe de ir conectado a otro protoboard",
+            "Debe de ir conectado a una targeta madre"
+        ],
+        "question": "¿Con que debe de ir conectado un LED?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

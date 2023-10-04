@@ -1,0 +1,192 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Objetos vacios",
+        "incorrectAnswers": [
+            "Objetos",
+            "Rutas",
+            "Personaje"
+        ],
+        "question": "¿Con que se pueden crear los puntos de control?",
+
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Tiene un valor considerado",
+        "incorrectAnswers": [
+            "Algo ya predecido",
+            "Un caracter",
+            "Tiene algo ya definido "
+        ],
+        "question": "¿En que consiste un parámetro?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Condición",
+        "incorrectAnswers": [
+            "Arreglo",
+            "Input",
+            "Booleano"
+        ],
+        "question": "¿Qué se le agraga al boton para que el jugador corra?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Variables",
+        "incorrectAnswers": [
+            "Arreglos",
+            "Condiciones",
+            "Carácter"
+        ],
+        "question": " ¿Qué se debe de tener dentro del Scripts para controlar el deslizamiento?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "4",
+        "incorrectAnswers": [
+            "3",
+            "6",
+            "2"
+        ],
+        "question": "¿Cuántas Plataformas se mencionan en la lectura?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Capa Voladora",
+        "incorrectAnswers": [
+            "Una Capa",
+            "Capa Elite",
+            "Dos capas"
+        ],
+        "question": "¿Qué se tiene que agregar para la creación de una plataforma que cae?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Para crear juegos 2D Y 3D",
+        "incorrectAnswers": [
+            "Para crear presentaciones",
+            "Para crear Usuarios",
+            "Ninguna de las anteriores"
+        ],
+        "question": "¿Para que sirve Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "C#",
+        "incorrectAnswers": [
+            "C++",
+            "PHP",
+            "JAVA"
+        ],
+        "question": "¿Qué lenguaje utiliza Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Crea secuencia de comandos",
+        "incorrectAnswers": [
+            "Saltos",
+            "Comprueba conexiones",
+            "Detecta coliciones"
+        ],
+        "question": "¿Qué hace la función Groundcheck?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Desplazarse hacia otro contenido",
+        "incorrectAnswers": [
+            "Que funcione correctamente",
+            "El espacio necesitado",
+            "Desplazar informacion"
+        ],
+        "question": "¿Qué proporciona el Scroll Rect?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

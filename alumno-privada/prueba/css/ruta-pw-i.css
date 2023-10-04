@@ -1,0 +1,1052 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, white 15%, #5afef4, #42fa8f, #0cfefd);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 20px;
+  font-family: Arial, sans-serif;
+}
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(129, 179, 243);
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+h1 {
+
+  margin: auto;
+  text-align: center;
+
+}
+
+.containers {
+  background-color: rgba(255, 255, 255, 0.583);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border: 3px solid rgba(0,201,255,2556);
+  width: 79%;
+  box-sizing: border-box;
+  margin: 1% auto;
+  margin-right: 4%;
+  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+}
+
+.sidebar {
+  background-color: rgba(255, 255, 255, 0.723);
+  border-radius: 45px;
+  padding: 20px;
+  border: 3px solid rgba(0,201,255,2556);
+  width: 8%;
+  height: 93%;
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: -82%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 32px; 
+  overflow-y: auto;
+  overflow-x: hidden; 
+  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+}
+
+section {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  width: 79%;
+  height: 100%;
+  margin-right: -13%;
+  position: absolute;
+  bottom: -18%;
+}
+
+.main-content {
+  background-color: rgba(255, 255, 255, 0.986);
+  border-radius: 20px;
+  padding: 0px;
+  border: 3px solid rgba(0,201,255,2556);
+  box-sizing: border-box;
+  width: 100%;
+  height: 7000px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
+  margin-top: 20px;
+}
+
+.label {
+  margin-top: 70px;
+  right: 0px;
+  background-color: #00c9ff;
+  width: 250px;
+  height: 80px;
+  border-radius: 0px 35px 35px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label span {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.label-css {
+  position: absolute;
+  background-color: #00c9ff;
+  width: 250px;
+  height: 80px;
+  border-radius: 35px 0px 0px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  top: 2280px;
+}
+
+.label-css span {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.label-js {
+  position: absolute;
+  margin-top: 4360px;
+  left: 0px;
+  background-color: #00c9ff;
+  width: 250px;
+  height: 80px;
+  border-radius: 0px 35px 35px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-js span {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.btn-b {
+  color: black;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 21px;
+  margin-right: 10px;
+  transition:  0.5s; 
+  cursor: pointer;
+  background-color: #00c9ff;
+  /*background: linear-gradient(to right, rgb(61, 172, 244), rgba(132, 196, 44, 0.6));*/
+    
+}
+
+.btn-b:hover {
+  transform: scale(1.1); 
+}
+
+.btn-b i {
+  font-size: 20px;
+}
+
+.circle {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 10px; /*Para evitar que se cortaran los iconos*/
+  cursor: pointer;
+}
+
+.container-premium1{
+  margin-left: 51%;
+  border-radius: 45px 0 0px 45px;
+  width: 42%;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 47px;
+}
+
+.container-premium2{
+  margin-left: 55%;
+  border-radius: 0px 45px 45px 0px;
+  width: 42%;
+  height: 110px;  
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  margin-top: 1630px;
+
+}
+
+.container-premium3{
+  margin-left: 55%;
+  border-radius: 45px 0 0px 45px;
+  width: 42%;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 2660px;
+}
+
+.container-premium4{
+  margin-left: 51%;
+  border-radius: 45px 0 0px 45px;
+  width: 42%;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 3447px;
+
+}
+
+.container-premium5{
+  margin-left: 55%;
+  border-radius: 45px 0 0px 45px;
+  width: 42%;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 4865px;
+
+}
+
+.container-premium6{
+  margin-left: 4%;
+  border-radius: 45px 0 0px 45px;
+  width: 42%;
+  height: 120px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 6043px;
+
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.circle p {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+  font-size: 95%; /*Para evitar que se salga del contenedor*/
+}
+
+
+#intro{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNINTRO1.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  margin-bottom: 53px;
+  animation: float 3s infinite ease-in-out; 
+}
+#intro:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#teoria{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNTEO1.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 100%;
+  animation: float 3s infinite ease-in-out; 
+}
+#teoria:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#prac{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNPRA1.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  animation: float 3s infinite ease-in-out; 
+}
+#prac:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#game{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNJU.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  animation: float 3s infinite ease-in-out; 
+}
+#game:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#eva{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNEV1.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  animation: float 3s infinite ease-in-out; 
+}
+#eva:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#teoriap{
+  
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNTEOP.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  animation: float 3s infinite ease-in-out; 
+}
+#teoriap:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#pracp{
+  
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNPRAP.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  animation: float 3s infinite ease-in-out; 
+}
+#pracp:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+#gamep{
+ 
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/BTNJUP.png);
+  background-color: rgba(255, 255, 255, 0.583);
+  background-position: center;
+  background-size: 110%;
+  animation: float 3s infinite ease-in-out;
+}
+#gamep:hover {
+  animation-play-state: paused; 
+  transition: 0.5s;
+  width: 122px;
+  height: 122px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.btn1 {
+  top: 1%;
+  margin-left: 0%;
+  cursor: pointer;
+}
+.btn2 {
+  top: 2.8%;
+  margin-left: -9%;
+}
+.btn3 {
+  top: 4.6%;
+  margin-left: -18%;
+}
+.btn4 {
+  top: 6.6%;
+  margin-left: -18%;
+}
+.btn8 {
+  top: 8.4%;
+  margin-left: -9%;
+}
+.btn9 {
+  top: 10.2%;
+  margin-left: 0%;
+}
+.btn10 {
+  top: 12.2%;
+  margin-left: 0%;
+}
+.btn11 {
+  top: 14%;
+  margin-left: -9%;
+}
+.btn12 {
+  top: 15.8%;
+  margin-left: -18%;
+}
+.btn13 {
+  top: 17.8%;
+  margin-left: -18%;
+}
+.btn14 {
+  top: 19.6%;
+  margin-left: -9%;
+}
+.btn15 {
+  top: 21.4%;
+  margin-left: 0%;
+}
+.btn16 {
+  top: 23.4%;
+  margin-left: 0%;
+}
+.btn20 {
+  top: 25.2%;
+  margin-left: -9%;
+}
+.btn21 {
+  top: 27%;
+  margin-left: -18%;
+}
+.btn22 {
+  top: 29%;
+  margin-left: -18%;
+}
+.btn23 {
+  top: 30.8%;
+  margin-left: -9%;
+}
+.btn24 {
+  top: 32.6%;
+  margin-left: 0%;
+}
+.btn28 {
+  top: 34.6%;
+  margin-left: 0%;
+}
+.btn29 {
+  top: 36.4%;
+  margin-left: -9%;
+}
+.btn30 {
+  top: 38.2%;
+  margin-left: -18%;
+}
+.btn31 {
+  top: 40.2%;
+  margin-left: -18%;
+}
+.btn32 {
+  top: 42%;
+  margin-left: -9%;
+}
+.btn33 {
+  top: 43.8%;
+  margin-left: 0%;
+}
+.btn34 {
+  top: 45.8%;
+  margin-left: 0%;
+}
+
+.btn35 {
+  top: 47.6%;
+  margin-left: -9%;
+}
+.btn36 {
+  top: 49.4%;
+  margin-left: -18%;
+}
+.btn37 {
+  top: 51.4%;
+  margin-left: -18%;
+}
+.btn38 {
+  top: 53.2%;
+  margin-left: -9%;
+}
+.btn39 {
+  top: 55%;
+  margin-left: 0%;
+}
+.btn43 {
+  top: 57%;
+  margin-left: 0%;
+}
+.btn44 {
+  top: 58.8%;
+  margin-left: -9%;
+}.btn45 {
+  top: 60.6%;
+  margin-left: -18%;
+}
+.btn46 {
+  top: 62.6%;
+  margin-left: -18%;
+}
+.btn47 {
+  top: 64.4%;
+  margin-left: -9%;
+}
+.btn48 {
+  top: 66.2%;
+  margin-left: 0%;
+}
+.btn49 {
+  top: 68.2%;
+  margin-left: 0%;
+}
+.btn50 {
+  top: 70%;
+  margin-left: -9%;
+}
+.btn51 {
+  top: 71.8%;
+  margin-left: -18%;
+}
+.btn52 {
+  top: 73.8%;
+  margin-left: -18%;
+}
+.btn53 {
+  top: 75.6%;
+  margin-left: -9%;
+}
+.btn54 {
+  top: 77.4%;
+  margin-left: 0%;
+}
+.btn55 {
+  top: 79.4%;
+  margin-left: 0%;
+}
+.btn56 {
+  top: 81.2%;
+  margin-left: -9%;
+}
+.btn57 {
+  top: 83%;
+  margin-left: -18%;
+}
+
+.btn58 {
+  top: 85%;
+  margin-left: -18%;
+}
+.btn59 {
+  top: 86.8%;
+  margin-left: -9%;
+}
+.btn60 {
+  top: 88.6%;
+  margin-left: 0%;
+}
+
+.btn61 {
+  top: 90.6%;
+  margin-left: 0%;
+}
+.btn62 {
+  top: 92.4%;
+  margin-left: -9%;
+}
+
+.btn69 {
+  top: 94.2%;
+  margin-left: -18%;
+}
+
+
+/*Para evitar que el contenedor premium 4 se salga de pantalla*/
+
+
+.container-premium4 a{
+  padding-left: 3%;
+}
+
+.graphics-buttoon{
+  display: flex;
+  width: 85px; /* Ajusta el tamaño del círculo */
+  height: 85px; /* Ajusta el tamaño del círculo */
+  background-color: #41b7f6; /* Color de fondo */
+  border-radius: 50%; /* Hace que el div tenga forma de círculo */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el círculo */
+  position: fixed; /* Lo posiciona de manera fija en la pantalla */
+  bottom: 4%; /* Distancia desde la parte inferior */
+  right: 2.5%; /* Distancia desde la parte derecha */
+  transition:  0.5s; 
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.graphics-buttoon:hover {
+  transform: scale(1.1); 
+  color: white ;
+  background-color: rgb(42, 42, 42);
+}
+
+/*Inicio de responsive*/
+@media (max-width: 1300px) {
+  .containers h1{
+    font-size: 170%;
+  }
+
+  .label, .label-css{
+    width: 25%;
+    height: 1%;
+  }
+
+  .label span, .label-css span{
+    font-size: 225%;
+  }
+
+  .circle{
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle p{
+    font-size: 80%;
+  }
+
+  .sidebar{
+    width: 90px;
+  }
+
+  #intro, #teoria, #prac, #game, #eva, #teoriap, #pracp, #gamep{
+    width: 110px;
+    height: 110px;
+  }
+
+  #intro:hover, #teoria:hover, #prac:hover, #game:hover, #eva:hover, #teoriap:hover, #pracp:hover, #gamep:hover{
+    width: 118px;
+    height: 118px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium5, .container-premium6{
+    padding-top: 10px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4,.container-premium5{
+    padding-top: 5px;
+    padding-left: 4%;
+  }
+
+  .container-premium6{
+    padding-top: 12px;
+  }
+
+  .container-premium4{
+    padding-top: 3px;
+  }
+
+}
+
+@media (max-width: 1150px) {
+  .containers h1{
+    font-size: 150%;
+  }
+
+  .label, .label-css{
+    width: 26%;
+    height: 1%;
+  }
+
+  .label span, .label-css span{
+    font-size: 215%;
+  }
+  
+  .circle{
+    width: 75px;
+    height: 75px;
+  }
+
+  .circle p{
+    font-size: 74%;
+  }
+
+  .sidebar{
+    width: 85px;
+  }
+
+  #intro, #teoria, #prac, #game, #eva, #teoriap, #pracp, #gamep{
+    width: 105px;
+    height: 105px;
+  }
+
+  #intro:hover, #teoria:hover, #prac:hover, #game:hover, #eva:hover, #teoriap:hover, #pracp:hover, #gamep:hover{
+    width: 115px;
+    height: 115px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium5, .container-premium6{
+    padding-top: 10px;
+  }
+
+  .container-premium6{
+    padding-top: 5px;
+    padding-left: 4%;
+  }
+
+  .container-premium4{
+    padding-top: 3px;
+  }
+
+ 
+}
+
+@media (max-width: 1010px) {
+  .containers h1{
+    font-size: 140%;
+  }
+
+  .label, .label-css{
+    width: 27%;
+    height: 1%;
+  }
+
+  .label span, .label-css span{
+    font-size: 210%;
+  }
+
+  .circle{
+    width: 70px;
+    height: 70px;
+  }
+
+  .circle p{
+    font-size: 72%;
+  }
+
+  .sidebar{
+    width: 80px;
+  }
+
+  #intro, #teoria, #prac, #game, #eva, #teoriap, #pracp, #gamep{
+    width: 102px;
+    height: 102px;
+  }
+
+  #intro:hover, #teoria:hover, #prac:hover, #game:hover, #eva:hover, #teoriap:hover, #pracp:hover, #gamep:hover{
+    width: 110px;
+    height: 110px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium5, .container-premium6{
+    display: inherit;
+    padding-top: 10px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium5{
+    padding-left: 18%;
+  }
+
+  .container-premium6{
+    padding-top: 12px;
+    padding-left: 5%;
+  }
+
+}
+
+@media (max-width: 850px) {
+  .containers h1{
+    font-size: 130%;
+  }
+
+  .label, .label-css{
+    width: 28%;
+    height: 1%;
+  }
+
+  .label span, .label-css span{
+    font-size: 200%;
+  }
+
+  .circle{
+    width: 66px;
+    height: 66px;
+  }
+
+  .circle p{
+    font-size: 68%;
+  }
+
+  .sidebar{
+    width: 75px;
+  }
+
+  #intro, #teoria, #prac, #game, #eva, #teoriap, #pracp, #gamep{
+    width: 95px;
+    height: 95px;
+  }
+
+  #intro:hover, #teoria:hover, #prac:hover, #game:hover, #eva:hover, #teoriap:hover, #pracp:hover, #gamep:hover{
+    width: 105px;
+    height: 105px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3.container-premium4, .container-premium5, .container-premium6{
+    display: inherit;
+    padding-top: 10px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3.container-premium4, .container-premium5{
+    padding-left: 18%;
+  }
+
+  .container-premium6{
+    padding-top: 12px;
+    padding-left: 5%;
+  }
+
+  
+}
+
+@media (max-width: 670px) {
+  .containers h1{
+    font-size: 125%;
+  }
+  
+  .label, .label-css{
+    width: 29%;
+    height: 1%;
+  }
+
+  .label, .label-js{
+    width: 29%;
+    height: 1%;
+  }
+
+  .label span, .label-css span{
+    font-size: 180%;
+  }
+
+  .label span, .label-js span{
+    font-size: 180%;
+  }
+  
+  .circle{
+    width: 63px;
+    height: 63px;
+  }
+
+  .circle p{
+    font-size: 65%;
+  }
+
+  .sidebar{
+    width: 70px;
+  }
+
+  #intro, #teoria, #prac, #game, #eva, #teoriap, #pracp, #gamep{
+    width: 92px;
+    height: 92px;
+  }
+
+  #intro:hover, #teoria:hover, #prac:hover, #game:hover, #eva:hover, #teoriap:hover, #pracp:hover, #gamep:hover{
+    width: 102px;
+    height: 102px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3.container-premium4, .container-premium5, .container-premium6{
+    display: inherit;
+    padding-top: 10px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3.container-premium4, .container-premium5{
+    padding-left: 18%;
+  }
+
+  .container-premium6{
+    padding-top: 12px;
+    padding-left: 5%;
+  }
+
+
+
+}
+
+@media (max-width: 560px) {
+  .containers h1{
+    font-size: 120%;
+  }
+
+  .label, .label-css{
+    width: 28%;
+    height: .7%;
+
+  }
+
+  .label span, .label-css span{
+    font-size: 170%;
+  }
+
+  .label, .label-js{
+    width: 29%;
+    height: .7%;
+  }
+
+  .label span, .label-js span{
+    font-size: 170%;
+  }
+
+  .circle{
+    width: 60px;
+    height: 60px;
+  }
+
+  .circle p{
+    font-size: 60%;
+  }
+
+  .sidebar{
+    width: 65px;
+  }
+
+  #intro, #teoria, #prac, #game, #eva, #teoriap, #pracp, #gamep{
+    width: 90px;
+    height: 90px;
+  }
+
+  #intro:hover, #teoria:hover, #prac:hover, #game:hover, #eva:hover, #teoriap:hover, #pracp:hover, #gamep:hover{
+    width: 102px;
+    height: 102px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3, .container-premium4, .container-premium5, .container-premium6{
+    display: inherit;
+    padding-top: 10px;
+  }
+
+  .container-premium1, .container-premium2, .container-premium3.container-premium4, .container-premium5{
+    padding-left: 18%;
+  }
+
+  .container-premium6{
+    padding-top: 12px;
+    padding-left: 5%;
+  }
+  
+}
+
+/*Fin de responsive*/

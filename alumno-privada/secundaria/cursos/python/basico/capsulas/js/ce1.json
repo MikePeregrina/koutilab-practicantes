@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "print('Hola Mundo')",
+        "incorrectAnswers": [
+            "Print('Hola Mundo')",
+            "printf('Hola Mundo')",
+            "echo('Hola Mundo')"
+        ],
+        "question": "¿Cuál es la sintaxis correcta para imprimir la cadena de caracteres 'Hola Mundo' en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "x = 5",
+        "incorrectAnswers": [
+            "x = '5'",
+            "x = 5.0",
+            "x == 5"
+        ],
+        "question": "¿Cuál es la sintaxis correcta para asignar el valor entero 5 a la variable 'x' en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "# Este es un comentario",
+        "incorrectAnswers": [
+            "// Este es un comentario",
+            "/* Este es un comentario */",
+            "<!-- Este es un comentario -->"
+        ],
+        "question": "¿Cuál es la sintaxis correcta para agregar un comentario en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "if",
+        "incorrectAnswers": [
+            "run",
+            "check",
+            "execute"
+        ],
+        "question": "¿Cuál de las siguientes opciones es una palabra reservada en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "variable_name = 'value'",
+        "incorrectAnswers": [
+            "value = variable_name",
+            "variable name = 'value'",
+            "Value = variable_name"
+        ],
+        "question": "¿Cuál es la forma correcta de definir una variable en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "string",
+        "incorrectAnswers": [
+            "char",
+            "decimal",
+            "array"
+        ],
+        "question": "¿Cuál de los siguientes es un tipo de dato válido en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "complex",
+        "incorrectAnswers": [
+            "string",
+            "boolean",
+            "list"
+        ],
+        "question": "¿Cuál de los siguientes es un tipo de datos numéricos en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "%",
+        "incorrectAnswers": [
+            "^",
+            "&",
+            "~"
+        ],
+        "question": "¿Cuál de los siguientes es un operador aritmético válido en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "in",
+        "incorrectAnswers": [
+            "not",
+            "and",
+            "or"
+        ],
+        "question": "¿Cuál de los siguientes operadores de pertenencia se usa para verificar si un elemento está presente en una lista en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "==",
+        "incorrectAnswers": [
+            "=",
+            "!=",
+            "<>"
+        ],
+        "question": "¿Qué operador se usa en Python para verificar si dos valores son iguales?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

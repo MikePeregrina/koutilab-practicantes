@@ -1,0 +1,93 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "int valor=analogRead(A0);",
+        "incorrectAnswers": [
+            "int analogWrite= analogRead(A0);",
+            "int sensortemperatura = A1;",
+            "int valor: pin mode"
+        ],
+        "question": "¿Cómo hacemos para leer un sensor de temperatura?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+"correctAnswer": "setup  y loop",
+        "incorrectAnswers": [
+            "loop y main",
+            "main y setup;",
+            "loop y reset"
+        ],
+        "question": "¿Cuáles son las 2 principales estructuras de programa en Arduino?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "evitar que se estropee",
+        "incorrectAnswers": [
+            "Disminuir el consumo del LED y alargar la vida",
+            "Aumentar la luminosidad",
+            "activar la corriente en el puerto"
+        ],
+        "question": "Se utiliza una resistencia en los proyectos que usan leds para:",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Si estaba cargado con código, permanecen el programa",
+        "incorrectAnswers": [
+            "Se carga sólo al conectar la alimentación",
+            "Tenemos que instalar el driver para que funcione",
+            "activar la corriente en el puerto"
+        ],
+        "question": "Al apagar arduino..",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "botón pulsador",
+        "incorrectAnswers": [
+            "servo",
+            "potenciómetro",
+            "sensor de presión"
+        ],
+        "question": "De los siguientes elementos, selecciona qué es una entrada digital",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

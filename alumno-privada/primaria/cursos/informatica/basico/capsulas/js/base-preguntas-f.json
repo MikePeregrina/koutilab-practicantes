@@ -1,0 +1,104 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuál es la etiqueta utilizada que permite colocar las letras en negritas de un texto de HTML?",
+    "respuesta": "b",
+    "incorrecta1": "dark",
+    "incorrecta2": "i",
+    "incorrecta3": "negritas",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cual es la etiqueta que permite subrayar un texto en HTML?",
+    "respuesta": "u",
+    "incorrecta1": "div",
+    "incorrecta2": "link",
+    "incorrecta3": "i",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuál es la etiqueta que permte tener palabras grandes o pequeñas dentro de un texto de HTML?",
+    "respuesta": "big",
+    "incorrecta1": "h1",
+    "incorrecta2": "font-size:",
+    "incorrecta3": "title",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuál es la funcionalidad de la etiqueta 'tt' en un texto de HTML?",
+    "respuesta": "Sirve para que se de un espaciado simple entre las letras del texto",
+    "incorrecta1": "sirve para cambiar el color del texto",
+    "incorrecta2": "sirve para colocar las letras en italica",
+    "incorrecta3": "sirve para centrar el texto",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuándo podemos hacer uso de la etiqueta 'sub'?",
+    "respuesta": "Se puede hacer uso de esta etiqueta cuando el texto contiene fórmulas matemáticas por lo cual se puede agregar subíndices",
+    "incorrecta1": "Se utiliza para subrayar partes importantes del texto",
+    "incorrecta2": "Se suele utilizar para cambiar el tamaño del texto",
+    "incorrecta3": "Se suele usar para dar un espaciado simple en el texto",
+    "imagen": "",
+    "objectFit" : "cover"    
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Selecciona el ejemplo que sea un texto escrito en HTML",
+    "respuesta": "Hoy es un buen día para adquirir nuevos conocimientos",
+    "incorrecta1": "div",
+    "incorrecta2": "font-family;",
+    "incorrecta3": "background-color;",
+    "imagen": "",
+    "objectFit" : "cover" 
+},
+
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuál es la etiqueta que se utiliza para definir un texto en HTML?",
+    "respuesta": "p",
+    "incorrecta1": "title",
+    "incorrecta2": "texto",
+    "incorrecta3": "background;",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Qué es HTML?",
+    "respuesta": "Es un leguaje de Marcado de Hipertexto",
+    "incorrecta1": "Es un lenguaje que permite modificar el diseño de una página",
+    "incorrecta2": "Es un editor de código",
+    "incorrecta3": "Es un entorno de desarrollo",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Para que sirve HTML?",
+    "respuesta": "HTML nos ayuda a crear páginas web",
+    "incorrecta1": "Crea video juegos en entornos 3D",
+    "incorrecta2": "Permite crear aplicaciones móviles en IOS",
+    "incorrecta3": "Ninguna de las anteriores",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuáles fueron los diferentes formatos de texto que se presentaron en el curso?",
+    "respuesta": "Negritas, Subrayado, Cursiva, Tamaño de palbras, Subíndices, Espacio Simple",
+    "incorrecta1": "title, h1, padding, backgraund",
+    "incorrecta2": "CSS,JS,HTML",
+    "incorrecta3": "No recuerdo",
+    "imagen": "",
+    "objectFit" : "cover"
+}
+
+]

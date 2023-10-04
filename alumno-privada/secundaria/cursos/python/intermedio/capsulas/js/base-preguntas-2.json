@@ -1,0 +1,52 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "En programación, un _____ es un conjunto de funciones, variables y otros elementos que pueden ser utilizados en otros programas",
+    "respuesta": "módulo",
+    "incorrecta1": "función",
+    "incorrecta2": "variable",
+    "incorrecta3": "condición",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Qué módulo podemos ocupar para realizar funciones matemáticas de Python?",
+    "respuesta": "Math",
+    "incorrecta1": "Random",
+    "incorrecta2": "Def",
+    "incorrecta3": "Print",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cómo podemos importar funciones de programación a Python?",
+    "respuesta": "import",
+    "incorrecta1": "export",
+    "incorrecta2": "def",
+    "incorrecta3": "print",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Podemos ocupar una función de un módulo sin haberlo importado antes?",
+    "respuesta": "¡Falso!",
+    "incorrecta1": "¡Verdadero!",
+    "incorrecta2": "Claro que si",
+    "incorrecta3": "No tengo idea",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cómo puedo importar el módulo Math?",
+    "respuesta": "import math",
+    "incorrecta1": "export math",
+    "incorrecta2": "print math",
+    "incorrecta3": "import = math",
+    "imagen": "",
+    "objectFit" : "cover"    
+}
+]
