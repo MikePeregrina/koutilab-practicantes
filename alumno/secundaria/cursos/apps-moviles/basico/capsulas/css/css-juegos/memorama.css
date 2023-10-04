@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
   padding: 0;
@@ -8,15 +9,17 @@
   
 }
 body{
-  background-image: url(../../img/img_juegos/bg.png);/*Se cambio el fondo*/
-  background-repeat: no-repeat; /*no repite la imagen*/
-  background-size: cover;/*distribuye la imagen a toda la pantalla*/
+  background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Esto asegura que el fondo no se desplace con el contenido */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none; 
     font-family: Tahoma;
     color: #404040;
 }
+
 
 body::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -83,7 +86,6 @@ body::-webkit-scrollbar-track {
   border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
   font-size: 170%;
-  
 }
 @keyframes animation1 {
   0% {margin: -1.5% 0 0 82.4%;}
@@ -287,14 +289,38 @@ rgba(132,196,44,0.6)
 
 }
 
+@media(max-width: 1300px){
+  .timer{
+    margin-left: 73%;
+  }
+ 
+}
+@media(max-width: 1200px){
+  .timer{
+    margin-left: 73%;
+  }
+ 
+}
+@media(max-width: 900px){
+
+  .timer{
+    margin-left: 73%;
+  }
+}
+@media(max-width: 763px){
+
+  .timer{
+    margin-left: 73%;
+  }
+}
 
 @media (max-width: 619px) {
 
-  
   .timer {
     width: 120px;
     height: 120px;
     font-size: 120%;
+    margin-left: 73%;
   }
 
   .titulo-gen{
@@ -325,6 +351,9 @@ rgba(132,196,44,0.6)
 
 @media (max-width: 518px) {
 
+  .timer{
+    margin-left: 73%;
+  }
 
   .html-b-t{
     font-size: 12px;

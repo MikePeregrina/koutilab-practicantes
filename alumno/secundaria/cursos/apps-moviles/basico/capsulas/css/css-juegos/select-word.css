@@ -11,7 +11,7 @@
 }
 
 body{
-  background-image: url(../../img/img_juegos/bg.png);/*Se cambio el fondo*/
+  background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
   background-repeat: no-repeat; /*no repite la imagen*/
   background-size: cover;/*distribuye la imagen a toda la pantalla*/
   -webkit-user-select: none;
@@ -146,7 +146,7 @@ body::-webkit-scrollbar-track {
 }
 
 .btn-b {
-  width: 70px;
+  width: 75px;
   padding: 10px 10px;
   cursor: pointer;
   background: linear-gradient(to right,
@@ -157,19 +157,11 @@ body::-webkit-scrollbar-track {
   border-radius: 50%;
   margin-right: 10px;
   margin-left: 10%;
+  transition: 0.5s;
 }
+
 .btn-b:hover {
-  scale: 130%;
-  transition: scale 0.35s;
-}
-
-.btn-b:hover::after {
-  scale: 100%;
-  transition: scale 0.35s;
-}
-
-.btn-b i {
-  font-size: 25px;
+  transform: scale(1.3);
 }
 
 .contenido {
@@ -521,6 +513,9 @@ h4 {
   }
   
   @media (max-width: 480px) {
+    .timer{
+      margin-left: 68%;
+    }
     .contenido h4 {
       font-size: 90%;
     }

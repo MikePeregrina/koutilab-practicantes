@@ -1,0 +1,54 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "En la parte superior de la pantalla se encuentran opciones y herramientas para administrar proyectos, editar código, compilar y ejecutar aplicaciones, y más.",
+    "respuesta": "Barra de menú",
+    "incorrecta1": "Panel de proyectos",
+    "incorrecta2": "Editor de código",
+    "incorrecta3": "Herramientas de diseño",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "A la izquierda se muestra la estructura de archivos de tu proyecto, incluidos los recursos, las actividades y otros componentes.",
+    "respuesta": "Panel de proyectos",
+    "incorrecta1": "Barra de menú",
+    "incorrecta2": "Editor de código",
+    "incorrecta3": "Herramientas de diseño",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "En el centro de la pantalla es donde escribirás y modificarás el código fuente de tu aplicación.",
+    "respuesta": "Editor de código",
+    "incorrecta1": "Barra de menú",
+    "incorrecta2": "Panel de proyectos",
+    "incorrecta3": "Herramientas de diseño",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Proporciona una vista visual de la interfaz de usuario de tu aplicación, lo que te permite arrastrar y soltar componentes para construir la interfaz.",
+    "respuesta": "Herramientas de diseño",
+    "incorrecta1": "Barra de menú",
+    "incorrecta2": "Panel de proyectos",
+    "incorrecta3": "Editor de código",
+    "imagen": "",
+    "objectFit" : "cover" 
+},
+
+{
+    "categoria": "web basico-css",
+    "pregunta": "Muestra cómo se verá tu interfaz de usuario en diferentes dispositivos y configuraciones.",
+    "respuesta": "Ventana de renderizado",
+    "incorrecta1": "Barra de menú",
+    "incorrecta2": "Editor de código",
+    "incorrecta3": "Panel de proyectos",
+    "imagen": "",
+    "objectFit" : "cover"   
+}
+
+]

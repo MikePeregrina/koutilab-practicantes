@@ -192,18 +192,19 @@
 /*Juegoo*/
 #puzzle_container{
     position: relative;
-    width: 327px; height: 327px;
+    width: 50vh;
+    height:50vh;
     background-color:var(--darkcol);
     border-radius:8px;
     border:5px solid var(--mcol0);
+    width: 423px; height: 420px;
 }
 
 .puzzle_block{
     position:absolute;
     left:0;
     top:0;
-    width:33.4%;
-    height:33.4%;
+    width: 103px; height: 103px;
     background-color:var(--txtcol1);
     color:var(--whitecol);
     font-size:10vh;
@@ -280,7 +281,6 @@
 
 @media (max-width: 850px) {
 
-  
     .timer {
         width: 170px;
         height: 170px;
@@ -325,19 +325,21 @@
   }
   
   @media (max-width: 619px) {
+    section{
+      height: 550px;
+    }
     #puzzle_container{
-        margin-bottom: 70px;
-        width: 327px; height: 327px;
-      }
-      .puzzle_block{
-        width: px;
-        height: px;
-      }
-      .contenedor-img {
-        width: px;
-        height: px;
-      } 
-      
+      margin-bottom: 70px;
+      width: 327px; height: 327px;
+    }
+    .puzzle_block{
+      width: 79px;
+      height: 79px;
+    }
+    .contenedor-img {
+      width: 79px;
+      height: 79px;
+    } 
     
     .timer {
       width: 120px;
@@ -402,7 +404,7 @@
       font-size: 20px;
     }
     
-  }
+
   
   
   @media (max-width: 560px) {
@@ -431,3 +433,4 @@
     }
     
   }
+}
