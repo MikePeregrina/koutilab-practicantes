@@ -109,280 +109,8 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
 </div>
 
 <section>
+
   <div class="body">
-    <div class="latd">
-      <h1 class="titl-latd">Escuelas</h1>
-      <div class="tabla-ingr">
-        <table id="ingresos1" class="table">
-          <thead>
-            <tr>
-              <td><b>Escuela</b></td>
-              <td><b>Cápsulas freemium</b></td>
-              <td><b>Licencia</b></td>
-              <td><b>Ingreso</b></td>
-            </tr>
-          </thead>
-          <tbody>
-          <?php
-          //   include "../acciones/conexion.php";
-
-          //   $query_escuelas = mysqli_query($conexion, "SELECT 
-          //   SUM(monto) AS total,
-          //   nombre_escuela,
-          //   SUM(CASE WHEN DATE_FORMAT(create_at, '%Y-%m-01') >= DATE_FORMAT(CURRENT_DATE, '%Y-%m-01') THEN monto ELSE 0 END) AS ganancias_ultimo_mes,
-          //   nivel_educativo
-          // FROM (
-          //   SELECT 
-          //     payment_amount AS monto,
-          //     apri.id_alumno,
-          //     nombre_escuela,
-          //     nivel_educativo,
-          //     create_at
-          //   FROM payment_primaria AS ppri
-          //   INNER JOIN alumnos_primaria AS apri ON ppri.id_alumno = apri.id_alumno
-          //   INNER JOIN escuelas esc ON apri.id_escuela = esc.id_escuela
-            
-          //   UNION ALL
-            
-          //   SELECT 
-          //     payment_amount AS monto,
-          //     asec.id_alumno,
-          //     nombre_escuela,
-          //     nivel_educativo,
-          //     create_at
-          //   FROM payment_secundaria AS psec
-          //   INNER JOIN alumnos_secundaria AS asec ON psec.id_alumno = asec.id_alumno
-          //   INNER JOIN escuelas esc ON asec.id_escuela = esc.id_escuela
-            
-          //   UNION ALL
-            
-          //   SELECT 
-          //     payment_amount AS monto,
-          //     apre.id_alumno,
-          //     nombre_escuela,
-          //     nivel_educativo,
-          //     create_at
-          //   FROM payment_preparatoria AS ppre
-          //   INNER JOIN alumnos_preparatoria AS apre ON ppre.id_alumno = apre.id_alumno
-          //   INNER JOIN escuelas esc ON apre.id_escuela = esc.id_escuela
-            
-          //   UNION ALL
-            
-          //   SELECT 
-          //     payment_amount AS monto,
-          //     auni.id_alumno,
-          //     nombre_escuela,
-          //     nivel_educativo,
-          //     create_at
-          //   FROM payment_universidad AS puni
-          //   INNER JOIN alumnos_universidad AS auni ON puni.id_alumno = auni.id_alumno
-          //   INNER JOIN escuelas esc ON auni.id_escuela = esc.id_escuela
-            
-          //   UNION ALL
-            
-          //   SELECT 
-          //     payment_amount AS monto,
-          //     taco.id AS id_alumno,
-          //     nombre_escuela,
-          //     nivel_educativo,
-          //     create_at
-          //   FROM payment_institucional AS pins
-          //   INNER JOIN temp_account AS taco ON pins.id = taco.id
-          //   INNER JOIN escuelas esc ON taco.id_escuela = esc.id_escuela
-          // ) AS subquery
-          // GROUP BY nombre_escuela, nivel_educativo
-          // ORDER BY nombre_escuela ASC;
-          // ");
-          //   $result = mysqli_num_rows($query_escuelas);
-          //   if ($result > 0) {
-          //     while ($data = mysqli_fetch_assoc($query_escuelas)) {
-
-            ?>
-                <tr>
-                  <td><?php // echo $data['nombre_escuela']; ?></td>
-                  <td><?php // echo $data['nivel_educativo']; ?></td>
-                  <td><?php // echo $data['ganancias_ultimo_mes']; ?></td>
-                  <td><?php // echo $data['total'] * 0.84; ?> </td>
-                </tr>
-            <?php //}
-            //} ?>
-          </tbody>
-        </table>
-      </div>
-      <div class="grafica">
-        <canvas id="G-IEscuelas" width="450" height="280"></canvas>
-        <hr style="opacity: 10%;">
-        <div class="info">
-          <li><i class='fa-solid fa-school me-3'></i><b>Total de ingresos por escuelas: </b>$<?php echo $filaescuelas['total'] * 0.84; ?></li>
-        </div>
-        <div align="center" style="margin-top: 20px;">
-          <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-            <input type="date" name="fechaInicio" id="fechaInicioIEscuelas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-            <input type="date" name="fechaFin" id="fechaFinIEscuelas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-            <br><br>
-            <input onclick="filtrarGIEscuelas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="body" style="margin-top: -20px;">
-    <div class="latd">
-      <h1 class="titl-latd">Institucional</h1>
-      <div class="tabla-ingr">
-        <table id="ingresos2" class="table">
-          <thead>
-            <tr>
-              <td><b>Institución</b></td>
-              <td><b>Licencia</b></td>
-              <td><b>Ingreso</b></td>
-            </tr>
-          </thead>
-          <tbody>
-          <?php
-          //   include "../acciones/conexion.php";
-
-          //   $query_escuelas = mysqli_query($conexion, "SELECT
-           
-      
-          //   ap.usuario AS usuario,
-          //   'Primaria' AS nivel_educativo,
-          //   COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
-          //   COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
-          // FROM
-          //   alumnos_primaria ap
-          // LEFT JOIN
-          //   payment_primaria pp ON ap.id_alumno = pp.id_alumno
-          // GROUP BY
-          //   ap.usuario, nivel_educativo
-          
-          // UNION ALL
-          
-          // SELECT
-          //   ap.usuario AS usuario,
-          //   'Secundaria' AS nivel_educativo,
-          //   COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
-          //   COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
-          // FROM
-          //   alumnos_secundaria ap
-          // LEFT JOIN
-          //   payment_secundaria pp ON ap.id_alumno = pp.id_alumno
-          // GROUP BY
-          //   ap.usuario, nivel_educativo
-          
-          // UNION ALL
-          
-          // SELECT
-          //   ap.usuario AS usuario,
-          //   'Preparatoria' AS nivel_educativo,
-          //   COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
-          //   COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
-          // FROM
-          //   alumnos_preparatoria ap
-          // LEFT JOIN
-          //   payment_preparatoria pp ON ap.id_alumno = pp.id_alumno
-          // GROUP BY
-          //   ap.usuario, nivel_educativo
-          
-          // UNION ALL
-          
-          // SELECT
-          //   ap.usuario AS usuario,
-          //   'Universidad' AS nivel_educativo,
-          //   COALESCE(SUM(pp.payment_amount), 0) AS total_gastado,
-          //   COALESCE(SUM(CASE WHEN pp.create_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) THEN pp.payment_amount ELSE 0 END), 0) AS total_gastado_ultimo_mes
-          // FROM
-          //   alumnos_universidad ap
-          // LEFT JOIN
-          //   payment_universidad pp ON ap.id_alumno = pp.id_alumno
-          // GROUP BY
-          //   ap.usuario, nivel_educativo;
-          // ");
-          //   $result = mysqli_num_rows($query_escuelas);
-          //   if ($result > 0) {
-          //     while ($data = mysqli_fetch_assoc($query_escuelas)) {
-
-            ?>
-                <tr>
-                  <td><?php //echo $data['usuario']; ?></td>
-                  <td><?php //echo $data['nivel_educativo']; ?></td>
-                  <td><?php //echo $data['total_gastado']; ?></td>
-                  <!-- <td><?php //echo $data['total_gastado_ultimo_mes']; ?></td> -->
-                </tr>
-            <?php //}
-            //} ?>
-          </tbody>
-        </table>
-      </div>
-      <div class="grafica">
-        <canvas id="G-ICapsulas" width="450" height="280"></canvas>
-        <hr style="opacity: 10%;">
-        <div class="info">
-          <li><i class='fa-solid fa-school me-3'></i><b>Total de ingresos por instituciones: </b>$<?php echo $filacapsulas['total']; ?></li>
-        </div>
-        <div align="center" style="margin-top: 20px;">
-          <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-            <input type="date" name="fechaInicio" id="fechaInicioICapsulas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-            <input type="date" name="fechaFin" id="fechaFinICapsulas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-            <br><br>
-            <input onclick="filtrarGICapsulas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="body" style="margin-top: -20px;">
-    <div class="latd">
-      <div class="tabla-ingr">
-        <table id="ingresos4" class="table">
-          <thead>
-            <tr>
-              <td><b>Usuario</b></td>
-              <td><b>Paquete comprado</b></td>
-              <td><b>Costo</b></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Usuario 1</td>
-              <td>Paquete 1</td>
-              <td>$30</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="grafica">
-        <canvas id="myChart7" width="450" height="280"></canvas>
-        <hr style="opacity: 10%;">
-        <div class="info">
-          <li><i class='fa-solid fa-school me-3'></i><b>Total de ingresos por cuentas personales: </b>$0</li>
-        </div>
-        <div align="center" style="margin-top: 20px;">
-          <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-            <input type="date" name="fechaInicio" id="fechaInicioFamiliares" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-            <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-            <input type="date" name="fechaFin" id="fechaFinFamiliares" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-            <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-            <br><br>
-            <input onclick="filtrarGFamiliares()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tablas comentadas -->
-
-  <!-- <div class="body">
     <div class="latd">
       <div class="tabla-ingr">
         <table id="ingresos1" class="table">
@@ -500,9 +228,9 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div class="body" style="margin-top: -20px;">
+  <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
         <table id="ingresos2" class="table">
@@ -609,9 +337,9 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div class="body" style="margin-top: -20px;">
+  <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
         <table id="ingresos3" class="table">
@@ -673,9 +401,9 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div class="body" style="margin-top: -20px;">
+  <div class="body" style="margin-top: -20px;">
     <div class="latd">
       <div class="tabla-ingr">
         <table id="ingresos4" class="table">
@@ -752,7 +480,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </section>
 
 
@@ -768,7 +496,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     data: {
       labels: [],
       datasets: [{
-        label: 'Ingresos',
+        label: 'Ingresos por cuentas familiares',
         data: [],
         backgroundColor: [
           'rgba(255,99,132,0.2)',
@@ -933,9 +661,9 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     graficaIEscuelas = new Chart(canvas, {
       type: 'bar',
       data: {
-        labels: ['Cápsulas', 'Licencias'], //Aqui estaba la variable labels
+        labels: labels,
         datasets: [{
-          label: 'Cápsulas',
+          label: 'Ingresos De Escuelas',
           data: datos,
           //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
           //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
@@ -1027,9 +755,9 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     graficaICapsulas = new Chart(canvas, {
       type: 'bar',
       data: {
-        labels: labels, 
+        labels: labels,
         datasets: [{
-          label: 'Licencias',
+          label: 'Ingresos De Capsulas',
           data: datos,
           //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
           //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde

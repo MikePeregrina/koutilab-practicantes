@@ -109,6 +109,13 @@ section {
   text-align: center;
 }
 
+.titl-latd {
+  width: 100%;
+  margin: -10px 0 15px 0;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
 .tabla-ingr {
   margin-left: 10px;
   width: 580px;

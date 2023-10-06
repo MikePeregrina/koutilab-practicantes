@@ -125,26 +125,6 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     <div class="body">
         <div class="latd">
             <div class="grafica">
-                <canvas id="G-Escuelas" width="450" height="280"></canvas>
-                <hr style="opacity: 10%;">
-                <div class="info">
-                    <li><i class='fas fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
-                </div>
-                <div align="center" style="margin-top: 20px;" class="form-ctn">
-                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-                        <input type="date" name="fechaInicio" id="fechaInicioEscuelas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-                        <input type="date" name="fechaFin" id="fechaFinEscuelas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
-                        <br><br>
-                        <input onclick="filtrarGEscuelas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="latd1">
-            <div class="grafica">
                 <canvas id="G-Instituciones" width="450" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
@@ -163,27 +143,27 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 </div>
             </div>
         </div>
-    </div>
-    <div class="body" style="display: flex; align-items: center; justify-content: center;">
-        <div class="latd">
+
+        <div class="latd1">
             <div class="grafica">
-                <canvas id="G-Personales" width="480" height="280"></canvas>
+                <canvas id="G-Escuelas" width="450" height="280"></canvas>
                 <hr style="opacity: 10%;">
                 <div class="info">
-                    <li><i class='fa-solid fa-school me-3'></i><b>Total de cuentas personales: </b><?php echo $filapersonales['id_alumno']; ?></li> <!--Esta grafica aun no-->
+                    <li><i class='fas fa-school me-3'></i><b>Total de escuelas: </b><?php echo $filaescuelas['id_escuela']; ?></li>
                 </div>
-                <div align="center" style="margin-top: 20px;">
+                <div align="center" style="margin-top: 20px;" class="form-ctn">
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-                        <input type="date" name="fechaInicio" id="fechaInicioAPersonales" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="date" name="fechaInicio" id="fechaInicioEscuelas" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
                         <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-                        <input type="date" name="fechaFin" id="fechaFinAPersonales" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="date" name="fechaFin" id="fechaFinEscuelas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
                         <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
                         <br><br>
-                        <input onclick="filtrarGAPersonales()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                        <input onclick="filtrarGEscuelas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
                     </form>
                 </div>
             </div>
+
         </div>
     </div>
     <script>
@@ -494,9 +474,9 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             graficaInstituciones = new Chart(canvas, {
                 type: 'bar',
                 data: {
-                    labels: ['Instituciones', 'Visitas', 'Usuarios'],   //Aqui iba la variable labels
+                    labels: labels,
                     datasets: [{
-                        label: 'Institucional',
+                        label: 'Instituciones',
                         data: datos,
                         //backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cambia el color de fondo
                         //borderColor: 'rgba(54, 162, 235, 1)', // Cambia el color del borde
@@ -553,7 +533,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             graficaEscuelas = new Chart(canvas, {
                 type: 'bar',
                 data: {
-                    labels: ['Alumnos', 'Profesores', 'Visitas', 'Cursos'], //Aqui iba la variable labels
+                    labels: labels,
                     datasets: [{
                         label: 'Escuelas',
                         data: datos,
@@ -848,7 +828,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             graficaAPersonales = new Chart(canvas, {
                 type: 'bar',
                 data: {
-                    labels: ['Usuarios', 'Visitas'], //Aqui iba la variable labels
+                    labels: labels,
                     datasets: [{
                         label: 'Cuentas Personales',
                         data: datos,
@@ -954,7 +934,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             filtrarGCursos();
         });
     </script>
-    <div class="body" style="margin-top: -20px; display: none;">
+    <div class="body" style="margin-top: -20px;">
         <div class="latd">
             <div class="grafica">
                 <canvas id="G-Alumnos" width="450" height="280"></canvas>
@@ -998,7 +978,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         </div>
     </div>
 
-    <div class="body" style="margin-top: -20px; display: none;">
+    <div class="body" style="margin-top: -20px;">
         <div class="latd">
             <div class="grafica">
                 <canvas id="G-Usuarios" width="450" height="280"></canvas>
@@ -1042,7 +1022,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
         </div>
     </div>
 
-    <div class="body" style="margin-top: -20px; display: none;">
+    <div class="body" style="margin-top: -20px;">
         <!--<div class="latd">
             <div class="grafica">
                 <canvas id="G-Familias" width="470" height="280"></canvas>
@@ -1083,7 +1063,26 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 </div>
             </div>
         </div>
-        
+        <div class="latd1">
+            <div class="grafica">
+                <canvas id="G-Personales" width="450" height="280"></canvas>
+                <hr style="opacity: 10%;">
+                <div class="info">
+                    <li><i class='fa-solid fa-school me-3'></i><b>Total de cuentas personales: </b><?php echo $filapersonales['id_alumno']; ?></li> <!--Esta grafica aun no-->
+                </div>
+                <div align="center" style="margin-top: 20px;">
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
+                        <input type="date" name="fechaInicio" id="fechaInicioAPersonales" value="<?php echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
+                        <input type="date" name="fechaFin" id="fechaFinAPersonales" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
+                        <br><br>
+                        <input onclick="filtrarGAPersonales()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Fin graficas -->
