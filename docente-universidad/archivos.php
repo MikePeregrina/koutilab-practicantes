@@ -196,7 +196,7 @@ if (isset($_GET['id'])) {
                                 <td><?php echo $data['calificacion']; ?></td>
                                 <td><?php echo $data['comentario']; ?></td>
                                 <td>
-                                    <a style="margin-top: 5px;"  href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
+                                    <a style="margin-top: 5px;" href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= urlencode($data['id_archivo']) ?>" id="btn-group" class="btn btn-info"><i class='fas fa-download' id="i-group" style="color: white"></i></a>
                                     <a style="margin-top: 5px;" href="acciones/calificar_tarea.php?id_alumno=<?php echo $data['id_alumno']; ?>&id_curso=<?php echo $data['id_curso']; ?>&id_capsula=<?php echo $data['id_capsula']; ?>&id_archivo=<?php echo $data['id_archivo']; ?>" class="btn btn-success" id="" type="submit"><i class='fas fa-clipboard-check' id="i-group"></i> </a>
                                 </td>
                             </tr>

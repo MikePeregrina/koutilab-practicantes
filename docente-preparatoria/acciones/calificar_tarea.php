@@ -45,7 +45,7 @@ if (!empty($_POST)) {
 // Mostrar Datos
 
 if (empty($_REQUEST['id_alumno'])) {
-    header("Location: ../../docente/archivos.php");
+    header("Location: ../../docente-preparatoria/archivos.php");
 }
 $id_archivo = $_REQUEST['id_archivo'];
 $id_alumno = $_REQUEST['id_alumno'];
@@ -65,7 +65,7 @@ $result_sql = mysqli_num_rows($sql);
 
 
 if ($result_sql == 0) {
-    //header("Location: ../../docente/grupos.php");
+    //header("Location: ../../docente-preparatoria/grupos.php");
     $calificacion = -1;
     $comentario = '';
 } else {

@@ -133,12 +133,15 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
                 $id_usuario = $_SESSION['id_alumno_primaria'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_primaria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
                 $sql_cont = "UPDATE `alumnos_primaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -165,6 +168,8 @@ if (isset($_POST['iniciar_sesion'])) {
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE id_docente = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
                 $sql_cont = "UPDATE `docentes_primaria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -202,12 +207,15 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
                 $id_usuario = $_SESSION['id_alumno_secundaria'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_secundaria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE id_alumno = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
                 $sql_cont = "UPDATE `alumnos_secundaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -234,6 +242,8 @@ if (isset($_POST['iniciar_sesion'])) {
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE id_docente = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
                 $sql_cont = "UPDATE `docentes_secundaria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -271,12 +281,15 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
                 $id_usuario = $_SESSION['id_alumno_preparatoria'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_preparatoria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE id_alumno = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
                 $sql_cont = "UPDATE `alumnos_preparatoria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -303,6 +316,8 @@ if (isset($_POST['iniciar_sesion'])) {
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE id_docente = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
                 $sql_cont = "UPDATE `docentes_preparatoria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -340,12 +355,15 @@ if (isset($_POST['iniciar_sesion'])) {
                 $_SESSION['id_alumno_universidad'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
                 $id_usuario = $_SESSION['id_alumno_universidad'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_universidad', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE id_alumno = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
                 $sql_cont = "UPDATE `alumnos_universidad` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
@@ -372,6 +390,8 @@ if (isset($_POST['iniciar_sesion'])) {
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE id_docente = $id_usuario"));
                 $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
                 $sql_cont = "UPDATE `docentes_universidad` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */

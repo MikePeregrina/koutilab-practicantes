@@ -86,6 +86,8 @@ function actualizarConexiones($permiso, $conexion)
         $total_conexiones = $row['conexiones'];
 
         if ($total_conexiones >= 0) {
+            $id_escuela = $_SESSION['id_escuela'];
+            $sql_curso =  mysqli_query($conexion, "INSERT INTO conexiones_cursos(id_curso, id_escuela) values ($permiso, $id_escuela)");
             // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_universidad
             $sql =  mysqli_query($conexion, "UPDATE conexiones_curso_universidad SET conexiones = conexiones + 1 WHERE id_curso = $permiso");
         }
@@ -195,7 +197,7 @@ if (!isset($_SESSION['actualizacion_realizada_pya'])) {
                 <a href="../cursos/python/avanzado/capsulas/contenido/teoricas/P1/ct10python.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn29" id="teoria" <?php echo 'style="' . (($existe_capsula16 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula teorica 8-->
                 <a href="#"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn30" id="prac" <?php echo 'style="' . (($existe_capsula17 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula practica 8-->
                 <a href="#"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn31" id="game" <?php echo 'style="' . (($existe_capsula18 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula juego 8-->
-                
+
                 <!-- EVALUATIVA PY-->
                 <a href="../cursos/python/avanzado/capsulas/contenido/evaluativas/ce1.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn32" id="eva" <?php echo 'style="' . (($existe_capsula22 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas PY-->
                 <!-- CAPSULAS PREMIUM -->

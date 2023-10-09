@@ -87,6 +87,8 @@ function actualizarConexiones($permiso, $conexion)
         $total_conexiones = $row['conexiones'];
 
         if ($total_conexiones >= 0) {
+            $id_escuela = $_SESSION['id_escuela'];
+            $sql_curso =  mysqli_query($conexion, "INSERT INTO conexiones_cursos(id_curso, id_escuela) values ($permiso, $id_escuela)");
             // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_secundaria
             $sql =  mysqli_query($conexion, "UPDATE conexiones_curso_secundaria SET conexiones = conexiones + 1 WHERE id_curso = $permiso");
         }

@@ -156,6 +156,9 @@ if ($result_sql == 0) {
                         <td><b>Python básico</b></td>
                         <td><b>Python intermedio</b></td>
                         <td><b>Python avanzado</b></td>
+                        <td><b>Informática básico</b></td>
+                        <td><b>Informática intermedio</b></td>
+                        <td><b>Informática avanzado</b></td>
                         <td><b>Conexiones</b></td>
                         <td><b></b></td>
                     </tr>
@@ -198,6 +201,24 @@ if ($result_sql == 0) {
                             "evaluativos" => 20
                         ),
                         "6" => array(
+                            "trofeos" => 200,
+                            "teoricos" => 200,
+                            "practicos" => 200,
+                            "evaluativos" => 20
+                        ),
+                        "7" => array(
+                            "trofeos" => 200,
+                            "teoricos" => 200,
+                            "practicos" => 200,
+                            "evaluativos" => 20
+                        ),
+                        "8" => array(
+                            "trofeos" => 200,
+                            "teoricos" => 200,
+                            "practicos" => 200,
+                            "evaluativos" => 20
+                        ),
+                        "9" => array(
                             "trofeos" => 200,
                             "teoricos" => 200,
                             "practicos" => 200,
@@ -257,11 +278,11 @@ if ($result_sql == 0) {
                     ?>
                             <tr>
                                 <td><?php echo $alumno['nombre']; ?></td>
-                                <td>Universidad</td>
+                                <td>universidad</td>
                                 <td><?php echo $alumno['grado_escolar']; ?></td>
                                 <?php
                                 // Mostrar los resultados por curso
-                                for ($i = 1; $i <= 6; $i++) {
+                                for ($i = 1; $i <= 9; $i++) {
                                     if (array_key_exists($i, $alumno['cursos'])) {
                                         echo "<td>" . $alumno['cursos'][$i] . "</td>";
                                     } else {

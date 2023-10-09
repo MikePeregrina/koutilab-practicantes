@@ -12,6 +12,17 @@ JOIN escuelas e
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
 
+// Obtenemos el país del resultado de la consulta
+$pais = $user['pais'];
+
+// Definimos un array con las opciones de grados para cada país
+$opciones_grados = array(
+    'México' => array('1°', '2°', '3°', '4°', '5°', '6°'),
+    'Perú' => array('1°', '2°', '3°', '4°', '5°', '6°'),
+);
+
+// Obtenemos las opciones de grados dependiendo del país
+$grados_disponibles = isset($opciones_grados[$pais]) ? $opciones_grados[$pais] : array();
 
 $query = "SELECT curso FROM cursos_preparatoria";
 $result = $conexion->query($query);
@@ -35,13 +46,12 @@ $fila = mysqli_fetch_assoc($result);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bulma.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <title>KOUTILAB</title>
 </head>
@@ -89,9 +99,11 @@ $fila = mysqli_fetch_assoc($result);
                             <span class="details">Grado: </span>
                             <select style="height: 44px;" name="grado" type="select" required>
                                 <option value="">Elija un grado</option>
-                                <option value="1°">1°</option>
-                                <option value="2°">2°</option>
-                                <option value="3°">3°</option>
+                                <?php
+                                foreach ($grados_disponibles as $grado) {
+                                    echo '<option value="' . $grado . '">' . $grado . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="input-box">
@@ -167,8 +179,8 @@ $fila = mysqli_fetch_assoc($result);
                                     <a href="acciones/mostrar_estadisticas_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" id="btn-group"><i class="fas fa-chart-pie" style="color: white;" id="i-group"></i></a>
                                     <a href="acciones/editar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-edit' id="i-group"></i></a>
                                     <a href="acciones/agregar_curso.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" id="btn-group"><i class='fas fa-plus' id="i-group"></i></a>
-                                    <form action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" id="f-c" class="confirmar d-inline">
-                                        <button class="btn btn-danger" type="submit" id="btn-trs"><i class='fas fa-trash-alt' id="i-trs"></i> </button>
+                                    <form action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" id="f-c" class="d-inline">
+                                        <button class="btn btn-danger btn-dlt" style="margin: -13px -15px 0 0;" type="submit" id="btn-trs"><i class='fas fa-trash-alt' style="font-size: 32px; margin: 0 0 0 0;" id="i-trs"></i> </button>
                                     </form>
                                 </td>
                             </tr>
@@ -250,7 +262,7 @@ $fila = mysqli_fetch_assoc($result);
             var prefijo;
             var resultado;
             prefijo = nombre.substr(0, 3);
-            resultado = prefijo.toUpperCase() + "-" + generarClaveGrupo().toUpperCase();
+            resultado = prefijo.toUpperCase() + generarClaveGrupo().toUpperCase();
             document.getElementById("clave").value = resultado.split(" ").join("");
         }
     </script>

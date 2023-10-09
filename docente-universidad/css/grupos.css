@@ -693,6 +693,15 @@ form .user-details .campo {
   }
 }
 
+.btn-dlt {
+  height: 92px; 
+  width: 130px; 
+}
+
+#i-group {
+  margin: 10px 0 0 0;
+}
+
 @media (max-width: 480px) {
   .containers {
     padding: 10px;

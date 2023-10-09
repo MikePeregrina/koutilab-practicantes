@@ -494,7 +494,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             graficaInstituciones = new Chart(canvas, {
                 type: 'bar',
                 data: {
-                    labels: ['Instituciones', 'Visitas', 'Usuarios'],   //Aqui iba la variable labels
+                    labels: ['Instituciones', 'Visitas', 'Usuarios'], //Aqui iba la variable labels
                     datasets: [{
                         label: 'Institucional',
                         data: datos,
@@ -1049,14 +1049,18 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 <hr style="opacity: 10%;">
                 <div class="info">
                     <li><i class='fa-solid fa-school me-3'></i><b>Total de planes familiares: </b>0</li>--> <!--Esta grafica aun no-->
-                <!--</div>
+        <!--</div>
                 <div align="center" style="margin-top: 20px;">
-                    <form method="POST" action="<?php //echo $_SERVER['PHP_SELF']; ?>">
+                    <form method="POST" action="<?php //echo $_SERVER['PHP_SELF']; 
+                                                ?>">
                         <label for="fechaInicio" style="font-size: 13px; font-weight:bold;">De: </label>
-                        <input type="date" name="fechaInicio" id="fechaInicioFamiliares" value="<?php //echo $fechaInicio; ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="date" name="fechaInicio" id="fechaInicioFamiliares" value="<?php //echo $fechaInicio; 
+                                                                                                ?>" style="margin-right: 50px; border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
                         <label for="fechaFin" style="font-size: 13px; font-weight:bold;">A: </label>
-                        <input type="date" name="fechaFin" id="fechaFinFamiliares" value="<?php //echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
-                        <input type="hidden" name="id_user" name="id_user" value="<?php //echo $id_user; ?>">
+                        <input type="date" name="fechaFin" id="fechaFinFamiliares" value="<?php //echo $fechaFin; 
+                                                                                            ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
+                        <input type="hidden" name="id_user" name="id_user" value="<?php //echo $id_user; 
+                                                                                    ?>">
                         <br><br>
                         <input onclick="filtrarGFamiliares()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
                     </form>
@@ -1083,7 +1087,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <!-- Fin graficas -->
@@ -1122,41 +1126,42 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
     var ctx = document.getElementById('G-Familias');
     var Familias = new Chart(ctx, {
         type: 'bar',
-                data: {
-                    labels: [],
+        data: {
+            labels: [],
             datasets: [{
                 label: 'Familias',
                 data: [],
-                        backgroundColor: [
-                            'rgba(255,99,132,0.2)',
-                            'rgba(54,162,235,0.2)',
-                            'rgba(255,206,86,0.2)',
-                            'rgba(75,192,192,0.2)',
-                            'rgba(255,159,64,0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54,162,235,1)',
-                            'rgba(255,206,86,1)',
-                            'rgba(75,192,192,1)',
-                            'rgba(255,159,64,1)'
-                        ],
-                        borderWidth: 1.5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+                backgroundColor: [
+                    'rgba(255,99,132,0.2)',
+                    'rgba(54,162,235,0.2)',
+                    'rgba(255,206,86,0.2)',
+                    'rgba(75,192,192,0.2)',
+                    'rgba(255,159,64,0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54,162,235,1)',
+                    'rgba(255,206,86,1)',
+                    'rgba(75,192,192,1)',
+                    'rgba(255,159,64,1)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
-        
+            }
+        }
+
     });
 </script>
 
-<script>/*
+<script>
+    /*
     var ctx = document.getElementById('G-Personales');
     var Personales = new Chart(ctx, {
         type: 'line',
@@ -1184,7 +1189,8 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             }
         }
     });
-*/</script>
+*/
+</script>
 
 <script>
     function disableIE() {

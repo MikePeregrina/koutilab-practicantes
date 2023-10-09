@@ -130,6 +130,7 @@
                     </tfoot>
                 </table>
                 <a href="../grupos.php" class="btn btn-danger">Atrás</a>
+
             </div>
         </div>
     </section>
