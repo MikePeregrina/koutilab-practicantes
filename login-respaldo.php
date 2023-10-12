@@ -553,96 +553,95 @@ if (isset($_POST['iniciar_sesion'])) {
     </script>
 </head>
 
-<!-- Nuevo login -->
+<!-- Respaldo de login -->
 
 <body onload="recuperarDatos()">
-    <div class="container">
-        <div class="info-box">
-            <div class="titl-info">
-                <p>Bienvenido a</p>
+    <div class="container" style="margin: 0px 0 0 -15px;">
+        <div class="panel">
+            <div class="row">
+                <div class="col liquid">
+                    <!-- Owl-Carousel -->
+
+                    <img src="acciones/img/kouti-02.png" alt="" class="login_img">
+
+                    <!-- /Owl-Carousel -->
+                </div>
+                <div class="form-box"><br><br>
+                    <div class="logop">
+                        <img src="acciones/img/koutilab.png" alt="KOUTILAB">
+                    </div>
+                    <div class="button-box">
+                        <div id="elegir"></div>
+                        <button type="button" class="toggle-btn" onclick="Ingresar()">Iniciar sesión</button>
+                        <button type="button" class="toggle-btn" onclick="Registrarse()">Registrarse</button>
+                    </div>
+                    <form action="" id="Ingresar" class="input-group" method="POST">
+                        <div class="form-group">
+                            <br>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="text" id="usuario_inicio" onkeyup="agregarArrobaInicio()" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user-lock"></i>
+                            </div>
+                            <input type="password" id="contrasena_inicio" name="contrasena" class="input-field password1" value="<?php if (isset($password)) echo $password; ?>" placeholder="Contraseña" required>
+                            <span class="fa fa-fw fa-eye password-icon show-password1"></span>
+
+                        </div>
+                        <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
+
+                        </div>
+                        <?php echo isset($alert) ? $alert : ''; ?>
+
+                        <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span style="margin: 0 0 -10px 0;">Recordar contraseña</span>
+
+                        <a href="recuperar-contrasena.php" class="remember">Olvidé mi contraseña</a>
+
+                        <button type="submit" name="iniciar_sesion" class="submit-btn" style="margin: -2px 0 0 50px;">Acceder</button>
+                    </form>
+                    <form action="" method="POST" id="Registrarse" class="input-group">
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field" placeholder="Ingrese su nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field" placeholder="@usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="email" id="email_registrar" name="email_registrar" class="input-field" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user-lock"></i>
+                            </div>
+                            <input type="password" id="contrasena_registrar" name="contrasena_registrar" class="input-field password3" placeholder="Contraseña" required>
+                            <span class="fa fa-fw fa-eye password-icon show-password3"></span>
+
+                        </div>
+                        <div class="form-group" style="margin-bottom: 5px;">
+                            <div class="input-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave">
+                            <span class="fa fa-fw fa-eye password-icon show-password4"></span>
+
+                        </div>
+                        <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span style="margin: 0 0 -10px 0;">Acepto los términos y condiciones</span>
+                        <button type="submit" name="registrar_usuario" class="submit-btn" style="margin: -2px 0 0 50px;">Registrarse</button>
+                    </form>
+                </div>
             </div>
-            <div class="logop">
-                <img src="acciones/img/benvenida.png" alt="KOUTILAB">
-            </div>
-            <div class="separacion">
-                <div class="linea"></div>
-            </div>
-            <div class="separacion">
-                <div class="txt-info">
-                    <p>La <b>PLATAFORMA EDUCATIVA</b> especializada en <b>CODING</b> para instituciones, escuelas y usuarios</p>
-                </div>
-            </div>
-        </div>
-        <div class="form-box">
-            <div class="reg">
-                <p>Iniciar sesión</p>
-            </div>
-            <form action="" id="Ingresar" class="input-group" method="POST">
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="ico fas fa-user"></i>
-                    </div>
-                    <input type="text" id="usuario_inicio" onkeyup="agregarArrobaInicio()" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="ico fas fa-user-lock"></i>
-                    </div>
-                    <input type="password" id="contrasena_inicio" name="contrasena" class="input-field password1" value="<?php if (isset($password)) echo $password; ?>" placeholder="Contraseña" required>
-                    <span class="fa fa-fw fa-eye password-icon show-password1"></span>
-
-                </div>
-                <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
-                </div>
-                <?php echo isset($alert) ? $alert : ''; ?>
-
-                <input type="checkbox" id="checkbox" class="check-box"><span>Recordar contraseña</span>
-
-                <div class="sub-btn">
-                    <button type="submit" name="iniciar_sesion" class="submit-btn">Acceder</button>
-                </div>
-
-                <div class="remember-pass">¿Olvidaste tu contraseña? Haz&nbsp;<a href="./tipo-usuario-rec-pass.php" class="remember">clic aquí</a></div>
-                <div class="remember-pass">¿No tienes una cuenta? crea una&nbsp;<a href="./tipo-usuario-registro.php" class="remember">aquí</a></div>
-            </form>
-            <!-- <form action="" method="POST" id="Registrarse" class="input-group">
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field" placeholder="Ingrese su nombre" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field" placeholder="@usuario" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="email" id="email_registrar" name="email_registrar" class="input-field" placeholder="Correo electrónico" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user-lock"></i>
-                    </div>
-                    <input type="password" id="contrasena_registrar" name="contrasena_registrar" class="input-field password3" placeholder="Contraseña" required>
-                    <span class="fa fa-fw fa-eye password-icon show-password3"></span>
-
-                </div>
-                <div class="form-group" style="margin-bottom: 5px;">
-                    <div class="input-icon">
-                        <i class="fas fa-id-card"></i>
-                    </div>
-                    <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave">
-                    <span class="fa fa-fw fa-eye password-icon show-password4"></span>
-
-                </div>
-                <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span style="margin: 0 0 -10px 0;">Acepto los términos y condiciones</span>
-                <button type="submit" name="registrar_usuario" class="submit-btn" style="margin: -2px 0 0 50px;">Registrarse</button>
-            </form> -->
         </div>
     </div>
 

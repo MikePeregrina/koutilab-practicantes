@@ -14,39 +14,67 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
+<!-- Recuperar contraseña para prepa y uni -->
+
 <body onload="recuperarDatos()">
-    <div class="container" style="margin-top: -25px; margin-left: -50px;">
-        <div class="panel">
-            <div class="row">
-                <div class="col liquid">
-                    <!-- Owl-Carousel -->
-
-                    <img src="acciones/img/kouti-02.png" alt="" class="login_img">
-
-                    <!-- /Owl-Carousel -->
-                </div>
-                <div class="form-box"><br><br>
-                    <div class="button-box" style="margin: 10px 0 0 55px;">
-                        <div id="elegir" style="width: 240px;"></div>
-                        <button type="button" class="toggle-btn" style="margin: 0 0 0 35px;">Recuperar contraseña</button>
-                    </div>
-                    <div class="logop" style="margin: 30px 0 0 -70px;">
-                        <img src="acciones/img/koutilab.png" alt="KOUTILAB">
-                    </div>
-                    <form action="acciones/recuperar-clave.php" class="input-group" method="POST" style="margin: 50px 0 0 0;">
-                        <div class="form-group">
-                            <br>
-                            <div class="input-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <input type="email" name="email" class="input-field" placeholder="Correo electrónico" value="" required>
-                        </div>
-
-                        <button type="submit" class="submit-btn" style="margin-top: 20px;" value="RECUPERAR CLAVE">Enviar correo</button>
-                        <a href="login.php" class="submit-btn" style="margin-top: 20px; width: 50px; text-align: center; color: black; text-decoration: none;">Regresar</a>
-                    </form>
+    <div class="container">
+        <div class="info-box">
+            <div class="titl-info">
+                <p>Bienvenido a</p>
+            </div>
+            <div class="logop">
+                <img src="acciones/img/benvenida.png" alt="KOUTILAB">
+            </div>
+            <div class="separacion">
+                <div class="linea"></div>
+            </div>
+            <div class="separacion">
+                <div class="txt-info">
+                    <p>La <b>PLATAFORMA EDUCATIVA</b> especializada en <b>CODING</b> para instituciones, escuelas y usuarios</p>
                 </div>
             </div>
+        </div>
+        <div class="form-box">
+            <div class="reg">
+                <p>Olvidé mi contraseña</p>
+            </div>
+            <p></p>
+            <div class="pasos">
+                <div class="line"></div>
+                <div class="circle">
+                    <p>1</p>
+                </div>
+                <div class="circle">
+                    <div class="circle-white">
+                        <p style="color: #000000;">2</p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <p>3</p>
+                </div>
+            </div>
+            <p class="preg">Ingresa los datos requeridos</p>
+            <form action="acciones/recuperar-clave.php" class="input-group" method="POST">
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="ico fas fa-user"></i>
+                    </div>
+                    <input type="email" name="email" class="input-field" placeholder="Nombre completo" value="" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="ico fas fa-envelope"></i>
+                    </div>
+                    <input type="email" name="email" class="input-field" placeholder="Correo electrónico" value="" required>
+                </div>
+                <div class="sub-btn" style="margin: 30px 0 0 0">
+                    <button type="submit" class="submit-btn" value="RECUPERAR CLAVE">Siguiente</button>
+                </div>
+
+                <div class="sub-btn" style="margin: 20px 0 0 0; scale: 90%;">
+                    <a href="#" onclick="history.back();" class="submit-btn">Regresar</a>
+                </div>
+            </form>
         </div>
     </div>
 

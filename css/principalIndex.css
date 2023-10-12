@@ -10,29 +10,28 @@ body {
     font-family: "Comfortaa";
     box-sizing: border-box;
 }
- 
-  /* Estilos para el diseño de Halloween */
-  body.halloween {
+
+/* Estilos para el diseño de Halloween */
+body.halloween {
     background-color: #000000;
- 
-  }
-  
-  /* Animación de parpadeo rápido */
-  @keyframes parpadeo-rapido {
-    0%, 100% {
-      opacity: 0;
+}
+
+/* Animación de parpadeo rápido */
+@keyframes parpadeo-rapido {
+    0%,
+    100% {
+        opacity: 0;
     }
     50% {
-      opacity: 1;
-
+        opacity: 1;
     }
-  }
-  
-  /* Aplicar la animación de parpadeo a body cuando tiene la clase "halloween" */
-  body.halloween {
+}
+
+/* Aplicar la animación de parpadeo a body cuando tiene la clase "halloween" */
+body.halloween {
     animation: parpadeo-rapido 0.2s infinite;
-  }
-  
+}
+
 body::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -107,7 +106,6 @@ nav ul .li-rr:hover.hallowen {
     background-color: #ffa601af;
 }
 
-
 nav ul li a:hover {
     color: white;
 }
@@ -139,16 +137,16 @@ nav ul li a:hover {
     transition: 0.5s;
 }
 
-.singin.hallowen{
+.singin.hallowen {
     padding: 10px 20px 10px 20px;
     border-radius: 30px;
     background-color: #400096;
     transition: 0.5s;
 }
 
-.singin a.hallowen{
-    color: #FFA801 !important;
-   }
+.singin a.hallowen {
+    color: #ffa801 !important;
+}
 
 .reg {
     color: #38b6ff;
@@ -185,7 +183,7 @@ nav ul li a:hover {
     position: relative;
 }
 
-.hallowen-img.hallowen{
+.hallowen-img.hallowen {
     position: absolute;
     width: 20%;
     height: 395px;
@@ -195,7 +193,7 @@ nav ul li a:hover {
     background-position: center center;
 }
 
-.hallowen-img2.hallowen{
+.hallowen-img2.hallowen {
     position: absolute;
     width: 20%;
     height: 395px;
@@ -205,7 +203,6 @@ nav ul li a:hover {
     background-position: center center;
     right: 0;
 }
-
 
 .tittle-1 {
     margin: 30px auto 0 auto;
@@ -296,13 +293,13 @@ nav ul li a:hover {
 }
 
 .white-1.hallowen {
-    color: #FFA801 !important;
+    color: #ffa801 !important;
     font-style: italic;
 }
 
 /* Rutas de aprendizaje */
 
-.spider-image.hallowen{
+.spider-image.hallowen {
     position: absolute;
     height: 648px;
     width: 255px;
@@ -312,7 +309,7 @@ nav ul li a:hover {
     background-position: center center;
 }
 
-.spider-image2.hallowen{
+.spider-image2.hallowen {
     position: absolute;
     height: 543px;
     width: 255px;
@@ -346,7 +343,7 @@ nav ul li a:hover {
     background-position: center center;
 }
 
-.content-2 img.hallowen{
+.content-2 img.hallowen {
     height: 100%;
     z-index: auto;
 }
@@ -439,11 +436,7 @@ nav ul li a:hover {
     width: 385px;
     height: 5px;
     border-radius: 3px;
-    background: linear-gradient(
-        to right,
-        #8C52FF,
-        #FF914D
-    );
+    background: linear-gradient(to right, #8c52ff, #ff914d);
 }
 
 .t4-t1 {
@@ -554,11 +547,10 @@ nav ul li a:hover {
     align-items: center;
 }
 
-
 .tittle-7.hallowen {
-   background-color: #0000009c;
-   font-weight: bold;
-   color: white;
+    background-color: #0000009c;
+    font-weight: bold;
+    color: white;
 }
 
 .col3 {
@@ -597,7 +589,7 @@ nav ul li a:hover {
     flex-direction: column;
     text-align: center;
     border-radius: 20px;
-   /* border: 2px solid rgba(129, 179, 243, 0.5);
+    /* border: 2px solid rgba(129, 179, 243, 0.5);
     background-color: #ffffff;*/
     background-color: rgba(0, 0, 0, 0.639);
     color: white;
@@ -639,7 +631,7 @@ nav ul li a:hover {
     height: 5px;
     margin-top: -10px;
     border-radius: 20px;
-    background-color: #FFA801;
+    background-color: #ffa801;
 }
 
 .us-tx {
@@ -674,13 +666,94 @@ nav ul li a:hover {
     width: 135px;
     height: 34px;
     border-radius: 20px;
-    background-color: #FFA801;
+    background-color: #ffa801;
     transition: 0.5s;
 }
 
 .btn-sub:hover {
     transform: scale(1.1);
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Prueba gratuita */
+
+.demo {
+    position: fixed;
+    display: flex;
+    width: 5%;
+    height: 10%;
+    right: 3%;
+    bottom: 5%;
+    border-radius: 50px;
+    background-color: #38b6ff;
+    z-index: 10;
+    transition: 0.5s;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 55px;
+}
+
+.demo:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+}
+
+.hand {
+    animation-name: hand;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes hand {
+    0% {transform: rotate(-45deg); margin: 0 10px 0 -5px;}
+    50% {transform: rotate(45deg); margin: 0 -10px 0 -5px;}
+    100% {transform: rotate(-45deg); margin: 0 10px 0 -5px;}
+}
+
+.demo-text {
+    margin-top: -130px;
+    border-radius: 30px;
+    text-align: center;
+    color: rgb(113, 113, 113);;
+    width: 200px;
+    position: fixed;
+    font-size: 18px;
+    font-weight: bolder;
+    scale: 0%;
+    animation-name: alert;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-delay: 5s;
+}
+
+@keyframes alert {
+    0% {scale: 0%}
+    1.25% {scale: 110%}
+    2.5% {scale: 100%;}
+
+    25% {transform: rotate(0deg);}
+    25.5% {transform: rotate(-10deg);}
+    26% {transform: rotate(10deg);}
+    26.5% {transform: rotate(-10deg);}
+    27% {transform: rotate(10deg);}
+    27.5% {transform: rotate(-10deg);}
+    28% {transform: rotate(10deg);}
+    28.5% {transform: rotate(0deg);}
+
+    75% {transform: rotate(0deg);}
+    75.5% {transform: rotate(-10deg);}
+    76% {transform: rotate(10deg);}
+    76.5% {transform: rotate(-10deg);}
+    77% {transform: rotate(10deg);}
+    77.5% {transform: rotate(-10deg);}
+    78% {transform: rotate(10deg);}
+    78.5% {transform: rotate(0deg);}
+
+    87.5% {scale: 100%}
+    88.25% {scale: 110%}
+    90% {scale: 0%}
+    100% {scale: 0%;}
 }
 
 /* Footer */
@@ -747,8 +820,8 @@ nav ul li a:hover {
     margin-top: 30px;
 }
 
-.f-space h5 i.hallowen{
-    color: #FFA801 !important;
+.f-space h5 i.hallowen {
+    color: #ffa801 !important;
 }
 
 .logo-f-img {
@@ -774,16 +847,12 @@ nav ul li a:hover {
     color: white;
 }
 .bottom b.hallowen {
-    color: #FFA801;
+    color: #ffa801;
 }
-
 
 /* Estilos para la transicion de HALLOWEN */
 
- /* Animación de parpadeo rápido en negro */
-
-  
-
+/* Animación de parpadeo rápido en negro */
 
 /* Responsive */
 
@@ -1018,7 +1087,6 @@ nav ul li a:hover {
     .f-card1 {
         width: 300px;
         height: 200px;
-
     }
     .f-card {
         width: 300px;

@@ -30,11 +30,19 @@
                     <div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div>
                 </li>
                 <li class="hov li-r">
-                    <div class="singin"><a href="alumno/prueba/rutas/ruta-prueba.php" style="color: #ffffff">Prueba gratis</a></div>
+                    <div class="singin"><a href="./tipo-usuario-registro.php" style="color: #ffffff">Registrarse</a></div>
                 </li>
             </ul>
         </nav>
     </header>
+
+    <!-- Prueba gratuita -->
+    <div class="demo">
+        <div class="demo-text">
+            <p>Prueba gratuita aquí</p>
+        </div>
+        <a href="alumno/prueba/rutas/ruta-prueba.php" style="color: #ffffff"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
+    </div>
 
     <!-- Inicio -->
     <section id="inicio">
@@ -44,13 +52,13 @@
     <!-- Nosotros -->
     <section class="content-1" id="nosotros">
 
-    <div class="hallowen-img">
-    </div>
+        <div class="hallowen-img">
+        </div>
 
-    <div class="hallowen-img2">
-    </div>
- 
-    <div class="tittle-1">
+        <div class="hallowen-img2">
+        </div>
+
+        <div class="tittle-1">
             <h1>Descubre nuestras&nbsp;</h1>
             <h1 class="white-1">RUTAS DE APRENDIZAJE&nbsp;&nbsp;</h1>
             <h1>y juegos interactivos</h1>
@@ -101,13 +109,13 @@
                 <h2 class="white-2 t2">Alumnos</h2>
             </div>
         </div>
-        
+
         <div class="spider-image">
-            
+
         </div>
 
         <div class="spider-image2">
-            
+
         </div>
 
         <div class="content-2-1">
@@ -299,30 +307,28 @@
             window.location.href = "./registro-institucional/index.php";
         }
     </script>
-    
+
     <script>
-     function activarHalloween() {
-  document.body.classList.add('halloween');
-  
-  // Espera 5 segundos (5000 milisegundos) para cambiar los colores después del efecto de Halloween
-  setTimeout(function() {
-    document.body.classList.remove('halloween');
-    
-    // Cambiar los colores de los botones
-    const buttons = document.querySelectorAll('.singin, .tittle-1, .white-1, .line-3, .line-1, .content-2, .line-4, .cp-bar, .users, .bottom, .card3, .btn-sub, .us-tx1, .us-bar, .circle, .us-tx, .footer, .hallowen-img, .hallowen-img2, .spider-image, .spider-image2, .li-rr, .col3, .tittle-7, i, h5,.a-f, b, a');
-    buttons.forEach(function(button) {
-      button.classList.add('hallowen');
-    });
-  }, 2000); // Cambia el valor a la cantidad de tiempo que desees que dure el efecto de Halloween (en milisegundos)
-}
+        function activarHalloween() {
+            document.body.classList.add('halloween');
 
-// Espera 3 segundos (3000 milisegundos) antes de iniciar la transición
-setTimeout(function() {
-  activarHalloween();
-}, 1500); // Cambia el valor a la cantidad de tiempo que desees esperar antes de iniciar el efecto de Halloween (en milisegundos)
+            // Espera 5 segundos (5000 milisegundos) para cambiar los colores después del efecto de Halloween
+            setTimeout(function() {
+                document.body.classList.remove('halloween');
 
+                // Cambiar los colores de los botones
+                const buttons = document.querySelectorAll('.singin, .tittle-1, .white-1, .line-3, .line-1, .content-2, .line-4, .cp-bar, .users, .bottom, .card3, .btn-sub, .us-tx1, .us-bar, .circle, .us-tx, .footer, .hallowen-img, .hallowen-img2, .spider-image, .spider-image2, .li-rr, .col3, .tittle-7, i, h5,.a-f, b, a');
+                buttons.forEach(function(button) {
+                    button.classList.add('hallowen');
+                });
+            }, 2000); // Cambia el valor a la cantidad de tiempo que desees que dure el efecto de Halloween (en milisegundos)
+        }
 
-</script>
+        // Espera 3 segundos (3000 milisegundos) antes de iniciar la transición
+        setTimeout(function() {
+            activarHalloween();
+        }, 1500); // Cambia el valor a la cantidad de tiempo que desees esperar antes de iniciar el efecto de Halloween (en milisegundos)
+    </script>
 </body>
 
 </html>

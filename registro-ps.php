@@ -553,9 +553,23 @@ if (isset($_POST['iniciar_sesion'])) {
     </script>
 </head>
 
-<!-- Nuevo login -->
+<!-- Registro de primaria y secundaria -->
 
 <body onload="recuperarDatos()">
+    <div class="img-bot">
+        <img src="./img/Thumbs-Up.gif" alt="koubot">
+        <div class="bubble" id="bubble">
+            <p id="txt-name">Aquí debes poner tu nombre o nombres</p>
+            <p id="txt-ap">Aquí debes poner tu primer apellido</p>
+            <p id="txt-am">Aquí debes poner tu segundo apellido</p>
+            <p id="txt-user">¡Tu usuario se genera automáticamente!</p>
+            <p id="txt-pass">Aquí definimos tu contraseña para ingresar</p>
+            <p id="txt-clave">Aquí se coloca tu clave escolar que tu docente o escuela te proporciona</p>
+            <p id="txt-check">Acepta los términos y condiciones de uso para continuar</p>
+            <p id="txt-reg">¡Regístrate para comenzar!</p>
+            <div class="bubble-tail"></div>
+        </div>
+    </div>
     <div class="container">
         <div class="info-box">
             <div class="titl-info">
@@ -574,75 +588,109 @@ if (isset($_POST['iniciar_sesion'])) {
             </div>
         </div>
         <div class="form-box">
-            <div class="reg">
-                <p>Iniciar sesión</p>
-            </div>
-            <form action="" id="Ingresar" class="input-group" method="POST">
+            <!-- <form action="" id="Ingresar" class="input-group" method="POST">
                 <div class="form-group">
-                    <div class="input-icon">
-                        <i class="ico fas fa-user"></i>
-                    </div>
-                    <input type="text" id="usuario_inicio" onkeyup="agregarArrobaInicio()" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="ico fas fa-user-lock"></i>
-                    </div>
-                    <input type="password" id="contrasena_inicio" name="contrasena" class="input-field password1" value="<?php if (isset($password)) echo $password; ?>" placeholder="Contraseña" required>
-                    <span class="fa fa-fw fa-eye password-icon show-password1"></span>
-
-                </div>
-                <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
-                </div>
-                <?php echo isset($alert) ? $alert : ''; ?>
-
-                <input type="checkbox" id="checkbox" class="check-box"><span>Recordar contraseña</span>
-
-                <div class="sub-btn">
-                    <button type="submit" name="iniciar_sesion" class="submit-btn">Acceder</button>
-                </div>
-
-                <div class="remember-pass">¿Olvidaste tu contraseña? Haz&nbsp;<a href="./tipo-usuario-rec-pass.php" class="remember">clic aquí</a></div>
-                <div class="remember-pass">¿No tienes una cuenta? crea una&nbsp;<a href="./tipo-usuario-registro.php" class="remember">aquí</a></div>
-            </form>
-            <!-- <form action="" method="POST" id="Registrarse" class="input-group">
-                <div class="form-group">
+                    <br>
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field" placeholder="Ingrese su nombre" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field" placeholder="@usuario" required>
-                </div>
-                <div class="form-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="email" id="email_registrar" name="email_registrar" class="input-field" placeholder="Correo electrónico" required>
+                    <input type="text" id="usuario_inicio" onkeyup="agregarArrobaInicio()" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php // if (isset($user)) echo $user; 
+                                                                                                                                                                        ?>" required>
                 </div>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fas fa-user-lock"></i>
                     </div>
-                    <input type="password" id="contrasena_registrar" name="contrasena_registrar" class="input-field password3" placeholder="Contraseña" required>
-                    <span class="fa fa-fw fa-eye password-icon show-password3"></span>
+                    <input type="password" id="contrasena_inicio" name="contrasena" class="input-field password1" value="<?php // if (isset($password)) echo $password; 
+                                                                                                                            ?>" placeholder="Contraseña" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password1"></span>
+
+                </div>
+                <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
+
+                </div>
+                <?php // echo isset($alert) ? $alert : ''; 
+                ?>
+
+                <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span style="margin: 0 0 -10px 0;">Recordar contraseña</span>
+
+                <a href="recuperar-contrasena.php" class="remember">Olvidé mi contraseña</a>
+
+                <button type="submit" name="iniciar_sesion" class="submit-btn" style="margin: -2px 0 0 50px;">Acceder</button>
+            </form> -->
+            <div class="reg">
+                <p>Registrarse</p>
+            </div>
+            <p></p>
+            <div class="pasos">
+                <div class="line"></div>
+                <div class="circle">
+                    <p>1</p>
+                </div>
+                <div class="circle">
+                    <div class="circle-white">
+                        <p style="color: #000000;">2</p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <p>3</p>
+                </div>
+            </div>
+            <p class="preg">Ingresa los datos requeridos</p>
+            <form action="" method="POST" id="Registrarse" class="input-group1">
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field1" onmouseenter="aparecer1(); bubbleIn();" onmouseleave="desaparecer1(); bubbleOut();" placeholder="Nombre(s)" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="" name="" class="input-field1" placeholder="Apellido paterno" onmouseenter="aparecer2(); bubbleIn();" onmouseleave="desaparecer2(); bubbleOut();" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="" name="" class="input-field1" placeholder="Apellido materno" onmouseenter="aparecer3(); bubbleIn();" onmouseleave="desaparecer3(); bubbleOut();" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field1" placeholder="@usuario" onmouseenter="aparecer4(); bubbleIn();" onmouseleave="desaparecer4(); bubbleOut();" required>
+                </div>
+                <!-- <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="email" id="email_registrar" name="email_registrar" class="input-field1" placeholder="Correo electrónico" required>
+                </div> -->
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <input type="password" id="contrasena_registrar" name="contrasena_registrar" class="input-field1 password3" placeholder="Contraseña" onmouseenter="aparecer5(); bubbleIn();" onmouseleave="desaparecer5(); bubbleOut();" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password3" style="margin: -31px 25px 0 0;"></span>
 
                 </div>
                 <div class="form-group" style="margin-bottom: 5px;">
                     <div class="input-icon">
                         <i class="fas fa-id-card"></i>
                     </div>
-                    <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave">
-                    <span class="fa fa-fw fa-eye password-icon show-password4"></span>
+                    <input type="password" id="clave_registrar" name="clave_registrar" class="input-field1 password4" placeholder="Clave" onmouseenter="aparecer6(); bubbleIn();" onmouseleave="desaparecer6(); bubbleOut();" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password4" style="margin: -31px 25px 0 0;"></span>
 
                 </div>
-                <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span style="margin: 0 0 -10px 0;">Acepto los términos y condiciones</span>
-                <button type="submit" name="registrar_usuario" class="submit-btn" style="margin: -2px 0 0 50px;">Registrarse</button>
-            </form> -->
+
+                <input type="checkbox" class="check-box1" onmouseenter="aparecer7(); bubbleIn();" onmouseleave="desaparecer7(); bubbleOut();" required><span>Acepto los términos y condiciones</span>
+
+                <div class="sub-btn" style="margin: -10px 0 0 0;">
+                    <button type="submit" name="registrar_usuario" class="submit-btn" style="scale: 70%;" onmouseenter="aparecer8(); bubbleIn();" onmouseleave="desaparecer8(); bubbleOut();">Registrarse</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -1641,6 +1689,100 @@ if (isset($_POST['iniciar_sesion'])) {
         }
     }
     ?>
+
+    <script>
+        function bubbleIn() {
+            var div = document.getElementById("bubble");
+            div.style.cssText = "animation-name: bubble-in; animation-duration: 0.5s; animation-fill-mode: forwards;";
+        }
+
+        function bubbleOut() {
+            var div = document.getElementById("bubble");
+            div.style.cssText = "animation-name: bubble-out; animation-duration: 0.5s; animation-fill-mode: forwards;";
+        }
+    </script>
+
+    <script>
+        function aparecer1() {
+            var div = document.getElementById("txt-name");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer1() {
+            var div = document.getElementById("txt-name");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer2() {
+            var div = document.getElementById("txt-ap");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer2() {
+            var div = document.getElementById("txt-ap");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer3() {
+            var div = document.getElementById("txt-am");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer3() {
+            var div = document.getElementById("txt-am");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer4() {
+            var div = document.getElementById("txt-user");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer4() {
+            var div = document.getElementById("txt-user");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer5() {
+            var div = document.getElementById("txt-pass");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer5() {
+            var div = document.getElementById("txt-pass");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer6() {
+            var div = document.getElementById("txt-clave");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer6() {
+            var div = document.getElementById("txt-clave");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer7() {
+            var div = document.getElementById("txt-check");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer7() {
+            var div = document.getElementById("txt-check");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer8() {
+            var div = document.getElementById("txt-reg");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer8() {
+            var div = document.getElementById("txt-reg");
+            div.style.cssText = "display: none;";
+        }
+    </script>
 
     <script>
         function agregarArroba() {
