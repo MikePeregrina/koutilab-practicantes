@@ -129,7 +129,7 @@ if (isset($_POST['iniciar_sesion'])) {
             if ($resultado_alumno > 0) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
-                $_SESSION['rol'] = 3;
+                $_SESSION['rol'] = 'primaria';
                 $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
@@ -203,7 +203,7 @@ if (isset($_POST['iniciar_sesion'])) {
             if ($resultado_alumno > 0) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
-                $_SESSION['rol'] = 6;
+                $_SESSION['rol'] = 'secundaria';
                 $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
@@ -277,7 +277,7 @@ if (isset($_POST['iniciar_sesion'])) {
             if ($resultado_alumno > 0) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
-                $_SESSION['rol'] = 9;
+                $_SESSION['rol'] = 'preparatoria';
                 $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
@@ -351,7 +351,7 @@ if (isset($_POST['iniciar_sesion'])) {
             if ($resultado_alumno > 0) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
-                $_SESSION['rol'] = 12;
+                $_SESSION['rol'] = 'universidad';
                 $_SESSION['id_alumno_universidad'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];

@@ -171,6 +171,24 @@ $result = $conexion->query($sql);
                             <input type="text" placeholder="Codigo" name="codigo_postal" required>
                         </div>
 
+                        <div class="input-box">
+                            <span class="details">Tipo de escuela:</span>
+                            <select required style="height: 44px;" name="tipo_escuela" id="tipo_escuela">
+                                <option value="">Elige una opción</option>
+                                <option value="1">Federal</option>
+                                <option value="2">Privada</option>
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Modelo de ganancia:</span>
+                            <select required style="height: 44px;" name="tipo_modelo" id="tipo_modelo">
+                                <option value="">Elige una opción</option>
+                                <option value="1">Licencia</option>
+                                <option value="2">Freemium</option>
+                            </select>
+                        </div>
+
                         <input type="hidden" name="autorizacion" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
 
                         <div class="input-box">

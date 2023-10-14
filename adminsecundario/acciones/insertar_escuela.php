@@ -14,6 +14,8 @@ $pais = $_POST['pais'];
 $codigo_postal = $_POST['codigo_postal'];
 $nivel_educativo = $_POST['nivel_educativo'];
 $autorizacion = $_POST['autorizacion'];
+$tipo_escuela = $_POST['tipo_escuela'];
+$tipo_modelo = $_POST['tipo_modelo'];
 $id_user = $_SESSION['id_admin_secundario'];
 
 //Claves
@@ -22,7 +24,7 @@ $clave_docente = $_POST['clave_docente'];
 $clave_alumno = $_POST['clave_alumno'];
 
 //Query para insertar escuela
-$insertar_escuela = mysqli_query($conexion, "INSERT INTO escuelas(nombre_escuela, cct, nombre_director, calle, num_exterior, estado, codigo_postal, nivel_educativo, pais, autorizacion, id_admin_secundario, clave_alumno, clave_docente, clave_director) VALUES ('$nombre_escuela', '$cct', '$nombre_director', '$calle', '$num_exterior', '$estado', '$codigo_postal', '$nivel_educativo', '$pais', '$autorizacion', '$id_user', '$clave_alumno', '$clave_docente', '$clave_director')");
+$insertar_escuela = mysqli_query($conexion, "INSERT INTO escuelas(nombre_escuela, cct, nombre_director, calle, num_exterior, estado, codigo_postal, nivel_educativo, pais, autorizacion, id_admin_secundario, clave_alumno, clave_docente, clave_director, tipo_escuela, tipo_modelo) VALUES ('$nombre_escuela', '$cct', '$nombre_director', '$calle', '$num_exterior', '$estado', '$codigo_postal', '$nivel_educativo', '$pais', '$autorizacion', '$id_user', '$clave_alumno', '$clave_docente', '$clave_director', '$tipo_escuela', '$tipo_modelo')");
 
 if ($insertar_escuela) {
   $alert = '<div class="alert alert-primary" role="alert">
