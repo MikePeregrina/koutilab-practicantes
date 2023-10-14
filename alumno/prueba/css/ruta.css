@@ -103,6 +103,7 @@ section {
   overflow: hidden;
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   margin-top: 20px;
+  z-index: 0;
 }
 
 .label {

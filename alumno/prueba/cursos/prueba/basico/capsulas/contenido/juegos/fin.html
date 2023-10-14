@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/ayudando.css">
+    <title>Document</title>
+</head>
+<body onload="cargar">
+<div class="video" onclick="empezar();">
+    <audio autoplay loop><source src="../../img/m2.mp3"></audio> 
+    <video id="miVideo" src="../../img/win.mp4" autoplay loop></video>
+</div> 
+<script>
+    function empezar(){
+        // Redirecciona a una URL específica
+        window.location.href = "juego.html";
+
+    }
+function cargar(){
+  // Obtener una referencia al elemento de video
+  var videoElement = document.getElementById("miVideo");
+
+// Cuando la página se cargue nuevamente, reiniciar la reproducción del video
+window.addEventListener("load", function() {
+    // Verificar si el video se encuentra cargado
+    if (videoElement.readyState >= 2) {
+        // Reiniciar la reproducción desde el principio
+        videoElement.currentTime = 0;
+        videoElement.play();
+    }
+ });
+}
+
+</script>
+    
+</body>
+</html>

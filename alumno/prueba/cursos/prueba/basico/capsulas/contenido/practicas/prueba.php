@@ -19,6 +19,7 @@
             <a href="../../../../../../cursos/prueba/basico/capsulas/contenido/teoricas/prueba.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
             <div class="new-g" style="text-align: center;">Cápsula prueba</div><br>
             <div class="board">
+            <button class="boton-fijo" id="show-keyboard" ><i class="fa-regular fa-keyboard fa-2xl"></i></button>
                 <table width="100%">
                     <thead>
                         <tr>
@@ -52,7 +53,136 @@
             </div>
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
+
+    <div id="virtual-keyboard">
+    <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+        <div class="keyboard-row">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="key">0</button>
+            <button class="key">/</button>
+            <button class="key">*</button>
+            <button class="key">+</button>
+            <button class="key">-</button>
+            <button class="delete">Borrar</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key">q</button>
+            <button class="key">w</button>
+            <button class="key">e</button>
+            <button class="key">r</button>
+            <button class="key">t</button>
+            <button class="key">y</button>
+            <button class="key">u</button>
+            <button class="key">i</button>
+            <button class="key">o</button>
+            <button class="key">p</button>
+            <button class="key">(</button>
+            <button class="key">)</button>
+            <button class="key">[</button>
+            <button class="key">]</button>
+            <button class="key">|</button>
+           
+        </div>
+
+        <div class="keyboard-row">
+            <button class="key">a</button>
+            <button class="key">s</button>
+            <button class="key">d</button>
+            <button class="key">f</button>
+            <button class="key">g</button>
+            <button class="key">h</button>
+            <button class="key">j</button>
+            <button class="key">k</button>
+            <button class="key">l</button>
+            <button class="key">%</button>
+            <button class="key">&</button>
+            <button class="key">"</button>
+           
+        </div>
+
+        <div class="keyboard-row">
+            <button class="key">z</button>
+            <button class="key">x</button>
+            <button class="key">c</button>
+            <button class="key">v</button>
+            <button class="key">b</button>
+            <button class="key">n</button>
+            <button class="key">m</button>
+            <button class="key"><</button>
+            <button class="key">></button>
+            <button class="key">;</button>
+        </div>
+
+        <div class="keyboard-row">
+            <button class="space">Espacio</button>
+        </div>
+
+      
+
+
     </div>
+    <script>
+
+        // Obtén elementos del DOM
+        const showKeyboardButton = document.getElementById("show-keyboard");
+        const textInput = document.getElementById("cd");
+        const virtualKeyboard = document.getElementById("virtual-keyboard");
+        const specialChars = document.querySelectorAll(".key");
+        const closeKeyboardButton = document.querySelector(".close-keyboard");
+
+        // Función para mostrar el teclado
+        showKeyboardButton.addEventListener("click", () => {
+            virtualKeyboard.style.display = "block";
+        });
+
+        // Función para insertar caracteres en el textarea
+        specialChars.forEach(charButton => {
+            charButton.addEventListener("click", () => {
+                const char = charButton.textContent;
+                textInput.value += char;
+            });
+        });
+
+        // Función para cerrar el teclado
+        closeKeyboardButton.addEventListener("click", () => {
+            virtualKeyboard.style.display = "none";
+        });
+
+        // Evita que se cierre el teclado al hacer clic en las teclas
+        virtualKeyboard.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+
+        // Cierra el teclado si se hace clic fuera de él
+        document.addEventListener("click", (event) => {
+            if (event.target !== virtualKeyboard && event.target !== showKeyboardButton) {
+                virtualKeyboard.style.display = "none";
+            }
+        });
+
+        // Función para borrar un carácter en el textarea
+        const deleteButton = document.querySelector(".delete");
+        deleteButton.addEventListener("click", () => {
+            const text = textInput.value;
+            textInput.value = text.slice(0, -1);
+        });
+
+        // Función para añadir un espacio en el textarea
+        const spaceButton = document.querySelector(".space");
+        spaceButton.addEventListener("click", () => {
+            textInput.value += " ";
+        });
+    </script>
+
+
     <script src="../../js/fund.js"></script>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
