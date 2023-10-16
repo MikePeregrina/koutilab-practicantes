@@ -347,3 +347,31 @@ canvas {
   width: 100%;
 }
 */
+
+/* Estadisticas */
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+#opcionesEscuela {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#opcionesEscuela li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#opcionesEscuela li:hover {
+  background-color: #f2f2f2;
+}

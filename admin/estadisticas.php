@@ -138,6 +138,12 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                         <input type="date" name="fechaFin" id="fechaFinEscuelas" value="<?php echo $fechaFin; ?>" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); " required>
                         <input type="hidden" name="id_user" name="id_user" value="<?php echo $id_user; ?>">
                         <br><br>
+                        <!-- Agrega el campo de búsqueda -->
+                        <label for="escuelaID" style="font-size: 13px; font-weight:bold;">Buscar por escuela: </label>
+                        <div class="autocomplete">
+                            <input type="text" name="nombreEscuelaInput" id="nombreEscuelaInput" oninput="mostrarOpcionesDeEscuela(this.value)" style="border: 1px solid rgba(0, 201, 255, 2556); padding: 3px; border-radius: 5px; color: rgba(0, 201, 255, 2556); ">
+                            <ul id="opcionesEscuela"></ul>
+                        </div>
                         <input onclick="filtrarGEscuelas()" name="submitFecha" type="button" value="Filtrar" style="border: 1px solid rgba(0,201,255,2556); padding: 3px; border-radius: 5px; color: rgba(0,201,255,2556); font-weight: bold; font-size: 15px; margin-bottom:0; padding-bottom: 0">
                     </form>
                 </div>
@@ -226,6 +232,7 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             //here
             var fechaInicio = document.getElementById('fechaInicioEscuelas').value;
             var fechaFin = document.getElementById('fechaFinEscuelas').value;
+            var nombreEscuela = document.getElementById('nombreEscuelaInput').value;
             var id_user = <?php echo $id_user; ?>;
             var tipo = "escuelas";
             console.log(fechaInicio);
@@ -245,14 +252,14 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
                 fechaInicio: fechaInicio_json,
                 fechaFin: fechaFin_json,
                 id_user: id_user,
-                tipo: tipo_json
-            }, function(data) {
-                //alert(data); //COMENTADO TEMPORALMENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-                var arregloConvertido = JSON.parse(data);
-
+                tipo: tipo_json,
+                nombreEscuela: nombreEscuela
+            }).done(function(data) {
                 mostrarGEscuelas(data);
-
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.error("Error en la solicitud AJAX: " + textStatus, errorThrown);
             });
+
 
         }
 
@@ -942,6 +949,42 @@ $filapersonales = mysqli_fetch_assoc($resultpersonales);
             });
         }
     </script>
+
+    <script>
+        function mostrarOpcionesDeEscuela(inputValue) {
+            var opcionesEscuela = document.getElementById("opcionesEscuela");
+            opcionesEscuela.innerHTML = ""; // Borra las opciones anteriores
+
+            // Realiza una solicitud AJAX para obtener las opciones coincidentes
+            $.post("graficas/obtener_nombres_escuela.php", {
+                input: inputValue
+            }, function(data) {
+                var nombresEscuela = JSON.parse(data);
+
+                nombresEscuela.forEach(function(escuela) {
+                    var opcion = document.createElement("li");
+                    opcion.textContent = escuela;
+
+                    opcion.addEventListener("click", function() {
+                        document.getElementById("nombreEscuelaInput").value = escuela;
+                        opcionesEscuela.innerHTML = "";
+                    });
+
+                    opcionesEscuela.appendChild(opcion);
+                });
+
+                opcionesEscuela.style.display = nombresEscuela.length > 0 ? "block" : "none";
+            });
+        }
+
+        // Cierra la lista de opciones si se hace clic en cualquier otra parte de la página
+        document.addEventListener("click", function(e) {
+            if (e.target !== document.getElementById("nombreEscuelaInput")) {
+                document.getElementById("opcionesEscuela").style.display = "none";
+            }
+        });
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             filtrarGInstituciones();
