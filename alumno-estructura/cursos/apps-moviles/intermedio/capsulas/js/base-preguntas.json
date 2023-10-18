@@ -1,0 +1,52 @@
+[
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "¿Cómo puedo crear formularios?",
+        "respuesta": "Mediante el control de contenido",
+        "incorrecta1": "Con viñetas",
+        "incorrecta2": "Con insertar",
+        "incorrecta3": "Mediante descarga",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "Archivo -> ________ -> Personalizar cinta de opciones y marca la casilla Desarrollador. Luego, haz clic en Aceptar.",
+        "respuesta": "Opciones",
+        "incorrecta1": "Nuevo",
+        "incorrecta2": "Guardar",
+        "incorrecta3": "Abrir",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "¿Para qué sirven los formularios?",
+        "respuesta": "Para tener una mejor estructura en nuestro formato",
+        "incorrecta1": "Para que se vea bonito",
+        "incorrecta2": "Para leer mejor la información",
+        "incorrecta3": "No sirve de nada",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "¿Es necesario activar la casilla de modo desarrollador para crear un formulario?",
+        "respuesta": "Completamente necesario",
+        "incorrecta1": "No es necesario",
+        "incorrecta2": "No lo se",
+        "incorrecta3": "Tengo hambre",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web intermedio-css",
+        "pregunta": "¿Puedo agregar más de un control de formulario?",
+        "respuesta": "¡Si! es posible",
+        "incorrecta1": "¡Imposible!",
+        "incorrecta2": "No lo se",
+        "incorrecta3": "Tengo hambre",
+        "imagen": "",
+        "objectFit": "cover"
+    }
+]

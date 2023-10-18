@@ -1,0 +1,75 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Velocidad=Distancia/Tiempo --> Distancia=Velocidad*Tiempo",
+        "incorrectAnswers": [
+            "Velocidad=Distancia/Tiempo --> Distancia=Velocidad+Tiempo",
+            "Velocidad=Distancia*Tiempo --> Distancia=Velocidad*Tiempo",
+            "Velocidad=Distancia-Tiempo --> Distancia=Velocidad*Tiempo"
+        ],
+        "question": "¿Comó se puede calcular la distancia usando el sensor ultrasonico?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+"correctAnswer": "Medir el tiempo en el que tarda la onda ultrasonica en ir y regresar",
+        "incorrectAnswers": [
+            "Medir la velocidad en el que tarda la onda ultrasonica en ir",
+            "Medir el tiempo en el que tarda la onda ultrasonica en regresar",
+            "Todas las Anteriores"
+        ],
+        "question": "Principalmente ¿Qué hace un sensor ultrasonico?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Tierra",
+        "incorrectAnswers": [
+            "5V Arduino",
+            "Pin",
+            "LEDs"
+        ],
+        "question": "GND ¿Qué significa?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Pin de tu eleccion en el arduino(PWM)",
+        "incorrectAnswers": [
+            "def lopp",
+            "Tierra",
+            "boolean"
+        ],
+        "question": "SIG ¿Qué significa?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

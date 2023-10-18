@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Un programa informático procesador de texto.",
+        "incorrectAnswers": [
+            "Un sistema operativo para computadoras.",
+            "Un software de edición de imágenes.",
+            "Todas las anteriores"
+        ],
+        "question": "¿Qué es Microsoft Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Establecer opciones y configuraciones específicas del control",
+        "incorrectAnswers": [
+            "Cambiar el color de fondo del control",
+            "Ajustar el tamaño de la fuente del control",
+            "Mover el control a una ubicación diferente en el documento"
+        ],
+        "question": "¿Qué se puede hacer al personalizar un control de contenido en un formulario en Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Utilizando las herramientas de formato de Word.",
+        "incorrectAnswers": [
+            "Aplicando estilos de párrafo a las celdas.",
+            "Cambiando el tipo de fuente en la tabla.",
+            "No se menciona cómo personalizar la apariencia de la tabla."
+        ],
+        "question": "¿Cómo se puede personalizar la apariencia de una tabla en Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "En 1981.",
+        "incorrectAnswers": [
+            "En 1990.",
+            "En 2000.",
+            "En 1881."
+        ],
+        "question": "¿Cuándo nació Microsoft Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Todas las opciones son correctas.",
+        "incorrectAnswers": [
+            "Crear y dar formato a documentos.",
+            "Acceder a documentos en diferentes dispositivos.",
+            "Compartir y colaborar con otros usuarios."
+        ],
+        "question": "¿Qué se puede hacer en Word para la Web?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Secuencias de comandos que automatizan tareas repetitivas.",
+        "incorrectAnswers": [
+            "Herramientas para editar el código de un documento.",
+            "Funciones para insertar imágenes en Word.",
+            "Opciones de formato avanzado en Word."
+        ],
+        "question": "¿Qué son las macros en Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Organizar y presentar información en filas y columnas.",
+        "incorrectAnswers": [
+            "Alinear contenido en el documento.",
+            "Calibre Style Sheet",
+            "Insertar imágenes y elementos gráficos."
+        ],
+        "question": "¿Cuál es el propósito principal de utilizar tablas en Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Establecer puntos de referencia para alinear el texto de manera precisa.",
+        "incorrectAnswers": [
+            "Personalizar la apariencia de la lista según las preferencias.",
+            "Organizar y presentar información en filas y columnas.",
+            "Organizar información en forma de elementos enumerados o viñetas."
+        ],
+        "question": "¿Cuál es el propósito de utilizar tabulaciones en Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Conjuntos predefinidos de formato para aplicar al texto",
+        "incorrectAnswers": [
+            "Diseños predefinidos para diferentes tipos de documentos.",
+            "Herramientas para organizar y estructurar el contenido.",
+            "Puntos de referencia para alinear el texto de manera precisa."
+        ],
+        "question": "¿Qué son los estilos en Microsoft Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Pestaña 'Vista'.",
+        "incorrectAnswers": [
+            "Pestaña 'Insertar'.",
+            "Pestaña 'Macros'.",
+            "Pestaña 'Inicio'."
+        ],
+        "question": "¿En qué pestaña se encuentra el botón 'Grabar macro' en Word?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
