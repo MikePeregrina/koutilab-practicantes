@@ -130,12 +130,12 @@ if (isset($_POST['iniciar_sesion'])) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 'primaria';
-                $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
                 $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
-                $id_usuario = $_SESSION['id_alumno_primaria'];
+                $id_usuario = $_SESSION['id_alumno'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_primaria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = $id_usuario"));
@@ -145,7 +145,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $sql_cont = "UPDATE `alumnos_primaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
-                header('location: alumno/primaria/perfil.php');
+                header('location: alumno-estructura/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -204,12 +204,12 @@ if (isset($_POST['iniciar_sesion'])) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 'secundaria';
-                $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
                 $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
-                $id_usuario = $_SESSION['id_alumno_secundaria'];
+                $id_usuario = $_SESSION['id_alumno'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_secundaria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE id_alumno = $id_usuario"));
@@ -219,7 +219,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $sql_cont = "UPDATE `alumnos_secundaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
-                header('location: alumno/secundaria/perfil.php');
+                header('location: alumno-estructura/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -278,12 +278,12 @@ if (isset($_POST['iniciar_sesion'])) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 'preparatoria';
-                $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
                 $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
-                $id_usuario = $_SESSION['id_alumno_preparatoria'];
+                $id_usuario = $_SESSION['id_alumno'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_preparatoria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE id_alumno = $id_usuario"));
@@ -293,7 +293,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $sql_cont = "UPDATE `alumnos_preparatoria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
-                header('location: alumno/preparatoria/perfil.php');
+                header('location: alumno-estructura/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -352,12 +352,12 @@ if (isset($_POST['iniciar_sesion'])) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 'universidad';
-                $_SESSION['id_alumno_universidad'] = $dato_alumno['id_alumno'];
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
                 $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
-                $id_usuario = $_SESSION['id_alumno_universidad'];
+                $id_usuario = $_SESSION['id_alumno'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_universidad', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE id_alumno = $id_usuario"));
@@ -367,7 +367,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $sql_cont = "UPDATE `alumnos_universidad` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
-                header('location: alumno/universidad/perfil.php');
+                header('location: alumno-estructura/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
@@ -426,11 +426,11 @@ if (isset($_POST['iniciar_sesion'])) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 15;
-                $_SESSION['id_alumno_personal'] = $dato_alumno['id_alumno'];
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
-                $id_usuario = $_SESSION['id_alumno_personal'];
+                $id_usuario = $_SESSION['id_alumno'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_personal', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE id_alumno = $id_usuario"));
