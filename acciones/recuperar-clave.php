@@ -247,7 +247,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta3) {
@@ -334,7 +334,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta4) {
@@ -508,7 +508,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta6) {
@@ -595,7 +595,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta7) {
@@ -682,7 +682,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location: ../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta8) {
@@ -769,7 +769,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta9) {
@@ -856,7 +856,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta10) {
@@ -943,7 +943,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location: ../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta11) {
@@ -1030,7 +1030,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta12) {
@@ -1117,7 +1117,7 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
 } elseif ($cantidadConsulta13) {
@@ -1203,7 +1203,9 @@ if ($cantidadConsulta1) {
         $headers .= "Bcc:";
         (mail($destinatario, $asunto, $cuerpo, $headers));
 
-        header("Location:../login.php");
+        header("Location: ../correo-recuperacion-ok.php");
         exit();
     }
+} else {
+    header("Location: ../email-not-found.php");
 }

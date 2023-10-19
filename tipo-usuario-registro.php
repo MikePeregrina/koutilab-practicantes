@@ -63,7 +63,7 @@
                 <a href="./registro-pudp.php">
                     <p>Docente de una escuela</p>
                 </a>
-                <a href="./registro-pudp.php">
+                <a href="./registro-personal.php">
                     <p>Cuenta personal</p>
                 </a>
             </div>

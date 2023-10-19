@@ -16,7 +16,17 @@
 
 <!-- Recuperar contraseña para primaria y secundaria -->
 
-<body onload="recuperarDatos()">
+<body onload="recuperarDatos();">
+    <div class="img-bot">
+        <img src="./img/Thumbs-Up.gif" alt="koubot">
+        <div class="bubble" id="bubble">
+            <p id="txt-name">Aquí debes poner SOLO tu nombre o nombres</p>
+            <p id="txt-ap">Aquí debes poner tu clave escolar que usaste al registrarte, también te la puede proporcionar tu docente</p>
+            <p id="txt-am">Aquí pide ayuda a tu docente, ya que solo el sabe tu clave secreta que está en su lista de alumnos</p>
+            <p id="txt-reg">Al confirmar tus datos aparecerá una alerta con tu usuario y contraseña nueva, ¡Debes estar atento!</p>
+            <div class="bubble-tail"></div>
+        </div>
+    </div>
     <div class="container">
         <div class="info-box">
             <div class="titl-info">
@@ -51,27 +61,29 @@
                 </div>
             </div>
             <p class="preg">Ingresa los datos requeridos</p>
-            <form action="acciones/recuperar-clave.php" class="input-group" method="POST" style="margin: 0 0 0 0;">
+            <form action="" class="input-group" method="POST" style="margin: 0 0 0 0;">
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="ico fas fa-user"></i>
                     </div>
-                    <input type="" name="" class="input-field" placeholder="Nombre completo" value="" required>
+                    <input type="text" name="nombre_recuperar" class="input-field" placeholder="Nombre(s)" onmouseenter="aparecer1(); bubbleIn();" onmouseleave="desaparecer1(); bubbleOut();" required>
                 </div>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="ico fas fa-school"></i>
                     </div>
-                    <input type="" name="" class="input-field" placeholder="Clave escolar" value="" required>
+                    <input type="password" name="clave_recuperar" class="input-field password1" placeholder="Clave escolar" onmouseenter="aparecer2(); bubbleIn();" onmouseleave="desaparecer2(); bubbleOut();" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password1" style="margin: -35px 20px 0 0;"></span>
                 </div>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="ico fas fa-chalkboard-teacher"></i>
                     </div>
-                    <input type="" name="" class="input-field" placeholder="Clave secreta de docente" value="" required>
+                    <input type="password" name="pass_recuperar" class="input-field password2" placeholder="Clave secreta de docente" onmouseenter="aparecer3(); bubbleIn();" onmouseleave="desaparecer3(); bubbleOut();" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password2" style="margin: -35px 20px 0 0;"></span>
                 </div>
                 <div class="sub-btn" style="margin: 30px 0 0 0">
-                    <button type="submit" class="submit-btn" value="RECUPERAR CLAVE">Siguiente</button>
+                    <button type="submit" class="submit-btn" name="recuperar" onmouseenter="aparecer4(); bubbleIn();" onmouseleave="desaparecer4(); bubbleOut();">Confirmar</button>
                 </div>
 
                 <div class="sub-btn" style="margin: 20px 0 0 0; scale: 90%;">
@@ -81,105 +93,214 @@
         </div>
     </div>
 
-    <script>
-        Swal.fire({
-            title: 'Nueva contraseña activa',
-            text: 'Esta es tu nueva contraseña ' + contrasena + ' y este es tu usuario ' + usuario + ' para acceder nuevamente a tu cuenta. Asegúrate de cambiar de nuevo tu contraseña al ingresar.',
-            icon: 'info',
-            imageHeight: 300,
-            confirmButtonColor: '#a14cd9',
-            confirmButtonText: 'Listo',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "./login.php";
-            }
-        });
-    </script>
+    <?php
+    function eliminar_tildes($cadena)
+    {
+        //Ahora reemplazamos las letras
+        $cadena = str_replace(
+            array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
+            array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
+            $cadena
+        );
 
-    <script>
-        // Guarda los datos del formulario en una cookie
-        function guardarDatos() {
-            var usuario_inicio = document.getElementById("usuario_inicio").value;
-            var contrasena_inicio = document.getElementById("contrasena_inicio").value;
-            var clave_inicio = document.getElementById("clave_inicio").value;
-            document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.cookie = "clave_inicio=" + clave_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-        }
+        $cadena = str_replace(
+            array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+            array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+            $cadena
+        );
 
-        function off() {
-            console.log("Reinicio")
-            var usuario_inicio = '';
-            var contrasena_inicio = '';
-            var clave_inicio = '';
-            document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.cookie = "clave_inicio=" + clave_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-        }
+        $cadena = str_replace(
+            array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+            array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+            $cadena
+        );
 
-        var checkbox = document.getElementById('checkbox');
+        $cadena = str_replace(
+            array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+            array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+            $cadena
+        );
 
-        checkbox.addEventListener("change", comprueba, false);
+        $cadena = str_replace(
+            array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+            array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+            $cadena
+        );
 
-        // Función para establecer el valor de una cookie
-        function setCookie(name, value) {
-            document.cookie = `${name}=${value}; path=/;`;
-        }
+        $cadena = str_replace(
+            array('ñ', 'Ñ', 'ç', 'Ç'),
+            array('n', 'N', 'c', 'C'),
+            $cadena
+        );
 
-        function comprueba() {
-            if (checkbox.checked) {
-                guardarDatos();
-                setCookie('checkbox', true);
+        return $cadena;
+    }
+
+    include('acciones/conexion.php');
+
+    if (isset($_POST['recuperar'])) {
+        //Generando clave aleatoria
+        $logitudPass = 4;
+        $miPassword  = substr(md5(microtime()), 1, $logitudPass);
+        $clave1      = $miPassword;
+        $clave       = md5($miPassword);
+
+        //Recuperar datos del formulario
+        $nombre_recuperar = $_POST['nombre_recuperar'];
+        $clave_recuperar = $_POST['clave_recuperar'];
+        $pass_recuperar = $_POST['pass_recuperar'];
+
+        //Hacer mayusculas y quitar tildes o caracteres especiales
+        $nombre_recuperar = strtoupper(eliminar_tildes($nombre_recuperar));
+        $clave_recuperar = strtoupper(eliminar_tildes($clave_recuperar));
+        $pass_recuperar = strtoupper(eliminar_tildes($pass_recuperar));
+
+        //Verificar a que tipo de rol pertenece el corrreo
+        $consulta1           = ("SELECT * FROM alumnos_primaria WHERE nombre = '$nombre_recuperar' AND clave = '$clave_recuperar' AND clave_secreta = '$pass_recuperar' ");
+        $queryconsulta1      = mysqli_query($conexion, $consulta1);
+        $cantidadConsulta1   = mysqli_num_rows($queryconsulta1);
+        $dataConsulta1       = mysqli_fetch_array($queryconsulta1);
+
+        $consulta2           = ("SELECT * FROM alumnos_secundaria WHERE nombre = '" . $nombre_recuperar . "' AND clave = '" . $clave_recuperar . "' AND clave_secreta = '" . $pass_recuperar . "' ");
+        $queryconsulta2      = mysqli_query($conexion, $consulta2);
+        $cantidadConsulta2   = mysqli_num_rows($queryconsulta2);
+        $dataConsulta2       = mysqli_fetch_array($queryconsulta2);
+
+        //Actualiza a la nueva contraseña
+        if ($cantidadConsulta1) {
+            if ($cantidadConsulta1 == 0) {
+                header("Location: login.php");
+                exit();
             } else {
-                off();
-            }
-        }
-    </script>
+                $updateClave1    = ("UPDATE alumnos_primaria SET contrasena = '$clave' WHERE nombre = '$nombre_recuperar' AND clave = '$clave_recuperar' AND clave_secreta = '$pass_recuperar' ");
+                $queryResult     = mysqli_query($conexion, $updateClave1);
 
-    <script>
-        // Recupera los datos del formulario de la cookie
-        function recuperarDatos() {
-            var cookieData = document.cookie;
-            if (cookieData) {
-                var cookies = cookieData.split("; ");
-                for (var i = 0; i < cookies.length; i++) {
-                    var parts = cookies[i].split("=");
-                    var name = parts[0];
-                    var value = decodeURIComponent(parts[1]);
-                    if (name == "usuario_inicio") {
-                        document.getElementById("usuario_inicio").value = value;
-                    } else if (name == "contrasena_inicio") {
-                        document.getElementById("contrasena_inicio").value = value;
-                    } else if (name == "clave_inicio") {
-                        document.getElementById("clave_inicio").value = value;
+                $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE nombre = '$nombre_recuperar' AND clave = '$clave_recuperar' AND clave_secreta = '$pass_recuperar' ");
+                while ($consulta = mysqli_fetch_array($data2)) {
+                    $user = $consulta['usuario'];
+                }
+
+                echo "
+                <script>
+                Swal.fire({
+                    title: '¡Hola de nuevo " . $nombre_recuperar . "! Tu nueva contraseña está activa',
+                    html: 'Esta es tu nueva contraseña <b>" . $clave1 . "</b> y este es tu usuario <b>" . $user . "</b> para acceder nuevamente a tu cuenta. Asegúrate de cambiar de nuevo tu contraseña al ingresar.',
+                    imageUrl: 'img/Thumbs-Up.gif',
+                    imageHeight: 300,
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Listo',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = './login.php';
                     }
-                }
+                });
+                </script>
+                ";
             }
-        }
-    </script>
+        } else if ($cantidadConsulta2) {
+            if ($cantidadConsulta2 == 0) {
+                header("Location: login.php");
+                exit();
+            } else {
+                $updateClave1    = ("UPDATE alumnos_secundaria SET contrasena = '$clave' WHERE nombre = '$nombre_recuperar' AND clave = '$clave_recuperar' AND clave_secreta = '$pass_recuperar' ");
+                $queryResult     = mysqli_query($conexion, $updateClave1);
 
-    <script>
-        // Función para obtener el valor de una cookie
-        function getCookie(name) {
-            const cookieArray = document.cookie.split("; ");
-            for (let i = 0; i < cookieArray.length; i++) {
-                const cookie = cookieArray[i].split("=");
-                if (cookie[0] === name) {
-                    return cookie[1];
+                $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE nombre = '$nombre_recuperar' AND clave = '$clave_recuperar' AND clave_secreta = '$pass_recuperar' ");
+                while ($consulta = mysqli_fetch_array($data2)) {
+                    $user = $consulta['usuario'];
                 }
-            }
-            return "";
-        }
-    </script>
 
-    <script>
-        // EVITAR REENVIO DE DATOS.
-        if (window.history.replaceState) { // verificamos disponibilidad
-            window.history.replaceState(null, null, window.location.href);
+                echo "
+                <script>
+                Swal.fire({
+                    title: '¡Hola de nuevo " . $nombre_recuperar . "! Tu nueva contraseña está activa',
+                    html: 'Esta es tu nueva contraseña <b>" . $clave1 . "</b> y este es tu usuario <b>" . $user . "</b> para acceder nuevamente a tu cuenta. Asegúrate de cambiar de nuevo tu contraseña al ingresar.',
+                    imageUrl: 'img/Thumbs-Up.gif',
+                    imageHeight: 300,
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Listo',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = './login.php';
+                    }
+                });
+                </script>
+                ";
+            }
+        } else {
+            echo "
+                <script>
+                Swal.fire({
+                    title: 'No pudimos encontrar tu usuario',
+                    html: 'Verifica que los datos sean correctos e inténtalo nuevamente',
+                    imageUrl: 'img/loop.gif',
+                    imageHeight: 300,
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Listo',
+                });
+                </script>
+                ";
         }
-    </script>
+    }
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+        //Animacion de la burbuja de Koubot
+        function bubbleIn() {
+            var div = document.getElementById("bubble");
+            div.style.cssText = "animation-name: bubble-in; animation-duration: 0.5s; animation-fill-mode: forwards;";
+        }
+
+        function bubbleOut() {
+            var div = document.getElementById("bubble");
+            div.style.cssText = "animation-name: bubble-out; animation-duration: 0.5s; animation-fill-mode: forwards;";
+        }
+    </script>
+
+    <script>
+        //Animación de los dialogos de koubot
+        function aparecer1() {
+            var div = document.getElementById("txt-name");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer1() {
+            var div = document.getElementById("txt-name");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer2() {
+            var div = document.getElementById("txt-ap");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer2() {
+            var div = document.getElementById("txt-ap");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer3() {
+            var div = document.getElementById("txt-am");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer3() {
+            var div = document.getElementById("txt-am");
+            div.style.cssText = "display: none;";
+        }
+
+        function aparecer4() {
+            var div = document.getElementById("txt-reg");
+            div.style.cssText = "display: block";
+        }
+
+        function desaparecer4() {
+            var div = document.getElementById("txt-reg");
+            div.style.cssText = "display: none;";
+        }
+    </script>
 
     <script>
         window.addEventListener("load", function() {
@@ -203,6 +324,7 @@
 
         });
     </script>
+
     <script>
         window.addEventListener("load", function() {
 
@@ -271,25 +393,6 @@
 
         });
     </script>
-
-    <script>
-        var x = document.getElementById("Ingresar");
-        var y = document.getElementById("Registrarse");
-        var z = document.getElementById("elegir");
-
-        function Registrarse() {
-            x.style.left = "-450px"
-            y.style.left = "50px"
-            z.style.left = "120px"
-        }
-
-        function Ingresar() {
-            x.style.left = "50px"
-            y.style.left = "450px"
-            z.style.left = "0px"
-        }
-    </script>
-
 </body>
 
 </html>

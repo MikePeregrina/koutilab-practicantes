@@ -642,32 +642,33 @@ if (isset($_POST['iniciar_sesion'])) {
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field1" onmouseenter="aparecer1(); bubbleIn();" onmouseleave="desaparecer1(); bubbleOut();" placeholder="Nombre(s)" required>
+                    <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field1" onkeyup="generarNombreUsuario();"  onmouseenter="aparecer1(); bubbleIn();" onmouseleave="desaparecer1(); bubbleOut();" placeholder="Nombre(s)" required>
                 </div>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <input type="text" id="" name="" class="input-field1" placeholder="Apellido paterno" onmouseenter="aparecer2(); bubbleIn();" onmouseleave="desaparecer2(); bubbleOut();" required>
+                    <input type="text" id="apellidop_registrar" name="apellidop_registrar" class="input-field1" onkeyup="generarNombreUsuario();" placeholder="Apellido paterno" onmouseenter="aparecer2(); bubbleIn();" onmouseleave="desaparecer2(); bubbleOut();" required>
                 </div>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <input type="text" id="" name="" class="input-field1" placeholder="Apellido materno" onmouseenter="aparecer3(); bubbleIn();" onmouseleave="desaparecer3(); bubbleOut();" required>
+                    <input type="text" id="apellidom_registrar" name="apellidom_registrar" class="input-field1" onkeyup="generarNombreUsuario();" placeholder="Apellido materno" onmouseenter="aparecer3(); bubbleIn();" onmouseleave="desaparecer3(); bubbleOut();" required>
                 </div>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field1" placeholder="@usuario" onmouseenter="aparecer4(); bubbleIn();" onmouseleave="desaparecer4(); bubbleOut();" required>
+                    <input type="text" id="usuario_registrar" name="usuario_registrar" class="input-field1" placeholder="@usuario" onmouseenter="aparecer4(); bubbleIn();" onmouseleave="desaparecer4(); bubbleOut();" readonly required>
                 </div>
                 <!-- <div class="form-group">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                     </div>
-                    <input type="email" id="email_registrar" name="email_registrar" class="input-field1" placeholder="Correo electrónico" required>
+                <input type="hidden" id="email_registrar" name="email_registrar" class="input-field1" placeholder="Correo electrónico" required>
                 </div> -->
+                <input type="hidden" value="<?php echo $usuario_registrar ?>" id="email_registrar" name="email_registrar" class="input-field1" placeholder="Correo electrónico" required>
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fas fa-user-lock"></i>
@@ -694,16 +695,79 @@ if (isset($_POST['iniciar_sesion'])) {
         </div>
     </div>
 
+    <script>
+        function redirigir() {
+            window.location.href = './cuenta-creada.php'
+        }
+    </script>
+
     <?php
+    function eliminar_tildes($cadena){
+        //Ahora reemplazamos las letras
+        $cadena = str_replace(
+            array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
+            array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
+            $cadena
+        );
+    
+        $cadena = str_replace(
+            array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+            array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+            $cadena );
+    
+        $cadena = str_replace(
+            array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+            array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+            $cadena );
+    
+        $cadena = str_replace(
+            array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+            array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+            $cadena );
+    
+        $cadena = str_replace(
+            array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+            array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+            $cadena );
+    
+        $cadena = str_replace(
+            array('ñ', 'Ñ', 'ç', 'Ç'),
+            array('n', 'N', 'c', 'C'),
+            $cadena
+        );
+    
+        return $cadena;
+    }
+
+    function generatePassword($length)
+    {
+        $key = "";
+        $pattern = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $max = strlen($pattern)-1;
+        for($i = 0; $i < $length; $i++){
+            $key .= substr($pattern, mt_rand(0,$max), 1);
+        }
+        return $key;
+    }
+
     if (isset($_POST['registrar_usuario']) && !empty($_POST['clave_registrar'])) {
         require_once "acciones/conexion.php";
 
         $nombre_registrar = $_POST['nombre_registrar'];
+        $apellidop_registrar = $_POST['apellidop_registrar'];
+        $apellidom_registrar = $_POST['apellidom_registrar'];
         $usuario_registrar = $_POST['usuario_registrar'];
         $contrasena_registrar = md5($_POST['contrasena_registrar']);
         $contrasena_correo = $_POST['contrasena_registrar'];
         $clave_registrar = $_POST['clave_registrar'];
         $email_registrar = $_POST['email_registrar'];
+
+        $clave_secreta = generatePassword(8);
+
+        //Hace mayusculas todos los nombres y elimina acentos, ñ, etc
+        $nombre_registrar = strtoupper(eliminar_tildes($nombre_registrar));
+        $apellidop_registrar = strtoupper(eliminar_tildes($apellidop_registrar));
+        $apellidom_registrar = strtoupper(eliminar_tildes($apellidom_registrar));
 
         //Validar inicio de sesión de un admin principal
         $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
@@ -911,7 +975,7 @@ if (isset($_POST['iniciar_sesion'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = 'login.php';
+              window.location.reload();
           }
         });
       </script>
@@ -928,7 +992,7 @@ if (isset($_POST['iniciar_sesion'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = 'login.php';
+              window.location.reload();
           }
         });
       </script>
@@ -936,28 +1000,33 @@ if (isset($_POST['iniciar_sesion'])) {
         } else {
 
             if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Primaria') {
-                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_primaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_primaria(nombre, apellidop, apellidom, usuario, contrasena, clave, clave_secreta, id_escuela, image, fondo) values ('$nombre_registrar', '$apellidop_registrar', '$apellidom_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', '$clave_secreta', $id_escuela_alumno, 'Mascota-Aerobot-01.png', 'portada-1.png')");
 
                 if ($query_insert_alumno) {
 
                     include('envio-correo.php');
+                    echo "
+                    <script>
+                        redirigir();
+                    </script>
+                    ";
 
-                    echo
-                    "
-      <script>
-      Swal.fire({
-          title: '¡Excelente!',
-          text: 'Registro de alumno exitoso',
-          icon: 'success',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Aceptar',
-        }).then((result) => {
-          if (result.isConfirmed) {
-              window.location.href = 'login.php';
-          }
-        });
-      </script>
-        ";
+    //                 echo
+    //                 "
+    //   <script>
+    //   Swal.fire({
+    //       title: '¡Excelente!',
+    //       text: 'Registro de alumno exitoso',
+    //       icon: 'success',
+    //       confirmButtonColor: '#3085d6',
+    //       confirmButtonText: 'Aceptar',
+    //     }).then((result) => {
+    //       if (result.isConfirmed) {
+    //           window.location.href = 'cuenta-creada.php';
+    //       }
+    //     });
+    //   </>
+    //     ";
                 } else {
                     echo
                     "
@@ -970,34 +1039,39 @@ if (isset($_POST['iniciar_sesion'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = 'login.php';
+              window.location.reload();
           }
         });
       </script>
         ";
                 }
             } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Secundaria') {
-                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_secundaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_secundaria(nombre, apellidop, apellidom, usuario, contrasena, clave, clave_secreta, id_escuela, image, fondo) values ('$nombre_registrar', '$apellidop_registrar', '$apellidom_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', '$clave_secreta', $id_escuela_alumno, 'Mascota-Aerobot-01.png', 'portada-1.png')");
                 if ($query_insert_alumno) {
 
                     include('envio-correo.php');
+                    echo "
+                    <script>
+                        redirigir();
+                    </script>
+                    ";
 
-                    echo
-                    "
-      <script>
-      Swal.fire({
-          title: '¡Excelente!',
-          text: 'Registro de alumno exitoso',
-          icon: 'success',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Aceptar',
-        }).then((result) => {
-          if (result.isConfirmed) {
-              window.location.href = 'login.php';
-          }
-        });
-      </script>
-        ";
+    //                 echo
+    //                 "
+    //   <script>
+    //   Swal.fire({
+    //       title: '¡Excelente!',
+    //       text: 'Registro de alumno exitoso',
+    //       icon: 'success',
+    //       confirmButtonColor: '#3085d6',
+    //       confirmButtonText: 'Aceptar',
+    //     }).then((result) => {
+    //       if (result.isConfirmed) {
+    //           window.location.href = 'login.php';
+    //       }
+    //     });
+    //   </script>
+    //     ";
                 } else {
                     echo
                     "
@@ -1691,6 +1765,7 @@ if (isset($_POST['iniciar_sesion'])) {
     ?>
 
     <script>
+        //Animacion de la burbuja de Koubot
         function bubbleIn() {
             var div = document.getElementById("bubble");
             div.style.cssText = "animation-name: bubble-in; animation-duration: 0.5s; animation-fill-mode: forwards;";
@@ -1703,6 +1778,7 @@ if (isset($_POST['iniciar_sesion'])) {
     </script>
 
     <script>
+        //Animación de los dialogos de koubot
         function aparecer1() {
             var div = document.getElementById("txt-name");
             div.style.cssText = "display: block";
@@ -1781,6 +1857,27 @@ if (isset($_POST['iniciar_sesion'])) {
         function desaparecer8() {
             var div = document.getElementById("txt-reg");
             div.style.cssText = "display: none;";
+        }
+    </script>
+
+    <script>
+        function generarNombreUsuario() {
+            var nombre = document.getElementById("nombre_registar").value;
+            var apellidop = document.getElementById("apellidop_registrar").value;
+            var apellidom = document.getElementById("apellidom_registrar").value;
+
+            min = Math.ceil(1000);
+            max = Math.floor(9999);
+
+            var usuario = nombre + apellidop.charAt(0) + apellidom.charAt(0) + Math.floor(Math.random() * (1 + max - min) + min);
+
+            usuario = usuario.split(" ").join("");
+
+            usuario = usuario.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+            // document.getElementById("usuario_registrar").innerHTML = usuario;
+            var user = document.getElementById("usuario_registrar");
+            user.value = "@" + usuario;
         }
     </script>
 

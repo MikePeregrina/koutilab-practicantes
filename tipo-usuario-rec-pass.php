@@ -57,13 +57,13 @@
                 <a href="./recuperar-contrasena-ps.php">
                     <p>Alumno de primaria o secundaria</p>
                 </a>
-                <a href="./recuperar-contrasena-pu.php">
+                <a href="./recuperar-contrasena.php">
                     <p>Alumno de preparatoria y universidad</p>
                 </a>
-                <a href="./recuperar-contrasena-dp.php">
+                <a href="./recuperar-contrasena.php">
                     <p>Docente de una escuela</p>
                 </a>
-                <a href="./recuperar-contrasena-dp.php">
+                <a href="./recuperar-contrasena.php">
                     <p>Cuenta personal</p>
                 </a>
             </div>
