@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Para ajustar propiedades",
+        "incorrectAnswers": [
+            "Para que sea mas rapido",
+            "Para que produzca duplicados",
+            "Para que el escenario sea utilizado"
+        ],
+        "question": "¿Porque es conveniente construir un Game Object?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Define API de alto nivel",
+        "incorrectAnswers": [
+            "DNI",
+            "Define el diseño",
+            "Definine API de Bajo nivel"
+        ],
+        "question": "¿El Spawn/on que define?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Scene Manager",
+        "incorrectAnswers": [
+            "Script Game",
+            "Function Game",
+            "Game Manager"
+        ],
+        "question": "¿Qué se necesita para cargar la escena game over?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Crear un Script",
+        "incorrectAnswers": [
+            "Crear una función",
+            "Crear una variable",
+            "Todas las anteriores"
+        ],
+        "question": "¿Qué necesitas para el reinicio de escena ?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Función publica",
+        "incorrectAnswers": [
+            "Función Privada",
+            "Función Booleana",
+            "Función entera"
+        ],
+        "question": "¿Qué creamos para modificar la puntuación?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Mediante el tiempo avance",
+        "incorrectAnswers": [
+            "Mediante puntos",
+            "Mediante lo indique",
+            "Como lo defina el codigo"
+        ],
+        "question": "¿Como aumentara la velocidad del Scroll?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Select Folder",
+        "incorrectAnswers": [
+            "Build",
+            "Build and Run",
+            "Next"
+        ],
+        "question": "¿Qué boton debemos presionar para que compile el proyecto?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Int, String, Float y Boolean",
+        "incorrectAnswers": [
+            "Strig y Float",
+            "Boolean",
+            "Ninguna de las anteriores"
+        ],
+        "question": "¿Cuáles son los datos básicos de Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Engine Object",
+        "incorrectAnswers": [
+            "Game object",
+            "Mono Behaveir",
+            "Animation Clip"
+        ],
+        "question": "¿Todas las clases en Unity que Heredan?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Muestra lista de partidas",
+        "incorrectAnswers": [
+            "Muestra información",
+            "Desplega lista",
+            "Lista de errores"
+        ],
+        "question": "¿Qué función tiene el Menu load game?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
