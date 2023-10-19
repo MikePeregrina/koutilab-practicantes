@@ -25,6 +25,10 @@ if (!empty($_POST)) {
         $query = "INSERT INTO detalle_estadisticas_primaria (progreso, practico, id_alumno, id_curso, id_capsula) VALUES ('2', $calificacion, '$id_alumno', $id_curso, $id_capsula)";
         $query_run = mysqli_query($conexion, $query);
 
+        //INSERTA EN DETALLE_CAPSULAS_PRIMARIA
+        $query1 = "INSERT INTO detalle_capsulas_primaria (id_capsula, id_curso, id_alumno) VALUES ($id_capsula, $id_curso, $id_alumno)";
+        $query_run1 = mysqli_query($conexion, $query1);
+
         //Sumar trofeos
         $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_primaria WHERE id_alumno = '$id_alumno' AND id_curso = '$id_curso'");
         $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);

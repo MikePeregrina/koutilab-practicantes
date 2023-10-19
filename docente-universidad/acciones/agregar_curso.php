@@ -3,53 +3,86 @@ require "../../acciones/conexion.php";
 
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['curso'])) {
+    if (empty($_POST['calificacion'])) {
         $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
     } else {
-        $idgrupo = $_GET['id'];
-        $curso = $_POST['curso'];
-        // Realiza una consulta SELECT para obtener los datos que deseas insertar
-        $sql = "SELECT dg.id_alumno FROM alumnos_universidad a
-            JOIN detalle_grupos_universidad dg
-            ON dg.id_alumno = a.id_alumno
-            WHERE dg.id_grupo = $idgrupo;";
-        $resultado = $conexion->query($sql);
+        $id_archivo = $_GET['id_archivo'];
+        $id_alumno = $_GET['id_alumno'];
+        $id_curso = $_GET['id_curso'];
+        $id_capsula = $_GET['id_capsula'];
+        $calificacion = $_POST['calificacion'];
+        $comentario = $_POST['comentario'];
 
-        $insertar_detalle_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupo_cursos_universidad(id_grupo, id_curso) VALUES ('$idgrupo', '$curso')");
+        //$sql_update = mysqli_query($conexion, "UPDATE grupos_universidad SET materia = '$materia', nombre_grupo = '$nombregrupo' , grado = '$grado' WHERE id_grupo = $idgrupo");
+        //$alert = '<div class="alert alert-success" role="alert">Grupo actualizado</div>';
+        //$fecha_calificado = date("d-m-Y");
 
-        // Verifica si la consulta SELECT tiene resultados
-        if ($resultado->num_rows > 0) {
-            // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
-            while ($fila = $resultado->fetch_assoc()) {
-                $idalumno = $fila["id_alumno"];
-                $sql_insert = "INSERT INTO acceso_cursos_universidad(id_curso, id_alumno) VALUES ('$curso', $idalumno)";
-                $conexion->query($sql_insert);
-            }
-            header("Location: ../../docente-universidad/grupos.php");
-        } else {
-            header("Location: ../../docente-universidad/grupos.php");
+        //ACTUALIZA CALIFICACIÓN Y COMENTARIO EN ARCHIVOS
+        $sql_update = mysqli_query($conexion, "UPDATE archivos_universidad SET calificacion = '$calificacion', fecha_calificado = current_timestamp(), comentario = '$comentario' WHERE id_archivo = $id_archivo");
+        $alert = '<div class="alert alert-success" role="alert">¡Calificación asignada!</div>';
+
+        //INSERTA EN DETALLE_ESTADISTICAS_universidad
+        $query = "INSERT INTO detalle_estadisticas_universidad (progreso, practico, id_alumno, id_curso, id_capsula) VALUES ('2', $calificacion, '$id_alumno', $id_curso, $id_capsula)";
+        $query_run = mysqli_query($conexion, $query);
+
+        //INSERTA EN DETALLE_CAPSULAS_universidad
+        $query1 = "INSERT INTO detalle_capsulas_universidad (id_capsula, id_curso, id_alumno) VALUES ($id_capsula, $id_curso, $id_alumno)";
+        $query_run1 = mysqli_query($conexion, $query1);
+
+        //Sumar trofeos
+        $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM detalle_estadisticas_universidad WHERE id_alumno = '$id_alumno' AND id_curso = '$id_curso'");
+        $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
+        $totalTrofeos = $resultadoEstadistica['total_trofeos'];
+        $totalProgreso = $resultadoEstadistica['total_progreso'];
+        $totalPuntos = $resultadoEstadistica['total_puntos'];
+        $totalPractico = $resultadoEstadistica['total_practico'];
+        $totalTeorico = $resultadoEstadistica['total_teorico'];
+        $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_universidad SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_alumno AND id_curso = '$id_curso'");
+
+        if ($insertarEstadisticas) {
+            header('location: ../archivos.php');
+            exit();
         }
     }
 }
 
 // Mostrar Datos
 
-if (empty($_REQUEST['id'])) {
-    header("Location: ../../docente-universidad/grupos.php");
+if (empty($_REQUEST['id_alumno'])) {
+    header("Location: ../../docente/archivos.php");
 }
-$idgrupo = $_REQUEST['id'];
-$sql = mysqli_query($conexion, "SELECT * FROM grupos_universidad WHERE id_grupo = '$idgrupo'");
+$id_archivo = $_REQUEST['id_archivo'];
+$id_alumno = $_REQUEST['id_alumno'];
+$id_curso = $_REQUEST['id_curso'];
+$id_capsula = $_REQUEST['id_capsula'];
+
+$sql = mysqli_query($conexion, "SELECT ar.id_archivo, ar.id_alumno, ap.nombre, ap.grado_escolar, ar.id_capsula, cp.curso, ar.id_curso, ar.calificacion, ar.comentario, DATE_FORMAT(ar.created_at,'%r %d-%m-%Y') as fecha FROM archivos_universidad ar 
+                    JOIN alumnos_universidad ap
+                    ON ar.id_alumno = ap.id_alumno
+                    JOIN docentes_universidad dp
+                    ON ap.id_docente = dp.id_docente
+                    JOIN cursos_universidad cp
+                    ON ar.id_curso = cp.id_curso
+                    WHERE ar.id_archivo = $id_archivo");
 $result_sql = mysqli_num_rows($sql);
 
+
+
 if ($result_sql == 0) {
-    header("Location: ../../docente-universidad/grupos.php");
+    //header("Location: ../../docente/grupos.php");
+    $calificacion = -1;
+    $comentario = '';
 } else {
     if ($data = mysqli_fetch_array($sql)) {
-        $materia = $data['materia'];
-        $nombregrupo = $data['nombre_grupo'];
+        $calificacion = $data['calificacion'];
+        $nombre = $data['nombre'];
+        $curso = $data['curso'];
+        $id_capsula = $data['id_capsula'];
+        $comentario = $data['comentario'];
     }
 }
 ?>
+
 <!DOCTYPE html>
 
 <head>
@@ -70,88 +103,79 @@ if ($result_sql == 0) {
 </head>
 
 <body>
-
     <div class="containers">
-        <h1>Agregar cursos al grupo</h1>
+        <h1>CALIFICAR TAREA</h1>
     </div>
 
 
     <section>
         <div class="contenedor-emergente">
             <form class="" action="" method="post" style="box-shadow: none;">
+                <div style="text-align: center; font-size: 18px; padding-bottom: 20px;" class="input-box">
+                    <span style="padding: 0px 0px 0px 20px;" class="details"><b>Alumno: </b></span>
+                    <span style="padding: 0px 20px 0px 0px;" class="details"><?php echo $nombre; ?></span>
+
+                    <span style="padding: 0px 0px 0px 20px;" class="details"><b>Curso: </b></span>
+                    <span style="padding: 0px 20px 0px 0px;" class="details"><?php echo $curso; ?></span>
+
+                    <span style="padding: 0px 0px 0px 20px;" class="details"><b>Capsula: </b></span>
+                    <span style="padding: 0px 20px 0px 0px;" class="details"><?php echo $id_capsula; ?></span>
+                </div>
                 <div class="user-details">
 
                     <?php echo isset($alert) ? $alert : ''; ?>
+                    <input type="hidden" name="id_archivo" value="<?php echo $id_archivo; ?>">
+
+                    <input type="hidden" name="id_alumno" value="<?php echo $id_alumno; ?>">
+
+                    <input type="hidden" name="id_curso" value="<?php echo $id_curso; ?>">
+
+                    <input type="hidden" name="id_capsula" value="<?php echo $id_capsula; ?>">
+
+
 
                     <div class="input-box">
-                        <span class="details">Matería</span>
-                        <input type="text" name="materia" id="materia" value="<?php echo $materia; ?>" required readonly>
+                        <span class="details">Calificación: </span>
+                        <?php
+                        if ($calificacion >= 0) {
+                        ?>
+                            <input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10" value="<?php echo $calificacion; ?>">
+                        <?php
+                        } else { ?>
+                            <input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10">
+                        <?php
+                        }
+                        ?>
+                        <!--<input type="number" name="calificacion" placeholder="Ejemplo: 9" required min="0" max="10">-->
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Nombre grupo</span>
-                        <input type="text" name="nombre_grupo" id="nombre_grupo" value="<?php echo $nombregrupo; ?>" required readonly>
-                    </div>
+                        <span class="details">Comentario (opcional): </span>
+                        <?php
+                        if (!empty($comentario)) {
+                        ?>
 
-                    <div class="input-box">
-                        <span class="details">Cursos del grupo</span>
-                        <table width="100%" class="table border-top">
-                            <tbody>
-                                <?php
-                                include "../../acciones/conexion.php";
-                                $query_alumnos = mysqli_query($conexion, "SELECT DISTINCT c.curso FROM grupos_universidad g JOIN detalle_grupo_cursos_universidad dg ON g.id_grupo = dg.id_grupo JOIN cursos_universidad c ON dg.id_curso = c.id_curso WHERE g.id_grupo = $idgrupo");
-                                $result = mysqli_num_rows($query_alumnos);
-                                if ($result > 0) {
-                                    while ($data = mysqli_fetch_assoc($query_alumnos)) {
-
-                                ?>
-                                        <tr>
-                                            <td><?php echo $data['curso']; ?></td>
-                                        </tr>
-                                <?php }
-                                } ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Cursos</span>
-                        <select style="height: 44px;" name="curso" type="select" required>
-                            <option value="1">Programación web básico</option>
-                            <option value="2">Programación web intermedio</option>
-                            <option value="3">Programación web avanzado</option>
-                            <option value="4">Python básico</option>
-                            <option value="5">Python intermedio</option>
-                            <option value="6">Python avanzado</option>
-                            <option value="7">Informática básico</option>
-                            <option value="8">Informática intermedio</option>
-                            <option value="9">Informática avanzado</option>
-                            <option value="10">Unity básico</option>
-                            <option value="11">Unity intermedio</option>
-                            <option value="12">Unity avanzado</option>
-                            <option value="13">Apps móviles básico</option>
-                            <option value="14">Apps móviles intermedio</option>
-                            <option value="15">Apps móviles avanzado</option>
-                        </select>
+                            <input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta" value="<?php echo $comentario; ?>">
+                        <?php
+                        } else { ?>
+                            <input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta">
+                       <?php
+                        }
+                        ?>
+                        <!--<input type="text" name="comentario" id="comentario" placeholder="Ejemplo: Tarea incompleta">-->
                     </div>
 
                 </div>
 
                 <br>
                 <div style="display: flex; text-align: center; justify-content: center; gap: 20px;">
-                    <button type="submit" class="btn btn-success" style="width: 15%; height:50px; margin-top:0%">Guardar</button>
-                    <a href="../grupos.php" class="btn btn-danger" style="width: 15%; height:50px; padding:1.7%">Atrás</a>
+                    <button type="submit" class="btn btn-success" style="width: 15%; height:40px; margin-top:0%">Calificar</button>
+                    <a href="../archivos.php" class="btn btn-danger" style="width: 15%; height:40px;">Atrás</a>
                 </div>
-
             </form>
         </div>
 
     </section>
-    <?php include '../footer.php'; ?>
-    <!--<footer>
-        <div class="imagen-footer">
-            <img src="img/Bienvenida.png">
-        </div>
-    </footer>-->
 
+    <?php include '../footer.php'; ?>
 </body>
