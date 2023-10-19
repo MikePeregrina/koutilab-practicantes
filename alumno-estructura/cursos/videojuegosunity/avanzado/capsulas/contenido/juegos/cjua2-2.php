@@ -1,16 +1,16 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$id_user = $_SESSION['id_alumno'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno'];
 $permiso = "capsula31";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 12");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+	header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 12");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
+	$totalIntentos = $resultadoIntentos['intentos'];
+	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+		$puntosGanados = 8;
+	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 6;
+	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+		$puntosGanados = 0;
+	} else {
+		$puntosGanados = 0;
+	}
 } else {
-    $puntosGanados = 10;
+	$puntosGanados = 10;
 }
 
 ?>
@@ -55,28 +55,28 @@ if (isset($resultadoIntentos['intentos'])) {
 <body onload="iniciarTiempo()">
 	<!-- CAMBIOS -->
 	<!-- Timer -->
-    <div class="timer" id="timer">
-        <b>Tiempo: <br>
-            <p id="tiempo" style="margin: 0 0 0 0;"></p>
-        </b>
-    </div>
+	<div class="timer" id="timer">
+		<b>Tiempo: <br>
+			<p id="tiempo" style="margin: 0 0 0 0;"></p>
+		</b>
+	</div>
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo"><b>SPAWNER DE OBSTACULOS</b></h2>
 	</div>
 
-    <section>
+	<section>
 
 		<div class="cont-st">
-		<a href="#" onclick="history.back();">
-              <button class="btn-b">
-                <i class="fas fa-reply"></i>
-              </button>
-            </a>
-            <h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
-        </div>
-<!--fIN CAMBIOS -->
+			<a href="#" onclick="history.back();">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+			</a>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
+		</div>
+		<!--fIN CAMBIOS -->
 		<!--Contenedor de las preguntas y respuestas-->
 		<div class="main-ctn" id="main-ctn">
 			<div class="opt-ctn" id="opt-ctn"></div>
@@ -91,14 +91,12 @@ if (isset($resultadoIntentos['intentos'])) {
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-<!-- fIN CAMBIOS -->
+	<!-- fIN CAMBIOS -->
 	<script>
 		//Arreglo de preguntas
-		var preguntas = [
-			{
+		var preguntas = [{
 				num: 1,
-				pregunta:
-					"Personaliza objetos generados desde prefabricados en el cliente usando funciones de controlador de _________ para tener un control total sobre el proceso.",
+				pregunta: "Personaliza objetos generados desde prefabricados en el cliente usando funciones de controlador de _________ para tener un control total sobre el proceso.",
 				opA: "Variables",
 				opB: "Generación",
 				opC: "Funcionalidad",
@@ -107,8 +105,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 2,
-				pregunta:
-					"Con ClientScene.RegisterSpawnHandler, puedes registrar funciones para _____ la generación y eliminación de objetos en el cliente a partir de prefabricados.",
+				pregunta: "Con ClientScene.RegisterSpawnHandler, puedes registrar funciones para _____ la generación y eliminación de objetos en el cliente a partir de prefabricados.",
 				opA: "Gestionar",
 				opB: "Tratar",
 				opC: "Funcionar",
@@ -117,8 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 3,
-				pregunta:
-					"Modifica el comportamiento predeterminado de ____ y eliminación de objetos generados desde prefabricados en el cliente con funciones de controlador de generación.",
+				pregunta: "Modifica el comportamiento predeterminado de ____ y eliminación de objetos generados desde prefabricados en el cliente con funciones de controlador de generación.",
 				opA: "Variable",
 				opB: "Función",
 				opC: "Creación",
@@ -127,8 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 4,
-				pregunta:
-					"ClientScene.RegisterSpawnHandler te permite ____ la generación y eliminación de objetos de cliente creados a partir de prefabricados.",
+				pregunta: "ClientScene.RegisterSpawnHandler te permite ____ la generación y eliminación de objetos de cliente creados a partir de prefabricados.",
 				opA: "Agregar",
 				opB: "Personalizar",
 				opC: "Eliminar",
@@ -137,8 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 5,
-				pregunta:
-					"Toma el control total sobre cómo se generan y ____ objetos de cliente a partir de prefabricados mediante el uso de funciones de controlador de generación.",
+				pregunta: "Toma el control total sobre cómo se generan y ____ objetos de cliente a partir de prefabricados mediante el uso de funciones de controlador de generación.",
 				opA: "Agregan",
 				opB: "Eliminan",
 				opC: "Comparten",
@@ -147,8 +141,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 6,
-				pregunta:
-					"Las funciones de controlador de generación te permiten ____ el proceso de generación y eliminación de objetos a partir de prefabricados en el cliente.",
+				pregunta: "Las funciones de controlador de generación te permiten ____ el proceso de generación y eliminación de objetos a partir de prefabricados en el cliente.",
 				opA: "Agregar",
 				opB: "Eliminar",
 				opC: "Personalizar",
@@ -157,8 +150,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 7,
-				pregunta:
-					"ClientScene.RegisterSpawnHandler te da la capacidad de personalizar la generación y eliminación de ___ en el cliente basados en prefabricados.",
+				pregunta: "ClientScene.RegisterSpawnHandler te da la capacidad de personalizar la generación y eliminación de ___ en el cliente basados en prefabricados.",
 				opA: "Funciones",
 				opB: "Objetos",
 				opC: "Variables",
@@ -167,8 +159,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 8,
-				pregunta:
-					"El ____ debe tener la firma de objeto requerida según la API de alto nivel.",
+				pregunta: "El ____ debe tener la firma de objeto requerida según la API de alto nivel.",
 				opA: "spawn/un-spawner",
 				opB: "spawn",
 				opC: "un-spawner",
@@ -177,8 +168,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 9,
-				pregunta:
-					"La función de generación utiliza el ID de ____ pasado, disponible en NetworkIdentity.assetId para prefabricados.",
+				pregunta: "La función de generación utiliza el ID de ____ pasado, disponible en NetworkIdentity.assetId para prefabricados.",
 				opA: "Pausado",
 				opB: "Apagado",
 				opC: "Activo",
@@ -187,8 +177,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			},
 			{
 				num: 10,
-				pregunta:
-					"La firma del objeto es crucial para el correcto funcionamiento del spawn/un-spawner en la ____.",
+				pregunta: "La firma del objeto es crucial para el correcto funcionamiento del spawn/un-spawner en la ____.",
 				opA: "Variable",
 				opB: "API",
 				opC: "Función",
@@ -210,7 +199,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
 		var random; //para el index de la pregunta a mostrar
 
-		var resPas = [];  //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
 		var randomRes; //para el index de la respuesta a mostrar
 
 
@@ -272,17 +261,17 @@ if (isset($resultadoIntentos['intentos'])) {
 				ponerPregunta(); //Muestra la pregunta
 			}
 			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if(segundos > 15){
-			var div = document.getElementById("timer");
-			div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-           }else if(segundos == 15){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			if (segundos > 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
+			} else if (segundos == 15) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 
-		   }else if(segundos < 10){
-			var div = document.getElementById("timer");
-            div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-   			}
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			}
 
 			if (segundos == 0) {
 				Swal.fire({

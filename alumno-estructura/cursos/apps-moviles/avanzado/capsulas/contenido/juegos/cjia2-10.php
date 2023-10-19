@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno'];
 $permiso = "capsula31";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 15");
 $existe = mysqli_fetch_all($sql);
@@ -88,7 +88,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		<div id="tablero"></div>
 
 	</section>
- 
+
 	<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
@@ -105,7 +105,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		//Iconos pertenecientes a las tarjetas
 		function cargarIconos() {
 			iconos = [
-				
+
 				'<img src="../../img/img-juegos/s (1).png" width="50px" heigth="60px" >',
 				'<img src="../../img/img-juegos/s (2).png" width="50px" heigth="60px" >',
 				'<img src="../../img/img-juegos/s (3).png" width="50px" heigth="60px" >',

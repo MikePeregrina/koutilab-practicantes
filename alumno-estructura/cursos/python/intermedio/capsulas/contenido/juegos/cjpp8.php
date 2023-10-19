@@ -1,11 +1,11 @@
 <?php
 // session_start();
-// $id_user = $_SESSION['id_alumno_preparatoria'];
-// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+// $id_user = $_SESSION['id_alumno'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 //     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 // }
 // include "../../../../../../../../acciones/conexion.php";
-// $id_user = $_SESSION['id_alumno_preparatoria'];
+// $id_user = $_SESSION['id_alumno'];
 // $permiso = "capsulapago3";
 // $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
 // $existe = mysqli_fetch_all($sql);
@@ -112,7 +112,7 @@
                                 <div class="vertical">
                                     1. Es lo que intentamos resolver con con algoritmos y código
                                     <br /><br />
-                                    2. Es el lenguaje de programación que estamos aprendiendo 
+                                    2. Es el lenguaje de programación que estamos aprendiendo
                                 </div>
                             </div>
                         </td>
@@ -162,7 +162,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);"/>
+                            <input class="casilla" type="text" maxlength="1" id="fila2C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila2C2" />
@@ -307,7 +307,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila7C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);"/>
+                            <input class="casilla" type="text" maxlength="1" id="fila7C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila7C2" />
@@ -336,7 +336,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);"/>
+                            <input class="casilla" type="text" maxlength="1" id="fila8C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila8C2" />
@@ -494,7 +494,7 @@
 
 
         //Habilitar las casillas necesarias
-        
+
         palabra1_letra1.readOnly = false;
         palabra1_letra2.readOnly = false;
         palabra1_letra3.readOnly = false;

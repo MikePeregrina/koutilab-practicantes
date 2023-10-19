@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno'];
 $permiso = "capsulapago11";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10;");
 $existe = mysqli_fetch_all($sql);
@@ -81,7 +81,7 @@ if (empty($existe)) {
 
     <footer class="footerimga">
         <div class="imagen-footer">
-        <img src="../../../img/img-juegos/benvenida.png" alt="No-image">
+            <img src="../../../img/img-juegos/benvenida.png" alt="No-image">
         </div>
     </footer>
 
@@ -109,7 +109,7 @@ if (empty($existe)) {
         //&quot; representa (").
 
         //Funcion para bloquear copiar y pegar
-        document.addEventListener("keydown", function (event) {
+        document.addEventListener("keydown", function(event) {
             //con event se detecta si se presiono la tecla control y la tecla c o C
             if (event.ctrlKey && (event.key === "c" || event.key === "C")) {
                 event.preventDefault(); //con prevent defaul el navegador bloquea la accion
@@ -121,7 +121,7 @@ if (empty($existe)) {
         });
 
         //Funcion que borra lo escrito dentro del textarea cuando se actualiza la pagina
-        window.onbeforeunload = function () {
+        window.onbeforeunload = function() {
             document.getElementById("escrito").value = "";
         };
 

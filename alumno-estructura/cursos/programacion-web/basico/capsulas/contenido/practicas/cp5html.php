@@ -1,12 +1,12 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno'];
 $permiso = "capsula14";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
