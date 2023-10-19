@@ -9,7 +9,7 @@ if (!$conexion) {
 //Datos permisos
 $permiso = $_POST['permiso'];
 $id_curso = $_POST['id_curso'];
-$insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_preparatoria(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
+$insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_$rol(id_alumno, id_capsula, id_curso) VALUES ($id_user, $permiso, $id_curso)");
 
 //inseratar valores cero para el correcto funcionamiento de logica despues
 $query = "INSERT INTO estadisticas(trofeos, progreso, puntos, practico, teorico, id_alumno, id_curso) VALUES ('0','0','0','0','0','$id_user','$id_curso')";

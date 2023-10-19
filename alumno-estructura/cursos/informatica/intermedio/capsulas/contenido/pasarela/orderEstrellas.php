@@ -7,7 +7,7 @@ if (empty($_SESSION['active'])) {
 include "../../../../../../../../acciones/conexion.php";
 
 // Consulta para obtener la cantidad de estrellas para el alumno específico
-$sql_estrellas = "SELECT estrellas FROM total_estrellas_preparatoria WHERE id_alumno = $id_user";
+$sql_estrellas = "SELECT estrellas FROM total_estrellas_$rol WHERE id_alumno = $id_user";
 $result_estrellas = $conexion->query($sql_estrellas);
 
 if ($result_estrellas->num_rows > 0) {
