@@ -5,6 +5,7 @@
   border: none;
   text-decoration: none;
   box-sizing: border-box;
+  
 }
 body{
   background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
@@ -66,8 +67,8 @@ body::-webkit-scrollbar-track {
 .timer {
   text-align: center;
   padding: 0.9%;
-  top: 4%;
-  right: 3%; /*Se cambio el pocisionamiento del timer*/
+  margin-left: 82.5%;
+  margin-top:-1.5%; /*Se cambio el pocisionamiento del timer*/
   width: 160px;
   height: 160px;
   display: flex;
@@ -82,6 +83,39 @@ body::-webkit-scrollbar-track {
   border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
   font-size: 170%;
+}
+@keyframes animation1 {
+  0% {margin: -1.5% 0 0 82.4%;}
+  20% {margin: -1.5% 0 0 82.6%;}
+  40% {margin: -1.5% 0 0 82.4%;} 
+  60% {margin: -1.5% 0 0 82.6%;}
+  80% {margin: -1.5% 0 0 82.4%;} 
+  100% {margin: -1.5% 0 0 82.5%;}
+}
+
+@keyframes animation2 {
+  0% {margin: -1.5% 0 0 82.2%;}
+  15% {margin: -1.5% 0 0 82.8%;}
+  30% {margin: -1.5% 0 0 82.2%;} 
+  45% {margin: -1.5% 0 0 82.8%;}
+  60% {margin: -1.5% 0 0 82.2%;} 
+  75% {margin: -1.5% 0 0 82.8%;;}
+  90% {margin: -1.5% 0 0 82.2%;} 
+  100% {margin: -1.5% 0 0 82.5%;}
+}
+
+@keyframes animation3 {
+  0% {margin: -1.5% 0 0 81.4%;}
+  10% {margin: -1.5% 0 0 83.6%;}
+  20% {margin: -1.5% 0 0 81.4%;} 
+  30% {margin: -1.5% 0 0 83.6%;}
+  40% {margin: -1.5% 0 0 81.4%;} 
+  50% {margin: -1.5% 0 0 83.6%;}
+  60% {margin: -1.5% 0 0 81.4%;} 
+  70% {margin: -1.5% 0 0 83.6%;} 
+  80% {margin: -1.5% 0 0 81.4%;} 
+  90% {margin: -1.5% 0 0 83.6%;} 
+  100% {margin: -1.5% 0 0 82.5%;}
 }
 
 section {
@@ -119,7 +153,16 @@ section {
   border: 0px;
   border-radius: 50%;
   margin-right: 10px;
-  margin-left: 10%;
+  margin-left: 0%;
+  position: absolute;
+}
+#pause{
+  margin-top: 170px;
+  margin-left: 0%;
+}
+#play{
+  margin-top: 300px;
+  margin-left: 0%;
 }
 .btn-b:hover {
   scale: 130%;
@@ -198,11 +241,10 @@ div {
 }
 
 .superior {
-  background: linear-gradient(
-      to bottom right,
-      rgba(129, 179, 243),
-      rgba(132, 196, 44, 0.6)
-  );
+background: linear-gradient(to right,
+rgba(129, 179, 243,0.7), 
+rgba(132,196,44,0.6)
+);
   margin-top: 2px;
 }
 
@@ -226,14 +268,14 @@ div {
   margin-left: 10%;
 }
 @keyframes iniciar{
-  20%,
-  90%{
-    transform: rotateY(180deg);
-  }
-  0%,
-  100%{
-    transform: rotateY(0deg);
-  }
+20%,
+90%{
+  transform: rotateY(180deg);
+}
+0%,
+100%{
+  transform: rotateY(0deg);
+}
 }
 
 .footerimga{

@@ -153,7 +153,16 @@ section {
   border: 0px;
   border-radius: 50%;
   margin-right: 10px;
-  margin-left: 10%;
+  margin-left: 0%;
+  position: absolute;
+}
+#pause{
+  margin-top: 170px;
+  margin-left: 0%;
+}
+#play{
+  margin-top: 300px;
+  margin-left: 0%;
 }
 .btn-b:hover {
   scale: 130%;
@@ -294,42 +303,8 @@ rgba(132,196,44,0.6)
     width: 120px;
     height: 120px;
     font-size: 120%;
-    margin-left: 74%;
-    margin-top: -1.5%;
   }
-  @keyframes animation1 {
-    0% {margin: -1.5% 0 0 73%;}
-    20% {margin: -1.5% 0 0 75%;}
-    40% {margin: -1.5% 0 0 73%;} 
-    60% {margin: -1.5% 0 0 75%;}
-    80% {margin: -1.5% 0 0 73%;} 
-    100% {margin: -1.5% 0 0 74%;}
-  }
-  
-  @keyframes animation2 {
-    0% {margin: -1.5% 0 0 73%;}
-    15% {margin: -1.5% 0 0 75%;}
-    30% {margin: -1.5% 0 0 73%;} 
-    45% {margin: -1.5% 0 0 75%;}
-    60% {margin: -1.5% 0 0 73%;} 
-    75% {margin: -1.5% 0 0 75%;;}
-    90% {margin: -1.5% 0 0 73%;} 
-    100% {margin: -1.5% 0 0 74%;}
-  }
-  
-  @keyframes animation3 {
-    0% {margin: -1.5% 0 0 73%;}
-    10% {margin: -1.5% 0 0 75%;}
-    20% {margin: -1.5% 0 0 73%;} 
-    30% {margin: -1.5% 0 0 75%;}
-    40% {margin: -1.5% 0 0 73%;} 
-    50% {margin: -1.5% 0 0 75%;}
-    60% {margin: -1.5% 0 0 73%;} 
-    70% {margin: -1.5% 0 0 75%;} 
-    80% {margin: -1.5% 0 0 73%;} 
-    90% {margin: -1.5% 0 0 75%;} 
-    100% {margin: -1.5% 0 0 74%;}
-  }
+
   .titulo-gen{
     font-size: 17px;
   }
@@ -365,3 +340,4 @@ rgba(132,196,44,0.6)
   
 }
 
+ 

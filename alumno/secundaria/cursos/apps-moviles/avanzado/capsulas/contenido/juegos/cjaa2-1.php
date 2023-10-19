@@ -77,6 +77,12 @@ if (isset($resultadoIntentos['intentos'])) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
+			<button class="btn-b" id="pause" >
+			   <i class="fas fa-pause"></i>
+			</button>
+			<button class="btn-b" id="play" >
+			   <i class="fas fa-play"></i>
+			</button>
 			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
 		</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
@@ -122,6 +128,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
 		function generarTablero() {
+			reproducirSonido()
 			iniciarTiempo()
 			cargarIconos()
 			$('#generar').remove();
@@ -157,6 +164,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			if (tarjeta.style.transform != "rotateY(180deg)") {
 				tarjeta.style.transform = "rotateY(180deg)"
 				selecciones.push(i)
+				var click = new Audio('../../../../../../../../acciones/sonidos/click.mp3');
+				click.play();
 			}
 			if (selecciones.length == 2) {
 				deseleccionar(selecciones)
@@ -174,7 +183,11 @@ if (isset($resultadoIntentos['intentos'])) {
 					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
 					tarjeta1.style.transform = "rotateY(0deg)"
 					tarjeta2.style.transform = "rotateY(0deg)"
+					var incorrecto = new Audio('../../../../../../../../acciones/sonidos/no.mp3');
+				    incorrecto.play();
 				} else {
+					var correcto = new Audio('../../../../../../../../acciones/sonidos/si.mp3');
+					correcto.play();
 					trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
@@ -222,6 +235,13 @@ if (isset($resultadoIntentos['intentos'])) {
 		var segundos = 240;
 		let puntos = 0;
 
+		//Funcion que agrega el sonido al juego
+		var alerta1 = document.createElement("audio");
+		alerta1.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var alerta2 = document.createElement("audio");
+		alerta2.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + "<br>segundos";
@@ -253,12 +273,33 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
+				alerta2.play();
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
 	</script>
+
+<script>
+		function reproducirSonido() {
+			var sonido = new Audio('../../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
+			sonido.loop = true; // Establece la propiedad loop en true para repetir el sonido
+			sonido.play(); // Reproduce el sonido
+			
+			pause.addEventListener('click', ()=>{
+				sonido.pause();
+			});
+			play.addEventListener('click', ()=>{
+				reproducirSonido();
+			});
+			
+		}
+
+		// Llama a la función cuando la página se carga completamente
+		window.addEventListener('load', reproducirSonido);
+</script>
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

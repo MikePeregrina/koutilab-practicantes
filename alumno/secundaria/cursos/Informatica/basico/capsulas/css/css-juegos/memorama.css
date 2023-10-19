@@ -83,7 +83,6 @@ body::-webkit-scrollbar-track {
   border-color: rgba(129, 178, 243, 0.9);
   z-index: 5;
   font-size: 170%;
-  
 }
 @keyframes animation1 {
   0% {margin: -1.5% 0 0 82.4%;}
@@ -154,7 +153,16 @@ section {
   border: 0px;
   border-radius: 50%;
   margin-right: 10px;
-  margin-left: 10%;
+  margin-left: 0%;
+  position: absolute;
+}
+#pause{
+  margin-top: 170px;
+  margin-left: 0%;
+}
+#play{
+  margin-top: 300px;
+  margin-left: 0%;
 }
 .btn-b:hover {
   scale: 130%;

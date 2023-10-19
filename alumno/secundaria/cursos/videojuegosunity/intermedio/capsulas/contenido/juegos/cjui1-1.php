@@ -32,13 +32,21 @@
 
 	<section>
 
-		<div class="cont-st">
-		<a href="#" onclick="history.back();"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
-				<i class="fas fa-reply"></i></button>
-		</a>
-            
-            <h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
-        </div>
+	<div class="cont-st">
+			<a href="#" onclick="history.back();">
+				<button class="btn-b">
+					<i class="fas fa-reply"></i>
+				</button>
+				
+			</a>
+			<button class="btn-b" id="pause" >
+			   <i class="fas fa-pause"></i>
+			</button>
+			<button class="btn-b" id="play" >
+			   <i class="fas fa-play"></i>
+			</button>
+			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
+	</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
 		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
 			Iniciar juego
@@ -83,6 +91,7 @@ function cargarIconos() {
 		}
 		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
 		function generarTablero() {
+			reproducirSonido()
 			iniciarTiempo()
 			cargarIconos()
 			$('#generar').remove();
@@ -118,6 +127,8 @@ function cargarIconos() {
 			if (tarjeta.style.transform != "rotateY(180deg)") {
 				tarjeta.style.transform = "rotateY(180deg)"
 				selecciones.push(i)
+				var click = new Audio('../../../../../../../../acciones/sonidos/click.mp3');
+				click.play();
 			}
 			if (selecciones.length == 2) {
 				deseleccionar(selecciones)
@@ -135,7 +146,11 @@ function cargarIconos() {
 					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
 					tarjeta1.style.transform = "rotateY(0deg)"
 					tarjeta2.style.transform = "rotateY(0deg)"
+					var incorrecto = new Audio('../../../../../../../../acciones/sonidos/no.mp3');
+				    incorrecto.play();
 				} else {
+					var correcto = new Audio('../../../../../../../../acciones/sonidos/si.mp3');
+					correcto.play();
 					trasera1.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
@@ -161,7 +176,7 @@ function cargarIconos() {
 							window.location.href = '../../../../../../rutas/ruta-vj-i.php';
 						}
 					});
-					Correcto.play(); //agregando sonido al juego completado
+					alerta1.play(); //agregando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -178,10 +193,11 @@ function cargarIconos() {
 	</script>
 
 	<script>
-		var Correcto = document.createElement("audio");
-		Correcto.src = ".../../sonidos/correcto.mp3";
-		var Incorrecto = document.createElement("audio");
-		Incorrecto.src = "../../sonidos/incorrecto.mp3";
+		//Funcion que agrega el sonido al juego
+		var alerta1 = document.createElement("audio");
+		alerta1.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var alerta2 = document.createElement("audio");
+		alerta2.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		var segundos = 240;
 		let puntos = 0;
@@ -215,7 +231,7 @@ function iniciarTiempo() {
 						window.location.reload();
 					}
 				});
-				Incorrecto.play(); //agregando sonido al juego no completado
+				alerta2.play();//agregando sonido al juego no completado
 			xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
@@ -225,7 +241,27 @@ function iniciarTiempo() {
 			}
 		}
 </script>
+
+<script>
+		function reproducirSonido() {
+			var sonido = new Audio('../../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
+			sonido.loop = true; // Establece la propiedad loop en true para repetir el sonido
+			sonido.play(); // Reproduce el sonido
+			
+			pause.addEventListener('click', ()=>{
+				sonido.pause();
+			});
+			play.addEventListener('click', ()=>{
+				reproducirSonido();
+			});
+			
+		}
+
+		// Llama a la función cuando la página se carga completamente
+		window.addEventListener('load', reproducirSonido);
 </script>
+
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

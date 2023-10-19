@@ -153,7 +153,16 @@
     border: 0px;
     border-radius: 50%;
     margin-right: 10px;
-    margin-left: 10%;
+    margin-left: 0%;
+    position: absolute;
+  }
+  #pause{
+    margin-top: 170px;
+    margin-left: 0%;
+  }
+  #play{
+    margin-top: 300px;
+    margin-left: 0%;
   }
   .btn-b:hover {
     scale: 130%;
