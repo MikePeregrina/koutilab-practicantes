@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno'];
 $permiso = "capsula64";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 65;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -130,214 +130,214 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <footer class=" footerimga">
-        <div class="imagen-footer">
-            <img src="../../img/benvenida.png" alt="No-image">
-        </div>
-    </footer>
-    <script>
-        window.addEventListener("load", function() {
-            var form = document.querySelector("form");
-            var fields = form.querySelectorAll("div");
-            var randomIndex = Math.floor(Math.random() * fields.length);
+                                    <div class="imagen-footer">
+                                        <img src="../../img/benvenida.png" alt="No-image">
+                                    </div>
+                                    </footer>
+                                    <script>
+                                        window.addEventListener("load", function() {
+                                            var form = document.querySelector("form");
+                                            var fields = form.querySelectorAll("div");
+                                            var randomIndex = Math.floor(Math.random() * fields.length);
 
-            for (var i = 0; i < fields.length; i++) {
-                var index = (i + randomIndex) % fields.length;
-                form.appendChild(fields[index]);
-            }
-        });
-    </script>
-    <script>
-        //se esta llamando los sonidos de la carpeta "sonidos"
-        var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var Incorrecto = document.createElement("audio");
-        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+                                            for (var i = 0; i < fields.length; i++) {
+                                                var index = (i + randomIndex) % fields.length;
+                                                form.appendChild(fields[index]);
+                                            }
+                                        });
+                                    </script>
+                                    <script>
+                                        //se esta llamando los sonidos de la carpeta "sonidos"
+                                        var Correcto = document.createElement("audio");
+                                        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+                                        var Incorrecto = document.createElement("audio");
+                                        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-        //checar respuesta
+                                        //checar respuesta
 
-        var puntos = <?php echo $puntosGanados; ?>;
-        var checkbox1 = document.getElementById('checkbox1');
-        var checkbox2 = document.getElementById('checkbox2');
-        var checkbox3 = document.getElementById('checkbox3');
-        var checkbox4 = document.getElementById('checkbox4');
+                                        var puntos = <?php echo $puntosGanados; ?>;
+                                        var checkbox1 = document.getElementById('checkbox1');
+                                        var checkbox2 = document.getElementById('checkbox2');
+                                        var checkbox3 = document.getElementById('checkbox3');
+                                        var checkbox4 = document.getElementById('checkbox4');
 
-        checkbox1.addEventListener("change", comprueba, true);
-        checkbox2.addEventListener("change", comprueba, true);
-        checkbox3.addEventListener("change", comprueba, true);
-        checkbox4.addEventListener("change", comprueba, true);
+                                        checkbox1.addEventListener("change", comprueba, true);
+                                        checkbox2.addEventListener("change", comprueba, true);
+                                        checkbox3.addEventListener("change", comprueba, true);
+                                        checkbox4.addEventListener("change", comprueba, true);
 
-        function comprueba() {
-            if (checkbox1.checked) {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                Correcto.play();
+                                        function comprueba() {
+                                            if (checkbox1.checked) {
+                                                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                                                Correcto.play();
 
-                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
-                if (puntos == 0) {
-                    //resultado();
-                    Swal.fire({
-                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
-                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                                                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
+                                                if (puntos == 0) {
+                                                    //resultado();
+                                                    Swal.fire({
+                                                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
+                                                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
+                                                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                                                        imageHeight: 350,
+                                                        backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 6) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                                                        confirmButtonColor: '#a14cd9',
+                                                        confirmButtonText: 'Aceptar',
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            var inputValidar = document.getElementById("validar");
+                                                            inputValidar.value = "correcto";
+                                                            document.getElementById('evaluar').submit();
+                                                        }
+                                                    });
+                                                } else if (puntos == 6) {
+                                                    Swal.fire({
+                                                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                                                        text: '¡Puntuación guardada con éxito!',
+                                                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                                                        imageHeight: 350,
+                                                        backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 8) {
-                    Swal.fire({
-                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                                                        confirmButtonColor: '#a14cd9',
+                                                        confirmButtonText: 'Aceptar',
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            var inputValidar = document.getElementById("validar");
+                                                            inputValidar.value = "correcto";
+                                                            document.getElementById('evaluar').submit();
+                                                        }
+                                                    });
+                                                } else if (puntos == 8) {
+                                                    Swal.fire({
+                                                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                                                        text: '¡Puntuación guardada con éxito!',
+                                                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                                                        imageHeight: 350,
+                                                        backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                } else if (puntos == 10) {
-                    Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                                                        confirmButtonColor: '#a14cd9',
+                                                        confirmButtonText: 'Aceptar',
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            var inputValidar = document.getElementById("validar");
+                                                            inputValidar.value = "correcto";
+                                                            document.getElementById('evaluar').submit();
+                                                        }
+                                                    });
+                                                } else if (puntos == 10) {
+                                                    Swal.fire({
+                                                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                                                        text: '¡Puntuación guardada con éxito!',
+                                                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                                                        imageHeight: 350,
+                                                        backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            var inputValidar = document.getElementById("validar");
-                            inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
-                        }
-                    });
-                }
-            } else if (checkbox2.checked) {
-                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                Incorrecto.play();
+                                                        confirmButtonColor: '#a14cd9',
+                                                        confirmButtonText: 'Aceptar',
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            var inputValidar = document.getElementById("validar");
+                                                            inputValidar.value = "correcto";
+                                                            document.getElementById('evaluar').submit();
+                                                        }
+                                                    });
+                                                }
+                                            } else if (checkbox2.checked) {
+                                                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                                                Incorrecto.play();
 
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
-                    }
-                });
-            } else if (checkbox3.checked) {
-                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                Incorrecto.play();
+                                                Swal.fire({
+                                                    title: 'Oops...',
+                                                    text: '¡Verifica tu respuesta!',
+                                                    imageUrl: "../../../../../../img/signo.gif",
+                                                    imageHeight: 350,
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        document.getElementById('evaluar').submit();
+                                                    }
+                                                });
+                                            } else if (checkbox3.checked) {
+                                                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                                                Incorrecto.play();
 
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
-                    }
-                });
-            } else if (checkbox4.checked) {
-                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                Incorrecto.play();
+                                                Swal.fire({
+                                                    title: 'Oops...',
+                                                    text: '¡Verifica tu respuesta!',
+                                                    imageUrl: "../../../../../../img/signo.gif",
+                                                    imageHeight: 350,
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        document.getElementById('evaluar').submit();
+                                                    }
+                                                });
+                                            } else if (checkbox4.checked) {
+                                                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                                                Incorrecto.play();
 
-                Swal.fire({
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
-                    }
-                });
-            }
-        }
-    </script>
-    <script src="../../js/validar.js"></script>
-    <script>
-        function disableIE() {
-            if (document.all) {
-                return false;
-            }
-        }
+                                                Swal.fire({
+                                                    title: 'Oops...',
+                                                    text: '¡Verifica tu respuesta!',
+                                                    imageUrl: "../../../../../../img/signo.gif",
+                                                    imageHeight: 350,
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        document.getElementById('evaluar').submit();
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    </script>
+                                    <script src="../../js/validar.js"></script>
+                                    <script>
+                                        function disableIE() {
+                                            if (document.all) {
+                                                return false;
+                                            }
+                                        }
 
-        function disableNS(e) {
-            if (document.layers || (document.getElementById && !document.all)) {
-                if (e.which == 2 || e.which == 3) {
-                    return false;
-                }
-            }
-        }
-        if (document.layers) {
-            document.captureEvents(Event.MOUSEDOWN);
-            document.onmousedown = disableNS;
-        } else {
-            document.onmouseup = disableNS;
-            document.oncontextmenu = disableIE;
-        }
-        document.oncontextmenu = new Function("return false");
-    </script>
-    <script>
-        onkeydown = e => {
-            let tecla = e.which || e.keyCode;
+                                        function disableNS(e) {
+                                            if (document.layers || (document.getElementById && !document.all)) {
+                                                if (e.which == 2 || e.which == 3) {
+                                                    return false;
+                                                }
+                                            }
+                                        }
+                                        if (document.layers) {
+                                            document.captureEvents(Event.MOUSEDOWN);
+                                            document.onmousedown = disableNS;
+                                        } else {
+                                            document.onmouseup = disableNS;
+                                            document.oncontextmenu = disableIE;
+                                        }
+                                        document.oncontextmenu = new Function("return false");
+                                    </script>
+                                    <script>
+                                        onkeydown = e => {
+                                            let tecla = e.which || e.keyCode;
 
-            // Evaluar si se ha presionado la tecla Ctrl:
-            if (e.ctrlKey) {
-                // Evitar el comportamiento por defecto del nevagador:
-                e.preventDefault();
-                e.stopPropagation();
+                                            // Evaluar si se ha presionado la tecla Ctrl:
+                                            if (e.ctrlKey) {
+                                                // Evitar el comportamiento por defecto del nevagador:
+                                                e.preventDefault();
+                                                e.stopPropagation();
 
-                // Mostrar el resultado de la combinación de las teclas:
-                if (tecla === 85)
-                    console.log("Ha presionado las teclas Ctrl + U");
+                                                // Mostrar el resultado de la combinación de las teclas:
+                                                if (tecla === 85)
+                                                    console.log("Ha presionado las teclas Ctrl + U");
 
-                if (tecla === 83)
-                    console.log("Ha presionado las teclas Ctrl + S");
-            }
-        }
-    </script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script defer src="../../js/functions.js"></script>
+                                                if (tecla === 83)
+                                                    console.log("Ha presionado las teclas Ctrl + S");
+                                            }
+                                        }
+                                    </script>
+                                    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+                                    <script defer src="../../js/functions.js"></script>
 </body>

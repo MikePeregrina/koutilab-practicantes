@@ -1,17 +1,17 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno'];
-$permiso = "capsulapago8";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+     header('location: ../../../../../../../../acciones/cerrarsesion.php');
+ }
+ include "../../../../../../../../acciones/conexion.php";
+ $id_user = $_SESSION['id_alumno'];
+ $permiso = "capsulapago8";
+ $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
+ if (empty($existe)) {
     header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium8.php");
-}
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -100,21 +100,21 @@ if (empty($existe)) {
                         <td>
                             <div class="horizontal">
                                 1.Conjunto de líneas de código que realizan una tarea específica y
-                                pueden tomar “Argumentos” para diferentes “Parámetros” que modifiquen
-                                su funcionamiento y los datos de salida.
+                                 pueden tomar “Argumentos” para diferentes “Parámetros” que modifiquen 
+                                 su funcionamiento y los datos de salida.
                                 <br /><br />
                                 2.Es un lenguaje de alto nivel de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código
                                 <br /><br />
                                 3.Es una interfaz de usuario que funciona a través de instrucciones o comandos,
-                                no cuenta con una interfaz gráfica para su funcionamiento.
+                                 no cuenta con una interfaz gráfica para su funcionamiento.
                                 <br /><br />
                                 4.Funciona para posibilitar la entrada por texto por parte del usuario del programa,
-                                es decir, Python lee e imprime o ejecuta el texto que se le otorge en la función
+                                 es decir, Python lee e imprime o ejecuta el texto que se le otorge en la función
                                 <br /><br />
                                 <b style="" class="tituloV">Verticales:</b>
                                 <div class="vertical">
                                     1.Son las reglas que definen las combinaciones de símbolos que se consideran
-                                    declaraciones o expresiones correctamente estructuradas en ese lenguaje
+                                     declaraciones o expresiones correctamente estructuradas en ese lenguaje
                                 </div>
                             </div>
                         </td>
@@ -127,7 +127,7 @@ if (empty($existe)) {
             <div class="linea"></div>
 
             <!-- Apartado del crucigrama junto con sus casillas -->
-            <div class="crucigrama" style="">
+            <div class="crucigrama" style="" >
                 <div class="numero1" style="margin: -300px 0 20px -480px;">1.</div>
                 <div class="numero2" style="margin: -100px 0 20px -280px;">2.</div>
                 <div class="numero1-1" style="margin: 220px 0 20px -80px;">3.</div>
@@ -166,7 +166,7 @@ if (empty($existe)) {
                                 " />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C6" />
+                            <input class="casilla" type="text" maxlength="1" id="fila1C6"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila1C7" style="
@@ -225,7 +225,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila2C9" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila2C10" style="
@@ -266,7 +266,7 @@ if (empty($existe)) {
                                 " />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila3C6" />
+                            <input class="casilla" type="text" maxlength="1" id="fila3C6"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila3C7" style="
@@ -290,7 +290,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila3C10" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                     </tr>
                     <tr>
@@ -313,19 +313,19 @@ if (empty($existe)) {
                                 " />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C4" />
+                            <input class="casilla" type="text" maxlength="1" id="fila4C4"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C5" />
+                            <input class="casilla" type="text" maxlength="1" id="fila4C5"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C6" />
+                            <input class="casilla" type="text" maxlength="1" id="fila4C6"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C7" />
+                            <input class="casilla" type="text" maxlength="1" id="fila4C7"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila4C8" />
+                            <input class="casilla" type="text" maxlength="1" id="fila4C8"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila4C9" />
@@ -334,7 +334,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila4C10" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                     </tr>
                     <tr>
@@ -369,7 +369,7 @@ if (empty($existe)) {
                                 " />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C6" />
+                            <input class="casilla" type="text" maxlength="1" id="fila5C6"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila5C7" style="
@@ -393,7 +393,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila5C10" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                     </tr>
                     <tr>
@@ -428,7 +428,7 @@ if (empty($existe)) {
                             " />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila6C6" />
+                            <input class="casilla" type="text" maxlength="1" id="fila6C6"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila6C7" style="
@@ -452,7 +452,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila6C10" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                     </tr>
                     <tr>
@@ -472,7 +472,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila7C3" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila7C4" style="
@@ -484,7 +484,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila7C5" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila7C6" />
@@ -525,22 +525,22 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila8C5" />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C6" />
+                            <input class="casilla" type="text" maxlength="1" id="fila8C6"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C7" />
+                            <input class="casilla" type="text" maxlength="1" id="fila8C7"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C8" />
+                            <input class="casilla" type="text" maxlength="1" id="fila8C8"  />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila8C9" />
+                            <input class="casilla" type="text" maxlength="1" id="fila8C9"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila8C10" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                     </tr>
                     <tr>
@@ -560,7 +560,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila9C3" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila9C4" style="
@@ -572,7 +572,7 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila9C5" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila9C6" style="
@@ -584,25 +584,25 @@ if (empty($existe)) {
                             <input class="casilla" type="text" maxlength="1" id="fila9C7" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila9C8" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila9C9" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila9C10" style="
                                     border-style: none;
                                     background-color: rgba(255, 255, 255, 0);
-                                " />
+                                "  />
                         </td>
                     </tr>
                 </table>
@@ -808,14 +808,14 @@ if (empty($existe)) {
                 palabra1_letra4.value +
                 palabra1_letra5.value +
                 palabra1_letra6.value +
-                palabra1_letra7.value;
+                palabra1_letra7.value ;
             palabra2 =
                 palabra2_letra1.value +
                 palabra2_letra2.value +
                 palabra2_letra3.value +
                 palabra2_letra4.value +
                 palabra2_letra5.value +
-                palabra2_letra6.value;
+                palabra2_letra6.value ;
             palabra3 =
                 palabra3_letra1.value +
                 palabra3_letra2.value +
@@ -823,7 +823,7 @@ if (empty($existe)) {
                 palabra3_letra4.value +
                 palabra3_letra5.value +
                 palabra3_letra6.value +
-                palabra3_letra7.value;
+                palabra3_letra7.value ;
             palabra4 =
                 palabra4_letra1.value +
                 palabra4_letra2.value +
@@ -832,13 +832,13 @@ if (empty($existe)) {
                 palabra4_letra5.value +
                 palabra4_letra6.value +
                 palabra4_letra7.value +
-                palabra4_letra8.value;
+                palabra4_letra8.value ;
             palabra5 =
                 palabra5_letra1.value +
                 palabra5_letra2.value +
                 palabra5_letra3.value +
                 palabra5_letra4.value +
-                palabra5_letra5.value;
+                palabra5_letra5.value ;
 
             //Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
             if (

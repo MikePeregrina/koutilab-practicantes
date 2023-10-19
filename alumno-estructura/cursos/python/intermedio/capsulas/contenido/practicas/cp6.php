@@ -12,7 +12,7 @@ if (isset($_GET['pythoncode'])) {
     $pythoncode = "";
 }
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium1.php");
@@ -20,12 +20,12 @@ if (empty($existe)) {
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
 $permiso_intento = 12;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 5");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 5");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 5");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 5");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];

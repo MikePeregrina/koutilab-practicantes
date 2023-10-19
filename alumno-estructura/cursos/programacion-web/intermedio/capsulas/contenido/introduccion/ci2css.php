@@ -7,7 +7,7 @@ if (empty($_SESSION['active'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno'];
 $permiso = "capsula17";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");

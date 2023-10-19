@@ -7,7 +7,7 @@
 // include "../../../../../../../../acciones/conexion.php";
 // $id_user = $_SESSION['id_alumno'];
 // $permiso = "capsulapago3";
-// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
 // $existe = mysqli_fetch_all($sql);
 // if (empty($existe)) {
 //     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
@@ -98,11 +98,11 @@
                 <table>
                     <tr>
                         <td>
-                            <b class="tituloH">Horizontales:</b>
+                        <b class="tituloH">Horizontales:</b>
                             <div class="horizontal">
                                 1. Se trata del lenguaje de programación que estamos estudiando.
                                 <br /><br />
-                                2. Es una biblioteca de python que se ocupa para pruebas y su nombre empieza con S.
+                                2. Es una biblioteca de python que se ocupa para pruebas y su nombre empieza con S. 
                                 <br /><br />
                                 3. Se trata de la biblioteca de python la cual su nombre empieza con la letra P.
                                 <br /><br />
@@ -135,7 +135,7 @@
                             <input class="casilla" type="text" maxlength="1" id="fila1C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila1C4" />
+                            <input class="casilla" type="text" maxlength="1" id="fila1C4"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila1C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
@@ -161,7 +161,7 @@
                             <input class="casilla" type="text" maxlength="1" id="fila2C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila2C4" />
+                            <input class="casilla" type="text" maxlength="1" id="fila2C4"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila2C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
@@ -239,7 +239,7 @@
                             <input class="casilla" type="text" maxlength="1" id="fila5C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
                         </td>
                         <td>
-                            <input class="casilla" type="text" maxlength="1" id="fila5C4" />
+                            <input class="casilla" type="text" maxlength="1" id="fila5C4"  />
                         </td>
                         <td>
                             <input class="casilla" type="text" maxlength="1" id="fila5C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />

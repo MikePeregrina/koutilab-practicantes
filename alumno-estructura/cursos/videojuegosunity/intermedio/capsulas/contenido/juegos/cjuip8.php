@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 11;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
 	header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
@@ -33,13 +33,13 @@ if (empty($existe)) {
 </head>
 
 <body onload="iniciarTiempo();">
-	<!-- CAMBIOS -->
+<!-- CAMBIOS -->
 	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br>
-			<p id="tiempo" style="margin: 0 0 0 0;"></p>
-		</b>
-	</div>
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
 
 	<!-- Titulo general -->
 	<div class="titulo-gen">
@@ -49,23 +49,23 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="#" onclick="history.back();">
-				<button class="btn-b">
-					<i class="fas fa-reply"></i>
-				</button>
-			</a>
-			<h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
-		</div>
-		<!--FIN  CAMBIOS -->
+            <a href="#" onclick="history.back();">
+              <button class="btn-b">
+                <i class="fas fa-reply"></i>
+              </button>
+            </a>
+            <h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
+        </div>
+<!--FIN  CAMBIOS -->
 
 		<!--CONTENEDOR DEL JUEGO-->
-		<div class="mjuego">
+        <div class="mjuego">
 			<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
 			<div class="words">
 				<div class="title-h6">
 					<h4><b>Palabras a buscar:</b></h4>
-				</div>
-				<div id='Palabras'></div>
+				</div>	
+				<div id='Palabras' ></div>
 			</div>
 
 			<!-- Sección donde se agrega la sopa de letras -->
@@ -75,13 +75,13 @@ if (empty($existe)) {
 		</div>
 
 	</section>
-	<!-- CAMBIOS -->
+<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
 			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
 		</div>
 	</footer>
-	<!-- fIN CAMBIOS -->
+<!-- fIN CAMBIOS -->
 	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
@@ -100,7 +100,7 @@ if (empty($existe)) {
 		});
 	</script>
 	<script>
-		var correcto = document.createElement("audio");
+			var correcto = document.createElement("audio");
 		correcto.src = "../sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../sonidos/incorrecto.mp3";
@@ -110,18 +110,18 @@ if (empty($existe)) {
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
-			if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 30) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 10) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
+			    if (segundos <= 60) {
+               var div = document.getElementById("timer");
+                    div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 30) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
+                if (segundos <= 10) {
+                    var div = document.getElementById("timer");
+                    div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+                }
 
 			if (segundos == 0) {
 				Swal.fire({
@@ -133,8 +133,7 @@ if (empty($existe)) {
 					if (result.isConfirmed) {
 						window.location.href = '#';
 					}
-				});
-				incorrecto.play();
+				});incorrecto.play();
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);

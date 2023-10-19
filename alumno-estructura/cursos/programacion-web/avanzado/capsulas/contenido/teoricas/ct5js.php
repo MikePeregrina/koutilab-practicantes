@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno'];
 $permiso = "capsulapago3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium3.php");
@@ -16,12 +16,12 @@ if (empty($existe)) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 3;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
