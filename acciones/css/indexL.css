@@ -587,3 +587,102 @@ form .input-icon {
 #txt-reg {
     display: none;
 }
+
+@media screen and (max-width: 1200px) {
+    .info-box {
+        display: none;
+    }
+
+    .img-bot {
+        display: none;
+    }
+
+    form .input-icon {
+        display: none;
+    }
+
+    .form-box {
+        border-radius: 30px;
+        width: 90%;
+    }
+
+    .reg p {
+        font-size: 20px;
+    }
+    
+    .opt-user p {
+        width: 290px;
+        padding: 10px 10px 10px 10px;
+    }
+
+    .password-icon {
+        position: absolute;
+        margin: 18px 0 0 -30px;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .info-box {
+        display: none;
+    }
+
+    .img-bot {
+        display: none;
+    }
+
+    form .input-icon {
+        display: none;
+    }
+
+    .form-box {
+        border-radius: 30px;
+        width: 90%;
+    }
+
+    .reg p {
+        font-size: 20px;
+    }
+    
+    .opt-user p {
+        width: 290px;
+        padding: 10px 10px 10px 10px;
+    }
+
+    .password-icon {
+        position: absolute;
+        margin: 18px 0 0 -30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info-box {
+        display: none;
+    }
+
+    .img-bot {
+        display: none;
+    }
+
+    form .input-icon {
+        display: none;
+    }
+
+    .form-box {
+        border-radius: 30px;
+        width: 90%;
+    }
+
+    .reg p {
+        font-size: 20px;
+    }
+    
+    .opt-user p {
+        width: 290px;
+        padding: 10px 10px 10px 10px;
+    } 
+
+    .password-icon {
+        position: sticky;
+        margin: -36px 25px 0 0;
+    }
+}
