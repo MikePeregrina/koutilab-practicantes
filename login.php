@@ -122,7 +122,7 @@ if (isset($_POST['iniciar_sesion'])) {
                  Usuario o contraseña incorrecta
                  </div>';
                 session_destroy();
-            }
+            } 
         } else if ($result_validar_alumno_primaria > 0) {
             $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_alumno = mysqli_num_rows($query_alumno);
