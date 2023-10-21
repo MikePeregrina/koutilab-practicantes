@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Almacenar y manejar datos.",
+        "incorrectAnswers": [
+            "Crear presentaciones visuales.",
+            "Realizar edición y diseño de imágenes.",
+            "Administrar redes y servidores."
+        ],
+        "question": "¿Qué función principal cumple Excel en el entorno empresarial, educativo y personal?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Un archivo que contiene una o más hojas de cálculo.",
+        "incorrectAnswers": [
+            "Una función matemática utilizada para realizar cálculos complejos.",
+            "Una herramienta de diseño gráfico para crear ilustraciones.",
+            "Un conjunto de formatos predefinidos para estilizar datos."
+        ],
+        "question": "¿Qué representa un 'libro' en Excel?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Mediante una combinación de letras y números.",
+        "incorrectAnswers": [
+            " A través de un nombre descriptivo asignado por el usuario.",
+            "Utilizando una dirección de correo electrónico.",
+            "Por medio de un número único de identificación."
+        ],
+        "question": "¿Cómo se identifica una celda en Excel?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Una forma de identificar una celda específica en una hoja de cálculo.",
+        "incorrectAnswers": [
+            "Una función matemática utilizada para realizar cálculos complejos.",
+            "Un formato especial para resaltar celdas importantes.",
+            "Un enlace externo a otra hoja de cálculo."
+        ],
+        "question": "¿Qué es una referencia de celda en Excel?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": ".xlsx",
+        "incorrectAnswers": [
+            ".docx",
+            ".txt",
+            ".pptx"
+        ],
+        "question": "¿Con qué extensión de archivo se guarda un libro de Excel en las versiones más recientes?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Una cuadrícula rectangular de celdas organizadas en filas y columnas.",
+        "incorrectAnswers": [
+            "Un archivo de texto con información estructurada.",
+            "Un conjunto de gráficos y visualizaciones.",
+            "Una lista de fórmulas y funciones."
+        ],
+        "question": "¿Cuál es la estructura básica de una hoja de cálculo de Excel?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "*",
+        "incorrectAnswers": [
+            "^",
+            "/",
+            "+"
+        ],
+        "question": "¿Cuál es el operador utilizado para multiplicar dos o más valores en Excel?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "CONCATENAR",
+        "incorrectAnswers": [
+            "BUSCARV",
+            "SUMA",
+            "CONTAR"
+        ],
+        "question": "¿Cuál es la función que combina múltiples cadenas de texto en una sola en Excel?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "HTML y CSV",
+        "incorrectAnswers": [
+            "PNG y JPEG",
+            "XLSX y XML",
+            "PDF y DOCX"
+        ],
+        "question": "¿Qué tipo de archivos se pueden utilizar para exportar datos desde Excel a la web?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Gráficos y tipos de gráficos",
+        "incorrectAnswers": [
+            "Fórmulas y funciones",
+            "Tablas y filtros",
+            "Estilos predefinidos"
+        ],
+        "question": "¿Qué elementos gráficos ofrece Excel para representar visualmente los datos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

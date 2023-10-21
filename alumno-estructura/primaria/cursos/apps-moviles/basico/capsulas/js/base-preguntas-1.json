@@ -1,0 +1,54 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Qué es el desarrollo multiplataforma?",
+    "respuesta": "Desarrollar una aplicación que funcione en distintas plataformas",
+    "incorrecta1": "Desarrollar una aplicación en distintas plataformas de desarrollo",
+    "incorrecta2": "No se puede",
+    "incorrecta3": "No tengo idea",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Sabes qué es el desarrollo nativo?",
+    "respuesta": "Crear una app para un sistema operativo en concreto",
+    "incorrecta1": "Crear una app para varios sistemas operativos",
+    "incorrecta2": "Crear una app para un solo dispositivo",
+    "incorrecta3": "No tengo idea",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Uno de los siguientes sistemas operativos no es de dispositivos móviles",
+    "respuesta": "Windows",
+    "incorrecta1": "Android",
+    "incorrecta2": "IOS",
+    "incorrecta3": "Fuchsia OS",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Uno de los siguientes sistemas operativos no es dispositivos computadoras",
+    "respuesta": "Android",
+    "incorrecta1": "Windows",
+    "incorrecta2": "MacOS",
+    "incorrecta3": "Linux",
+    "imagen": "",
+    "objectFit" : "cover" 
+},
+
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Qué curso estamos viendo?",
+    "respuesta": "Apps móviles",
+    "incorrecta1": "Unity",
+    "incorrecta2": "Programación web",
+    "incorrecta3": "Python",
+    "imagen": "",
+    "objectFit" : "cover"   
+}
+
+]

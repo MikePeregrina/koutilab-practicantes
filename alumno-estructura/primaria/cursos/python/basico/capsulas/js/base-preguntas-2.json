@@ -1,0 +1,52 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "Nos referimos a una estructura ______ cuando hablamos de establecer una serie de condiciones a nuestros programas",
+    "respuesta": "Condicional",
+    "incorrecta1": "Recursiva",
+    "incorrecta2": "Relacional",
+    "incorrecta3": "Lineal",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Una de las siguientes respuestas NO es una condicional",
+    "respuesta": "Function",
+    "incorrecta1": "Elif",
+    "incorrecta2": "Else",
+    "incorrecta3": "If",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Para crear una condición, es necesario tener dos factores en cuenta, Primero es saber que pasa si se cumple la condición y la segunda es saber...",
+    "respuesta": "Que pasa si no se cumple",
+    "incorrecta1": "Programarla",
+    "incorrecta2": "Desarrollar un plan",
+    "incorrecta3": "Aprender a programar",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Cuál de las siguientes palabras SI es una condicional?",
+    "respuesta": "If",
+    "incorrecta1": "Function",
+    "incorrecta2": "Print",
+    "incorrecta3": "Integer",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Si queremos crear un programa para saber si soy mayor de edad o no, podemos crear una...",
+    "respuesta": "Condicional",
+    "incorrecta1": "Función",
+    "incorrecta2": "Variable",
+    "incorrecta3": "Clase",
+    "imagen": "",
+    "objectFit" : "cover"    
+}
+]

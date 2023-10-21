@@ -1,0 +1,52 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "Un diseño de 'layout' bien pensado facilita la navegación y la interacción del usuario con la aplicación. ",
+    "respuesta": "usabilidad",
+    "incorrecta1": "visual",
+    "incorrecta2": "estetica",
+    "incorrecta3": "ninguna",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "El 'layout' determina la apariencia visual de la aplicación, lo que influye en la percepción del usuario y la impresión general.",
+    "respuesta": "estética",
+    "incorrecta1": "usabilida",
+    "incorrecta2": "navegacion",
+    "incorrecta3": "ninguna",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Es la representación gráfica de cómo se colocan los elementos en un espacio determinado.",
+    "respuesta": "layout",
+    "incorrecta1": "pagina",
+    "incorrecta2": "movil",
+    "incorrecta3": "ninguna",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "El diseño de un layout nunca involucra una serie de consideraciones y decisiones de diseño",
+    "respuesta": "falso",
+    "incorrecta1": "cierto",
+    "incorrecta2": "ninguna",
+    "incorrecta3": "todas",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Qué elemento visual se utiliza para guiar la atención del espectador hacia los elementos más importantes en un layout?",
+    "respuesta": "contraste",
+    "incorrecta1": "brillo",
+    "incorrecta2": "color",
+    "incorrecta3": "ninguna",
+    "imagen": "",
+    "objectFit" : "cover"    
+}
+]

@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Proporcionar energía a todos los componentes de la computadora.",
+        "incorrectAnswers": [
+            "Establecer la conexión con dispositivos periféricos.",
+            "Proteger los datos almacenados en el disco duro.",
+            " Controlar la temperatura interna de la computadora."
+        ],
+        "question": "¿Cuál es la importancia del botón de Encender en una torre de computadora?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "6 áreas.",
+        "incorrectAnswers": [
+            "3 áreas.",
+            "4 áreas",
+            "5 áreas."
+        ],
+        "question": "¿En cuántas áreas se clasifican las teclas del teclado?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "iOS",
+        "incorrectAnswers": [
+            "Android",
+            "Linux",
+            "Windows"
+        ],
+        "question": "¿Cuál de los siguientes sistemas operativos tiene el código cerrado y es exclusivo de los dispositivos Apple?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Todos los anteriores.",
+        "incorrectAnswers": [
+            "Teléfonos inteligentes y televisión de Google.",
+            "Ordenadores portátiles y tabletas.",
+            "Weareables y auriculares."
+        ],
+        "question": "¿Qué tipo de dispositivos pueden utilizar el sistema operativo Android, según el texto?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "El código fuente es visible para cualquiera y puede ser modificado.",
+        "incorrectAnswers": [
+            "Solo se puede utilizar de forma gratuita para uso personal.",
+            "Solo se puede utilizar en una plataforma específica",
+            "Pertenece a una empresa específica."
+        ],
+        "question": "¿Qué significa que Linux es un sistema operativo de software libre?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Windows",
+        "incorrectAnswers": [
+            "Mac OS",
+            "Linux",
+            "Todos los anteriores"
+        ],
+        "question": "¿Cuál de los siguientes sistemas operativos es el más utilizado y popular para ordenadores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Conectar periféricos a la computadora.",
+        "incorrectAnswers": [
+            "Transferir energía a la computadora.",
+            "Realizar copias de seguridad de archivos.",
+            "Almacenar datos de forma permanente."
+        ],
+        "question": "¿Cuál es la función principal del puerto USB en una computadora?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Windows",
+        "incorrectAnswers": [
+            "macOS",
+            "Linux",
+            "Android"
+        ],
+        "question": "¿Cuál es el nombre de la familia de sistemas operativos creados por Microsoft?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Kernel",
+        "incorrectAnswers": [
+            "Shell",
+            "Aplicaciones",
+            "lscpu"
+        ],
+        "question": "¿Cuál es el componente principal de Linux que actúa como el núcleo del sistema operativo?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Un sistema operativo para dispositivos móviles.",
+        "incorrectAnswers": [
+            "Un programa de código abierto para desarrolladores.",
+            "Una interfaz para teléfonos inteligentes.",
+            "Un ordenador de bolsillo."
+        ],
+        "question": "¿Qué es Android?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
