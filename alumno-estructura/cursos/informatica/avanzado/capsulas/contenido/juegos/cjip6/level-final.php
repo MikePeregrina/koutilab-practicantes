@@ -112,9 +112,9 @@
 
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -234,7 +234,7 @@
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = "../../../../../../../rutas/ruta-in-a.php"
+									window.location.href = "../../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php"
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado

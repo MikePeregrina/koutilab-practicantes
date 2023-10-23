@@ -198,7 +198,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 6) {

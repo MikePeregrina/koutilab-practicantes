@@ -14,9 +14,9 @@ const contexto = canvas.getContext("2d");
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 var incorrecto = document.createElement("audio");
-incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 // Apartado para seleccinador para relacionar columas
 const palabras = document.querySelectorAll('.word-box');
@@ -197,7 +197,7 @@ function mostrarResultados() {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-in-i.php';
+                    window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
                 }
             });
             

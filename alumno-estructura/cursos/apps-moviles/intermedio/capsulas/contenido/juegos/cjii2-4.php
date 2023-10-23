@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-i.php">
+			<a href="../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -331,7 +331,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-in-i.php';
+					window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
 				}
 			});
 			correcto.play(); //agregando sonido al juego completado

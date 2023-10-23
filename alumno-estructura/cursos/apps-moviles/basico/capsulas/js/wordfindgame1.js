@@ -247,7 +247,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-b.php';
+							window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
 						}
 					});
 					correcto.play(); //adjuntando sonido del juego completado

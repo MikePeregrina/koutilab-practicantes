@@ -197,7 +197,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-a.php';
+							window.location.href = '../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php';
 						}
 					});
 					correcto.play(); //agregando sonido del juego completado

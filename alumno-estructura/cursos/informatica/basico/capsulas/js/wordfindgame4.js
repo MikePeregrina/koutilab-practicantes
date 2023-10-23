@@ -6,9 +6,9 @@
  *     http://github.com/bunkat/wordfind
  */
 var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 	var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 (function (document, $, wordfind) {
     "use strict";
 
@@ -244,7 +244,7 @@ var correcto = document.createElement("audio");
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href =
-                            '../../../../../../rutas/ruta-in-b.php';
+                            '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                     correcto.play();

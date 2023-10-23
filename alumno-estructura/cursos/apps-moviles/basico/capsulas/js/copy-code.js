@@ -127,7 +127,7 @@ function alertExcelent() {
       if (result.isConfirmed) {
         //Borra el texto escrito
         escrito.value = "";
-        window.location.href = "../../../../../../rutas/ruta-in-b.php";
+        window.location.href = "../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php";
       }
     });
   } else {

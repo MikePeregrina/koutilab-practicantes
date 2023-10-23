@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7;");
@@ -152,9 +152,9 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
-        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        Incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
         //checar respuesta
 
         var puntos = <?php echo $puntosGanados; ?>;
@@ -190,7 +190,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -212,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -233,7 +233,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -254,7 +254,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 }

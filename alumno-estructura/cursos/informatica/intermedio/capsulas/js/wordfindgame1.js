@@ -214,7 +214,7 @@
 
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 
 		var endTurn = function () {
 			// see if we formed a valid word
@@ -246,7 +246,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-i.php';
+							window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
 						}
 					});
 					correcto.play(); //agregando el sonido de juego ganado

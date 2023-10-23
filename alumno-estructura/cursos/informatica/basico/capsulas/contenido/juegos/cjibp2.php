@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
@@ -46,7 +46,7 @@ if (empty($existe)) {
     </div>
     <section>
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-in-b.php">
+            <a href="../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php">
                 <button class="btn-b" style="float: left; position: relative; margin: 10px 0 0 10px;">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -151,9 +151,9 @@ if (empty($existe)) {
     <!-- Parte que modifique Final -->
     <script>
         var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
         var segundos = 5;
 
         let puntos = 0;
@@ -245,7 +245,7 @@ if (empty($existe)) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                     correcto.play();
@@ -257,7 +257,7 @@ if (empty($existe)) {
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 }

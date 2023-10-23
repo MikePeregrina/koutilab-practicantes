@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
@@ -46,7 +46,7 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-a.php">
+			<a href="../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -72,9 +72,9 @@ if (empty($existe)) {
 	<script>
 		//Se esta llamando los sonidos de la carpeta "sonidos"
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Arreglo de preguntas
 		var preguntas = [{
@@ -361,7 +361,7 @@ if (empty($existe)) {
 				confirmButtonText: "¡Genial!",
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-in-a.php';
+					window.location.href = '../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php';
 				}
 			});
 			correcto.play(); //agregando sonido al juego completado

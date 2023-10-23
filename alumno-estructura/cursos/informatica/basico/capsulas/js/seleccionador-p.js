@@ -14,7 +14,7 @@ const contexto = canvas.getContext("2d");
 
 		    //Se esta llamando los sonidos de la carpeta "sonidos"
             var correcto = document.createElement("audio");
-            correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+            correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 
 // Apartado para seleccinador para relacionar columas
 const palabras = document.querySelectorAll('.word-box');
@@ -194,7 +194,7 @@ function mostrarResultados() {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                    window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                 }
             });
             correcto.play(); //asignando sonido al juego completado

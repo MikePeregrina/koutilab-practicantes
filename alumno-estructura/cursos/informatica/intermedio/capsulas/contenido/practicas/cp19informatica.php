@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula46";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
@@ -94,9 +94,9 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         /*var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
-        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        Incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
@@ -281,7 +281,7 @@ if (isset($resultadoIntentos['intentos'])) {
         $archivoData = file_get_contents($archivoTemporal);
 
         // Conectar a la base de datos
-        include "../../../../../../../../acciones/conexion.php";
+        include "../../../../../../../acciones/conexion.php";
         if ($conexion->connect_error) {
             die('Error de conexión: ' . $conexion->connect_error);
         }
@@ -301,7 +301,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Aceptar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = '../../../../../../rutas/ruta-in-i.php';
+              window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
           }
         });
       </script>
@@ -318,7 +318,7 @@ if (isset($resultadoIntentos['intentos'])) {
           confirmButtonText: 'Reintentar',
         }).then((result) => {
           if (result.isConfirmed) {
-              window.location.href = '../../../../../../rutas/ruta-in-i.php';
+              window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
           }
         });
       </script>

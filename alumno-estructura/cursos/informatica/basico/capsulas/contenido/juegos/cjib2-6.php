@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula44";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
+			<a href="../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
 					<i class="fas fa-reply"></i></button>
 			</a>
 
@@ -195,7 +195,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-b.php';
+							window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
 						}
 					});
 					correcto.play(); //agregando sonido al juego completado
@@ -216,9 +216,9 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<script>
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		var segundos = 240;
 		let puntos = 0;

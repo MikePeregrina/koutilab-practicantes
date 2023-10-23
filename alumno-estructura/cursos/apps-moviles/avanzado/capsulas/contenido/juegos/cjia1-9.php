@@ -255,7 +255,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					imageHeight: 300,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.href = '../../../../../../rutas/ruta-in-a.php';
+						window.location.href = '../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php';
 					}
 				});
 				incorrecto.play(); //agregando sonido del juego no completado

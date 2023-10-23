@@ -214,9 +214,9 @@
 
 		//Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 	    var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var endTurn = function () {
 
 			// see if we formed a valid word
@@ -248,7 +248,7 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-a.php';
+							window.location.href = '../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php';
 						}
 					});
 					correcto.play(); //agregando sonido del juego completado

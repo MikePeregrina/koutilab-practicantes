@@ -17,6 +17,6 @@ $query = "INSERT INTO estadisticas_$rol(trofeos, progreso, puntos, practico, teo
 $query_run = mysqli_query($conexion, $query);
 
 if ($insertarPermisos) {
-    header('location: ../../../../../rutas/ruta-in-a.php');
+    header('location: ../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php');
     exit();
 }

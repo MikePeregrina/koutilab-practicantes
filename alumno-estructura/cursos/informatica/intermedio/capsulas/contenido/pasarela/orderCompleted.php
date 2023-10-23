@@ -1,3 +1,8 @@
+
+<?php
+session_start();
+$rol = $_SESSION['rol'];
+?>
 <?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +25,7 @@
         <img src="img/Thumbs-Up.gif" alt="" />
         <div>
             <button>
-                <a href="../../../../../../rutas/ruta-in-i.php"; return false; type="button">Regresar a la ruta</a>
+                <a href="../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php"; return false; type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>

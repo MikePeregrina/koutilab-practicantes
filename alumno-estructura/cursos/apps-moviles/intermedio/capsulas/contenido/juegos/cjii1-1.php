@@ -202,7 +202,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-i.php';
+							window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
 						}
 					});
 					correcto.play(); // se manda a traer la variable del sonido declarada en la linea 61

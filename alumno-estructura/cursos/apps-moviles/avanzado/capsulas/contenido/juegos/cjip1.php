@@ -276,7 +276,7 @@ if (empty($existe)) {
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php';
                         }
                     });
                     correcto.play(); //agregando sonido al juego completado

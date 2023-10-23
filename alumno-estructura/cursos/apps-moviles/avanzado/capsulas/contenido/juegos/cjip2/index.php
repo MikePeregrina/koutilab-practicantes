@@ -45,7 +45,7 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-in-a.php">
+			<a href="../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>

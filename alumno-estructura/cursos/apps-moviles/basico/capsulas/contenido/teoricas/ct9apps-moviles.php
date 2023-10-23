@@ -190,7 +190,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -212,7 +212,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -233,7 +233,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -254,7 +254,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            window.location.href = '../../../../../../rutas/ruta-in-b.php';
+                            window.location.href = '../../../../../../rutas/ruta-in-b-<?php echo $rol; ?>.php';
                         }
                     });
                 }
