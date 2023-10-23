@@ -1,6 +1,6 @@
 <?php
 
-include('../../../acciones/conexion.php');
+include('../../acciones/conexion.php');
 session_start();
 $id_user = $_SESSION['id_alumno'];
 $rol = $_SESSION['rol'];
@@ -34,49 +34,49 @@ switch ($portada) {
     case 1:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-1.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 2:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-2.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 3:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-3.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 4:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-4.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 5:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-5.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 6:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-6.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 7:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-7.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
     case 8:
         $cambio = mysqli_query($conexion, "UPDATE alumnos_$rol SET fondo = 'portada-8.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../$rol/perfil.php");
+            header("Location: ../perfil.php");
         }
         break;
 }

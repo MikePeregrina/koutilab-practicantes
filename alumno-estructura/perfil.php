@@ -400,14 +400,14 @@ if ($result_estrellas->num_rows > 0) {
 
 
                     <div class="Logo2">
-                        <img src="../$rol/img/Bienvenida.png" style="height: 110px; width:170px;">
+                        <img src="img/Bienvenida.png" style="height: 110px; width:170px;">
                     </div>
 
 
                     <div class="desplegable">
 
                         <button type="button" class="boton-opciones" id="" placeholder="Opciones">
-                            <div class="sing"> <img src="../$rol/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                            <div class="sing"> <img src="../img/ajustes.png" alt="" height="20px" width="20px" class="svg">
                             </div>
 
                             <div class="textB">
@@ -512,7 +512,7 @@ if ($result_estrellas->num_rows > 0) {
                     <h2>Cursos</h2>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-pw-b.php">
+                    <a href="rutas/ruta-pw-b-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>" data-scale-color="#ffb400">
@@ -527,7 +527,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r2 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-pw-i.php">
+                    <a href="rutas/ruta-pw-i-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>" data-scale-color="#ffb400">
@@ -541,7 +541,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r3 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-pw-a.php">
+                    <a href="rutas/ruta-pw-a-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
@@ -555,7 +555,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r4 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-py-b.php">
+                    <a href="rutas/ruta-py-b-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_python_basico)) echo $data_python_basico['progreso']; ?>" data-scale-color="#ffb400">
@@ -569,7 +569,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r5 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-py-i.php">
+                    <a href="rutas/ruta-py-i-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>" data-scale-color="#ffb400">
@@ -583,7 +583,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r6 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-py-a.php">
+                    <a href="rutas/ruta-py-a-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>" data-scale-color="#ffb400">
@@ -597,7 +597,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r7 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-in-b.php">
+                    <a href="rutas/ruta-in-b-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_informatica_basico)) echo $data_informatica_basico['progreso']; ?>" data-scale-color="#ffb400">
@@ -611,7 +611,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r8 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-in-i.php">
+                    <a href="rutas/ruta-in-i-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_informatica_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
@@ -625,7 +625,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r9 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-in-a.php">
+                    <a href="rutas/ruta-in-a-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_informatica_avanzado)) echo $data_informatica_avanzado['progreso']; ?>" data-scale-color="#ffb400">
@@ -639,7 +639,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r10 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-vj-b.php">
+                    <a href="rutas/ruta-vj-b-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_basico)) echo $data_videojuegosunity_basico['progreso']; ?>" data-scale-color="#ffb400">
@@ -653,7 +653,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r11 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-vj-i.php">
+                    <a href="rutas/ruta-vj-i-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
@@ -667,7 +667,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r12 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-vj-a.php">
+                    <a href="rutas/ruta-vj-a-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_videojuegosunity_avanzado)) echo $data_videojuegosunity_avanzado['progreso']; ?>" data-scale-color="#ffb400">
@@ -681,7 +681,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r13 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-apps-b.php">
+                    <a href="rutas/ruta-apps-b-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_appsmoviles_basico)) echo $data_appsmoviles_basico['progreso']; ?>" data-scale-color="#ffb400">
@@ -695,7 +695,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r14 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-apps-i.php">
+                    <a href="rutas/ruta-apps-i-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_appsmoviles_intermedio)) echo $data_informatica_intermedio['progreso']; ?>" data-scale-color="#ffb400">
@@ -709,7 +709,7 @@ if ($result_estrellas->num_rows > 0) {
                     </a>
                 </div>
                 <div class="card" <?php echo 'style="height: 300px;' . (($existe_verificar_r15 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
-                    <a href="rutas/ruta-apps-a.php">
+                    <a href="rutas/ruta-apps-a-<?php echo $rol; ?>.php">
                         <div class="container">
                             <div class="box">
                                 <div class="chart" data-percent="<?php if (isset($data_appsmoviles_avanzado)) echo $data_appsmoviles_avanzado['progreso']; ?>" data-scale-color="#ffb400">
@@ -1468,7 +1468,7 @@ if ($result_estrellas->num_rows > 0) {
 
         <footer class="footerimga">
             <div class="imagen-footer">
-                <img src="../$rol/img/benvenida.png" alt="No-image">
+                <img src="../img/benvenida.png" alt="No-image">
             </div>
         </footer>
 

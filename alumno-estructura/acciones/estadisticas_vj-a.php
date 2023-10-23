@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../acciones/cerrarsesion.php');
 }
 
-include('../../../acciones/conexion.php');
+include('../../acciones/conexion.php');
 
 // Función para actualizar las estrellas
 /*function actualizarEstrellas($id_user, $conexion)
@@ -596,7 +596,7 @@ if ($result_estrellas->num_rows > 0) {
 
 
     <div class="containers">
-        <a href="../rutas/ruta-vj-a.php"><button class="btn-b"><i class="fas fa-reply fa-lg"></i></button></a>
+        <a href="../rutas/ruta-vj-a-<?php echo $rol; ?>.php"><button class="btn-b"><i class="fas fa-reply fa-lg"></i></button></a>
         <h1>CURSO DE VIDEOJUEGOS UNITY AVANZADO DE KOUTILAB</h1>
     </div>
 
@@ -688,7 +688,7 @@ if ($result_estrellas->num_rows > 0) {
 
     <footer class="footerimga">
         <div class="imagen-footer">
-            <img src="../img/benvenida.png" alt="No-image">
+            <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
 

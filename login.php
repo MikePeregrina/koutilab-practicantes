@@ -130,12 +130,12 @@ if (isset($_POST['iniciar_sesion'])) {
                 $dato_alumno = mysqli_fetch_array($query_alumno);
                 $_SESSION['active'] = true;
                 $_SESSION['rol'] = 'primaria';
-                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
+                $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
                 $_SESSION['nombre'] = $dato_alumno['nombre'];
                 $_SESSION['user'] = $dato_alumno['usuario'];
                 $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
                 /*AÑADIENDO NUEVA CONEXIÓN */
-                $id_usuario = $_SESSION['id_alumno'];
+                $id_usuario = $_SESSION['id_alumno_primaria'];
                 $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_primaria', $id_usuario)");
                 //Contador de conexiones
                 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = $id_usuario"));
