@@ -7,6 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 include "../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno'];
 $rol = $_SESSION['rol'];
+$id_escuela = $_SESSION['id_escuela'];
 
 $permiso = "5";
 $sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_$rol a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
