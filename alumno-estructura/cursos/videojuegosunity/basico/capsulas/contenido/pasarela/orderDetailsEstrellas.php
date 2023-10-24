@@ -4,7 +4,7 @@ $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
 if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['id_curso']) && !empty($_GET['payment_amount'])) {
     $payment_amount = $_GET['payment_amount'];

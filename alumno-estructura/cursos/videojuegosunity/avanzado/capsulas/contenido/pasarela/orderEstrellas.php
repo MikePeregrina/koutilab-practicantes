@@ -4,7 +4,7 @@ $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
 // Consulta para obtener la cantidad de estrellas para el alumno específico
 $sql_estrellas = "SELECT estrellas FROM total_estrellas_$rol WHERE id_alumno = $id_user";
