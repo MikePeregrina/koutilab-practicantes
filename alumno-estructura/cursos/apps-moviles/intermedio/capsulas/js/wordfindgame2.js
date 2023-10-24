@@ -217,6 +217,7 @@
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 
 		var endTurn = function () {
+
 			// see if we formed a valid word
 			for (var i = 0, len = wordList.length; i < len; i++) {
 
@@ -229,13 +230,13 @@
 				if (wordList.length === 0) {
 					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 8; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjhtml8.php'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 350,
 						backdrop: `
@@ -246,10 +247,10 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-i-<?php echo $rol; ?>.php';
+							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
 						}
 					});
-					correcto.play(); //agregando el sonido de juego ganado
+					correcto.play(); //agregando sonido al juego completado
 				}
 			}
 

@@ -211,12 +211,6 @@
 		* resets the game state to start a new word.
 		*
 		*/
-
-		//Se esta llamando los sonidos de la carpeta "sonidos"
-        var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-	    var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var endTurn = function () {
 
 			// see if we formed a valid word
@@ -229,12 +223,12 @@
 				}
 
 				if (wordList.length === 0) {
-					$('.puzzleSquare').addClass('complete');
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 9; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 25 +"&id_curso=" + 12; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
+					$('.puzzleSquare').addClass('complete');
 					Swal.fire({
 						title: '¡Bien hecho!',
 						text: '¡Puntuación guardada con éxito!',
@@ -248,10 +242,9 @@
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-in-a-<?php echo $rol; ?>.php';
+							window.location.href = '../../../../../../rutas/ruta-apps-a.php';
 						}
 					});
-					correcto.play(); //agregando sonido del juego completado
 				}
 			}
 
