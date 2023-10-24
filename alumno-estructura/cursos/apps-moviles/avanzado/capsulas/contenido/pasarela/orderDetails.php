@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active'])) {
 	header('location: ../../../../../../../../index.php');
 }

@@ -1,7 +1,7 @@
 <!-- PERMISOS PARA JUEGOS -->
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 include('../../../../../../../acciones/conexion.php');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
