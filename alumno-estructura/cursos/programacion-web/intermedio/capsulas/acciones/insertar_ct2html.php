@@ -3,7 +3,7 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
-include('../../../../../../../acciones/conexion.php');
+include('../../../../../../acciones/conexion.php');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -40,7 +40,7 @@ if ($pregunta == 'correcto') {
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_$rol SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-pw-i.php');
+        header("Location: ../../../../../rutas/ruta-pw-i-" . $rol . ".php");
         exit();
     }
 }

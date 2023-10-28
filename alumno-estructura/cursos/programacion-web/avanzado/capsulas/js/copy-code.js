@@ -3,7 +3,7 @@ var segundos = 240;
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 var incorrecto = document.createElement("audio");
 incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
@@ -135,7 +135,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = "../../../../../../rutas/ruta-pw-a.php";
+                window.location.href = "../../../../../../rutas/ruta-pw-a-<?php echo $rol; ?>.php";
             }
         });
     } else {

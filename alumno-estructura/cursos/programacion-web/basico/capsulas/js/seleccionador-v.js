@@ -135,7 +135,7 @@ function checkAnswer(respuesta) {
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 
 
 // Agregar evento de clic al botón de comprobar respuestas

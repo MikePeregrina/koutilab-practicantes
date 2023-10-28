@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
-include('../../../../../../../../../acciones/conexion.php');
+include('../../../../../../../../acciones/conexion.php');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -45,9 +45,9 @@ if ($totalEstrellas <= 15) {
     $insertarEstrellas = mysqli_query($conexion, "UPDATE estrellas_$rol SET estrellas = '$sumarEstrellas' WHERE id_capsula = '$id_capsula' AND id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarEstrellas) {
-        header('location: ../../../../../../../../../rutas/ruta-pw-b.php');
+        header("location: ../../../../../../../rutas/ruta-pw-b-" . $rol . ".php");
         exit();
     }
 } else {
-    header('location: ../../../../../../../../../rutas/ruta-pw-b.php');
+    header("location: ../../../../../../../rutas/ruta-pw-b-" . $rol . ".php");
 }
