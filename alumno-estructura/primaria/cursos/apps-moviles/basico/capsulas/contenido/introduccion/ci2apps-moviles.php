@@ -1,15 +1,15 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
 
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
-$id_user = $_SESSION['id_alumno_primaria'];
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula26";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 13");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 13");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -55,24 +55,12 @@ if (empty($existe) && $id_user != 1) {
                     <li>
                         <a itlist="itList_5" href="#"></a>
                     </li>
-                    <li>
-                        <a itlist="itList_6" href="#"></a>
-                    </li>
-                    <li>
-                        <a itlist="itList_7" href="#"></a>
-                    </li>
-                    <li>
-                        <a itlist="itList_8" href="#"></a>
-                    </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/apps-moviles/In/1.jpg'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/apps-moviles/In/2.jpg');"></li>
-                    <li style="background-image: url('../../img/apps-moviles/In/3.jpg');"></li>
-                    <li style="background-image: url('../../img/apps-moviles/In/4.jpg');"></li>
-                    <li style="background-image: url('../../img/apps-moviles/In/5.jpg');"></li>
-                    <li style="background-image: url('../../img/apps-moviles/In/6.jpg');"></li>
-                    <li style="background-image: url('../../img/apps-moviles/In/7.jpg');"></li>
+                    <li style="background-image: url('../../img/2/I/129.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/2/I/130.gif');"></li>
+                    <li style="background-image: url('../../img/2/I/131.gif');"></li>
+                    <li style="background-image: url('../../img/2/I/132.gif');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                             <input type="hidden" name="permiso" value="27">

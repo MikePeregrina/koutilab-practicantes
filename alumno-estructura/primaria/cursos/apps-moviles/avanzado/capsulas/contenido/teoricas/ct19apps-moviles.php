@@ -1,25 +1,25 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+include "../../../../../../../acciones/conexion.php";
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsulapago4";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 15;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 15;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium4.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 14;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 15");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 15");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 15");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 15");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -47,19 +47,10 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css" />
     <link rel="stylesheet" href="../../css/carrusel.css" />
-    <link rel="stylesheet" href="./css/memorama-teorica.css" /> <!-- Agregar css de memorama -->
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
-    <!-- De aqui -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <!-- Hasta aqui -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -96,26 +87,24 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
+
+
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/apps-moviles/2/T7.5/110.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/apps-moviles/2/T7.5/111.gif');"></li>
-                        <li style="background-image: url('../../img/apps-moviles/2/T7.5/112.gif');"></li>
-                        <li style="background-image: url('../../img/apps-moviles/2/T7.5/113.gif');"></li>
-                        <li>
-                            <!-- Copiar de aqui -->
-                            <div class="memorama">
-                                <!-- Generador del tablero -->
-                                <div id="tablero"></div>
-                                <!-- Boton de iniciar juego, al iniciar, desaparece -->
-
-                                <div class="nuevo-juego" id="generar" onclick="generarTablero()">
-                                    Iniciar juego
-                                </div>
-                            </div>
-                            <!-- Hasta aqui -->
-                        </li>
-                        <li style="background-image: url('../../img/apps-moviles/2/T7.5/114.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/143.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/142.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/144.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/145.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/146.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/147.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/148.gif');"></li>
+                        <li style="background-image: url('../../img/apps-moviles/T19/149.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
@@ -373,116 +362,4 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../js/functions.js"></script>
-    <!-- De aqui -->
-    <script>
-        let cantidadTarjetas = 12;
-        let iconos = []
-        let selecciones = []
-
-        //Iconos pertenecientes a las tarjetas
-        //Solo modificar iconos
-        function cargarIconos() {
-            iconos = [
-                '<img src="img/img-minijuegos/a (1).png" height="60px" width="50px" >',
-                '<img src="img/img-minijuegos/a (2).png" height="60px" width="50px" >',
-                '<img src="img/img-minijuegos/a (3).png" height="60px" width="50px" >',
-                '<img src="img/img-minijuegos/a (4).png" height="60px" width="50px" >',
-                '<img src="img/img-minijuegos/a (5).png" height="60px" width="50px" >',
-                '<img src="img/img-minijuegos/a (6).png" height="60px" width="50px" >'
-            ]
-        }
-
-        //Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
-        function generarTablero() {
-            cargarIconos();
-            document.getElementById("tablero").style.display = "block"; //Agregar este coso
-            $('#generar').remove();
-            let len = iconos.length
-            selecciones = []
-            let tablero = document.getElementById("tablero")
-            let tarjetas = []
-
-            for (let i = 0; i < cantidadTarjetas; i++) {
-                tarjetas.push(`
-                <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
-                    <div class="tarjeta" id="tarjeta${i}">
-                        <div class="cara trasera" style="display: flex;
-    justify-content: center;
-    align-items: center;" id="trasera${i}">
-                            ${iconos[0]}
-                        </div>
-                        <div class="cara superior" style="display: flex;
-    justify-content: center;
-    align-items: center;">
-                            <i class="far fa-question-circle"></i>
-                        </div>
-                    </div>
-                </div>        
-                `)
-                if (i % 2 == 1) {
-                    iconos.splice(0, 1)
-                }
-            }
-            tarjetas.sort(() => Math.random() - 0.5)
-            tablero.innerHTML = tarjetas.join(" ")
-        }
-
-        //Selecionador de tarjetas
-        function seleccionarTarjeta(i) {
-            let tarjeta = document.getElementById("tarjeta" + i)
-            if (tarjeta.style.transform != "rotateY(180deg)") {
-                tarjeta.style.transform = "rotateY(180deg)"
-                selecciones.push(i)
-            }
-            if (selecciones.length == 2) {
-                deseleccionar(selecciones)
-                selecciones = []
-            }
-        }
-
-        //Quitar seleccion y verificar que la tarjeta sea identica a su par
-        function deseleccionar(selecciones) {
-            setTimeout(() => {
-                let trasera1 = document.getElementById("trasera" + selecciones[0])
-                let trasera2 = document.getElementById("trasera" + selecciones[1])
-                if (trasera1.innerHTML != trasera2.innerHTML) {
-                    let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
-                    let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
-                    tarjeta1.style.transform = "rotateY(0deg)"
-                    tarjeta2.style.transform = "rotateY(0deg)"
-                } else {
-                    trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
-                    trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
-                }
-                if (verificar()) {
-                    Swal.fire({
-                        title: '¡Bien hecho!',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "img/Thumbs-Up.gif",
-                        imageHeight: 300,
-                        backdrop: `
-									rgba(0,143,255,0.6)
-									url("img/fondo.gif")
-									`,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    });
-
-
-                }
-            }, 1000);
-        }
-
-        //Verificar si ambas son iguales
-        function verificar() {
-            for (let i = 0; i < cantidadTarjetas; i++) {
-                let trasera = document.getElementById("trasera" + i);
-                if (trasera.style.background != "rgba(149, 255, 0, 0.45)") {
-                    return false;
-                }
-            }
-            return true;
-        }
-    </script>
-    <!-- Hasta aqui -->
 </body>

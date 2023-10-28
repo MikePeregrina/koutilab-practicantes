@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+	header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+include "../../../../../../../acciones/conexion.php";
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula35";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 36;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 14");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 14");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 14");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 14");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -139,9 +139,9 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		var segundos = 240;
 

@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+	header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+include "../../../../../../../acciones/conexion.php";
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula38";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 39;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 14");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 14");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 14");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 14");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -42,16 +42,15 @@ if (isset($resultadoIntentos['intentos'])) {
 <html lang="es">
 
 <head>
-<link rel="stylesheet" type="text/css" href="../../css/css-juegos/sopa-letras.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="../../js/wordfind.js"></script>
-	<script type="text/javascript" src="../../js/wordfindgame2.js"></script>
-	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../../css/css-juegos/preg-ag.css" /><!--Linkeo de la hoja de estilos-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 </head>
 
 <body onload="iniciarTiempo()">
@@ -71,32 +70,22 @@ if (isset($resultadoIntentos['intentos'])) {
 	<section>
 
 		<div class="cont-st">
-			<a href="#" onclick="history.back();">
+			<a href="../../../../../../rutas/ruta-apps-i.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
-			<h6 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h6>
+			<h4 class="titulo"><b>Desliza las tarjetas haciendo click en ellas para desplazarlas y descubrir la imagen real</b></h4>
 		</div>
-		<!--FIN  CAMBIOS -->
-
-		<!--CONTENEDOR DEL JUEGO-->
-		<div class="mjuego">
-			<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
-			<div class="words">
-				<div class="title-h6">
-					<h4><b>Palabras a buscar:</b></h4>
-				</div>
-				<div id='Palabras'></div>
-			</div>
-
-			<!-- Sección donde se agrega la sopa de letras -->
-			<div class="soup">
-				<div id='juego' style="margin: 0 0 0 40px;"></div>
-			</div>
+		<!--fIN CAMBIOS -->
+		<!--Contenedor de las preguntas y respuestas-->
+		<div class="main-ctn" id="main-ctn">
+			<div class="opt-ctn" id="opt-ctn"></div>
 		</div>
-
+		<!-- boton de verificar respuestas - No necesario para la sección-->
+		<!--<button class="verificar" onClick="alertExcelent()">Siguiente Sección</button>-->
 	</section>
+
 	<!-- CAMBIOS -->
 	<footer class="footerimga">
 		<div class="imagen-footer">
@@ -105,57 +94,151 @@ if (isset($resultadoIntentos['intentos'])) {
 	</footer>
 	<!-- fIN CAMBIOS -->
 	<script>
-		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
-		// para mantener proporcion
-		var words = ['VARIABLES', 'KOTLIN', 'VAL', 'VAR', 'DATOS', 'CADENAS', 'NULL', 'MUTABLES'];
-		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
+		//Funcion que agrega el sonido al juego
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
+		var incorrecto = document.createElement("audio");
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
-		var puzzle = wordfind.newPuzzle(words, {
-			height: 18,
-			width: 18,
-			fillBlanks: false
-		});
-		wordfind.print(puzzle);
+		//Arreglo de preguntas
+		var preguntas = [{
+				num: 1,
+				pregunta: "Son el fundamento de la programación orientada a objetos (POO)",
+				opA: "Clases",
+				opB: "Herencia",
+				opC: "Atributo",
+				correcta: "A",
+				tiempo: "30",
+			},
+			{
+				num: 2,
+				pregunta: "Son instancias de una clase y representan entidades del mundo real ",
+				opA: "Metodo",
+				opB: "Objetos",
+				opC: "Atributo",
+				correcta: "B",
+				tiempo: "20",
+			},
+			{
+				num: 3,
+				pregunta: "Es una función que se define dentro de una clase y se utiliza para representar el comportamiento de un objeto.",
+				opA: "Metodo",
+				opB: "Atributo",
+				opC: "Objeto",
+				correcta: "A",
+				tiempo: "30",
+			},
+			{
+				num: 4,
+				pregunta: "Son las propiedades que pueden asumir los objetos dentro de una clase",
+				opA: "Clase",
+				opB: "Metodo",
+				opC: "Atributo",
+				correcta: "C",
+				tiempo: "30",
+			},
+			{
+				num: 5,
+				pregunta: "Para declarar una clase en Kotlin, ¿se utiliza la palabra clave class?",
+				opA: "Ambas",
+				opB: "Falso",
+				opC: "Cierto",
+				correcta: "C",
+				tiempo: "30",
+			}
+		];
 
-		$('#solve').click(function() {
-			wordfindgame.solve(gamePuzzle, words);
-		});
-	</script>
-	<script>
-		//se esta llamando los sonidos de la carpeta "sonidos"
-		var Correcto = document.createElement("audio");
-		Correcto.src = "../../acciones/sonidos/correcto.mp3";
-		var Incorrecto = document.createElement("audio");
-		Incorrecto.src = "../../acciones/sonidos/incorrecto.mp3";
+		var puntos = 0; //Leva el conteo de puntos/aciertos
+		var seleccion; //Guarda la respuesta elegida
+		var contador = 1; //Lleva el conteo de preguntas
+		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
 
-		var segundos = 240;
-		var count = 1000;
-		let puntos = 0;
+		function getRandomInt(max) {
+			//para generar números random enteros
+			return Math.floor(Math.random() * max);
+		}
 
+		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
+		var random; //para el index de la pregunta a mostrar
+
+		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
+		var randomRes; //para el index de la respuesta a mostrar
+
+
+		function ponerRespuesta() {
+			if (randomRes == 0) {
+				document.getElementById("opt-ctn").innerHTML +=
+					'<button class="btn-opt" value="A" onClick="guardarRespuestaA()" id="optA">' +
+					this.preguntas[this.random].opA +
+					"</button>";
+			} else if (randomRes == 1) {
+				document.getElementById("opt-ctn").innerHTML +=
+					'<button class="btn-opt" value="B" onClick="guardarRespuestaB()" id="optB">' +
+					this.preguntas[this.random].opB +
+					"</button>";
+			} else if (randomRes == 2) {
+				document.getElementById("opt-ctn").innerHTML +=
+					'<button class="btn-opt" value="C" onClick="guardarRespuestaC()" id="optC">' +
+					this.preguntas[this.random].opC +
+					"</button>";
+			}
+		}
+
+		function ponerPregunta() {
+			//Actualiza las preguntas
+			document.getElementById("main-ctn").innerHTML =
+				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
+				this.contador +
+				"/5</p>" +
+				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
+				"<p>" +
+				this.preguntas[this.random].pregunta +
+				"</p>" +
+				"</div></div>" +
+				'<div class="opt-ctn" id="opt-ctn"></div>';
+
+			this.randomRes = getRandomInt(3); //Genera el index de respuesta random para cambiar el orden de las respuestas
+			this.resPas.push(randomRes); //agrega el primer index al arreglo
+			ponerRespuesta(); //muestra la respuesta
+
+			while (this.resPas.length < 3) { //para desordenar las 2 respuestas restantes
+				this.randomRes = getRandomInt(3);
+				let found2 = resPas.find((element) => element == this.randomRes);
+				while (found2 == this.randomRes) {
+					//Si el random corresponde a una respuesta ya mostrada, se genera un nuevo random
+					this.randomRes = getRandomInt(3);
+					found2 = resPas.find((element) => element == this.randomRes);
+				}
+				ponerRespuesta();
+				this.resPas.push(randomRes); //Se agrega el random al arreglo para evitar repetir la respuesta
+			}
+			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+		}
+		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
 		function iniciarTiempo() {
-			document.getElementById("tiempo").innerHTML =
-				segundos + " segundos";
-			if (segundos <= 60) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+			noRepeat++;
+			if (noRepeat < 2) {
+				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
+				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
+				ponerPregunta(); //Muestra la pregunta
 			}
-			if (segundos <= 30) {
+			document.getElementById("tiempo").innerHTML = segundos + " segundos";
+			if (segundos > 15) {
 				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
-			}
-			if (segundos <= 10) {
+				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7);";
+			} else if (segundos == 15) {
 				var div = document.getElementById("timer");
-				div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
+			} else if (segundos < 10) {
+				var div = document.getElementById("timer");
+				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+
 			}
 			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 21 + "&id_curso=" + 10; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_pd21.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
 				Swal.fire({
-					title: "Oops...",
-					text: "Se acabó el tiempo",
+					title: "Oops... Te has quedado sin tiempo",
+					text: "¡Intentalo de nuevo!",
 					imageUrl: "../../img/img-juegos/loop.gif",
 					imageHeight: 350,
 				}).then((result) => {
@@ -163,20 +246,120 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
-				Incorrecto.play(); //Agregando sonido al juego no completado
-				loseText.setText("Juego terminado");
-				player.setTint(0xff0000);
-				player.anims.play("turn");
-				gameoverSound();
-				gameOver = true;
+				incorrecto.play(); //agregando sonido al jurgo no completado
 			} else {
 				segundos--;
-				setTimeout("iniciarTiempo()", count);
+				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
+
+		//Función para verificar la respuesta correcta
+		function evaluarRespuesta() {
+			if (this.seleccion == this.preguntas[random].correcta) {
+				this.puntos = this.puntos + 1;
+				this.contador = this.contador + 1;
+
+				if (this.puntos == 5) {
+					//Cuando haya acertado las 10 preguntas
+					alertExcelent();
+				} else {
+					this.random = getRandomInt(5);
+					let found = prePas.find((element) => element == this.random);
+					while (found == this.random) {
+						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
+						this.random = getRandomInt(5);
+						found = prePas.find((element) => element == this.random);
+					}
+					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
+					this.resPas = [];
+					ponerPregunta(); //Muestra la pregunta
+					this.errores = 0; //Inicializa errores
+					this.segundos = this.preguntas[random].tiempo; //fijando nuevo tiempo por pregunta
+					console.log("Correcto");
+					alertGood();
+				}
+			} else {
+				console.log("Incorrecto");
+				this.errores = this.errores + 1;
+				if (this.errores > 1) {
+					Swal.fire({
+						title: "Oops... Has perdido el juego",
+						text: "¡Inténtalo de nuevo!",
+						imageUrl: "../../img/img-juegos/loop.gif",
+						imageHeight: 350,
+					}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.reload();
+						}
+					});
+				} else {
+					alertBad();
+				}
+			}
+		}
+
+		//Funciones para guardar la respuesta elegida
+		function guardarRespuestaA() {
+			let res = document.getElementById("optA").value;
+			seleccion = res;
+			evaluarRespuesta();
+		}
+
+		function guardarRespuestaB() {
+			let res = document.getElementById("optB").value;
+			seleccion = res;
+			evaluarRespuesta();
+		}
+
+		function guardarRespuestaC() {
+			let res = document.getElementById("optC").value;
+			seleccion = res;
+			evaluarRespuesta();
+		}
+
+		//Alerta muestra que el juego fue completado
+		function alertExcelent() {
+			Swal.fire({
+				title: "Excelente",
+				text: "¡Buen trabajo!",
+				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+				imageHeight: 350,
+				backdrop: `
+						rgba(0,143,255,0.6)
+						url("../../img/img-juegos/fondo.gif")`,
+				confirmButtonColor: "#a14cd9",
+				confirmButtonText: "¡Genial!",
+			}).then((result) => {
+				if (result.isConfirmed) {
+					window.location.href = '../../../../../../rutas/ruta-apps-i.php';
+				}
+			});
+			correcto.play(); //agregando sonido al juego completado
+		}
+
+		//Alerta, muestra que la respuesta fue correcta
+		function alertGood() {
+			Swal.fire({
+				position: "center",
+				icon: "success",
+				title: "¡Respuesta Correcta!",
+				//background: '#fff url(/img/fondo.gif)',
+				showConfirmButton: false,
+				timer: 1500,
+			});
+		}
+
+		//Alerta, muestra que la respuesta fue incorrecta
+		function alertBad() {
+			Swal.fire({
+				position: "center",
+				icon: "error",
+				title: "Incorrecto, te queda una oportunidad",
+				showConfirmButton: false,
+				timer: 1800,
+			});
+		}
 	</script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+	header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+include "../../../../../../../acciones/conexion.php";
+$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 4;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria  WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_$rol WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -184,10 +184,10 @@ if (isset($resultadoIntentos['intentos'])) {
 					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
 					tarjeta1.style.transform = "rotateY(0deg)"
 					tarjeta2.style.transform = "rotateY(0deg)"
-					var incorrecto = new Audio('../../../../../../../../acciones/sonidos/no.mp3');
+					var incorrecto = new Audio('../../../../../../../acciones/sonidos/no.mp3');
 				    incorrecto.play();
 				} else {
-					var correcto = new Audio('../../../../../../../../acciones/sonidos/si.mp3');
+					var correcto = new Audio('../../../../../../../acciones/sonidos/si.mp3');
 					correcto.play();
 					trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
@@ -216,7 +216,7 @@ if (isset($resultadoIntentos['intentos'])) {
 							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
 						}
 					});
-					correcto.play(); //agregando sonido al juego completado
+					alerta1.play(); //agregando sonido al juego completado
 				}
 			}, 1000);
 		}
@@ -238,10 +238,10 @@ if (isset($resultadoIntentos['intentos'])) {
 		let puntos = 0;
 
 		//Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		var alerta1 = document.createElement("audio");
+		alerta1.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var alerta2 = document.createElement("audio");
+		alerta2.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
@@ -276,7 +276,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //agregando sonido al juego no completado
+				alerta2.play(); //agregando sonido al juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
@@ -286,7 +286,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 <script>
 		function reproducirSonido() {
-			var sonido = new Audio('../../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
+			var sonido = new Audio('../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
 			sonido.loop = true; // Establece la propiedad loop en true para repetir el sonido
 			sonido.play(); // Reproduce el sonido
 			

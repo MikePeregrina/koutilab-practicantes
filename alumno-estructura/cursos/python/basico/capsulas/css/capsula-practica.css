@@ -312,3 +312,104 @@ h3 {
   border-radius: 10px;
   margin-left: 10%;
 }
+
+/*Teclado*/
+
+.boton-fijo {
+  position: fixed;  
+  bottom: 35px;  
+  right: 35px;  
+  background-color: #353535;  
+  color: #fff; 
+  width: 80px;  
+  height: 80px;  
+  border: none; 
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.boton-fijo:hover {
+  transition: ease-in-out 0.5s;
+  background-color: #36b7fb;  
+  color: #000000;  
+}
+
+#virtual-keyboard {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+}
+
+.key {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  font-size: 18px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.key:hover {
+  background-color:#ccc;
+}
+
+.close-keyboard {
+  background-color: #36b7fb;
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  font-size: 16px;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-keyboard:hover {
+  color: black;
+}
+
+/* Estilo para el botón "Borrar" */
+.delete {
+  background-color: #525252; /* Cambia el color según tus preferencias */
+  color: white;
+  width: 145px;
+  height: 50px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete:hover{
+  background-color: #3e3e3e;
+}
+
+/* Estilo para el botón "Espacio" */
+.space {
+  background-color: #525252; /* Cambia el color según tus preferencias */
+  color: white;
+  width: 230px;
+  height: 50px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.space:hover{
+  background-color: #3e3e3e;
+}
+
+/*Fin de teclado*/

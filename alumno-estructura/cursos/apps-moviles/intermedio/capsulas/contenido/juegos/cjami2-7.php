@@ -2,9 +2,9 @@
 session_start();
 $$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula47";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
@@ -182,10 +182,10 @@ if (isset($resultadoIntentos['intentos'])) {
 					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
 					tarjeta1.style.transform = "rotateY(0deg)"
 					tarjeta2.style.transform = "rotateY(0deg)"
-					var incorrecto = new Audio('../../../../../../../../acciones/sonidos/no.mp3');
+					var incorrecto = new Audio('../../../../../../../acciones/sonidos/no.mp3');
 				    incorrecto.play();
 				} else {
-					var correcto = new Audio('../../../../../../../../acciones/sonidos/si.mp3');
+					var correcto = new Audio('../../../../../../../acciones/sonidos/si.mp3');
 					correcto.play();
 					trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
@@ -270,7 +270,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 <script>
 		function reproducirSonido() {
-			var sonido = new Audio('../../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
+			var sonido = new Audio('../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
 			sonido.loop = true; // Establece la propiedad loop en true para repetir el sonido
 			sonido.play(); // Reproduce el sonido
 			
