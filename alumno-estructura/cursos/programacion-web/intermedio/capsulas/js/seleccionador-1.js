@@ -14,7 +14,7 @@ const contexto = canvas.getContext("2d");
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 
 
 // Apartado para seleccinador para relacionar columas

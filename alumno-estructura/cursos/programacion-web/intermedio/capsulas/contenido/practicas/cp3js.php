@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
@@ -282,7 +282,7 @@ textInputs.forEach(input => {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 

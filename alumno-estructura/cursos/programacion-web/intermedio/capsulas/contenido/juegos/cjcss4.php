@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula29";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- Boton para regresar -->
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+        <a href="../../../../../../rutas/ruta-pw-i-<?php echo $rol; ?>.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
 

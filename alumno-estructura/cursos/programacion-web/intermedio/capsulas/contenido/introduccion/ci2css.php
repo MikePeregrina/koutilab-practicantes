@@ -4,7 +4,7 @@ $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula17";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
