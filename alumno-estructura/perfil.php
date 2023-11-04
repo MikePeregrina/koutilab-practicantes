@@ -9,45 +9,6 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
 
 include('../acciones/conexion.php');
 
-// Función para actualizar las estrellas
-function actualizarEstrellas($id_user, $conexion, $rol)
-{
-    // Consulta para obtener el número de conexiones del alumno
-    $sql = "SELECT conexiones FROM alumnos_$rol WHERE id_alumno = $id_user";
-    $result = $conexion->query($sql);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $total_conexiones = $row['conexiones'];
-        //Verificar estrellas en total_estrellas_$rol
-        $sql = mysqli_query($conexion, "SELECT * FROM total_estrellas_$rol WHERE id_alumno = '$id_user'");
-        $result_sql = mysqli_num_rows($sql);
-
-        if ($result_sql == 0) {
-            $sql =  mysqli_query($conexion, "INSERT INTO total_estrellas_$rol (id_alumno, estrellas) VALUES ($id_user, 1)");
-        }
-
-        // Si es múltiplo de 20 o es la primera conexión, insertar una estrella en la tabla total_estrellas_$rol
-        if ($total_conexiones % 20 == 0) {
-            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_$rol
-            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_$rol SET estrellas = estrellas + 1 WHERE id_alumno = $id_user");
-        } else {
-            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_$rol
-            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_$rol SET estrellas = estrellas + 0 WHERE id_alumno = $id_user");
-        }
-    }
-}
-
-
-// Verifica si la variable de sesión "actualizacion_realizada" no está definida
-if (!isset($_SESSION['actualizacion_realizada'])) {
-    // Llama a la función para actualizar las estrellas
-    actualizarEstrellas($id_user, $conexion, $rol);
-
-    // Establece la variable de sesión "actualizacion_realizada" para indicar que la actualización ya se hizo
-    $_SESSION['actualizacion_realizada'] = true;
-}
-
 //Verificar si ya se tiene permiso en ruta 1
 $permiso_ruta_r1 = "1";
 $sql_verificar_r1 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_$rol a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r1'");
