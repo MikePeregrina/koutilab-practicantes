@@ -193,7 +193,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					var puntos = <?php echo $puntosGanados; ?>
 
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 30 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 30 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -259,7 +259,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			//document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 30 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 30 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
