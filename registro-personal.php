@@ -557,6 +557,13 @@ if (isset($_POST['iniciar_sesion'])) {
 
 <body onload="recuperarDatos()">
     <div class="container">
+        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+        <div class="nav" id="nav">
+            <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
+            <p class="btn-nav">Adquiere un paquete</p>
+            <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
+            <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
+        </div>
         <div class="info-box">
             <div class="titl-info">
                 <p>Bienvenido a</p>
@@ -593,7 +600,8 @@ if (isset($_POST['iniciar_sesion'])) {
                 <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
 
                 </div>
-                <?php // echo isset($alert) ? $alert : ''; ?>
+                <?php // echo isset($alert) ? $alert : ''; 
+                ?>
 
                 <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span style="margin: 0 0 -10px 0;">Recordar contraseña</span>
 
@@ -668,14 +676,39 @@ if (isset($_POST['iniciar_sesion'])) {
 
                 </div> -->
 
-                <input type="checkbox" class="check-box1" required><span>Acepto los términos y condiciones</span>
+                <input type="checkbox" class="check-box1" required><span>Acepto los <a class="term" href="./acciones/pdf/Términos y condiciones_KoutiLab.pdf" target="_blank">términos y condiciones</a></span>
 
                 <div class="sub-btn" style="margin: -10px 0 0 0;">
                     <button type="submit" name="registrar_usuario" class="submit-btn" style="scale: 70%;">Registrarse</button>
                 </div>
             </form>
         </div>
+        <div class="footer-logo">
+            <img src="img/koutilab.png" alt="">
+        </div>
     </div>
+
+    <script>
+        var ul = document.getElementById('nav');
+        var cerrar = document.getElementById('cerrar');
+        var abrir = document.getElementById('abrir');
+
+        function abrirMenu() {
+            ul.style.cssText = "left: 0;"
+        }
+
+        function cerrarMenu() {
+            ul.style.cssText = "left: -100%;"
+        }
+
+        function login() {
+            window.location.href = "./conoce-koutilab.php";
+        }
+
+        function prueba() {
+            window.location.href = "./alumno-estructura/prueba/rutas/ruta-prueba.php";
+        }
+    </script>
 
     <script>
         function redirigir() {
@@ -684,40 +717,45 @@ if (isset($_POST['iniciar_sesion'])) {
     </script>
 
     <?php
-    function eliminar_tildes($cadena){
+    function eliminar_tildes($cadena)
+    {
         //Ahora reemplazamos las letras
         $cadena = str_replace(
             array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
             array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
             $cadena
         );
-    
+
         $cadena = str_replace(
             array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
             array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
-            $cadena );
-    
+            $cadena
+        );
+
         $cadena = str_replace(
             array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
             array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
-            $cadena );
-    
+            $cadena
+        );
+
         $cadena = str_replace(
             array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
             array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
-            $cadena );
-    
+            $cadena
+        );
+
         $cadena = str_replace(
             array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
             array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
-            $cadena );
-    
+            $cadena
+        );
+
         $cadena = str_replace(
             array('ñ', 'Ñ', 'ç', 'Ç'),
             array('n', 'N', 'c', 'C'),
             $cadena
         );
-    
+
         return $cadena;
     }
 
@@ -1060,22 +1098,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de alumno exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'login.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de alumno exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'login.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
 
                     echo
@@ -1106,22 +1144,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de alumno exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'login.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de alumno exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'login.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1151,22 +1189,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de docente exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'login.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de docente exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'login.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1196,22 +1234,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de docente exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'login.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de docente exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'login.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1241,22 +1279,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de docente exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'login.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de docente exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'login.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1286,22 +1324,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de docente exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'login.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de docente exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'login.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1727,22 +1765,22 @@ if (isset($_POST['iniciar_sesion'])) {
                     </script>
                     ";
 
-    //             echo
-    //             "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de alumno exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.reload();
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                //             echo
+                //             "
+                //   <script>
+                //   Swal.fire({
+                //       title: '¡Excelente!',
+                //       text: 'Registro de alumno exitoso',
+                //       icon: 'success',
+                //       confirmButtonColor: '#3085d6',
+                //       confirmButtonText: 'Aceptar',
+                //     }).then((result) => {
+                //       if (result.isConfirmed) {
+                //           window.location.reload();
+                //       }
+                //     });
+                //   </script>
+                //     ";
             } else {
                 echo
                 "

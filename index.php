@@ -1,334 +1,1897 @@
+<?php
+session_start();
+
+if (isset($_POST['iniciar_sesion'])) {
+    $alert = '';
+    if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
+        $alert = '<div class="alert alert-danger" role="alert">
+            Ingrese su usuario y su contraseña
+            </div>';
+    } else {
+        require_once "acciones/conexion.php";
+        $user = mysqli_real_escape_string($conexion, $_POST['usuario']);
+        $password = mysqli_real_escape_string($conexion, $_POST['contrasena']);
+        $contrasena = md5(mysqli_real_escape_string($conexion, $_POST['contrasena']));
+
+        //Validar inicio de sesión de un admin principal
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user'");
+        $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un admin secundario
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$user'");
+        $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user'");
+        $result_validar_alumno_primaria = mysqli_fetch_array($query_validar_alumno_primaria);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$user'");
+        $result_validar_docente_primaria = mysqli_fetch_array($query_validar_docente_primaria);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$user'");
+        $result_validar_director_primaria = mysqli_fetch_array($query_validar_director_primaria);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$user'");
+        $result_validar_alumno_secundaria = mysqli_fetch_array($query_validar_alumno_secundaria);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$user'");
+        $result_validar_docente_secundaria = mysqli_fetch_array($query_validar_docente_secundaria);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$user'");
+        $result_validar_director_secundaria = mysqli_fetch_array($query_validar_director_secundaria);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$user'");
+        $result_validar_alumno_preparatoria = mysqli_fetch_array($query_validar_alumno_preparatoria);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$user'");
+        $result_validar_docente_preparatoria = mysqli_fetch_array($query_validar_docente_preparatoria);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$user'");
+        $result_validar_director_preparatoria = mysqli_fetch_array($query_validar_director_preparatoria);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$user'");
+        $result_validar_alumno_universidad = mysqli_fetch_array($query_validar_alumno_universidad);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$user'");
+        $result_validar_docente_universidad = mysqli_fetch_array($query_validar_docente_universidad);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$user'");
+        $result_validar_director_universidad = mysqli_fetch_array($query_validar_director_universidad);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$user'");
+        $result_validar_alumno_personal = mysqli_fetch_array($query_validar_alumno_personal);
+
+        //Validar inicio de sesión de un docente de personal
+        $query_validar_docente_personal = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$user'");
+        $result_validar_docente_personal = mysqli_fetch_array($query_validar_docente_personal);
+
+        //Validar inicio de sesión de un director de personal
+        $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$user'");
+        $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
+
+        //Validar inicio de sesión de director institucional
+        $query_validar_director_institucional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$user'");
+        $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_institucional);
+
+        //Validar inicio de sesión de cuentas temporales
+        $query_validar_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user'");
+        $result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
+
+        if ($result_validar_admin > 0) {
+            $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_admin = mysqli_num_rows($query_admin);
+            if ($resultado_admin > 0) {
+                $dato_admin = mysqli_fetch_array($query_admin);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 1;
+                $_SESSION['id_admin'] = $dato_admin['id_admin'];
+                $_SESSION['nombre'] = $dato_admin['nombre'];
+                $_SESSION['user'] = $dato_admin['usuario'];
+                header('location: admin/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                 Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_admin_secundario > 0) {
+            $query_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_admin_secundario = mysqli_num_rows($query_admin_secundario);
+            if ($resultado_admin_secundario > 0) {
+                $dato_admin_secundario = mysqli_fetch_array($query_admin_secundario);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 2;
+                $_SESSION['id_admin_secundario'] = $dato_admin_secundario['id_admin_secundario'];
+                $_SESSION['nombre'] = $dato_admin_secundario['nombre'];
+                $_SESSION['user'] = $dato_admin_secundario['usuario'];
+                header('location: adminsecundario/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                 Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_primaria > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 'primaria';
+                $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno_primaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_primaria', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
+                $sql_cont = "UPDATE `alumnos_primaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: alumno-estructura/primaria/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_docente_primaria > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 4;
+                $_SESSION['id_docente_primaria'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_primaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_primaria', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE id_docente = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
+                $sql_cont = "UPDATE `docentes_primaria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: docente/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_primaria > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 5;
+                $_SESSION['id_director_primaria'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/primaria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_secundaria > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 'secundaria';
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_secundaria', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE id_alumno = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
+                $sql_cont = "UPDATE `alumnos_secundaria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: alumno-estructura/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_docente_secundaria > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 7;
+                $_SESSION['id_docente_secundaria'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_secundaria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_secundaria', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE id_docente = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
+                $sql_cont = "UPDATE `docentes_secundaria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: docente-secundaria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_secundaria > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 8;
+                $_SESSION['id_director_secundaria'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/secundaria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_preparatoria > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 'preparatoria';
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_preparatoria', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE id_alumno = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
+                $sql_cont = "UPDATE `alumnos_preparatoria` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: alumno-estructura/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_docente_preparatoria > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 10;
+                $_SESSION['id_docente_preparatoria'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_preparatoria'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_preparatoria', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE id_docente = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
+                $sql_cont = "UPDATE `docentes_preparatoria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: docente-preparatoria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_preparatoria > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 11;
+                $_SESSION['id_director_preparatoria'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/preparatoria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_universidad > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 'universidad';
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                $_SESSION['id_escuela'] = $dato_alumno['id_escuela'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_universidad', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE id_alumno = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('alumno', $id_escuela)");
+                $sql_cont = "UPDATE `alumnos_universidad` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: alumno-estructura/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_docente_universidad > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 13;
+                $_SESSION['id_docente_universidad'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_universidad'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_universidad', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE id_docente = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $id_escuela = $user['id_escuela'];
+                $query_insert_visita = mysqli_query($conexion, "INSERT INTO visitas(tipo, id_escuela) values ('docente', $id_escuela)");
+                $sql_cont = "UPDATE `docentes_universidad` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: docente-universidad/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_universidad > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 14;
+                $_SESSION['id_director_universidad'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/universidad/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_personal > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 15;
+                $_SESSION['id_alumno'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_alumno'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('alumno_personal', $id_usuario)");
+                //Contador de conexiones
+                $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE id_alumno = $id_usuario"));
+                $cont = intval($user['conexiones'] + 1);
+                $sql_cont = "UPDATE `alumnos_personal` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
+                $query_cont = mysqli_query($conexion, $sql_cont);
+                /*FIN NUEVA CONEXIÓN */
+                header('location: alumno/personal/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_docente_personal > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 16;
+                $_SESSION['id_docente_personal'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                /*AÑADIENDO NUEVA CONEXIÓN */
+                $id_usuario = $_SESSION['id_docente_personal'];
+                $query_insert_conexion = mysqli_query($conexion, "INSERT INTO conexiones(tipo, id_usuario) values ('docente_personal', $id_usuario)");
+                /*FIN NUEVA CONEXIÓN */
+                header('location: docente-personal/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_personal > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 17;
+                $_SESSION['id_director_personal'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_institucional > 0) {
+            $query_director_inst = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director_inst = mysqli_num_rows($query_director_inst);
+            if ($resultado_director_inst > 0) {
+                $dato_director = mysqli_fetch_array($query_director_inst);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 18;
+                $_SESSION['id_director'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: Director-institucional/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_temp_account > 0) {
+            $query_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user' AND password = '$contrasena' ");
+            $resultado_temp_account = mysqli_num_rows($query_temp_account);
+            if ($resultado_temp_account > 0) {
+
+                $temp_account = mysqli_fetch_array($query_temp_account);
+
+                if ($temp_account['status'] == 0) {
+                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                            Cuenta vencida
+                     </div>';
+                    session_destroy();
+                } else {
+                    $_SESSION['active'] = true;
+                    $_SESSION['rol'] = 19;
+                    $_SESSION['id'] = $temp_account['id'];
+                    $_SESSION['nombre'] = $temp_account['nombre'];
+                    $_SESSION['username'] = $temp_account['username'];
+                    $_SESSION['fechaRegistro'] = $temp_account['fechaRegistro'];
+                    header('location: alumno/institucional/perfil.php');
+                }
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                Usuario o contraseña incorrecta
+                </div>';
+                session_destroy();
+            }
+        }
+    }
+}
+// }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/principalIndex.css">
-    <link rel="shortcut icon" href="img/lgk.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css" />
-    <link rel="stylesheet" href="Comfortaa/Comfortaa-VariableFont_wght.ttf">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="acciones/img/lgk.png">
+    <link rel="stylesheet" href="acciones/css/indexL.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script>
+        if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location = "bloqueo.html";
+        }
+    </script> -->
 </head>
 
-<body>
-    <!-- Navbar -->
-    <header>
-        <nav class="nav" id="navi">
-            <ul class="ul">
-                <li class="menu visible" id="abrir"><i class="fas fa-bars"></i></li>
-                <li class="close" id="cerrar"><i class="fas fa-times"></i></li>
-                <li class="space-right"><a href="#inicio"><img src="img/koutilab.png" class="logo-img" alt=""></a></li>
-                <li class="li-rr"><a href="#nosotros">Nosotros</a></li>
-                <li class="li-rr"><a href="#rutas">Rutas de aprendizaje</a></li>
-                <li class="li-rr"><a href="#usuarios">Tipos de usuario</a></li>
-                <li class="hov li-r">
-                    <div class="singin"><a href="login.php" style="color: #ffffff">Iniciar sesión</a></div>
-                </li>
-                <li class="hov li-r">
-                    <div class="singin"><a href="./tipo-usuario-registro.php" style="color: #ffffff">Registrarse</a></div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+<!-- Nuevo login -->
 
+<body onload="recuperarDatos()">
     <!-- Prueba gratuita -->
     <div class="demo">
         <div class="demo-text">
             <p>Prueba gratuita aquí</p>
         </div>
-        <a href="alumno/prueba/rutas/ruta-prueba.php" style="color: #ffffff"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
+        <a href="alumno/prueba/rutas/ruta-prueba.php"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
     </div>
 
-    <!-- Inicio -->
-    <section id="inicio">
-        <div class="banner"></div>
-    </section>
-
-    <!-- Nosotros -->
-    <section class="content-1" id="nosotros">
-
-        <div class="hallowen-img">
+    <div class="container">
+        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+        <div class="nav" id="nav">
+            <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
+            <p class="btn-nav" onclick="paquetes();">Adquiere un paquete</p>
+            <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
+            <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
         </div>
-
-        <div class="hallowen-img2">
-        </div>
-
-        <div class="tittle-1">
-            <h1>Descubre nuestras&nbsp;</h1>
-            <h1 class="white-1">RUTAS DE APRENDIZAJE&nbsp;&nbsp;</h1>
-            <h1>y juegos interactivos</h1>
-        </div>
-        <div class="tittle-2">
-            <div class="line-1"></div>
-            <h1 class="line-2">Nosotros</h1>
-            <div class="line-3"></div>
-        </div>
-        <div class="tittle-3">
-            <h3>
-                KoutiLab, la plataforma líder en la educación revoluciona la experiencia del
-                aprendizaje a través de cápsulas y rutas que se adaptan a las necesidades de
-                cada usuario.
-                <br><br>
-                Nuestro compromiso, impulsar el crecimiento y desarrollo de nuestros
-                usuarios a través de herramientas innovadores y accesibles.
-            </h3>
-        </div>
-    </section>
-
-    <!-- Rutas de aprendizaje -->
-    <section id="rutas">
-        <div class="content-2">
-            <div class="card">
-                <img src="img/mundo.png" class="c2-img1" alt="">
-                <h1 class="white-2">3 +</h1>
-                <h2 class="white-2 t2">Paises</h2>
+        <div class="info-box">
+            <div class="titl-info">
+                <p>Bienvenido a</p>
             </div>
-            <div class="card">
-                <img src="img/institucion.png" class="c2-img2" alt="">
-                <h1 class="white-2">5 +</h1>
-                <h2 class="white-2 t2">Instituciones</h2>
+            <div class="logop">
+                <img src="acciones/img/benvenida.png" alt="KOUTILAB">
             </div>
-            <div class="card">
-                <img src="img/escuela.png" class="c2-img3" alt="">
-                <h1 class="white-2">100 +</h1>
-                <h2 class="white-2 t2">Escuelas</h2>
+            <div class="separacion">
+                <div class="linea"></div>
             </div>
-            <div class="card">
-                <img src="img/maestro.png" class="c2-img4" alt="">
-                <h1 class="white-2">500 +</h1>
-                <h2 class="white-2 t2">Docentes</h2>
-            </div>
-            <div class="card">
-                <img src="img/estudiante.png" class="c2-img5" alt="">
-                <h1 class="white-2">5,000 +</h1>
-                <h2 class="white-2 t2">Alumnos</h2>
-            </div>
-        </div>
-
-        <div class="spider-image">
-
-        </div>
-
-        <div class="spider-image2">
-
-        </div>
-
-        <div class="content-2-1">
-            <div class="tittle-4">
-                <h1 class="t4-t1">RUTAS DE APRENDIZAJE</h1>
-            </div>
-            <div class="tittle-5">
-                <div class="line-4"></div>
-            </div>
-            <div class="tittle-6">
-                <h3>Nuestras rutas se adaptan al estilo de aprendizaje de cada usurario (kinestésico, visual, auditivo
-                    y verbal) De esta forma aseguramos una experiencia educativa completa y enriquecedora.
-                    <br><br>
-                    La ruta de aprendizaje consiste en:
-                </h3>
-            </div>
-        </div>
-        <div class="capsule">
-            <div class="col1">
-                <div class="card2">
-                    <img src="img/BTNINTRO1.png" class="cp-img" alt="">
-                    <div class="cp-bar">
-                        <h4 class="cp-t1">
-                            Cápsulas introductorias <br>
-                            y teoricas
-                        </h4>
-                    </div>
-                </div>
-                <div class="card2">
-                    <img src="img/BTNEV1.png" class="cp-img" alt="">
-                    <div class="cp-bar">
-                        <h4 class="cp-t1">
-                            Cápsulas evaluativas
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col2">
-                <div class="card2">
-                    <img src="img/BTNPRA1.png" class="cp-img" alt="">
-                    <div class="cp-bar">
-                        <h4 class="cp-t1">
-                            Cápsulas con ejercicios <br>
-                            prácticos
-                        </h4>
-                    </div>
-                </div>
-                <div class="card2">
-                    <img src="img/BTNJU.png" class="cp-img" alt="">
-                    <div class="cp-bar">
-                        <h4 class="cp-t1">
-                            Cápsulas de juego
-                        </h4>
-                    </div>
+            <div class="separacion">
+                <div class="txt-info">
+                    <p>La <b>PLATAFORMA EDUCATIVA</b> especializada en <b>CODING</b> para instituciones, escuelas y usuarios</p>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="form-box">
+            <div class="reg">
+                <p>Iniciar sesión</p>
+            </div>
+            <form action="" id="Ingresar" class="input-group" method="POST">
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="ico fas fa-user"></i>
+                    </div>
+                    <input type="text" id="usuario_inicio" onkeyup="agregarArrobaInicio()" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="ico fas fa-user-lock"></i>
+                    </div>
+                    <input type="password" id="contrasena_inicio" name="contrasena" class="input-field password1" value="<?php if (isset($password)) echo $password; ?>" placeholder="Contraseña" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password1"></span>
 
-    <!-- Tipos de usuarios -->
-    <section id="usuarios">
-        <div class="users">
-            <div class="tittle-7">
-                <h1>
-                    Tipos de usuario
-                </h1>
-            </div>
-            <div class="col3">
-                <div class="card3">
-                    <div class="circle">
-                        <img src="img/escuela.png" class="us-img" alt="">
-                    </div>
-                    <h1>Escolar</h1>
-                    <div class="us-bar"></div>
-                    <h4 class="us-tx">
-                        Está enfocado en los
-                        niveles educativos de
-                        primaria, secundaria, prepa
-                        y universidad.
-                    </h4>
-                    <div class="btn-sub" onclick="escolar()">
-                        <h5 class="us-tx1">Registrar</h5>
-                    </div>
                 </div>
-                <div class="card3">
-                    <div class="circle">
-                        <img src="img/institucion.png" style="margin-top: 15px; width: 130px;" class="us-img" alt="">
-                    </div>
-                    <h1>Institucional</h1>
-                    <div class="us-bar"></div>
-                    <h4 class="us-tx">
-                        Para centros no escolares de
-                        enseñanza de programación.
-                    </h4>
-                    <div class="btn-sub" onclick="institucional()">
-                        <h5 class="us-tx1">Registrar</h5>
-                    </div>
+                <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
                 </div>
-                <div class="card3">
-                    <div class="circle">
-                        <img src="img/estudiante.png" style="margin-top: 20px;" class="us-img" alt="">
-                    </div>
-                    <h1>Personal</h1>
-                    <div class="us-bar"></div>
-                    <h4 class="us-tx">
-                        Para la adquisición
-                        individual y el también
-                        aprendizaje personalizados.
-                    </h4>
-                    <div class="btn-sub" onclick="login()">
-                        <h5 class="us-tx1">Registrar</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <?php echo isset($alert) ? $alert : ''; ?>
 
-    <footer>
-        <div class="footer">
-            <div class="f-card1">
-                <img src="img/benvenida.png" class="logo-f-img" alt="">
-                <h5 class="f-tx">
-                    Somos una plataforma educativa
-                    enfocada en brindar una
-                    experiencia de aprendizaje
-                    enriquecedora.
-                </h5>
-            </div>
-            <div class="f-card">
-                <div class="f-space">
-                    <h1>Contacto</h1>
-                    <h5><i class="fas fa-phone-volume"></i>&nbsp;&nbsp;2228279092</h5>
-                    <h5 class="f-tx1"><i class="fas fa-envelope"></i>&nbsp;info@koutilab.com</h5>
+                <input type="checkbox" id="checkbox" class="check-box"><span>Recordar contraseña</span>
+
+                <div class="sub-btn">
+                    <button type="submit" name="iniciar_sesion" class="submit-btn">Acceder</button>
                 </div>
-            </div>
-            <div class="f-card">
-                <div class="f-space">
-                    <h1>Otros servicios</h1>
-                    <h5><a href="https://grupoaerobot.com/" class="a-f">Aerobot</a></h5>
-                    <h5 class="f-tx1"><a href="./acciones/pdf/Aviso de privacidad_KoutiLab.pdf" class="a-f">Aviso de privacidad</a></h5>
-                    <h5 class="f-tx1"><a href="./acciones/pdf/Términos y condiciones_KoutiLab.pdf" class="a-f">Términos y condiciones</a></h5>
+
+                <div class="remember-pass">¿Olvidaste tu contraseña? Haz&nbsp;<a href="./tipo-usuario-rec-pass.php" class="remember">clic aquí</a></div>
+                <div class="remember-pass">¿No tienes una cuenta? crea una&nbsp;<a href="./tipo-usuario-registro.php" class="remember">aquí</a></div>
+            </form>
+            <!-- <form action="" method="POST" id="Registrarse" class="input-group">
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field" placeholder="Ingrese su nombre" required>
                 </div>
-            </div>
-            <div class="f-card">
-                <div class="f-space">
-                    <h1>Síguenos</h1>
-                    <h5><a href="https://www.facebook.com/KoutiLab" class="a-f"><i class="fab fa-facebook-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Facebook</a></h5>
-                    <h5 class="f-tx1"><a href="https://instagram.com/koutilab?igshid=MzRlODBiNWFlZA==" class="a-f"><i class="fab fa-instagram-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;Instagram</a></h5>
-                    <h5 class="f-tx1"><a href="https://api.whatsapp.com/send?phone=522228279092" class="a-f"><i class="fab fa-whatsapp-square" style="color: #38b6ff;"></i>&nbsp;&nbsp;WhatsApp</a></h5>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field" placeholder="@usuario" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="email" id="email_registrar" name="email_registrar" class="input-field" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <input type="password" id="contrasena_registrar" name="contrasena_registrar" class="input-field password3" placeholder="Contraseña" required>
+                    <span class="fa fa-fw fa-eye password-icon show-password3"></span>
+
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                    <div class="input-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave">
+                    <span class="fa fa-fw fa-eye password-icon show-password4"></span>
+
+                </div>
+                <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span style="margin: 0 0 -10px 0;">Acepto los términos y condiciones</span>
+                <button type="submit" name="registrar_usuario" class="submit-btn" style="margin: -2px 0 0 50px;">Registrarse</button>
+            </form> -->
         </div>
-        <div class="bottom">
-            <p>© Copyright <b>Aerobot</b> All Rights Reserved</p>
+        <div class="footer-logo">
+            <img src="img/koutilab.png" alt="">
         </div>
-    </footer>
+    </div>
 
     <script>
-        const nav = document.querySelector('.nav');
-        window.addEventListener('scroll', function() {
-            nav.classList.toggle('down', window.scrollY > 0);
-        })
+        var ul = document.getElementById('nav');
+        var cerrar = document.getElementById('cerrar');
+        var abrir = document.getElementById('abrir');
 
-        const navi = document.querySelector("#navi");
-        const abrir = document.querySelector("#abrir");
-        const cerrar = document.querySelector("#cerrar");
+        function abrirMenu() {
+            ul.style.cssText = "left: 0;"
+        }
 
-        abrir.addEventListener("click", () => {
-            navi.classList.add("visible");
-            abrir.classList.remove("visible");
-            abrir.classList.add("invisible");
-        })
-
-        cerrar.addEventListener("click", () => {
-            navi.classList.remove("visible");
-            abrir.classList.add("visible");
-            abrir.classList.remove("invisible");
-        })
+        function cerrarMenu() {
+            ul.style.cssText = "left: -100%;"
+        }
 
         function login() {
-            window.location.href = "./login.php";
+            window.location.href = "./conoce-koutilab.php";
         }
 
-        function escolar() {
-            window.location.href = "./registro/index.php";
+        function prueba() {
+            window.location.href = "./alumno-estructura/prueba/rutas/ruta-prueba.php";
         }
 
-        function institucional() {
-            window.location.href = "./registro-institucional/index.php";
+        function paquetes() {
+            window.location.href = "./paquetes/adquirir-paquete.php";
+        }
+    </script>
+
+    <?php
+    if (isset($_POST['registrar_usuario']) && !empty($_POST['clave_registrar'])) {
+        require_once "acciones/conexion.php";
+
+        $nombre_registrar = $_POST['nombre_registrar'];
+        $usuario_registrar = $_POST['usuario_registrar'];
+        $contrasena_registrar = md5($_POST['contrasena_registrar']);
+        $contrasena_correo = $_POST['contrasena_registrar'];
+        $clave_registrar = $_POST['clave_registrar'];
+        $email_registrar = $_POST['email_registrar'];
+
+        //Validar inicio de sesión de un admin principal
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
+        $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un admin secundario
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$usuario_registrar'");
+        $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_primaria = mysqli_fetch_array($query_validar_alumno_primaria);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_primaria = mysqli_fetch_array($query_validar_docente_primaria);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_primaria = mysqli_fetch_array($query_validar_director_primaria);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_secundaria = mysqli_fetch_array($query_validar_alumno_secundaria);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_secundaria = mysqli_fetch_array($query_validar_docente_secundaria);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_secundaria = mysqli_fetch_array($query_validar_director_secundaria);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_preparatoria = mysqli_fetch_array($query_validar_alumno_preparatoria);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_preparatoria = mysqli_fetch_array($query_validar_docente_preparatoria);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_preparatoria = mysqli_fetch_array($query_validar_director_preparatoria);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_universidad = mysqli_fetch_array($query_validar_alumno_universidad);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_universidad = mysqli_fetch_array($query_validar_docente_universidad);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_universidad = mysqli_fetch_array($query_validar_director_universidad);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_personal = mysqli_fetch_array($query_validar_alumno_personal);
+
+        //Validar inicio de sesión de un alumno de institucional (temporal)
+        $query_validar_alumno_institucional = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$usuario_registrar'");
+        $result_validar_alumno_institucional = mysqli_fetch_array($query_validar_alumno_institucional);
+
+        //Validar inicio de sesión de un director de institucional
+        $query_validar_director_instituacional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_instituacional);
+
+        //Validar si correo ingresado ya existe 
+
+        //Validar inicio de sesión de un admin
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria_correo = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE email = '$email_registrar'");
+        $result_validar_alumno_primaria_correo = mysqli_fetch_array($query_validar_alumno_primaria_correo);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria_correo = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE email = '$email_registrar'");
+        $result_validar_docente_primaria_correo = mysqli_fetch_array($query_validar_docente_primaria_correo);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria_correo = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE email = '$email_registrar'");
+        $result_validar_director_primaria_correo = mysqli_fetch_array($query_validar_director_primaria_correo);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria_correo = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE email = '$email_registrar'");
+        $result_validar_alumno_secundaria_correo = mysqli_fetch_array($query_validar_alumno_secundaria_correo);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria_correo = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE email = '$email_registrar'");
+        $result_validar_docente_secundaria_correo = mysqli_fetch_array($query_validar_docente_secundaria_correo);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria_correo = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE email = '$email_registrar'");
+        $result_validar_director_secundaria_correo = mysqli_fetch_array($query_validar_director_secundaria_correo);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria_correo = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE email = '$email_registrar'");
+        $result_validar_alumno_preparatoria_correo = mysqli_fetch_array($query_validar_alumno_preparatoria_correo);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria_correo = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE email = '$email_registrar'");
+        $result_validar_docente_preparatoria_correo = mysqli_fetch_array($query_validar_docente_preparatoria_correo);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria_correo = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE email = '$email_registrar'");
+        $result_validar_director_preparatoria_correo = mysqli_fetch_array($query_validar_director_preparatoria_correo);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad_correo = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE email = '$email_registrar'");
+        $result_validar_alumno_universidad_correo = mysqli_fetch_array($query_validar_alumno_universidad_correo);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad_correo = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE email = '$email_registrar'");
+        $result_validar_docente_universidad_correo = mysqli_fetch_array($query_validar_docente_universidad_correo);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad_correo = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE email = '$email_registrar'");
+        $result_validar_director_universidad_correo = mysqli_fetch_array($query_validar_director_universidad_correo);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal_correo = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE email = '$email_registrar'");
+        $result_validar_alumno_personal_correo = mysqli_fetch_array($query_validar_alumno_personal_correo);
+
+        //Validar inicio de sesión de un alumno de institucional (temporal)
+        $query_validar_alumno_institucional_correo = mysqli_query($conexion, "SELECT * FROM temp_account WHERE email = '$email_registrar'");
+        $result_validar_alumno_institucional_correo = mysqli_fetch_array($query_validar_alumno_institucional_correo);
+
+        //Validar inicio de sesión de un director de institucional
+        $query_validar_director_instituacional_correo = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE email = '$email_registrar'");
+        $result_validar_director_institucional_correo = mysqli_fetch_array($query_validar_director_instituacional_correo);
+
+        //Validar creacion para cuenta temporal 
+        //validar la clave del paquete en todos los paquetes que existan
+        //si existe entonces genera el usuario y contraseña en la tabla temp_account con los respectivos datos
+        //posteriormente llenar la relacion de cuenta temporal con director llamada UserDirector solo con el id_de la cuenta temporal y del director al que pertenece la clave del paquete
+
+        //si no encuentra una clave registrada en la tabla de paquetes_director entonces mandar alerta clave no valida
+
+
+        //Buscar si la clave pertenece a un alumno
+        $query_clave_alumno = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'");
+        $result_clave_alumno = mysqli_fetch_array($query_clave_alumno);
+        $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'"));
+        if (isset($data_alumno['id_escuela'])) {
+            $id_escuela_alumno = $data_alumno['id_escuela'];
+        }
+        if (isset($data_alumno['nivel_educativo'])) {
+            $nivel_educativo_alumno = $data_alumno['nivel_educativo'];
+        }
+
+        //Buscar si la clave pertenece a un docente
+        $query_clave_docente = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_docente = '$clave_registrar'");
+        $result_clave_docente = mysqli_fetch_array($query_clave_docente);
+        $data_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_docente = '$clave_registrar'"));
+        if (isset($data_docente['id_escuela'])) {
+            $id_escuela_docente = $data_docente['id_escuela'];
+        }
+        if (isset($data_docente['nivel_educativo'])) {
+            $nivel_educativo_docente = $data_docente['nivel_educativo'];
+        }
+
+        //Buscar si la clave pertenece a un director
+        $query_clave_director = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_director = '$clave_registrar'");
+        $result_clave_director = mysqli_fetch_array($query_clave_director);
+        $data_director = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_director = '$clave_registrar'"));
+        if (isset($data_director['id_escuela'])) {
+            $id_escuela_director = $data_director['id_escuela'];
+        }
+        if (isset($data_director['nivel_educativo'])) {
+            $nivel_educativo_director = $data_director['nivel_educativo'];
+        }
+
+        //Validar creacion para cuenta temporal 
+        //validar la clave del paquete en todos los paquetes que existan
+        //si existe entonces genera el usuario y contraseña en la tabla temp_account con los respectivos datos
+        //posteriormente llenar la relacion de cuenta temporal con director llamada UserDirector solo con el id_de la cuenta temporal y del director al que pertenece la clave del paquete
+
+        //si no encuentra una clave registrada en la tabla de paquetes_director entonces mandar alerta clave no valida
+
+        //Buscar si la clave pertenece a un paquete de director institucional
+        $query_clave_paquete_director = mysqli_query($conexion, "SELECT di.id_director, pd.clave, pd.cupo FROM paquete_director pd JOIN director_institucional di ON pd.id_director = di.id_director WHERE pd.clave = '$clave_registrar'");
+        $result_clave_paquete_director = mysqli_fetch_array($query_clave_paquete_director);
+        $data_paquete_director = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT di.id_director, pd.clave, pd.cupo FROM paquete_director pd JOIN director_institucional di ON pd.id_director = di.id_director WHERE pd.clave = '$clave_registrar'"));
+        if (isset($data_paquete_director['id_escuela'])) {
+            $id_escuela_director_institucional = $data_paquete_director['id_escuela'];
+        }
+        if (isset($data_paquete_director['cupo'])) {
+            $cupos_paquete_director = $data_paquete_director['cupo'];
+        }
+        if (isset($data_paquete_director['id_director'])) {
+            $id_director_institucional = $data_paquete_director['id_director'];
+        }
+
+        if ($result_validar_admin > 0 || $result_validar_admin_secundario > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Usuario ya existente',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+        } else if ($result_validar_alumno_primaria_correo > 0 || $result_validar_docente_primaria_correo > 0 || $result_validar_director_primaria_correo > 0 || $result_validar_alumno_secundaria_correo > 0 || $result_validar_docente_secundaria_correo > 0 || $result_validar_director_secundaria_correo > 0 || $result_validar_alumno_preparatoria_correo > 0 || $result_validar_docente_preparatoria_correo > 0 || $result_validar_director_preparatoria_correo > 0 || $result_validar_alumno_universidad_correo > 0 || $result_validar_docente_universidad_correo > 0 || $result_validar_director_universidad_correo > 0 || $result_validar_alumno_personal_correo > 0 || $result_validar_alumno_institucional_correo > 0 || $result_validar_director_institucional_correo > 0) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Correo ya utilizado en otro usuario',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+
+            if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Primaria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_primaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Secundaria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_secundaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Preparatoria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Universidad') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_universidad(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Primaria') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Secundaria') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_secundaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Preparatoria') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Universidad') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_universidad(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Primaria') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Secundaria') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_secundaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Preparatoria') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Universidad') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_universidad(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Institucion') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO director_institucional(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }  // if (isset($data_paquete_director['id_escuela'])) {
+                //     $id_escuela_director_institucional = $data_paquete_director['id_escuela'];
+                // }
+                // if (isset($data_paquete_director['cupo'])) {
+                //     $cupos_paquete_director = $data_paquete_director['cupo'];
+                //id_director_institucional }
+            } else if ($result_clave_paquete_director > 0) {
+                //Consulta para obtener total de cupos utilizados del paquete comprado por director institucional
+                $consulta_cupos = mysqli_query($conexion, "SELECT SUM(id_director) AS total_cupos FROM userdirector WHERE id_director = $id_director_institucional");
+                $resultadoCupos = mysqli_fetch_assoc($consulta_cupos);
+                $cuposOcupados = $resultadoCupos['total_cupos'];
+
+                if ($cuposOcupados == $cupos_paquete_director) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Cupos agotados para esta clave!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Ir a inicio',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+         ";
+                }
+
+                $query_insert_alumno_institucional = mysqli_query($conexion, "INSERT INTO temp_account(nombre, clave, email, username, password, image, fondo, id_escuela) values ('$nombre_registrar', '$clave_registrar', '$email_registrar','$usuario_registrar', '$contrasena_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png', $id_director_institucional)");
+                $consulta_id_alumno_institucional = mysqli_query($conexion, "SELECT id FROM temp_account WHERE username = '$usuario_registrar'");
+                $resultado_id_alumno_institucional = mysqli_fetch_assoc($consulta_id_alumno_institucional);
+                $id_alumno_institucional = $resultado_id_alumno_institucional['id'];
+                $query_insert_alumno_director_institucional = mysqli_query($conexion, "INSERT INTO userdirector(id, id_director) values ($id_alumno_institucional, $id_director_institucional)");
+                if ($query_insert_alumno_institucional && $query_insert_alumno_director_institucional) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de cuenta exitosa',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Clave incorrecta!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+            }
+        }
+    } else if (isset($_POST['registrar_usuario']) && empty($_POST['clave_registrar'])) {
+
+        require_once "acciones/conexion.php";
+
+        $nombre_registrar = $_POST['nombre_registrar'];
+        $usuario_registrar = $_POST['usuario_registrar'];
+        $contrasena_registrar = md5($_POST['contrasena_registrar']);
+        $contrasena_correo = $_POST['contrasena_registrar'];
+        $email_registrar = $_POST['email_registrar'];
+
+        //Validar inicio de sesión de un admin principal
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
+        $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+
+        //Validar inicio de sesión de un admin secundario
+        $query_validar_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$usuario_registrar'");
+        $result_validar_admin_secundario = mysqli_fetch_array($query_validar_admin_secundario);
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_primaria = mysqli_fetch_array($query_validar_alumno_primaria);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_primaria = mysqli_fetch_array($query_validar_docente_primaria);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_primaria = mysqli_fetch_array($query_validar_director_primaria);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_secundaria = mysqli_fetch_array($query_validar_alumno_secundaria);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_secundaria = mysqli_fetch_array($query_validar_docente_secundaria);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_secundaria = mysqli_fetch_array($query_validar_director_secundaria);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_preparatoria = mysqli_fetch_array($query_validar_alumno_preparatoria);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_preparatoria = mysqli_fetch_array($query_validar_docente_preparatoria);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_preparatoria = mysqli_fetch_array($query_validar_director_preparatoria);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_universidad = mysqli_fetch_array($query_validar_alumno_universidad);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_universidad = mysqli_fetch_array($query_validar_docente_universidad);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_universidad = mysqli_fetch_array($query_validar_director_universidad);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_personal = mysqli_fetch_array($query_validar_alumno_personal);
+
+        //Validar inicio de sesión de un alumno de institucional (temporal)
+        $query_validar_alumno_institucional = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$usuario_registrar'");
+        $result_validar_alumno_institucional = mysqli_fetch_array($query_validar_alumno_institucional);
+
+        //Validar inicio de sesión de un director de institucional
+        $query_validar_director_instituacional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_instituacional);
+
+        if ($result_validar_admin > 0 || $result_validar_admin_secundario > 0 || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_alumno_institucional > 0 || $result_validar_director_institucional > 0) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Usuario ya existente',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+
+            $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_personal(nombre, usuario, contrasena, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+            if ($query_insert_alumno) {
+
+                include('envio-correo.php');
+
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+            }
+        }
+    }
+    ?>
+
+    <script>
+        function agregarArroba() {
+            var input = document.getElementById("usuario_registrar");
+            if (!input.value.startsWith("@")) {
+                input.value = "@" + input.value;
+            }
         }
     </script>
 
     <script>
-        function activarHalloween() {
-            document.body.classList.add('halloween');
+        function agregarArrobaInicio() {
+            var input = document.getElementById("usuario_inicio");
+            if (!input.value.startsWith("@")) {
+                input.value = "@" + input.value;
+            }
+        }
+    </script>
 
-            // Espera 5 segundos (5000 milisegundos) para cambiar los colores después del efecto de Halloween
-            setTimeout(function() {
-                document.body.classList.remove('halloween');
-
-                // Cambiar los colores de los botones
-                const buttons = document.querySelectorAll('.singin, .tittle-1, .white-1, .line-3, .line-1, .content-2, .line-4, .cp-bar, .users, .bottom, .card3, .btn-sub, .us-tx1, .us-bar, .circle, .us-tx, .footer, .hallowen-img, .hallowen-img2, .spider-image, .spider-image2, .li-rr, .col3, .tittle-7, i, h5,.a-f, b, a');
-                buttons.forEach(function(button) {
-                    button.classList.add('hallowen');
-                });
-            }, 2000); // Cambia el valor a la cantidad de tiempo que desees que dure el efecto de Halloween (en milisegundos)
+    <script>
+        // Guarda los datos del formulario en una cookie
+        function guardarDatos() {
+            var usuario_inicio = document.getElementById("usuario_inicio").value;
+            var contrasena_inicio = document.getElementById("contrasena_inicio").value;
+            document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
         }
 
-        // Espera 3 segundos (3000 milisegundos) antes de iniciar la transición
-        setTimeout(function() {
-            activarHalloween();
-        }, 1500); // Cambia el valor a la cantidad de tiempo que desees esperar antes de iniciar el efecto de Halloween (en milisegundos)
+        function off() {
+            console.log("Reinicio")
+            var usuario_inicio = '';
+            var contrasena_inicio = '';
+            document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        }
+
+        var checkbox = document.getElementById('checkbox');
+
+        checkbox.addEventListener("change", comprueba, false);
+
+        // Función para establecer el valor de una cookie
+        function setCookie(name, value) {
+            document.cookie = `${name}=${value}; path=/;`;
+        }
+
+        function comprueba() {
+            if (checkbox.checked) {
+                guardarDatos();
+                setCookie('checkbox', true);
+            } else {
+                off();
+            }
+        }
     </script>
+
+    <script>
+        // Recupera los datos del formulario de la cookie
+        function recuperarDatos() {
+            var cookieData = document.cookie;
+            if (cookieData) {
+                var cookies = cookieData.split("; ");
+                for (var i = 0; i < cookies.length; i++) {
+                    var parts = cookies[i].split("=");
+                    var name = parts[0];
+                    var value = decodeURIComponent(parts[1]);
+                    if (name == "usuario_inicio") {
+                        document.getElementById("usuario_inicio").value = value;
+                    } else if (name == "contrasena_inicio") {
+                        document.getElementById("contrasena_inicio").value = value;
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // Función para obtener el valor de una cookie
+        function getCookie(name) {
+            const cookieArray = document.cookie.split("; ");
+            for (let i = 0; i < cookieArray.length; i++) {
+                const cookie = cookieArray[i].split("=");
+                if (cookie[0] === name) {
+                    return cookie[1];
+                }
+            }
+            return "";
+        }
+    </script>
+
+    <script>
+        // EVITAR REENVIO DE DATOS.
+        if (window.history.replaceState) { // verificamos disponibilidad
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+        window.addEventListener("load", function() {
+
+            // icono para mostrar contraseña
+            showPassword1 = document.querySelector('.show-password1');
+            showPassword1.addEventListener('click', () => {
+
+                // elementos input de tipo clave
+                password1 = document.querySelector('.password1');
+
+                if (password1.type === "text") {
+                    password1.type = "password"
+                    showPassword1.classList.remove('fa-eye-slash');
+                } else {
+                    password1.type = "text"
+                    showPassword1.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
+    </script>
+    <script>
+        window.addEventListener("load", function() {
+
+            // icono para mostrar contraseña
+            showPassword2 = document.querySelector('.show-password2');
+            showPassword2.addEventListener('click', () => {
+
+                // elementos input de tipo clave
+                password2 = document.querySelector('.password2');
+
+                if (password2.type === "text") {
+                    password2.type = "password"
+                    showPassword2.classList.remove('fa-eye-slash');
+                } else {
+                    password2.type = "text"
+                    showPassword2.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
+    </script>
+
+    <script>
+        window.addEventListener("load", function() {
+
+            // icono para mostrar contraseña
+            showPassword3 = document.querySelector('.show-password3');
+            showPassword3.addEventListener('click', () => {
+
+                // elementos input de tipo clave
+                password3 = document.querySelector('.password3');
+
+                if (password3.type === "text") {
+                    password3.type = "password"
+                    showPassword3.classList.remove('fa-eye-slash');
+                } else {
+                    password3.type = "text"
+                    showPassword3.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
+    </script>
+
+    <script>
+        window.addEventListener("load", function() {
+
+            // icono para mostrar contraseña
+            showPassword4 = document.querySelector('.show-password4');
+            showPassword4.addEventListener('click', () => {
+
+                // elementos input de tipo clave
+                password4 = document.querySelector('.password4');
+
+                if (password4.type === "text") {
+                    password4.type = "password"
+                    showPassword4.classList.remove('fa-eye-slash');
+                } else {
+                    password4.type = "text"
+                    showPassword4.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
+    </script>
+
+    <script>
+        var x = document.getElementById("Ingresar");
+        var y = document.getElementById("Registrarse");
+        var z = document.getElementById("elegir");
+
+        function Registrarse() {
+            x.style.left = "-450px"
+            y.style.left = "50px"
+            z.style.left = "120px"
+        }
+
+        function Ingresar() {
+            x.style.left = "50px"
+            y.style.left = "450px"
+            z.style.left = "0px"
+        }
+    </script>
+
 </body>
 
 </html>

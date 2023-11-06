@@ -16,6 +16,13 @@
 
 <body onload="recuperarDatos()">
     <div class="container">
+        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+        <div class="nav" id="nav">
+            <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
+            <p class="btn-nav">Adquiere un paquete</p>
+            <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
+            <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
+        </div>
         <div class="info-box">
             <div class="titl-info">
                 <p>Bienvenido a</p>
@@ -58,7 +65,32 @@
                 </a>
             </div>
         </div>
+        <div class="footer-logo">
+            <img src="img/koutilab.png" alt="">
+        </div>
     </div>
+
+    <script>
+        var ul = document.getElementById('nav');
+        var cerrar = document.getElementById('cerrar');
+        var abrir = document.getElementById('abrir');
+
+        function abrirMenu() {
+            ul.style.cssText = "left: 0;"
+        }
+
+        function cerrarMenu() {
+            ul.style.cssText = "left: -100%;"
+        }
+
+        function login() {
+            window.location.href = "./conoce-koutilab.php";
+        }
+
+        function prueba() {
+            window.location.href = "./alumno-estructura/prueba/rutas/ruta-prueba.php";
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 

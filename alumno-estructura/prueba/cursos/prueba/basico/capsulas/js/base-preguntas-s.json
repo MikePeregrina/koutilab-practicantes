@@ -1,0 +1,53 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "Los selectores de clase son _____ que, como su nombre lo indica, permiten seleccionar todos los elementos",
+    "respuesta": "Herramientas",
+    "incorrecta1": "Códigos",
+    "incorrecta2": "Comandos",
+    "incorrecta3": "Algoritmos",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Los selectores de clase buscan un _______ basado en el contenido de su atributo class",
+    "respuesta": "Elemento",
+    "incorrecta1": "Contenedor",
+    "incorrecta2": "Estilo",
+    "incorrecta3": "Código",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": " 'Elije Una' &lt;div class = &quot;cont&quot; ; &gt; &lt;/div&gt; ",
+    "respuesta": ".cont{ background: white; }",
+    "incorrecta1": ".class{ background: white; }",
+    "incorrecta2": ".clase{ background: white; }",
+    "incorrecta3": ".div{ background: white; }",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "'Elije Una' &lt;h1 class = &quot;titulo&quot; ;&gt; &lt;/h1&gt;",
+    "respuesta": ".titulo{ text-align: center; }",
+    "incorrecta1": ".h1{ text-align: center; }",
+    "incorrecta2": ".cont{ text-align: center; }",
+    "incorrecta3": ".titulos{ text-align: center; }",
+    "imagen": "",
+    "objectFit" : "cover"    
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "'Elije Una' &lt;section class =  &quot;seccion&quot; ;&gt; &lt;/section&gt; ",
+    "respuesta": ".seccion{ align-item: center; }",
+    "incorrecta1": ".div{ align-item: center; }",
+    "incorrecta2": ".sec{ align-item: center; }",
+    "incorrecta3": ".class{ align-item: center; }",
+    "imagen": "",
+    "objectFit" : "cover" 
+}
+
+]

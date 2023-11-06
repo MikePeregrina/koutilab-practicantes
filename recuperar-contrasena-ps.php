@@ -28,6 +28,13 @@
         </div>
     </div>
     <div class="container">
+        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+        <div class="nav" id="nav">
+            <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
+            <p class="btn-nav">Adquiere un paquete</p>
+            <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
+            <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
+        </div>
         <div class="info-box">
             <div class="titl-info">
                 <p>Bienvenido a</p>
@@ -91,7 +98,32 @@
                 </div>
             </form>
         </div>
+        <div class="footer-logo">
+            <img src="img/koutilab.png" alt="">
+        </div>
     </div>
+
+    <script>
+        var ul = document.getElementById('nav');
+        var cerrar = document.getElementById('cerrar');
+        var abrir = document.getElementById('abrir');
+
+        function abrirMenu() {
+            ul.style.cssText = "left: 0;"
+        }
+
+        function cerrarMenu() {
+            ul.style.cssText = "left: -100%;"
+        }
+
+        function login() {
+            window.location.href = "./conoce-koutilab.php";
+        }
+
+        function prueba() {
+            window.location.href = "./alumno-estructura/prueba/rutas/ruta-prueba.php";
+        }
+    </script>
 
     <?php
     function eliminar_tildes($cadena)
@@ -184,7 +216,7 @@
                 <script>
                 Swal.fire({
                     title: '¡Hola de nuevo " . $nombre_recuperar . "! Tu nueva contraseña está activa',
-                    html: 'Esta es tu nueva contraseña <b>" . $clave1 . "</b> y este es tu usuario <b>" . $user . "</b> para acceder nuevamente a tu cuenta. Asegúrate de cambiar de nuevo tu contraseña al ingresar.',
+                    html: '<p>Esta es tu nueva contraseña <b>" . $clave1 . "</b> y este es tu usuario <b>" . $user . "</b> para acceder nuevamente a tu cuenta. Asegúrate de cambiar de nuevo tu contraseña al ingresar.</p>',
                     imageUrl: 'img/Thumbs-Up.gif',
                     imageHeight: 300,
                     confirmButtonColor: '#a14cd9',

@@ -74,6 +74,14 @@ body::-webkit-scrollbar-track {
     height: 16%;
 }
 
+.ul {
+    float: right;
+}
+
+#cerrar {
+    display: none;
+}
+
 nav ul {
     padding: 0 10px 0 10px;
     list-style: none;
@@ -115,10 +123,16 @@ nav ul li a:hover {
 }
 
 .space-right {
+    float: left;
     margin-right: auto;
 }
 
-.space-right:hover {
+.logo-img-res1 {
+    display: none;
+}
+
+.space-right,
+.logo-img-res:hover {
     background-color: white;
 }
 
@@ -326,7 +340,7 @@ nav ul li a:hover {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #38b6ff;
 }
 
@@ -343,6 +357,14 @@ nav ul li a:hover {
     background-position: center center;
 }
 
+.responsive {
+    margin: 0 -100px 0 -180px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .content-2 img.hallowen {
     height: 100%;
     z-index: auto;
@@ -356,7 +378,6 @@ nav ul li a:hover {
 
 .card {
     width: 180px;
-    margin: 20px;
     align-items: center;
     text-align: center;
     display: flex;
@@ -706,16 +727,25 @@ nav ul li a:hover {
 }
 
 @keyframes hand {
-    0% {transform: rotate(-45deg); margin: 0 10px 0 -5px;}
-    50% {transform: rotate(45deg); margin: 0 -10px 0 -5px;}
-    100% {transform: rotate(-45deg); margin: 0 10px 0 -5px;}
+    0% {
+        transform: rotate(-45deg);
+        margin: 0 10px 0 -5px;
+    }
+    50% {
+        transform: rotate(45deg);
+        margin: 0 -10px 0 -5px;
+    }
+    100% {
+        transform: rotate(-45deg);
+        margin: 0 10px 0 -5px;
+    }
 }
 
 .demo-text {
     margin-top: -130px;
     border-radius: 30px;
     text-align: center;
-    color: rgb(113, 113, 113);;
+    color: rgb(113, 113, 113);
     width: 200px;
     position: fixed;
     font-size: 18px;
@@ -728,32 +758,78 @@ nav ul li a:hover {
 }
 
 @keyframes alert {
-    0% {scale: 0%}
-    1.25% {scale: 110%}
-    2.5% {scale: 100%;}
+    0% {
+        scale: 0%;
+    }
+    1.25% {
+        scale: 110%;
+    }
+    2.5% {
+        scale: 100%;
+    }
 
-    25% {transform: rotate(0deg);}
-    25.5% {transform: rotate(-10deg);}
-    26% {transform: rotate(10deg);}
-    26.5% {transform: rotate(-10deg);}
-    27% {transform: rotate(10deg);}
-    27.5% {transform: rotate(-10deg);}
-    28% {transform: rotate(10deg);}
-    28.5% {transform: rotate(0deg);}
+    25% {
+        transform: rotate(0deg);
+    }
+    25.5% {
+        transform: rotate(-10deg);
+    }
+    26% {
+        transform: rotate(10deg);
+    }
+    26.5% {
+        transform: rotate(-10deg);
+    }
+    27% {
+        transform: rotate(10deg);
+    }
+    27.5% {
+        transform: rotate(-10deg);
+    }
+    28% {
+        transform: rotate(10deg);
+    }
+    28.5% {
+        transform: rotate(0deg);
+    }
 
-    75% {transform: rotate(0deg);}
-    75.5% {transform: rotate(-10deg);}
-    76% {transform: rotate(10deg);}
-    76.5% {transform: rotate(-10deg);}
-    77% {transform: rotate(10deg);}
-    77.5% {transform: rotate(-10deg);}
-    78% {transform: rotate(10deg);}
-    78.5% {transform: rotate(0deg);}
+    75% {
+        transform: rotate(0deg);
+    }
+    75.5% {
+        transform: rotate(-10deg);
+    }
+    76% {
+        transform: rotate(10deg);
+    }
+    76.5% {
+        transform: rotate(-10deg);
+    }
+    77% {
+        transform: rotate(10deg);
+    }
+    77.5% {
+        transform: rotate(-10deg);
+    }
+    78% {
+        transform: rotate(10deg);
+    }
+    78.5% {
+        transform: rotate(0deg);
+    }
 
-    87.5% {scale: 100%}
-    88.25% {scale: 110%}
-    90% {scale: 0%}
-    100% {scale: 0%;}
+    87.5% {
+        scale: 100%;
+    }
+    88.25% {
+        scale: 110%;
+    }
+    90% {
+        scale: 0%;
+    }
+    100% {
+        scale: 0%;
+    }
 }
 
 /* Footer */
@@ -862,25 +938,23 @@ nav ul li a:hover {
     display: none;
 }
 
+#check {
+    display: block;
+}
 @media screen and (max-width: 500px) {
-    .menu,
+    /* .menu,
     .close {
         display: block;
     }
 
     .nav.down {
-        height: 110%;
+        height: 100%;
     }
 
     .nav {
         visibility: hidden;
-        max-width: 500px;
+        width: 100%;
         height: 110%;
-    }
-
-    .menu {
-        margin: -65px 300px 0 0;
-        font-size: 50px;
     }
 
     .close {
@@ -895,14 +969,70 @@ nav ul li a:hover {
         visibility: hidden;
     }
 
-    .ul {
-        flex-direction: column;
-        align-items: center;
-        margin: 80px 0 0 0;
+    .space-right {
+        margin: 0 0 0 15px;
+    }
+
+    nav ul li:hover {
+        background-color: #ffffff;
+    }
+    nav ul li a:hover {
+        color: #38b6ff;
+    } */
+
+    .logo-img-res {
+        display: none;
+    }
+
+    .logo-img-res1 {
+        display: block;
+        margin: 0 0 0 -15%;
+    }
+
+    .nav {
+        width: 100%;
+        height: 0;
     }
 
     .space-right {
-        margin: 0 0 0 15px;
+        background-color: #38b6ff;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ul {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        margin: 22% 0 0 0;
+        margin-left: -5%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        transition: 0.5s;
+        left: -100%;
+    }
+
+    .li-rr {
+        padding: 20px;
+    }
+
+    nav ul li {
+        font-size: 30px;
+    }
+
+    .menu {
+        display: block;
+        font-size: 40px;
+        margin: 0 -10% 0 0;
+    }
+
+    #cerrar {
+        display: none;
     }
 
     nav ul li:hover {
@@ -913,15 +1043,40 @@ nav ul li a:hover {
     }
 
     body {
-        overflow-x: hidden;
-        max-width: 500px;
+        width: 100%;
         box-sizing: content-box;
+        overflow: none;
+    }
+
+    body::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    body::-webkit-scrollbar:vertical {
+        display: none;
+    }
+
+    body::-webkit-scrollbar-button:increment,
+    body::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    body::-webkit-scrollbar:horizontal {
+        display: none;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+    body::-webkit-scrollbar-track {
+        display: none;
     }
 
     /* Banner */
     .banner {
         width: 100%;
-        height: 220px;
+        height: 200px;
     }
 
     /* Nosotros */
@@ -933,19 +1088,19 @@ nav ul li a:hover {
 
     .tittle-1 {
         margin: 30px auto 0 auto;
-        width: 390px;
+        width: 90%;
         height: 40px;
-        font-size: 7px;
+        font-size: 6px;
     }
 
     .tittle-2 {
         margin: 30px auto 0 auto;
-        width: 390px;
+        width: 95%;
         height: 40px;
     }
 
     .tittle-3 {
-        width: 380px;
+        width: 90%;
         height: 180px;
         text-align: justify;
         font-size: 15px;
@@ -965,69 +1120,72 @@ nav ul li a:hover {
 
     /* Rutas de aprendizaje */
 
-    #rutas {
-        width: auto;
-    }
-
     .content-2 {
-        width: 350%;
-        height: 350px;
-        margin-left: -145px;
-        animation: cambio 15s infinite alternate linear;
-        scale: 80%;
-    }
-
-    @keyframes cambio {
-        0% {
-            margin-left: -150px;
-        }
-        20% {
-            margin-left: -300px;
-        }
-        40% {
-            margin-left: -450px;
-        }
-        60% {
-            margin-left: -600px;
-        }
-        80% {
-            margin-left: -750px;
-        }
-        100% {
-            margin-left: -900px;
-        }
-    }
-
-    .content-2-1 {
         width: 100%;
-        height: 220px;
-        position: relative;
+        height: 350px;
+        display: block;
+    }
+
+    .responsive {
+        width: 100%;
+        margin: 0;
     }
 
     .card {
-        margin: 50px;
+        margin: 15px 0 0 0;
+        float: left;
+        width: 33.3%;
+        height: 50%;
+    }
+
+    .white-2,
+    .t2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .c2-img1 {
+        width: 50%;
+    }
+
+    .c2-img2 {
+        width: 66%;
+    }
+
+    .c2-img3 {
+        width: 44%;
+    }
+
+    .c2-img4 {
+        width: 58%;
+    }
+
+    .c2-img5 {
+        width: 44%;
     }
 
     .tittle-4 {
         margin: 0 auto 0 auto;
-        width: 390px;
+        width: 100%;
         height: 60px;
         justify-content: center;
     }
 
     .tittle-5 {
-        margin: -5px 0 0 70px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .tittle-6 {
         margin: -30px auto 0 auto;
-        width: 380px;
+        width: 90%;
         height: 60px;
         font-size: 12px;
     }
 
     .line-4 {
-        width: 320px;
+        width: 90%;
     }
 
     .t4-t1 {
@@ -1065,10 +1223,11 @@ nav ul li a:hover {
     }
 
     .tittle-7 {
-        width: 390px;
+        width: 100%;
     }
 
     .col3 {
+        width: 100%;
         height: 1350px;
         flex-direction: column;
     }
@@ -1080,16 +1239,17 @@ nav ul li a:hover {
     /* Footer */
 
     .footer {
+        width: 100%;
         height: 800px;
         flex-direction: column;
     }
 
     .f-card1 {
-        width: 300px;
+        width: 100%;
         height: 200px;
     }
     .f-card {
-        width: 300px;
+        width: 100%;
         height: 200px;
     }
 }

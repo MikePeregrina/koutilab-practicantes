@@ -18,6 +18,13 @@
 
 <body onload="recuperarDatos()">
     <div class="container">
+        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+        <div class="nav" id="nav">
+            <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
+            <p class="btn-nav">Adquiere un paquete</p>
+            <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
+            <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
+        </div>
         <div class="info-box">
             <div class="titl-info">
                 <p>Bienvenido a</p>
@@ -63,7 +70,7 @@
                 <a href="./recuperar-contrasena.php">
                     <p>Docente de una escuela</p>
                 </a>
-                <a href="./recuperar-contrasena.php">
+                <a href="#" onclick="alertAppear();">
                     <p>Cuenta personal</p>
                 </a>
             </div>
@@ -73,7 +80,59 @@
                 </a>
             </div>
         </div>
+        <div class="footer-logo">
+            <img src="img/koutilab.png" alt="">
+        </div>
+        <div class="comming" id="comming">
+            <div class="alert-cont">
+                <div class="close">
+                    <i class="fas fa-times c-btn" onclick="alertClose();"></i>
+                </div>
+                <div class="c-txt">
+                    <p>Próximamente</p>
+                </div>
+                <div class="c-img">
+                    <div class="c-img1"></div>
+                    <div class="c-img2"></div>
+                    <div class="c-img3"></div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <script>
+        var ul = document.getElementById('nav');
+        var cerrar = document.getElementById('cerrar');
+        var abrir = document.getElementById('abrir');
+
+        function abrirMenu() {
+            ul.style.cssText = "left: 0;"
+        }
+
+        function cerrarMenu() {
+            ul.style.cssText = "left: -100%;"
+        }
+
+        function login() {
+            window.location.href = "./conoce-koutilab.php";
+        }
+
+        function prueba() {
+            window.location.href = "./alumno-estructura/prueba/rutas/ruta-prueba.php";
+        }
+    </script>
+
+    <script>
+        var alert = document.getElementById("comming");
+
+        function alertAppear() {
+            alert.style.cssText = "display: flex";
+        }
+
+        function alertClose() {
+            alert.style.cssText = "display: none";
+        }
+    </script>
 
     <script>
         // Guarda los datos del formulario en una cookie
