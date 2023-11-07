@@ -1,0 +1,92 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "En forma de lista",
+        "incorrectAnswers": [
+            "En forma de cuadro",
+            "En forma de renglon",
+            "En forma de 2 en 2"
+        ],
+        "question": "¿Cuál es la impresion del siguiente codigo?\nprint('Lunes');print('Martes');print('Miercoles');print('Jueves');",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "En forma de renglon",
+        "incorrectAnswers": [
+            "En forma de lista",
+            "En forma de cuadro",
+            "En forma de 2 en 2"
+        ],
+        "question": "¿Cuál es la impresion del siguiente codigo?\nprint('Manzana','Toronja','Naranja')",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "1\n2\n3",
+        "incorrectAnswers": [
+            "1 2 3",
+            "1,2,3",
+            "1\n2,3"
+        ],
+        "question": "¿Cuál es la salida de el siguiente codigo?\nfor i in range(1,3):\nprint(i)",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Un archivo de texto",
+        "incorrectAnswers": [
+            "Una imagen",
+            "Una lista",
+            "Un pdf"
+        ],
+        "question": "¿Cuál es la salida del siguiente codigo?\nwith open('archivo.txt', 'w') as f:\nprint('Hola mundo!', file=f)",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Hola-mundo-!",
+        "incorrectAnswers": [
+            "Hola-mundo!",
+            "Hola mundo!",
+            "Hola_mundo_!"
+        ],
+        "question": "¿Cuál es la salida del siguiente codigo?\n a = 'mundo'\nprint('Hola', a, '!', sep='-')",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

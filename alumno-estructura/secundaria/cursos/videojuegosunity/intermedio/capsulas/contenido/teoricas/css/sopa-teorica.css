@@ -1,0 +1,246 @@
+.mjuego * {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.mjuego {
+    width: 100%;
+    display: flex;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    height: 60%;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid rgba(88, 88, 88, 0.3);
+}
+
+.soup {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#juego {
+    float: left;
+    margin: 20px 90px;
+}
+
+#juego div {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#juego .puzzleSquare {
+    height: 40px;
+    width: 40px;
+    margin: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: white;
+    border-color: rgba(128, 128, 128, 0.6);
+    border-radius: 10px;
+    font-size: 150%;
+    font-family: Tahoma;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+#juego .selected {
+    background-color: #84c42c;
+}
+
+#juego .found {
+    background-color: rgba(61, 172, 244);
+    color: white;
+}
+
+#juego .solved {
+    background-color: rgba(255, 0, 0, 0.473);
+    color: white;
+}
+
+#juego .complete {
+    background-color: #85c42cbb;
+}
+
+#palabras {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    font-size: 150%;
+    margin-left: 45px;
+    text-align: start;
+    background-color: red;
+}
+
+#palabras li {
+    padding: 5px 0;
+}
+
+#Palabras .wordFound {
+    text-decoration: line-through;
+    color: gray;
+}
+
+#solve {
+    margin: 0 30px;
+}
+
+/* Agregar de aqui */
+
+@media (max-width: 1100px) {
+    #juego .puzzleSquare {
+        height: 35px;
+        width: 35px;
+        font-size: 110%;
+    }
+    .soup {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .words h4 {
+        font-size: 20px;
+    }
+
+    .words {
+        width: 50%;
+        border-right: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    #juego .puzzleSquare {
+        height: 32px;
+        width: 32px;
+        font-size: 110%;
+    }
+    .soup {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .words h4 {
+        font-size: 20px;
+    }
+
+    .words {
+        width: 50%;
+        border-right: none;
+    }
+}
+
+@media (max-width: 840px) {
+    #juego .puzzleSquare {
+        height: 20px;
+        width: 20px;
+        font-size: 90%;
+    }
+    .soup {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .words h4 {
+        font-size: 15px;
+    }
+
+    .words {
+        width: 50%;
+        border-right: none;
+    }
+}
+
+@media (max-width: 800px) {
+    #juego .puzzleSquare {
+        height: 15px;
+        width: 15px;
+        font-size: 48%;
+    }
+    
+    .mjuego{
+        margin-top: 30px;
+    }
+    .soup {
+        width: 100%;
+        height: 100%;
+    }
+    .words h4 {
+        font-size: 15px;
+        margin: 0 0 0 -10px;
+    }
+    .words {
+        width: 50%;
+        border-right: none;
+    }
+}
+
+@media (max-width: 620px) {
+    #juego .puzzleSquare {
+        height: 10px;
+        width: 10px;
+        font-size: 48%;
+    }
+    
+    .mjuego{
+        margin-top: -10px;
+    }
+    .soup {
+        width: 100%;
+        height: 100%;
+    }
+    .words h4 {
+        font-size: 10px;
+        margin: 0 0 0 -10px;
+    }
+    .words {
+        width: 50%;
+        border-right: none;
+    }
+}
+
+@media (max-width: 560px) {
+    #juego .puzzleSquare {
+        height: 8px;
+        width: 8px;
+        font-size: 45%;
+    }
+
+    .mjuego{
+        margin-top: -10px;
+    }
+
+    .soup {
+        width: 100%;
+        height: 100%;
+    }
+
+    .words h4 {
+        font-size: 10px;
+        margin: 0 0 0 -10px;
+    }
+    .words {
+        width: 50%;
+        border-right: none;
+    }
+}
+
+/* Hasta aqui */
