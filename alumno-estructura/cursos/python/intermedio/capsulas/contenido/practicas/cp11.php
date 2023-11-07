@@ -67,7 +67,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Imagen Muestra</td>
+                            <td>Código a Ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,8 +77,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code11.png" ">
-                                </img>
+                                <p>
+                                  paises = { <br>    
+                                    "Mexico": "Ciudad de Mexico", <br>
+                                    "Estados Unidos": "Washington D.C.",<br>
+                                    "Canada": "Ottawa" <br> 
+                                    } <br>
+                                     valor_mexico = paises["Mexico"] <br>
+                                     valor_estados_unidos = paises["Estados Unidos"] <br>  
+                                     valor_canada = paises["Canada"]  
+                                </p>
                             </td>
                         </tr>
                     </tbody>
@@ -142,7 +150,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\n3\n4\n5\n6\n7\n8\n9\npaises = {\n    "Mexico": "Ciudad de Mexico",\n    "Estados Unidos": "Washington D.C.",\n    "Canada": "Ottawa"\n}\nvalor_mexico = paises["Mexico"]\nvalor_estados_unidos = paises["Estados Unidos"]\nvalor_canada = paises["Canada"]';
+            let esperado = '1\n2\n3\n4\n5\n6\n7\n8\npaises = {\n    "Mexico": "Ciudad de Mexico",\n    "Estados Unidos": "Washington D.C.",\n    "Canada": "Ottawa"\n}\nvalor_mexico = paises["Mexico"]\nvalor_estados_unidos = paises["Estados Unidos"]\nvalor_canada = paises["Canada"]';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
@@ -163,7 +171,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10 + '&pythoncode=' + encodeV + '&redireccion=' + '../../contenido/practicas/cp11.php';
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp11.php';
                     }
                 });
             } else {

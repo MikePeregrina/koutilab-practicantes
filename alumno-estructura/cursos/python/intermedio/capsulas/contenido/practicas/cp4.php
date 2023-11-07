@@ -67,7 +67,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Imagen Muestra</td>
+                            <td>Código a Ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -163,7 +163,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'incorrecto' + '&permiso=' + 9 + '&id_curso=' + 5 + '&practico=' + 10 + '&pythoncode=' + encodeV;
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10 + '&redireccion=' + '../contenido/practicas/cp4.php';
                     }
                 });
             } else {

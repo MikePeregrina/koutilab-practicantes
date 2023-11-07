@@ -70,18 +70,23 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Imagen Muestra</td>
+                            <td>Código a Ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea una función llamada "multiplicar" que acepte dos argumentos, "a" y "b", y devuelva el resultado de multiplicarlos juntos.
+                                <p> Crea una función llamada "multiplicar" que acepte dos argumentos, "x" y "y", y devuelva el resultado de multiplicarlos juntos.
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code1.png" ">
-                                </img>
+                               <p>
+                                 def multi () <br>
+                                     x = 10 <br>
+                                     y = 5 <br>
+                                     multi = x * y <br>
+                                     return multi
+                                    </p>
                             </td>
                         </tr>
                     </tbody>
@@ -118,9 +123,8 @@ if (isset($resultadoIntentos['intentos'])) {
         function miFunc() {
 
             // let ta = document.getElementById('editor').innerText
-            // // evaluacion del string
-            // let esCorrecto = ta == '1\n2\n3\ndef multiplicar(a, b):\n    resultado = a * b\n    return resultado'; //listo
-
+            // evaluacion del string
+            // let esCorrecto = ta == '1\n2\n3\n4\nx = 10\ny = 5\nsuma = x + y\nprint("La suma de x y y es:", suma)';
 
             function compararCodigo(usuario, esperado) {
                 const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
@@ -146,12 +150,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\n3\n4\nx = 10\ny = 5\nsuma = x + y\nprint("La suma de x y y es:", suma)';
+            let esperado = '1\n2\n3\n4\n5\ndef multi()\nx = 10\ny = 5\nmulti = x * y\nreturn multi';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
             console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
-
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
@@ -160,7 +163,6 @@ if (isset($resultadoIntentos['intentos'])) {
 
                 var myCode = editorP.getSession().getValue();
                 var encodeV = encodeURI(myCode);
-
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -168,7 +170,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10 + '&pythoncode=' + encodeV + '&redireccion=' + '../../../contenido/practicas/cp1.php';
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp1.php';
                     }
                 });
             } else {
@@ -180,7 +182,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 if (puntos == 0) {
                     //resultado();
                     Swal.fire({
-                        title: 'Bien hecho, al fin lo lograste. ¡Debes mejorar!',
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
                         text: '¡Más de 3 intentos, no es posible sumar puntos!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -192,8 +194,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            //Poner documento respectivo de insertar y modificar permiso y id curso en todas las alertas
-                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -210,7 +211,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -227,7 +228,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -244,15 +245,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 }
             }
         }
     </script>
-
-    <script>
+     <script>
         function copyToClipBoard() {
             // Crea un input para poder copiar el texto dentro       
             let copyText = document.getElementById('editor').innerText

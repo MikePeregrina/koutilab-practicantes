@@ -67,7 +67,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Imagen Muestra</td>
+                            <td>Código a Ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,8 +77,13 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code2.png" ">
-                                </img>
+                               <p>
+                                def es_par(numero): <br>
+                                    if numero % 2 == 0: <br>
+                                        return True <br>
+                                    else: <br>
+                                        return False <br>
+                                    </p>
                             </td>
                         </tr>
                     </tbody>
@@ -105,7 +110,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var editorP = ace.edit('editor');
         editorP.setValue(`<?php echo urldecode($pythoncode); ?>`);
     </script>
-    <script>
+   <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
@@ -115,8 +120,8 @@ if (isset($resultadoIntentos['intentos'])) {
         function miFunc() {
 
             // let ta = document.getElementById('editor').innerText
-            // // evaluacion del string
-            // let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n        else:\n            return False';
+            // evaluacion del string
+            // let esCorrecto = ta == '1\n2\n3\n4\nx = 10\ny = 5\nsuma = x + y\nprint("La suma de x y y es:", suma)';
 
             function compararCodigo(usuario, esperado) {
                 const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
@@ -142,12 +147,11 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n        else:\n            return False';
+            let esperado = '1\n2\n3\n4\n5\ndef es_par(numero):\nif numero % 2 == 0:\nreturn True\n else:\nreturn False ';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
             console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
-
 
             if (!esCorrecto) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
@@ -163,7 +167,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_cp2.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10 + '&pythoncode=' + encodeV + '&redireccion=' + '../contenido/practicas/cp2.php';
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp2.php';
                     }
                 });
             } else {
@@ -187,7 +191,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp2.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 1 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -204,7 +208,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -221,7 +225,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp2.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -238,15 +242,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_cp2.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 4 + '&practico=' + 10;
                         }
                     });
                 }
             }
         }
     </script>
-
-    <script>
+     <script>
         function copyToClipBoard() {
             // Crea un input para poder copiar el texto dentro       
             let copyText = document.getElementById('editor').innerText

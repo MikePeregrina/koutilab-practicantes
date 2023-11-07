@@ -67,7 +67,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Imagen Muestra</td>
+                            <td>Código a Ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,8 +77,12 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../img/code14.png" ">
-                                </img>
+                                <p>
+                                def suma(a, b): <br>
+                                    return a + b <br>
+                                def resta(a, b): <br>
+                                    return a - b <br>
+                                </p>
                             </td>
                         </tr>
                     </tbody>
@@ -142,7 +146,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\n3\n4\n5\ndef suma(a, b):\n    return a + b\ndef resta(a, b):\n    return a - b';
+            let esperado = '1\n2\n3\n4\ndef suma(a, b):\n    return a + b\ndef resta(a, b):\n    return a - b';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
@@ -163,7 +167,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10 + '&pythoncode=' + encodeV + '&redireccion=' + '../../contenido/practicas/cp14.php';
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp14.php';
                     }
                 });
             } else {
