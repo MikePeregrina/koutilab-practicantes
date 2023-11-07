@@ -3,7 +3,7 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
-include('../../../../../../../acciones/conexion.php');
+include('../../../../../../acciones/conexion.php');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -57,7 +57,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_$rol SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-py-b.php');
+        header("Location: ../../../../../rutas/ruta-py-b-" . $rol . ".php");
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 2 && $result_sql_permisos == 0) {
@@ -77,7 +77,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_$rol SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-py-b.php');
+        header("Location: ../../../../../rutas/ruta-py-b-" . $rol . ".php");
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos == 3 && $result_sql_permisos == 0) {
@@ -97,7 +97,7 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_$rol SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-py-b.php');
+        header("Location: ../../../../../rutas/ruta-py-b-" . $rol . ".php");
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 4 && $result_sql_permisos == 0) {
@@ -117,9 +117,9 @@ if ($pregunta == 'correcto' && $totalIntentos == 1 && $result_sql_permisos == 0)
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_$rol SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
     if ($insertarPermisos && $insertarEstadisticas) {
-        header('location: ../../../../../rutas/ruta-py-b.php');
+        header("Location: ../../../../../rutas/ruta-py-b-" . $rol . ".php");
         exit();
     }
 } else if ($pregunta == 'correcto' && $totalIntentos >= 1 && $result_sql_permisos > 0) {
-    header('location: ../../../../../rutas/ruta-py-b.php');
+    header("Location: ../../../../../rutas/ruta-py-b-" . $rol . ".php");
 }

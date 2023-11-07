@@ -33,7 +33,7 @@
 
     <section>
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-b.php">
+            <a href="../../../../../../rutas/ruta-py-b-<?php echo $rol;?>.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -137,9 +137,9 @@
 
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
-        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        Incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -230,7 +230,7 @@
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-py-b.php';
+                            <a href="../../../../../../rutas/ruta-py-b-<?php echo $rol;?>.php">
                         }
                     });
                 } else {
