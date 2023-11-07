@@ -83,7 +83,10 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica8html.png" style="height: 150px; width: 250px;">
+                            &lt;h1&gt; Botón &lt;/h1&gt; <br>
+                                &lt;button&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt; Click &lt;/h1&gt; <br>
+                                &lt;/button&gt;
                             </td>
                         </tr>
                     </tbody>

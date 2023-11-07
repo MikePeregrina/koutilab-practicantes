@@ -86,7 +86,29 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/bordespractica.png" style="height: 170px; width: 600px;">
+                            &lt;style> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .1 { 
+                                border-style: dotted
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .2 { 
+                                border-style: solid
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .3 { 
+                                border-style: dashed
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .4 { 
+                                border-style: double
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .5 { 
+                                border-style: groove
+                                } <br>
+                                &lt;/style> <br> <br>
+
+                                &lt;div class="1"> Hola mundo &lt;/div> <br>
+                                &lt;div class="2"> Hola mundo &lt;/div> <br>
+                                &lt;div class="3"> Hola mundo &lt;/div> <br>
+                                &lt;div class="4"> Hola mundo &lt;/div> <br>
+                                &lt;div class="5"> Hola mundo &lt;/div> <br>
                             </td>
                         </tr>
                     </tbody>

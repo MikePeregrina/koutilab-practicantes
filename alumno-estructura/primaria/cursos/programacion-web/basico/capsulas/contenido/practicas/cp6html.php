@@ -78,14 +78,12 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Agrega un video desde la carpeta local o por un link solo con código HTML.
+                                <p>Agrega un video desde la carpeta local o por un link solo con código HTML. Puedes obtener un video de la web y pegarlo dentro de src.
                                     <br>
-                                    < video>
-                                        <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/videopractica.png" style="height: 250px; width: 400px;">
+                                &lt;video src="www.youtube.com" width="300" height="200" controls&gt;&lt;/video&gt; 
                             </td>
                         </tr>
                     </tbody>
@@ -367,7 +365,7 @@ textInputs.forEach(input => {
         }
         document.oncontextmenu = new Function("return false");
     </script>
-    <script>
+    <!-- <script>
         onkeydown = e => {
             let tecla = e.which || e.keyCode;
 
@@ -385,5 +383,5 @@ textInputs.forEach(input => {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
-    </script>
+    </script> -->
 </body>

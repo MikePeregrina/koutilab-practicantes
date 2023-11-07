@@ -79,12 +79,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Crear un hipervínculo de tu página web a
-                                    otra página de tu agrado, el hipervínculo tendrá una oración. < a>
+                                    otra página de tu agrado, el hipervínculo tendrá una oración. Puedes obtener una url y pegarla dentro de href.
                                         <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/hiperpractica.png" style="height: 400px; width: 400px;">
+                                &lt;a href="www.koutilab.com"&gt; Koutilab &lt;/a&gt;
                             </td>
                         </tr>
                     </tbody>
@@ -96,14 +96,14 @@ if (isset($resultadoIntentos['intentos'])) {
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
 
-    <button class="boton-fijo" id="show-keyboard" ><i class="fa-regular fa-keyboard fa-2xl"></i></button>
+    <button class="boton-fijo" id="show-keyboard"><i class="fa-regular fa-keyboard fa-2xl"></i></button>
 
     <div id="virtual-keyboard">
-    <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+        <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
         <div class="keyboard-row">
             <button class="key">1</button>
             <button class="key">2</button>
@@ -137,7 +137,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">[</button>
             <button class="key">]</button>
             <button class="key">|</button>
-           
+
         </div>
 
         <div class="keyboard-row">
@@ -153,7 +153,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">%</button>
             <button class="key">&</button>
             <button class="key">"</button>
-           
+
         </div>
 
         <div class="keyboard-row">
@@ -164,75 +164,75 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">b</button>
             <button class="key">n</button>
             <button class="key">m</button>
-            <button class="key"><</button>
-            <button class="key">></button>
-            <button class="key">;</button>
+            <button class="key">
+                << /button>
+                    <button class="key">></button>
+                    <button class="key">;</button>
         </div>
 
         <div class="keyboard-row">
             <button class="space">Espacio</button>
         </div>
 
-      
+
 
 
     </div>
     <script>
-// Obtén elementos del DOM
-const showKeyboardButton = document.getElementById("show-keyboard");
-const textInputs = document.querySelectorAll(".cd, .cd1, .cd2"); 
-const virtualKeyboard = document.getElementById("virtual-keyboard");
-const specialChars = document.querySelectorAll(".key");
-const closeKeyboardButton = document.querySelector(".close-keyboard");
+        // Obtén elementos del DOM
+        const showKeyboardButton = document.getElementById("show-keyboard");
+        const textInputs = document.querySelectorAll(".cd, .cd1, .cd2");
+        const virtualKeyboard = document.getElementById("virtual-keyboard");
+        const specialChars = document.querySelectorAll(".key");
+        const closeKeyboardButton = document.querySelector(".close-keyboard");
 
-let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
+        let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
 
-// Función para mostrar el teclado al hacer clic en el botón
-showKeyboardButton.addEventListener("click", () => {
-    virtualKeyboard.style.display = "block";
-    activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
-});
+        // Función para mostrar el teclado al hacer clic en el botón
+        showKeyboardButton.addEventListener("click", () => {
+            virtualKeyboard.style.display = "block";
+            activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
+        });
 
-// Función para insertar caracteres en el textarea
-specialChars.forEach(charButton => {
-    charButton.addEventListener("click", () => {
-        if (activeTextInput) {
-            const char = charButton.textContent;
-            activeTextInput.value += char;
-        }
-    });
-});
+        // Función para insertar caracteres en el textarea
+        specialChars.forEach(charButton => {
+            charButton.addEventListener("click", () => {
+                if (activeTextInput) {
+                    const char = charButton.textContent;
+                    activeTextInput.value += char;
+                }
+            });
+        });
 
-// Función para cerrar el teclado
-closeKeyboardButton.addEventListener("click", () => {
-    virtualKeyboard.style.display = "none";
-    activeTextInput = null; // Restablece el textarea activo
-});
+        // Función para cerrar el teclado
+        closeKeyboardButton.addEventListener("click", () => {
+            virtualKeyboard.style.display = "none";
+            activeTextInput = null; // Restablece el textarea activo
+        });
 
-// Función para borrar un carácter en el textarea
-const deleteButton = document.querySelector(".delete");
-deleteButton.addEventListener("click", () => {
-    if (activeTextInput) {
-        const text = activeTextInput.value;
-        activeTextInput.value = text.slice(0, -1);
-    }
-});
+        // Función para borrar un carácter en el textarea
+        const deleteButton = document.querySelector(".delete");
+        deleteButton.addEventListener("click", () => {
+            if (activeTextInput) {
+                const text = activeTextInput.value;
+                activeTextInput.value = text.slice(0, -1);
+            }
+        });
 
-// Función para añadir un espacio en el textarea
-const spaceButton = document.querySelector(".space");
-spaceButton.addEventListener("click", () => {
-    if (activeTextInput) {
-        activeTextInput.value += " ";
-    }
-});
+        // Función para añadir un espacio en el textarea
+        const spaceButton = document.querySelector(".space");
+        spaceButton.addEventListener("click", () => {
+            if (activeTextInput) {
+                activeTextInput.value += " ";
+            }
+        });
 
-// Función para detectar la entrada activa
-textInputs.forEach(input => {
-    input.addEventListener("focus", () => {
-        activeTextInput = input;
-    });
-});
-
+        // Función para detectar la entrada activa
+        textInputs.forEach(input => {
+            input.addEventListener("focus", () => {
+                activeTextInput = input;
+            });
+        });
     </script>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
@@ -367,7 +367,7 @@ textInputs.forEach(input => {
         }
         document.oncontextmenu = new Function("return false");
     </script>
-    <script>
+    <!-- <script>
         onkeydown = e => {
             let tecla = e.which || e.keyCode;
 
@@ -385,5 +385,5 @@ textInputs.forEach(input => {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
-    </script>
+    </script> -->
 </body>

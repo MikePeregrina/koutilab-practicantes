@@ -79,13 +79,11 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p>Agrega un archivo PDF solo con código HTML.
-                                    Utiliza la etiqueta < iframe>. No debe de incluir títulos fuera del PDF.
-                                        <br> <br>
+                                    Utiliza la etiqueta < iframe>. No debe de incluir títulos fuera del PDF. Puedes copiar la url de un pdf de la web y pegarla dentro de src.
                                 </p>
                             </td>
                             <td class="ne">
-                                <center><img src="../../../../../../img/pdfpractica.png" style=" height:300px; width: 250px;">
-                                </center>
+                                &lt;iframe src="teminos_y_condiciones.pdf"&gt;&lt;/iframe&gt; 
                             </td>
                         </tr>
                     </tbody>
@@ -378,7 +376,7 @@ textInputs.forEach(input => {
         }
         document.oncontextmenu = new Function("return false");
     </script>
-    <script>
+    <!-- <script>
         onkeydown = e => {
             let tecla = e.which || e.keyCode;
 
@@ -396,5 +394,5 @@ textInputs.forEach(input => {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
-    </script>
+    </script> -->
 </body>

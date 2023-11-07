@@ -92,8 +92,20 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-
-                                <img src="../../../../../../img/listasorpractica.png" style="height: 140px; width: 300px;">
+                            &lt;ul&gt; </br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Juan &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Diego &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Ana &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Rosa &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; María &lt;/li&gt; <br>
+                                &lt;/ul&gt; <br>
+                                &lt;ol&gt; </br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Carrito &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Muñeca &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Lego &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Patines &lt;/li&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt; Pelota &lt;/li&gt; <br>
+                                &lt;/ol&gt;
                             </td>
                         </tr>
                     </tbody>

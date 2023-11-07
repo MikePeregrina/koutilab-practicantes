@@ -74,7 +74,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Escribe un comentario en esta línea que describa el propósito del siguiente código. area = (base * altura) / 2
+                                <p> Escribe un comentario en esta línea que describa el propósito del siguiente código. area = (base * altura) / 2 <br>
+                                    Copia el código del lado derecho y no olvides los acentos
                                 </p>
                             </td>
                             <td class="ne">
@@ -96,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

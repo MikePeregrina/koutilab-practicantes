@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Realizar diferentes formatos de texto como negritas subrayado y cursiva.
+                                <p> Realizar diferentes formatos de texto como negritas, subrayado y cursiva.
                                     La frase que ocuparas será la de tu preferencia.
                                     < b>
                                         < i>
@@ -87,7 +87,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/formatotpractica.png" style="height: 100px; width: 600px;">
+                                &lt;div&gt; </br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;b&gt; Letras negritas &lt;/b&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;i&gt; Letras cursivas &lt;/i&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;mark&gt; Letras subrayadas &lt;/mark&gt; <br>
+                                &lt;/div&gt;
                             </td>
                         </tr>
                     </tbody>

@@ -79,12 +79,26 @@ if (isset($resultadoIntentos['intentos'])) {
                             <td class="nombre">
                                 <p>A continuación, se muestra un código HTML, lo que tienes que hacer es
                                     generar en un código CSS que el texto que se encuentra entre < h1>, < h2>
-                                            y < p> sé de un solo color (color de tu preferencia).
+                                            y < p> sea de un solo color (color de tu preferencia).
                                                 <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/selectorpractica.png" style="height: 180px; width: 600px;">
+                                &lt;style> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; h1, h2, p { <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: cyan; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                                &lt;/style> <br> <br>
+
+                                &lt;h1>
+                                Hola mundo
+                                &lt;/h1> <br>
+                                &lt;h2>
+                                Hola mundo
+                                &lt;/h2> <br>
+                                &lt;p>
+                                Hola mundo
+                                &lt;/p>
                             </td>
                         </tr>
                     </tbody>

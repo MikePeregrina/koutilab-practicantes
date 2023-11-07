@@ -80,14 +80,13 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p>
                                     Inserte 3 fotos, una de un animal, una de un personaje de caricaturas
                                     y otra de su comida favorita. Estas imágenes tienen que tener un tamaño específico
-                                    de 300 píxeles de ancho por 200 píxeles de alto. < img>
-                                        <br> <br>
+                                    de 300 píxeles de ancho por 200 píxeles de alto. Puedes obtener una imagen de la web y pegarla dentro de src.
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practicahtml4d1.jpg" style="height: 100px; width: 130px;">
-                                <img src="../../../../../../img/practicahtml4d2.jpg" style="height: 100px; width: 90px;">
-                                <img src="../../../../../../img/practica4htmld3.png" style="height: 100px; width: 110px;">
+                            &lt;img src="www.url-prueba/imagen-animal.com" alt="animal" width="300" height="200"&gt; <br>
+                                &lt;img src="www.url-prueba/imagen-personaje.com" alt="personaje" width="300" height="200"&gt; <br>
+                                &lt;img src="www.url-prueba/imagen-comida.com" alt="caricatura" width="300" height="200"&gt; <br>
                             </td>
                         </tr>
                     </tbody>

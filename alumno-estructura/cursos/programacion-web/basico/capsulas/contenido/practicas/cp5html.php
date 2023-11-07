@@ -79,12 +79,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Crear un hipervínculo de tu página web a
-                                    otra página de tu agrado, el hipervínculo tendrá una oración. < a>
+                                    otra página de tu agrado, el hipervínculo tendrá una oración. Puedes obtener una url y pegarla dentro de href.
                                         <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/hiperpractica.png" style="height: 400px; width: 400px;">
+                            &lt;a href="www.koutilab.com"&gt; Koutilab &lt;/a&gt;
                             </td>
                         </tr>
                     </tbody>

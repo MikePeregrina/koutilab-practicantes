@@ -78,7 +78,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Realizar diferentes formatos de texto como negritas subrayado y cursiva.
+                                <p> Realizar diferentes formatos de texto como negritas, subrayado y cursiva.
                                     La frase que ocuparas será la de tu preferencia.
                                     < b>
                                         < i>
@@ -87,7 +87,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/formatotpractica.png" style="height: 100px; width: 600px;">
+                                &lt;div&gt; </br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;b&gt; Letras negritas &lt;/b&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;i&gt; Letras cursivas &lt;/i&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; &lt;mark&gt; Letras subrayadas &lt;/mark&gt; <br>
+                                &lt;/div&gt;
                             </td>
                         </tr>
                     </tbody>
@@ -99,14 +103,14 @@ if (isset($resultadoIntentos['intentos'])) {
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
 
-    <button class="boton-fijo" id="show-keyboard" ><i class="fa-regular fa-keyboard fa-2xl"></i></button>
+    <button class="boton-fijo" id="show-keyboard"><i class="fa-regular fa-keyboard fa-2xl"></i></button>
 
     <div id="virtual-keyboard">
-    <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+        <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
         <div class="keyboard-row">
             <button class="key">1</button>
             <button class="key">2</button>
@@ -140,7 +144,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">[</button>
             <button class="key">]</button>
             <button class="key">|</button>
-           
+
         </div>
 
         <div class="keyboard-row">
@@ -156,7 +160,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">%</button>
             <button class="key">&</button>
             <button class="key">"</button>
-           
+
         </div>
 
         <div class="keyboard-row">
@@ -167,75 +171,75 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">b</button>
             <button class="key">n</button>
             <button class="key">m</button>
-            <button class="key"><</button>
-            <button class="key">></button>
-            <button class="key">;</button>
+            <button class="key">
+                << /button>
+                    <button class="key">></button>
+                    <button class="key">;</button>
         </div>
 
         <div class="keyboard-row">
             <button class="space">Espacio</button>
         </div>
 
-      
+
 
 
     </div>
     <script>
-// Obtén elementos del DOM
-const showKeyboardButton = document.getElementById("show-keyboard");
-const textInputs = document.querySelectorAll(".cd, .cd1, .cd2"); 
-const virtualKeyboard = document.getElementById("virtual-keyboard");
-const specialChars = document.querySelectorAll(".key");
-const closeKeyboardButton = document.querySelector(".close-keyboard");
+        // Obtén elementos del DOM
+        const showKeyboardButton = document.getElementById("show-keyboard");
+        const textInputs = document.querySelectorAll(".cd, .cd1, .cd2");
+        const virtualKeyboard = document.getElementById("virtual-keyboard");
+        const specialChars = document.querySelectorAll(".key");
+        const closeKeyboardButton = document.querySelector(".close-keyboard");
 
-let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
+        let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
 
-// Función para mostrar el teclado al hacer clic en el botón
-showKeyboardButton.addEventListener("click", () => {
-    virtualKeyboard.style.display = "block";
-    activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
-});
+        // Función para mostrar el teclado al hacer clic en el botón
+        showKeyboardButton.addEventListener("click", () => {
+            virtualKeyboard.style.display = "block";
+            activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
+        });
 
-// Función para insertar caracteres en el textarea
-specialChars.forEach(charButton => {
-    charButton.addEventListener("click", () => {
-        if (activeTextInput) {
-            const char = charButton.textContent;
-            activeTextInput.value += char;
-        }
-    });
-});
+        // Función para insertar caracteres en el textarea
+        specialChars.forEach(charButton => {
+            charButton.addEventListener("click", () => {
+                if (activeTextInput) {
+                    const char = charButton.textContent;
+                    activeTextInput.value += char;
+                }
+            });
+        });
 
-// Función para cerrar el teclado
-closeKeyboardButton.addEventListener("click", () => {
-    virtualKeyboard.style.display = "none";
-    activeTextInput = null; // Restablece el textarea activo
-});
+        // Función para cerrar el teclado
+        closeKeyboardButton.addEventListener("click", () => {
+            virtualKeyboard.style.display = "none";
+            activeTextInput = null; // Restablece el textarea activo
+        });
 
-// Función para borrar un carácter en el textarea
-const deleteButton = document.querySelector(".delete");
-deleteButton.addEventListener("click", () => {
-    if (activeTextInput) {
-        const text = activeTextInput.value;
-        activeTextInput.value = text.slice(0, -1);
-    }
-});
+        // Función para borrar un carácter en el textarea
+        const deleteButton = document.querySelector(".delete");
+        deleteButton.addEventListener("click", () => {
+            if (activeTextInput) {
+                const text = activeTextInput.value;
+                activeTextInput.value = text.slice(0, -1);
+            }
+        });
 
-// Función para añadir un espacio en el textarea
-const spaceButton = document.querySelector(".space");
-spaceButton.addEventListener("click", () => {
-    if (activeTextInput) {
-        activeTextInput.value += " ";
-    }
-});
+        // Función para añadir un espacio en el textarea
+        const spaceButton = document.querySelector(".space");
+        spaceButton.addEventListener("click", () => {
+            if (activeTextInput) {
+                activeTextInput.value += " ";
+            }
+        });
 
-// Función para detectar la entrada activa
-textInputs.forEach(input => {
-    input.addEventListener("focus", () => {
-        activeTextInput = input;
-    });
-});
-
+        // Función para detectar la entrada activa
+        textInputs.forEach(input => {
+            input.addEventListener("focus", () => {
+                activeTextInput = input;
+            });
+        });
     </script>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"

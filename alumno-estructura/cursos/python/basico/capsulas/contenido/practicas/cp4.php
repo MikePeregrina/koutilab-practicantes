@@ -90,7 +90,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

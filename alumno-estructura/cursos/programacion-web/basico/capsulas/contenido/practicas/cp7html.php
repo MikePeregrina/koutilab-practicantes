@@ -84,8 +84,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <center><img src="../../../../../../img/pdfpractica.png" style=" height:300px; width: 250px;">
-                                </center>
+                            &lt;iframe src="teminos_y_condiciones.pdf"&gt;&lt;/iframe&gt; 
                             </td>
                         </tr>
                     </tbody>

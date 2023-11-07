@@ -81,7 +81,12 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/menupractica.png">
+                            &lt;ul&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Casa&lt;/a&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Cuarto&lt;/a&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Cocina&lt;/a&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Cobertizo&lt;/a&gt; <br>
+                                &lt;/ul&gt;
                             </td>
                         </tr>
                     </tbody>
