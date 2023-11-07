@@ -4,7 +4,7 @@ $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active'])) {
     header('location: ../../../../../../../../index.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
 if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['id_curso']) && !empty($_GET['payment_amount'])) {
     $payment_amount = $_GET['payment_amount'];
@@ -32,11 +32,11 @@ if (!empty($_GET['id_alumno']) && !empty($_GET['id_capsula']) && !empty($_GET['i
                 header("Location: orderCompleted.php");
             }
         } else {
-            header('Location: ../../../../../../rutas/ruta-py-a.php');
+            header('Location: ../../../../../../../../rutas/ruta-py-a-<?php echo $rol;?>.php');
         }
     } else {
-        header('Location: ../../../../../../rutas/ruta-py-a.php');
+        header('Location: ../../../../../../../../rutas/ruta-py-a-<?php echo $rol;?>.php');
     }
 } else {
-    header('Location: ../../../../../../rutas/ruta-py-a.php');
+    header('Location: ../../../../../../../../rutas/ruta-py-a-<?php echo $rol;?>.php');
 }

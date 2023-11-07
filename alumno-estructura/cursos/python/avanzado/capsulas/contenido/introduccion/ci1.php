@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
 
 ?>
@@ -68,7 +68,7 @@ include "../../../../../../../../acciones/conexion.php";
                         <li style="background-image: url('../../img/1/I/6.gif');"></li>
                         <li style="background-image: url('../../img/1/I/7.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
-                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
+                            <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                                 <input type="hidden" name="permiso" value="1">
                                 <!-- Cambiar al id del curso al que corresponda -->
                                 <input type="hidden" name="id_curso" value="6">

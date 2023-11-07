@@ -44,7 +44,7 @@ if (empty($existe)) {
 
 	<section>
 		<div class="cont-st">
-			<a href="../../../../../../../rutas/ruta-py-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+			<a href="../../../../../../../rutas/ruta-py-a-<?php echo $rol;?>.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 					<i class="fas fa-reply"></i></button>
 			</a>
 			<!-- Titulo secundario -->
@@ -123,9 +123,9 @@ if (empty($existe)) {
 
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";

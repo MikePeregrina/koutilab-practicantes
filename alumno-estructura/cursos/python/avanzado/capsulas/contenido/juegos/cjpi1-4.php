@@ -2,15 +2,15 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+     header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula12";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
         <!-- Boton para regresar -->
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-a.php">
+            <a href="../../../../../../rutas/ruta-py-a-<?php echo $rol;?>.php">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -116,6 +116,11 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         var puntos = <?php echo $puntosGanados; ?>
     </script>
+
+    <script>
+        var rol = <?php echo $rol; ?>
+    </script>
+
     <script src="../../js/copy-code-2.js"></script>
 </body>
 

@@ -2,7 +2,7 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
-include('../../../../../../../acciones/conexion.php');
+include('../../../../../../acciones/conexion.php');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -17,6 +17,6 @@ $query = "INSERT INTO estadisticas_$rol(trofeos, progreso, puntos, practico, teo
 $query_run = mysqli_query($conexion, $query);
 
 if ($insertarPermisos) {
-    header('location: ../../../../../rutas/ruta-py-i.php');
+    header('location: ../../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php');
     exit();
 }

@@ -10,9 +10,9 @@ var save = document.getElementById("save");
 
 //se esta llamando los sonidos de la carpeta "sonidos"
 var Correcto = document.createElement("audio");
-Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 var Incorrecto = document.createElement("audio");
-Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+Incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //fetch API then create the quiz
 function fetchQuiz() {
@@ -173,7 +173,7 @@ function fetchQuiz() {
               confirmButtonColor: "#3085d6",
               confirmButtonText: "Aceptar",
             }).then((result) => {
-              window.location.href = "../../../../../../rutas/ruta-py-i.php";
+              window.location.href = "../../../../../rutas/ruta-py-i.php";
             });
           }
         };

@@ -42,7 +42,7 @@ if (empty($existe)) {
 	<section>
 
 		<div class="cont-st">
-			<a href="../../../../../../../rutas/ruta-py-i.php">
+			<a href="../../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php">
 				<button class="btn-b">
 					<i class="fas fa-reply"></i>
 				</button>
@@ -117,9 +117,9 @@ if (empty($existe)) {
 
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -245,7 +245,7 @@ if (empty($existe)) {
 								confirmButtonText: '¡Vamos!',
 							}).then((result) => {
 								if (result.isConfirmed) {
-									window.location.href = "../../../../../../../rutas/ruta-py-i.php";
+									window.location.href = "../../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php";
 								}
 							})
 							correcto.play(); //agregando sonido al juego completado

@@ -6,9 +6,9 @@ const ALTURA_CANVAS = 290,
 
 //se esta llamando los sonidos de la carpeta "sonidos"
 var Correcto = document.createElement("audio");
-Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 var Incorrecto = document.createElement("audio");
-Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+Incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 // Obtener el elemento del DOM
 const canvas = document.querySelector("#canvas");
@@ -199,7 +199,7 @@ function mostrarResultados() {
                 confirmButtonText: '¡Genial!',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-py-b.php';
+                    window.location.href = '../../../../../../rutas/ruta-py-b-<'+ rol +'>.php';
                 }
             });
             Correcto.play(); //Agregando sonido al juego completado
@@ -220,5 +220,4 @@ function mostrarResultados() {
         });
     }
 }
-
 

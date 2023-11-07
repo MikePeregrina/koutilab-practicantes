@@ -3,9 +3,9 @@ var segundos = 240;
 
 //Funcion que agrega el sonido al juego
 var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 var incorrecto = document.createElement("audio");
-incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById("textoej").innerHTML = `
@@ -89,7 +89,6 @@ function iniciarTiempo() {
     }
 }
 
-//Alerta muestra de que el juego fue completado
 function alertExcelent() {
     //Obtiene el texto escrito en la pagina
     var textoejemplo = document.getElementById("textoej");
@@ -130,7 +129,7 @@ function alertExcelent() {
             if (result.isConfirmed) {
                 //Borra el texto escrito
                 escrito.value = "";
-                window.location.href = "../../../../../../rutas/ruta-py-a.php";
+                window.location.href = "Location: ../../../../../rutas/ruta-py-a-" + rol + ".php";
             }
         });
         correcto.play(); //agregando sonido al juego completado

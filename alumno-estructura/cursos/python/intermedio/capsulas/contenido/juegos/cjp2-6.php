@@ -2,15 +2,15 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula41";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+	header("Location: ../../../../acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -67,7 +67,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<section>
 		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+			<a href="../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 					<i class="fas fa-reply"></i></button>
 			</a>
 
@@ -136,9 +136,9 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Funcion que agrega el sonido al juego
 		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+		incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -236,7 +236,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = "../../../../../../rutas/ruta-py-i.php";
+					window.location.href = "../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php";
 				}
 			})
 			correcto.play(); //agregando sonido al juego completado

@@ -2,9 +2,9 @@
 session_start();
 $id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+    header('location: ../../../../../../../../../index.php');
 }
-include "../../../../../../../../acciones/conexion.php";
+include "../../../../../../../acciones/conexion.php";
 
 // Consulta para obtener la cantidad de estrellas para el alumno específico
 $sql_estrellas = "SELECT estrellas FROM total_estrellas_$rol WHERE id_alumno = $id_user";
@@ -52,11 +52,11 @@ $id_curso = $_GET['id_curso'];
             <?php else : ?>
                 <h1 style="color: red;">Estrellas insuficientes</h1>
                 <button disabled>
-                    <a href="../../../../../../rutas/ruta-py-i.php" type="button">¡Ir a recolectar estrellas!</a>
+                    <a href="../../../../../../rutas/../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php" type="button">¡Ir a recolectar estrellas!</a>
                 </button>
             <?php endif; ?>
             <button>
-                <a href="../../../../../../rutas/ruta-py-i.php" type="button">Regresar a la ruta</a>
+                <a href="../../../../../../rutas/../../../../../../rutas/ruta-py-i-<?php echo $rol;?>.php" type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>
