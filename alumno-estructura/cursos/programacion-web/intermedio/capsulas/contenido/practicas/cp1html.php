@@ -86,7 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo del resultado</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +97,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/sintaxispractica.png" style="height: 150px; width: 450px;">
+                                <p>
+                                &lt;h1&gt;Hola Mundo&lt;/h1&gt; <br>
+                                &lt;h2&gt;Hola Mundo&lt;/h2&gt; <br>
+                                &lt;i&gt;Hola Mundo&lt;/i&gt; <br>
+                                </p>
                             </td>
                         </tr>
                     </tbody>
@@ -130,7 +134,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 
@@ -302,18 +306,18 @@ textInputs.forEach(input => {
             //Validando etiquetas utilizadas
             let h1 = frame.querySelectorAll("h1").length;
             console.log("h1: " + h1);
-            let ul = frame.querySelectorAll("p").length;
-            console.log("ul: " + ul);
+            
             let h2 = frame.querySelectorAll("h2").length;
             console.log("h2: " + h2);
             let italic2 = frame.querySelectorAll("i").length;
             console.log("italic2: " + italic2);
+            /*
             let italic = frame.querySelectorAll("em").length;
             console.log("italic: " + italic);
             let blockquote = frame.querySelectorAll("blockquote").length;
             console.log("blockquote: " + blockquote);
-
-            if ((h1 > 0 || h2 > 0) && (italic > 0 || italic2 > 0) && blockquote > 0) {
+            */
+            if ((h1 > 0 || h2 > 0 || italic2 < 0) ) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

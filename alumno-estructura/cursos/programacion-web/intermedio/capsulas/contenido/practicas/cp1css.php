@@ -85,7 +85,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo del resultado</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +97,19 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practicaIcss1.png" style="height: 150px; width: 700px;">
+                                <p>
+                                    HTML <br>
+                                &lt;a&gt;&lt;/a&gt; <br>
+                                    CSS <br>
+                                    a:hover{  <br>
+                                    } <br>
+                                    a:active{ <br>
+                                    } <br>
+                                    a:link{ <br>
+                                    } <br>
+                                    a:visited{ <br>
+                                    }
+                                </p>
                             </td>
                         </tr>
                     </tbody>

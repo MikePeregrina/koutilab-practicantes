@@ -64,17 +64,6 @@ if (isset($resultadoIntentos['intentos'])) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 // if (isset($_GET['htmlcode'])) {
 //     $htmlcode = $_GET['htmlcode'];
 // } else {
@@ -149,7 +138,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo de resultado</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -160,7 +149,27 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica4Ihtml.png" style="height: 240px; width: 480px;">
+                                <p>
+                                &lt;table&gt; <br>
+    &lt;tr&gt;<br>
+        &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
+        &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
+        &lt;th&gt;Encabezado 3&lt;/th&gt; <br>
+    &lt;/tr&gt;<br>
+    &lt;tr&gt; <br>
+        &lt;td&gt;F1, C1&lt;/td&gt; <br>
+        &lt;td&gt;F1, C2&lt;/td&gt; <br>
+        &lt;td&gt;F1, C3&lt;/td&gt; <br>
+    &lt;/tr&gt; <br>
+    &lt;tr&gt; <br>
+        &lt;td&gt;F2, C1&lt;/td&gt; <br>
+        &lt;td&gt;F2, C2&lt;/td&gt; <br>
+        &lt;td&gt;F2, C3&lt;/td&gt; <br>
+    &lt;/tr&gt; <br>
+    &lt;/table&gt; <br>
+    &lt;h1&gt;Hola&lt;/h1&gt;
+
+                                </p>
                             </td>
                         </tr>
                     </tbody>
@@ -374,7 +383,7 @@ textInputs.forEach(input => {
 
             let htmlcode = document.getElementById("html-code").value;
 
-            if (table == 1 && tr == 4 && th == 3 && td == 9 && h1 == 1) {
+            if (table == 1 && tr == 3 && th == 3 && td == 6 && h1 == 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

@@ -1,21 +1,20 @@
 <?php
 session_start();
-$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
-
 include "../../../../../../../acciones/conexion.php";
-$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
-$permiso = "capsulapago3";
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$permiso = "capsulapago2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_$rol c INNER JOIN detalle_capsulas_pago_$rol d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
-    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium3.php");
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium2.php");
 }
-
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 40;
+//VERIFICAR QUE PERMISO INTENTO SEA EL CORRECTO
+$permiso_intento = 28;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_$rol WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 14");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -39,7 +38,6 @@ if (isset($resultadoIntentos['intentos'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 
 <head>
@@ -65,7 +63,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo de resultado</td>
+                            <td>Ejemplo a realizar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -290,8 +288,8 @@ if (isset($resultadoIntentos['intentos'])) {
         }
 
         // Preparar la consulta SQL para insertar el archivo en la base de datos
-        $consulta = $conexion->prepare('INSERT INTO archivos_$rol (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
-        $consulta->bind_param('sssss', $nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
+        $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
+        $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
             echo
             "

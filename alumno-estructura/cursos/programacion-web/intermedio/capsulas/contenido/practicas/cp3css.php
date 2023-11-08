@@ -81,7 +81,7 @@ if (empty($existe)) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo del resultado</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>

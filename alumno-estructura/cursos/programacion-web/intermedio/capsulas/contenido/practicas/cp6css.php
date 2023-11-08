@@ -65,7 +65,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo del resultado</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>

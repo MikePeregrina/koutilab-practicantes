@@ -86,7 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo del resultado</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +97,18 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica33htmlI.png" style="height: 300px; width: 250px;">
+                                <p>
+                                &lt;h1&gt;Menu&lt;/h1&gt; <br>
+                                &lt;ul&gt;<br>
+                                &lt;li&gt;&lt;u&gt;Name&lt;/u&gt;&lt;/li&gt; <br>
+                                &lt;li&gt;Contact&lt;/li&gt; <br>
+                                &lt;li&gt;Address&lt;/li&gt; <br>
+                                &lt;/ul&gt; <br>
+                                &lt;ol&gt;<br>
+                                &lt;li&gt; &lt;b&gt;Email&lt;/b&gt; &lt;/li&gt; <br>
+                                &lt;li&gt; &lt;b&gt;Phone&lt;/b&gt; &lt;/li&gt; <br>
+                                &lt;/ol&gt; <br>
+                                </p>
                             </td>
                         </tr>
                     </tbody>
@@ -311,7 +322,7 @@ textInputs.forEach(input => {
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (ul == 2 && ol == 1 && li >= 11 && bold == 3 && italic > 0 && h1 == 1) {
+            if (ul == 2 && ol == 1 && li >= 5 && bold == 2 && italic > 0 && h1 == 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

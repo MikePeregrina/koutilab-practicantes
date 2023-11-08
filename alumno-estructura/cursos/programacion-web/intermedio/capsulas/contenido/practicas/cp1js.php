@@ -86,6 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
+                            <td>Código a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>

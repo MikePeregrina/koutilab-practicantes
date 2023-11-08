@@ -1,11 +1,11 @@
 <?php
 session_start();
-$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../acciones/conexion.php";
-$$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula40";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_$rol c INNER JOIN detalle_capsulas_$rol d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 14");
 $existe = mysqli_fetch_all($sql);
@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Ejemplo de resultado</td>
+                            <td>Ejemplo a realizar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -288,8 +288,8 @@ if (isset($resultadoIntentos['intentos'])) {
         }
 
         // Preparar la consulta SQL para insertar el archivo en la base de datos
-        $consulta = $conexion->prepare('INSERT INTO archivos_$rol (nombre_archivo,archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?,?)');
-        $consulta->bind_param('sssss', $nombreArchivo, $archivoData, $id_alumno, $id_curso, $id_capsula); //Modificado para guardar nombre en BD
+        $consulta = $conexion->prepare('INSERT INTO archivos (archivo_data,id_alumno,id_curso,id_capsula) VALUES (?,?,?,?)');
+        $consulta->bind_param('ssss', $archivoData, $id_alumno, $id_curso, $id_capsula);
         if ($consulta->execute()) {
             echo
             "
