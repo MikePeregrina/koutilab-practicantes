@@ -1,0 +1,52 @@
+[
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "En esta fase debemos planificar el contenido de nuestra presentación, establecer una estructura clara y definir los puntos clave, ¿De qué fase hablamos?",
+        "respuesta": "Fase 1: Planificación y estructura",
+        "incorrecta1": "Fase 2: Selección de plantilla",
+        "incorrecta2": "Fase 3: Diseño y formato",
+        "incorrecta3": "Fase 4: Animaciones y transiciones",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "En esta fase elegimos una plantilla o diseño para nuestra presentación, ¿De qué fase hablamos?",
+        "respuesta": "Fase 2: Selección de plantilla",
+        "incorrecta1": "Fase 1: Planificación y estructura",
+        "incorrecta2": "Fase 3: Diseño y formato",
+        "incorrecta3": "Fase 4: Animaciones y transiciones",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Utilizar un diseño limpio, evitar exceso de colores llamativos y asegurar el tamaño de los textos en esta fase, ¿Qué fase es?",
+        "respuesta": "Fase 3: Diseño y formato",
+        "incorrecta1": "Fase 1: Planificación y estructura",
+        "incorrecta2": "Fase 2: Selección de plantilla",
+        "incorrecta3": "Fase 4: Animaciones y transiciones",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "En esta fase agregamos transiciones y animaciones coherentes, ¿A qué fase nos referimos?",
+        "respuesta": "Fase 4: Animaciones y transiciones",
+        "incorrecta1": "Fase 2: Selección de plantilla",
+        "incorrecta2": "Fase 3: Diseño y formato",
+        "incorrecta3": "Fase 5: Revisión y edición",
+        "imagen": "",
+        "objectFit": "cover"
+    },
+    {
+        "categoria": "web avanzado-css",
+        "pregunta": "Antes de presentar, revisamos nuestra presentación y editamos lo que no nos agrade o lo que puede mejorar, ¿De que fase hablamos?",
+        "respuesta": "Fase 5: Revisión y edición",
+        "incorrecta1": "Fase 2: Selección de plantilla",
+        "incorrecta2": "Fase 3: Diseño y formato",
+        "incorrecta3": "Fase 4: Animaciones y transiciones",
+        "imagen": "",
+        "objectFit": "cover"
+    }
+]
