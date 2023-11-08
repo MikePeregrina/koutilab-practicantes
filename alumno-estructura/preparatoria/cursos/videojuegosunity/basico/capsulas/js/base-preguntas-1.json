@@ -1,0 +1,52 @@
+[
+{
+    "categoria": "web basico-css",
+    "pregunta": "Para que se utilizando anchors (anclas)",
+    "respuesta": "Para adaptar las diferentes relaciones de aspectos",
+    "incorrecta1": "Para crear ventanas",
+    "incorrecta2": "Filtros",
+    "incorrecta3": "Para mensajes",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Menciona una manera de mantener los botones dentro de la pantalla ",
+    "respuesta": "Con el layout",
+    "incorrecta1": "Con un text-aling",
+    "incorrecta2": "Ninguna ",
+    "incorrecta3": "Con margenes",
+    "imagen": "",
+    "objectFit" : "cover"   
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Para que se usa el canva scaler",
+    "respuesta": "Para controlar la escala general y la densidad de píxeles de los elementos de la interfaz de usuario en el lienzo.",
+    "incorrecta1": "Para crear nuevos proyectos",
+    "incorrecta2": "Para dar margen",
+    "incorrecta3": "Todas las anteriores",
+    "imagen": "",
+    "objectFit" : "cover"
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "¿Como podemos escalar el tamaño de la pantalla?",
+    "respuesta": "Con canva scaler",
+    "incorrecta1": "Con resolucion",
+    "incorrecta2": "Las dos anteriores",
+    "incorrecta3": "Ninguna de las anteriores",
+    "imagen": "",
+    "objectFit" : "cover"  
+},
+{
+    "categoria": "web basico-css",
+    "pregunta": "Que propiedad podemos usar para esto",
+    "respuesta": "Match ",
+    "incorrecta1": "Mate",
+    "incorrecta2": "Border",
+    "incorrecta3": "Slider",
+    "imagen": "",
+    "objectFit" : "cover"    
+}
+]
