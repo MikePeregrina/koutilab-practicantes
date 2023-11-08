@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Permitir al jugador ajustar la configuración del juego, como el sonido y los controles.",
+        "incorrectAnswers": [
+            "Mostrar información sobre los desarrolladores.",
+            "Proporcionar un tutorial para aprender a jugar.",
+            "Mostrar estadísticas de rendimiento del juego."
+        ],
+        "question": "¿Cuál es el propósito principal de un 'Menú de Opciones' en un juego de Unity? ",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Canvas",
+        "incorrectAnswers": [
+            "Renderer",
+            "Collider",
+            "Light"
+        ],
+        "question": "¿Qué componente se agrega al objeto para crear la interfaz de usuario en Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Permitir a los jugadores obtener y acumular puntos para medir su progreso y rendimiento.",
+        "incorrectAnswers": [
+            "Medir la calidad gráfica del juego.",
+            "Controlar el brillo y el contraste de los elementos en la pantalla.",
+            "Determinar la duración del juego."
+        ],
+        "question": "¿Cuál es la función de un sistema de puntaje en un juego de Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "UI Image",
+        "incorrectAnswers": [
+            "Mesh Renderer",
+            "Rigidbody",
+            "Collider"
+        ],
+        "question": "¿Qué componente de Unity se utiliza para diseñar la interfaz de usuario que contendrá la barra de vida?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Derrotar enemigos y superar obstáculos",
+        "incorrectAnswers": [
+            "Aumentar la velocidad del personaje",
+            "Permitir al jugador interactuar con elementos del entorno",
+            "Cambiar el diseño gráfico del juego"
+        ],
+        "question": "¿Cuál es el propósito principal de los disparos en un juego de Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Texto, imágenes y botones",
+        "incorrectAnswers": [
+            "Solo texto",
+            "Solo imágenes",
+            "Solo botones"
+        ],
+        "question": "¿Qué tipo de elementos de UI se pueden agregar al lienzo de los menus  en Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Para permitir a los jugadores seleccionar y acceder a diferentes niveles o escenas del juego",
+        "incorrectAnswers": [
+            "Para mostrar información sobre los personajes del juego",
+            "Para ofrecer opciones de personalización en el juego.",
+            "Para proporcionar instrucciones sobre cómo jugar."
+        ],
+        "question": "¿Por qué es importante tener un menú de niveles en un juego de Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Rigidbody",
+        "incorrectAnswers": [
+            "Collider",
+            "Mesh Renderer",
+            "Audio Source"
+        ],
+        "question": "¿Qué componente se utiliza para simular la física del disparo y detectar colisiones?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Perspectiva aérea",
+        "incorrectAnswers": [
+            "Perspectiva en primera persona",
+            "Perspectiva lateral",
+            "Perspectiva isométrica"
+        ],
+        "question": "¿Qué perspectiva brinda la vista elevada en los juegos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Permitir al jugador elegir entre diferentes niveles y desafíos",
+        "incorrectAnswers": [
+            "Mostrar información sobre el desarrollo del juego",
+            "Controlar la iluminación y la calidad gráfica del juego",
+            "Proporcionar opciones para ajustar la configuración del juego."
+        ],
+        "question": "¿Cuál es el propósito principal de un 'Menú Niveles' en un juego de Unity?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

@@ -1,0 +1,91 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Return",
+        "incorrectAnswers": [
+            "String",
+            "Print",
+            "Int"
+        ],
+        "question": "¿Cuál es el ultimo componente que tiene una funcion?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Representa el resultado de una funcion",
+        "incorrectAnswers": [
+            "Imprimir un resultado",
+            "Devolver un resultado"
+        ],
+        "question": "¿Para que sirve Return?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Sigue la funcion",
+            "Falso"
+        ],
+        "question": "¿Despues del return la funcion se da como finalizada?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Que valor o resultado queremos que devuelva",
+        "incorrectAnswers": [
+            "Una suma entre dos variables",
+            "Una lista de variables",
+            "No recuerdo"
+        ],
+        "question": "¿Qué dice return a la funcion?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "return final",
+        "incorrectAnswers": [
+            "return a + b:",
+            "return = final",
+            "return 'final' "
+        ],
+        "question": "¿Cuál de las siguientes opciones es correcta?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

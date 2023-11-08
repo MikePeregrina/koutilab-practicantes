@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "let",
+        "incorrectAnswers": [
+            "function",
+            "if",
+            "while"
+        ],
+        "question": "¿Qué palabra clave se utiliza para declarar una variable en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "const",
+        "incorrectAnswers": [
+            "constante",
+            "var",
+            "let"
+        ],
+        "question": "¿Qué palabra clave se utiliza para declarar una constante en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "*",
+        "incorrectAnswers": [
+            "/",
+            "-",
+            "+"
+        ],
+        "question": "¿Qué operador se utiliza para realizar una multiplicación en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "==",
+        "incorrectAnswers": [
+            "!==",
+            "===",
+            "="
+        ],
+        "question": "¿Qué operador se utiliza para comprobar si dos valores son iguales en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "prompt()",
+        "incorrectAnswers": [
+            "console.log() ",
+            "confirm()",
+            "alert()"
+        ],
+        "question": "¿Qué método de JavaScript se utiliza para obtener la entrada de datos por teclado?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Loop for",
+        "incorrectAnswers": [
+            "Loop do-while",
+            "Loop while",
+            "Ninguna de las anteriores"
+        ],
+        "question": "¿Qué tipo de loop se utiliza en JavaScript cuando se conoce la cantidad exacta de iteraciones necesarias?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "prompt",
+        "incorrectAnswers": [
+            "console.log",
+            "confirm",
+            "alert"
+        ],
+        "question": "¿Qué cuadro de diálogo en JavaScript se utiliza para obtener la entrada de datos del usuario?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "< script > y < /script >",
+        "incorrectAnswers": [
+            "< javascript _code > < /javascript_code >",
+            "< 'script' >  < '/script' >",
+            "Todas las anteriores"
+        ],
+        "question": "¿Cuáles de estas son marcas para la inserción del código JavaScript en las páginas HTML?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "if (a==0) alert (a);",
+        "incorrectAnswers": [
+            "if (a==0): print a;",
+            "if (a==0) { print [a] }",
+            "if (a=0) print a;"
+        ],
+        "question": "¿Cuál de estas instrucciones está correctamente escrita en Javascript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Un punto y coma o un salto de línea",
+        "incorrectAnswers": [
+            ";",
+            "La sentencia End",
+            "Un punto y coma o un salto de línea"
+        ],
+        "question": "Para terminar las instrucciones en Javascript se utiliza:",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
