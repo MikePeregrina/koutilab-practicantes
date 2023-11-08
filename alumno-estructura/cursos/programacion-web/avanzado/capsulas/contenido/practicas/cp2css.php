@@ -77,6 +77,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                     »¡Me encanta CSS!» colócale el mejor tipo de letra, tamaño y además
                                     mediante CSS has que sea pura mayúscula. ¡Adelante!
                                     <br><br>
+                                    
+                                    Nota: no olvides utilizar la etiqueta <b>div</b> además de las propiedades de CSS <b>width</b>, <b>height</b>, <b>padding</b>, <b>border</b>, <b>text-transform</b> y <b>background-color</b> para lograr el resultado final.
                                 </p>
                             </td>
                             <td class="ne">

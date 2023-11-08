@@ -80,9 +80,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado12.png">
-
-                                </img>
+                            variable1, variable2, variable3 = 10, "Hola", True <br>
+                                print("El valor 1: {variable1}, El valor 2: {variable2}, El valor 3: {variable3}")
                             </td>
                         </tr>
                     </tbody>

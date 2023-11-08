@@ -92,7 +92,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea la siguiente tabla y agrégale css.
+                                <p> Crea la siguiente tabla y agrégale css. Recuerda utilizar las etiquetas de HTML <b>table, thead, tbody, tr y th</b>. Y en CSS agregar un <b>background-color, color</b> para las letras y un <b>border</b>.
                                 </p>
                             </td>
                             <td class="ne">
@@ -129,7 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

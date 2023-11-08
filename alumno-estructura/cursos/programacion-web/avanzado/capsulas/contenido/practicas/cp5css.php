@@ -96,7 +96,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                     El formulario web debe pedir por los datos nombre, apellidos, email, asunto y mensaje.
                                     No contiene php ni otros lenguajes distintos a html o css (no es funcional).
                                     El campo email es de obligado relleno.
-                                    El color de fondo es el #ccc y el color de los cajetines el #f6f6f6;
+                                    El color de fondo es el #ccc y el color de los cajetines es #f6f6f6; <br><br>
+                                    Nota: recuerda utilizar las etiquetas <b>input</b> y asignarles los tipos <b>email, text y button </b>, además de un <b>textarea</b>. Después, en CSS agrega las propiedades <b>background-color</b> y <b>color</b> para las letras.
                                 </p>
                             </td>
                             <td class="ne">

@@ -1,43 +1,43 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
-}
+// session_start();
+// $id_user = $_SESSION['id_alumno_primaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+//     header('location: ../../../../../../../../acciones/cerrarsesion.php');
+// }
+// include "../../../../../../../../acciones/conexion.php";
+// $id_user = $_SESSION['id_alumno_primaria'];
+// $permiso = "capsulapago2";
+// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6;");
+// $existe = mysqli_fetch_all($sql);
+// if (empty($existe)) {
+//     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
+// }
 
-//Verificar si ya se tiene permiso y no dar puntos de más
-//Verificar si permiso_intento es correcto
-$permiso_intento = 18; //Poner el mismo permiso que corresponde a la lista
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 6");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+// //Verificar si ya se tiene permiso y no dar puntos de más
+// //Verificar si permiso_intento es correcto
+// $permiso_intento = 18; //Poner el mismo permiso que corresponde a la lista
+// $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 6");
+// $result_sql_permisos = mysqli_num_rows($sql_permisos);
+// //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 6");
+// //Contar total de intentos
+// $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 6");
 
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
+// $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+// if (isset($resultadoIntentos['intentos'])) {
+//     $totalIntentos = $resultadoIntentos['intentos'];
+//     if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+//         $puntosGanados = 8;
+//     } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 6;
+//     } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+//         $puntosGanados = 0;
+//     } else {
+//         $puntosGanados = 0;
+//     }
+// } else {
+//     $puntosGanados = 10;
+// }
 
 ?>
 
@@ -77,9 +77,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzada6.png">
-
-                                </img>
+                            numeros = [1, 2, 3, 4, 5] <br>
+                            cuadrados = list(map(lambda x: x**2, numeros)) <br>
+                            print(cuadrados) <br>
                             </td>
                         </tr>
                     </tbody>
@@ -96,7 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" >Evaluar</button></a>
         </div>
     </div>
 

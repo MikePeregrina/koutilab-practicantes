@@ -81,9 +81,10 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cp2avanzado.png">
-
-                                </img>
+                            def contar_letras(frase):  <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;frase_sin_espacios = frase.replace(" ", "")  <br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;numero_de_letras = len(frase_sin_espacios)   <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return numero_de_letras
                             </td>
                         </tr>
                     </tbody>

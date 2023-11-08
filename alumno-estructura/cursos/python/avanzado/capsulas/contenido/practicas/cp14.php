@@ -83,9 +83,14 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado14.png">
-
-                                </img>
+                            nombres = [] <br>
+                            edades = [] <br>
+                            tupla_nombres = ("Juan", "María", "Carlos") <br>
+                            tupla_edades = (25, 30, 35) <br>
+                            nombres.extend(tupla_nombres) <br>
+                            edades.extend(tupla_edades) <br>
+                            print("Lista de nombres: ", nombres) <br>
+                            print("Lista de edades: ", edades) 
                             </td>
                         </tr>
                     </tbody>

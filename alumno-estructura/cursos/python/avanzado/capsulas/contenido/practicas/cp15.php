@@ -80,9 +80,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado15.png">
-
-                                </img>
+                            lista_numeros = [1, 2, 3, 4, 5] <br>
+                            tupla_numeros = tuple(lista_numeros) <br>
+                            print(tupla_numeros)
                             </td>
                         </tr>
                     </tbody>

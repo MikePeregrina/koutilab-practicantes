@@ -80,9 +80,10 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado19.png">
-
-                                </img>
+                                def saludar(nombre): <br>
+                                print("¡Hola " + nombre + "!") <br>
+                                return 0 <br>
+                                saludar("Jaime")
                             </td>
                         </tr>
                     </tbody>

@@ -75,9 +75,12 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavansado4.jpg">
-
-                                </img>
+                                # Programación avanzada con Python <br>
+                                def es_par(n): <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;if n % 2 == 0: <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;else:        <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False
                             </td>
                         </tr>
                     </tbody>
@@ -94,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"># Programación avanzada con Python</div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

@@ -80,9 +80,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado5.png">
-
-                                </img>
+                            lista = ["Hola", "Mundo"] <br>
+                            print(len(lista))
                             </td>
                         </tr>
                     </tbody>

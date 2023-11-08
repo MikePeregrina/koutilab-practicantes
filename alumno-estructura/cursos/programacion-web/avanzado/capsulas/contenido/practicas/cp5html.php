@@ -69,11 +69,13 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crearemos un lienzo SVG con dimensiones de 400x300px, además le pondremos un borde de 1px sólido y color negro, solo para ver cómo se toman las distancias de punto inicial y final
+                            <p> Crearemos un lienzo SVG con dimensiones de 400x300px, además le pondremos un borde de 1px sólido y color negro, solo para ver cómo se toman las distancias de punto inicial y final
                                     las marcas rojas son solo para mostrar las medidas, no aparecen en el resultado del navegador
-                                    Donde:
-                                    Punto inicial (x1,y1): (80,50)
-                                    Punto final (x2,y2): (250,200)
+                                    Donde: <br>
+                                    Punto inicial (x1,y1): (80,50) <br>
+                                    Punto final (x2,y2): (250,200)  <br>
+                                    <br><br>
+                                    Usa las etiquetas <b>svg</b> y <b>line</b>.
                                 </p>
                             </td>
                             <td class="ne">

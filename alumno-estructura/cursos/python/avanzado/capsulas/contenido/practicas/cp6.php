@@ -77,9 +77,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzada6.png">
-
-                                </img>
+                            numeros = [1, 2, 3, 4, 5] <br>
+                            cuadrados = list(map(lambda x: x**2, numeros)) <br>
+                            print(cuadrados) <br>
                             </td>
                         </tr>
                     </tbody>
