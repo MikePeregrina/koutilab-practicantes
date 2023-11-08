@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 	header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 7");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
 	header("Location: ../../../../../basico/capsulas/contenido/alertas/paquete_premium2.php");

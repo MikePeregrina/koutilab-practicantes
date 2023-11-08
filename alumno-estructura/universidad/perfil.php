@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../acciones/cerrarsesion.php');
 }
 
@@ -11,27 +11,27 @@ include('../../acciones/conexion.php');
 function actualizarEstrellas($id_user, $conexion)
 {
     // Consulta para obtener el número de conexiones del alumno
-    $sql = "SELECT conexiones FROM alumnos_preparatoria WHERE id_alumno = $id_user";
+    $sql = "SELECT conexiones FROM alumnos_universidad WHERE id_alumno = $id_user";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $total_conexiones = $row['conexiones'];
-        //Verificar estrellas en total_estrellas_preparatoria
-        $sql = mysqli_query($conexion, "SELECT * FROM total_estrellas_preparatoria WHERE id_alumno = '$id_user'");
+        //Verificar estrellas en total_estrellas_universidad
+        $sql = mysqli_query($conexion, "SELECT * FROM total_estrellas_universidad WHERE id_alumno = '$id_user'");
         $result_sql = mysqli_num_rows($sql);
 
         if ($result_sql == 0) {
-            $sql =  mysqli_query($conexion, "INSERT INTO total_estrellas_preparatoria (id_alumno, estrellas) VALUES ($id_user, 1)");
+            $sql =  mysqli_query($conexion, "INSERT INTO total_estrellas_universidad (id_alumno, estrellas) VALUES ($id_user, 1)");
         }
 
-        // Si es múltiplo de 20 o es la primera conexión, insertar una estrella en la tabla total_estrellas_preparatoria
+        // Si es múltiplo de 20 o es la primera conexión, insertar una estrella en la tabla total_estrellas_universidad
         if ($total_conexiones % 20 == 0) {
-            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_preparatoria
-            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_preparatoria SET estrellas = estrellas + 1 WHERE id_alumno = $id_user");
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_universidad
+            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_universidad SET estrellas = estrellas + 1 WHERE id_alumno = $id_user");
         } else {
-            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_preparatoria
-            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_preparatoria SET estrellas = estrellas + 0 WHERE id_alumno = $id_user");
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_universidad
+            $sql =  mysqli_query($conexion, "UPDATE total_estrellas_universidad SET estrellas = estrellas + 0 WHERE id_alumno = $id_user");
         }
     }
 }
@@ -48,165 +48,165 @@ if (!isset($_SESSION['actualizacion_realizada'])) {
 
 //Verificar si ya se tiene permiso en ruta 1
 $permiso_ruta_r1 = "1";
-$sql_verificar_r1 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r1'");
+$sql_verificar_r1 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r1'");
 $existe_verificar_r1 = mysqli_num_rows($sql_verificar_r1);
 
 //Verificar si ya se tiene permiso en ruta 2
 $permiso_ruta_r2 = "2";
-$sql_verificar_r2 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r2'");
+$sql_verificar_r2 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r2'");
 $existe_verificar_r2 = mysqli_num_rows($sql_verificar_r2);
 
 //Verificar si ya se tiene permiso en ruta 3
 $permiso_ruta_r3 = "3";
-$sql_verificar_r3 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r3'");
+$sql_verificar_r3 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r3'");
 $existe_verificar_r3 = mysqli_num_rows($sql_verificar_r3);
 
 //Verificar si ya se tiene permiso en ruta 4
 $permiso_ruta_r4 = "4";
-$sql_verificar_r4 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r4'");
+$sql_verificar_r4 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r4'");
 $existe_verificar_r4 = mysqli_num_rows($sql_verificar_r4);
 
 //Verificar si ya se tiene permiso en ruta 5
 $permiso_ruta_r5 = "5";
-$sql_verificar_r5 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r5'");
+$sql_verificar_r5 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r5'");
 $existe_verificar_r5 = mysqli_num_rows($sql_verificar_r5);
 
 //Verificar si ya se tiene permiso en ruta 6
 $permiso_ruta_r6 = "6";
-$sql_verificar_r6 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r6'");
+$sql_verificar_r6 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r6'");
 $existe_verificar_r6 = mysqli_num_rows($sql_verificar_r6);
 
 //Verificar si ya se tiene permiso en ruta 7
 $permiso_ruta_r7 = "7";
-$sql_verificar_r7 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r7'");
+$sql_verificar_r7 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r7'");
 $existe_verificar_r7 = mysqli_num_rows($sql_verificar_r7);
 
 //Verificar si ya se tiene permiso en ruta 8
 $permiso_ruta_r8 = "8";
-$sql_verificar_r8 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r8'");
+$sql_verificar_r8 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r8'");
 $existe_verificar_r8 = mysqli_num_rows($sql_verificar_r8);
 
 //Verificar si ya se tiene permiso en ruta 9
 $permiso_ruta_r9 = "9";
-$sql_verificar_r9 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r9'");
+$sql_verificar_r9 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r9'");
 $existe_verificar_r9 = mysqli_num_rows($sql_verificar_r9);
 
 //Verificar si ya se tiene permiso en ruta 10
 $permiso_ruta_r10 = "10";
-$sql_verificar_r10 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r10'");
+$sql_verificar_r10 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r10'");
 $existe_verificar_r10 = mysqli_num_rows($sql_verificar_r10);
 
 //Verificar si ya se tiene permiso en ruta 11
 $permiso_ruta_r11 = "11";
-$sql_verificar_r11 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r11'");
+$sql_verificar_r11 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r11'");
 $existe_verificar_r11 = mysqli_num_rows($sql_verificar_r11);
 
 //Verificar si ya se tiene permiso en ruta 12
 $permiso_ruta_r12 = "12";
-$sql_verificar_r12 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r12'");
+$sql_verificar_r12 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r12'");
 $existe_verificar_r12 = mysqli_num_rows($sql_verificar_r12);
 
 //Verificar si ya se tiene permiso en ruta 13
 $permiso_ruta_r13 = "13";
-$sql_verificar_r13 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r13'");
+$sql_verificar_r13 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r13'");
 $existe_verificar_r13 = mysqli_num_rows($sql_verificar_r13);
 
 //Verificar si ya se tiene permiso en ruta 14
 $permiso_ruta_r14 = "14";
-$sql_verificar_r14 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r14'");
+$sql_verificar_r14 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r14'");
 $existe_verificar_r14 = mysqli_num_rows($sql_verificar_r14);
 
 //Verificar si ya se tiene permiso en ruta 15
 $permiso_ruta_r15 = "15";
-$sql_verificar_r15 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r15'");
+$sql_verificar_r15 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r15'");
 $existe_verificar_r15 = mysqli_num_rows($sql_verificar_r15);
 
 //Estadisticas de todos los cursos del alumno
-$consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_preparatoria WHERE id_alumno = $id_user");
+$consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_universidad WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
 
 //Estadisticas programacion web basica
-$query_programacion_web_basica = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 1");
+$query_programacion_web_basica = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 1");
 $data_programacion_web_basica = mysqli_fetch_assoc($query_programacion_web_basica);
 
 //Estadisticas programacion web intermedio
-$query_programacion_web_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 2");
+$query_programacion_web_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 2");
 $data_programacion_web_intermedio = mysqli_fetch_assoc($query_programacion_web_intermedio);
 
 //Estadisticas programacion web avanzado
-$query_programacion_web_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 3");
+$query_programacion_web_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 3");
 $data_programacion_web_avanzado = mysqli_fetch_assoc($query_programacion_web_avanzado);
 
 //Estadisticas python basico
-$query_python_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 4");
+$query_python_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 4");
 $data_python_basico = mysqli_fetch_assoc($query_python_basico);
 
 //Estadisticas python intermedio
-$query_python_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 5");
+$query_python_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 5");
 $data_python_intermedio = mysqli_fetch_assoc($query_python_intermedio);
 
 //Estadisticas python avanzado
-$query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 6");
+$query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 6");
 $data_python_avanzado = mysqli_fetch_assoc($query_python_avanzado);
 
 //Estadisticas informatica basico
-$query_informatica_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 7");
+$query_informatica_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 7");
 $data_informatica_basico = mysqli_fetch_assoc($query_informatica_basico);
 
 //Estadisticas informatica intermedio
-$query_informatica_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 8");
+$query_informatica_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 8");
 $data_informatica_intermedio = mysqli_fetch_assoc($query_informatica_intermedio);
 
 //Estadisticas informatica avanzado
-$query_informatica_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 9");
+$query_informatica_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 9");
 $data_informatica_avanzado = mysqli_fetch_assoc($query_informatica_avanzado);
 
 //Estadisticas videojuegosunity basico
-$query_videojuegosunity_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 10");
+$query_videojuegosunity_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 10");
 $data_videojuegosunity_basico = mysqli_fetch_assoc($query_videojuegosunity_basico);
 
 //Estadisticas videojuegosunity intermedio
-$query_videojuegosunity_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 11");
+$query_videojuegosunity_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 11");
 $data_videojuegosunity_intermedio = mysqli_fetch_assoc($query_videojuegosunity_intermedio);
 
 //Estadisticas videojuegosunity avanzado
-$query_videojuegosunity_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 12");
+$query_videojuegosunity_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 12");
 $data_videojuegosunity_avanzado = mysqli_fetch_assoc($query_videojuegosunity_avanzado);
 
 //Estadisticas appsmoviles basico
-$query_appsmoviles_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 13");
+$query_appsmoviles_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 13");
 $data_appsmoviles_basico = mysqli_fetch_assoc($query_appsmoviles_basico);
 
 //Estadisticas appsmoviles intermedio
-$query_appsmoviles_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 14");
+$query_appsmoviles_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 14");
 $data_appsmoviles_intermedio = mysqli_fetch_assoc($query_appsmoviles_intermedio);
 
 //Estadisticas appsmoviles avanzado
-$query_appsmoviles_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_preparatoria WHERE id_alumno = $id_user AND id_curso = 15");
+$query_appsmoviles_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_universidad WHERE id_alumno = $id_user AND id_curso = 15");
 $data_appsmoviles_avanzado = mysqli_fetch_assoc($query_appsmoviles_avanzado);
 
 //Información solo de alumno
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_universidad a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
 
 //Información para alumno - escuela
-$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_preparatoria a
+$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_universidad a
 JOIN escuelas e 
 ON a.id_escuela = e.id_escuela
 WHERE a.id_alumno = $id_user"));
 
 //Información para alumno - docente
-$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos_preparatoria a
-JOIN docentes_preparatoria d 
+$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos_universidad a
+JOIN docentes_universidad d 
 ON a.id_docente = d.id_docente
 WHERE a.id_alumno = $id_user"));
 
 //Conteo de cursos
-$sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos_preparatoria
+$sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos_universidad
 WHERE id_alumno = $id_user";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 
-$sql_verificar_rutas = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user");
+$sql_verificar_rutas = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user");
 $existe_verificar_rutas = mysqli_num_rows($sql_verificar_rutas);
 
 // Array que contiene los puntos correspondientes a cada ruta desbloqueada.
@@ -334,7 +334,7 @@ $totalPractico = $total_puntos_practicos;
 $totalTeorico = $total_puntos_teoricos;
 
 // Consulta para obtener la cantidad de estrellas para el alumno específico
-$sql_estrellas = "SELECT estrellas FROM total_estrellas_preparatoria WHERE id_alumno = $id_user";
+$sql_estrellas = "SELECT estrellas FROM total_estrellas_universidad WHERE id_alumno = $id_user";
 $result_estrellas = $conexion->query($sql_estrellas);
 
 if ($result_estrellas->num_rows > 0) {
@@ -398,14 +398,14 @@ if ($result_estrellas->num_rows > 0) {
 
 
                     <div class="Logo2">
-                        <img src="../preparatoria/img/Bienvenida.png" style="height: 110px; width:170px;">
+                        <img src="../universidad/img/Bienvenida.png" style="height: 110px; width:170px;">
                     </div>
 
 
                     <div class="desplegable">
 
                         <button type="button" class="boton-opciones" id="" placeholder="Opciones">
-                            <div class="sing"> <img src="../preparatoria/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
+                            <div class="sing"> <img src="../universidad/img/ajustes.png" alt="" height="20px" width="20px" class="svg">
                             </div>
 
                             <div class="textB">
@@ -433,7 +433,7 @@ if ($result_estrellas->num_rows > 0) {
                 <div class="perfil-usuario-bio">
 
                     <?php
-                    $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE id_alumno = '$id_user'");
+                    $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE id_alumno = '$id_user'");
                     while ($consulta = mysqli_fetch_array($data2)) {
                         echo " <h3 class='titulo'>" . $consulta['nombre'] . "</h3>";
                     }
@@ -800,7 +800,7 @@ if ($result_estrellas->num_rows > 0) {
             } else {
                 $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
                 $newImageName .= '.' . $imageExtension;
-                $query = "UPDATE alumnos_preparatoria SET image = '$newImageName' WHERE id_alumno = $id";
+                $query = "UPDATE alumnos_universidad SET image = '$newImageName' WHERE id_alumno = $id";
                 mysqli_query($conexion, $query);
                 move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
                 echo
@@ -1376,10 +1376,10 @@ if ($result_estrellas->num_rows > 0) {
 
         <?php
         if (isset($_POST['enviarnombre'])) {
-            $idalumno = $_SESSION['id_alumno_preparatoria'];
+            $idalumno = $_SESSION['id_alumno_universidad'];
             $nombre = $_POST['nombrealumno'];
 
-            $sql_update = mysqli_query($conexion, "UPDATE alumnos_preparatoria SET nombre = '$nombre' WHERE id_alumno = '$idalumno'");
+            $sql_update = mysqli_query($conexion, "UPDATE alumnos_universidad SET nombre = '$nombre' WHERE id_alumno = '$idalumno'");
 
             if ($sql_update) {
                 echo
@@ -1421,10 +1421,10 @@ if ($result_estrellas->num_rows > 0) {
 
         <?php
         if (isset($_POST['enviarcontrasena'])) {
-            $idalumno = $_SESSION['id_alumno_preparatoria'];
+            $idalumno = $_SESSION['id_alumno_universidad'];
             $contrasena = md5($_POST['contrasena']);
 
-            $sql_update = mysqli_query($conexion, "UPDATE alumnos_preparatoria SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
+            $sql_update = mysqli_query($conexion, "UPDATE alumnos_universidad SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
 
             if ($sql_update) {
                 echo
@@ -1466,34 +1466,34 @@ if ($result_estrellas->num_rows > 0) {
 
         <footer class="footerimga">
             <div class="imagen-footer">
-                <img src="../preparatoria/img/benvenida.png" alt="No-image">
+                <img src="../universidad/img/benvenida.png" alt="No-image">
             </div>
         </footer>
 
         <?php
         if (isset($_POST['enviarclave'])) {
-            $idalumno = $_SESSION['id_alumno_preparatoria'];
+            $idalumno = $_SESSION['id_alumno_universidad'];
             $clavegrupo = $_POST['clavegrupo'];
 
-            $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_preparatoria WHERE clave = '$clavegrupo'"));
+            $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_universidad WHERE clave = '$clavegrupo'"));
             if (isset($data_alumno['id_grupo'])) {
                 $id_grupo_alumno = $data_alumno['id_grupo'];
-                $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos_preparatoria(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
+                $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos_universidad(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
             }
             if (isset($data_alumno['id_docente'])) {
                 $id_docente_alumno = $data_alumno['id_docente'];
-                $sql_update = mysqli_query($conexion, "UPDATE alumnos_preparatoria SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
+                $sql_update = mysqli_query($conexion, "UPDATE alumnos_universidad SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
             }
 
             if (isset($data_alumno['id_grupo'])) {
-                $sql = "SELECT DISTINCT c.id_curso FROM grupos_preparatoria g JOIN detalle_grupo_cursos_preparatoria dg ON g.id_grupo = dg.id_grupo JOIN cursos_preparatoria c ON dg.id_curso = c.id_curso WHERE g.clave = '$clavegrupo'";
+                $sql = "SELECT DISTINCT c.id_curso FROM grupos_universidad g JOIN detalle_grupo_cursos_universidad dg ON g.id_grupo = dg.id_grupo JOIN cursos_universidad c ON dg.id_curso = c.id_curso WHERE g.clave = '$clavegrupo'";
                 $resultado = $conexion->query($sql);
 
                 if ($resultado->num_rows > 0) {
                     // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
                     while ($fila = $resultado->fetch_assoc()) {
                         $idcurso = $fila["id_curso"];
-                        $insertar_acceso_curso = "INSERT INTO acceso_cursos_preparatoria(id_curso, id_alumno) VALUES ('$idcurso', $idalumno)";
+                        $insertar_acceso_curso = "INSERT INTO acceso_cursos_universidad(id_curso, id_alumno) VALUES ('$idcurso', $idalumno)";
                         $conexion->query($insertar_acceso_curso);
                     }
                 }

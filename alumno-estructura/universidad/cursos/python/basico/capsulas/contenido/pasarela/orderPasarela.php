@@ -5,8 +5,8 @@
 //define('ProPayPal', 1); // El 1 simboliza entorno de producción
 
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
@@ -15,12 +15,12 @@ define('ProPayPal', 1);
 if (ProPayPal) {
     define("PayPalClientId", "AWuU3SUmjGF7B2S3LJgWW9tAb_u_-YA1PUx2nX1fSIQll5V1N6zonfDZ-40NIcmOKEPh5FewTaQPp6n3");
     define("PayPalSecret", "EMerBic12d3e1gHvFwUC6qSMisA00APvqKJcKb2tENmig-EN3jqmr7IzzDQjrEx_88CaleyOgb3qQqK8");
-    define("PayPalBaseUrl", "https://koutilab.com/alumno/preparatoria/cursos/python/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "https://koutilab.com/alumno/universidad/cursos/python/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
     define("PayPalSecret", "EAOYI052iYSGGT2592LeeXNvDbCq9tArRGqgWRVCAxQwf55u-wHx3VVxePzGD2j-9F29mEcbXL12mPFR");
-    define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/preparatoria/cursos/python/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/koutilab-practicantes/alumno/universidad/cursos/python/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "sandbox");
 }
 $productName = "Cápsula de prueba";

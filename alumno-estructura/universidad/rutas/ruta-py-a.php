@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../acciones/cerrarsesion.php');
 }
 include "../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "6";
-$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_preparatoria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
+$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../cursos/python/avanzado/capsulas/acciones/acceso_cursos.php");
@@ -17,68 +17,68 @@ include "verificar-ruta-py-a.php";
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de python
 $capsula_verificar_py1 = "capsula10";
-$sql_verificar_py1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py1' AND d.id_curso = 6");
+$sql_verificar_py1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py1' AND d.id_curso = 6");
 $existe_verificar_py1 = mysqli_num_rows($sql_verificar_py1);
 
 //Verificar si esta comprada la capsula 1 de python
 $capsula_comprada_py1 = "capsulapago1";
-$sql_comprada_py1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py1' AND d.id_curso = 6;");
+$sql_comprada_py1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py1' AND d.id_curso = 6;");
 $existe_comprada_py1 = mysqli_num_rows($sql_comprada_py1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de python
 $capsula_verificar_py2 = "capsula13";
-$sql_verificar_py2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py2' AND d.id_curso = 6");
+$sql_verificar_py2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py2' AND d.id_curso = 6");
 $existe_verificar_py2 = mysqli_num_rows($sql_verificar_py2);
 
 //Verificar si esta comprada la capsula 2 de python
 $capsula_comprada_py2 = "capsulapago2";
-$sql_comprada_py2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py2' AND d.id_curso = 6;");
+$sql_comprada_py2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py2' AND d.id_curso = 6;");
 $existe_comprada_py2 = mysqli_num_rows($sql_comprada_py2);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 3 de python
 $capsula_verificar_py3 = "capsula22";
-$sql_verificar_py3 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py3' AND d.id_curso = 6");
+$sql_verificar_py3 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py3' AND d.id_curso = 6");
 $existe_verificar_py3 = mysqli_num_rows($sql_verificar_py3);
 
 //Verificar si esta comprada la capsula 3 de python
 $capsula_comprada_py3 = "capsulapago3";
-$sql_comprada_py3 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py3' AND d.id_curso = 6;");
+$sql_comprada_py3 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py3' AND d.id_curso = 6;");
 $existe_comprada_py3 = mysqli_num_rows($sql_comprada_py3);
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 4 de python
 $capsula_verificar_py4 = "capsula38";
-$sql_verificar_py4 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py4' AND d.id_curso = 6");
+$sql_verificar_py4 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py4' AND d.id_curso = 6");
 $existe_verificar_py4 = mysqli_num_rows($sql_verificar_py4);
 
 //Verificar si esta comprada la capsula 4 de python
 $capsula_comprada_py4 = "capsulapago4";
-$sql_comprada_py4 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py4' AND d.id_curso = 6;");
+$sql_comprada_py4 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py4' AND d.id_curso = 6;");
 $existe_comprada_py4 = mysqli_num_rows($sql_comprada_py4);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 5 de python
 $capsula_verificar_py5 = "capsula41";
-$sql_verificar_py5 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py5' AND d.id_curso = 6");
+$sql_verificar_py5 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py5' AND d.id_curso = 6");
 $existe_verificar_py5 = mysqli_num_rows($sql_verificar_py5);
 
 //Verificar si esta comprada la capsula 5 de python
 $capsula_comprada_py5 = "capsulapago5";
-$sql_comprada_py5 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py5' AND d.id_curso = 6;");
+$sql_comprada_py5 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py5' AND d.id_curso = 6;");
 $existe_comprada_py5 = mysqli_num_rows($sql_comprada_py5);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 6 de python
 $capsula_verificar_py6 = "capsula44";
-$sql_verificar_py6 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py6' AND d.id_curso = 6");
+$sql_verificar_py6 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_py6' AND d.id_curso = 6");
 $existe_verificar_py6 = mysqli_num_rows($sql_verificar_py6);
 
 //Verificar si esta comprada la capsula 6 de python
 $capsula_comprada_py6 = "capsulapago6";
-$sql_comprada_py6 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py6' AND d.id_curso = 6;");
+$sql_comprada_py6 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_py6' AND d.id_curso = 6;");
 $existe_comprada_py6 = mysqli_num_rows($sql_comprada_py6);
 
 // Función para actualizar conexiones a ruta
 function actualizarConexiones($permiso, $conexion)
 {
     // Consulta para obtener el número de conexiones
-    $sql = "SELECT conexiones FROM conexiones_curso_preparatoria WHERE id_curso = $permiso";
+    $sql = "SELECT conexiones FROM conexiones_curso_universidad WHERE id_curso = $permiso";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
@@ -88,8 +88,8 @@ function actualizarConexiones($permiso, $conexion)
         if ($total_conexiones >= 0) {
             $id_escuela = $_SESSION['id_escuela'];
             $sql_curso =  mysqli_query($conexion, "INSERT INTO conexiones_cursos(id_curso, id_escuela) values ($permiso, $id_escuela)");
-            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_preparatoria
-            $sql =  mysqli_query($conexion, "UPDATE conexiones_curso_preparatoria SET conexiones = conexiones + 1 WHERE id_curso = $permiso");
+            // Si no es múltiplo de 20, actualizar el campo estrellas en la tabla total_estrellas_universidad
+            $sql =  mysqli_query($conexion, "UPDATE conexiones_curso_universidad SET conexiones = conexiones + 1 WHERE id_curso = $permiso");
         }
     }
 }
