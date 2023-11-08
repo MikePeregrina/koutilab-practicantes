@@ -80,9 +80,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado17.png">
-
-                                </img>
+                            lista_anidada = [[1, 2, 3], ["A", "B", "C"], [True, False, True]] <br>
+                                print(lista_anidada)
                             </td>
                         </tr>
                     </tbody>

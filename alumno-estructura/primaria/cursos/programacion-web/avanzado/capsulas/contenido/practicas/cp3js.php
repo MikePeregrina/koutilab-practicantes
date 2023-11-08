@@ -95,6 +95,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <br>
                                     Crea la estructura de un formulario que pida tu nombre, edad y color favorito.
                                     <br><br>
+                                    Nota: utilizar las etiquetas <b>input</b> de tipo <b>texto y email</b>, también las etiquetas <b>button</b> y <b>textarea</b>. Despues en JavaScript crea una función con <b>function</b> y variables con <b>var</b>.
                                 </p>
                             </td>
                         </tr>
@@ -128,7 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 
@@ -326,7 +327,7 @@ textInputs.forEach(input => {
             }
 
 
-            if (inputext > 0 && inputemail && textarea && button > 0 && script > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1) {
+            if (inputext > 0 && inputemail && textarea && button > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1) {
 
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();

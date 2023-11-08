@@ -103,6 +103,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <br>
                                     Para hacer esto, crea un botón en la página web que llame a la función cuando se hace clic en él.
                                     <br><br>
+                                    Nota: Utiliza la etiqueta <b>button</b> para crear un botón con HTML. Después, en JavaScript, crea una variable con <b>var</b> y escribe un mensaje en ella, crea una función con <b>function</b> y activa una alerta con <b>alert</b>.
                                 </p>
                             </td>
                         </tr>
@@ -136,7 +137,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" >Evaluar</button></a>
         </div>
     </div>
 
@@ -331,7 +332,7 @@ textInputs.forEach(input => {
                 console.log("No hay alert en JS");
             }
 
-            if (button > 0 && script > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1 && jscode.indexOf('alert') != -1) {
+            if (button > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1 && jscode.indexOf('alert') != -1) {
 
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();

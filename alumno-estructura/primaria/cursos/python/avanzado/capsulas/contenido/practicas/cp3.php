@@ -80,9 +80,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cp3avanzado.png">
-
-                                </img>
+                            def mayor(numero1, numero2): <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;if numero1 > numero2: <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return numero1   <br>  
+                            &nbsp;&nbsp;&nbsp;&nbsp;else:        <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return numero2
                             </td>
                         </tr>
                     </tbody>
@@ -99,7 +101,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

@@ -92,7 +92,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Realiza el siguiente texto con pseudoelementos.
+                                <p> Realiza el siguiente texto con pseudoelementos. <br><br>
+                                Nota: utiliza etiquetas <b>div</b> y en CSS la propiedad <b>position</b>, además de los pseudoelementos <b>::before</b> y <b>::after</b>
                                 </p>
                             </td>
                             <td class="ne">

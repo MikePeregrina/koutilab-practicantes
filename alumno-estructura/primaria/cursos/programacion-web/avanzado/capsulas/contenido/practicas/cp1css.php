@@ -92,7 +92,8 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Justifica en cada caso qué tipo de posicionamiento se ha utilizado.
-                                    En cada caso, ¿eres capaz de reproducir el código html y css para conseguir lo mismo visualizado?
+                                    En cada caso, ¿eres capaz de reproducir el código html y css para conseguir lo mismo visualizado? <br><br>
+                                    Ustiliza etiquetas <b>div</b> y en CSS utiliza la propiedad <b>wrap</b>.
                                 </p>
                             </td>
                             <td class="ne">
@@ -130,7 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

@@ -80,9 +80,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado11.png">
-
-                                </img>
+                            frutas = ["Manzana", "", "Pera", ""] <br>
+                            frutas = filter(None, frutas) <br>
+                            print(list(frutas)) 
                             </td>
                         </tr>
                     </tbody>
@@ -146,7 +146,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\nfrutas = ["Manzana", "", "Pera", ""]\nfrutas = filter(None, frutas)\nprint(list(frutas))';
+            let esperado = '1\n2\n3\nfrutas = ["Manzana", "", "Pera", ""]\nfrutas = filter(None, frutas)\nprint(list(frutas))';
 
             let esCorrecto = compararCodigo(ta, esperado);
 

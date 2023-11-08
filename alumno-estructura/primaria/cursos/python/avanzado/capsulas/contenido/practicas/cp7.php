@@ -81,9 +81,10 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpaanzado7.jpg">
-
-                                </img>
+                                fh = open("mi_archivo.txt") <br>
+                                for linea in fh.readlines(): <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;print(linea) <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;fh.close()
                             </td>
                         </tr>
                     </tbody>
@@ -100,7 +101,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

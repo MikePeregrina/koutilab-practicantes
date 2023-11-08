@@ -92,9 +92,10 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crearemos el siguiente SVG.
+                                <p> Crearemos el siguiente SVG con las etiquetas <b>svg</b>, <b>rect</b>, <b>polygon</b> y <b>circle</b>.
                                     <br><br>
                                 </p>
+                                
                             </td>
                             <td class="ne">
                                 <img src="../../../../../../img/graficosvectoriales.png" style="height: 100px; width: 500px;">

@@ -98,6 +98,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <br>
                                     Usa JavaScript para redirigir a una página que le dé la bienvenida usando su nombre. Por ejemplo, si el niño escribió "Ana", redirígelo a una página que diga "¡Bienvenida, Ana!".
                                     <br><br>
+                                    Nota: utiliza HTML para crear etiquetas <b>input</b> de tipo texto y también la etiqueta <b>button</b>. Después, utiliza JavaScript para usar la propiedad <b>getElementById</b>, crear variables con <b>var</b> y redireccionar con <b>window.location.href</b>
                                 </p>
                             </td>
                         </tr>
@@ -330,7 +331,7 @@ textInputs.forEach(input => {
 
 
 
-            if (inputext > 0 && button > 0 && script > 0 && jscode.indexOf('getElementById') != -1 && jscode.indexOf('var') != -1 && jscode.indexOf('window.location.href') != -1) {
+            if (inputext > 0 && button > 0 && jscode.indexOf('getElementById') != -1 && jscode.indexOf('var') != -1 && jscode.indexOf('window.location.href') != -1) {
 
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();

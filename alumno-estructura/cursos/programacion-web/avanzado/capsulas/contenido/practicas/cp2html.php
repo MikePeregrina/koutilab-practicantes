@@ -92,7 +92,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea la siguiente barra de progreso.
+                            <p> Crea la siguiente barra de progreso usando un div para la barra y otra etiqueta span para el porcentaje. Usa CSS para los colores y tamaños
                                     <br><br>
                                 </p>
                             </td>

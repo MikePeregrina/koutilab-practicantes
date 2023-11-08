@@ -80,9 +80,9 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado15.png">
-
-                                </img>
+                            lista_numeros = [1, 2, 3, 4, 5] <br>
+                            tupla_numeros = tuple(lista_numeros) <br>
+                            print(tupla_numeros)
                             </td>
                         </tr>
                     </tbody>
@@ -99,7 +99,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 

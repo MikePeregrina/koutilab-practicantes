@@ -92,8 +92,12 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Crea el siguiente formulario.
+                            <p>Crea el siguiente formulario usando la etiqueta input de html, después, agrega el tipo de input que son: <b>text, checkbox, email y button</b>, despues agrega otra etiqueta de html que es <b>textarea</b>. <br>
+                                Ejemplo: <br> <br>
+                                &lt;input type="text"> <br>
+                                &lt;textarea name="" id="" cols="30" rows="10">&lt;/textarea>
                                     <br><br>
+                                    ¡Y al final solo dale estilo con CSS!
                                 </p>
                             </td>
                             <td class="ne">

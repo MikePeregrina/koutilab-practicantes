@@ -99,6 +99,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <br>
                                     Volviendo al archivo HTML, agrega un evento al botón que llame a la función saludar() cuando el usuario haga clic en él. Para hacer esto, utiliza el atributo onclick:
                                     <br><br>
+                                    Nota: utiliza la etiqueta <b>button</b> de HTML. En JavaScript, utilizar <b>function, getElementById</b> y <b>alert</b>.
                             </td>
                         </tr>
                     </tbody>
@@ -326,7 +327,7 @@ textInputs.forEach(input => {
                 console.log("No hay alert en JS");
             }
 
-            if (button > 0 && script > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('getElementById') != -1 && jscode.indexOf('alert') != -1) {
+            if (button > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('getElementById') != -1 && jscode.indexOf('alert') != -1) {
 
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();

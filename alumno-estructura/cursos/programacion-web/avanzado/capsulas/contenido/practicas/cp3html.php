@@ -92,7 +92,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea el siguente slider con 4 imágenes de tu pelicula favorita.
+                            <p> Crea el siguente slider con 4 imágenes de tu pelicula favorita haciendo uso de la etiqueta <b>div</b> para cada imagen y de la etiqueta <b>button</b> para pasar la imagen
                                 </p>
                             </td>
                             <td class="ne">

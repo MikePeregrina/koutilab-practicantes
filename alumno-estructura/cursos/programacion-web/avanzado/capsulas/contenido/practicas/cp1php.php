@@ -94,6 +94,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p> Crea un programa en PHP donde declares dos números
                                     y muestre en pantalla el resultado de sumarlos, restarlos, multiplicarlos y dividirlos.
                                     <br><br>
+                                    Nota: Utiliza la etiqueta <b>p</b> en HTML. en PHP, utiliza <b>+, -, *, /</b> para las operaciones y <b>echo</b> para la salida.
                                 </p>
                             </td>
                         </tr>
@@ -115,14 +116,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         <h6>CSS</h6>
                     </div>
                     <div class="titulo-edit3">
-                        <h6>JAVASCRIPT</h6>
+                        <h6>PHP</h6>
                     </div>
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
                     <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
                     <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código PHP aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 

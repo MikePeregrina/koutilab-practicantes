@@ -94,6 +94,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p>1.Crea un archivo llamado "funciones.php" que contenga una función muy sencilla.
                                     <br>2. Crea otro archivo llamado "index.php" en el mismo directorio, y en el cual incluirás el archivo "funciones.php". Para ello, utiliza la función include de PHP.
                                     <br><br>
+                                    Nota: utiliza la etiqueta <b>p</b> en HTMl. En PHP, utiliza <b>echo</b> para la salida y <b>function</b>.
                             </td>
                         </tr>
                     </tbody>
@@ -114,14 +115,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         <h6>CSS</h6>
                     </div>
                     <div class="titulo-edit3">
-                        <h6>JAVASCRIPT</h6>
+                        <h6>PHP</h6>
                     </div>
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
                     <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
                     <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código PHP aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 

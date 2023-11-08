@@ -93,6 +93,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     edad y color favorito del formulario y haga algo con ellos. Por ejemplo,
                                     puedes utilizar los datos para crear una pequeña historia sobre el niño.
                                     <br><br>
+                                    Nota: utiliza la etiqueta <b>p</b> en HTMl. En PHP, utiliza <b>echo</b> para la salida y también los métodos<b>$_POST</b> y <b>$_SERVER</b>.
                                 </p>
                             </td>
                         </tr>
@@ -114,14 +115,14 @@ if (isset($resultadoIntentos['intentos'])) {
                         <h6>CSS</h6>
                     </div>
                     <div class="titulo-edit3">
-                        <h6>JAVASCRIPT</h6>
+                        <h6>PHP</h6>
                     </div>
                     <div class="titulo-edit4">
                         <h6>SALIDA</h6>
                     </div>
                     <textarea onkeyup="actualizar() " id="html-code" class="cd" placeholder="Escribe el código HTML aquí"><?php echo $htmlcode; ?></textarea>
                     <textarea onkeyup="actualizar()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí"><?php echo $csscode; ?></textarea>
-                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí"><?php echo $jscode; ?></textarea> <br>
+                    <textarea onkeyup="actualizar()" id="js-code" class="cd2" placeholder="Escribe el código PHP aquí"><?php echo $jscode; ?></textarea> <br>
                     <iframe id="output" class="editor" style="margin-top: 20px;"></iframe>
                 </div>
 

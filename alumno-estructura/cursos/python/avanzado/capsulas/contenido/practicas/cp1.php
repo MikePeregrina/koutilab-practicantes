@@ -81,9 +81,13 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cp1avanzado.png">
-
-                                </img>
+                            <p>
+                                def es_par(numero): <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;if numero % 2 == 0: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;else: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False
+                                </p>
                             </td>
                         </tr>
                     </tbody>
