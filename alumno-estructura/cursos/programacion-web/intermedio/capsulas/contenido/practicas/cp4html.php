@@ -150,24 +150,22 @@ if (isset($resultadoIntentos['intentos'])) {
                             </td>
                             <td class="ne">
                                 <p>
-                                &lt;table&gt; <br>
-    &lt;tr&gt;<br>
-        &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
-        &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
-        &lt;th&gt;Encabezado 3&lt;/th&gt; <br>
-    &lt;/tr&gt;<br>
-    &lt;tr&gt; <br>
-        &lt;td&gt;F1, C1&lt;/td&gt; <br>
-        &lt;td&gt;F1, C2&lt;/td&gt; <br>
-        &lt;td&gt;F1, C3&lt;/td&gt; <br>
-    &lt;/tr&gt; <br>
-    &lt;tr&gt; <br>
-        &lt;td&gt;F2, C1&lt;/td&gt; <br>
-        &lt;td&gt;F2, C2&lt;/td&gt; <br>
-        &lt;td&gt;F2, C3&lt;/td&gt; <br>
-    &lt;/tr&gt; <br>
-    &lt;/table&gt; <br>
-    &lt;h1&gt;Hola&lt;/h1&gt;
+                                        &lt;table&gt; <br>
+                                
+                                        &lt;h1&gt;Menu&lt;/h1&gt; <br>
+                                        &lt;tr&gt;<br>
+                                            &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
+                                            &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
+                                            &lt;th&gt;Encabezado 3&lt;/th&gt; <br>
+                                        &lt;/tr&gt;<br>
+                                        &lt;tr&gt; <br>
+                                            &lt;td&gt;F1, C1&lt;/td&gt; <br>
+                                        &lt;/tr&gt; <br>
+                                        &lt;tr&gt; <br>
+                                            &lt;td&gt;F2, C1&lt;/td&gt; <br>
+                                            &lt;td&gt;F2, C2&lt;/td&gt; <br>
+                                        &lt;/tr&gt; <br>
+                                        &lt;/table&gt; <br>
 
                                 </p>
                             </td>
@@ -383,7 +381,7 @@ textInputs.forEach(input => {
 
             let htmlcode = document.getElementById("html-code").value;
 
-            if (table == 1 && tr == 3 && th == 3 && td == 6 && h1 == 1) {
+            if (table == 1 && tr == 3 && th == 3 && td == 3 && h1 == 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

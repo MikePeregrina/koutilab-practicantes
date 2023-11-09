@@ -96,7 +96,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/contextopractica.png" style="height: 200px; width: 450px;">
+                                <p>
+
+                                &lt;input type="text"&gt;  <br> <br>
+                                &lt;textarea&gt;  &lt;/textarea&gt;   <br> <br>
+                                &lt;select&gt; 
+                                &lt;option&gt;  1 &lt;/option&gt; 
+                                &lt;/select&gt; 
+
+
+                                </p>
                             </td>
                         </tr>
                     </tbody>

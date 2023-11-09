@@ -86,7 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-
+                            <td>Código  a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +95,12 @@ if (isset($resultadoIntentos['intentos'])) {
                                 <p> Crea una constante llamada "PI" y asigna el valor 3.1416.
                                     Luego, calcula el perímetro de un círculo utilizando la constante "PI" y un radio cualquiera.
                                     <br><br>
+                                </p>
+                            </td>
+                            <td class="ne">
+                                <p>
+                                  const pi = 3.1416 ; <br>
+                                  perimetro = pi * 2 ;  
                                 </p>
                             </td>
                         </tr>

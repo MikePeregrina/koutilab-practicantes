@@ -99,7 +99,26 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/gridpractica.png" style="height: 300px; width: 650px;">
+                                <p>
+                                HTML <br>
+                                &lt;div class="grid-container"&gt; <br>
+                                &lt;div&gt;1&lt;/div&gt; <br>
+                                &lt;div&gt;2&lt;/div&gt; <br>
+                                &lt;div&gt;3&lt;/div&gt; <br>
+                                &lt;div&gt;4&lt;/div&gt; <br>
+                                &lt;div&gt;5&lt;/div&gt; <br>
+                                &lt;div&gt;6&lt;/div&gt; <br>
+                                &lt;div&gt;7&lt;/div&gt; <br>              
+                                &lt;/div&gt;    <br> 
+                                CSS <br>
+                                .grid-container{ <br>
+                                    display: grid ; <br>
+                                    display: inline-grid ; <br>
+                                    grid-template-columns: 100px 200px 1fr; <br>
+                                    grid-template-rows: 50px auto; <br>
+                                }
+
+                                </p>
                             </td>
                         </tr>
                     </tbody>

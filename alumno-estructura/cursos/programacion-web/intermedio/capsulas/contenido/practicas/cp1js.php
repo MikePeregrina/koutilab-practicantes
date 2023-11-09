@@ -96,6 +96,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <br><br>
                                 </p>
                             </td>
+                            <td class="ne">
+                                <p>
+                                  var nombre = "Juan"  
+                                </p>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

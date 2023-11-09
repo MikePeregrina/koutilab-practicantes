@@ -331,7 +331,7 @@ textInputs.forEach(input => {
                 console.log("No hay opacity");
             }
 
-            if (htmlcode.length > 30 && csscode.indexOf('blue') !== -1 && csscode.indexOf('#') != -1 && csscode.indexOf('rgb') != -1 && csscode.indexOf('hsl') != -1 && csscode.indexOf('opacity') != -1 && opacidad >= 2 && background >= 5) {
+            if (htmlcode.length > 30 && csscode.indexOf('blue') !== -1 && csscode.indexOf('#') != -1 && csscode.indexOf('rgb') != -1 && csscode.indexOf('hsl') != -1 && csscode.indexOf('opacity') != -1 && opacidad >= 1 && background >= 1) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE

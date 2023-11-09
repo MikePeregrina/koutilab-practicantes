@@ -87,6 +87,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
+                            <td>Código  a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,6 +99,19 @@ if (isset($resultadoIntentos['intentos'])) {
                                     la pantalla indicando si el primer número es mayor, menor o igual al segundo número.
                                     <br><br>
                             </td>
+                            <td class="ne">
+                            <p>
+                                  if(3>2){ <br>
+                                  alert("Mayor"); <br>
+                                  }elseif(3==2){ <br>
+                                    alert("Igual"); <br>
+                                  }elseif(3&lt;2){ <br>
+                                    alert("Menor"); <br>
+                                  } 
+                                   
+                            </p>
+                            </td>
+                        </tr>
                         </tr>
                     </tbody>
                 </table>

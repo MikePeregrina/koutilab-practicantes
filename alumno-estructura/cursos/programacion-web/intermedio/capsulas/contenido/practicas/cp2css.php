@@ -98,7 +98,16 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/fondospractica.png" style="height: 250px; width: 450px;">
+                            HTML <br>
+                            &lt;body&gt;&lt;/body&gt;    <br> 
+
+                            CSS <br>
+                            body { <br>
+                                background: <br>
+                                url('fondo.jpg') right repeat-y <br>
+                                url('fondo.jpg') left repeat-y; <br>
+                            }
+
                             </td>
                         </tr>
                     </tbody>

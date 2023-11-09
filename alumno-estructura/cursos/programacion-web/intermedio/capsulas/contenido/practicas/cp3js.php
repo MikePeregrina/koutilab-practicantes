@@ -80,6 +80,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
+                            <td>Código  a ejecutar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,6 +94,15 @@ if (isset($resultadoIntentos['intentos'])) {
                                     5.Finalmente, resta 2 al resultado anterior.
                                     <br><br>
                                 </p>
+                            </td>
+                            <td class="ne">
+                            <p>
+                                  5 *3 <br>
+                                  15 +6 <br>
+                                  21 /3 <br>
+                                  7 -2
+                                   
+                            </p>
                             </td>
                         </tr>
                     </tbody>

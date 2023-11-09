@@ -99,7 +99,27 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica6htmlI.png" style="height: 150px; width: 450px;">
+                            &lt;table&gt; <br>
+                            &lt;tr&gt;<br>
+                            &lt;th&gt;Encabezado 1&lt;/th&gt; <br>
+                            &lt;th&gt;Encabezado 2&lt;/th&gt; <br>
+                            &lt;th&gt;Encabezado 3&lt;/th&gt; <br>
+                            &lt;th&gt;Encabezado 4&lt;/th&gt; <br>
+                            &lt;th&gt;Encabezado 5&lt;/th&gt; <br>
+                            &lt;/tr&gt;<br>
+
+                            &lt;tr&gt; <br>
+                            &lt;td&gt;F1, C1&lt;/td&gt; <br>
+                            &lt;td colspan="3"&gt;F1, C2&lt;/td&gt; <br>
+                            &lt;td&gt;F1, C3&lt;/td&gt; <br>
+                            &lt;/tr&gt; <br>
+                            
+                            &lt;tr&gt; <br>
+                            &lt;td&gt;F2, C1&lt;/td&gt; <br>
+                            &lt;td&gt;F2, C2&lt;/td&gt; <br>
+                            &lt;/tr&gt; <br>
+
+                            &lt;/table&gt; <br>
                             </td>
                         </tr>
                     </tbody>
@@ -316,7 +336,7 @@ textInputs.forEach(input => {
                 console.log("No hay colspan");
             }
 
-            if (table == 1 && tr == 3 && th == 7 && td == 6 && (htmlcode.indexOf('colspan="3"') !== -1 || htmlcode.indexOf('colspan= "3"') !== -1)) {
+            if (table == 1 && tr == 3 && th == 5 && td == 5 && (htmlcode.indexOf('colspan="3"') !== -1 || htmlcode.indexOf('colspan= "3"') !== -1)) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

@@ -86,6 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
+                            <td>Código  a ejecutar</td> 
                         </tr>
                     </thead>
                     <tbody>
@@ -97,6 +98,17 @@ if (isset($resultadoIntentos['intentos'])) {
                                     mayor para ver una película de terror.
                                     <br><br>
                                 </p>
+                            </td>
+                            <td class="ne">
+                            <p>
+                                  edad = prompt("Ingrese su edad") ; <br>
+                                  if(edad > 18){ <br>
+                                    alert("Acceso Permitido") ; <br>
+                                  }else{ <br>
+                                    alert("Acceso Denegado") ; <br>
+                                  }
+                                   
+                            </p>
                             </td>
                         </tr>
                     </tbody>
