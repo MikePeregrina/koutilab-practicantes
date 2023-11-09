@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula46";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
@@ -14,7 +14,7 @@ if (isset($_GET['htmlcode'])) {
 } else {
     $htmlcode = "";
 }
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -23,12 +23,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 47;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -78,16 +78,23 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crear un selector id. Te propongo un ejercicio práctico solo usando
-                                    el archivo HTML: Pintaremos todos los párrafos de un mismo color con excepción de uno.
+                                <p> Crear un selector id. Té propongo un ejercicio práctico solo usando
+                                    el archivo HTML: Pintáremos todos los párrafos de un mismo color con excepción de uno.
                                     Crea una regla dentro de la etiqueta style con el selector para un atributo determinado.
                                     Escribe diferentes párrafos. Asígnale a uno de ellos ese atributo id. < p>
                                         <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/selectoridpractica.png" style="height: 200px; width: 550px;">
+                            &lt;style> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; #red { <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: red; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                                &lt;/style> <br> <br>
 
+                                &lt;p> Yo soy de un color &lt;/p> <br>
+                                &lt;p id="red"> Yo soy de color diferente &lt;/p> <br>
+                                &lt;p> Yo soy de un color &lt;/p>
                             </td>
                         </tr>
                     </tbody>
@@ -99,148 +106,14 @@ if (isset($resultadoIntentos['intentos'])) {
                 <textarea onkeyup="actualizar() " id="cd" class="cd" placeholder="Escribe el código aquí"><?php echo $htmlcode; ?></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+
         </div>
     </div>
-
-    <button class="boton-fijo" id="show-keyboard" ><i class="fa-regular fa-keyboard fa-2xl"></i></button>
-
-    <div id="virtual-keyboard">
-    <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
-        <div class="keyboard-row">
-            <button class="key">1</button>
-            <button class="key">2</button>
-            <button class="key">3</button>
-            <button class="key">4</button>
-            <button class="key">5</button>
-            <button class="key">6</button>
-            <button class="key">7</button>
-            <button class="key">8</button>
-            <button class="key">9</button>
-            <button class="key">0</button>
-            <button class="key">/</button>
-            <button class="key">*</button>
-            <button class="key">+</button>
-            <button class="key">-</button>
-            <button class="delete">Borrar</button>
-        </div>
-        <div class="keyboard-row">
-            <button class="key">q</button>
-            <button class="key">w</button>
-            <button class="key">e</button>
-            <button class="key">r</button>
-            <button class="key">t</button>
-            <button class="key">y</button>
-            <button class="key">u</button>
-            <button class="key">i</button>
-            <button class="key">o</button>
-            <button class="key">p</button>
-            <button class="key">(</button>
-            <button class="key">)</button>
-            <button class="key">[</button>
-            <button class="key">]</button>
-            <button class="key">|</button>
-           
-        </div>
-
-        <div class="keyboard-row">
-            <button class="key">a</button>
-            <button class="key">s</button>
-            <button class="key">d</button>
-            <button class="key">f</button>
-            <button class="key">g</button>
-            <button class="key">h</button>
-            <button class="key">j</button>
-            <button class="key">k</button>
-            <button class="key">l</button>
-            <button class="key">%</button>
-            <button class="key">&</button>
-            <button class="key">"</button>
-           
-        </div>
-
-        <div class="keyboard-row">
-            <button class="key">z</button>
-            <button class="key">x</button>
-            <button class="key">c</button>
-            <button class="key">v</button>
-            <button class="key">b</button>
-            <button class="key">n</button>
-            <button class="key">m</button>
-            <button class="key"><</button>
-            <button class="key">></button>
-            <button class="key">;</button>
-        </div>
-
-        <div class="keyboard-row">
-            <button class="space">Espacio</button>
-        </div>
-
-      
-
-
-    </div>
-    <script>
-// Obtén elementos del DOM
-const showKeyboardButton = document.getElementById("show-keyboard");
-const textInputs = document.querySelectorAll(".cd, .cd1, .cd2"); 
-const virtualKeyboard = document.getElementById("virtual-keyboard");
-const specialChars = document.querySelectorAll(".key");
-const closeKeyboardButton = document.querySelector(".close-keyboard");
-
-let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
-
-// Función para mostrar el teclado al hacer clic en el botón
-showKeyboardButton.addEventListener("click", () => {
-    virtualKeyboard.style.display = "block";
-    activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
-});
-
-// Función para insertar caracteres en el textarea
-specialChars.forEach(charButton => {
-    charButton.addEventListener("click", () => {
-        if (activeTextInput) {
-            const char = charButton.textContent;
-            activeTextInput.value += char;
-        }
-    });
-});
-
-// Función para cerrar el teclado
-closeKeyboardButton.addEventListener("click", () => {
-    virtualKeyboard.style.display = "none";
-    activeTextInput = null; // Restablece el textarea activo
-});
-
-// Función para borrar un carácter en el textarea
-const deleteButton = document.querySelector(".delete");
-deleteButton.addEventListener("click", () => {
-    if (activeTextInput) {
-        const text = activeTextInput.value;
-        activeTextInput.value = text.slice(0, -1);
-    }
-});
-
-// Función para añadir un espacio en el textarea
-const spaceButton = document.querySelector(".space");
-spaceButton.addEventListener("click", () => {
-    if (activeTextInput) {
-        activeTextInput.value += " ";
-    }
-});
-
-// Función para detectar la entrada activa
-textInputs.forEach(input => {
-    input.addEventListener("focus", () => {
-        activeTextInput = input;
-    });
-});
-
-    </script>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
@@ -312,7 +185,7 @@ textInputs.forEach(input => {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

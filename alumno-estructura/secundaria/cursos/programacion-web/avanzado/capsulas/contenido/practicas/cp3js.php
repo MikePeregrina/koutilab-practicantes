@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula36";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
@@ -29,19 +29,19 @@ if (isset($_GET['htmlcode'])) {
     $jscode = "";
 }
 
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 37;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -95,6 +95,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <br>
                                     Crea la estructura de un formulario que pida tu nombre, edad y color favorito.
                                     <br><br>
+                                    Nota: utilizar las etiquetas <b>input</b> de tipo <b>texto y email</b>, también las etiquetas <b>button</b> y <b>textarea</b>. Despues en JavaScript crea una función con <b>function</b> y variables con <b>var</b>.
                                 </p>
                             </td>
                         </tr>
@@ -128,7 +129,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 </div>
 
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
 
@@ -285,7 +286,7 @@ textInputs.forEach(input => {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
@@ -326,7 +327,7 @@ textInputs.forEach(input => {
             }
 
 
-            if (inputext > 0 && inputemail && textarea && button > 0 && script > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1) {
+            if (inputext > 0 && inputemail && textarea && button > 0 && jscode.indexOf('function') != -1 && jscode.indexOf('var') != -1) {
 
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
@@ -387,7 +388,7 @@ textInputs.forEach(input => {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

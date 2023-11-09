@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula49";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
@@ -86,7 +86,29 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/bordespractica.png" style="height: 170px; width: 600px;">
+                            &lt;style> <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .1 { 
+                                border-style: dotted
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .2 { 
+                                border-style: solid
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .3 { 
+                                border-style: dashed
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .4 { 
+                                border-style: double
+                                } <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp; .5 { 
+                                border-style: groove
+                                } <br>
+                                &lt;/style> <br> <br>
+
+                                &lt;div class="1"> Hola mundo &lt;/div> <br>
+                                &lt;div class="2"> Hola mundo &lt;/div> <br>
+                                &lt;div class="3"> Hola mundo &lt;/div> <br>
+                                &lt;div class="4"> Hola mundo &lt;/div> <br>
+                                &lt;div class="5"> Hola mundo &lt;/div> <br>
                             </td>
                         </tr>
                     </tbody>
@@ -105,7 +127,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 

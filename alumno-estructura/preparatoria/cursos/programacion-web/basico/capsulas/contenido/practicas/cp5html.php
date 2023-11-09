@@ -1,12 +1,12 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula14";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
@@ -79,12 +79,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         <tr>
                             <td class="nombre">
                                 <p> Crear un hipervínculo de tu página web a
-                                    otra página de tu agrado, el hipervínculo tendrá una oración. < a>
+                                    otra página de tu agrado, el hipervínculo tendrá una oración. Puedes obtener una url y pegarla dentro de href.
                                         <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/hiperpractica.png" style="height: 400px; width: 400px;">
+                            &lt;a href="www.koutilab.com"&gt; Koutilab &lt;/a&gt;
                             </td>
                         </tr>
                     </tbody>
@@ -103,7 +103,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 

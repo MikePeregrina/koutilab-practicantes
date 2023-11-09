@@ -1,12 +1,12 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium2.php");
@@ -15,12 +15,12 @@ if (empty($existe)) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 3;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -77,6 +77,8 @@ if (isset($resultadoIntentos['intentos'])) {
                                     »¡Me encanta CSS!» colócale el mejor tipo de letra, tamaño y además
                                     mediante CSS has que sea pura mayúscula. ¡Adelante!
                                     <br><br>
+                                    
+                                    Nota: no olvides utilizar la etiqueta <b>div</b> además de las propiedades de CSS <b>width</b>, <b>height</b>, <b>padding</b>, <b>border</b>, <b>text-transform</b> y <b>background-color</b> para lograr el resultado final.
                                 </p>
                             </td>
                             <td class="ne">
@@ -116,6 +118,141 @@ if (isset($resultadoIntentos['intentos'])) {
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
         </div>
     </div>
+
+    <button class="boton-fijo" id="show-keyboard" ><i class="fa-regular fa-keyboard fa-2xl"></i></button>
+
+    <div id="virtual-keyboard">
+    <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+        <div class="keyboard-row">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="key">0</button>
+            <button class="key">/</button>
+            <button class="key">*</button>
+            <button class="key">+</button>
+            <button class="key">-</button>
+            <button class="delete">Borrar</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key">q</button>
+            <button class="key">w</button>
+            <button class="key">e</button>
+            <button class="key">r</button>
+            <button class="key">t</button>
+            <button class="key">y</button>
+            <button class="key">u</button>
+            <button class="key">i</button>
+            <button class="key">o</button>
+            <button class="key">p</button>
+            <button class="key">(</button>
+            <button class="key">)</button>
+            <button class="key">[</button>
+            <button class="key">]</button>
+            <button class="key">|</button>
+           
+        </div>
+
+        <div class="keyboard-row">
+            <button class="key">a</button>
+            <button class="key">s</button>
+            <button class="key">d</button>
+            <button class="key">f</button>
+            <button class="key">g</button>
+            <button class="key">h</button>
+            <button class="key">j</button>
+            <button class="key">k</button>
+            <button class="key">l</button>
+            <button class="key">%</button>
+            <button class="key">&</button>
+            <button class="key">"</button>
+           
+        </div>
+
+        <div class="keyboard-row">
+            <button class="key">z</button>
+            <button class="key">x</button>
+            <button class="key">c</button>
+            <button class="key">v</button>
+            <button class="key">b</button>
+            <button class="key">n</button>
+            <button class="key">m</button>
+            <button class="key"><</button>
+            <button class="key">></button>
+            <button class="key">;</button>
+        </div>
+
+        <div class="keyboard-row">
+            <button class="space">Espacio</button>
+        </div>
+
+      
+
+
+    </div>
+    <script>
+// Obtén elementos del DOM
+const showKeyboardButton = document.getElementById("show-keyboard");
+const textInputs = document.querySelectorAll(".cd, .cd1, .cd2"); 
+const virtualKeyboard = document.getElementById("virtual-keyboard");
+const specialChars = document.querySelectorAll(".key");
+const closeKeyboardButton = document.querySelector(".close-keyboard");
+
+let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
+
+// Función para mostrar el teclado al hacer clic en el botón
+showKeyboardButton.addEventListener("click", () => {
+    virtualKeyboard.style.display = "block";
+    activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
+});
+
+// Función para insertar caracteres en el textarea
+specialChars.forEach(charButton => {
+    charButton.addEventListener("click", () => {
+        if (activeTextInput) {
+            const char = charButton.textContent;
+            activeTextInput.value += char;
+        }
+    });
+});
+
+// Función para cerrar el teclado
+closeKeyboardButton.addEventListener("click", () => {
+    virtualKeyboard.style.display = "none";
+    activeTextInput = null; // Restablece el textarea activo
+});
+
+// Función para borrar un carácter en el textarea
+const deleteButton = document.querySelector(".delete");
+deleteButton.addEventListener("click", () => {
+    if (activeTextInput) {
+        const text = activeTextInput.value;
+        activeTextInput.value = text.slice(0, -1);
+    }
+});
+
+// Función para añadir un espacio en el textarea
+const spaceButton = document.querySelector(".space");
+spaceButton.addEventListener("click", () => {
+    if (activeTextInput) {
+        activeTextInput.value += " ";
+    }
+});
+
+// Función para detectar la entrada activa
+textInputs.forEach(input => {
+    input.addEventListener("focus", () => {
+        activeTextInput = input;
+    });
+});
+
+    </script>
     <script src="../../js/editor.js"></script>
     <script type="text/javascript">
         function run() {
@@ -135,7 +272,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 

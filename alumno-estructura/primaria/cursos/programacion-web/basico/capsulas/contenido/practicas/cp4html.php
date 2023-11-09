@@ -1,12 +1,12 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_primaria'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsula11";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
@@ -15,7 +15,7 @@ if (isset($_GET['htmlcode'])) {
 } else {
     $htmlcode = "";
 }
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -23,12 +23,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 12;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -84,7 +84,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                &lt;img src="www.url-prueba/imagen-animal.com" alt="animal" width="300" height="200"&gt; <br>
+                            &lt;img src="www.url-prueba/imagen-animal.com" alt="animal" width="300" height="200"&gt; <br>
                                 &lt;img src="www.url-prueba/imagen-personaje.com" alt="personaje" width="300" height="200"&gt; <br>
                                 &lt;img src="www.url-prueba/imagen-comida.com" alt="caricatura" width="300" height="200"&gt; <br>
                             </td>
@@ -102,10 +102,10 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
 
-    <button class="boton-fijo" id="show-keyboard"><i class="fa-regular fa-keyboard fa-2xl"></i></button>
+    <button class="boton-fijo" id="show-keyboard" ><i class="fa-regular fa-keyboard fa-2xl"></i></button>
 
     <div id="virtual-keyboard">
-        <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+    <button class="close-keyboard"><i class="fa-solid fa-xmark fa-2xl"></i></button>
         <div class="keyboard-row">
             <button class="key">1</button>
             <button class="key">2</button>
@@ -139,7 +139,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">[</button>
             <button class="key">]</button>
             <button class="key">|</button>
-
+           
         </div>
 
         <div class="keyboard-row">
@@ -155,7 +155,7 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">%</button>
             <button class="key">&</button>
             <button class="key">"</button>
-
+           
         </div>
 
         <div class="keyboard-row">
@@ -166,80 +166,80 @@ if (isset($resultadoIntentos['intentos'])) {
             <button class="key">b</button>
             <button class="key">n</button>
             <button class="key">m</button>
-            <button class="key">
-                << /button>
-                    <button class="key">></button>
-                    <button class="key">;</button>
+            <button class="key"><</button>
+            <button class="key">></button>
+            <button class="key">;</button>
         </div>
 
         <div class="keyboard-row">
             <button class="space">Espacio</button>
         </div>
 
-
+      
 
 
     </div>
     <script>
-        // Obtén elementos del DOM
-        const showKeyboardButton = document.getElementById("show-keyboard");
-        const textInputs = document.querySelectorAll(".cd, .cd1, .cd2");
-        const virtualKeyboard = document.getElementById("virtual-keyboard");
-        const specialChars = document.querySelectorAll(".key");
-        const closeKeyboardButton = document.querySelector(".close-keyboard");
+// Obtén elementos del DOM
+const showKeyboardButton = document.getElementById("show-keyboard");
+const textInputs = document.querySelectorAll(".cd, .cd1, .cd2"); 
+const virtualKeyboard = document.getElementById("virtual-keyboard");
+const specialChars = document.querySelectorAll(".key");
+const closeKeyboardButton = document.querySelector(".close-keyboard");
 
-        let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
+let activeTextInput = null; // Variable para realizar un seguimiento del textarea activo
 
-        // Función para mostrar el teclado al hacer clic en el botón
-        showKeyboardButton.addEventListener("click", () => {
-            virtualKeyboard.style.display = "block";
-            activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
-        });
+// Función para mostrar el teclado al hacer clic en el botón
+showKeyboardButton.addEventListener("click", () => {
+    virtualKeyboard.style.display = "block";
+    activeTextInput = null; // Restablece el textarea activo al mostrar el teclado
+});
 
-        // Función para insertar caracteres en el textarea
-        specialChars.forEach(charButton => {
-            charButton.addEventListener("click", () => {
-                if (activeTextInput) {
-                    const char = charButton.textContent;
-                    activeTextInput.value += char;
-                }
-            });
-        });
+// Función para insertar caracteres en el textarea
+specialChars.forEach(charButton => {
+    charButton.addEventListener("click", () => {
+        if (activeTextInput) {
+            const char = charButton.textContent;
+            activeTextInput.value += char;
+        }
+    });
+});
 
-        // Función para cerrar el teclado
-        closeKeyboardButton.addEventListener("click", () => {
-            virtualKeyboard.style.display = "none";
-            activeTextInput = null; // Restablece el textarea activo
-        });
+// Función para cerrar el teclado
+closeKeyboardButton.addEventListener("click", () => {
+    virtualKeyboard.style.display = "none";
+    activeTextInput = null; // Restablece el textarea activo
+});
 
-        // Función para borrar un carácter en el textarea
-        const deleteButton = document.querySelector(".delete");
-        deleteButton.addEventListener("click", () => {
-            if (activeTextInput) {
-                const text = activeTextInput.value;
-                activeTextInput.value = text.slice(0, -1);
-            }
-        });
+// Función para borrar un carácter en el textarea
+const deleteButton = document.querySelector(".delete");
+deleteButton.addEventListener("click", () => {
+    if (activeTextInput) {
+        const text = activeTextInput.value;
+        activeTextInput.value = text.slice(0, -1);
+    }
+});
 
-        // Función para añadir un espacio en el textarea
-        const spaceButton = document.querySelector(".space");
-        spaceButton.addEventListener("click", () => {
-            if (activeTextInput) {
-                activeTextInput.value += " ";
-            }
-        });
+// Función para añadir un espacio en el textarea
+const spaceButton = document.querySelector(".space");
+spaceButton.addEventListener("click", () => {
+    if (activeTextInput) {
+        activeTextInput.value += " ";
+    }
+});
 
-        // Función para detectar la entrada activa
-        textInputs.forEach(input => {
-            input.addEventListener("focus", () => {
-                activeTextInput = input;
-            });
-        });
+// Función para detectar la entrada activa
+textInputs.forEach(input => {
+    input.addEventListener("focus", () => {
+        activeTextInput = input;
+    });
+});
+
     </script>
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
@@ -309,7 +309,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -369,7 +369,7 @@ if (isset($resultadoIntentos['intentos'])) {
         }
         document.oncontextmenu = new Function("return false");
     </script>
-    <!-- <script>
+    <script>
         onkeydown = e => {
             let tecla = e.which || e.keyCode;
 
@@ -387,5 +387,5 @@ if (isset($resultadoIntentos['intentos'])) {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
-    </script> -->
+    </script>
 </body>

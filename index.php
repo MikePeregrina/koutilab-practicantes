@@ -561,7 +561,7 @@ if (isset($_POST['iniciar_sesion'])) {
         <div class="demo-text">
             <p>Prueba gratuita aquí</p>
         </div>
-        <a href="./alumno-estructura/prueba/rutas/ruta-prueba.php"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
+        <a href="alumno-estructura/prueba/rutas/ruta-prueba.php"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
     </div>
 
     <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>

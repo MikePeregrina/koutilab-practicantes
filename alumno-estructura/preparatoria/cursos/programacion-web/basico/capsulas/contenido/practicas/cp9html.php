@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
@@ -11,7 +11,7 @@ if (isset($_GET['htmlcode'])) {
 } else {
     $htmlcode = "";
 }
-$id_user = $_SESSION['id_alumno_preparatoria'];
+$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
 $permiso = "capsulapago1";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
@@ -81,7 +81,11 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/practica9html2.png" style="height: 350px; width: 560px;">
+                            &lt;div&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Título&lt;/h1&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Año y acontecimiento&lt;/h3&gt; <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Texto&lt;/p&gt; <br>
+                                &lt;/div&gt;
                             </td>
                         </tr>
                     </tbody>
@@ -100,7 +104,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
-        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
