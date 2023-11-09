@@ -231,7 +231,7 @@
             "&permiso=" +
             41 +
             "&id_curso=" +
-            14 +
+            2 +
             "&redireccion=" +
             "../contenido/juegos/cjjs2.php"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

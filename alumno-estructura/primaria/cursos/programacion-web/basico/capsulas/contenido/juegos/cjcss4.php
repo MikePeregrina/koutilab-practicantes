@@ -163,7 +163,7 @@ h1 { color:white; text-align:center; }
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 39 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -200,7 +200,7 @@ h1 { color:white; text-align:center; }
                 var puntos = <?php echo $puntosGanados; ?>
 
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 39 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
+                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 39 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjcss4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

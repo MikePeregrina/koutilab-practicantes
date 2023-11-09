@@ -160,7 +160,7 @@ function mostrarResultados() {
         "&permiso=" +
         16 +
         "&id_curso=" +
-        16 +
+        4 +
         "&redireccion=" +
         "../contenido/juegos/cjp1-5.php"; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -195,7 +195,7 @@ function mostrarResultados() {
         "&permiso=" +
         16 +
         "&id_curso=" +
-        16 +
+        4 +
         "&redireccion=" +
         "../contenido/juegos/cjp1-5.php"; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

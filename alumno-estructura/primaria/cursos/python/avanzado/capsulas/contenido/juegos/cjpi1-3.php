@@ -256,7 +256,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
         if (segundos == 0) {
           var xmlhttp = new XMLHttpRequest();
-          var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 18 + "&redireccion=" + '../contenido/juegos/cjpi1-3.php)'; //cancatenation
+          var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 6 + "&redireccion=" + '../contenido/juegos/cjpi1-3.php)'; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
           xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           xmlhttp.send(param);
@@ -281,7 +281,7 @@ if (isset($resultadoIntentos['intentos'])) {
       function verificarPuntaje() {
         if (puntaje - 1 <= 2) {
           var xmlhttp = new XMLHttpRequest();
-          var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 18 + "&redireccion=" + '../contenido/juegos/cjpi1-3.php)'; //cancatenation
+          var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 6 + "&redireccion=" + '../contenido/juegos/cjpi1-3.php)'; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
           xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           xmlhttp.send(param);
@@ -312,7 +312,7 @@ if (isset($resultadoIntentos['intentos'])) {
         var puntos = <?php echo $puntosGanados; ?>
 
         var xmlhttp = new XMLHttpRequest();
-        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 18 + "&redireccion=" + '../contenido/juegos/cjpi1-3.php)'; //cancatenation
+        var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 6 + "&redireccion=" + '../contenido/juegos/cjpi1-3.php)'; //cancatenation
         xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send(param);
