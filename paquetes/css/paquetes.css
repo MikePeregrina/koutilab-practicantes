@@ -347,7 +347,7 @@ nav {
     align-items: center;
     text-align: center;
     color: var(--blanco);
-    font-size: 30px;
+    font-size: 20px;
     rotate: -10deg;
     font-weight: bolder;
     width: 150px;
@@ -391,6 +391,13 @@ nav {
 
 .descr p {
     font-size: 25px;
+    text-align: center;
+    color: var(--gris-font);
+    font-weight: bolder;
+}
+
+.cost-p {
+    font-size: 18px;
     text-align: center;
     color: var(--gris-font);
     font-weight: bolder;

@@ -17,14 +17,14 @@
 <!-- Recuperar contraseña para docentes y cuentas personales -->
 
 <body onload="recuperarDatos()">
+    <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+    <div class="nav" id="nav">
+        <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
+        <p class="btn-nav">Adquiere un paquete</p>
+        <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
+        <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
+    </div>
     <div class="container">
-        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
-        <div class="nav" id="nav">
-            <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
-            <p class="btn-nav">Adquiere un paquete</p>
-            <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
-            <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
-        </div>
         <div class="info-box">
             <div class="titl-info">
                 <p>Bienvenido a</p>
@@ -77,9 +77,9 @@
                 </div>
             </form>
         </div>
-        <div class="footer-logo">
-            <img src="img/koutilab.png" alt="">
-        </div>
+    </div>
+    <div class="footer-logo">
+        <img src="img/koutilab.png" alt="">
     </div>
 
     <script>

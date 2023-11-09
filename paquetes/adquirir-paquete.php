@@ -28,8 +28,8 @@
             <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
             <ul>
                 <li><a onclick="cerrarMenu();" href="../index.php" id="back">Regresar</a></li>
-                <li><a onclick="cerrarMenu();" href="#paquete3">Paquete personal</a></li>
-                <li><a onclick="cerrarMenu();" href="#paquete2">Paquete freemium</a></li>
+                <!-- <li><a onclick="cerrarMenu();" href="#paquete3">Paquete personal</a></li> -->
+                <!-- <li><a onclick="cerrarMenu();" href="#paquete2">Paquete freemium</a></li> -->
                 <li><a onclick="cerrarMenu();" href="#paquete1">Paquete licencia</a></li>
             </ul>
         </div>
@@ -89,7 +89,7 @@
 
     <section id="paquete1" class="paquete">
         <div class="img-promo" id="img-izq">
-            <div class="precio" id="txt-izq">$1,000.00 <br>Al mes</div>
+            <div class="precio" id="txt-izq">Paquetes<br>desde<br>$1,500.00<br>Semestrales</div>
             <img src="../img/img-p.png" alt="">
         </div>
         <div class="sup">
@@ -101,6 +101,13 @@
         <div class="centro">
             <div class="descr" id="txt-derecha">
                 <p>Rutas desbloqueadas para todos los alumnos de tu escuela con claves <br> incluidas, lo mejor para todos los alumnos</p>
+                <p>Costos por semestre:</p>
+                <h1 class="cost-p"> 
+                    500 usuarios: $2,500.00&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    1,000 usuarios: $5,000.00&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    3,000 usuarios: $12,000.00&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    5,000 usuarios: $15,000.00
+                </h1>
             </div>
         </div>
         <div class="inf">
@@ -138,7 +145,7 @@
 
     <div class="division"></div>
 
-    <section id="paquete2" class="paquete">
+    <!-- <section id="paquete2" class="paquete">
         <div class="img-promo" id="img-der">
             <div class="precio" id="prec-der">$2,000.00 <br>Al mes</div>
             <img src="../img/img-p1.png" alt="">
@@ -230,7 +237,7 @@
                 <a href="#">Adquirir paquete</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <footer>
         <p>© 2023 <b>Aerobot</b> Todos los derechos reservados</p>

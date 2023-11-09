@@ -561,17 +561,18 @@ if (isset($_POST['iniciar_sesion'])) {
         <div class="demo-text">
             <p>Prueba gratuita aquí</p>
         </div>
-        <a href="alumno/prueba/rutas/ruta-prueba.php"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
+        <a href="./alumno-estructura/prueba/rutas/ruta-prueba.php"><i class="hand fas fa-hand-paper fa-flip-horizontal"></i></a>
     </div>
 
-    <div class="container">
-        <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
+    <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
         <div class="nav" id="nav">
             <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
             <p class="btn-nav" onclick="paquetes();">Adquiere un paquete</p>
             <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
             <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
         </div>
+
+    <div class="container">
         <div class="info-box">
             <div class="titl-info">
                 <p>Bienvenido a</p>
@@ -659,9 +660,9 @@ if (isset($_POST['iniciar_sesion'])) {
                 <button type="submit" name="registrar_usuario" class="submit-btn" style="margin: -2px 0 0 50px;">Registrarse</button>
             </form> -->
         </div>
-        <div class="footer-logo">
-            <img src="img/koutilab.png" alt="">
-        </div>
+    </div>
+    <div class="footer-logo">
+        <img src="img/koutilab.png" alt="">
     </div>
 
     <script>
