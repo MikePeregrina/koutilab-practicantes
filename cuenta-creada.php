@@ -62,7 +62,7 @@
             <p class="preg">¡Perfecto!</p>
             <p class="parrafo">Tu cuenta se ha creado correctamente, inicia sesión para comenzar</p>
             <div class="opt-user">
-                <a href="./login.php">
+                <a href="./index.php">
                     <p style="width: 100px; margin: 50px 0 0 0;">Listo</p>
                 </a>
             </div>

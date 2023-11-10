@@ -114,7 +114,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -392,7 +392,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 var puntos = <?php echo $puntosGanados; ?>
 
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -415,7 +415,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Correcto.play(); //Agregando sonido al juego completado
             } else {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 13 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 1 + "&redireccion=" + '../contenido/juegos/cjhtml4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
