@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_preparatoria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
@@ -10,7 +10,7 @@ $permiso = "capsula26";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
@@ -23,18 +23,18 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 $consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 2");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
 } else {
-	$puntosGanados = 10;
+    $puntosGanados = 10;
 }
 
 ?>
@@ -43,342 +43,325 @@ if (isset($resultadoIntentos['intentos'])) {
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../../css/css-juegos/preg-ag.css" /><!--Linkeo de la hoja de estilos-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<title>KOUTILAB</title>
-	<link rel="shortcut icon" href="../../../../../../img/lgk.png" />
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+    <link rel="stylesheet" type="text/css" href="../../css/css-juegos/adivinanza.css"> <!--Linkeo de la hoja de css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body onload="iniciarTiempo()">
+    <!-- Timer -->
+    <div class="timer" id="timer">
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
+        </b>
+    </div>
 
-	<!-- Timer -->
-	<div class="timer" id="timer">
-		<b>Tiempo: <br />
-			<p id="tiempo"></p>
-		</b>
-	</div>
+    <!-- Titulo general -->
+    <div class="titulo-gen">
+        <h2 class="titulo"><b>TEXTO</b></h2>
+    </div>
 
-	<!-- Titulo general del juego -->
-	<div class="titulo-gen">
-		<h2 class="titulo"><b>TEXTO</b></h2>
-	</div>
+    <section>
+        <div class="cont-st">
+            <a href="#" onclick="history.back();">
+                <button class="btn-b">
+                    <i class="fas fa-reply"></i>
+                </button>
+            </a>
+            <h4 class="titulo"><b>Adivina las frases o palabras mediante el enunciado y escribe con el teclado antes de que se termine el tiempo</b></h4>
+        </div>
 
-
-	<!-- Contenedor principal -->
-	<section>
-		<div class="cont-st">
-			<a href="../../../../../../rutas/ruta-pw-i.php">
-				<button class="btn-b">
-					<i class="fas fa-reply"></i>
-				</button>
-			</a>
-			<h4 class="titulo"><b>Selecciona la opción que corresponda a la línea en blanco o que
-					encaje con la definición dada.</b></h4>
-		</div>
-		<br />
-		<!--Contenedor de las preguntas y respuestas-->
-		<div class="main-ctn" id="main-ctn">
-			<div class="opt-ctn" id="opt-ctn"></div>
-		</div>
-		<!-- boton de verificar respuestas - No necesario para la sección-->
-		<!-- <button class="verificar" onClick="alertExcelent()">Siguiente Sección</button> -->
-	</section>
-	<!-- CAMBIOS -->
-	<footer class="footerimga">
-		<div class="imagen-footer">
-			<img src="../../img/img-juegos/benvenida.png" alt="No-image">
-		</div>
-	</footer>
-	<!-- fIN CAMBIOS -->
-	<script>
-		//Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-		var incorrecto = document.createElement("audio");
-		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
-		//Arreglo de preguntas
-		var preguntas = [{
-				num: 1,
-				pregunta: "¿Que nos permite manipular la propiedades de texto?",
-				opA: "Interlineado, separación, tabulación, etc...",
-				opB: "Colores",
-				opC: "Formas",
-				correcta: "A",
-				tiempo: "20",
-			},
-			{
-				num: 2,
-				pregunta: "¿Cuantos tipos de nombres de familias existen?",
-				opA: "Tres",
-				opB: "Dos",
-				opC: "Una",
-				correcta: "B",
-				tiempo: "20",
-			},
-			{
-				num: 3,
-				pregunta: "Una de las siguientes fuentes no existe",
-				opA: "Familia de fuentes",
-				opB: "Familia genérica",
-				opC: "Familia de colores",
-				correcta: "C",
-				tiempo: "20",
-			},
-			{
-				num: 4,
-				pregunta: "Es la propiedad que nos permite manipular el tamaño de fuete para nuestros textos",
-				opA: "font-size",
-				opB: "font-family",
-				opC: "font-style",
-				correcta: "A",
-				tiempo: "20",
-			},
-			{
-				num: 5,
-				pregunta: "Es la propiedad que nos permite manipular el estilo de nuestros textos",
-				opA: "font-size",
-				opB: "font-family",
-				opC: "font-style",
-				correcta: "C",
-				tiempo: "20",
-			},
-		];
-
-		var puntos = 0; //Leva el conteo de puntos/aciertos
-		var seleccion; //Guarda la respuesta elegida
-		var contador = 1; //Lleva el conteo de preguntas
-		var errores = 0; //Lleva el conteo de errores, si rebasa 2 en una misma pregunta, pierde el juego
-
-		function getRandomInt(max) {
-			//para generar números random enteros
-			return Math.floor(Math.random() * max);
-		}
-
-		var prePas = []; //guarda el index de las preguntas que ya pasaron para no repetir
-		var random; //para el index de la pregunta a mostrar
-
-		var resPas = []; //guarda el index de las respuestas que ya se agregaron para no repetir, orden de las respuestas
-		var randomRes; //para el index de la respuesta a mostrar
+        <div class="main-ctn">
+            <div class="contador" id="contador"></div><!--Marcador de adivinanzas-->
+            <div class="crossword" id="crossword"></div><!--generado de cuadritos por cada adivinanza-->
+            <div class="hint" id="hint"></div><!--Pista a proprcionar-->
+            <div class="result" id="resultado"></div><!--Resultados al finalizar-->
+        </div>
+        <button class="verificar" onclick="comprobarRespuesta()">Comprobar
+            Respuesta</button><!--btn comprobar respuesta-->
+    </section>
 
 
-		function ponerRespuesta() {
-			if (randomRes == 0) {
-				document.getElementById("opt-ctn").innerHTML +=
-					'<button class="btn-opt" value="A" onClick="guardarRespuestaA()" id="optA">' +
-					this.preguntas[this.random].opA +
-					"</button>";
-			} else if (randomRes == 1) {
-				document.getElementById("opt-ctn").innerHTML +=
-					'<button class="btn-opt" value="B" onClick="guardarRespuestaB()" id="optB">' +
-					this.preguntas[this.random].opB +
-					"</button>";
-			} else if (randomRes == 2) {
-				document.getElementById("opt-ctn").innerHTML +=
-					'<button class="btn-opt" value="C" onClick="guardarRespuestaC()" id="optC">' +
-					this.preguntas[this.random].opC +
-					"</button>";
-			}
-		}
+    <!--Agregando el pie de página-->
+    <footer class="footerimga">
+        <div class="imagen-footer">
+            <img src="../../img/img-juegos/benvenida.png" alt="No-image">
+        </div>
+    </footer>
 
-		function ponerPregunta() {
-			//Actualiza las preguntas
-			document.getElementById("main-ctn").innerHTML =
-				'<p style="text-align: right; font-weight: bold; font-size: 25px; margin-top: 5px; padding-bottom:0; margin-bottom:0;">' +
-				this.contador +
-				"/5</p>" +
-				'<div class="q-ctn"><div class="title-ctn" id="pregunta-ctn">' +
-				"<p>" +
-				this.preguntas[this.random].pregunta +
-				"</p>" +
-				"</div></div>" +
-				'<div class="opt-ctn" id="opt-ctn"></div>';
+    <script>
+        //arreglo que almacena las pistas y respuestas de la adivinanza
+        const adivinanzas = [{
+                pregunta: "Es la propiedad de texto que nos permite cambiar el tamaño del fuente. Pista: F_N_-S__E",
+                respuesta: "font-size",
+                respondida: false
+            },
+            {
+                pregunta: "Es la propiedad de texto que nos permite cambiar el grosor de fuente como bold(negrita). Pista: F__T-W__GH_",
+                respuesta: "font-weight",
+                respondida: false
+            },
+            {
+                pregunta: "Un tipo de familia se llama... Pista: Familia de f___T_S",
+                respuesta: "fuentes",
+                respondida: false
+            },
+            {
+                pregunta: "Un tipo de familia se llama... Pista: Familia G__É_C_",
+                respuesta: "genérica",
+                respondida: false
+            },
+            {
+                pregunta: "Estamos manejando propiedades de... Pista: T_X__S",
+                respuesta: "textos",
+                respondida: false
+            }
+        ];
 
-			this.randomRes = getRandomInt(3); //Genera el index de respuesta random para cambiar el orden de las respuestas
-			this.resPas.push(randomRes); //agrega el primer index al arreglo
-			ponerRespuesta(); //muestra la respuesta
+        let puntaje = 1; // Iniciamos en la posición 1 del contador
+        let respuestaActual = ""; //alamacena las respuestas actuales 
+        let letrasAdivinadas = []; //arreglo que almacena las letras adivinadas
+        let completado = false; //
 
-			while (this.resPas.length < 3) { //para desordenar las 2 respuestas restantes
-				this.randomRes = getRandomInt(3);
-				let found2 = resPas.find((element) => element == this.randomRes);
-				while (found2 == this.randomRes) {
-					//Si el random corresponde a una respuesta ya mostrada, se genera un nuevo random
-					this.randomRes = getRandomInt(3);
-					found2 = resPas.find((element) => element == this.randomRes);
-				}
-				ponerRespuesta();
-				this.resPas.push(randomRes); //Se agrega el random al arreglo para evitar repetir la respuesta
-			}
-			var segundos = (this.segundos = this.preguntas[random].tiempo); //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-		}
-		var noRepeat = 0; //necesaria para evitar el cambio de preguntas durante la duración de cada una
-		function iniciarTiempo() {
-			noRepeat++;
-			if (noRepeat < 2) {
-				this.random = getRandomInt(5); //Elige la primera pregunta a mostrar
-				prePas.push(random); //Guarda la pregunta mostrada en el arreglo
-				ponerPregunta(); //Muestra la pregunta
-			}
-			document.getElementById("tiempo").innerHTML = segundos + " segundos";
-			if (segundos > 15) {
-				var div = document.getElementById("timer");
-				div.style.cssText = "background-color: rgba(129, 179, 243, 0.7); border-color: #c42c2c;";
-			} else if (segundos == 15) {
-				var div = document.getElementById("timer");
-				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+        //funcion que genera el tablero de las adivinazas
+        function generarTablero(respuesta) {
+            const tablero = document.getElementById('crossword');
+            tablero.innerHTML = '';
 
-			} else if (segundos < 10) {
-				var div = document.getElementById("timer");
-				div.style.cssText = " animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            for (let i = 0; i < respuesta.length; i++) {
+                const celda = document.createElement('div');
+                tablero.appendChild(celda);
+            }
+        }
+        //funcion que muestras las adivinazas aun no completadas
+        function obtenerPreguntaSinResponder() {
+            const preguntasSinResponder = adivinanzas.filter((adivinanza) => !adivinanza.respondida);
+            if (preguntasSinResponder.length === 0) return null;
+            const indiceAleatorio = Math.floor(Math.random() * preguntasSinResponder.length);
+            return preguntasSinResponder[indiceAleatorio];
+        }
+        //funcion que muestra las pistas de manera aleatoria
+        function mostrarPreguntaAleatoria() {
+            if (puntaje > adivinanzas.length) {
+                mostrarPuntajeFinal();
+                return;
+            }
 
-			}
-			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 27 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
-				Swal.fire({
-					title: "Oops... Te has quedado sin tiempo",
-					text: "¡Intentalo de nuevo!",
-					imageUrl: "../../img/img-juegos/loop.gif",
-					imageHeight: 350,
-				}).then((result) => {
-					if (result.isConfirmed) {
-						window.location.reload();
-					}
-				});
-				incorrecto.play(); //agregando sonido al juego no completado
-			} else {
-				segundos--;
-				setTimeout("iniciarTiempo()", 1000);
-			}
-		}
+            const adivinanzaActual = obtenerPreguntaSinResponder();
+            if (!adivinanzaActual) {
+                mostrarPuntajeFinal();
+                return;
+            }
 
-		//Función para verificar la respuesta correcta
-		function evaluarRespuesta() {
-			if (this.seleccion == this.preguntas[random].correcta) {
-				this.puntos = this.puntos + 1;
-				this.contador = this.contador + 1;
+            const pregunta = adivinanzaActual.pregunta;
+            respuestaActual = adivinanzaActual.respuesta.toLowerCase();
+            adivinanzaActual.respondida = true;
+            generarTablero(respuestaActual);
+            document.getElementById('hint').textContent = `Enunciado: ${pregunta}`;
+            letrasAdivinadas = Array(respuestaActual.length).fill('');
+        }
 
-				if (this.puntos == 5) {
-					//Cuando haya acertado las 10 preguntas
-					alertExcelent();
-				} else {
-					this.random = getRandomInt(5);
-					let found = prePas.find((element) => element == this.random);
-					while (found == this.random) {
-						//Si el random corresponde a una pregunta ya mostrada, se genera un nuevo random
-						this.random = getRandomInt(5);
-						found = prePas.find((element) => element == this.random);
-					}
-					this.prePas.push(random); //Se agrega el random al arreglo para evitar repetir la pregunta más adelante
-					this.resPas = [];
-					ponerPregunta(); //Muestra la pregunta
-					this.errores = 0; //Inicializa errores
-					this.segundos = this.preguntas[random].tiempo; //fijando nuevo tiempo por pregunta
-					console.log("Correcto");
-					alertGood();
-				}
-			} else {
-				console.log("Incorrecto");
-				this.errores = this.errores + 1;
-				if (this.errores > 1) {
-					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 27 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
-					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					xmlhttp.send(param);
-					Swal.fire({
-						title: "Oops... Has perdido el juego",
-						text: "¡Inténtalo de nuevo!",
-						imageUrl: "../../img/img-juegos/loop.gif",
-						imageHeight: 350,
-					}).then((result) => {
-						if (result.isConfirmed) {
-							window.location.reload();
-						}
-					});
-				} else {
-					alertBad();
-				}
-			}
-		}
+        //funcón que valida que las respuestas de las adivinanzas sean correctas
+        function comprobarRespuesta() {
+            const respuestaUsuario = letrasAdivinadas.join('');
+            const resultadoElemento = document.getElementById('resultado');
 
-		//Funciones para guardar la respuesta elegida
-		function guardarRespuestaA() {
-			let res = document.getElementById("optA").value;
-			seleccion = res;
-			evaluarRespuesta();
-		}
+            // Validación del btn comprobar respuestas cuando el usuario no haya respondido alguna adivinanza
+            if (respuestaUsuario.trim().length === 0) {
+                alertIncomplete(); //se manda a llamar la funcion que genera la alerta 
+                return;
+            }
+            //validando las letras ingresadas por el usuario
+            if (respuestaUsuario === respuestaActual) {
+                puntaje++;
+                alertGood();
+            } else {
+                alertBad();
+                letrasAdivinadas = Array(respuestaActual.length).fill('');
+                llenarTableroConRespuesta();
+            }
 
-		function guardarRespuestaB() {
-			let res = document.getElementById("optB").value;
-			seleccion = res;
-			evaluarRespuesta();
-		}
+            setTimeout(function() {
+                resultadoElemento.textContent = '';
+                mostrarPreguntaAleatoria();
+                document.getElementById('contador').textContent = `${puntaje} / ${adivinanzas.length}`;
+                llenarTableroConRespuesta();
+            }, 1500);
+        }
 
-		function guardarRespuestaC() {
-			let res = document.getElementById("optC").value;
-			seleccion = res;
-			evaluarRespuesta();
-		}
+        //función que va llenando los cuadritos de las adivinanzas 
+        function llenarTableroConRespuesta() {
+            const celdasTablero = document.querySelectorAll('.crossword div');
 
-		//Alerta muestra que el juego fue completado
-		function alertExcelent() {
-			var puntos = <?php echo $puntosGanados; ?>
+            for (let i = 0; i < celdasTablero.length; i++) {
+                celdasTablero[i].textContent = letrasAdivinadas[i] || '';
+            }
+        }
+        //función que remplaza las letras ingresadas por el usuario en cada campo respectivo
+        function reemplazarLetra(evento) {
+            const teclaPresionada = evento.key.toLowerCase();
+            const caracteresPermitidos = /^[a-záéíóúüñ-]$/;
 
-			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 27 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xmlhttp.send(param);
-			Swal.fire({
-				title: "Excelente",
-				text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
-				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
-				imageHeight: 350,
-				backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
-				confirmButtonColor: "#a14cd9",
-				confirmButtonText: "¡Genial!",
-			}).then((result) => {
-				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-pw-i.php';
-				}
-			});
-			correcto.play(); //agregando sonido al juego completado
-		}
+            if (teclaPresionada.match(caracteresPermitidos)) {
+                const indiceActual = letrasAdivinadas.findIndex(letra => letra === '');
+                if (indiceActual !== -1) {
+                    letrasAdivinadas[indiceActual] = teclaPresionada;
+                    llenarTableroConRespuesta();
+                }
+            }
+        }
+        //muestra el puntaje obtenido al finalizar el juego
+        function mostrarPuntajeFinal() {
+            const contenedorElemento = document.querySelector('.main-ctn');
+            contenedorElemento.innerHTML = `<p>Puntuación final: ${puntaje - 1} / ${adivinanzas.length}</p>`;
+            verificarPuntaje();
+        }
 
-		//Alerta, muestra que la respuesta fue correcta
-		function alertGood() {
-			Swal.fire({
-				position: "center",
-				icon: "success",
-				title: "¡Respuesta Correcta!",
-				//background: '#fff url(/img/fondo.gif)',
-				showConfirmButton: false,
-				timer: 1500,
-			});
-		}
+        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+        var segundos = 120; //120
 
-		//Alerta, muestra que la respuesta fue incorrecta
-		function alertBad() {
-			Swal.fire({
-				position: "center",
-				icon: "error",
-				title: "Incorrecto, te queda una oportunidad",
-				showConfirmButton: false,
-				timer: 1800,
-			});
-		}
-	</script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+        //funcion que permite definir el tiempo que tiene el jugador
+        function iniciarTiempo() {
+            document.getElementById("tiempo").innerHTML = segundos + " segundos";
+            if (segundos <= 60) {
+                var div = document.getElementById("timer");
+                div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 30) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation2; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+            if (segundos <= 10) {
+                var div = document.getElementById("timer");
+                div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+            }
+
+            if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 27 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
+                Swal.fire({
+                    title: "Oops... Inténtalo nuevamente, te has quedado sin tiempo",
+                    text: "",
+                    imageUrl: "../../img/img-juegos/loop.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                });
+                Incorrecto.play(); //Agregando sonido al juego no completado
+            } else {
+                segundos--;
+                setTimeout("iniciarTiempo()", 1000);
+            }
+        }
+
+        // Nueva función para verificar el puntaje
+        function verificarPuntaje() {
+            if (puntaje - 1 <= 2) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 27 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
+                // Si el puntaje es menor o igual a 2, mostramos una alerta para repetir el juego
+                Swal.fire({
+                    title: "¡Ups! Inténtalo nuevamente, necesitas más aciertos.",
+                    text: "",
+                    imageUrl: "../../img/img-juegos/loop.gif",
+                    imageHeight: 350,
+                    confirmButtonColor: "#a14cd9",
+                    confirmButtonText: "Reintentar",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                });
+            } else if (puntaje >= 3) {
+                // Si el puntaje es mayor a 3, mostramos la alerta de felicitaciones y finalizamos el juego.
+                alertExcelent();
+            }
+        }
+
+        //Alerta muestra de que el juego fue completado
+        function alertExcelent() {
+            var puntos = <?php echo $puntosGanados; ?>
+
+            var xmlhttp = new XMLHttpRequest();
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 27 + "&id_curso=" + 2 + "&redireccion=" + '../contenido/juegos/cjcss3.php'; //cancatenation
+            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(param);
+            Swal.fire({
+                title: "¡Felicidades!",
+                text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
+                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
+                imageHeight: 350,
+                backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../img/img-juegos/fondo.gif")`,
+                confirmButtonColor: "#a14cd9",
+                confirmButtonText: "¡Genial!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../../../../../../rutas/ruta-pw-i.php';
+                }
+            });
+            Correcto.play(); //Agregando sonido al juego completado
+        }
+
+        //Alerta, muestra que la respuesta fue incorrecta
+        function alertBad() {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Intentalo nuevamente",
+                showConfirmButton: false,
+                timer: 1800,
+            });
+        }
+        //Alerta, muestra que la respuesta fue correcta
+        function alertGood() {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "¡Respuesta Correcta!",
+                //background: '#fff url(/img/fondo.gif)',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+        //Alerta muestra que el usuario no ha completado las adivinanzas
+        function alertIncomplete() {
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: "¡Completa las adivinanzas antes de verificar!",
+                showConfirmButton: false,
+                timer: 1800,
+            });
+        }
+
+        document.addEventListener('keydown', reemplazarLetra);
+        mostrarPreguntaAleatoria();
+        document.getElementById('contador').textContent = `${puntaje} / ${adivinanzas.length}`;
+    </script>
 </body>
 
 </html>

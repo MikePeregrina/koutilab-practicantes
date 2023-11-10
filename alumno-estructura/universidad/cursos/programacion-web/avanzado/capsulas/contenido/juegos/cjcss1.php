@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 18;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -43,20 +43,19 @@ if (isset($resultadoIntentos['intentos'])) {
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-1.css">
-    <link rel="stylesheet" href="../../css/css-juegos/select-ans-2.css">
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+    <link rel="stylesheet" type="text/css" href="../../css/css-juegos/adivinanza.css"> <!--Linkeo de la hoja de css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
-<body onload="iniciarTiempo(), iniciar() ">
-    <!-- CAMBIOS -->
+<body onload="iniciarTiempo()">
     <!-- Timer -->
     <div class="timer" id="timer">
         <b>Tiempo: <br>
@@ -69,134 +68,174 @@ if (isset($resultadoIntentos['intentos'])) {
         <h2 class="titulo"><b>POSICIONAMIENTO</b></h2>
     </div>
 
-
-
-    <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
         <div class="cont-st">
-            <a href="#" onclick="history.back(); return false;">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
             </a>
-            <h4 class="titulo"><b>Responde correctamente una serie de preguntas, pierdes si se acaba el
-                    tiempo o responde mal</b></h4>
+            <h4 class="titulo"><b>Adivina las frases o palabras mediante el enunciado y escribe con el teclado antes de que se termine el tiempo</b></h4>
         </div>
 
-
-        <!-- Tenoch Moises -->
-        <!--contenedor principal-->
-        <div class="contenedor">
-            <!--para mostrar la puntuacion-->
-            <div class="puntaje" id="puntaje"></div>
-            <!--es el encabezado donde se muestra la categoria, numero, pregunta e imagen-->
-            <div class="encabezado">
-                <!--es opcional la parte de mostrar categoria y esta implementado para funcionar sin ella tambien-->
-                <div class="categoria" id="categoria"></div>
-                <!--No se muestra en la pantalla pero permite que se generen las preguntas "NO MOVER" -->
-                <div class="numero" id="numero"></div>
-                <!--es donde se muestra la pregunta-->
-                <h3><b>
-                        <div class="pregunta" id="pregunta">
-                        </div>
-                    </b></h3>
-                <!--muestra una imagen ilustrativa para dar pista de la respuesta pero igual es implementado para  funcionar sin la imagen-->
-                <img src="#" class="imagen" id="imagen">
-            </div>
-            <!--Funcionan con un "onclick" y solo tiene una respuesta correcta-->
-
-            <div class="btn" id="btn1" onclick="oprimir_btn(0)"></div>
-            <div class="btn" id="btn2" onclick="oprimir_btn(1)"></div>
-            <div class="btn" id="btn3" onclick="oprimir_btn(2)"></div>
-            <div class="btn" id="btn4" onclick="oprimir_btn(3)"></div>
-            <!--script donde se le da funcionalidad al juego-->
-
+        <div class="main-ctn">
+            <div class="contador" id="contador"></div><!--Marcador de adivinanzas-->
+            <div class="crossword" id="crossword"></div><!--generado de cuadritos por cada adivinanza-->
+            <div class="hint" id="hint"></div><!--Pista a proprcionar-->
+            <div class="result" id="resultado"></div><!--Resultados al finalizar-->
         </div>
-        <!-- boton de verificar respuestas-->
-        <!-- NOTA: SE MANDO A LLAMAR LA FUNCION "marcador()" DONDE SE LLEVA LA PUNTUACION
-            EN ESA FUNCION SE MANDA A LLAMAR LA FUNCION ORIGINAL "alertExcelent()" -->
-        <!-- <button class="verificar" onclick="marcador()  ">Finalizar</button> -->
-    </div>
-    <!-- Tenoch Moises -->
-    <!-- CAMBIOS -->
+        <button class="verificar" onclick="comprobarRespuesta()">Comprobar
+            Respuesta</button><!--btn comprobar respuesta-->
+    </section>
+
+
+    <!--Agregando el pie de página-->
     <footer class="footerimga">
         <div class="imagen-footer">
             <img src="../../img/img-juegos/benvenida.png" alt="No-image">
         </div>
     </footer>
-    <!-- fIN CAMBIOS -->
 
     <script>
-        //ambos
-        //funciona para mostrar el resultado al presionar el boton "comprobar respuestas"
-        function marcador() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        alertExcelent();
-                    }
-                });
+        //arreglo que almacena las pistas y respuestas de la adivinanza
+        const adivinanzas = [{
+                pregunta: "Se trata del tipo de posicionamiento que también se conoce como normal. Pista: E__Á__C__",
+                respuesta: "estático",
+                respondida: false
+            },
+            {
+                pregunta: "Se trata del tipo de posicionamiento que es como el normal pero se desplaza con respecto a su posición original. Pista: R__AT__O",
+                respuesta: "relativo",
+                respondida: false
+            },
+            {
+                pregunta: "Se trata del tipo de posicionamiento en el que su posición no cambia para nada. Pista: AB__LU__",
+                respuesta: "absoluto",
+                respondida: false
+            },
+            {
+                pregunta: "Se trata del tipo de posicionamiento en el que, si el contenedor tiene más acompañantes, estos se acomodan unos tras otros. Pista: FL___AN__",
+                respuesta: "flotante",
+                respondida: false
+            },
+            {
+                pregunta: "Se trata del tipo de posicionamiento en el si posición es fija, pero con respecto a su posición en pantalla. Pista: F__O",
+                respuesta: "fijo",
+                respondida: false
+            }
+        ];
+
+        let puntaje = 1; // Iniciamos en la posición 1 del contador
+        let respuestaActual = ""; //alamacena las respuestas actuales 
+        let letrasAdivinadas = []; //arreglo que almacena las letras adivinadas
+        let completado = false; //
+
+        //funcion que genera el tablero de las adivinazas
+        function generarTablero(respuesta) {
+            const tablero = document.getElementById('crossword');
+            tablero.innerHTML = '';
+
+            for (let i = 0; i < respuesta.length; i++) {
+                const celda = document.createElement('div');
+                tablero.appendChild(celda);
             }
         }
-        //funciona para mostrar el resultado al agotarse el tiempo
-        function marcadorTiempoAgotado() {
-            if (mostrar_pantalla_juego_términado) {
-                swal.fire({
-                    title: "Juego finalizado",
-                    text: "Puntuación: " + preguntas_correctas + "/" + "10", //preguntas_hechas
-                    icon: "success",
-                    confirmButtonText: '¡Genial!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        tiempoAgotado();
-                    }
-                });
+        //funcion que muestras las adivinazas aun no completadas
+        function obtenerPreguntaSinResponder() {
+            const preguntasSinResponder = adivinanzas.filter((adivinanza) => !adivinanza.respondida);
+            if (preguntasSinResponder.length === 0) return null;
+            const indiceAleatorio = Math.floor(Math.random() * preguntasSinResponder.length);
+            return preguntasSinResponder[indiceAleatorio];
+        }
+        //funcion que muestra las pistas de manera aleatoria
+        function mostrarPreguntaAleatoria() {
+            if (puntaje > adivinanzas.length) {
+                mostrarPuntajeFinal();
+                return;
             }
+
+            const adivinanzaActual = obtenerPreguntaSinResponder();
+            if (!adivinanzaActual) {
+                mostrarPuntajeFinal();
+                return;
+            }
+
+            const pregunta = adivinanzaActual.pregunta;
+            respuestaActual = adivinanzaActual.respuesta.toLowerCase();
+            adivinanzaActual.respondida = true;
+            generarTablero(respuestaActual);
+            document.getElementById('hint').textContent = `Enunciado: ${pregunta}`;
+            letrasAdivinadas = Array(respuestaActual.length).fill('');
         }
 
-        //sirve para mostrar cuando el tiempo se ha acabado al final del juego y recarga la pagina
-        function tiempoAgotado() {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 18 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-            Swal.fire({
-                title: 'Mala Suerte',
-                text: '¡Mejora tu Tiempo!',
-                imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
+        //funcón que valida que las respuestas de las adivinanzas sean correctas
+        function comprobarRespuesta() {
+            const respuestaUsuario = letrasAdivinadas.join('');
+            const resultadoElemento = document.getElementById('resultado');
+
+            // Validación del btn comprobar respuestas cuando el usuario no haya respondido alguna adivinanza
+            if (respuestaUsuario.trim().length === 0) {
+                alertIncomplete(); //se manda a llamar la funcion que genera la alerta 
+                return;
+            }
+            //validando las letras ingresadas por el usuario
+            if (respuestaUsuario === respuestaActual) {
+                puntaje++;
+                alertGood();
+            } else {
+                alertBad();
+                letrasAdivinadas = Array(respuestaActual.length).fill('');
+                llenarTableroConRespuesta();
+            }
+
+            setTimeout(function() {
+                resultadoElemento.textContent = '';
+                mostrarPreguntaAleatoria();
+                document.getElementById('contador').textContent = `${puntaje} / ${adivinanzas.length}`;
+                llenarTableroConRespuesta();
+            }, 1500);
+        }
+
+        //función que va llenando los cuadritos de las adivinanzas 
+        function llenarTableroConRespuesta() {
+            const celdasTablero = document.querySelectorAll('.crossword div');
+
+            for (let i = 0; i < celdasTablero.length; i++) {
+                celdasTablero[i].textContent = letrasAdivinadas[i] || '';
+            }
+        }
+        //función que remplaza las letras ingresadas por el usuario en cada campo respectivo
+        function reemplazarLetra(evento) {
+            const teclaPresionada = evento.key.toLowerCase();
+            const caracteresPermitidos = /^[a-záéíóúüñ-]$/;
+
+            if (teclaPresionada.match(caracteresPermitidos)) {
+                const indiceActual = letrasAdivinadas.findIndex(letra => letra === '');
+                if (indiceActual !== -1) {
+                    letrasAdivinadas[indiceActual] = teclaPresionada;
+                    llenarTableroConRespuesta();
                 }
-            });
+            }
         }
-        //ambos
-
+        //muestra el puntaje obtenido al finalizar el juego
+        function mostrarPuntajeFinal() {
+            const contenedorElemento = document.querySelector('.main-ctn');
+            contenedorElemento.innerHTML = `<p>Puntuación final: ${puntaje - 1} / ${adivinanzas.length}</p>`;
+            verificarPuntaje();
+        }
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
-        let puntos = 0;
+        var segundos = 120; //120
 
-        //Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
+        //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {
-            document.getElementById('tiempo').innerHTML = segundos + " segundos";
+            document.getElementById("tiempo").innerHTML = segundos + " segundos";
             if (segundos <= 60) {
                 var div = document.getElementById("timer");
                 div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
@@ -209,28 +248,54 @@ if (isset($resultadoIntentos['intentos'])) {
                 var div = document.getElementById("timer");
                 div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
+
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 18 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
-                incorrecto.play(); //agregando sonido al juego no completado
                 Swal.fire({
-                    title: 'Oops...',
-                    text: '¡El tiempo se acabo!',
+                    title: "Oops... Inténtalo nuevamente, te has quedado sin tiempo",
+                    text: "",
                     imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        marcadorTiempoAgotado();
-                        // window.location.reload();
+                        window.location.reload();
                     }
                 });
-
+                Incorrecto.play(); //Agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
+            }
+        }
+
+        // Nueva función para verificar el puntaje
+        function verificarPuntaje() {
+            if (puntaje - 1 <= 2) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 18 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
+                // Si el puntaje es menor o igual a 2, mostramos una alerta para repetir el juego
+                Swal.fire({
+                    title: "¡Ups! Inténtalo nuevamente, necesitas más aciertos.",
+                    text: "",
+                    imageUrl: "../../img/img-juegos/loop.gif",
+                    imageHeight: 350,
+                    confirmButtonColor: "#a14cd9",
+                    confirmButtonText: "Reintentar",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                });
+            } else if (puntaje >= 3) {
+                // Si el puntaje es mayor a 3, mostramos la alerta de felicitaciones y finalizamos el juego.
+                alertExcelent();
             }
         }
 
@@ -239,193 +304,64 @@ if (isset($resultadoIntentos['intentos'])) {
             var puntos = <?php echo $puntosGanados; ?>
 
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 18 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 18 +"&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjcss1.php'; //cancatenation
             xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
-            correcto.play(); //agregando sonido al juego completado
             Swal.fire({
-                title: 'Excelente',
-                text: '¡Buen trabajo! Obtienes ' + puntos + ' puntos de logros',
+                title: "¡Felicidades!",
+                text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: '¡Genial!',
+                    rgba(0,143,255,0.6)
+                    url("../../img/img-juegos/fondo.gif")`,
+                confirmButtonColor: "#a14cd9",
+                confirmButtonText: "¡Genial!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-pw-a.php';
+                    window.location.href = "../../../../../../rutas/ruta-pw-a.php";
                 }
             });
-
+            Correcto.play(); //Agregando sonido al juego completado
         }
+
+        //Alerta, muestra que la respuesta fue incorrecta
+        function alertBad() {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Intentalo nuevamente",
+                showConfirmButton: false,
+                timer: 1800,
+            });
+        }
+        //Alerta, muestra que la respuesta fue correcta
+        function alertGood() {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "¡Respuesta Correcta!",
+                //background: '#fff url(/img/fondo.gif)',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+        //Alerta muestra que el usuario no ha completado las adivinanzas
+        function alertIncomplete() {
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: "¡Completa las adivinanzas antes de verificar!",
+                showConfirmButton: false,
+                timer: 1800,
+            });
+        }
+
+        document.addEventListener('keydown', reemplazarLetra);
+        mostrarPreguntaAleatoria();
+        document.getElementById('contador').textContent = `${puntaje} / ${adivinanzas.length}`;
     </script>
-
-    <script>
-        /* Ambos */
-        let preguntas_aleatorias = true;
-        let mostrar_pantalla_juego_términado = true;
-        let reiniciar_puntos_al_reiniciar_el_juego = true;
-        //sirve para que al inicial la pagina que cargen las preguntas guardadas en el archivo json
-        function iniciar() {
-            base_preguntas = readText("../../js/base-preguntas.json");
-            interprete_bp = JSON.parse(base_preguntas);
-            escogerPreguntaAleatoria();
-        };
-
-        let pregunta;
-        let posibles_respuestas;
-        btn_correspondiente = [
-            select_id("btn1"),
-            select_id("btn2"),
-            select_id("btn3"),
-            select_id("btn4")
-        ];
-        let npreguntas = [];
-
-        let preguntas_hechas = 0;
-        let preguntas_correctas = 0;
-
-        function escogerPreguntaAleatoria() {
-            let n;
-            if (preguntas_aleatorias) {
-                n = Math.floor(Math.random() * interprete_bp.length);
-            } else {
-                n = 0;
-            }
-
-            while (npreguntas.includes(n)) {
-                n++;
-                if (n >= interprete_bp.length) {
-                    n = 0;
-                }
-                if (npreguntas.length == interprete_bp.length) {
-                    //Aquí es donde el juego se reinicia
-                    if (mostrar_pantalla_juego_términado) {
-                        swal.fire({
-                            title: "Juego finalizado",
-                            text: "Puntuación: " + preguntas_correctas + "/" + "5", //preguntas_hechas
-                            icon: "success",
-                            confirmButtonText: '¡Genial!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                alertExcelent();
-                            }
-                        });
-                    }
-                    if (reiniciar_puntos_al_reiniciar_el_juego) {
-                        preguntas_correctas = 0
-                        preguntas_hechas = 0
-                    }
-                    npreguntas = [];
-                }
-            }
-            npreguntas.push(n);
-            preguntas_hechas++;
-
-            escogerPregunta(n);
-        }
-
-
-        function escogerPregunta(n) {
-            pregunta = interprete_bp[n];
-            select_id("categoria").innerHTML = pregunta.categoria;
-            select_id("pregunta").innerHTML = pregunta.pregunta;
-            select_id("numero").innerHTML = n;
-            let pc = preguntas_correctas;
-            if (preguntas_hechas > 1) {
-                select_id("puntaje").innerHTML = pc + "/" + "5";
-            } else {
-                select_id("puntaje").innerHTML = "";
-            }
-
-            style("imagen").objectFit = pregunta.objectFit;
-            desordenarRespuestas(pregunta);
-            if (pregunta.imagen) {
-                select_id("imagen").setAttribute("src", pregunta.imagen);
-                style("imagen").height = "200px";
-                style("imagen").width = "100%";
-            } else {
-                style("imagen").height = "0px";
-                style("imagen").width = "0px";
-                setTimeout(() => {
-                    select_id("imagen").setAttribute("src", "");
-                }, 500);
-            }
-        }
-
-        function desordenarRespuestas(pregunta) {
-            posibles_respuestas = [
-                pregunta.respuesta,
-                pregunta.incorrecta1,
-                pregunta.incorrecta2,
-                pregunta.incorrecta3,
-            ];
-            posibles_respuestas.sort(() => Math.random() - 0.5);
-
-            select_id("btn1").innerHTML = posibles_respuestas[0];
-            select_id("btn2").innerHTML = posibles_respuestas[1];
-            select_id("btn3").innerHTML = posibles_respuestas[2];
-            select_id("btn4").innerHTML = posibles_respuestas[3];
-        }
-
-        let suspender_botones = false;
-
-        function oprimir_btn(i) {
-            if (suspender_botones) {
-                return;
-            }
-            suspender_botones = true;
-            if (posibles_respuestas[i] == pregunta.respuesta) {
-                preguntas_correctas++;
-                btn_correspondiente[i].style.background = "#85c42caf";
-            } else {
-                btn_correspondiente[i].style.background = "red";
-            }
-            for (let j = 0; j < 4; j++) {
-                if (posibles_respuestas[j] == pregunta.respuesta) {
-                    btn_correspondiente[j].style.background = "#85c42caf";
-                    break;
-                }
-            }
-            setTimeout(() => {
-                reiniciar();
-                suspender_botones = false;
-            }, 1000);
-        }
-
-        // let p = prompt("numero")
-
-        function reiniciar() {
-            for (const btn of btn_correspondiente) {
-                btn.style.background = "rgba(61, 172, 244, 0.7)";
-            }
-            escogerPreguntaAleatoria();
-        }
-        //sirve para seleccionar un objeto segun su ID
-        function select_id(id) {
-            return document.getElementById(id);
-        }
-        //sirve para seleccionar el estilo segun su ID
-        function style(id) {
-            return select_id(id).style;
-        }
-        //sirve para leer rutas de texto local que en este caso serian las preguntas que estan en el archivo "base-preguntas.json"
-        function readText(ruta_local) {
-            var texto = null;
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", ruta_local, false);
-            xmlhttp.send();
-            if (xmlhttp.status == 200) {
-                texto = xmlhttp.responseText;
-            }
-            return texto;
-        }
-        /* Ambos */
-    </script>
-
 </body>
 
 </html>

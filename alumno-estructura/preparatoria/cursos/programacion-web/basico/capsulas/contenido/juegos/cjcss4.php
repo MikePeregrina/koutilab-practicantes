@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
 
         <!-- Boton para regresar -->
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+        <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
 
@@ -218,7 +218,7 @@ h1 { color:white; text-align:center; }
                     if (result.isConfirmed) {
                         //Borra el texto escrito
                         escrito.value = "";
-                        window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                        window.location.href = "../../../../../../rutas/ruta-pw-b.php";
                     }
                 });
                 correcto.play(); //agregando sonido al juego completado

@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 41;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
 	$totalIntentos = $resultadoIntentos['intentos'];
@@ -224,8 +224,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			var puntos = <?php echo $puntosGanados; ?>
 
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 3; //cancatenation
-			xmlhttp.open("POST", "../../acciones/insertar_pd39.php", true);
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 3 + "&redireccion=" + '../contenido/juegos/cjjs4.php'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
@@ -240,7 +240,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				confirmButtonText: '¡Vamos!',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = '../../../../../../rutas/ruta-pw-a.php';
+					window.location.href = "../../../../../../rutas/ruta-pw-a.php";
 				}
 			})
 			correcto.play(); //agregando sonido al juego completado

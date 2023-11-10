@@ -70,7 +70,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
 
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-i.php">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>

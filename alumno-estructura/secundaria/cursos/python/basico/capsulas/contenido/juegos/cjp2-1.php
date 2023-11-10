@@ -148,7 +148,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 27 + "&id_curso=" + 16 + "&redireccion=" + '../contenido/juegos/cjp2-1.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 27 + "&id_curso=" + 4 + "&redireccion=" + '../contenido/juegos/cjp2-1.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

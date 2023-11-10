@@ -42,97 +42,185 @@ if (isset($resultadoIntentos['intentos'])) {
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/css-juegos/select-word.css" />
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
+    <link rel="stylesheet" type="text/css" href="../../css/css-juegos/adivinanza.css"> <!--Linkeo de la hoja de css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>KOUTILAB</title>
-    <link rel="shortcut icon" href="../../../../../../img/lgk.png" />
 </head>
 
 <body onload="iniciarTiempo()">
     <!-- Timer -->
     <div class="timer" id="timer">
-        <b>Tiempo: <br />
-            <p id="tiempo" style="margin: 0 0 0 0"></p>
+        <b>Tiempo: <br>
+            <p id="tiempo" style="margin: 0 0 0 0;"></p>
         </b>
     </div>
 
-    <!-- Titulo general del juego -->
+    <!-- Titulo general -->
     <div class="titulo-gen">
         <h2 class="titulo"><b>SINTAXIS DE FUNCIONES</b></h2>
     </div>
 
-
-
-    <!-- Contenedor principal -->
-    <div class="contenido">
+    <section>
         <div class="cont-st">
-            <!-- Boton para regresar -->
-            <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px" class="btn-b" id="btn-cerrar-modalV">
+            <a href="#" onclick="history.back();">
+                <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
             </a>
-            <!-- Titulo secundario -->
-            <h4 class="titulo"><b>El jugador deberá seleccionar una respuesta de las listas seleccionables</b></h4>
-        </div>
-        <!--Generando contenedor que almacenara las preguntas y respuestas del juego-->
-        <div class="container">
-            <section><!--GENERANDO SECCION PARA PREGUNTAS Y RESPUESTAS-->
-                <!--Generando pregunta 1-->
-                <h3>1- Para poder definir una función en Python, podemos ocupar la sentencia...
-                    <select class="select" id="respuesta0"><!--Generando lista de opciones de respuesta de la pregunta 1-->
-                        <option value="----">...</option>
-                        <option value="correcto">def</option>
-                        <option value="incorrecto">print</option>
-                    </select>
-                </h3>
-                <!--Generando pregunta 2-->
-                <h3>2- ¿Qué significa la abreviatura def en Python?
-                    <select class="select" id="respuesta1"><!--Generando lista de opciones de respuesta de la pregunta 2-->
-                        <option value="----">...</option>
-                        <option value="correcto">definir</option>
-                        <option value="incorrecto">deformación</option>
-                        <option value="incorrecto">delfín</option>
-                    </select>
-                </h3>
-                <!--Generando pregunta 3-->
-                <h3>3- La sintaxis correcta para la definición de una función es...
-                    <select class="select" id="respuesta2"><!--Generando lista de opciones de respuesta de la pregunta 3-->
-                        <option value="----">...</option>
-                        <option value="correcto">def miFuncion():</option>
-                        <option value="incorrecto">def miFuncion:</option>
-                        <option value="incorrecto">dec miFuncion():</option>
-                    </select>
-                </h3><!--Generando primer pregunta-->
-            </section>
+            <h4 class="titulo"><b>Adivina las frases o palabras mediante el enunciado y escribe con el teclado antes de que se termine el tiempo</b></h4>
         </div>
 
-        <!--Boton para verificar la respuesta-->
-        <div class="btn-ctn">
-            <button class="verificar" onClick="verificar()">
-                Comprobar respuestas
-            </button>
+        <div class="main-ctn">
+            <div class="contador" id="contador"></div><!--Marcador de adivinanzas-->
+            <div class="crossword" id="crossword"></div><!--generado de cuadritos por cada adivinanza-->
+            <div class="hint" id="hint"></div><!--Pista a proprcionar-->
+            <div class="result" id="resultado"></div><!--Resultados al finalizar-->
         </div>
-    </div>
-    <p id="resultado"></p>
+        <button class="verificar" onclick="comprobarRespuesta()">Comprobar
+            Respuesta</button><!--btn comprobar respuesta-->
+    </section>
+
+
+    <!--Agregando el pie de página-->
     <footer class="footerimga">
         <div class="imagen-footer">
             <img src="../../img/img-juegos/benvenida.png" alt="No-image">
         </div>
     </footer>
-    <script>
-        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
 
-        //Funcion que agrega el sonido al juego
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+    <script>
+        //arreglo que almacena las pistas y respuestas de la adivinanza
+        const adivinanzas = [{
+                pregunta: "El tema de hoy se llama sintaxis de...",
+                respuesta: "funciones",
+                respondida: false
+            },
+            {
+                pregunta: "Es la forma en como declaramos una función. Pista: Inicia con la letra D",
+                respuesta: "def",
+                respondida: false
+            },
+            {
+                pregunta: "Se trata del lenguaje de programación que estamos aprendiendo el día de hoy",
+                respuesta: "python",
+                respondida: false
+            }
+        ];
+
+        let puntaje = 1; // Iniciamos en la posición 1 del contador
+        let respuestaActual = ""; //alamacena las respuestas actuales 
+        let letrasAdivinadas = []; //arreglo que almacena las letras adivinadas
+        let completado = false; //
+
+        //funcion que genera el tablero de las adivinazas
+        function generarTablero(respuesta) {
+            const tablero = document.getElementById('crossword');
+            tablero.innerHTML = '';
+
+            for (let i = 0; i < respuesta.length; i++) {
+                const celda = document.createElement('div');
+                tablero.appendChild(celda);
+            }
+        }
+        //funcion que muestras las adivinazas aun no completadas
+        function obtenerPreguntaSinResponder() {
+            const preguntasSinResponder = adivinanzas.filter((adivinanza) => !adivinanza.respondida);
+            if (preguntasSinResponder.length === 0) return null;
+            const indiceAleatorio = Math.floor(Math.random() * preguntasSinResponder.length);
+            return preguntasSinResponder[indiceAleatorio];
+        }
+        //funcion que muestra las pistas de manera aleatoria
+        function mostrarPreguntaAleatoria() {
+            if (puntaje > adivinanzas.length) {
+                mostrarPuntajeFinal();
+                return;
+            }
+
+            const adivinanzaActual = obtenerPreguntaSinResponder();
+            if (!adivinanzaActual) {
+                mostrarPuntajeFinal();
+                return;
+            }
+
+            const pregunta = adivinanzaActual.pregunta;
+            respuestaActual = adivinanzaActual.respuesta.toLowerCase();
+            adivinanzaActual.respondida = true;
+            generarTablero(respuestaActual);
+            document.getElementById('hint').textContent = `Enunciado: ${pregunta}`;
+            letrasAdivinadas = Array(respuestaActual.length).fill('');
+        }
+
+        //funcón que valida que las respuestas de las adivinanzas sean correctas
+        function comprobarRespuesta() {
+            const respuestaUsuario = letrasAdivinadas.join('');
+            const resultadoElemento = document.getElementById('resultado');
+
+            // Validación del btn comprobar respuestas cuando el usuario no haya respondido alguna adivinanza
+            if (respuestaUsuario.trim().length === 0) {
+                alertIncomplete(); //se manda a llamar la funcion que genera la alerta 
+                return;
+            }
+            //validando las letras ingresadas por el usuario
+            if (respuestaUsuario === respuestaActual) {
+                puntaje++;
+                alertGood();
+            } else {
+                alertBad();
+                letrasAdivinadas = Array(respuestaActual.length).fill('');
+                llenarTableroConRespuesta();
+            }
+
+            setTimeout(function() {
+                resultadoElemento.textContent = '';
+                mostrarPreguntaAleatoria();
+                document.getElementById('contador').textContent = `${puntaje} / ${adivinanzas.length}`;
+                llenarTableroConRespuesta();
+            }, 1500);
+        }
+
+        //función que va llenando los cuadritos de las adivinanzas 
+        function llenarTableroConRespuesta() {
+            const celdasTablero = document.querySelectorAll('.crossword div');
+
+            for (let i = 0; i < celdasTablero.length; i++) {
+                celdasTablero[i].textContent = letrasAdivinadas[i] || '';
+            }
+        }
+        //función que remplaza las letras ingresadas por el usuario en cada campo respectivo
+        function reemplazarLetra(evento) {
+            const teclaPresionada = evento.key.toLowerCase();
+            const caracteresPermitidos = /^[a-záéíóúüñ-]$/;
+
+            if (teclaPresionada.match(caracteresPermitidos)) {
+                const indiceActual = letrasAdivinadas.findIndex(letra => letra === '');
+                if (indiceActual !== -1) {
+                    letrasAdivinadas[indiceActual] = teclaPresionada;
+                    llenarTableroConRespuesta();
+                }
+            }
+        }
+        //muestra el puntaje obtenido al finalizar el juego
+        function mostrarPuntajeFinal() {
+            const contenedorElemento = document.querySelector('.main-ctn');
+            contenedorElemento.innerHTML = `<p>Puntuación final: ${puntaje - 1} / ${adivinanzas.length}</p>`;
+            verificarPuntaje();
+        }
+
+        //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
+        var segundos = 120; //120
+
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         //funcion que permite definir el tiempo que tiene el jugador
         function iniciarTiempo() {
@@ -151,14 +239,15 @@ if (isset($resultadoIntentos['intentos'])) {
             }
 
             if (segundos == 0) {
+                var puntos = <?php echo $puntosGanados; ?>
+
                 var xmlhttp = new XMLHttpRequest();
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-1.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
-                incorrecto.play(); //agregando sonido al juego no completado
                 Swal.fire({
-                    title: "Oops...Intentalo nuevamente, te has quedado sin tiempo",
+                    title: "Oops... Inténtalo nuevamente, te has quedado sin tiempo",
                     text: "",
                     imageUrl: "../../img/img-juegos/loop.gif",
                     imageHeight: 350,
@@ -167,35 +256,40 @@ if (isset($resultadoIntentos['intentos'])) {
                         window.location.reload();
                     }
                 });
+                Incorrecto.play(); //Agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);
             }
         }
 
-        //funcion Error, determina que las respuestas sean correctas
-        function error() {
-            var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-1.php'; //cancatenation
-            xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-            incorrecto.play();
-            Swal.fire({
-                title: "¡Oh no!",
-                text: "Comprueba tus respuestas, e intentalo nuevamente",
-                imageUrl: "../../img/img-juegos/loop.gif",
-                imageHeight: 350,
-                backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
-                confirmButtonColor: "#a14cd9",
-                confirmButtonText: "¡Sigue intentando",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
+        // Nueva función para verificar el puntaje
+        function verificarPuntaje() {
+            if (puntaje - 1 <= 2) {
+                var puntos = <?php echo $puntosGanados; ?>
+
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp1-1.php'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
+                // Si el puntaje es menor o igual a 2, mostramos una alerta para repetir el juego
+                Swal.fire({
+                    title: "¡Ups! Inténtalo nuevamente, necesitas más aciertos.",
+                    text: "",
+                    imageUrl: "../../img/img-juegos/loop.gif",
+                    imageHeight: 350,
+                    confirmButtonColor: "#a14cd9",
+                    confirmButtonText: "Reintentar",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                });
+            } else if (puntaje >= 3) {
+                // Si el puntaje es mayor a 3, mostramos la alerta de felicitaciones y finalizamos el juego.
+                alertExcelent();
+            }
         }
 
         //Alerta muestra de que el juego fue completado
@@ -207,15 +301,14 @@ if (isset($resultadoIntentos['intentos'])) {
             xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
-            correcto.play(); //agregando sonido al juego completado
             Swal.fire({
                 title: "¡Felicidades!",
                 text: "¡Buen trabajo! Obtienes " + puntos + " puntos de logros",
                 imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
                 imageHeight: 350,
                 backdrop: `
-						rgba(0,143,255,0.6)
-						url("../../img/img-juegos/fondo.gif")`,
+                    rgba(0,143,255,0.6)
+                    url("../../img/img-juegos/fondo.gif")`,
                 confirmButtonColor: "#a14cd9",
                 confirmButtonText: "¡Genial!",
             }).then((result) => {
@@ -223,22 +316,44 @@ if (isset($resultadoIntentos['intentos'])) {
                     window.location.href = "../../../../../../rutas/ruta-py-i.php";
                 }
             });
+            Correcto.play(); //Agregando sonido al juego completado
         }
 
-        //funcion de validar respuestas
-        function verificar() {
-            var respuesta0 = document.getElementById("respuesta0").value; //valida la respuesta 1
-            var respuesta1 = document.getElementById("respuesta1").value; //valida la respuesta 2
-            var respuesta2 = document.getElementById("respuesta2").value; //valida la respuesta 3
-
-            if (respuesta0 == "correcto" && respuesta1 == "correcto" && respuesta2 == "correcto") {
-                document.getElementById("resultado").innerHTML = "";
-                alertExcelent(); //mandando a traer la funcion alertExelent para que se muestre cuando el usuario haya capturado las respuestas correctas
-            } else {
-                document.getElementById("resultado").innerHTML = "";
-                error(); //mandando a llamar la funcion alertBad para indicarle al jugador que sus respuestas son incorrectas
-            }
+        //Alerta, muestra que la respuesta fue incorrecta
+        function alertBad() {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Intentalo nuevamente",
+                showConfirmButton: false,
+                timer: 1800,
+            });
         }
+        //Alerta, muestra que la respuesta fue correcta
+        function alertGood() {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "¡Respuesta Correcta!",
+                //background: '#fff url(/img/fondo.gif)',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+        //Alerta muestra que el usuario no ha completado las adivinanzas
+        function alertIncomplete() {
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: "¡Completa las adivinanzas antes de verificar!",
+                showConfirmButton: false,
+                timer: 1800,
+            });
+        }
+
+        document.addEventListener('keydown', reemplazarLetra);
+        mostrarPreguntaAleatoria();
+        document.getElementById('contador').textContent = `${puntaje} / ${adivinanzas.length}`;
     </script>
 </body>
 

@@ -41,7 +41,7 @@ if (empty($existe)) {
     </div>
 
     <div class="contenido">
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+        <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button>
         </a>
 
@@ -222,7 +222,7 @@ if (empty($existe)) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = 'acciones/insertar_ep1.php?id_capsula=' + 3 + '&id_curso=' + 1 + '&estrellas=' + 15;
+                            window.location.href = "../../../../../../rutas/ruta-pw-b.php";
                         }
                     });
                     correcto.play(); //agregando sonido al juego completado
