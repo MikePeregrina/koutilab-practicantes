@@ -1,17 +1,17 @@
 <?php
-// session_start();
-// $id_user = $_SESSION['id_alumno_preparatoria'];
-// if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
-//     header('location: ../../../../../../../../acciones/cerrarsesion.php');
-// }
-// include "../../../../../../../../acciones/conexion.php";
-// $id_user = $_SESSION['id_alumno_preparatoria'];
-// $permiso = "capsulapago6";
-// $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
-// $existe = mysqli_fetch_all($sql);
-// if (empty($existe)) {
-//     header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium6.php");
-// }
+session_start();
+$id_user = $_SESSION['id_alumno_preparatoria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['id_alumno_preparatoria'];
+$permiso = "capsulapago6";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4;");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe)) {
+    header("Location:  ../../../../basico/capsulas/contenido/alertas/paquete_premium6.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,7 +83,7 @@
     <section>
         <!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-py-b.php">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b" id="btn-cerrar-modalV">
                     <i class="fas fa-reply"></i></button></a>
             <h6 class="titulo">

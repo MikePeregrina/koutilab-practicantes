@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <section>
         <!-- Boton para regresar -->
         <div class="cont-st">
-            <a href="../../../../../../rutas/ruta-pw-b.php">
+            <a href="#" onclick="history.back();">
                 <button class="btn-b">
                     <i class="fas fa-reply"></i>
                 </button>
@@ -223,7 +223,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     if (result.isConfirmed) {
                         //Borra el texto escrito
                         escrito.value = "";
-                        window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                        window.location.href = "../../../../../../rutas/ruta-pw-b.php";
                     }
                 });
                 correcto.play(); //agrengando sonido al juego completado

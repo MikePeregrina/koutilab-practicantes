@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Titulo general del juego -->
     <div class="titulo-gen">
-        <h2 class="titulo"><b>VARIABLES 2.0</b></h2>
+        <h2 class="titulo"><b>ATRIBUTOS Y MÉTODOS</b></h2>
     </div>
 
     <!-- Contenedor principal -->

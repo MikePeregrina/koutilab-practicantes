@@ -72,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
         <!-- Boton para regresar -->
         <div class="cont-st">
             <!-- Boton para regresar -->
-            <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+            <a href="#" onclick="history.back();"><button style="float: left; position: absolute; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                     <i class="fas fa-reply"></i></button>
             </a>
 
