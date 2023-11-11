@@ -165,7 +165,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4"> !=</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="27">
+                                    <input type="hidden" name="permiso" value="28">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="4">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
