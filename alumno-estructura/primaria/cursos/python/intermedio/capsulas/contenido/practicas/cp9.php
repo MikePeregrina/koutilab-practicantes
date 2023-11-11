@@ -90,7 +90,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="cd" id="editor"></div>
                                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 
@@ -268,7 +268,7 @@ textInputs.forEach(input => {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1';
+            let esperado = '1\n2\n3\n4\n5\nnumeros = []\nfor i in range(5):\nnumero = int(input("Ingresa un número entero: "))\nnumeros.append(numero)\nprint("La lista de números ingresados es:", numeros)';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
@@ -286,7 +286,7 @@ textInputs.forEach(input => {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 18 + '&practico=' + 10 + '&redireccion=' + '../contenido/practicas/cp9.php';
+                        window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10 + '&redireccion=' + '../contenido/practicas/cp9.php';
                     }
                 });
             } else {
@@ -310,7 +310,7 @@ textInputs.forEach(input => {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 18 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_practica.php?validar=' + 'correcto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 5 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -405,7 +405,7 @@ textInputs.forEach(input => {
         }
         document.oncontextmenu = new Function("return false");
     </script>
-    <script>
+    <!-- <script>
         onkeydown = e => {
             let tecla = e.which || e.keyCode;
 
@@ -423,5 +423,5 @@ textInputs.forEach(input => {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
-    </script>
+    </script> -->
 </body>

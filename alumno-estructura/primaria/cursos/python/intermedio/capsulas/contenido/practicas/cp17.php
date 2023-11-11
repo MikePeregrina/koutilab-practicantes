@@ -95,7 +95,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <div class="cd" id="editor"></div>
                                 </div>
             </div>
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" disabled>Evaluar</button></a>
+             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
         </div>
     </div>
 
@@ -417,7 +417,7 @@ textInputs.forEach(input => {
         }
         document.oncontextmenu = new Function("return false");
     </script>
-    <script>
+    <!-- <script>
         onkeydown = e => {
             let tecla = e.which || e.keyCode;
 
@@ -435,5 +435,5 @@ textInputs.forEach(input => {
                     console.log("Ha presionado las teclas Ctrl + S");
             }
         }
-    </script>
+    </script> -->
 </body>
