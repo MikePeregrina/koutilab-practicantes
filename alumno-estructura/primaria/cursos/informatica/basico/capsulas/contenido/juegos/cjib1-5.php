@@ -192,7 +192,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 16 + "&id_curso=" + 19 + "&redireccion=" + '../contenido/juegos/cjib1-5.php'; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 16 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-5.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -235,7 +235,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		var segundos = 240;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 
@@ -257,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 19 + "&redireccion=" + '../contenido/juegos/cjib1-5.php'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 16 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-5.php'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -298,7 +298,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
 
 		// Llama a la función cuando la página se carga completamente
-		window.addEventListener('load', reproducirSonido);
+		// // window.addEventListener('load', reproducirSonido);
 </script>
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

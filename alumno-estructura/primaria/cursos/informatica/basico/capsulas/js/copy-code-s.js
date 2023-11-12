@@ -56,7 +56,7 @@ function iniciarTiempo() {
       "&permiso=" +
       38 +
       "&id_curso=" +
-      1; //cancatenation
+      7; //cancatenation
     xmlhttp.open("POST", "../../acciones/insertar_pd38.php", true);
     xmlhttp.setRequestHeader(
       "Content-Type",

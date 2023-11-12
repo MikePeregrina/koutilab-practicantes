@@ -227,7 +227,7 @@ incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
             "&permiso=" +
             19 +
             "&id_curso=" +
-            19 +
+            7 +
             "&redireccion=" +
             "../contenido/juegos/cjib1-6.php"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

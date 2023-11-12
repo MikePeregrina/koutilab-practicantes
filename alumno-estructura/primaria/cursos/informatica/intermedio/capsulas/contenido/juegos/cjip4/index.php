@@ -112,7 +112,7 @@ if (empty($existe)) {
 	</script>
 	<script>
 		var segundos = 240;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		//Se esta llamando los sonidos de la carpeta "sonidos"
 		var correcto = document.createElement("audio");
@@ -137,7 +137,7 @@ if (empty($existe)) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 20; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 8; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',

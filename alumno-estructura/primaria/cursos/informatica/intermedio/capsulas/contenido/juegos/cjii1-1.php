@@ -198,7 +198,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -237,7 +237,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<script>
 		var segundos = 240;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
@@ -257,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-1.php)'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -294,7 +294,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
 
 		// Llama a la función cuando la página se carga completamente
-		window.addEventListener('load', reproducirSonido);
+		// window.addEventListener('load', reproducirSonido);
 </script>	
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

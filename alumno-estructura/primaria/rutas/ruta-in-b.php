@@ -151,7 +151,7 @@ if (!isset($_SESSION['actualizacion_realizada_inbn'])) {
     <section>
         <div class="main-content">
             <div class="label">
-                <span></span>
+                <span>Capítulo 1</span>
             </div>
             <a href="../acciones/estadisticas_in-b.php" style="text-decoration: none;color: inherit;">
                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
@@ -207,7 +207,7 @@ if (!isset($_SESSION['actualizacion_realizada_inbn'])) {
                 <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce1informatica.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" class="btn32" id="eva" <?php echo 'style="' . (($existe_capsula25 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
 
                 <div class="label-css">
-                    <span></span>
+                    <span>Capítulo 2</span>
                 </div>
                 <a href="../cursos/informatica/basico/capsulas/contenido/introduccion/ci2informatica.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" class="btn33" id="intro" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->
@@ -255,7 +255,7 @@ if (!isset($_SESSION['actualizacion_realizada_inbn'])) {
                     <a href="../cursos/informatica/basico/capsulas/contenido/juegos/cjibp4.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" class="btn63" id="gamep" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!-- Capsula juego 10 -->
                 </div> 
                 <!-- EVALUATIVA CSS -->
-                <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce2css.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" class="btn64" id="eva" <?php echo 'style="' . (($existe_capsula51 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
+                <a href="../cursos/informatica/basico/capsulas/contenido/evaluativas/ce2informatica.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" class="btn64" id="eva" <?php echo 'style="' . (($existe_capsula51 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
             </div>
         </div>
     </section>

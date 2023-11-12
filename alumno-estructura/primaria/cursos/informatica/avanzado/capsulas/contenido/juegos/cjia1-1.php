@@ -238,7 +238,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 		var segundos = 180;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
@@ -294,7 +294,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
 
 		// Llama a la función cuando la página se carga completamente
-		window.addEventListener('load', reproducirSonido);
+		// window.addEventListener('load', reproducirSonido);
 </script>
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

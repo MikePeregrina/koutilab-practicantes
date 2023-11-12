@@ -158,12 +158,12 @@ function mostrarResultados() {
         "&validar=" +
         "incorrecto" +
         "&permiso=" +
-        25 +
+        45 +
         "&id_curso=" +
         8 +
         "&redireccion=" +
-        "../contenido/juegos/cjii1-8.php)"; //cancatenation
-      xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+        "../contenido/juegos/cjii2-6.php)"; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_pd45.php", true);
       xmlhttp.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"
@@ -194,10 +194,10 @@ function mostrarResultados() {
         "&validar=" +
         "correcto" +
         "&permiso=" +
-        25 +
+        45 +
         "&id_curso=" +
         8; //cancatenation
-      xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
+      xmlhttp.open("POST", "../../acciones/insertar_pd45.php", true);
       xmlhttp.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"

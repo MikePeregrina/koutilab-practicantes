@@ -122,7 +122,7 @@ if (empty($existe)) {
 
 		var segundos = 240;
 
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		var count = 1000;
 		//Agregando animacion a el timer

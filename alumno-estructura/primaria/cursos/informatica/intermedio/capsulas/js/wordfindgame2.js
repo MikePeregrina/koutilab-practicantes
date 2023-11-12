@@ -229,7 +229,7 @@
             "&permiso=" +
             22 +
             "&id_curso=" +
-            20 +
+            8 +
             "&redireccion=" +
             "../contenido/juegos/cjii1-7.php)"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
