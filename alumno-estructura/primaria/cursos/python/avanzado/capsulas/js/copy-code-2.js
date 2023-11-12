@@ -9,8 +9,8 @@ Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 //ASIGNA EL TEXTO AL CUADRO DE EJEMPLO DEL JUEGO
 document.getElementById("textoej").innerHTML = `
-palabra = "hola" <br/>
-longitud = len(palabra) <br/>
+palabra = "hola" </br>
+longitud = len(palabra) </br>
 print("La palabra", palabra, "tiene", longitud, "letras.")
 `;
 //Entidades para que html no reconosca las etiquetas
