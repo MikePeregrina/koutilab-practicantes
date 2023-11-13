@@ -30,7 +30,8 @@
                 <li><a onclick="cerrarMenu();" href="../index.php" id="back">Regresar</a></li>
                 <!-- <li><a onclick="cerrarMenu();" href="#paquete3">Paquete personal</a></li> -->
                 <!-- <li><a onclick="cerrarMenu();" href="#paquete2">Paquete freemium</a></li> -->
-                <li><a onclick="cerrarMenu();" href="#paquete1">Paquete licencia</a></li>
+                <li><a onclick="cerrarMenu();" href="#licencia">Paquete licencia</a></li>
+                <li><a onclick="cerrarMenu();" href="#freemium">Paquete freemium</a></li>
             </ul>
         </div>
     </nav>
@@ -87,7 +88,152 @@
         </div>
     </section>
 
-    <section id="paquete1" class="paquete">
+    <!-- División para el buen fin -->
+    <div class="buen-fin">
+        <div class="tittle-bf">
+            <p>PAQUETES ESCOLARES</p>
+        </div>
+        <div class="line-bf">
+            <div class="sup-bf">
+                <div class="img-bf"><img src="../img/Buen_Fin-Logo_2023.png" alt=""></div>
+                <div class="txt-bf">
+                    <p>HASTA</p>
+                    <b>50%</b>
+                    <p>OFF</p>
+                </div>
+            </div>
+            <div class="inf-bf">
+                <p>
+                    VALIDO DEL 17 DE AL 20 DE NOVIEMBRE DEL 2023 SOLO EN PAQUETES LICENCIA EN KOUTILAB
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paquete con imagen a la izquierda -->
+    <!-- <section id="paquete1" class="paquete">
+        <div class="img-promo" id="img-izq">
+            <div class="precio" id="txt-izq">
+                <p>DESCUENTO POR<br>APOYO A ESCUELAS<br><b>30%</b></p>
+            </div>
+            <img src="../img/img-p.png" alt="">
+        </div>
+        <div class="sup">
+            <div class="tiitle-paq" id="txt-derecha">
+                <b>PAQUETE LICENCIA</b>
+            </div>
+        </div>
+        <div class="centro">
+            <div class="descr1" id="txt-derecha">
+                <div class="paq-card"></div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Paquete con tarjetas -->
+    <section class="paquete" id="licencia">
+        <div class="img-promo" style="top: 18%;" id="img-izq">
+            <div class="precio" id="txt-izq">
+                <p>DESCUENTO POR<br>APOYO A ESCUELAS<br><b>30%</b></p>
+            </div>
+            <img src="../img/img-p.png" alt="">
+        </div>
+        <div class="linea-azul"></div>
+        <div class="container-card">
+            <div class="tittle-card">
+                <p>PAQUETES LICENCIA</p>
+            </div>
+            <div class="box-card">
+                <!-- Tarjeta -->
+                <div class="paq-card">
+                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="tittle-card1"><p>CODING</p></div>
+                    <div class="tittle-card2">
+                        <p class="p1">de $2,500.00 mxn</p>
+                        <p class="p2">a sólo $1,625.00 mxn</p>
+                    </div>
+                    <div class="tittle-card3">
+                        <ul>
+                            <li>500 USUARIOS</li>
+                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
+                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
+                            <li>PANELES FÁCILES DE USAR</li>
+                            <li>PAGO SEMESTRAL</li>
+                        </ul>
+                    </div>
+                    <div class="tittle-card4">
+                        <p>ADQUIRIR</p>
+                    </div>
+                </div>
+
+                <div class="paq-card">
+                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="tittle-card1"><p>INNOVA</p></div>
+                    <div class="tittle-card2">
+                        <p class="p1">de $3,500.00 mxn</p>
+                        <p class="p2">a sólo $2,500.00 mxn</p>
+                    </div>
+                    <div class="tittle-card3">
+                        <ul>
+                            <li>1,000 USUARIOS</li>
+                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
+                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
+                            <li>PANELES FÁCILES DE USAR</li>
+                            <li>PAGO SEMESTRAL</li>
+                        </ul>
+                    </div>
+                    <div class="tittle-card4">
+                        <p>ADQUIRIR</p>
+                    </div>
+                </div>
+
+                <div class="paq-card">
+                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="tittle-card1"><p>CODER</p></div>
+                    <div class="tittle-card2">
+                        <p class="p1">de $8,400.00 mxn</p>
+                        <p class="p2">a sólo $6,00.00 mxn</p>
+                    </div>
+                    <div class="tittle-card3">
+                        <ul>
+                            <li>3000 USUARIOS</li>
+                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
+                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
+                            <li>PANELES FÁCILES DE USAR</li>
+                            <li>PAGO SEMESTRAL</li>
+                        </ul>
+                    </div>
+                    <div class="tittle-card4">
+                        <p>ADQUIRIR</p>
+                    </div>
+                </div>
+
+                <div class="paq-card">
+                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="tittle-card1"><p>PROGRAMMER</p></div>
+                    <div class="tittle-card2">
+                        <p class="p1">de $10,500.00 mxn</p>
+                        <p class="p2">a sólo $7,500.00 mxn</p>
+                    </div>
+                    <div class="tittle-card3">
+                        <ul>
+                            <li>5,000 USUARIOS</li>
+                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
+                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
+                            <li>PANELES FÁCILES DE USAR</li>
+                            <li>PAGO SEMESTRAL</li>
+                        </ul>
+                    </div>
+                    <div class="tittle-card4">
+                        <p>ADQUIRIR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquete con imagen a la izquierda -->
+    <!-- <section id="paquete1" class="paquete">
         <div class="img-promo" id="img-izq">
             <div class="precio" id="txt-izq">Paquetes<br>desde<br>$1,500.00<br>Semestrales</div>
             <img src="../img/img-p.png" alt="">
@@ -141,24 +287,40 @@
                 <a href="#">Adquirir paquete</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
+    <!-- División con color azul -->
     <div class="division"></div>
 
-    <!-- <section id="paquete2" class="paquete">
+    <!-- Paquete con imagen a la derecha -->
+    <section id="freemium" class="paquete">
         <div class="img-promo" id="img-der">
-            <div class="precio" id="prec-der">$2,000.00 <br>Al mes</div>
             <img src="../img/img-p1.png" alt="">
         </div>
         <div class="sup">
             <div class="tiitle-paq" id="txt-izquierda">
                 <b>PAQUETE FREEMIUM</b>
-                <p>El paquete ideal para aquellos que quieren seguir aprendiendo</p>
             </div>
         </div>
         <div class="centro">
             <div class="descr" id="txt-izquierda">
-                <p>Rutas desbloqueadas para todos los alumnos de tu escuela con claves <br> incluidas y rutas alternativas para seguir aprendiendo por un costo extra</p>
+                <div class="centro-tittle">
+                    <p>Rutas desbloqueadas para todos los alumnos de tu escuela y rutas alternativas para seguir aprendiendo por un costo extra</p>
+                </div>
+                <div class="centro-info">
+                    <div class="izq-c">
+                        <p>COSTO POR RUTA PREMIUM</p>
+                    </div>
+                    <div class="der-c">
+                        <ul>
+                            <li>RUTA DE 3 CÁPSULAS POR $30 MXN</li>
+                            <li>RUTA DE 6 CÁPSULAS POR $50 MXN</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="centro-btn">
+                    <p>ADQUIRIR</p>
+                </div>
             </div>
         </div>
         <div class="inf">
@@ -188,15 +350,12 @@
                     </div>
                 </div>
             </div>
-            <div class="comprar">
-                <a href="#">Adquirir paquete</a>
-            </div>
         </div>
     </section>
 
-    <div class="division"></div>
+    <!-- <div class="division"></div> -->
 
-    <section id="paquete3" class="paquete">
+    <!-- <section id="paquete3" class="paquete">
         <div class="img-promo" id="img-izq">
             <div class="precio" id="txt-izq">$500.00 <br>Al mes</div>
             <img src="../img/img-p2.png" alt="">

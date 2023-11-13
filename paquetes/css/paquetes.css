@@ -347,12 +347,19 @@ nav {
     align-items: center;
     text-align: center;
     color: var(--blanco);
-    font-size: 20px;
-    rotate: -10deg;
     font-weight: bolder;
     width: 150px;
     height: 150px;
     background-color: var(--gris-font);
+}
+
+.precio p {
+    font-size: 12px;
+}
+.precio b {
+    color: var(--blanco);
+    font-size: 65px;
+    text-decoration: line-through;
 }
 
 .img-promo img {
@@ -381,7 +388,7 @@ nav {
 }
 
 .descr {
-    width: 80%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -389,11 +396,83 @@ nav {
     align-items: center;
 }
 
-.descr p {
-    font-size: 25px;
+.centro-tittle {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro-tittle p {
     text-align: center;
-    color: var(--gris-font);
+    padding: 0 80px;
+    color: var(--negro);
+    font-size: 30px;
+}
+
+.centro-info {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.izq-c {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.izq-c p {
+    margin: 0;
+    padding: 0;
+    color: var(--negro);
+    font-size: 30px;
     font-weight: bolder;
+    text-align: center;
+}
+
+.der-c {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.der-c li {
+    color: var(--blanco);
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.centro-btn {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro-btn p {
+    color: var(--negro);
+    background-color: var(--blanco);
+    font-size: 20px;
+    margin: -10px 0 0 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.centro-btn p:hover {
+    color: var(--blanco);
+    background-color: var(--azul-principal);
 }
 
 .cost-p {
@@ -464,6 +543,7 @@ nav {
 }
 
 .text-b p {
+    color: var(--negro);
     font-size: 25px;
     text-align: center;
     font-weight: bolder;
@@ -482,6 +562,242 @@ nav {
     );
 }
 
+.buen-fin {
+    width: 100%;
+    height: 300px;
+}
+
+.tittle-bf {
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle-bf p {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 50px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    color: var(--blanco);
+    background-color: var(--azul-principal);
+}
+
+.line-bf {
+    width: 100%;
+    height: 55%;
+    margin: 1% 0;
+    background-color: rgb(237, 28, 36);
+}
+
+.sup-bf {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: center;    
+}
+
+.inf-bf {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inf-bf P {
+    font-size: 12px;
+    color: var(--blanco); 
+    font-weight: bolder;
+    padding: 0 0 2px 0;
+}
+
+.img-bf {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt-bf {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img-bf img {
+    height: 100%;
+}
+
+.txt-bf b, p {
+    padding: 20px 0 0 0;
+    font-size: 150px;
+    color: var(--blanco);
+}
+
+.linea-azul {
+    top: 35%;
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+    background-color: var(--azul-secundario);
+}
+
+.container-card {
+    height: 100%;
+    width: 65%;
+    float: right;
+}
+
+.tittle-card {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle-card p {
+    color: var(--azul-principal);
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    font-size: 60px;
+}
+
+.box-card {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.paq-card {
+    width: 20%;
+    height: 75%;
+    border-radius: 40px;
+    background: linear-gradient(135deg, rgb(184, 81, 253), #42fa8f);
+    transition: 0.5s;
+}
+
+.paq-card:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.icon-card {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-card i {
+    text-align: center;
+    color: var(--blanco);
+    font-size: 60px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+}
+
+.tittle-card1 {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle-card1 p {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    color: var(--blanco);
+    font-weight: bolder;
+}
+
+.tittle-card2 {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.p1 {
+    margin: 0;
+    padding: 0 0 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-decoration: line-through;
+    font-size: 15px;
+    width: 100%;
+    height: 50%;
+} 
+
+.p2 {
+    margin: 0;
+    padding: 0 25px 0 0;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 15px;
+    width: 100%;
+    height: 50%;
+} 
+
+.tittle-card3 {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle-card3 li{
+    font-weight: bolder;
+    color: var(--blanco);
+    font-size: 15px;
+}
+
+.tittle-card4 {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle-card4 p {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    color: var(--negro);
+    background-color: var(--blanco);
+    font-size: 20px;
+    font-weight: bolder;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.tittle-card4 p:hover {
+    color: var(--blanco);
+    background-color: var(--azul-principal);
+}
+
 footer {
     width: 100%;
     height: 50px;
@@ -495,6 +811,8 @@ footer p, b {
     text-align: center;
     color: var(--negro);
     font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
 /* Reponsividad */
 
@@ -517,6 +835,100 @@ footer p, b {
         width: 100%;
     }
 
+    .tittle-bf p {
+        font-size: 20px;
+    }
+
+    .sup-bf {
+        height: auto;
+    }
+
+    .line-bf {
+        height: auto;
+    }
+
+    .img-bf{
+        width: 100%;
+    }
+
+    .img-bf img {
+        width: 50%;
+    }
+
+    .txt-bf {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .inf-bf {
+        height: auto;
+    }
+
+    .inf-bf p {
+        padding: 0 10px;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .txt-bf p {
+        font-size: 20px;
+    }
+
+    .txt-bf b {
+        margin: 0 15px;
+        font-size: 20px;
+    }
+
+
+    .sup-bf {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .container-card {
+        width: 100%;
+    }
+
+    .linea-azul {
+        display: none;
+    }
+
+    .tittle-card p {
+        font-size: 30px;
+    }
+
+    .box-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .paq-card {
+        margin: 20px 0;
+        width: 90%;
+        height: 20%;
+    }
+
+    .p1, .p2{
+        width: 80%;
+    }
+
+    .tittle-card3 li {
+        text-align: left;
+    }
+
+    .icon-card{
+        display: none;
+    }
+
+    .tittle-card4 p {
+        margin: 10px 0;
+    }
+
+    #licencia {
+        height: 1200px;
+    }
     .opt-nav {
         background-color: var(--blanco);
         width: 100%;
@@ -624,7 +1036,7 @@ footer p, b {
     }
     
     .precio {
-        scale: 40%;
+        display: none;
     }
 
     .tiitle-paq, .descr {
@@ -633,6 +1045,39 @@ footer p, b {
 
     .tiitle-paq, .descr p{
         text-align: center;
+    }
+
+    .centro-tittle p {
+        font-size: 20px;
+        padding: 0;
+    }
+
+    .izq-c p {
+        font-size: 20px;
+    }
+
+    .der-c li {
+        font-size: 18px;
+    }
+
+    .centro-info {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .izq-c {
+        width: 100%;
+        height: auto;
+    }
+
+    .der-c {
+        width: 100%;
+        height: auto;
+    }
+
+    .centro-btn p {
+        font-size: 20px;
+        height: auto;
     }
 
     .comprar {
