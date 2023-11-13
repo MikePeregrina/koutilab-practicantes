@@ -209,7 +209,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.reload();
+							window.location.href = "../../../../../../rutas/ruta-in-a.php";
 						}
 					});
 					correcto.play(); //agregando sonido al juego completado

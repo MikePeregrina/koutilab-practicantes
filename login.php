@@ -364,7 +364,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $sql_cont = "UPDATE `alumnos_universidad` SET `conexiones`= '$cont'  WHERE id_alumno = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
-                header('location: alumno-estructura/perfil.php');
+                header('location: alumno-estructura/universidad/perfil.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
