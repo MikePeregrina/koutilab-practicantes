@@ -1466,7 +1466,7 @@ if ($result_estrellas->num_rows > 0) {
 
         <footer class="footerimga">
             <div class="imagen-footer">
-                <img src="../universidad/img/benvenida.png" alt="No-image">
+                <img src="../../img/benvenida.png" alt="No-image">
             </div>
         </footer>
 
