@@ -13,7 +13,7 @@ body {
   padding-top: 20px;
   font-family: Arial, sans-serif;
 }
-body::-webkit-scrollbar, .main-content::-webkit-scrollbar {
+body::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
@@ -22,8 +22,7 @@ body::-webkit-scrollbar:vertical {
 }
 
 body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button,.main-content::-webkit-scrollbar-button:increment,
-.main-content::-webkit-scrollbar-button {
+body::-webkit-scrollbar-button {
   display: none;
 }
 
@@ -35,12 +34,6 @@ body::-webkit-scrollbar-thumb {
   background: rgba(129, 179, 243);
   border-radius: 20px;
   border: 2px solid #f1f2f3;
-}
-
-.main-content::-webkit-scrollbar-thumb {
-  background: rgba(129, 178, 243, 0);
-  border-radius: 20px;
-  border: 2px solid #f1f2f300;
 }
 
 body::-webkit-scrollbar-track {
@@ -112,7 +105,6 @@ section {
   overflow: hidden;
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
   margin-top: 20px;
-  overflow-y: auto;
 }
 
 .label {
@@ -143,7 +135,7 @@ section {
   align-items: center;
   justify-content: center;
   right: 0;
-  top: 4690px;
+  top: 3400px;
 }
 
 .label-2 span {
@@ -250,37 +242,37 @@ section {
 
 
 .container-premium4{
-  margin-left: -4%;
+  margin-left: 1%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 6425px;
+  margin-top: 5120px;
 }
 
 .container-premium-extra4{
-  margin-left: 51%;
+  margin-left: 56%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 6425px;
+  margin-top: 5120px;
 }
 
 .container-premium5{
-  margin-left: 63%;
+  margin-left: 55%;
   border-radius: 45px 0 0px 45px;
   width: 480px;
   height: 120px;
   display: flex;
   position: absolute;
   align-items: center;
-  /*justify-content: space-evenly;*/
-  margin-top: 6825px;
+  justify-content: space-evenly;
+  margin-top: 5565px;
 }
 
 .container-premium-extra5{
@@ -291,7 +283,7 @@ section {
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 6825px;
+  margin-top: 5565px;
 }
 
 
@@ -308,13 +300,13 @@ section {
 }
 
 .container-premium-extra6{
-  margin-left: 63%;
+  margin-left: 56%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
   display: flex;
   position: absolute;
-  /*justify-content: space-evenly;*/
+  justify-content: space-evenly;
   margin-top: 5990px;
 }
 
@@ -704,96 +696,6 @@ section {
   margin-left: -18%;
 }
 
-.btn47 {
-  top: 95.6%;
-  margin-left: -9%;
-}
-.btn48 {
-  top: 97.6%;
-  margin-left: 0%;
-}
-.btn49 {
-  top: 99.8%;
-  margin-left: 0%;
-}
-.btn50 {
-  top: 101.8%;
-  margin-left: -9%;
-}
-.btn51 {
-  top: 103.8%;
-  margin-left: -18%;
-}
-
-.btn52 {
-  top: 106%;
-  margin-left: -18%;
-}
-
-.btn53 {
-  top: 107.6%;
-  margin-left: -9%;
-}
-.btn54 {
-  top: 109.6%;
-  margin-left: 0%;
-}
-.btn55 {
-  top: 111.8%;
-  margin-left: 0%;
-}
-.btn56 {
-  top: 113.8%;
-  margin-left: -9%;
-}
-.btn57 {
-  top: 115.8%;
-  margin-left: -18%;
-}
-
-.btn58 {
-  top: 118%;
-  margin-left: -18%;
-}
-
-.btn59 {
-  top: 119.6%;
-  margin-left: -9%;
-}
-.btn60 {
-  top: 121.6%;
-  margin-left: 0%;
-}
-.btn61 {
-  top: 123.8%;
-  margin-left: 0%;
-}
-.btn62 {
-  top: 125.8%;
-  margin-left: -9%;
-}
-.btn63 {
-  top: 127.8%;
-  margin-left: -18%;
-}
-
-.btn64 {
-  top: 130%;
-  margin-left: -18%;
-}
-
-.btn65 {
-  top: 131.6%;
-  margin-left: -9%;
-}
-.btn66 {
-  top: 133.6%;
-  margin-left: 0%;
-}
-.btn67 {
-  top: 135.8%;
-  margin-left: 0%;
-}
 .graphics-buttoon{
   display: flex;
   width: 85px; /* Ajusta el tamaño del círculo */
@@ -816,7 +718,6 @@ section {
   color: white ;
   background-color: rgb(42, 42, 42);
 }
-
 
 @media (max-width: 1150px) {
   .containers h1{

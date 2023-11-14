@@ -1,0 +1,5 @@
+Los archivos que tienen el nombre de por-terminar o no-terminado, son los archivos que originalmente estan 
+destinados a la ruta de universidad ya que tienen los permisos de las rutas extendidas. Sin embargo, faltan prácticas
+y  por eso no se puede terminar la ruta, por lo que temporalmente se acortó como en primaria, teniendo la ruta actual 
+que es la alternativa hasta que estén listas las cápsulas prácticas, y así volver a la ruta original junto con la carpeta
+de teóricas que es la que ya tiene los permisos completos. 

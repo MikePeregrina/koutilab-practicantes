@@ -8,7 +8,7 @@
 
 html,
 body {
-    height: 100%;
+    height: 110%;
     width: 100%;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -19,7 +19,9 @@ body {
         white 15%,
         #5afef4,
         #42fa8f,
-        #0cfefd
+        #0cfefd,
+        #5afef4,
+        white
     );
     background-repeat: no-repeat;
     background-size: cover;

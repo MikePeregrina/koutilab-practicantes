@@ -121,34 +121,19 @@ if (isset($resultadoIntentos['intentos'])) {
                                     <h1>¿Por el metodo 1 como se vincula una hoja de CSS utilizando HEAD?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">
-
-                                            <head>
-                                                <link rel="" type"" href="">
-                                            </head>
-                                        </label>
+                                        <label for="checkbox1">link rel=""</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">
-
-                                            <head>
-                                                <link rel type href>
-                                        </label>
+                                        <label for="checkbox2">type""</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">
-
-                                            <head>
-                                                <rel="" type"" href="">
-
-                                                    <head>
-                                        </label>
+                                        <label for="checkbox3">href=""</label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4"> head link rel="" type"" href="" head</label>
+                                        <label for="checkbox4">head</label>
                                     </div>
                                     <input type="hidden" name="permiso" value="28">
                                     <input type="hidden" name="teorico" value="10">
