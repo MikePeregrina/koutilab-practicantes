@@ -1,14 +1,14 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno'])) {
+$id_user = $_SESSION['id_alumno_preparatoria']; $rol = $_SESSION['rol'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 
 //codigo de la cp5
 
-$id_user = $_SESSION['id_alumno']; $rol = $_SESSION['rol'];
+$id_user = $_SESSION['id_alumno_preparatoria']; $rol = $_SESSION['rol'];
 $permiso = "capsula8";
 if (isset($_GET['htmlcode'])) {
     $htmlcode = $_GET['htmlcode'];
