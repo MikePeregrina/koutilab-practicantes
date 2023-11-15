@@ -141,7 +141,9 @@
                 <!-- Tarjeta -->
                 <div class="paq-card">
                     <div class="icon-card"><i class="fas fa-check"></i></div>
-                    <div class="tittle-card1"><p>CODING</p></div>
+                    <div class="tittle-card1">
+                        <p>CODING</p>
+                    </div>
                     <div class="tittle-card2">
                         <p class="p1">de $3,250.00 mxn</p>
                         <p class="p2">a sólo $1,625.00 mxn</p>
@@ -156,13 +158,19 @@
                         </ul>
                     </div>
                     <div class="tittle-card4">
-                        <p>ADQUIRIR</p>
+                    <form action="form-licencia.php" method="post">
+                            <input type="hidden" name="precio" value="1625">
+                            <input type="hidden" name="modelo" value="CODING">
+                            <button type="submit">ADQUIRIR</button>
+                        </form>
                     </div>
                 </div>
 
                 <div class="paq-card">
                     <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
-                    <div class="tittle-card1"><p>INNOVA</p></div>
+                    <div class="tittle-card1">
+                        <p>INNOVA</p>
+                    </div>
                     <div class="tittle-card2">
                         <p class="p1">de $6,500.00 mxn</p>
                         <p class="p2">a sólo $3,250.00 mxn</p>
@@ -177,13 +185,19 @@
                         </ul>
                     </div>
                     <div class="tittle-card4">
-                        <p>ADQUIRIR</p>
+                    <form action="form-licencia.php" method="post">
+                            <input type="hidden" name="precio" value="3250">
+                            <input type="hidden" name="modelo" value="INNOVA">
+                            <button type="submit">ADQUIRIR</button>
+                        </form>
                     </div>
                 </div>
 
                 <div class="paq-card">
                     <div class="icon-card"><i class="fas fa-brain"></i></div>
-                    <div class="tittle-card1"><p>CODER</p></div>
+                    <div class="tittle-card1">
+                        <p>CODER</p>
+                    </div>
                     <div class="tittle-card2">
                         <p class="p1">de $15,600.00 mxn</p>
                         <p class="p2">a sólo $7,800.00 mxn</p>
@@ -198,13 +212,19 @@
                         </ul>
                     </div>
                     <div class="tittle-card4">
-                        <p>ADQUIRIR</p>
+                        <form action="form-licencia.php" method="post">
+                            <input type="hidden" name="precio" value="7800">
+                            <input type="hidden" name="modelo" value="CODER">
+                            <button type="submit">ADQUIRIR</button>
+                        </form>
                     </div>
                 </div>
 
                 <div class="paq-card">
                     <div class="icon-card"><i class="fas fa-gem"></i></div>
-                    <div class="tittle-card1"><p>PROGRAMMER</p></div>
+                    <div class="tittle-card1">
+                        <p>PROGRAMMER</p>
+                    </div>
                     <div class="tittle-card2">
                         <p class="p1">de $19,500.00 mxn</p>
                         <p class="p2">a sólo $9,750.00 mxn</p>
@@ -219,7 +239,11 @@
                         </ul>
                     </div>
                     <div class="tittle-card4">
-                        <p>ADQUIRIR</p>
+                        <form action="form-licencia.php" method="post">
+                            <input type="hidden" name="precio" value="9750">
+                            <input type="hidden" name="modelo" value="PROGRAMMER">
+                            <button type="submit">ADQUIRIR</button>
+                        </form>
                     </div>
                 </div>
             </div>
