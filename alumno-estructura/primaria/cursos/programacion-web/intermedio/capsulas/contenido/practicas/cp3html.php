@@ -322,7 +322,7 @@ textInputs.forEach(input => {
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (ul > 0 && ol > 0 && li > 0 && bold > 0 && italic > 0 && h1 > 0) {
+            if (ul > 0 && ol > 0 && li > 0 && bold > 0 && h1 > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

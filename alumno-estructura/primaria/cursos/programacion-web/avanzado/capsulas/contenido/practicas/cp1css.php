@@ -93,7 +93,7 @@ if (isset($resultadoIntentos['intentos'])) {
                             <td class="nombre">
                             <p> Justifica en cada caso qué tipo de posicionamiento se ha utilizado.
                                     En cada caso, ¿eres capaz de reproducir el código html y css para conseguir lo mismo visualizado? <br><br>
-                                    Ustiliza etiquetas <b>div</b> y en CSS utiliza la propiedad <b>wrap</b>.
+                                    Utiliza etiquetas <b>div</b> y en CSS utiliza la propiedad <b>wrap</b>.
                                 </p>
                             </td>
                             <td class="ne">

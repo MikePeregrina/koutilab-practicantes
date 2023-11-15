@@ -87,6 +87,9 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
                         <li style="background-image: url('../../img/php/T1.5/113.gif'); z-index:0; opacity: 1;"></li>

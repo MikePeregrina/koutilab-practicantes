@@ -277,7 +277,7 @@ textInputs.forEach(input => {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\n3\n4\n5\n6\n7\n8\nnumero = input("Ingresa un número entero: ")\ntry:\n    numero = int(numero)\n    resultado = numero * 2\n    print("El doble del numero ingresado es:", resultado)\nexcept ValueError:\n    print("Error: Debes ingresar un número entero.")';
+            let esperado = '1\n2\n3\n4\n5\n6\n7\n8\nnumero = input("Ingresa un número entero: ")\ntry:\n    numero = int(numero)\n    resultado = numero * 2\n    print("El doble del número ingresado es:", resultado)\nexcept ValueError:\n    print("Error: Debes ingresar un número entero.")';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
