@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body{
+    overflow-x: hidden;
+}
+
+.maze-contenedor {
+    width: 1200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    width: 100%;
+    margin: 50px auto 0 auto;
+    position: absolute;
+    text-align: center;
+}
+
+#view {
+    margin-top: -80px;
+}
+
+#mazeContainer {
+    top: 15px;
+    opacity: 0;
+    display: inline-block;
+    margin: auto;
+    border-radius: 10px;
+}
+#mazeContainer #mazeCanvas {
+    margin: 0;
+    display: block;
+    border: solid 2px black;
+    height: 400px;
+    margin-top: 0;
+}
+#page {
+    text-align: center;
+    height: auto;
+    width: auto;
+    margin: auto;
+}
+#page #menu {
+    margin: auto;
+    padding: 10px;
+    height: 65px;
+    box-sizing: border-box;
+}
+#page #menu h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 3.2rem;
+}
+#page #view {
+    position: absolute;
+    top: 220px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 405px;
+}
+.border {
+    border: 10px black solid;
+    border-radius: 10px;
+}
+
+#instructions {
+    margin-top: 425px;
+}
+
+/* Agregar de aqui */
+
+@media (max-width: 1100px) {
+    .btn-b {
+        width: 70px;
+        padding: 10px 10px;
+        margin-left: 5%;
+    }
+
+    canvas {
+        scale: 80%;
+    }
+
+    #view {
+        margin-top: -150px;
+    }
+
+    .btn-b i {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 840px) {
+    .btn-b {
+        width: 70px;
+        padding: 10px 10px;
+        margin-left: 5%;
+    }
+
+    canvas {
+        scale: 80%;
+    }
+
+    #view {
+        margin-top: -150px;
+    }
+
+    .btn-b i {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 619px) {
+    .btn-b {
+        width: 70px;
+        padding: 10px 10px;
+        margin-left: 5%;
+    }
+
+    canvas {
+        scale: 50%;
+    }
+
+    #view {
+        margin-top: -200px;
+    }
+
+    .btn-b i {
+        font-size: 20px;
+    }
+}
+
+/* Hasta aqui */

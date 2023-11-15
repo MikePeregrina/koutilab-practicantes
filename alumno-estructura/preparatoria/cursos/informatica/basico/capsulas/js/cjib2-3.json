@@ -1,0 +1,53 @@
+[
+    {
+        "categoria": "web basico-cssq",
+        "pregunta": "El mouse es un _______ de entrada diseñado para manipular objetos",
+        "respuesta": "dispositivo",
+        "incorrecta1": "equipo",
+        "incorrecta2": "objeto",
+        "incorrecta3": "juego",
+        "imagen": "",
+        "objectFit" : "cover"  
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Nombre de la parte #5 del mouse",
+        "respuesta": "Carcasa",
+        "incorrecta1": "Scroll",
+        "incorrecta2": "Botones",
+        "incorrecta3": "Cable",
+        "imagen": "",
+        "objectFit" : "cover"   
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Nombre de la parte #4 del mouse",
+        "respuesta": "Scroll",
+        "incorrecta1": "Herramienta",
+        "incorrecta2": "Carcasa",
+        "incorrecta3": "Cable",
+        "imagen": "",
+        "objectFit" : "cover"
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Se utiliza para desplazarse rápidamente sobre cualquier página web o documento ",
+        "respuesta": "Scroll",
+        "incorrecta1": "Ruedita",
+        "incorrecta2": "Codigo",
+        "incorrecta3": "ID",
+        "imagen": "",
+        "objectFit" : "cover"  
+    },
+    {
+        "categoria": "web basico-css",
+        "pregunta": "Un mouse USB inalámbrico no tiene ________",
+        "respuesta": "Cable",
+        "incorrecta1": "Scroll",
+        "incorrecta2": "USB",
+        "incorrecta3": "Carcasa",
+        "imagen": "",
+        "objectFit" : "cover"    
+    }
+    
+    ]
