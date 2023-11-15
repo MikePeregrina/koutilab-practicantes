@@ -125,7 +125,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
 
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -155,7 +155,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.reload();
+                        window.location.href = '../../../../../../rutas/ruta-in-b.php';
                     }
                 });
                 incorrecto.play(); //asignando sonido al juego no completado

@@ -15,12 +15,12 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 5;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 3");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria  WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 3");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 3");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND  id_curso = 3");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -48,10 +48,13 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoriaa.css">
     <link rel="stylesheet" href="../../css/carrusel.css">
+    <link rel="stylesheet" href="./css/laberinto-teoricas.css" /> <!-- Agregar css de laberinto -->
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!-- Agregar este -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" /> <!-- Agregar este -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -85,17 +88,50 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/T2/15.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/T2/16.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/17.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/18.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/19.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/20.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/12.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T2/13.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/14.gif');"></li>
+                        <li>
+                            <!-- Acoplado -->
+                            <!-- Copiar de aqui -->
+                            <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
+                            <div id="page">
+
+                                <div id="Message-Container">
+                                    <div id="message">
+                                        <p id="moves"></p>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div id="menu" style="margin-top: -500px; position: absolute;">
+                                    <div class="custom-select">
+                                        <select id="diffSelect">
+                                            <option value="6">Easy</option>
+                                            <option value="15">Medium</option>
+                                            <option value="25">Hard</option>
+                                            <option value="38">Extreme</option>
+                                        </select>
+                                    </div>
+                                    <input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+                                </div>
+
+                                <div class="maze-contenedor">
+                                    <div id="view">
+                                        <div id="mazeContainer">
+                                            <canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
+
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/html/T2/15.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -142,6 +178,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
+    <script src="js/laberinto.js"></script><!-- Agregar js de columnas -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Agregar este -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script> <!-- Agregar este -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> <!-- Y este -->
+
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -240,7 +281,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     });
                 } else if (puntos == 10) {
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

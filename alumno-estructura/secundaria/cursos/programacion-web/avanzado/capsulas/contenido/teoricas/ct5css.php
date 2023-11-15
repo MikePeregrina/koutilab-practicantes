@@ -55,7 +55,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!-- Agregar este -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" /> <!-- Agregar este -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalerT4@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 

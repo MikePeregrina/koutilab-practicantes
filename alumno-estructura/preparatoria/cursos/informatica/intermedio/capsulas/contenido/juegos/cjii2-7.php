@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula46";
+$permiso = "capsula47";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 47;
+$permiso_intento = 48;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -77,6 +77,12 @@ if (isset($resultadoIntentos['intentos'])) {
 					<i class="fas fa-reply"></i>
 				</button>
 			</a>
+			<button class="btn-b" id="pause" >
+			   <i class="fas fa-pause"></i>
+			</button>
+			<button class="btn-b" id="play" >
+			   <i class="fas fa-play"></i>
+			</button>
 			<h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
 		</div>
 		<!-- Boton de iniciar juego, al iniciar, desaparece -->
@@ -127,6 +133,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
 		function generarTablero() {
+			reproducirSonido()
 			iniciarTiempo()
 			cargarIconos()
 			$('#generar').remove();
@@ -162,6 +169,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			if (tarjeta.style.transform != "rotateY(180deg)") {
 				tarjeta.style.transform = "rotateY(180deg)"
 				selecciones.push(i)
+				var click = new Audio('../../../../../../../../acciones/sonidos/click.mp3');
+				click.play();
 			}
 			if (selecciones.length == 2) {
 				deseleccionar(selecciones)
@@ -179,14 +188,23 @@ if (isset($resultadoIntentos['intentos'])) {
 					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
 					tarjeta1.style.transform = "rotateY(0deg)"
 					tarjeta2.style.transform = "rotateY(0deg)"
+					var incorrecto = new Audio('../../../../../../../../acciones/sonidos/no.mp3');
+				    incorrecto.play();
 				} else {
+					var correcto = new Audio('../../../../../../../../acciones/sonidos/si.mp3');
+					correcto.play();
 					trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
 				if (verificar()) {
+					var xmlhttp = new XMLHttpRequest();
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 48 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-7.php)'; //cancatenation
+					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
 					Swal.fire({
 						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
+						text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 						imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 						imageHeight: 300,
 						backdrop: `
@@ -197,10 +215,10 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.href = "../../../../../../rutas/ruta-in-i.php";
+							window.location.href = '../../../../../../rutas/ruta-in-i.php';
 						}
 					});
-					correcto.play(); //agregando sonido al juego completado
+					correcto.play(); //agregando sonido de juego completado
 				}
 			}, 1000);
 		}
@@ -218,15 +236,16 @@ if (isset($resultadoIntentos['intentos'])) {
 	</script>
 
 	<script>
-		var segundos = 300;
-		let puntos = 0;
+		var segundos = 240;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			/*declarando condiciones que permiten cambiar el color de fondo del timer*/
 			if (segundos <= 60) {
 				var div = document.getElementById("timer");
-				div.style.cssText = " animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
+				div.style.cssText = "animation-name: animation1; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
 			if (segundos <= 30) {
 				var div = document.getElementById("timer");
@@ -237,6 +256,11 @@ if (isset($resultadoIntentos['intentos'])) {
 				div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
 			}
 			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 48 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-7.php)'; //cancatenation
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -247,13 +271,33 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //ajustando sonido al juego no completado
+				incorrecto.play(); //agregando sonido de juego no completado
 			} else {
 				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
 	</script>
+
+<script>
+		function reproducirSonido() {
+			var sonido = new Audio('../../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
+			sonido.loop = true; // Establece la propiedad loop en true para repetir el sonido
+			sonido.play(); // Reproduce el sonido
+			
+			pause.addEventListener('click', ()=>{
+				sonido.pause();
+			});
+			play.addEventListener('click', ()=>{
+				reproducirSonido();
+			});
+			
+		}
+
+		// Llama a la función cuando la página se carga completamente
+		// window.addEventListener('load', reproducirSonido);
+</script>
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

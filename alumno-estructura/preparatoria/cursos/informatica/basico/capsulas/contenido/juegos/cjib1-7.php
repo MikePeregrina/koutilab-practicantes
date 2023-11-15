@@ -127,9 +127,9 @@ if (isset($resultadoIntentos['intentos'])) {
         incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 20;
+        var segundos = 120;
 
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";

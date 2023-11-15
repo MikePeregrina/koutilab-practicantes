@@ -86,11 +86,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="left-column">
                 <!-- opciones estas son las principales -->
                 <!-- opciones estas son las principales -->
-                <div class="word-box" id="css">INT</div>
-                <div class="word-box" id="sql">TUPLE</div>
-                <div class="word-box" id="html">STR</div>
-                <div class="word-box" id="javascript">BOOL</div>
-                <div class="word-box" id="php">LIST</div>
+                <div class="word-box" id="css">AND</div>
+                <div class="word-box" id="sql">OR</div>
+                <div class="word-box" id="html">NOT</div>
+                <div class="word-box" id="javascript">TRUE - FALSE</div>
+                <div class="word-box" id="php">PRINT</div>
             </div>
             <!-- Mapeo donde se trazan las lineas -->
             <canvas id="canvas"> </canvas>
@@ -99,11 +99,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <div class="right-column">
                 <!-- Respuestas -->
 
-                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">Verdad o falso</div>
-                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">Secuencia</div>
-                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">Texto</div>
-                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Numérico</div>
-                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">Multiples datos</div>
+                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">Tipo de dato que se ocupa para comparar</div>
+                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">Imprime un resultado</div>
+                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">Cualquier opción menos la condición</div>
+                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Requiere de dos condiciones</div>
+                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">Se cumple una o se cumple otra condición</div>
             </div>
         </div>
 

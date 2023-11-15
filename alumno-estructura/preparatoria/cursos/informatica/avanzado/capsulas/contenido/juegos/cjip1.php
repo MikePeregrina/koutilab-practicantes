@@ -302,7 +302,7 @@ if (empty($existe)) {
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 120;
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";

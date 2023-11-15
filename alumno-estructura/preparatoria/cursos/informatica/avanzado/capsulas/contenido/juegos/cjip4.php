@@ -308,7 +308,7 @@ if (empty($existe)) {
 
     <script>
         var segundos = 240;
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         //Se esta llamando los sonidos de la carpeta "sonidos"
         var correcto = document.createElement("audio");

@@ -96,11 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     <div class="cd" id="editor"></div>
                 </div>
             </div>
-<<<<<<< HEAD
-             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" >Evaluar</button></a>
-=======
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update">Evaluar</button></a>
->>>>>>> ab0d9f83dd8aa5fe045d17edeb827cffa8330373
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
@@ -153,7 +149,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1\n2\n3\n4\nx = 10\ny = 5\nsuma = x + y\nprint("La suma de x y y es:", suma)';
+            let esperado = '1\n2\n3\n4\n5\n6\na = True\nb = False\nc = True\nprint("El valor de a es:", a)\nprint("El valor de b es:", b)\nprint("El valor de c es:", c)';
 
             let esCorrecto = compararCodigo(ta, esperado);
 

@@ -142,7 +142,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var segundos = 240;
 
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -161,7 +161,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 20; + "&redireccion=" + '../contenido/juegos/cjii1-2.php)' //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 8; + "&redireccion=" + '../contenido/juegos/cjii1-2.php)' //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -221,7 +221,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii1-2.php)'; //cancatenation
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-2.php)'; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);

@@ -192,7 +192,7 @@ if (isset($resultadoIntentos['intentos'])) {
 				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 21 + "&redireccion=" + '../contenido/juegos/cjia1-6.php'; //cancatenation
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-6.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -209,7 +209,7 @@ if (isset($resultadoIntentos['intentos'])) {
 						confirmButtonText: 'Aceptar',
 					}).then((result) => {
 						if (result.isConfirmed) {
-							window.location.reload();
+							window.location.href = "../../../../../../rutas/ruta-in-a.php";
 						}
 					});
 					correcto.play(); //agregando sonido al juego completado
@@ -231,7 +231,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 	<script>
 		var segundos = 240;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		//Se esta llamando los sonidos de la carpeta "sonidos"
 		var correcto = document.createElement("audio");
@@ -257,7 +257,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 21 + "&redireccion=" + '../contenido/juegos/cjia1-6.php'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-6.php'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -295,7 +295,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
 
 		// Llama a la función cuando la página se carga completamente
-		window.addEventListener('load', reproducirSonido);
+		// window.addEventListener('load', reproducirSonido);
 </script>
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

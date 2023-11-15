@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsulapago5";
+$permiso = "capsulapago4";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
@@ -48,12 +48,22 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css" />
     <link rel="stylesheet" href="../../css/carrusel.css" />
+    <link rel="stylesheet" href="./css/sopa-teorica.css" /> <!-- Agregar css de sopa -->
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
+    <!-- De aqui -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/wordfind.js"></script>
+    <script type="text/javascript" src="js/wordfindgame.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Hasta aqui -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body>
@@ -85,17 +95,34 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_7" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/2/T8.5/193.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/2/T8.5/194.gif');"></li>
-                        <li style="background-image: url('../../img/2/T8.5/195.gif');"></li>
-                        <li style="background-image: url('../../img/2/T8.5/196.gif');"></li>
-                        <li style="background-image: url('../../img/2/T8.5/197.gif');"></li>
-                        <li style="background-image: url('../../img/2/T8.5/198.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/108.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/T8.5/109.gif');"></li>
+                        <li style="background-image: url('../../img/css/T8.5/110.gif');"></li>
+                        <li>
+                            <!-- Copiar de aqui -->
+                            <div class="mjuego">
+                                <!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+                                <div class="words">
+
+                                    <h4><b>Palabras a buscar:</b> <br>
+                                        - CSS <br>
+                                        - HTML <br>
+                                        - BOX <br>
+                                        - SHADOW <br>
+                                    </h4>
+
+                                </div>
+
+                                <!-- Sección donde se agrega la sopa de letras -->
+                                <div class="soup">
+                                    <div id='juego'></div>
+                                </div>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/css/T8.5/111.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp10.php">
@@ -134,6 +161,25 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
+    <!-- De aqui -->
+    <script>
+        // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
+        // para mantener proporcion
+        var words = ['HTML', 'CSS', 'BOX', 'SHADOW'];
+        var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
+
+        var puzzle = wordfind.newPuzzle(words, {
+            height: 18,
+            width: 18,
+            fillBlanks: false
+        });
+        wordfind.print(puzzle);
+
+        $('#solve').click(function() {
+            wordfindgame.solve(gamePuzzle, words);
+        });
+    </script>
+    <!-- Hasta aqui -->
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -238,7 +284,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -342,6 +388,10 @@ if (isset($resultadoIntentos['intentos'])) {
             }
         }
     </script>
+    <!-- De aqui -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- Hasta aqui -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../js/functions.js"></script>
 </body>

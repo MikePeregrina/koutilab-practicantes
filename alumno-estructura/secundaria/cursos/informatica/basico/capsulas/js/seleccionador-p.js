@@ -155,7 +155,7 @@ function mostrarResultados() {
         "&permiso=" +
         22 +
         "&id_curso=" +
-        19 +
+        7 +
         "&redireccion=" +
         "../contenido/juegos/cjib1-7.php"; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
@@ -191,7 +191,7 @@ function mostrarResultados() {
         "&permiso=" +
         22 +
         "&id_curso=" +
-        19 +
+        7 +
         "&redireccion=" +
         "../contenido/juegos/cjib1-7.php"; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

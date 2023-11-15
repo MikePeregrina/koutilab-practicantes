@@ -62,18 +62,14 @@ if (empty($existe) && $id_user != 1) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/3/I/111.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/3/I/112.gif');"></li>
-                        <li style="background-image: url('../../img/3/I/113.gif');"></li>
-                        <li style="background-image: url('../../img/3/I/114.gif');"></li>
-                        <li style="background-image: url('../../img/3/I/115.gif');"></li>
-                        <li style="background-image: url('../../img/3/I/116.gif');"></li>
-                        <li style="background-image: url('../../img/3/I/117.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/67.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/In/68.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/69.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/70.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/71.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/72.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
                             <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                                 <input type="hidden" name="permiso" value="29">

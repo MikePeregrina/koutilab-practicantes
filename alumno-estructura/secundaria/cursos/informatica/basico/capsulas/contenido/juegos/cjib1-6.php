@@ -132,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		var segundos = 240;
 		var count = 1000;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		function iniciarTiempo() {
 			document.getElementById("tiempo").innerHTML =
@@ -151,7 +151,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 19 + "&redireccion=" + '../contenido/juegos/cjib1-6.php'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 7 + "&redireccion=" + '../contenido/juegos/cjib1-6.php'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);

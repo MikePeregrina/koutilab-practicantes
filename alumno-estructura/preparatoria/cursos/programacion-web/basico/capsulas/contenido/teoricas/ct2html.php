@@ -47,6 +47,10 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css" />
     <link rel="stylesheet" href="../../css/carrusel.css" />
+    <link rel="stylesheet" href="./css/laberinto-teoricas.css" /> <!-- Agregar css de laberinto -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!-- Agregar este -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" /> <!-- Agregar este -->
+
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
@@ -89,17 +93,54 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/T2/15.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/T2/16.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/17.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/18.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/19.gif');"></li>
-                        <li style="background-image: url('../../img/1/T2/20.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/11.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T2/12.gif');"></li>
+                        <li style="background-image: url('../../img/html/T2/13.gif');"></li>
+                        <li>
+                            <!-- Acoplado -->
+                            <!-- Copiar de aqui -->
+                            <h4 class="titulo"><b>Usa las flechas para ayudar a Kobot a llegar hasta su cohete espacial</b></h4>
+                            <div id="page">
+
+                                <div id="Message-Container">
+                                    <div id="message">
+                                        <p id="moves"></p>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div id="menu" style="margin-top: -500px; position: absolute;">
+                                    <div class="custom-select">
+                                        <select id="diffSelect">
+                                            <option value="6">Easy</option>
+                                            <option value="15">Medium</option>
+                                            <option value="25">Hard</option>
+                                            <option value="38">Extreme</option>
+                                        </select>
+                                    </div>
+                                    <input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+                                </div>
+
+                                <div class="maze-contenedor">
+                                    <div id="view">
+                                        <div id="mazeContainer">
+                                            <canvas id="mazeCanvas" class="border" height="1100" width="1100" style="background-color: rgba(61, 171, 244, 0.5)"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <p id="instructions">Use arrow keys to move the key to the house!</p> -->
+
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/html/T2/14.gif');"></li>
+
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuantos formatos de texto existen?</h1>
+                                    <h1>¿Cuántos formatos de texto existen?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">10 formatos diferentes</label>
@@ -134,6 +175,11 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
+    <script src="js/laberinto.js"></script><!-- Agregar js de columnas -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- Agregar este -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script> <!-- Agregar este -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> <!-- Y este -->
+
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");
@@ -237,7 +283,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,

@@ -126,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
         var segundos = 240;
 
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -145,7 +145,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 8; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 25 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-8.php)'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

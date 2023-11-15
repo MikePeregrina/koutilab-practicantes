@@ -19,7 +19,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
 //Verificar si la pregunta es correcta
 if ($pregunta != 'correcto') {
-    header('location: ../contenido/practicas/cp10html.php?htmlcode=' . $htmlcode . '');
+    header('location: ../contenido/practicas/cp10html.php?htmlcode='.$htmlcode.'');
 }
 
 if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {

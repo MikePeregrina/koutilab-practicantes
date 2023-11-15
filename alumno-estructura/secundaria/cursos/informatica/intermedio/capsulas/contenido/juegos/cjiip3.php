@@ -453,7 +453,7 @@ if (empty($existe)) {
 
         var segundos = 240;
 
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
             document.getElementById("tiempo").innerHTML =

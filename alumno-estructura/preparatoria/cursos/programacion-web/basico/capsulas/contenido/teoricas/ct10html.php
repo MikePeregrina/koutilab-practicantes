@@ -48,10 +48,19 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css" />
     <link rel="stylesheet" href="../../css/carrusel.css" />
+    <link rel="stylesheet" href="./css/memorama-teorica.css" /> <!-- Agregar css de memorama -->
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
+    <!-- De aqui -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Hasta aqui -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -90,12 +99,24 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/T5.5/50.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/T5.5/51.gif');"></li>
-                        <li style="background-image: url('../../img/1/T5.5/52.gif');"></li>
-                        <li style="background-image: url('../../img/1/T5.5/53.gif');"></li>
-                        <li style="background-image: url('../../img/1/T5.5/54.gif');"></li>
-                        <li style="background-image: url('../../img/1/T5.5/55.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/36.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/html/T5.5/37.gif');"></li>
+                        <li style="background-image: url('../../img/html/T5.5/38.gif');"></li>
+                        <li>
+                            <!-- Acoplado -->
+                            <!-- Copiar de aqui -->
+                            <div class="memorama">
+                                <!-- Generador del tablero -->
+                                <div id="tablero"></div>
+                                <!-- Boton de iniciar juego, al iniciar, desaparece -->
+
+                                <div class="nuevo-juego" id="generar" onclick="generarTablero()">
+                                    Iniciar juego
+                                </div>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/html/T5.5/39.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp4.php">
@@ -244,7 +265,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -350,4 +371,116 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../js/functions.js"></script>
+    <!-- De aqui -->
+    <script>
+        let cantidadTarjetas = 12;
+        let iconos = []
+        let selecciones = []
+
+        //Iconos pertenecientes a las tarjetas
+        //Solo modificar iconos
+        function cargarIconos() {
+            iconos = [
+                '<i class="fas fa-image"></i>',
+                '&lt;nav&gt;',
+                '&lt;a&gt;',
+                '<i class="fas fa-code"></i>',
+                '<i class="fab fa-html5"></i>',
+                '<i class="far fa-file-code"></i>'
+            ]
+        }
+
+        //Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
+        function generarTablero() {
+            cargarIconos();
+            document.getElementById("tablero").style.display = "block"; //Agregar este coso
+            $('#generar').remove();
+            let len = iconos.length
+            selecciones = []
+            let tablero = document.getElementById("tablero")
+            let tarjetas = []
+
+            for (let i = 0; i < cantidadTarjetas; i++) {
+                tarjetas.push(`
+                <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
+                    <div class="tarjeta" id="tarjeta${i}">
+                        <div class="cara trasera" style="display: flex;
+    justify-content: center;
+    align-items: center;" id="trasera${i}">
+                            ${iconos[0]}
+                        </div>
+                        <div class="cara superior" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>        
+                `)
+                if (i % 2 == 1) {
+                    iconos.splice(0, 1)
+                }
+            }
+            tarjetas.sort(() => Math.random() - 0.5)
+            tablero.innerHTML = tarjetas.join(" ")
+        }
+
+        //Selecionador de tarjetas
+        function seleccionarTarjeta(i) {
+            let tarjeta = document.getElementById("tarjeta" + i)
+            if (tarjeta.style.transform != "rotateY(180deg)") {
+                tarjeta.style.transform = "rotateY(180deg)"
+                selecciones.push(i)
+            }
+            if (selecciones.length == 2) {
+                deseleccionar(selecciones)
+                selecciones = []
+            }
+        }
+
+        //Quitar seleccion y verificar que la tarjeta sea identica a su par
+        function deseleccionar(selecciones) {
+            setTimeout(() => {
+                let trasera1 = document.getElementById("trasera" + selecciones[0])
+                let trasera2 = document.getElementById("trasera" + selecciones[1])
+                if (trasera1.innerHTML != trasera2.innerHTML) {
+                    let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
+                    let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
+                    tarjeta1.style.transform = "rotateY(0deg)"
+                    tarjeta2.style.transform = "rotateY(0deg)"
+                } else {
+                    trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
+                    trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
+                }
+                if (verificar()) {
+                    Swal.fire({
+                        title: '¡Bien hecho!',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "img/Thumbs-Up.gif",
+                        imageHeight: 300,
+                        backdrop: `
+									rgba(0,143,255,0.6)
+									url("img/fondo.gif")
+									`,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    });
+
+
+                }
+            }, 1000);
+        }
+
+        //Verificar si ambas son iguales
+        function verificar() {
+            for (let i = 0; i < cantidadTarjetas; i++) {
+                let trasera = document.getElementById("trasera" + i);
+                if (trasera.style.background != "rgba(149, 255, 0, 0.45)") {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+    <!-- Hasta aqui -->
 </body>

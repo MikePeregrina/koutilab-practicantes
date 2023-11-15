@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula25";
+$permiso = "capsula19";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 26;
+$permiso_intento = 20;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 9");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -48,6 +48,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css" />
     <link rel="stylesheet" href="../../css/carrusel.css" />
+    <link rel="stylesheet" href="./css/columnas-teoricas.css" /> <!-- Agregar css de columnas -->
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
@@ -82,12 +83,55 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_5" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/1/9/85.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/1/9/86.gif');"></li>
-                        <li style="background-image: url('../../img/1/9/87.gif');"></li>
-                        <li style="background-image: url('../../img/1/9/88.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T7/51.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/1/T7/52.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/1/T7/53.gif');"></li>
+                        <li>
+                            <!-- Copiar de aqui -->
+                            <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
+                                    lado derecho</b></h4>
+                            <div class="columnas">
+                                <div class="container-all">
+                                    <!-- Columna de lado izquierdo -->
+                                    <div class="left-column">
+                                        <!-- opciones estas son las principales -->
+                                        <div class="word-box" id="ventajas">Ventajas</div>
+                                        <div class="word-box" id="interaccion">Interaccion</div>
+                                        <div class="word-box" id="entendimiento">Entendimiento</div>
+                                        <div class="word-box" id="presentacion">Presentacion</div>
+                                        <div class="word-box" id="metodos">Metodos</div>
+                                    </div>
+                                    <!-- Mapeo donde se trazan las lineas -->
+                                    <canvas id="canvas"> </canvas>
+
+                                    <!-- columna de lado derecho -->
+                                    <div class="right-column">
+                                        <!-- Respuestas -->
+                                        <div class="word-box" id="tradicionales" onclick="checkAnswer('tradicionales')">
+                                            Tradicionales</div>
+                                        <div class="word-box" id="comunicacion" onclick="checkAnswer('comunicacion')">
+                                            Comunicacion</div>
+                                        <div class="word-box" id="versatilidad" onclick="checkAnswer('versatilidad')">
+                                            Versatilidad
+                                        </div>
+                                        <div class="word-box" id="electronica" onclick="checkAnswer('electronica')">Electronica
+                                        </div>
+                                        <div class="word-box" id="mensaje" onclick="checkAnswer('mensaje')">
+                                            Mensaje</div>
+                                    </div>
+                                </div>
+
+                                <!-- boton de verificar respuestas -->
+                                <button class="verificar">Comprobar respuestas</button>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/informatica/1/T7/54.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
@@ -117,7 +161,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                             Adaptación al tono y nivel de detalle de la audiencia.
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="26">
+                                    <input type="hidden" name="permiso" value="20">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="9">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -134,6 +178,206 @@ if (isset($resultadoIntentos['intentos'])) {
             <img src="../../img/benvenida.png" alt="No-image">
         </div>
     </footer>
+    <!-- Copiar de aqui -->
+    <script>
+        //Apartado de canvas para trazar lineas
+
+        //variables para la medida del canvas
+        const ALTURA_CANVAS = 290,
+            ANCHURA_CANVAS = 535;
+
+        // Obtener el elemento del DOM
+        const canvas = document.querySelector("#canvas");
+        canvas.width = ANCHURA_CANVAS;
+        canvas.height = ALTURA_CANVAS;
+
+        // Del canvas, obtener el contexto para poder dibujar
+        const contexto = canvas.getContext("2d");
+
+
+
+
+        // Apartado para seleccinador para relacionar columas
+        const palabras = document.querySelectorAll('.word-box');
+
+        //variables a utilizar y contadores
+        let palabraseleccionada = null;
+        let respuestasCorrectas = 0;
+        let respuestasIncorrectas = 0;
+
+        // Agregar eventos de clic a las palabras
+        palabras.forEach(word => {
+            word.addEventListener('click', selectWord);
+        });
+
+        // Función para seleccionar una palabra
+        function selectWord() {
+            if (palabraseleccionada) {
+                // Si ya hay una palabra seleccionada, la deseleccionamos
+                palabraseleccionada.classList.remove('seleccionado');
+            }
+            palabraseleccionada = this;
+            if (
+                palabraseleccionada.id !== 'versatilidad' &&
+                palabraseleccionada.id !== 'comunicacion' &&
+                palabraseleccionada.id !== 'mensaje' &&
+                palabraseleccionada.id !== 'electronica' &&
+                palabraseleccionada.id !== 'tradicionales'
+            ) {
+                palabraseleccionada.classList.add('seleccionado');
+            } else {
+                palabraseleccionada = null;
+            }
+        }
+
+        // Función para verificar la respuesta
+        function checkAnswer(respuesta) {
+            const idPalabraSeleccionada = palabraseleccionada.id;
+            const estadopalabra = document.getElementById(respuesta);
+
+            //validamos que ya haya seleccionado una palabra
+            if (palabraseleccionada) {
+                //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
+                if (respuesta === 'versatilidad' && idPalabraSeleccionada === 'ventajas') {
+                    palabraseleccionada.classList.add('correcto');
+                    // Comenzar
+                    contexto.beginPath();
+                    // Grosor de línea
+                    contexto.lineWidth = 3;
+                    // Color de línea 
+                    contexto.strokeStyle = "#84c42c";
+                    // Comenzamos en 0, 0
+                    contexto.moveTo(10, 25);
+                    // Hacemos una línea hasta 48, 48
+                    contexto.lineTo(520, 145);
+                    contexto.stroke(); // "Guardar" cambios
+                    //sumamos al contador
+                    respuestasCorrectas++;
+                } else if (respuesta === 'comunicacion' && idPalabraSeleccionada === 'interaccion') {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(10, 90);
+                    contexto.lineTo(520, 90);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+                } else if (
+                    respuesta === 'mensaje' && idPalabraSeleccionada === 'entendimiento'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(10, 145);
+                    contexto.lineTo(520, 260);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+                } else if (
+                    respuesta === 'electronica' && idPalabraSeleccionada === 'presentacion'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(10, 200);
+                    contexto.lineTo(520, 200);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+
+
+                } else if (
+                    respuesta === 'tradicionales' && idPalabraSeleccionada === 'metodos'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(10, 260);
+                    contexto.lineTo(520, 25);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+                } else {
+                    palabraseleccionada.classList.add('incorrecto');
+                    respuestasIncorrectas++;
+                }
+
+                //una vez seleccionada la desabilitamos
+                palabraseleccionada.classList.remove('seleccionado');
+                palabraseleccionada.classList.add('deshabilitado');
+                palabraseleccionada.removeEventListener('click', selectWord);
+                //limpiamos la palabra seleccionada
+                palabraseleccionada = null;
+                estadopalabra.classList.add('deshabilitado');
+                estadopalabra.removeEventListener('click', selectWord);
+            }
+        }
+
+
+
+
+        // Agregar evento de clic al botón de comprobar respuestas
+        const botonComprobar = document.querySelector('.verificar');
+        botonComprobar.addEventListener('click', mostrarResultados);
+
+        // Función para mostrar los resultados
+        function mostrarResultados() {
+            let todasSeleccionadas = true;
+
+            // Verificar si todas las opciones han sido seleccionadas
+            palabras.forEach(word => { //se recorre cada opción utilizando el método forEach en la lista palabras
+                if (!word.classList.contains('deshabilitado')) { // verifica si no tiene la clase deshabilitado
+                    todasSeleccionadas = false;
+                }
+            });
+            //validamos que ya se hizo intento de resolver todo el juego
+            if (todasSeleccionadas) {
+                if (respuestasCorrectas < 3) {
+                    Swal.fire({
+                        //estrucutra de la alerta
+                        title: '!Puedes seguir mejorado!',
+                        html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
+                        imageUrl: 'img/loop.gif',
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("img/fondo.gif")`,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: '¡Genial!',
+                    });
+                } else {
+                    //llamamos a la alerta
+                    Swal.fire({
+                        //estrucutra de la alerta
+                        title: 'Resultados',
+                        html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
+                        imageUrl: 'img/Thumbs-Up.gif',
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("img/fondo.gif")`,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: '¡Genial!',
+                    });
+                }
+            }
+            //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
+            else {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
+                    imageUrl: 'img/loop.gif',
+                    imageHeight: 350,
+                    backdrop: `
+                rgba(0,143,255,0.6)
+                url("img/fondo.gif")`,
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: '¡Genial!',
+                });
+            }
+        }
+    </script>
+    <!-- Hasta aqui -->
     <script>
         window.addEventListener("load", function() {
             var form = document.querySelector("form");

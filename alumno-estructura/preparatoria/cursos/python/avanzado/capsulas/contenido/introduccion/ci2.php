@@ -65,15 +65,26 @@ if (empty($existe) && $id_user != 1) {
                         <li>
                             <a itlist="itList_8" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_10" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_11" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_12" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/2/I/119.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/2/I/120.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/121.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/122.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/123.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/124.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/125.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/84.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/P2/In/85.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/86.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/87.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/88.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/89.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
                             <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                                 <input type="hidden" name="permiso" value="24">

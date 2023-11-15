@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula50";
+$permiso = "capsula51";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 10");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -35,7 +35,7 @@ if (empty($existe) && $id_user != 1) {
   <div class="body">
     <div class="container">
       <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-      <div class="new-g" style="text-align: center;">Evaluación 2 Videojuegos Unity</div><br>
+      <div class="new-g" style="text-align: center;">Evaluación videojuegosunity 2</div><br>
       <div class="quiz-wrapper">
         <hr>
         <p id="inform" class="question-description">Obtenga tantos puntajes como desee en el cuestionario de 10 preguntas. Arrastre y suelte las opciones en el cuadro de arriba.</p>
@@ -55,7 +55,7 @@ if (empty($existe) && $id_user != 1) {
       </div>
     </div>
   </div>
-  <script src="../../js/ce2videojuegos.js"></script>
+  <script src="../../js/ce2css.js"></script>
   <script>
     function disableIE() {
       if (document.all) {

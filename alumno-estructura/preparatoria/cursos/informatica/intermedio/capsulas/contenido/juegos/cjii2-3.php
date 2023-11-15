@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula34";
+$permiso = "capsula35";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 35;
+$permiso_intento = 36;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -46,7 +46,6 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Maze</title>
-	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -137,15 +136,13 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		//Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var segundos = 240;
 
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -164,7 +161,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 8; + "&redireccion=" + '../contenido/juegos/cjii2-3.php)' //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -175,8 +172,8 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //asignando sonido al juego no completado
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+				incorrecto.play();
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -223,9 +220,14 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
+			var xmlhttp = new XMLHttpRequest();
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 36 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-3.php)'; //cancatenation
+			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Ayudaste a Koubot a llegar a su nave',
+				text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
@@ -238,7 +240,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					window.location.href = '../../../../../../rutas/ruta-in-i.php';
 				}
 			})
-			correcto.play(); //agregando sonido al juego completado
+			correcto.play();
 		}
 
 		function toggleVisablity(id) {

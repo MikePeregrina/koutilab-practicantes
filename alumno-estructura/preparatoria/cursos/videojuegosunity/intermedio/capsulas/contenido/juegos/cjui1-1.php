@@ -1,44 +1,3 @@
-<?php
-session_start();
-$id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
-	header('location: ../../../../../../../../acciones/cerrarsesion.php');
-}
-include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula49";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
-}
-
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 53;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 11");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 11");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-	$totalIntentos = $resultadoIntentos['intentos'];
-	if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-		$puntosGanados = 8;
-	} else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 6;
-	} else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-		$puntosGanados = 0;
-	} else {
-		$puntosGanados = 0;
-	}
-} else {
-	$puntosGanados = 10;
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -77,6 +36,12 @@ if (isset($resultadoIntentos['intentos'])) {
 		<a href="#" onclick="history.back();"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b">
 				<i class="fas fa-reply"></i></button>
 		</a>
+		<button class="btn-b" id="pause" >
+			   <i class="fas fa-pause"></i>
+			</button>
+			<button class="btn-b" id="play" >
+			   <i class="fas fa-play"></i>
+			</button>
             
             <h6 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h6>
         </div>
@@ -124,6 +89,7 @@ function cargarIconos() {
 		}
 		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
 		function generarTablero() {
+			reproducirSonido()
 			iniciarTiempo()
 			cargarIconos()
 			$('#generar').remove();
@@ -159,6 +125,8 @@ function cargarIconos() {
 			if (tarjeta.style.transform != "rotateY(180deg)") {
 				tarjeta.style.transform = "rotateY(180deg)"
 				selecciones.push(i)
+				var click = new Audio('../../../../../../../../acciones/sonidos/click.mp3');
+				click.play();
 			}
 			if (selecciones.length == 2) {
 				deseleccionar(selecciones)
@@ -176,7 +144,11 @@ function cargarIconos() {
 					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
 					tarjeta1.style.transform = "rotateY(0deg)"
 					tarjeta2.style.transform = "rotateY(0deg)"
+					var incorrecto = new Audio('../../../../../../../../acciones/sonidos/no.mp3');
+				    incorrecto.play();
 				} else {
+					var correcto = new Audio('../../../../../../../../acciones/sonidos/si.mp3');
+					correcto.play();
 					trasera1.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
 					trasera2.style.background = "rgba(149, 255, 0, 0.45)"/*Se cambia el color de la tarjeta cuando es el par en color verde*/
 				}
@@ -266,6 +238,25 @@ function iniciarTiempo() {
 			}
 		}
 </script>
+</script>
+
+<script>
+		function reproducirSonido() {
+			var sonido = new Audio('../../../../../../../../acciones/sonidos/f1.mp3'); // Reemplaza 'ruta_del_sonido.mp3' con la URL de tu archivo de sonido
+			sonido.loop = true; // Establece la propiedad loop en true para repetir el sonido
+			sonido.play(); // Reproduce el sonido
+			
+			pause.addEventListener('click', ()=>{
+				sonido.pause();
+			});
+			play.addEventListener('click', ()=>{
+				reproducirSonido();
+			});
+			
+		}
+
+		// Llama a la función cuando la página se carga completamente
+		window.addEventListener('load', reproducirSonido);
 </script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

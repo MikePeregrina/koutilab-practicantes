@@ -64,7 +64,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula práctica 9</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula práctica 8</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
@@ -76,16 +76,16 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> 1.Pedir al usuario que ingrese una contraseña.<br>
-                                    2.Verificar si la contraseña cumple con los requisitos utilizando expresiones regulares.<br>
-                                    3.Si la contraseña cumple con los requisitos, imprimir un mensaje indicando que la contraseña es válida.<br>
-                                    4.Si la contraseña no cumple con los requisitos, imprimir un mensaje indicando que la contraseña es inválida y por qué no cumple con los requisitos.
+                                <p> Grafica los siguients datos:
+                                    # Datos a graficar x = ['Manzana', 'Banana', 'Naranja', 'Pera', 'Mango'] y = [20, 15, 25, 10, 30]
                                 </p>
                             </td>
                             <td class="ne">
-                                <img class="js-player" src="../../img/cpavanzado9.jpg">
-
-                                </img>
+                            import matplotlib.pyplot as plt <br>
+                                x = ["Manzana", "Banana", "Naranja", "Pera", "Mango"] <br>
+                                y = [20, 15, 25, 10, 30] <br>
+                                plt.bar(x,y) <br>
+                                plt.show()
                             </td>
                         </tr>
                     </tbody>
@@ -114,10 +114,16 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
 
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
 
             // let ta = document.getElementById('editor').innerText
-            // let esCorrecto = ta == '1';
+            // let esCorrecto = ta == '1\n2\n3\n4\n5\nimport matplotlib.pyplot as plt\nx = ["Manzana", "Banana", "Naranja", "Pera", "Mango"]\ny = [20, 15, 25, 10, 30]\nplt.bar(x,y)\nplt.show()';
 
             function compararCodigo(usuario, esperado) {
                 const quitarEspaciosSaltosLinea = (codigo) => codigo.replace(/[\s\n]/g, '');
@@ -143,33 +149,34 @@ if (isset($resultadoIntentos['intentos'])) {
 
             let ta = document.getElementById('editor').innerText.trim();
             console.log("Respuesta desde el editor: ", ta);
-            let esperado = '1';
+            let esperado = '1\n2\n3\n4\n5\nimport matplotlib.pyplot as plt\nx = ["Manzana", "Banana", "Naranja", "Pera", "Mango"]\ny = [20, 15, 25, 10, 30]\nplt.bar(x,y)\nplt.show()';
 
             let esCorrecto = compararCodigo(ta, esperado);
 
             console.log("¿El código del usuario es igual al código esperado?", esCorrecto);
 
 
+
             if (!esCorrecto) {
+                Incorrecto.play();
                 var editorP = ace.edit("editor");
 
                 var myCode = editorP.getSession().getValue();
                 var encodeV = encodeURI(myCode);
 
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                         window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 3 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp9.php';
+                         window.location.href = '../../acciones/insertar_practica.php?validar=' + 'incorrecto' + '&permiso=' + <?php echo $permiso_intento; ?> + '&id_curso=' + 6 + '&practico=' + 10 + '&htmlcode=' + encodeHTML + '&csscode=' + encodeCSS + '&jscode=' + encodeJS + '&redireccion=' + '../contenido/practicas/cp9.php';
                     }
                 });
             } else {
-
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
-
                 let puntos = '<?php echo $puntosGanados; ?>';
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {

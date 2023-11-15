@@ -316,13 +316,13 @@ textInputs.forEach(input => {
             console.log("li: " + li);
             let bold = frame.querySelectorAll("b").length;
             console.log("bold: " + bold);
-            let italic = frame.querySelectorAll("u").length;
+            let italic = frame.querySelectorAll("i").length;
             console.log("italic: " + italic);
 
             let csscode = document.getElementById("css-code").value;
             let jscode = document.getElementById("js-code").value;
 
-            if (ul == 2 && ol == 1 && li >= 5 && bold == 2 && italic > 0 && h1 == 1) {
+            if (ul > 0 && ol > 0 && li > 0 && bold > 0 && h1 > 0) {
                 //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 

@@ -121,6 +121,8 @@ body::-webkit-scrollbar-track {
   100% {margin: -1.5% 0 0 82.5%;}
 }
 
+
+
 section {
   padding: 0px;
   width: 86%;
@@ -226,6 +228,7 @@ section {
 }
 
 .tituloV{
+  margin-left: 30px;
   margin-top: 80px;
   font-size: 16px;
 }
@@ -238,7 +241,7 @@ section {
 }
 
 .tituloH{
-  margin-left: 40%;
+  margin-left: 66px;
 }
 
 
@@ -281,38 +284,32 @@ th {
 
 .numero1 {
   position: absolute;
-  margin-left: -300px;
-  margin-top: -75px;
+  margin-left: -264px;
+  margin-top: -118px;
   font-size: 120%;
 }
 
 .numero2 {
   position: absolute;
-  margin-left: 525px;
-  margin-top: -547px;
+  margin-left: 420px;
+  margin-top: -322px;
   font-size: 120%;
 }
 
 .numero1-1 {
   position: absolute;
-  margin-left: -500px;
-  margin-top: -360px;
+  margin-left: -175px;
+  margin-top: -430px;
   font-size: 120%;
 }
 
 .numero2-2 {
   position: absolute;
-  margin-left: -140px;
-  margin-top: 225px;
+  margin-left: -497px;
+  margin-top: 348px;
   font-size: 120%;
 }
 
-.numero3-3 {
-  position: absolute;
-  margin-left: -370px;
-  margin-top: 465px;
-  font-size: 120%;
-}
 
 .footerimga{
   width: 100%;
@@ -335,38 +332,31 @@ th {
 @media (max-width: 1270px) {
 
   .casilla {
-    
     width: 50px;
     height: 50px;
   }
   
   .numero1 {
-    margin-left: -430px;
-    margin-top: -312px;
+    margin-left: -155px;
+    margin-top: -382px;
     font-size: 110%;
   }
   
   .numero2 {
-    margin-left: 465px;
-    margin-top: -490px;
+    margin-left: 364px;
+    margin-top: -280px;
     font-size: 110%;
   }
   
   .numero1-1 {
-    margin-left: -270px;
-    margin-top: -70px;
+    margin-left: -230px;
+    margin-top: -100px;
     font-size: 110%;
   }
   
   .numero2-2 {
-    margin-left: -120px;
-    margin-top: 210px;
-    font-size: 110%;
-  }
-  
-  .numero3-3 {
-    margin-left: -325px;
-    margin-top: 410px;
+    margin-left: -437px;
+    margin-top: 310px;
     font-size: 110%;
   }
 }
@@ -384,32 +374,26 @@ th {
   }
   
   .numero1 {
-    margin-left: -390px;
-    margin-top: -285px;
+    margin-left: -141px;
+    margin-top: -345px;
     font-size: 110%;
   }
   
   .numero2 {
-    margin-left: 420px;
-    margin-top: -450px;
+    margin-left: 323px;
+    margin-top: -257px;
     font-size: 110%;
   }
   
   .numero1-1 {
-    margin-left: -245px;
-    margin-top: -80px;
+    margin-left: -208px;
+    margin-top: -93px;
     font-size: 110%;
   }
   
   .numero2-2 {
-    margin-left: -110px;
-    margin-top: 185px;
-    font-size: 110%;
-  }
-  
-  .numero3-3 {
-    margin-left: -315px;
-    margin-top: 370px;
+    margin-left: -395px;
+    margin-top: 270px;
     font-size: 110%;
   }
 
@@ -427,32 +411,26 @@ th {
   }
   
   .numero1 {
-    margin-left: -345px;
-    margin-top: -260px;
+    margin-left: -120px;
+    margin-top: -310px;
     font-size: 110%;
   }
   
   .numero2 {
-    margin-left: 375px;
-    margin-top: -390px;
+    margin-left: 289px;
+    margin-top: -231px;
     font-size: 110%;
   }
   
   .numero1-1 {
-    margin-left: -210px;
-    margin-top: -65px;
+    margin-left: -188px;
+    margin-top: -85px;
     font-size: 110%;
   }
   
   .numero2-2 {
-    margin-left: -100px;
-    margin-top: 160px;
-    font-size: 110%;
-  }
-  
-  .numero3-3 {
-    margin-left: -270px;
-    margin-top: 320px;
+    margin-left: -344px;
+    margin-top: 250px;
     font-size: 110%;
   }
 }
@@ -528,32 +506,26 @@ th {
   }
 
   .numero1 {
-    margin-left: -390px;
-    margin-top: -280px;
+    margin-left: -140px;
+    margin-top: -350px;
     font-size: 110%;
   }
   
   .numero2 {
-    margin-left: 410px;
-    margin-top: -445px;
+    margin-left: 326px;
+    margin-top: -255px;
     font-size: 110%;
   }
   
   .numero1-1 {
-    margin-left: -240px;
-    margin-top: -75px;
+    margin-left: -210px;
+    margin-top: -95px;
     font-size: 110%;
   }
   
   .numero2-2 {
-    margin-left: -120px;
-    margin-top: 190px;
-    font-size: 110%;
-  }
-  
-  .numero3-3 {
-    margin-left: -300px;
-    margin-top: 380px;
+    margin-left: -400px;
+    margin-top: 280px;
     font-size: 110%;
   }
   
@@ -632,35 +604,28 @@ th {
   }
 
   .numero1 {
-    margin-left: -330px;
-    margin-top: -250px;
+    margin-left: -112px;
+    margin-top: -310px;
     font-size: 110%;
   }
   
   .numero2 {
-    margin-left: 350px;
-    margin-top: -390px;
+    margin-left: 276px;
+    margin-top: -220px;
     font-size: 110%;
   }
   
   .numero1-1 {
-    margin-left: -205px;
-    margin-top: -65px;
+    margin-left: -174px;
+    margin-top: -85px;
     font-size: 110%;
   }
   
   .numero2-2 {
-    margin-left: -90px;
-    margin-top: 150px;
+    margin-left: -340px;
+    margin-top: 240px;
     font-size: 110%;
   }
-  
-  .numero3-3 {
-    margin-left: -250px;
-    margin-top: 320px;
-    font-size: 110%;
-  }
-  
  
 }
 
@@ -693,32 +658,26 @@ th {
   }
 
   .numero1 {
-    margin-left: -280px;
-    margin-top: -230px;
+    margin-left: -95px;
+    margin-top: -280px;
     font-size: 110%;
   }
   
   .numero2 {
-    margin-left: 290px;
-    margin-top: -355px;
+    margin-left: 235px;
+    margin-top: -212px;
     font-size: 110%;
   }
   
   .numero1-1 {
-    margin-left: -165px;
-    margin-top: -50px;
+    margin-left: -150px;
+    margin-top: -90px;
     font-size: 110%;
   }
   
   .numero2-2 {
-    margin-left: -90px;
-    margin-top: 150px;
-    font-size: 110%;
-  }
-  
-  .numero3-3 {
-    margin-left: -210px;
-    margin-top: 290px;
+    margin-left: -285px;
+    margin-top: 210px;
     font-size: 110%;
   }
 }

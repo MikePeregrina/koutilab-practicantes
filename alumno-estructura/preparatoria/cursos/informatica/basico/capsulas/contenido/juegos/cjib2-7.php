@@ -132,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 		var segundos = 240;
 		var count = 1000;
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		function iniciarTiempo() {
 			document.getElementById("tiempo").innerHTML =

@@ -20,7 +20,7 @@
         <img src="img/Thumbs-Up.gif" alt="" />
         <div>
             <button>
-                <a href="../../../../../../rutas/ruta-in-i.php"; return false; type="button">Regresar a la ruta</a>
+                <a href="../../../../../../rutas/ruta-in-i.php" ; return false; type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>

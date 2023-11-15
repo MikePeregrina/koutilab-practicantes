@@ -35,7 +35,7 @@ if (empty($existe) && $id_user != 1) {
   <div class="body">
     <div class="container">
       <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-      <div class="new-g" style="text-align: center;">Evaluación 1 Videojuegos Unity</div><br>
+      <div class="new-g" style="text-align: center;">Evaluación videojuegosunity</div><br>
       <div class="quiz-wrapper">
         <hr>
         <p id="inform" class="question-description">Obtenga tantos puntajes como desee en el cuestionario de 10 preguntas. Arrastre y suelte las opciones en el cuadro de arriba.</p>
@@ -55,7 +55,7 @@ if (empty($existe) && $id_user != 1) {
       </div>
     </div>
   </div>
-  <script src="../../js/ce1videojuegos.js"></script>
+  <script src="../../js/ce1html.js"></script>
   <script>
     function disableIE() {
       if (document.all) {

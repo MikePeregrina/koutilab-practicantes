@@ -53,12 +53,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
                     </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/1/I/1.gif'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/1/I/2.gif');"></li>
-                    <li style="background-image: url('../../img/1/I/3.gif');"></li>
-                    <li style="background-image: url('../../img/1/I/4.gif');"></li>
-                    <li style="background-image: url('../../img/1/I/5.gif');"></li>
-                    <li style="background-image: url('../../img/1/I/6.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/1/In/1.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/informatica/1/In/2.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/1/In/3.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/1/In/4.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/1/In/5.gif');"></li>
+                    <li style="background-image: url('../../img/informatica/1/In/6.gif');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">

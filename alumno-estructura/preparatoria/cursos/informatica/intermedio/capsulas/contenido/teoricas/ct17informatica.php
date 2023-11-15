@@ -6,15 +6,15 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula51";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
+$permiso = "capsulapago4";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_preparatoria c INNER JOIN detalle_capsulas_pago_preparatoria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../intermedio/capsulas/contenido/alertas/paquete_premium4.php");
 }
 
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 52;
+$permiso_intento = 14;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -53,6 +53,20 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- De aqui -->
+    <link rel="stylesheet" href="./css/columnas-teoricas.css" /> <!-- Agregar css de columnas -->
+    <link rel="stylesheet" href="./css/laberinto-teoricas.css" /> <!-- Agregar css de laberinto -->
+    <link rel="stylesheet" href="./css/memorama-teorica.css" /> <!-- Agregar css de memorama -->
+    <link rel="stylesheet" href="./css/sopa-teorica.css" /> <!-- Agregar css de sopa -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/wordfind.js"></script>
+    <script type="text/javascript" src="js/wordfindgame.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Hasta aqui -->
 
 </head>
 
@@ -60,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <div class="body">
         <div class="container">
             <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Cápsula teórica 5 Informatica</div><br>
+            <div class="new-g" style="text-align: center;">Cápsula teórica 5.5 Informatica</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -85,48 +99,90 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li>
                             <a itlist="itList_6" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/2/5/166.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/2/5/167.gif');"></li>
-                        <li style="background-image: url('../../img/2/5/168.gif');"></li>
-                        <li style="background-image: url('../../img/2/5/169.gif');"></li>
-                        <li style="background-image: url('../../img/2/5/170.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T5.5/99.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/informatica/2/T5.5/100.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T5.5/101.gif');"></li>
+                        <li>
+                            <!-- Copiar de aqui -->
+                            <h4 class="titulo"><b>Selecciona una palabra de lado izquierdo y relacionala con una del
+                                    lado derecho</b></h4>
+                            <div class="columnas">
+                                <div class="container-all">
+                                    <!-- Columna de lado izquierdo -->
+                                    <div class="left-column">
+                                        <!-- opciones estas son las principales -->
+                                        <div class="word-box" id="micorsoft">Micorsoft</div>
+                                        <div class="word-box" id="organizar">Organizar</div>
+                                        <div class="word-box" id="marcador">Marcador</div>
+                                        <div class="word-box" id="referencias">Referencias</div>
+                                        <div class="word-box" id="enlazar">Enlazar</div>
+                                    </div>
+                                    <!-- Mapeo donde se trazan las lineas -->
+                                    <canvas id="canvas"> </canvas>
 
+                                    <!-- columna de lado derecho -->
+                                    <div class="right-column">
+                                        <!-- Respuestas -->
+                                        <div class="word-box" id="word" onclick="checkAnswer('word')">
+                                            Word</div>
+                                        <div class="word-box" id="cruzadas" onclick="checkAnswer('cruzadas')">
+                                            Cruzadas</div>
+                                        <div class="word-box" id="documento" onclick="checkAnswer('documento')">
+                                            Documento
+                                        </div>
+                                        <div class="word-box" id="posicion" onclick="checkAnswer('posicion')">Posicion
+                                        </div>
+                                        <div class="word-box" id="informacion" onclick="checkAnswer('informacion')">
+                                            Informacion</div>
+                                    </div>
+                                </div>
+
+                                <!-- boton de verificar respuestas -->
+                                <button class="verificar">Comprobar respuestas</button>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../img/informatica/2/T5.5/102.gif');"></li>
+                        <li style="background-image: url('../../img/informatica/2/T5.5/103.gif');"></li>
                         <li>
                             <div>
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_teorica.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuál es la función principal de los "Controles de contenido" en Word al crear formularios interactivos?</h1>
+                                    <h1>¿Cuál es una ventaja de dividir un documento extenso en secciones en Word?</h1>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
                                         <label for="checkbox1">
-                                            Permitir a los usuarios introducir información y responder preguntas de manera estructurada
+                                            Proporciona diferentes formatos de página y encabezados en diferentes partes del documento
+
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
                                         <label for="checkbox2">
-                                            Establecer márgenes y espaciado en el formulario
+                                            Permite cambiar el tamaño de página en todo el documento
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
                                         <label for="checkbox3">
-                                            Insertar imágenes en el formulario
+                                            Mejora la velocidad de carga del documento en Word
                                         </label>
                                     </div>
                                     <div class="container-question">
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">
-                                            Agregar formato de color al formulario
+                                            Facilita la eliminación de secciones innecesarias
                                         </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="52">
+                                    <input type="hidden" name="permiso" value="14">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="8">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <input type="hidden" name="redireccion" value="../contenido/teoricas/ct17informatica.php">
                                 </form>
                             </div>
                         </li>
@@ -192,7 +248,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 } else if (puntos == 6) {
@@ -214,7 +270,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 } else if (puntos == 8) {
@@ -235,7 +291,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 } else if (puntos == 10) {
@@ -256,7 +312,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
-                            document.getElementById('evaluar').submit();
+                            window.location.href = '../../../../../../rutas/ruta-in-i.php';
                         }
                     });
                 }
@@ -271,7 +327,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct17informatica.php';
                     }
                 });
             } else if (checkbox3.checked) {
@@ -284,7 +340,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct17informatica.php';
                     }
                 });
             } else if (checkbox4.checked) {
@@ -297,7 +353,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('evaluar').submit();
+                        window.location.href = '../teoricas/ct17informatica.php';
                     }
                 });
             }
@@ -348,4 +404,330 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../js/functions.js"></script>
+    <script>
+        //Apartado de canvas para trazar lineas
+
+        //variables para la medida del canvas
+        const ALTURA_CANVAS = 290,
+            ANCHURA_CANVAS = 535;
+
+        // Obtener el elemento del DOM
+        const canvas = document.querySelector("#canvas");
+        canvas.width = ANCHURA_CANVAS;
+        canvas.height = ALTURA_CANVAS;
+
+        // Del canvas, obtener el contexto para poder dibujar
+        const contexto = canvas.getContext("2d");
+
+
+
+
+        // Apartado para seleccinador para relacionar columas
+        const palabras = document.querySelectorAll('.word-box');
+
+        //variables a utilizar y contadores
+        let palabraseleccionada = null;
+        let respuestasCorrectas = 0;
+        let respuestasIncorrectas = 0;
+
+        // Agregar eventos de clic a las palabras
+        palabras.forEach(word => {
+            word.addEventListener('click', selectWord);
+        });
+
+        // Función para seleccionar una palabra
+        function selectWord() {
+            if (palabraseleccionada) {
+                // Si ya hay una palabra seleccionada, la deseleccionamos
+                palabraseleccionada.classList.remove('seleccionado');
+            }
+            palabraseleccionada = this;
+            if (
+                palabraseleccionada.id !== 'word' &&
+                palabraseleccionada.id !== 'documeto' &&
+                palabraseleccionada.id !== 'posicion' &&
+                palabraseleccionada.id !== 'cruzadas' &&
+                palabraseleccionada.id !== 'informacion'
+            ) {
+                palabraseleccionada.classList.add('seleccionado');
+            } else {
+                palabraseleccionada = null;
+            }
+        }
+
+        // Función para verificar la respuesta
+        function checkAnswer(respuesta) {
+            const idPalabraSeleccionada = palabraseleccionada.id;
+            const estadopalabra = document.getElementById(respuesta);
+
+            //validamos que ya haya seleccionado una palabra
+            if (palabraseleccionada) {
+                //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
+                if (respuesta === 'word' && idPalabraSeleccionada === 'microsoft') {
+                    palabraseleccionada.classList.add('correcto');
+                    // Comenzar
+                    contexto.beginPath();
+                    // Grosor de línea
+                    contexto.lineWidth = 3;
+                    // Color de línea 
+                    contexto.strokeStyle = "#84c42c";
+                    // Comenzamos en 0, 0
+                    contexto.moveTo(0, 25);
+                    // Hacemos una línea hasta 48, 48
+                    contexto.lineTo(560, 25);
+                    contexto.stroke(); // "Guardar" cambios
+                    //sumamos al contador
+                    respuestasCorrectas++;
+                } else if (respuesta === 'documento' && idPalabraSeleccionada === 'organizar') {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(0, 90);
+                    contexto.lineTo(560, 145);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+                } else if (
+                    respuesta === 'posicion' && idPalabraSeleccionada === 'marcador'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(0, 145);
+                    contexto.lineTo(560, 200);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+                } else if (
+                    respuesta === 'cruzadas' && idPalabraSeleccionada === 'referencias'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(0, 200);
+                    contexto.lineTo(560, 90);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+
+
+                } else if (
+                    respuesta === 'informacion' && idPalabraSeleccionada === 'enlazar'
+                ) {
+                    palabraseleccionada.classList.add('correcto');
+                    contexto.beginPath();
+                    contexto.lineWidth = 3;
+                    contexto.strokeStyle = "#84c42c";
+                    contexto.moveTo(0, 260);
+                    contexto.lineTo(560, 260);
+                    contexto.stroke();
+                    respuestasCorrectas++;
+                } else {
+                    palabraseleccionada.classList.add('incorrecto');
+                    respuestasIncorrectas++;
+                }
+
+                //una vez seleccionada la desabilitamos
+                palabraseleccionada.classList.remove('seleccionado');
+                palabraseleccionada.classList.add('deshabilitado');
+                palabraseleccionada.removeEventListener('click', selectWord);
+                //limpiamos la palabra seleccionada
+                palabraseleccionada = null;
+                estadopalabra.classList.add('deshabilitado');
+                estadopalabra.removeEventListener('click', selectWord);
+            }
+        }
+
+
+
+
+        // Agregar evento de clic al botón de comprobar respuestas
+        const botonComprobar = document.querySelector('.verificar');
+        botonComprobar.addEventListener('click', mostrarResultados);
+
+        // Función para mostrar los resultados
+        function mostrarResultados() {
+            let todasSeleccionadas = true;
+
+            // Verificar si todas las opciones han sido seleccionadas
+            palabras.forEach(word => { //se recorre cada opción utilizando el método forEach en la lista palabras
+                if (!word.classList.contains('deshabilitado')) { // verifica si no tiene la clase deshabilitado
+                    todasSeleccionadas = false;
+                }
+            });
+            //validamos que ya se hizo intento de resolver todo el juego
+            if (todasSeleccionadas) {
+                if (respuestasCorrectas < 3) {
+                    Swal.fire({
+                        //estrucutra de la alerta
+                        title: '!Puedes seguir mejorado!',
+                        html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
+                        imageUrl: 'img/loop.gif',
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("img/fondo.gif")`,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: '¡Genial!',
+                    });
+                } else {
+                    //llamamos a la alerta
+                    Swal.fire({
+                        //estrucutra de la alerta
+                        title: 'Resultados',
+                        html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
+                        imageUrl: 'img/Thumbs-Up.gif',
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("img/fondo.gif")`,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: '¡Genial!',
+                    });
+                }
+            }
+            //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
+            else {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Debes seleccionar todas las opciones antes de comprobar las respuestas.',
+                    imageUrl: 'img/loop.gif',
+                    imageHeight: 350,
+                    backdrop: `
+                rgba(0,143,255,0.6)
+                url("img/fondo.gif")`,
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: '¡Genial!',
+                });
+            }
+        }
+    </script>
+    <script src="js/laberinto.js"></script><!-- Agregar js de columnas -->
+    <script>
+        let cantidadTarjetas = 12;
+        let iconos = []
+        let selecciones = []
+
+        //Iconos pertenecientes a las tarjetas
+        //Solo modificar iconos
+        function cargarIconos() {
+            iconos = [
+                '<i class="fas fa-image"></i>',
+                '<i class="far fa-images"></i>',
+                '<i class="fab fa-php"></i>',
+                '<i class="fas fa-keyboard"></i>',
+                '<i class="fab fa-html5"></i>',
+                'Mari'
+            ]
+        }
+
+        //Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
+        function generarTablero() {
+            cargarIconos();
+            document.getElementById("tablero").style.display = "block"; //Agregar este coso
+            $('#generar').remove();
+            let len = iconos.length
+            selecciones = []
+            let tablero = document.getElementById("tablero")
+            let tarjetas = []
+
+            for (let i = 0; i < cantidadTarjetas; i++) {
+                tarjetas.push(`
+                <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
+                    <div class="tarjeta" id="tarjeta${i}">
+                        <div class="cara trasera" style="display: flex;
+    justify-content: center;
+    align-items: center;" id="trasera${i}">
+                            ${iconos[0]}
+                        </div>
+                        <div class="cara superior" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                            <i class="far fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>        
+                `)
+                if (i % 2 == 1) {
+                    iconos.splice(0, 1)
+                }
+            }
+            tarjetas.sort(() => Math.random() - 0.5)
+            tablero.innerHTML = tarjetas.join(" ")
+        }
+
+        //Selecionador de tarjetas
+        function seleccionarTarjeta(i) {
+            let tarjeta = document.getElementById("tarjeta" + i)
+            if (tarjeta.style.transform != "rotateY(180deg)") {
+                tarjeta.style.transform = "rotateY(180deg)"
+                selecciones.push(i)
+            }
+            if (selecciones.length == 2) {
+                deseleccionar(selecciones)
+                selecciones = []
+            }
+        }
+
+        //Quitar seleccion y verificar que la tarjeta sea identica a su par
+        function deseleccionar(selecciones) {
+            setTimeout(() => {
+                let trasera1 = document.getElementById("trasera" + selecciones[0])
+                let trasera2 = document.getElementById("trasera" + selecciones[1])
+                if (trasera1.innerHTML != trasera2.innerHTML) {
+                    let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
+                    let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
+                    tarjeta1.style.transform = "rotateY(0deg)"
+                    tarjeta2.style.transform = "rotateY(0deg)"
+                } else {
+                    trasera1.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
+                    trasera2.style.background = "rgba(149, 255, 0, 0.45)" /*Se cambia el color de la tarjeta cuando es el par en color verde*/
+                }
+                if (verificar()) {
+                    Swal.fire({
+                        title: '¡Bien hecho!',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "img/Thumbs-Up.gif",
+                        imageHeight: 300,
+                        backdrop: `
+									rgba(0,143,255,0.6)
+									url("img/fondo.gif")
+									`,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    });
+
+
+                }
+            }, 1000);
+        }
+
+        //Verificar si ambas son iguales
+        function verificar() {
+            for (let i = 0; i < cantidadTarjetas; i++) {
+                let trasera = document.getElementById("trasera" + i);
+                if (trasera.style.background != "rgba(149, 255, 0, 0.45)") {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+    <script>
+        // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
+        // para mantener proporcion
+        var words = ['HTML', 'LLAVES', 'CLASES', 'KOUTILAB'];
+        var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
+
+        var puzzle = wordfind.newPuzzle(words, {
+            height: 18,
+            width: 18,
+            fillBlanks: false
+        });
+        wordfind.print(puzzle);
+
+        $('#solve').click(function() {
+            wordfindgame.solve(gamePuzzle, words);
+        });
+    </script>
 </body>

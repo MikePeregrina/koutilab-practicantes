@@ -186,7 +186,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					var puntos = <?php echo $puntosGanados; ?>
 
 					var xmlhttp = new XMLHttpRequest();
-					var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp2-3.php'; //cancatenation
+					var param = "score=" + 0 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp2-3.php'; //cancatenation
 					xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
@@ -251,7 +251,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 33 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp2-3.php'; //cancatenation
+				var param = "score=" + 10 + "&validar=" + 'incorrecto' + "&permiso=" + 33 + "&id_curso=" + 5 + "&redireccion=" + '../contenido/juegos/cjp2-3.php'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
@@ -289,7 +289,7 @@ if (isset($resultadoIntentos['intentos'])) {
 		}
 
 		// Llama a la función cuando la página se carga completamente
-		window.addEventListener('load', reproducirSonido);
+		// window.addEventListener('load', reproducirSonido);
 </script>
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

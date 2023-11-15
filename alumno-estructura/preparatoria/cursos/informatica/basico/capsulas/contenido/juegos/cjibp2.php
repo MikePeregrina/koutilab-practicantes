@@ -156,7 +156,7 @@ if (empty($existe)) {
         incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
         var segundos = 5;
 
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";

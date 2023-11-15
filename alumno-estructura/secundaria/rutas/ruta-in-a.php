@@ -153,7 +153,7 @@ if (!isset($_SESSION['actualizacion_realizada_inan'])) {
     <section>
         <div class="main-content">
             <div class="label">
-                <span></span>
+                <span>Capítulo 1</span>
             </div>
             <a href="../acciones/estadisticas_in-a.php" style="text-decoration: none;color: inherit;" onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()">
                 <div class="graphics-buttoon"><i class="fa-solid fa-chart-line fa-2xl"></i></div>
@@ -209,7 +209,7 @@ if (!isset($_SESSION['actualizacion_realizada_inan'])) {
                 <a href="../cursos/informatica/avanzado/capsulas/contenido/evaluativas/ce1informatica.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn32" id="eva" <?php echo 'style="' . (($existe_capsula25 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula evaluativas informatica-->
 
                 <div class="label-css">
-                    <span></span>
+                    <span>Capítulo 2</span>
                 </div>
                 <a href="../cursos/informatica/avanzado/capsulas/contenido/introduccion/ci2informatica.php"><button onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" onmouseover="playHoverSound()" onclick="playClickSound()" onmousedown="playClickSound()" class="btn33" id="intro" <?php echo 'style="' . (($existe_capsula26 > 0) ? 'opacity: 1;' : 'opacity: 0.5; ') . '"'; ?>></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->

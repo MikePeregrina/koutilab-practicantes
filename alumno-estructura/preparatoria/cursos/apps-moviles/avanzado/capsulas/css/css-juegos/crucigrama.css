@@ -284,36 +284,36 @@ th {
 
 .numero1 {
   position: absolute;
-  margin-left: -380px;
-  margin-top: -350px;
+  margin-left: -420px;
+  margin-top: -550px;
   font-size: 120%;
 }
 
 .numero2 {
   position: absolute;
-  margin-left: 415px;
-  margin-top: -560px;
+  margin-left: -615px;
+  margin-top: 480px;
   font-size: 120%;
 }
 
 .numero1-1 {
   position: absolute;
-  margin-left: -410px;
-  margin-top: -90px;
+  margin-left: -610px;
+  margin-top: -480px;
   font-size: 120%;
 }
 
 .numero2-2 {
   position: absolute;
   margin-left: -620px;
-  margin-top: 120px;
+  margin-top: 0px;
   font-size: 120%;
 }
 
 .numero3-3 {
   position: absolute;
-  margin-left: -150px;
-  margin-top: 350px;
+  margin-left: -620px;
+  margin-top: 220px;
   font-size: 120%;
 }
 

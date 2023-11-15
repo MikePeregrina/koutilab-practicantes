@@ -8,15 +8,14 @@
   
 }
 body{
-  background: linear-gradient(to bottom, white 2%, #5afef4, #42fa8f, #0cfefd);
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Esto asegura que el fondo no se desplace con el contenido */
+  background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
+  background-repeat: no-repeat; /*no repite la imagen*/
+  background-size: cover;/*distribuye la imagen a toda la pantalla*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; 
-  font-family: Tahoma;
-  color: #404040;
+    font-family: Tahoma;
+    color: #404040;
 }
 
 body::-webkit-scrollbar {
@@ -154,7 +153,16 @@ section {
   border: 0px;
   border-radius: 50%;
   margin-right: 10px;
-  margin-left: 10%;
+  margin-left: 0%;
+  position: absolute;
+}
+#pause{
+  margin-top: 170px;
+  margin-left: 0%;
+}
+#play{
+  margin-top: 300px;
+  margin-left: 0%;
 }
 .btn-b:hover {
   scale: 130%;
@@ -295,8 +303,6 @@ rgba(132,196,44,0.6)
     width: 120px;
     height: 120px;
     font-size: 120%;
-    
-  margin-left: 77%;
   }
 
   .titulo-gen{

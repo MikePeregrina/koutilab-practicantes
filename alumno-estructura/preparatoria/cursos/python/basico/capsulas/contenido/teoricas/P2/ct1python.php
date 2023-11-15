@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 }
 include "../../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
-$permiso = "capsula33";
+$permiso = "capsula24";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -14,7 +14,7 @@ if (empty($existe) && $id_user != 1) {
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 34;
+$permiso_intento = 25;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND  id_curso = 4");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -52,6 +52,20 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- De aqui -->
+    <link rel="stylesheet" href="./css/columnas-teoricas.css" /> <!-- Agregar css de columnas -->
+    <link rel="stylesheet" href="./css/laberinto-teoricas.css" /> <!-- Agregar css de laberinto -->
+    <link rel="stylesheet" href="./css/memorama-teorica.css" /> <!-- Agregar css de memorama -->
+    <link rel="stylesheet" href="./css/sopa-teorica.css" /> <!-- Agregar css de sopa -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/wordfind.js"></script>
+    <script type="text/javascript" src="js/wordfindgame.js"></script>
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Hasta aqui -->
 
 </head>
 
@@ -89,12 +103,32 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../../img/2/T1/117.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../../img/2/T1/118.gif');"></li>
-                        <li style="background-image: url('../../../img/2/T1/119.gif');"></li>
-                        <li style="background-image: url('../../../img/2/T1/120.gif');"></li>
-                        <li style="background-image: url('../../../img/2/T1/121.gif');"></li>
-                        <li style="background-image: url('../../../img/2/T1/122.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1/66.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../../img/P2/T1/67.gif');"></li>
+                        <li style="background-image: url('../../../img/P2/T1/68.gif');"></li>
+                        <li>
+                            <!-- Copiar de aqui -->
+                            <div class="mjuego">
+                                <!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+                                <div class="words">
+
+                                    <h4><b>Palabras a buscar:</b> <br>
+                                        - PYTHON <br>
+                                        - OPERADORES <br>
+                                        - AND <br>
+                                        - NOT <br>
+                                    </h4>
+
+                                </div>
+
+                                <!-- Sección donde se agrega la sopa de letras -->
+                                <div class="soup">
+                                    <div id='juego'></div>
+                                </div>
+                            </div>
+                            <!-- Hasta aqui -->
+                        </li>
+                        <li style="background-image: url('../../../img/P2/T1/69.gif');"></li>
                         <li>
                             <div>
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_teorica.php">
@@ -116,7 +150,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">and</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="34">
+                                    <input type="hidden" name="permiso" value="25">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="4">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -237,7 +271,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     //se llama a "sonido" y reproducimos el sonido de que esta correcto
                     Correcto.play();
                     Swal.fire({
-                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        title: '¡Excelente sigue así! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
                         text: '¡Puntuación guardada con éxito!',
                         imageUrl: "../../../../../../../img/Thumbs-Up.gif",
                         imageHeight: 350,
@@ -343,4 +377,21 @@ if (isset($resultadoIntentos['intentos'])) {
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="../../../js/functions.js"></script>
+    <script>
+        // Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
+        // para mantener proporcion
+        var words = ['PYTHON', 'OPERADORES', 'AND', 'NOT'];
+        var gamePuzzle = wordfindgame.create(words, '#juego', '#palabras');
+
+        var puzzle = wordfind.newPuzzle(words, {
+            height: 18,
+            width: 18,
+            fillBlanks: false
+        });
+        wordfind.print(puzzle);
+
+        $('#solve').click(function() {
+            wordfindgame.solve(gamePuzzle, words);
+        });
+    </script>
 </body>

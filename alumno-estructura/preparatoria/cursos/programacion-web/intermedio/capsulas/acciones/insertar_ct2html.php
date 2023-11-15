@@ -26,7 +26,7 @@ if ($pregunta != 'correcto') {
 }
 
 if ($pregunta == 'correcto') {
-
+   
     $query = "INSERT INTO detalle_estadisticas_preparatoria (progreso, teorico, id_alumno, id_curso) VALUES ('2', '" . $_POST['teorico'] . "', '$id_user', $id_curso)";
     $query_run = mysqli_query($conexion, $query);
     //Sumar trofeos
@@ -39,7 +39,7 @@ if ($pregunta == 'correcto') {
     $totalTeorico = $resultadoEstadistica['total_teorico'];
     $insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_preparatoria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user AND id_curso = '$id_curso'");
 
-    if ($insertarEstadisticas) {
+    if ( $insertarEstadisticas) {
         header('location: ../../../../../rutas/ruta-pw-i.php');
         exit();
     }

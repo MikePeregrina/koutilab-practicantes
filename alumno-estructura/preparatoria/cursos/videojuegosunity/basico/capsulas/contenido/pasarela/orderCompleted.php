@@ -20,7 +20,7 @@
         <img src="img/Thumbs-Up.gif" alt="" />
         <div>
             <button>
-                <a href="#" onclick="history.back(); return false;" type="button">Regresar a la ruta</a>
+                <a href="../../../../../../rutas/ruta-vj-b.php" ; return false; type="button">Regresar a la ruta</a>
             </button>
         </div>
     </div>

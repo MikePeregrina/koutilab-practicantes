@@ -16,8 +16,6 @@ body{
   -ms-user-select: none;
     font-family: Tahoma;
     color: #404040;
-    height: auto;
-
 }
 
 body::-webkit-scrollbar {
@@ -155,7 +153,16 @@ section {
   border: 0px;
   border-radius: 50%;
   margin-right: 10px;
-  margin-left: 10%;
+  margin-left: 0%;
+  position: absolute;
+}
+#pause{
+  margin-top: 170px;
+  margin-left: 0%;
+}
+#play{
+  margin-top: 300px;
+  margin-left: 0%;
 }
 .btn-b:hover {
   scale: 130%;
@@ -288,57 +295,14 @@ rgba(132,196,44,0.6)
 
 }
 
-@media(max-width: 1300px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-    
-  }
-  .timer{
-    margin-left: 73%;
-  }
- 
-}
-@media(max-width: 1200px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
-  .timer{
-    margin-left: 73%;
-  }
- 
-}
-@media(max-width: 900px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
-  .timer{
-    margin-left: 73%;
-  }
-}
-@media(max-width: 763px){
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
-  .timer{
-    margin-left: 73%;
-  }
-}
 
 @media (max-width: 619px) {
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
+
   
   .timer {
     width: 120px;
     height: 120px;
     font-size: 120%;
-    margin-left: 73%;
   }
 
   .titulo-gen{
@@ -368,13 +332,7 @@ rgba(132,196,44,0.6)
 
 
 @media (max-width: 518px) {
-  body{
-    background-image: url(../../img/img-juegos/bg.png);/*Se cambio el fondo*/
-    height: 1000px;
-  }
-  .timer{
-    margin-left: 73%;
-  }
+
 
   .html-b-t{
     font-size: 12px;

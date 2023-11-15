@@ -61,23 +61,19 @@ if (empty($existe) && $id_user != 1) {
                         <li>
                             <a itlist="itList_7" href="#"></a>
                         </li>
-                        <li>
-                            <a itlist="itList_8" href="#"></a>
-                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/2/I/76.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/2/I/77.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/78.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/79.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/80.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/81.gif');"></li>
-                        <li style="background-image: url('../../img/2/I/82.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/43.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/In/44.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/45.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/46.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/47.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/48.gif');"></li>
                         <li style="background-image: url('../../img/PA.gif');">
                             <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_introduccion.php">
                                 <input type="hidden" name="permiso" value="18">
                                 <!-- Cambiar al id del curso al que corresponda -->
-                                <input type="hidden" name="id_curso" value=2">
+                                <input type="hidden" name="id_curso" value="2">
                                 <button type="submit" class="btn-grd1" style="margin-left: 61.5%;">¡Empecemos!</button>
                             </form>
 
