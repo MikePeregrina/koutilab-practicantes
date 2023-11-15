@@ -1,0 +1,22 @@
+.footerimga {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 2%;
+}
+
+.imagen-footer {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 250px !important;
+  margin-left: 8%;
+}
+
+@media (max-width: 768px) {
+  .footerimga .imagen-footer img {
+    position: relative;
+    top: 0%;
+  }
+}

@@ -515,6 +515,24 @@ nav {
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.6);
 }
 
+.comprar button {
+    font-family: "Comfortaa";
+    border: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+    color: var(--blanco);
+    background-color: var(--azul-principal);
+    padding: 15px 40px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+.comprar button:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
 .beneficio {
     width: 23%;
     height: 70%;

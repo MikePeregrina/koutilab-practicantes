@@ -342,7 +342,7 @@
                 </div>
             </div>
             <div class="comprar">
-                <a href="#">Adquirir paquete</a>
+                <a href="form-freemium.php">Adquirir paquete</a>
             </div>
         </div>
     </section>
