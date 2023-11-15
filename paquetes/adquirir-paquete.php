@@ -104,7 +104,7 @@
             </div>
             <div class="inf-bf">
                 <p>
-                    VALIDO DEL 17 DE AL 20 DE NOVIEMBRE DEL 2023 SOLO EN PAQUETES LICENCIA EN KOUTILAB
+                    VALIDO DEL 17 DE AL 30 DE NOVIEMBRE DEL 2023 SOLO EN PAQUETES LICENCIA EN KOUTILAB
                 </p>
             </div>
         </div>
@@ -132,12 +132,6 @@
 
     <!-- Paquete con tarjetas -->
     <section class="paquete" id="licencia">
-        <div class="img-promo" style="top: 18%;" id="img-izq">
-            <div class="precio" id="txt-izq">
-                <p>DESCUENTO POR<br>APOYO A ESCUELAS<br><b>30%</b></p>
-            </div>
-            <img src="../img/img-p.png" alt="">
-        </div>
         <div class="linea-azul"></div>
         <div class="container-card">
             <div class="tittle-card">
@@ -146,10 +140,10 @@
             <div class="box-card">
                 <!-- Tarjeta -->
                 <div class="paq-card">
-                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="icon-card"><i class="fas fa-check"></i></div>
                     <div class="tittle-card1"><p>CODING</p></div>
                     <div class="tittle-card2">
-                        <p class="p1">de $2,500.00 mxn</p>
+                        <p class="p1">de $3,250.00 mxn</p>
                         <p class="p2">a sólo $1,625.00 mxn</p>
                     </div>
                     <div class="tittle-card3">
@@ -170,8 +164,8 @@
                     <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
                     <div class="tittle-card1"><p>INNOVA</p></div>
                     <div class="tittle-card2">
-                        <p class="p1">de $3,500.00 mxn</p>
-                        <p class="p2">a sólo $2,500.00 mxn</p>
+                        <p class="p1">de $6,500.00 mxn</p>
+                        <p class="p2">a sólo $3,250.00 mxn</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
@@ -188,11 +182,11 @@
                 </div>
 
                 <div class="paq-card">
-                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="icon-card"><i class="fas fa-brain"></i></div>
                     <div class="tittle-card1"><p>CODER</p></div>
                     <div class="tittle-card2">
-                        <p class="p1">de $8,400.00 mxn</p>
-                        <p class="p2">a sólo $6,00.00 mxn</p>
+                        <p class="p1">de $15,600.00 mxn</p>
+                        <p class="p2">a sólo $7,800.00 mxn</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
@@ -209,11 +203,11 @@
                 </div>
 
                 <div class="paq-card">
-                    <div class="icon-card"><i class="fas fa-paper-plane"></i></div>
+                    <div class="icon-card"><i class="fas fa-gem"></i></div>
                     <div class="tittle-card1"><p>PROGRAMMER</p></div>
                     <div class="tittle-card2">
-                        <p class="p1">de $10,500.00 mxn</p>
-                        <p class="p2">a sólo $7,500.00 mxn</p>
+                        <p class="p1">de $19,500.00 mxn</p>
+                        <p class="p2">a sólo $9,750.00 mxn</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
@@ -294,9 +288,6 @@
 
     <!-- Paquete con imagen a la derecha -->
     <section id="freemium" class="paquete">
-        <div class="img-promo" id="img-der">
-            <img src="../img/img-p1.png" alt="">
-        </div>
         <div class="sup">
             <div class="tiitle-paq" id="txt-izquierda">
                 <b>PAQUETE FREEMIUM</b>
