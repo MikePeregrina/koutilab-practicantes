@@ -304,7 +304,7 @@
         }
 
         function cerrarMenu() {
-            ul.style.cssText = "left: -100%;"
+            ul.style.cssText = "left: -110%;"
             cerrar.style.cssText = "display: none;"
             abrir.style.cssText = "display: block;"
         }

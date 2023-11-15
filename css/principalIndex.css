@@ -1019,7 +1019,7 @@ nav ul li a:hover {
         height: 100%;
         background-color: #ffffff;
         transition: 0.5s;
-        left: -100%;
+        left: -110%;
     }
 
     .li-rr {
