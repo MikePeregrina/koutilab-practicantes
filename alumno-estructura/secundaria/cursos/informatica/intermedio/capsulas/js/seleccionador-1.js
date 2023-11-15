@@ -12,6 +12,12 @@ canvas.height = ALTURA_CANVAS;
 // Del canvas, obtener el contexto para poder dibujar
 const contexto = canvas.getContext("2d");
 
+//Funcion que agrega el sonido al juego
+var correcto = document.createElement("audio");
+correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var incorrecto = document.createElement("audio");
+incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 // Apartado para seleccinador para relacionar columas
 const palabras = document.querySelectorAll(".word-box");
 
@@ -33,11 +39,11 @@ function selectWord() {
   }
   palabraseleccionada = this;
   if (
-    palabraseleccionada.id !== "interactividad" &&
-    palabraseleccionada.id !== "funcionalidad" &&
-    palabraseleccionada.id !== "estructura" &&
-    palabraseleccionada.id !== "estilos" &&
-    palabraseleccionada.id !== "administrar"
+    palabraseleccionada.id !== "borrar" &&
+    palabraseleccionada.id !== "recuperar" &&
+    palabraseleccionada.id !== "mover" &&
+    palabraseleccionada.id !== "portapapeles" &&
+    palabraseleccionada.id !== "copiar"
   ) {
     palabraseleccionada.classList.add("seleccionado");
   } else {
@@ -53,7 +59,7 @@ function checkAnswer(respuesta) {
   //validamos que ya haya seleccionado una palabra
   if (palabraseleccionada) {
     //aqui para cada relacion la validamos en caso de ser correcta se trazara la linea
-    if (respuesta === "estilos" && idPalabraSeleccionada === "css") {
+    if (respuesta === "copiar" && idPalabraSeleccionada === "atajo") {
       palabraseleccionada.classList.add("correcto");
       // Comenzar
       contexto.beginPath();
@@ -62,52 +68,52 @@ function checkAnswer(respuesta) {
       // Color de línea
       contexto.strokeStyle = "#84c42c";
       // Comenzamos en 0, 0
-      contexto.moveTo(25, 20);
+      contexto.moveTo(40, 20);
       // Hacemos una línea hasta 48, 48
-      contexto.lineTo(508, 220);
+      contexto.lineTo(580, 285);
       contexto.stroke(); // "Guardar" cambios
       //sumamos al contador
       respuestasCorrectas++;
-    } else if (respuesta === "estructura" && idPalabraSeleccionada === "html") {
-      palabraseleccionada.classList.add("correcto");
-      contexto.beginPath();
-      contexto.lineWidth = 3;
-      contexto.strokeStyle = "#84c42c";
-      contexto.moveTo(25, 145);
-      contexto.lineTo(508, 145);
-      contexto.stroke();
-      respuestasCorrectas++;
     } else if (
-      respuesta === "interactividad" &&
-      idPalabraSeleccionada === "javascript"
+      respuesta === "portapapeles" &&
+      idPalabraSeleccionada === "temporal"
     ) {
       palabraseleccionada.classList.add("correcto");
       contexto.beginPath();
       contexto.lineWidth = 3;
       contexto.strokeStyle = "#84c42c";
-      contexto.moveTo(25, 210);
-      contexto.lineTo(508, 15);
+      contexto.moveTo(40, 90); //recorta las lineas
+      contexto.lineTo(540, 215);
+      contexto.stroke();
+      respuestasCorrectas++;
+    } else if (respuesta === "borrar" && idPalabraSeleccionada === "mensaje") {
+      palabraseleccionada.classList.add("correcto");
+      contexto.beginPath();
+      contexto.lineWidth = 3;
+      contexto.strokeStyle = "#84c42c";
+      contexto.moveTo(40, 150);
+      contexto.lineTo(560, 15);
       contexto.stroke();
       respuestasCorrectas++;
     } else if (
-      respuesta === "funcionalidad" &&
-      idPalabraSeleccionada === "php"
+      respuesta === "recuperar" &&
+      idPalabraSeleccionada === "renviar"
     ) {
       palabraseleccionada.classList.add("correcto");
       contexto.beginPath();
       contexto.lineWidth = 3;
       contexto.strokeStyle = "#84c42c";
-      contexto.moveTo(25, 270);
-      contexto.lineTo(508, 75);
+      contexto.moveTo(40, 210);
+      contexto.lineTo(560, 70);
       contexto.stroke();
       respuestasCorrectas++;
-    } else if (respuesta === "administrar" && idPalabraSeleccionada === "sql") {
+    } else if (respuesta === "mover" && idPalabraSeleccionada === "arrastrar") {
       palabraseleccionada.classList.add("correcto");
       contexto.beginPath();
       contexto.lineWidth = 3;
       contexto.strokeStyle = "#84c42c";
-      contexto.moveTo(25, 85);
-      contexto.lineTo(508, 280);
+      contexto.moveTo(40, 280);
+      contexto.lineTo(560, 140);
       contexto.stroke();
       respuestasCorrectas++;
     } else {
@@ -125,12 +131,6 @@ function checkAnswer(respuesta) {
     estadopalabra.removeEventListener("click", selectWord);
   }
 }
-
-//Funcion que agrega el sonido al juego
-var correcto = document.createElement("audio");
-correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-var incorrecto = document.createElement("audio");
-incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 
 // Agregar evento de clic al botón de comprobar respuestas
 const botonComprobar = document.querySelector(".verificar");
@@ -158,18 +158,17 @@ function mostrarResultados() {
         "&validar=" +
         "incorrecto" +
         "&permiso=" +
-        55 +
+        45 +
         "&id_curso=" +
-        3 +
+        8 +
         "&redireccion=" +
-        "../contenido/juegos/cjphp4.php"; //cancatenation
-      xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+        "../contenido/juegos/cjii2-6.php)"; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_pd45.php", true);
       xmlhttp.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"
       );
       xmlhttp.send(param);
-      correcto.play(); //agregando sonido al juego completado
       Swal.fire({
         //estrucutra de la alerta
         title: "!Puedes seguir mejorado!",
@@ -178,7 +177,7 @@ function mostrarResultados() {
         imageHeight: 350,
         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../img/img-juegos/fondo.gif")`,
+                    url("../../img/img-juegos/loop.gif")`,
         confirmButtonColor: "#a14cd9",
         confirmButtonText: "¡Genial!",
       }).then((result) => {
@@ -187,6 +186,7 @@ function mostrarResultados() {
         }
       });
     } else {
+      //llamamos a la alerta
       var xmlhttp = new XMLHttpRequest();
       var param =
         "score=" +
@@ -194,21 +194,18 @@ function mostrarResultados() {
         "&validar=" +
         "correcto" +
         "&permiso=" +
-        55 +
+        45 +
         "&id_curso=" +
-        3 +
-        "&redireccion=" +
-        "../contenido/juegos/cjphp4.php"; //cancatenation
-      xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+        8; //cancatenation
+      xmlhttp.open("POST", "../../acciones/insertar_pd45.php", true);
       xmlhttp.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"
       );
       xmlhttp.send(param);
-      //llamamos a la alerta
       Swal.fire({
         //estrucutra de la alerta
-        title: "Obtienes " + puntos + " puntos de logros",
+        title: "Resultados",
         html: `Respuestas correctas: ${respuestasCorrectas}<br>Respuestas incorrectas: ${respuestasIncorrectas}`,
         imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
         imageHeight: 350,
@@ -219,11 +216,11 @@ function mostrarResultados() {
         confirmButtonText: "¡Genial!",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../../../../../../rutas/ruta-pw-a.php";
+          window.location.href = "../../../../../../rutas/ruta-in-i.php";
         }
       });
-      correcto.play(); //agregando sonido al juego completado
     }
+    correcto.play(); //agregando sonido al juego completado
   }
   //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
   else {

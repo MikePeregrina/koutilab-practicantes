@@ -229,7 +229,7 @@
             "&permiso=" +
             10 +
             "&id_curso=" +
-            19 +
+            7 +
             "&redireccion=" +
             "../contenido/juegos/cjib1-3.php"; //cancatenation
           xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);

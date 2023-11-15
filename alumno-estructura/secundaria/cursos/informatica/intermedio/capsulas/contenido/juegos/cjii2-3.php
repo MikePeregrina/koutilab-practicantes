@@ -46,7 +46,6 @@ if (isset($resultadoIntentos['intentos'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Maze</title>
-	<link rel="shortcut icon" href="../../img/img-juegos/lgk.png">
 	<link rel="stylesheet" href="../../css/css-juegos/laberinto.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -137,15 +136,13 @@ if (isset($resultadoIntentos['intentos'])) {
 		});
 	</script>
 	<script>
-		//Funcion que agrega el sonido al juego
-		var correcto = document.createElement("audio");
-		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var incorrecto = document.createElement("audio");
 		incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
-
+		var correcto = document.createElement("audio");
+		correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 		var segundos = 240;
 
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -163,10 +160,8 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-3.php)'; //cancatenation
-				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
+
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 36 + "&id_curso=" + 8; + "&redireccion=" + '../contenido/juegos/cjii2-3.php)' //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -177,8 +172,8 @@ if (isset($resultadoIntentos['intentos'])) {
 						window.location.reload();
 					}
 				});
-				incorrecto.play(); //asignando sonido al juego no completado
-				xmlhttp.open("POST", "../../acciones/insertar_pd4.php", true);
+				incorrecto.play();
+				xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -225,15 +220,14 @@ if (isset($resultadoIntentos['intentos'])) {
 		function displayVictoryMess(moves) {
 			document.getElementById("moves").innerHTML = moves;
 			toggleVisablity("Message-Container");
-			var puntos = <?php echo $puntosGanados; ?>
 			var xmlhttp = new XMLHttpRequest();
-			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 36 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii2-3.php)'; //cancatenation
+			var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 36 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-3.php)'; //cancatenation
 			xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(param);
 			Swal.fire({
 				title: '¡Muy bien!',
-				text: 'Ayudaste a Koubot a llegar a su nave',
+				text: '¡Puntuación guardada con éxito! Obtienes ' + puntos + ' puntos de logros',
 				imageUrl: "../../img/img-juegos/Thumbs-Up.gif",
 				imageHeight: 350,
 				backdrop: `
@@ -246,7 +240,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					window.location.href = '../../../../../../rutas/ruta-in-i.php';
 				}
 			})
-			correcto.play(); //agregando sonido al juego completado
+			correcto.play();
 		}
 
 		function toggleVisablity(id) {

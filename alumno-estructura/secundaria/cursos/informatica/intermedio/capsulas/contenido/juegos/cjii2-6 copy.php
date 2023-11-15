@@ -6,12 +6,37 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_secundaria'];
-$permiso = "capsulapago1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 9");
+$permiso = "capsula44";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 8");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe)) {
-    header("Location: ../../../../avanzado/capsulas/contenido/alertas/paquete_premium1.php");
+if (empty($existe) && $id_user != 1) {
+    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
+
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 45;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 8");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_secundaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 8");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,11 +81,11 @@ if (empty($existe)) {
             <!-- Columna de lado izquierdo -->
             <div class="left-column">
                 <!-- opciones estas son las principales -->
-                <div class="word-box" id="css">Pasa de una diapositiva a otra</div>
-                <div class="word-box" id="sql">Agrega un efecto a un elemento</div>
-                <div class="word-box" id="html">Es donde ponemos todos los elementos</div>
-                <div class="word-box" id="javascript">Conjunto de diapositivas</div>
-                <div class="word-box" id="php">Programa que trabajamos</div>
+                <div class="word-box" id="css">Imágenes</div>
+                <div class="word-box" id="sql">Tablas</div>
+                <div class="word-box" id="html">Gráficos</div>
+                <div class="word-box" id="javascript">Formas</div>
+                <div class="word-box" id="php">Cuadros de texto</div>
             </div>
             <!-- Mapeo donde se trazan las lineas -->
             <canvas id="canvas"> </canvas>
@@ -68,11 +93,11 @@ if (empty($existe)) {
             <!-- columna de lado derecho -->
             <div class="right-column">
                 <!-- Respuestas -->
-                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')">Presentación</div>
-                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')">PowerPoint</div>
-                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')">Diapositiva</div>
-                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')">Transición</div>
-                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')">Animación</div>
+                <div class="word-box" id="interactividad" onclick="checkAnswer('interactividad')"><i class="fas fa-circle fa-lg"></i></div>
+                <div class="word-box" id="funcionalidad" onclick="checkAnswer('funcionalidad')"><i class="fas fa-text-height fa-lg"></i></div>
+                <div class="word-box" id="estructura" onclick="checkAnswer('estructura')"><i class="fas fa-chart-line fa-lg"></i></div>
+                <div class="word-box" id="estilos" onclick="checkAnswer('estilos')"><i class="fas fa-image fa-lg"></i></div>
+                <div class="word-box" id="administrar" onclick="checkAnswer('administrar')"><i class="fas fa-table fa-lg"></i></div>
             </div>
         </div>
 
@@ -87,11 +112,19 @@ if (empty($existe)) {
         </div>
     </footer>
     <!-- fIN CAMBIOS -->
+
+    <!-- Linkeamos un documento donde tenemos todo lo relacionado a la relacion de columnas -->
     <script>
+        //Funcion que agrega el sonido al juego
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var incorrecto = document.createElement("audio");
+        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //Apartado de canvas para trazar lineas
 
         //variables para la medida del canvas
-        const ALTURA_CANVAS = 360,
+        const ALTURA_CANVAS = 290,
             ANCHURA_CANVAS = 535;
 
         // Obtener el elemento del DOM
@@ -155,9 +188,9 @@ if (empty($existe)) {
                     // Color de línea 
                     contexto.strokeStyle = "#84c42c";
                     // Comenzamos en 0, 0
-                    contexto.moveTo(25, 20);
+                    contexto.moveTo(0, 20);
                     // Hacemos una línea hasta 48, 48
-                    contexto.lineTo(508, 290);
+                    contexto.lineTo(560, 220);
                     contexto.stroke(); // "Guardar" cambios
                     //sumamos al contador
                     respuestasCorrectas++;
@@ -166,8 +199,8 @@ if (empty($existe)) {
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(25, 200);
-                    contexto.lineTo(508, 220);
+                    contexto.moveTo(0, 145);
+                    contexto.lineTo(560, 150);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else if (
@@ -177,8 +210,8 @@ if (empty($existe)) {
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(25, 280);
-                    contexto.lineTo(508, 100);
+                    contexto.moveTo(0, 210);
+                    contexto.lineTo(560, 15);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else if (
@@ -188,8 +221,8 @@ if (empty($existe)) {
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(25, 360);
-                    contexto.lineTo(508, 150);
+                    contexto.moveTo(0, 270);
+                    contexto.lineTo(560, 75);
                     contexto.stroke();
                     respuestasCorrectas++;
 
@@ -201,8 +234,8 @@ if (empty($existe)) {
                     contexto.beginPath();
                     contexto.lineWidth = 3;
                     contexto.strokeStyle = "#84c42c";
-                    contexto.moveTo(25, 100);
-                    contexto.lineTo(508, 350);
+                    contexto.moveTo(0, 85);
+                    contexto.lineTo(560, 280);
                     contexto.stroke();
                     respuestasCorrectas++;
                 } else {
@@ -221,11 +254,7 @@ if (empty($existe)) {
             }
         }
 
-        //Se esta llamando los sonidos de la carpeta "sonidos"
-        var correcto = document.createElement("audio");
-        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var incorrecto = document.createElement("audio");
-        incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 
 
         // Agregar evento de clic al botón de comprobar respuestas
@@ -245,6 +274,11 @@ if (empty($existe)) {
             //validamos que ya se hizo intento de resolver todo el juego
             if (todasSeleccionadas) {
                 if (respuestasCorrectas < 3) {
+                    var xmlhttp = new XMLHttpRequest();
+                    var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                     Swal.fire({
                         //estrucutra de la alerta
                         title: '!Puedes seguir mejorado!',
@@ -262,6 +296,12 @@ if (empty($existe)) {
                         }
                     });
                 } else {
+                    var puntos = <?php echo $puntosGanados; ?>
+                    var xmlhttp = new XMLHttpRequest();
+                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 45 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
+                    xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                     //llamamos a la alerta
                     Swal.fire({
                         //estrucutra de la alerta
@@ -276,11 +316,12 @@ if (empty($existe)) {
                         confirmButtonText: '¡Genial!',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-in-a.php';
+                            window.location.href = "../../../../../../rutas/ruta-in-i.php";
                         }
                     });
-                    correcto.play(); //agregando sonido al juego completado
+
                 }
+                correcto.play(); //agregando sonido al juego completado
             }
             //en caso de que no se hayan seleccionado todas mandamos alerta para notificar que se debe intentar relacionar todas las columnas
             else {
@@ -301,7 +342,8 @@ if (empty($existe)) {
 
     <script>
         //Contador de tiempo en segundos, si se acaba el tiempo sale alerta
-        var segundos = 120;
+        var segundos = 240;
+
         let puntos = <?php echo $puntosGanados ?>;
 
         function iniciarTiempo() {
@@ -319,6 +361,11 @@ if (empty($existe)) {
                 div.style.cssText = "animation-name: animation3; animation-duration: 0.5s; background-color: #c42c2caf; border-color: #c42c2c;";
             }
             if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 45 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii2-6.php)'; //cancatenation
+                xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Tiempo Agotado! Vuelve a intentarlo',
@@ -329,7 +376,7 @@ if (empty($existe)) {
                         window.location.reload();
                     }
                 });
-                incorrecto.play(); //agregando sonido al juego completado
+                incorrecto.play(); //agregando sonido al juego no completado
             } else {
                 segundos--;
                 setTimeout("iniciarTiempo()", 1000);

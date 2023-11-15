@@ -91,7 +91,7 @@ if (isset($resultadoIntentos['intentos'])) {
         // Incorrecto.src = "../acciones/sonidos/incorrecto.mp3";
 
         var segundos = 120;
-        let puntos = 0;
+        let puntos = <?php echo $puntosGanados ?>;
 
         //Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
         var count = 1000;
@@ -113,7 +113,7 @@ if (isset($resultadoIntentos['intentos'])) {
             }
             if (segundos == 0) {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 21 + "&redireccion=" + '../contenido/juegos/cjia1-4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -400,7 +400,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 var puntos = <?php echo $puntosGanados; ?>
 
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 21 + "&redireccion=" + '../contenido/juegos/cjia1-4.php'; //cancatenation
+                var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 13 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
@@ -423,7 +423,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 Correcto.play(); //Agregando sonido al juego completado
             } else {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 21 + "&redireccion=" + '../contenido/juegos/cjia1-4.php'; //cancatenation
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 13 + "&id_curso=" + 9 + "&redireccion=" + '../contenido/juegos/cjia1-4.php'; //cancatenation
                 xmlhttp.open("POST", "../../acciones/insertar_juego.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);

@@ -160,7 +160,7 @@ function mostrarResultados() {
         "&permiso=" +
         25 +
         "&id_curso=" +
-        20 +
+        8 +
         "&redireccion=" +
         "../contenido/juegos/cjii1-8.php)"; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
@@ -196,7 +196,7 @@ function mostrarResultados() {
         "&permiso=" +
         25 +
         "&id_curso=" +
-        20; //cancatenation
+        8; //cancatenation
       xmlhttp.open("POST", "../../acciones/insertar_pd25.php", true);
       xmlhttp.setRequestHeader(
         "Content-Type",

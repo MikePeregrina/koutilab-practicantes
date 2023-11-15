@@ -134,7 +134,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	<script>
 		var segundos = 240;
 
-		let puntos = 0;
+		let puntos = <?php echo $puntosGanados ?>;
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
@@ -153,7 +153,7 @@ if (isset($resultadoIntentos['intentos'])) {
 			}
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 20 + "&redireccion=" + '../contenido/juegos/cjii1-7.php)'; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 8 + "&redireccion=" + '../contenido/juegos/cjii1-7.php)'; //cancatenation
 				xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
