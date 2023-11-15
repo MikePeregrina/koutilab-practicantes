@@ -318,9 +318,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="centro-btn">
+                <!-- <div class="centro-btn">
                     <p>ADQUIRIR</p>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="inf">
@@ -349,6 +349,9 @@
                         <p>Paneles completos y fáciles de usar para todos</p>
                     </div>
                 </div>
+            </div>
+            <div class="comprar">
+                <a href="#">Adquirir paquete</a>
             </div>
         </div>
     </section>
