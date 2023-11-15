@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "[1, 2, 3]",
+        "incorrectAnswers": [
+            "5",
+            "'hola'",
+            "True"
+        ],
+        "question": "¿Cuál de las siguientes opciones es un ejemplo de un dato compuesto en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "x = 4 + 5 * 2",
+        "incorrectAnswers": [
+            "x = 4 * 5 + 2",
+            "x = 4 * (5 + 2)",
+            "x = (4 + 5) * 2"
+        ],
+        "question": "¿Cómo se puede realizar una multiplicación y una suma en una sola línea de código en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Una estructura de datos que almacena elementos únicos y desordenados.",
+        "incorrectAnswers": [
+            "Una estructura de datos que solo almacena valores numéricos.",
+            "Un tipo de función en Python que se utiliza para definir una serie de instrucciones.",
+            "Una función especial en Python que se utiliza para imprimir mensajes en la pantalla."
+        ],
+        "question": "¿Qué es un conjunto en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Los módulos son funciones predefinidas en Python que pueden ser llamadas en cualquier parte del programa.",
+        "incorrectAnswers": [
+            "Los módulos son una forma de hacer comentarios en el código.",
+            "Los módulos son un tipo de variable que se utiliza para almacenar valores.",
+            "Los módulos son un tipo de condición utilizada en las declaraciones if/else."
+        ],
+        "question": "¿Qué son los módulos en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Los paquetes son una manera de organizar módulos relacionados en Python.",
+        "incorrectAnswers": [
+            "Los paquetes son una herramienta para hacer cálculos matemáticos en Python.",
+            "Los paquetes son una forma de crear interfaces gráficas de usuario en Python.",
+            "Los paquetes son una técnica para manejar excepciones en Python."
+        ],
+        "question": "¿Qué son los paquetes en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Se puede utilizar la sintaxis 'from paquete.subpaquete.modulo import funcion' para importar una función desde un módulo dentro de un subdirectorio de un paquete.",
+        "incorrectAnswers": [
+            "Se puede importar cualquier módulo desde cualquier directorio en Python.",
+            "Para importar un módulo desde un subdirectorio de un paquete, se utiliza la sintaxis 'import paquete.subpaquete.modulo'.",
+            "Es imposible importar un módulo desde un subdirectorio de un paquete en Python."
+        ],
+        "question": "¿Cómo se pueden importar módulos desde un paquete en múltiples directorios en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Controlar el flujo de ejecución del programa.",
+        "incorrectAnswers": [
+            "Mejorar el rendimiento del programa.",
+            "Crear programas más complejos.",
+            "Ninguna de las anteriores."
+        ],
+        "question": "¿Cuál es el propósito principal de las excepciones en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Para manejar errores específicos en el código.",
+        "incorrectAnswers": [
+            "Para detener la ejecución del programa.",
+            "Para imprimir mensajes en la consola.",
+            "Para hacer cálculos matemáticos complejos."
+        ],
+        "question": "¿Para qué sirven las excepciones personalizadas en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Ayudan a organizar y estructurar el código.",
+        "incorrectAnswers": [
+            "Permiten realizar cálculos complejos.",
+            "Permiten crear gráficos y visualizaciones de datos.",
+            "Son útiles para conectarse a bases de datos."
+        ],
+        "question": "¿Cuál es el propósito principal de las clases en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Una forma de herencia en la que una clase se deriva de dos o más clases base.",
+        "incorrectAnswers": [
+            "Una forma de crear copias de una clase existente.",
+            "Una forma de crear objetos de diferentes tipos en una misma lista.",
+            "Una forma de asignar diferentes valores a una misma variable en diferentes partes del programa."
+        ],
+        "question": "¿Qué es la herencia múltiple en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

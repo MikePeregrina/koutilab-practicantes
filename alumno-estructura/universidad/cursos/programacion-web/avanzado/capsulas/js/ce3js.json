@@ -1,0 +1,182 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "window.location.href = 'https://www.ejemplo.com'; ",
+        "incorrectAnswers": [
+            "window.reload()",
+            "window.goBack()",
+            "window.stop"
+        ],
+        "question": "¿Cuál es la forma correcta de redireccionar a otra página web en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "function = 'myFunction' () {} ",
+        "incorrectAnswers": [
+            "let function = myFunction() {}",
+            "function myFunction() {}",
+            "var function = function() {} "
+        ],
+        "question": "¿Cuál es la forma correcta de declarar una función en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "input.text ",
+        "incorrectAnswers": [
+            "form.text ",
+            "input.value",
+            "form.value"
+        ],
+        "question": "¿Cuál es la forma correcta de obtener el valor de un campo de entrada de texto en un formulario en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "element.addEventListener('click', myFunction)",
+        "incorrectAnswers": [
+            "element.detectClick",
+            "element.onClick()",
+            "element.clickListener()"
+        ],
+        "question": " ¿Cuál es la forma correcta de detectar un clic en un elemento HTML usando JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "document.addEventListener('keydown', myFunction) ",
+        "incorrectAnswers": [
+            "window.detectKeyDown() ",
+            "document.keyDown()",
+            " window.keyPressListener()"
+        ],
+        "question": "¿Cuál es la forma correcta de detectar que el usuario ha presionado una tecla en el teclado usando JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "5 tipos",
+        "incorrectAnswers": [
+            "3 tipos",
+            "10 tipos",
+            "6 tipos"
+        ],
+        "question": "¿Cuántos son los tipos de datos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "//",
+        "incorrectAnswers": [
+            "*/",
+            "/*",
+            "**"
+        ],
+        "question": "¿Qué símbolo se utiliza para los comentarios?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "4 bucles",
+        "incorrectAnswers": [
+            "5 bucles",
+            "10 bucles",
+            "4 bucles"
+        ],
+        "question": "¿Cuántos bucles se usan?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Nombradas y Anónimas",
+        "incorrectAnswers": [
+            "Lineales y Con Valor Absoluto",
+            "Exponenciales y Trigonométricas",
+            "Proporcionalidad Inversa y Logarítmicas"
+        ],
+        "question": "¿Cuales son los tipos de funciones?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "var x = []; var y = [1, 2, 3, 4, 5];",
+        "incorrectAnswers": [
+            "var x = {}; var y = {1, 2, 3, 4, 5};",
+            "var x = ''; var y = '1, 2, 3, 4, 5';",
+            "var x = (); var y = (1, 2, 3, 4, 5);"
+        ],
+        "question": "¿Cómo Se Construye Una Matriz?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
