@@ -29,13 +29,13 @@ $username = $user["usuario"];
         <i class="fas fa-network-wired" ></i>
         <span class="nav-item">Conexiones</span>
       </a>
-    </li>
-    <li <?php //echo (basename($_SERVER['PHP_SELF']) == 'alumnos.php') ? ' class="active"' : ''; ?>>
+    </li>-->
+    <li <?php echo (basename($_SERVER['PHP_SELF']) == 'alumnos.php') ? ' class="active"' : ''; ?>>
       <a href="alumnos.php">
         <i class="fas fa-users"></i>
         <span class="nav-item">Alumnos</span>
       </a>
-    </li> -->
+    </li> 
     <li <?php echo (basename($_SERVER['PHP_SELF']) == 'archivos.php') ? ' class="active"' : ''; ?>>
       <a href="archivos.php">
         <i class="fas fa-folder-open"></i>

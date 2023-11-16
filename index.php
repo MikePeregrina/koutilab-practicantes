@@ -173,7 +173,7 @@ if (isset($_POST['iniciar_sesion'])) {
                 $sql_cont = "UPDATE `docentes_primaria` SET `conexiones`= '$cont'  WHERE id_docente = '$id_usuario'";
                 $query_cont = mysqli_query($conexion, $sql_cont);
                 /*FIN NUEVA CONEXIÓN */
-                header('location: docente/dashboard.php');
+                header('location: docente-primaria/dashboard.php');
             } else {
                 $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta

@@ -10,6 +10,11 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_unive
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
+
+$id_escuela = $user['id_escuela'];
+$clave = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE id_escuela = $id_escuela"));
+$clave_alumno = $clave['clave_alumno'];
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +69,7 @@ WHERE d.id_docente = $id_user"));
       <br>
       <h3>Escuela: <span><?php echo $user["nombre_escuela"] ?></span></h3>
       <br>
-      <h3>CCT: <span><?php echo $user["cct"] ?></span></h3>
+      <h3>Clave registro: <span><?php echo $clave_alumno ?></span></h3>
       <br>
       <h3>Nivel educativo: <span><?php echo $user["nivel_educativo"] ?></span></h3>
     </div>

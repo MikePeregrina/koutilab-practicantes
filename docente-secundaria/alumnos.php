@@ -24,11 +24,6 @@ if ($result->num_rows > 0) {
     $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-
-//Seleccinar y dar permiso a grupos
-$grupo = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE id_docente = $id_user"));
-
-
 //Conteo de alumnos
 $sql = "SELECT COUNT(*) id_alumno FROM alumnos_secundaria a 
 JOIN docentes_secundaria d
@@ -81,96 +76,17 @@ $data1 = mysqli_fetch_assoc($query1);
 
     </div>
 
-    <!-- Contenido de la pantalla emergente -->
-    <div class="popup-container" id="popupContainer">
-        <div class="popup-content">
-            <div class="titlec">
-                <h2>Añadir alumno</h2>
-            </div>
-
-            <div class="contenedor-emergente">
-                <form id="contacto" method="POST" enctype="multipart/form-data" action="acciones/insertar_alumnos.php">
-                    <div class="user-details1">
-                        <input type="hidden" name="id_escuela" id="id_escuela" value="<?php echo $user['id_escuela'] ?>">
-                        <input type="hidden" name="id_docente" id="id_docente" value="<?php echo $user['id_docente'] ?>">
-
-                        <div class="input-box1">
-                            <span class="details">Nivel educativo: </span>
-                            <input type="text" value="secundaria" name="nivel_educativo" placeholder="Nivel educativo" required readonly>
-                        </div>
-                        <div class="input-box1">
-                            <span class="details">Grado escolar: </span>
-                            <select style="height: 44px;" name="grado_escolar" type="select" required>
-                                <option value="">Eliga un grado</option>
-                                <option value="1°">1°</option>
-                                <option value="2°">2°</option>
-                                <option value="3°">3°</option>
-                                <option value="4°">4°</option>
-                                <option value="5°">5°</option>
-                                <option value="6°">6°</option>
-                            </select>
-                        </div>
-                        <div class="input-box1">
-                            <span class="details">Nombre completo: </span>
-                            <input type="text" onkeydown="generarUsuario()" name="nombre" id="nombrealumno" placeholder="Nombre del Alumno" required>
-                        </div>
-                        <div class="input-box1">
-                            <span class="details">Nombre del grupo: </span>
-                            <select style="height: 44px;" type="select" name="nombre_grupo" required>
-                                <option>Seleccionar grupo</option>
-                                <?php
-                                foreach ($options as $option) {
-                                ?>
-                                    <option><?php echo $option['nombre_grupo']; ?> </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="input-box1">
-                            <span class="details">Usuario: </span>
-                            <!-- Generar usuario random -->
-                            <input type="text" name="usuario" id="usuarioalumno" placeholder="Usuario del alumno" required readonly>
-                        </div>
-                        <div class="campo">
-                            <label for="password">Contraseña:</label>
-                            <input type="password" name="contrasena" id="password" value="ABC123">
-                            <span class="fa fa-fw fa-eye password-icon show-password1" style="margin-right: -155px; margin-top: -40px; background: #ffffff00;"></span>
-                        </div>
-                        <!-- <input type="hidden" name="clave" value="alumno" required> -->
-                        <div class="input-box1">
-                            <span class="details">Clave: </span>
-                            <input type="text" name="clave" id="clave" value="<?php echo $user['clave_alumno'] ?>" readonly>
-
-                        </div>
-                        <div class="input-box1">
-                            <span class="details"></span><br>
-                            <button type="button" class="btn-grd1" onclick="copyToClipBoard()">Copiar clave</button>
-                        </div>
-                        <div class="input-box1">
-                            <span class="details">Correo:</span>
-                            <input type="email" name="email" id="email" placeholder="ejemplo@gmail.com" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-grd">Registrar</button>
-                </form>
-
-            </div>
-
-            <button id="closeButton"><i class="fas fa-times"></i></button>
-
-        </div>
-    </div> <!-- Cierre de la pantalla emergente -->
-
     <section>
         <div class="board p-2">
             <table id="alumnos" width="100%" class="table border-top" style="z-index: 1;">
                 <thead>
                     <tr>
                         <td><b>Nombre</b></td>
-                        <td><b>Grado escolar</b></td>
-                        <td><b>Correo</b></td>
-                        <td><b>Acción</b></td>
+                        <td><b>Apellido</b></td>
+                        <td><b>Usuario</b></td>
+                        <td><b>Conexiones</b></td>
+                        <td><b>Clave secreta</b></td>
+                        <!-- <td><b>Acción</b></td> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -178,7 +94,7 @@ $data1 = mysqli_fetch_assoc($query1);
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.grado_escolar, a.email FROM alumnos_secundaria a
+                    $query_alumnos = mysqli_query($conexion, "SELECT a.nombre, a.apellidop, a.usuario, a.conexiones, a.clave_secreta FROM alumnos_secundaria a
                 JOIN docentes_secundaria d
                 ON a.id_docente = d.id_docente
                 WHERE d.id_docente = '$id_user' AND a.estado = 1");
@@ -189,16 +105,18 @@ $data1 = mysqli_fetch_assoc($query1);
                     ?>
                             <tr>
                                 <td><?php echo $data['nombre']; ?></td>
-                                <td><?php echo $data['grado_escolar']; ?></td>
-                                <td><?php echo $data['email']; ?></td>
-                                <td>
-                                    <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-info"><i class='fas fa-chart-line' id="i-group" style="color: white"></i></a>
+                                <td><?php echo $data['apellidop']; ?></td>
+                                <td><?php echo $data['usuario']; ?></td>
+                                <td><?php echo $data['conexiones']; ?></td>
+                                <td><?php echo $data['clave_secreta']; ?></td>
+                                <!-- <td> -->
+                                    <!-- <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" id="btn-group" class="btn btn-info"><i class='fas fa-chart-line' id="i-group" style="color: white"></i></a> -->
                                     <!--<a href="acciones/editar_alumno.php?id=<?php //echo $data['id_alumno']; 
                                                                                 ?>" id="btn-group" class="btn btn-success"><i class='fas fa-edit' id="i-group"></i></a>-->
-                                    <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" id="f-c" class="confirmar d-inline">
-                                        <button class="btn btn-danger" id="btn-trs" type="submit"><i class='fas fa-trash-alt' id="i-group"></i> </button>
-                                    </form>
-                                </td>
+                                    <!-- <form action="acciones/eliminar_alumno.php?id=<?php echo $data['id_alumno']; ?>" method="post" id="f-c" class="confirmar d-inline"> -->
+                                        <!-- <button class="btn btn-danger" id="btn-trs" type="submit"><i class='fas fa-trash-alt' id="i-group"></i> </button> -->
+                                    <!-- </form> -->
+                                <!-- </td> -->
                             </tr>
                     <?php }
                     } ?>
@@ -229,56 +147,6 @@ $data1 = mysqli_fetch_assoc($query1);
                 popupContainer.style.display = 'none';
             }
         });
-    </script>
-
-    <script>
-        /* Función para generar clave para alumno */
-        function generarUsuarioAlumno() {
-            var pass = "";
-            var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            for (let i = 1; i <= 4; i++) {
-                var char = Math.floor(Math.random() * str.length + 1);
-                pass += str.charAt(char);
-            }
-            return pass;
-        }
-
-        function generarUsuario() {
-            var nombre = document.getElementById("nombrealumno").value;
-            var prefijo;
-            var resultado;
-            prefijo = nombre.substr(0, 10);
-            resultado = "@" + prefijo.toLowerCase() + "-" + generarUsuarioAlumno().toLowerCase();
-            document.getElementById("usuarioalumno").value = resultado.split(" ").join("");
-        }
-    </script>
-
-    <script>
-        function copyToClipBoard() {
-            var content = document.getElementById('clave');
-            content.select();
-            document.execCommand('copy');
-        }
-    </script>
-
-    <script>
-        /* Función para generar clave para alumno */
-        function generarClaveAlumno() {
-            var pass = "";
-            var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            for (let i = 1; i <= 8; i++) {
-                var char = Math.floor(Math.random() * str.length + 1);
-                pass += str.charAt(char);
-            }
-            return pass;
-        }
-
-        function generarClaves() {
-            var cct = document.getElementById("cct").value;
-            var prefijo;
-            prefijo = cct.substr(0, 3);
-            document.getElementById("clave").value = prefijo.toUpperCase() + "-" + generarClaveAlumno();
-        }
     </script>
 
     <script>
