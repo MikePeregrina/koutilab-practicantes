@@ -85,6 +85,10 @@ if (isset($_POST['iniciar_sesion'])) {
         $query_validar_director_institucional = mysqli_query($conexion, "SELECT * FROM director_institucional WHERE usuario = '$user'");
         $result_validar_director_institucional = mysqli_fetch_array($query_validar_director_institucional);
 
+        //Validar inicio de sesión de director freemium o licencia
+        $query_validar_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user'");
+        $result_validar_director = mysqli_fetch_array($query_validar_director);
+
         //Validar inicio de sesión de cuentas temporales
         $query_validar_temp_account = mysqli_query($conexion, "SELECT * FROM temp_account WHERE username = '$user'");
         $result_validar_temp_account = mysqli_fetch_array($query_validar_temp_account);
@@ -106,6 +110,33 @@ if (isset($_POST['iniciar_sesion'])) {
                  </div>';
                 session_destroy();
             }
+        } else if ($result_validar_director > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $result_validar_director = mysqli_num_rows($query_director);
+
+            if ($result_validar_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+
+                $_SESSION['active'] = true;
+                $_SESSION['user'] = $dato_director['usuario'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+
+                // Verificar el tipo de director
+                $tipo_director = $dato_director['tipo'];
+
+                if ($tipo_director === "Licencia") {
+                    $_SESSION['id_director_licencia'] = $dato_director['id_director'];
+                    header('location: director-licencia/dashboard.php');
+                } elseif ($tipo_director === "Freemium") {
+                    $_SESSION['id_director_freemium'] = $dato_director['id_director'];
+                    header('location: director-freemium/dashboard.php');
+                } 
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                 Usuario o contraseña incorrecta
+             </div>';
+                session_destroy();
+            }
         } else if ($result_validar_admin_secundario > 0) {
             $query_admin_secundario = mysqli_query($conexion, "SELECT * FROM admin_secundario WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_admin_secundario = mysqli_num_rows($query_admin_secundario);
@@ -123,7 +154,7 @@ if (isset($_POST['iniciar_sesion'])) {
                  </div>';
                 session_destroy();
             }
-        } else if ($result_validar_alumno_primaria > 0) {
+        }else if ($result_validar_alumno_primaria > 0) {
             $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
             $resultado_alumno = mysqli_num_rows($query_alumno);
             if ($resultado_alumno > 0) {
