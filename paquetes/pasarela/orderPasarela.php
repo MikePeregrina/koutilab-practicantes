@@ -40,6 +40,8 @@ $tipo_modelo = $_POST['tipo_modelo'];
 $clave_alumno = $_POST['clave_alumno'];
 $clave_docente = $_POST['clave_docente'];
 $clave_director = $_POST['clave_director'];
+$usuarios = $_POST['usuarios'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,7 +101,7 @@ $clave_director = $_POST['clave_director'];
                                 onAuthorize: function(data, actions) {
                                     return actions.payment.execute()
                                         .then(function() {
-                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&nombre_escuela=<?php echo $nombre_escuela; ?>" + "&cct=<?php echo $cct; ?>" + "&nombre_director=<?php echo $nombre_director;  ?>" + "&nivel_educativo=<?php echo $nivel_educativo;  ?>" + "&tipo_escuela=<?php echo $tipo_escuela;  ?>" + "&pais=<?php echo $pais;  ?>" + "&estado=<?php echo $estado;  ?>" + "&calle=<?php echo $calle;  ?>" + "&num_exterior=<?php echo $num_exterior;  ?>" + "&codigo_postal=<?php echo $codigo_postal;  ?>" + "&id_admin=<?php echo $id_admin;  ?>" + "&tipo_modelo=<?php echo $tipo_modelo;  ?>" + "&clave_alumno=<?php echo $clave_alumno;  ?>" + "&clave_docente=<?php echo $clave_docente;  ?>"  + "&clave_director=<?php echo $clave_director;  ?>";
+                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&nombre_escuela=<?php echo $nombre_escuela; ?>" + "&cct=<?php echo $cct; ?>" + "&nombre_director=<?php echo $nombre_director;  ?>" + "&nivel_educativo=<?php echo $nivel_educativo;  ?>" + "&tipo_escuela=<?php echo $tipo_escuela;  ?>" + "&pais=<?php echo $pais;  ?>" + "&estado=<?php echo $estado;  ?>" + "&calle=<?php echo $calle;  ?>" + "&num_exterior=<?php echo $num_exterior;  ?>" + "&codigo_postal=<?php echo $codigo_postal;  ?>" + "&id_admin=<?php echo $id_admin;  ?>" + "&tipo_modelo=<?php echo $tipo_modelo;  ?>" + "&clave_alumno=<?php echo $clave_alumno;  ?>" + "&clave_docente=<?php echo $clave_docente;  ?>"  + "&clave_director=<?php echo $clave_director;  ?>" + "&usuarios=<?php echo $usuarios;  ?>"; 
                                         });
                                 },
                                 style: {

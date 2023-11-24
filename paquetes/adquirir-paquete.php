@@ -160,6 +160,7 @@
                     <div class="tittle-card4">
                     <form action="form-licencia.php" method="post">
                             <input type="hidden" name="precio" value="1625">
+                            <input type="hidden" name="usuarios" value="500">
                             <input type="hidden" name="modelo" value="CODING">
                             <button type="submit">ADQUIRIR</button>
                         </form>
@@ -187,6 +188,7 @@
                     <div class="tittle-card4">
                     <form action="form-licencia.php" method="post">
                             <input type="hidden" name="precio" value="3250">
+                            <input type="hidden" name="usuarios" value="1000">
                             <input type="hidden" name="modelo" value="INNOVA">
                             <button type="submit">ADQUIRIR</button>
                         </form>
@@ -214,6 +216,7 @@
                     <div class="tittle-card4">
                         <form action="form-licencia.php" method="post">
                             <input type="hidden" name="precio" value="7800">
+                            <input type="hidden" name="usuarios" value="3000">
                             <input type="hidden" name="modelo" value="CODER">
                             <button type="submit">ADQUIRIR</button>
                         </form>
@@ -241,6 +244,7 @@
                     <div class="tittle-card4">
                         <form action="form-licencia.php" method="post">
                             <input type="hidden" name="precio" value="9750">
+                            <input type="hidden" name="usuarios" value="5000">
                             <input type="hidden" name="modelo" value="PROGRAMMER">
                             <button type="submit">ADQUIRIR</button>
                         </form>

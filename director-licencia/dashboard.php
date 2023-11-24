@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_director_licencia'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_director_licencia'])) {
-  header('location: ../acciones/cerrarsesion.php');
+	header('location: ../acciones/cerrarsesion.php');
 }
 
 include('../acciones/conexion.php');
@@ -23,22 +23,21 @@ $query_info_clave = "SELECT usos_restantes, usos_totales, fecha_expiracion
 $result_info_clave = $conexion->query($query_info_clave);
 
 if ($result_info_clave) {
-    $row = $result_info_clave->fetch_assoc();
-    
-    $usos_restantes = $row['usos_restantes'];
-    $usos_totales = $row['usos_totales'];
-    $fecha_expiracion = $row['fecha_expiracion'];
+	$row = $result_info_clave->fetch_assoc();
+
+	$usos_restantes = $row['usos_restantes'];
+	$usos_totales = $row['usos_totales'];
+	$fecha_expiracion = $row['fecha_expiracion'];
 
 	// Obtener la fecha actual
-    $fecha_actual = date("Y-m-d");
-    
-    // Calcular los días restantes hasta la expiración
-    $dias_restantes = (strtotime($fecha_expiracion) - strtotime($fecha_actual)) / (60 * 60 * 24);
-    
-    // Calcular los usos usados
-    $usos_usados = $usos_totales - $usos_restantes;
-    
-} 
+	$fecha_actual = date("Y-m-d");
+
+	// Calcular los días restantes hasta la expiración
+	$dias_restantes = (strtotime($fecha_expiracion) - strtotime($fecha_actual)) / (60 * 60 * 24);
+
+	// Calcular los usos usados
+	$usos_usados = $usos_totales - $usos_restantes;
+}
 
 ?>
 
@@ -73,8 +72,8 @@ if ($result_info_clave) {
 					</div>
 
 					<div class="camera-icon">
-						<input type="hidden" name="id" value="<?php  echo $id; ?>">
-						<input type="hidden" name="name" value="<?php  echo $name; ?>">
+						<input type="hidden" name="id" value="<?php echo $id; ?>">
+						<input type="hidden" name="name" value="<?php echo $name; ?>">
 						<input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
 						<i class="fa fa-camera" style="color: white; font-size:30px;"></i>
 					</div>
@@ -84,13 +83,13 @@ if ($result_info_clave) {
 		<hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
 
 		<div class="container-info">
-			<h3>Nombre: <span><?php  echo $name ?></span></h3>
+			<h3>Nombre: <span><?php echo $name ?></span></h3>
 			<br>
-			<h3>Usuario: <span><?php  echo $username ?></span></h3>
+			<h3>Usuario: <span><?php echo $username ?></span></h3>
 			<br>
-			<h3>Escuela: <span><?php  echo $user["nombre_escuela"] ?></span></h3>
+			<h3>Escuela: <span><?php echo $user["nombre_escuela"] ?></span></h3>
 			<br>
-			<h3>CCT: <span><?php  echo $user["cct"] ?></span></h3>
+			<h3>CCT: <span><?php echo $user["cct"] ?></span></h3>
 			<br>
 			<h3>Nivel educativo: <span><?php echo $user["nivel_educativo"] ?></span></h3>
 		</div>
@@ -129,12 +128,11 @@ if ($result_info_clave) {
 			</div>
 
 			<div class="info-paq">
-				<p><b>Días restantes antes de que acabe el servicio:</b> <?php echo $dias_restantes; ?></p>
-				<p><b>Usuarios disponibles para registro:</b> <?php echo $usos_restantes; ?></p>
-				<p><b>Usuarios en uso:</b> <?php echo $usos_usados; ?></p>
+				<p><b>Días restantes antes de que acabe el servicio:</b> <?php echo intval($dias_restantes); ?></p>
+				<p><b>Usuarios disponibles para registro:</b> <?php echo intval($usos_restantes); ?></p>
+				<p><b>Usuarios en uso:</b> <?php echo intval($usos_usados); ?></p>
 				<a href="paquetes.php">Renovar paquete</a>
 			</div>
-			
 			<div class="info-paq">
 				<p><b>Clave de docentes:</b> <?php echo $clave_alumno ?></p>
 				<p><b>Clave de alumnos:</b> <?php echo $clave_docente ?></p>

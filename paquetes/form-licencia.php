@@ -2,6 +2,7 @@
 include('../acciones/conexion.php');
 $precio = $_POST['precio'];
 $modelo = $_POST['modelo'];
+$usuarios = $_POST['usuarios'];
 ?>
 
 <!DOCTYPE html>
@@ -93,6 +94,7 @@ $modelo = $_POST['modelo'];
                     <input type="hidden" name="id_admin" id="id_admin" value="1">
                     <input type="hidden" name="precio" id="precio" value="<?php echo $precio; ?>">
                     <input type="hidden" name="modelo" id="modelo" value="<?php echo $modelo; ?>">
+                    <input type="hidden" name="usuarios" id="usuarios" value="<?php echo $usuarios; ?>">
                     <input type="hidden" name="tipo_modelo" id="tipo_modelo" value="2">
 
                 </div>

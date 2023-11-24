@@ -2,13 +2,46 @@
 session_start();
 $id_user = $_SESSION['id_director_licencia'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_director_licencia'])) {
-  header('location: ../acciones/cerrarsesion.php');
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM directores d
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_director = $id_user"));
+
+$id_escuela = $user['id_escuela'];
+$clave = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE id_escuela = $id_escuela"));
+$clave_alumno = $clave['clave_alumno'];
+$clave_docente = $clave['clave_docente'];
+$clave_director = $clave['clave_director'];
+
+// Consulta SQL
+$query_fecha = "SELECT fecha_expiracion FROM tabla_claves WHERE clave = '$clave_alumno'";
+
+// Ejecutar la consulta
+$resultado = $conexion->query($query_fecha);
+
+if ($resultado) {
+    // Verificar si hay resultados
+    if ($resultado->num_rows > 0) {
+        // Obtener los datos de la fila
+        $fila = $resultado->fetch_assoc();
+        // Verificar si la fecha actual es mayor que la fecha de expiración
+        $fecha_actual = strtotime(date("Y-m-d")); // Fecha actual en formato timestamp
+        $fecha_expiracion = strtotime($fila['fecha_expiracion']); // Fecha de expiración de la base de datos en formato timestamp
+
+        $boton_deshabilitado = '';
+        if ($fecha_actual < $fecha_expiracion) {
+            $boton_deshabilitado = 'disabled'; // Si la fecha actual es menor que la de expiración, deshabilitar el botón
+        }
+    } else {
+        echo "No se encontraron resultados para la clave especificada.";
+    }
+} else {
+    echo "Error al ejecutar la consulta: " . $conexion->error;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -57,10 +90,14 @@ WHERE d.id_director = $id_user"));
                     </ul>
                 </div>
                 <div class="tittle-card4">
-                    <form action="form-licencia.php" method="post">
+                    <form action="pasarela/orderPasarela.php" method="post">
                         <input type="hidden" name="precio" value="1625">
+                        <input type="hidden" name="usuarios" value="500">
                         <input type="hidden" name="modelo" value="CODING">
-                        <button type="submit">ADQUIRIR</button>
+                        <input type="hidden" name="clave_alumno" value="<?php echo $clave_alumno; ?>">
+                        <input type="hidden" name="clave_docente" value="<?php echo $clave_docente; ?>">
+                        <input type="hidden" name="clave_director" value="<?php echo $clave_director; ?>">
+                        <button type="submit" <?php echo $boton_deshabilitado; ?>>ADQUIRIR</button>
                     </form>
                 </div>
             </div>
@@ -84,10 +121,14 @@ WHERE d.id_director = $id_user"));
                     </ul>
                 </div>
                 <div class="tittle-card4">
-                    <form action="form-licencia.php" method="post">
+                    <form action="pasarela/orderPasarela.php" method="post">
                         <input type="hidden" name="precio" value="3250">
+                        <input type="hidden" name="usuarios" value="1000">
                         <input type="hidden" name="modelo" value="INNOVA">
-                        <button type="submit">ADQUIRIR</button>
+                        <input type="hidden" name="clave_alumno" value="<?php echo $clave_alumno; ?>">
+                        <input type="hidden" name="clave_docente" value="<?php echo $clave_docente; ?>">
+                        <input type="hidden" name="clave_director" value="<?php echo $clave_director; ?>">
+                        <button type="submit" <?php echo $boton_deshabilitado; ?>>ADQUIRIR</button>
                     </form>
                 </div>
             </div>
@@ -111,10 +152,14 @@ WHERE d.id_director = $id_user"));
                     </ul>
                 </div>
                 <div class="tittle-card4">
-                    <form action="form-licencia.php" method="post">
+                    <form action="pasarela/orderPasarela.php" method="post">
                         <input type="hidden" name="precio" value="7800">
+                        <input type="hidden" name="usuarios" value="3000">
                         <input type="hidden" name="modelo" value="CODER">
-                        <button type="submit">ADQUIRIR</button>
+                        <input type="hidden" name="clave_alumno" value="<?php echo $clave_alumno; ?>">
+                        <input type="hidden" name="clave_docente" value="<?php echo $clave_docente; ?>">
+                        <input type="hidden" name="clave_director" value="<?php echo $clave_director; ?>">
+                        <button type="submit" <?php echo $boton_deshabilitado; ?>>ADQUIRIR</button>
                     </form>
                 </div>
             </div>
@@ -138,10 +183,14 @@ WHERE d.id_director = $id_user"));
                     </ul>
                 </div>
                 <div class="tittle-card4">
-                    <form action="form-licencia.php" method="post">
+                    <form action="pasarela/orderPasarela.php" method="post">
                         <input type="hidden" name="precio" value="9750">
+                        <input type="hidden" name="usuarios" value="5000">
                         <input type="hidden" name="modelo" value="PROGRAMMER">
-                        <button type="submit">ADQUIRIR</button>
+                        <input type="hidden" name="clave_alumno" value="<?php echo $clave_alumno; ?>">
+                        <input type="hidden" name="clave_docente" value="<?php echo $clave_docente; ?>">
+                        <input type="hidden" name="clave_director" value="<?php echo $clave_director; ?>">
+                        <button type="submit" <?php echo $boton_deshabilitado; ?>>ADQUIRIR</button>
                     </form>
                 </div>
             </div>
