@@ -70,8 +70,8 @@
                 <a href="./registro-pudp.php">
                     <p>Docente de una escuela</p>
                 </a>
-                <a href="#" onclick="alertAppear();">
-                    <p>Cuenta personal</p>
+                <a href="./registro-director.php">
+                    <p>Director de una escuela</p>
                 </a>
             </div>
             <div class="opt-user">

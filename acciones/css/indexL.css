@@ -107,7 +107,7 @@ body::-webkit-scrollbar-track {
 }
 .form-box {
     width: 450px;
-    height: 490px;
+    height: 530px;
     position: relative;
     background: rgba(255, 255, 255, 1);
     border-radius: 0 35px 35px 0;
@@ -120,7 +120,7 @@ body::-webkit-scrollbar-track {
 
 .info-box {
     width: 450px;
-    height: 490px;
+    height: 530px;
     position: relative;
     background: #38b6ff;
     border-radius: 35px 0 0 35px;
@@ -288,6 +288,17 @@ body::-webkit-scrollbar-track {
     background: #e6e3e1;
     border-radius: 20px;
     height: 12px;
+}
+
+.select-field {
+    width: 90%;
+    border: none;
+    outline: none;
+    background: #e6e3e1;
+    border-radius: 20px;
+    height: 32px;
+    padding: 0 0 0 8px;
+    margin: 2px 0;
 }
 
 .submit-btn {

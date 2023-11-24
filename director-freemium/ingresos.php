@@ -1,14 +1,36 @@
 <?php
-// session_start();
-// $id_user = $_SESSION['id_docente_primaria'];
-// if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
-//   header('location: ../acciones/cerrarsesion.php');
-// }
-// include('../acciones/conexion.php');
-// $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria d
-// JOIN escuelas e 
-// ON d.id_escuela = e.id_escuela
-// WHERE d.id_docente = $id_user"));
+session_start();
+$id_user = $_SESSION['id_director_freemium'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_director_freemium'])) {
+    header('location: ../acciones/cerrarsesion.php');
+}
+
+include('../acciones/conexion.php');
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM directores d
+JOIN escuelas e 
+ON d.id_escuela = e.id_escuela
+WHERE d.id_director = $id_user"));
+
+$id_escuela = $user['id_escuela'];
+$clave = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE id_escuela = $id_escuela"));
+$clave_alumno = $clave['clave_alumno'];
+$clave_docente = $clave['clave_docente'];
+
+$id = $user["id_director"];
+$name = $user["nombre"];
+$apellidop = $user["apellidop"];
+$apellidom = $user["apellidom"];
+$image = $user["image"];
+$username = $user["usuario"];
+$email = $user['email'];
+$id_escuela_director = $user['id_escuela'];
+
+$total_capsulas = "SELECT COUNT(*) total FROM payment_primaria p
+                        JOIN alumnos_primaria a
+                        ON p.id_alumno = a.id_alumno
+                        WHERE a.id_escuela = '$id_escuela_director'";
+$resultcapsulas = mysqli_query($conexion, $total_capsulas);
+$filacapsulas = mysqli_fetch_assoc($resultcapsulas);
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +64,6 @@
 
     <div class="content-std">
         <div class="grafica">
-            <p>Cápsulas compradas</p>
             <div>
                 <canvas id="myChart"></canvas>
             </div>
@@ -52,24 +73,36 @@
                 <thead>
                     <tr>
                         <td><b>Cápsulas compradas</b></td>
-                        <td><b>Curso</b></td>
-                        <td><b>Precio</b></td>
-                        <td><b>Ingreso</b></td>
+                        <td><b>Usuario</b></td>
+                        <td><b>Precio (MXN)</b></td>
+                        <td><b>Ingreso (10%)</b></td>
+                        <td><b>Fecha de adquisición (AA/MM/DD)</b></td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Paquete 1</td>
-                        <td>Programación web básico</td>
-                        <td>$30.00</td>
-                        <td>$3.00</td>
-                    </tr>
-                    <tr>
-                        <td>Paquete 3</td>
-                        <td>Programación web básico</td>
-                        <td>$30.00</td>
-                        <td>$3.00</td>
-                    </tr>
+                    <?php
+                    include "../acciones/conexion.php";
+
+                    $query_payment_primaria = mysqli_query($conexion, "SELECT * FROM payment_primaria p
+                    JOIN alumnos_primaria a
+                    ON p.id_alumno = a.id_alumno
+                    WHERE a.id_escuela = '$id_escuela_director'
+                    ");
+
+                    $result = mysqli_num_rows($query_payment_primaria);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_payment_primaria)) {
+                            $d = new DateTime($data['create_at']); 
+                    ?>
+                            <tr>
+                                <td><?php echo $data['item_name']; ?></td>
+                                <td><?php echo $data['usuario']; ?></td>
+                                <td>$<?php echo $data['payment_amount']; ?></td>
+                                <td>$<?php echo (($data['payment_amount']) / 100) * 10; ?>.00</td>
+                                <td><?php echo $d->format('y-m-d'); ?></td>
+                            </tr>
+                    <?php }
+                    } ?>
                 </tbody>
             </table>
         </div>
@@ -101,13 +134,15 @@
 <script>
     const ctx = document.getElementById('myChart');
 
+    datos = <?php echo $filacapsulas['total'];?>;
+
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+            labels: ['Total de cápsulas adquiridas dentro de la institución: <?php echo $filacapsulas['total'];?>'],
             datasets: [{
-                label: 'Cápsulas compradas',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Total de cápsulas',
+                data: [<?php echo $filacapsulas['total'];?>],
                 borderWidth: 1
             }]
         },

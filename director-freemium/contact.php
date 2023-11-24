@@ -1,14 +1,14 @@
 <?php
-// session_start();
-// $id_user = $_SESSION['id_docente_primaria'];
-// if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
-//   header('location: ../acciones/cerrarsesion.php');
-// }
-// include('../acciones/conexion.php');
-// $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria d
-// JOIN escuelas e 
-// ON d.id_escuela = e.id_escuela
-// WHERE d.id_docente = $id_user"));
+session_start();
+$id_user = $_SESSION['id_director_freemium'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_director_freemium'])) {
+  header('location: ../acciones/cerrarsesion.php');
+}
+include('../acciones/conexion.php');
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM directores d
+JOIN escuelas e 
+ON d.id_escuela = e.id_escuela
+WHERE d.id_director = $id_user"));
 ?>
 
 <!DOCTYPE html>

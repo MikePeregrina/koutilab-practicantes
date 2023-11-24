@@ -101,6 +101,37 @@ h4 {
     color: rgba(74, 74, 74, 255);
 }
 
+.return {
+    position: absolute;
+    top: 22%;
+    left: 11%;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    z-index: 10;
+}
+
+.return a {
+    color: #000;
+}
+
+.return i {
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    border-radius: 80px;
+    text-align: center;
+    font-size: 20px;
+    background: linear-gradient(
+        to right,
+        rgb(61, 172, 244),
+        rgba(132, 196, 44, 0.6)
+    );
+}
 .titlec {
     width: 40%;
     height: 70px;

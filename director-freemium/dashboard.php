@@ -1,15 +1,50 @@
 <?php
-// session_start();
-// $id_user = $_SESSION['id_docente_primaria'];
-// if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
-//   header('location: ../acciones/cerrarsesion.php');
-// }
+session_start();
+$id_user = $_SESSION['id_director_freemium'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_director_freemium'])) {
+  header('location: ../acciones/cerrarsesion.php');
+}
 
-// include('../acciones/conexion.php');
-// $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria d
-// JOIN escuelas e 
-// ON d.id_escuela = e.id_escuela
-// WHERE d.id_docente = $id_user"));
+include('../acciones/conexion.php');
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM directores d
+JOIN escuelas e 
+ON d.id_escuela = e.id_escuela
+WHERE d.id_director = $id_user"));
+
+$id_escuela = $user['id_escuela'];
+$clave = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE id_escuela = $id_escuela"));
+$clave_alumno = $clave['clave_alumno'];
+$clave_docente = $clave['clave_docente'];
+
+$query_info_clave = "SELECT usos_restantes, usos_totales, fecha_expiracion
+                    FROM tabla_claves 
+                    WHERE clave = '$clave_alumno'";
+
+$result_info_clave = $conexion->query($query_info_clave);
+
+if ($result_info_clave) {
+    $row = $result_info_clave->fetch_assoc();
+    
+    $usos_restantes = $row['usos_restantes'];
+    $usos_totales = $row['usos_totales'];
+    $fecha_expiracion = $row['fecha_expiracion'];
+
+	// Obtener la fecha actual
+    $fecha_actual = date("Y-m-d");
+    
+    // Calcular los días restantes hasta la expiración
+    $dias_restantes = (strtotime($fecha_expiracion) - strtotime($fecha_actual)) / (60 * 60 * 24);
+    
+    // Calcular los usos usados
+    $usos_usados = $usos_totales - $usos_restantes;
+    
+} 
+
+$id = $user['id_director'];
+$name = $user['nombre'];
+$image = $user['image'];
+$username = $user['usuario'];
+
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +74,12 @@
 				<div class="perfil-usuario-avatar">
 
 					<div class="avatar-img">
-						<!-- <img src="acciones/img/<?php //echo $image; ?>" title="<?php //echo $image; ?>"> -->
+						<img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
 					</div>
 
 					<div class="camera-icon">
-						<input type="hidden" name="id" value="<?php // echo $id; ?>">
-						<input type="hidden" name="name" value="<?php // echo $name; ?>">
+						<input type="hidden" name="id" value="<?php echo $id; ?>">
+						<input type="hidden" name="name" value="<?php echo $name; ?>">
 						<input type="file" style="cursor: pointer;" name="image" id="image" class="" accept=".jpg, .jpeg, .png">
 						<i class="fa fa-camera" style="color: white; font-size:30px;"></i>
 					</div>
@@ -54,15 +89,15 @@
 		<hr style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:4%">
 
 		<div class="container-info">
-			<h3>Nombre: <span><?php // echo $name ?>Nombre</span></h3>
+			<h3>Nombre: <span><?php  echo $name ?></span></h3>
 			<br>
-			<h3>Usuario: <span><?php // echo $username ?>User</span></h3>
+			<h3>Usuario: <span><?php echo $username ?></span></h3>
 			<br>
-			<h3>Escuela: <span><?php // echo $user["nombre_escuela"] ?>Escuela</span></h3>
+			<h3>Escuela: <span><?php echo $user["nombre_escuela"] ?></span></h3>
 			<br>
-			<h3>CCT: <span><?php // echo $user["cct"] ?></span>CCT</h3>
+			<h3>CCT: <span><?php echo $user["cct"] ?></span></h3>
 			<br>
-			<h3>Nivel educativo: <span><?php // echo $user["nivel_educativo"] ?>Primaria</span></h3>
+			<h3>Nivel educativo: <span><?php echo $user["nivel_educativo"] ?></span></h3>
 		</div>
 
 		<hr class="hr2" style="background-color: lightgray; width:60%; height:2px; margin-left:20%; margin-top:-48%;">
@@ -106,8 +141,8 @@
 			</div> -->
 			
 			<div class="info-paq">
-				<p><b>Clave de docentes:</b> ABC123</p>
-				<p><b>Clave de alumnos:</b> ABC123</p>
+				<p><b>Clave de docentes:</b> <?php echo $clave_alumno ?></p>
+				<p><b>Clave de alumnos:</b> <?php echo $clave_docente ?></p>
 			</div>
 		</div>
 
@@ -178,7 +213,7 @@
 		} else {
 			$newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
 			$newImageName .= '.' . $imageExtension;
-			$query = "UPDATE docentes_primaria SET image = '$newImageName' WHERE id_docente = $id";
+			$query = "UPDATE directores SET image = '$newImageName' WHERE id_director = $id";
 			mysqli_query($conexion, $query);
 			move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
 			echo

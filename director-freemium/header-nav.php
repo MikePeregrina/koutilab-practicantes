@@ -1,14 +1,14 @@
 <?php
-// $id = $user["id_docente"];
-// $name = $user["nombre"];
-// $image = $user["image"];
-// $username = $user["usuario"];
+$id = $user["id_director"];
+$name = $user["nombre"];
+$image = $user["image"];
+$username = $user["usuario"];
 ?>
 <nav class="navbar-header">
 	<ul>
 		<li>
 			<a href="" class="logo">
-				<img src="acciones/img/<?php // echo $image; ?>" title="<?php // echo $image; ?>">
+				<img src="acciones/img/<?php echo $image; ?>" title="<?php echo $image; ?>">
 				<span class="nav-item">KOUTILAB</span>
 			</a>
 		</li>
