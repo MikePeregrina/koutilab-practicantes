@@ -56,6 +56,12 @@ $capsula_comprada_css2 = "capsulapago4";
 $sql_comprada_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_css2' AND d.id_curso = 1;");
 $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
 
+//Verificar si es escuela licencia o freemium
+$sql_modelo = "SELECT tipo_modelo FROM escuelas WHERE id_escuela = $id_escuela";
+$result_modelo = $conexion->query($sql_modelo);
+$row_modelo = $result_modelo->fetch_assoc();
+$tipo_modelo = $row_modelo['tipo_modelo'];
+
 // Función para actualizar conexiones a ruta
 function actualizarConexiones($permiso, $conexion)
 {
