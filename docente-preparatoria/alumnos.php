@@ -82,7 +82,8 @@ $data1 = mysqli_fetch_assoc($query1);
                 <thead>
                     <tr>
                         <td><b>Nombre</b></td>
-                        <td><b>Apellido</b></td>
+                        <td><b>Apellido Paterno</b></td>
+                        <td><b>Apellido Materno</b></td>
                         <td><b>Usuario</b></td>
                         <td><b>Conexiones</b></td>
                         <td><b>Clave secreta</b></td>
@@ -94,7 +95,7 @@ $data1 = mysqli_fetch_assoc($query1);
                     <?php
                     include "../acciones/conexion.php";
 
-                    $query_alumnos = mysqli_query($conexion, "SELECT a.nombre, a.apellidop, a.usuario, a.conexiones, a.clave_secreta FROM alumnos_preparatoria a
+                    $query_alumnos = mysqli_query($conexion, "SELECT a.nombre, a.apellidop, a.apellidom, a.usuario, a.conexiones, a.clave_secreta FROM alumnos_preparatoria a
                 JOIN docentes_preparatoria d
                 ON a.id_docente = d.id_docente
                 WHERE d.id_docente = '$id_user' AND a.estado = 1");
@@ -106,6 +107,7 @@ $data1 = mysqli_fetch_assoc($query1);
                             <tr>
                                 <td><?php echo $data['nombre']; ?></td>
                                 <td><?php echo $data['apellidop']; ?></td>
+                                <td><?php echo $data['apellidom']; ?></td>
                                 <td><?php echo $data['usuario']; ?></td>
                                 <td><?php echo $data['conexiones']; ?></td>
                                 <td><?php echo $data['clave_secreta']; ?></td>
