@@ -1239,6 +1239,179 @@ if (isset($_POST['iniciar_sesion'])) {
             </script>
             ";
                 }
+            }
+            if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Primaria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_primaria(nombre, apellidop, apellidom, usuario, contrasena, clave, clave_secreta, id_escuela, image, fondo) values ('$nombre_registrar', '$apellidop_registrar', '$apellidom_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', '$clave_secreta', $id_escuela_alumno, 'Mascota-Aerobot-01.png', 'portada-1.png')");
+
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+                    echo "
+                    <script>
+                        redirigir();
+                    </script>
+                    ";
+
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de alumno exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'cuenta-creada.php';
+                    //       }
+                    //     });
+                    //   </>
+                    //     ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.reload();
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Secundaria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_secundaria(nombre, apellidop, apellidom, usuario, contrasena, clave, clave_secreta, id_escuela, image, fondo) values ('$nombre_registrar', '$apellidop_registrar', '$apellidom_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', '$clave_secreta', $id_escuela_alumno, 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+                    echo "
+                    <script>
+                        redirigir();
+                    </script>
+                    ";
+
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de alumno exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'index.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'index.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Preparatoria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'index.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'index.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Universidad') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_universidad(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'index.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'index.php';
+          }
+        });
+      </script>
+        ";
+                }
             } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Primaria') {
                 $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
                 if ($query_insert_docente) {
