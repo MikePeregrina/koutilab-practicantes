@@ -16,7 +16,7 @@ COUNT(DISTINCT CASE
     ELSE cct
 END) AS conteo
 FROM escuelas
-WHERE estatus = 1 AND id_admin = $id_user
+WHERE estatus = 1 
 GROUP BY nivel_educativo
 ORDER BY
 CASE
