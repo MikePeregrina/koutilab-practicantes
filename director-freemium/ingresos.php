@@ -25,12 +25,37 @@ $username = $user["usuario"];
 $email = $user['email'];
 $id_escuela_director = $user['id_escuela'];
 
-$total_capsulas = "SELECT COUNT(*) total FROM payment_primaria p
+//Contar las cápsulas premium adquiridas de primaria 
+$total_capsulas_primaria = "SELECT COUNT(*) total FROM payment_primaria p
                         JOIN alumnos_primaria a
                         ON p.id_alumno = a.id_alumno
                         WHERE a.id_escuela = '$id_escuela_director'";
-$resultcapsulas = mysqli_query($conexion, $total_capsulas);
-$filacapsulas = mysqli_fetch_assoc($resultcapsulas);
+$resultcapsulas_primaria = mysqli_query($conexion, $total_capsulas_primaria);
+$filacapsulas_primaria = mysqli_fetch_assoc($resultcapsulas_primaria);
+
+//Contar las cápsulas premium adquiridas de secundaria 
+$total_capsulas_secundaria = "SELECT COUNT(*) total FROM payment_secundaria p
+                        JOIN alumnos_secundaria a
+                        ON p.id_alumno = a.id_alumno
+                        WHERE a.id_escuela = '$id_escuela_director'";
+$resultcapsulas_secundaria = mysqli_query($conexion, $total_capsulas_secundaria);
+$filacapsulas_secundaria = mysqli_fetch_assoc($resultcapsulas_secundaria);
+
+//Contar las cápsulas premium adquiridas de preparatoria 
+$total_capsulas_preparatoria = "SELECT COUNT(*) total FROM payment_preparatoria p
+                        JOIN alumnos_preparatoria a
+                        ON p.id_alumno = a.id_alumno
+                        WHERE a.id_escuela = '$id_escuela_director'";
+$resultcapsulas_preparatoria = mysqli_query($conexion, $total_capsulas_preparatoria);
+$filacapsulas_preparatoria = mysqli_fetch_assoc($resultcapsulas_preparatoria);
+
+//Contar las cápsulas premium adquiridas de universidad 
+$total_capsulas_universidad = "SELECT COUNT(*) total FROM payment_universidad p
+                        JOIN alumnos_universidad a
+                        ON p.id_alumno = a.id_alumno
+                        WHERE a.id_escuela = '$id_escuela_director'";
+$resultcapsulas_universidad = mysqli_query($conexion, $total_capsulas_universidad);
+$filacapsulas_universidad = mysqli_fetch_assoc($resultcapsulas_universidad);
 ?>
 
 <!DOCTYPE html>
@@ -81,6 +106,7 @@ $filacapsulas = mysqli_fetch_assoc($resultcapsulas);
                 </thead>
                 <tbody>
                     <?php
+                    // Fragmento de código para mostrar alumnos de primaria que pertenezcan a la institución
                     include "../acciones/conexion.php";
 
                     $query_payment_primaria = mysqli_query($conexion, "SELECT * FROM payment_primaria p
@@ -92,7 +118,85 @@ $filacapsulas = mysqli_fetch_assoc($resultcapsulas);
                     $result = mysqli_num_rows($query_payment_primaria);
                     if ($result > 0) {
                         while ($data = mysqli_fetch_assoc($query_payment_primaria)) {
-                            $d = new DateTime($data['create_at']); 
+                            $d = new DateTime($data['create_at']);
+                    ?>
+                            <tr>
+                                <td><?php echo $data['item_name']; ?></td>
+                                <td><?php echo $data['usuario']; ?></td>
+                                <td>$<?php echo $data['payment_amount']; ?></td>
+                                <td>$<?php echo (($data['payment_amount']) / 100) * 10; ?>.00</td>
+                                <td><?php echo $d->format('y-m-d'); ?></td>
+                            </tr>
+                    <?php }
+                    } ?>
+
+
+                    <?php
+                    // Fragmento de código para mostrar alumnos de secundaria que pertenezcan a la institución
+                    include "../acciones/conexion.php";
+
+                    $query_payment_secundaria = mysqli_query($conexion, "SELECT * FROM payment_secundaria p
+                    JOIN alumnos_secundaria a
+                    ON p.id_alumno = a.id_alumno
+                    WHERE a.id_escuela = '$id_escuela_director'
+                    ");
+
+                    $result = mysqli_num_rows($query_payment_secundaria);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_payment_secundaria)) {
+                            $d = new DateTime($data['create_at']);
+                    ?>
+                            <tr>
+                                <td><?php echo $data['item_name']; ?></td>
+                                <td><?php echo $data['usuario']; ?></td>
+                                <td>$<?php echo $data['payment_amount']; ?></td>
+                                <td>$<?php echo (($data['payment_amount']) / 100) * 10; ?>.00</td>
+                                <td><?php echo $d->format('y-m-d'); ?></td>
+                            </tr>
+                    <?php }
+                    } ?>
+
+
+                    <?php
+                    // Fragmento de código para mostrar alumnos de preparatoria que pertenezcan a la institución
+                    include "../acciones/conexion.php";
+
+                    $query_payment_preparatoria = mysqli_query($conexion, "SELECT * FROM payment_preparatoria p
+                    JOIN alumnos_preparatoria a
+                    ON p.id_alumno = a.id_alumno
+                    WHERE a.id_escuela = '$id_escuela_director'
+                    ");
+
+                    $result = mysqli_num_rows($query_payment_preparatoria);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_payment_preparatoria)) {
+                            $d = new DateTime($data['create_at']);
+                    ?>
+                            <tr>
+                                <td><?php echo $data['item_name']; ?></td>
+                                <td><?php echo $data['usuario']; ?></td>
+                                <td>$<?php echo $data['payment_amount']; ?></td>
+                                <td>$<?php echo (($data['payment_amount']) / 100) * 10; ?>.00</td>
+                                <td><?php echo $d->format('y-m-d'); ?></td>
+                            </tr>
+                    <?php }
+                    } ?>
+
+
+                    <?php
+                    // Fragmento de código para mostrar alumnos de universidad que pertenezcan a la institución
+                    include "../acciones/conexion.php";
+
+                    $query_payment_universidad = mysqli_query($conexion, "SELECT * FROM payment_universidad p
+                    JOIN alumnos_universidad a
+                    ON p.id_alumno = a.id_alumno
+                    WHERE a.id_escuela = '$id_escuela_director'
+                    ");
+
+                    $result = mysqli_num_rows($query_payment_universidad);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_payment_universidad)) {
+                            $d = new DateTime($data['create_at']);
                     ?>
                             <tr>
                                 <td><?php echo $data['item_name']; ?></td>
@@ -134,19 +238,45 @@ $filacapsulas = mysqli_fetch_assoc($resultcapsulas);
 <script>
     const ctx = document.getElementById('myChart');
 
-    datos = <?php echo $filacapsulas['total'];?>;
+    datos_primaria = [<?php echo $filacapsulas_primaria['total']; ?>];
+    datos_secundaria = [<?php echo $filacapsulas_secundaria['total']; ?>];
+    datos_preparatoria = [<?php echo $filacapsulas_preparatoria['total']; ?>];
+    datos_universidad = [<?php echo $filacapsulas_universidad['total']; ?>];
+
+    datos_generales = parseInt(datos_primaria) + parseInt(datos_secundaria) + parseInt(datos_preparatoria) + parseInt(datos_universidad);
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Total de cápsulas adquiridas dentro de la institución: <?php echo $filacapsulas['total'];?>'],
+            labels: ['Total de cápsulas adquiridas dentro de la institución: ' + datos_generales],
             datasets: [{
-                label: 'Total de cápsulas',
-                data: [<?php echo $filacapsulas['total'];?>],
-                borderWidth: 1
-            }]
+                    label: 'Cápsulas de primaria',
+                    data: datos_primaria,
+                    borderWidth: 1
+                },
+                {
+                    label: 'Cápsulas de secundaria',
+                    data: datos_secundaria,
+                    borderWidth: 1
+                },
+                {
+                    label: 'Cápsulas de preparatoria',
+                    data: datos_preparatoria,
+                    borderWidth: 1
+                },
+                {
+                    label: 'Cápsulas de universidad',
+                    data: datos_universidad,
+                    borderWidth: 1
+                }
+            ]
         },
         options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true
