@@ -52,7 +52,7 @@ $cuerpo .= '
                                 <h2 style="color: #84c42c; margin: 0 0 7px; text-align: center;">¡Hola ' . $nombre_registrar . '!</h2>
                                 <p style="margin: 2px; font-size: 20px">El equipo de desarrollo de Koutilab te da la bienvenida a la plataforma. Tu 
                                     nombre de usuario es <strong>' . $usuario_registrar . '</strong> y tu contraseña es <strong> ' . $contrasena_correo . '</strong>. Inicia sesión en la plataforma para empezar a 
-                                    disfrutar de los servicios. <br><br> <strong> https://koutilab.com/login.php </strong>
+                                    disfrutar de los servicios. <br><br> <strong> https://koutilab.com/ </strong>
                                 </p>
                                 <p>&nbsp;</p>
                             </div>
