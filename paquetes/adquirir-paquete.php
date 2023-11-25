@@ -30,7 +30,7 @@
                 <li><a onclick="cerrarMenu();" href="../index.php" id="back">Regresar</a></li>
                 <!-- <li><a onclick="cerrarMenu();" href="#paquete3">Paquete personal</a></li> -->
                 <!-- <li><a onclick="cerrarMenu();" href="#paquete2">Paquete freemium</a></li> -->
-                <li><a onclick="cerrarMenu();" href="#licencia">Paquete licencia</a></li>
+                <li><a onclick="cerrarMenu();" href="#licencia">Paquete Edutech</a></li>
                 <li><a onclick="cerrarMenu();" href="#freemium">Paquete freemium</a></li>
             </ul>
         </div>
@@ -91,7 +91,7 @@
     <!-- División para el buen fin -->
     <div class="buen-fin">
         <div class="tittle-bf">
-            <p>PAQUETES ESCOLARES</p>
+            <p>LICENCIAS ESCOLARES</p>
         </div>
         <div class="line-bf">
             <div class="sup-bf">
@@ -104,7 +104,7 @@
             </div>
             <div class="inf-bf">
                 <p>
-                    VALIDO DEL 17 DE AL 30 DE NOVIEMBRE DEL 2023 SOLO EN PAQUETES LICENCIA EN KOUTILAB
+                    VÁLIDO DEL 17 DE AL 30 DE NOVIEMBRE DEL 2023 SOLO EN PAQUETES EDUTECH EN KOUTILAB
                 </p>
             </div>
         </div>
@@ -135,7 +135,7 @@
         <div class="linea-azul"></div>
         <div class="container-card">
             <div class="tittle-card">
-                <p>PAQUETES LICENCIA</p>
+                <p>PAQUETES EDUTECH</p>
             </div>
             <div class="box-card">
                 <!-- Tarjeta -->
@@ -146,15 +146,16 @@
                     </div>
                     <div class="tittle-card2">
                         <p class="p1">de $3,250.00 mxn</p>
-                        <p class="p2">a sólo $1,625.00 mxn</p>
+                        <p class="p2">a sólo <b>&nbsp;$1,625.00&nbsp;</b> mxn</p>
+                        <p class="p1" style="text-decoration: none; font-size: 15px;">solo el primer semestre</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
-                            <li>500 USUARIOS</li>
-                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
-                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
-                            <li>PANELES FÁCILES DE USAR</li>
-                            <li>PAGO SEMESTRAL</li>
+                            <li id="init">500 USUARIOS</li>
+                            <li>Rutas de aprendizaje ilimitadas</li>
+                            <li>Acceso para docentes y directores</li>
+                            <li>Paneles fáciles de usar</li>
+                            <li id="init1">Pago semestral</li>
                         </ul>
                     </div>
                     <div class="tittle-card4">
@@ -174,15 +175,16 @@
                     </div>
                     <div class="tittle-card2">
                         <p class="p1">de $6,500.00 mxn</p>
-                        <p class="p2">a sólo $3,250.00 mxn</p>
+                        <p class="p2">a sólo <b>&nbsp;$3,250.00&nbsp;</b> mxn</p>
+                        <p class="p1" style="text-decoration: none; font-size: 15px;">solo el primer semestre</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
-                            <li>1,000 USUARIOS</li>
-                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
-                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
-                            <li>PANELES FÁCILES DE USAR</li>
-                            <li>PAGO SEMESTRAL</li>
+                            <li id="init">1,000 USUARIOS</li>
+                            <li>Rutas de aprendizaje ilimitadas</li>
+                            <li>Acceso para docentes y directores</li>
+                            <li>Paneles fáciles de usar</li>
+                            <li id="init1">Pago semestral</li>
                         </ul>
                     </div>
                     <div class="tittle-card4">
@@ -202,15 +204,16 @@
                     </div>
                     <div class="tittle-card2">
                         <p class="p1">de $15,600.00 mxn</p>
-                        <p class="p2">a sólo $7,800.00 mxn</p>
+                        <p class="p2">a sólo <b>&nbsp;$7,800.00&nbsp;</b> mxn</p>
+                        <p class="p1" style="text-decoration: none; font-size: 15px;">solo el primer semestre</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
-                            <li>3000 USUARIOS</li>
-                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
-                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
-                            <li>PANELES FÁCILES DE USAR</li>
-                            <li>PAGO SEMESTRAL</li>
+                            <li id="init">3000 USUARIOS</li>
+                            <li>Rutas de aprendizaje ilimitadas</li>
+                            <li>Acceso para docentes y directores</li>
+                            <li>Paneles fáciles de usar</li>
+                            <li id="init1">Pago semestral</li>
                         </ul>
                     </div>
                     <div class="tittle-card4">
@@ -230,15 +233,16 @@
                     </div>
                     <div class="tittle-card2">
                         <p class="p1">de $19,500.00 mxn</p>
-                        <p class="p2">a sólo $9,750.00 mxn</p>
+                        <p class="p2">a sólo <b>&nbsp;$9,750.00&nbsp;</b> mxn</p>
+                        <p class="p1" style="text-decoration: none; font-size: 15px;">solo el primer semestre</p>
                     </div>
                     <div class="tittle-card3">
                         <ul>
-                            <li>5,000 USUARIOS</li>
-                            <li>RUTAS DE APRENDIZAJE ILIMITADAS</li>
-                            <li>ACCESO PARA DOCENTES Y DIRECTORES</li>
-                            <li>PANELES FÁCILES DE USAR</li>
-                            <li>PAGO SEMESTRAL</li>
+                            <li id="init">5,000 USUARIOS</li>
+                            <li>Rutas de aprendizaje ilimitadas</li>
+                            <li>Acceso para docentes y directores</li>
+                            <li>Paneles fáciles de usar</li>
+                            <li id="init1">Pago semestral</li>
                         </ul>
                     </div>
                     <div class="tittle-card4">
