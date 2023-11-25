@@ -1032,7 +1032,7 @@ if (isset($_POST['iniciar_sesion'])) {
             $query_escuelas = "SELECT * FROM escuelas WHERE (clave_alumno = '$clave_registrar' OR clave_docente = '$clave_registrar' OR clave_director = '$clave_registrar') AND tipo_modelo = 2";
             $result_escuelas = $conexion->query($query_escuelas);
 
-            if ($result_tabla_claves->num_rows > 0 || $result_escuelas->num_rows > 0) {
+            if ($result_tabla_claves->num_rows > 0) {
                 $rowresult_tabla_claves = $result_tabla_claves->fetch_assoc();
                 $rowresult_escuelas = $result_escuelas->fetch_assoc();
                 $fecha_expiracion = $rowresult_tabla_claves["fecha_expiracion"];
