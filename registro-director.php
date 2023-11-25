@@ -559,7 +559,7 @@ if (isset($_POST['iniciar_sesion'])) {
     <i id="abrir" onclick="abrirMenu();" class="fas fa-bars"></i>
     <div class="nav" id="nav">
         <p class="btn-nav" onclick="login();">Conoce Koutilab</p>
-        <p class="btn-nav">Adquiere un paquete</p>
+        <p class="btn-nav" onclick="paquetes();">Adquiere un paquete</p>
         <p class="btn-nav" id="prueba" onclick="prueba();">Prueba gratuita</p>
         <i id="cerrar" onclick="cerrarMenu();" class="fas fa-times"></i>
     </div>
@@ -716,6 +716,10 @@ if (isset($_POST['iniciar_sesion'])) {
 
         function prueba() {
             window.location.href = "./alumno-estructura/prueba/rutas/ruta-prueba.php";
+        }
+
+        function paquetes() {
+            window.location.href = "./paquetes/adquirir-paquete.php";
         }
     </script>
 
@@ -1421,22 +1425,22 @@ if (isset($_POST['iniciar_sesion'])) {
                             </script>
                             ";
 
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de director exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'index.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de director exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'index.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1466,22 +1470,22 @@ if (isset($_POST['iniciar_sesion'])) {
                         redirigir();
                     </script>
                     ";
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de director exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'index.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de director exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'index.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1511,22 +1515,22 @@ if (isset($_POST['iniciar_sesion'])) {
                         redirigir();
                     </script>
                     ";
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de director exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'index.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de director exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'index.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1556,22 +1560,22 @@ if (isset($_POST['iniciar_sesion'])) {
                         redirigir();
                     </script>
                     ";
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de director exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'index.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de director exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'index.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
@@ -1645,22 +1649,22 @@ if (isset($_POST['iniciar_sesion'])) {
                         redirigir();
                     </script>
                     ";
-    //                 echo
-    //                 "
-    //   <script>
-    //   Swal.fire({
-    //       title: '¡Excelente!',
-    //       text: 'Registro de director exitoso',
-    //       icon: 'success',
-    //       confirmButtonColor: '#3085d6',
-    //       confirmButtonText: 'Aceptar',
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //           window.location.href = 'index.php';
-    //       }
-    //     });
-    //   </script>
-    //     ";
+                    //                 echo
+                    //                 "
+                    //   <script>
+                    //   Swal.fire({
+                    //       title: '¡Excelente!',
+                    //       text: 'Registro de director exitoso',
+                    //       icon: 'success',
+                    //       confirmButtonColor: '#3085d6',
+                    //       confirmButtonText: 'Aceptar',
+                    //     }).then((result) => {
+                    //       if (result.isConfirmed) {
+                    //           window.location.href = 'index.php';
+                    //       }
+                    //     });
+                    //   </script>
+                    //     ";
                 } else {
                     echo
                     "
