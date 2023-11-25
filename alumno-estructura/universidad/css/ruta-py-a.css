@@ -174,7 +174,7 @@ section {
   cursor: pointer;
 }
 .container-premium1{
-  margin-left: 56%;
+  margin-left: 50.1%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
@@ -196,7 +196,7 @@ section {
 }
 
 .container-premium2{
-  margin-left: -1%;
+  margin-left: -2%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
@@ -218,7 +218,7 @@ section {
 }
 
 .container-premium3{
-  margin-left: 56%;
+  margin-left: 50.1%;
   border-radius: 45px 0 0px 45px;
   width: 42%;
   height: 120px;
@@ -241,14 +241,14 @@ section {
 }
 
 .container-premium4{
-  margin-left: -1%;
+  margin-left: 6.9%;
   border-radius: 0px 45px 45px 0px;
   width: 42%;
   height: 110px;  
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 5120px;
+  margin-top: 5125px;
 }
 
 .container-premium-extra4{
@@ -263,7 +263,7 @@ section {
 }
 
 .container-premium5{
-  margin-left: 56%;
+  margin-left: 41.4%;
   border-radius: 45px 0 0px 45px;
   width: 480px;
   height: 120px;
@@ -271,7 +271,7 @@ section {
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 5565px;
+  margin-top: 5560px;
 }
 
 .container-premium-extra5{
@@ -286,7 +286,7 @@ section {
 }
 
 .container-premium6{
-  margin-left: -1%;
+  margin-left: 17%;
   border-radius: 45px 0 0px 45px;
   width: 480px;
   height: 120px;
@@ -435,7 +435,7 @@ section {
 }
 
 #teoriap{
-  
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -455,7 +455,7 @@ section {
 }
 
 #pracp{
-  
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -475,7 +475,7 @@ section {
 }
 
 #gamep{
- 
+ float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;

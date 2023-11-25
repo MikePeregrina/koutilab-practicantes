@@ -349,7 +349,7 @@ section {
 }
 
 #teoriap{
-  
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -369,7 +369,7 @@ section {
 }
 
 #pracp{
-  
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -389,7 +389,7 @@ section {
 }
 
 #gamep{
- 
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -636,7 +636,7 @@ section {
 
 /*Para evitar que el contenedor premium 4 se salga de pantalla*/
 .container-premium4{
-  padding-left: 1.5%;
+  padding-left: 0%;
   justify-content: inherit;
 }
 

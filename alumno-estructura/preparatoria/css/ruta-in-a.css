@@ -175,18 +175,18 @@ section {
 }
 
 .container-premium1{
-  margin-left: 58%;
+  margin-left: 50.1%;
   width: 42%;
   height: 120px;
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 792px;
+  margin-top: 782px;
 }
 
 .container-premium2{
-  margin-left: -1%;
+  margin-left: -2%;
   width: 42%;
   height: 110px;  
   display: flex;
@@ -197,24 +197,24 @@ section {
 }
 
 .container-premium3{
-  margin-left: -1%;
+  margin-left: 7.1%;
   width: 42%;
   height: 110px;  
   display: flex;
   position: absolute;
   justify-content: space-evenly;
-  margin-top: 3720px;
+  margin-top: 3790px;
 }
 
 .container-premium4{
-  margin-left: 56%;
+  margin-left: 48.5%;
   width: 480px;
   height: 120px;
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 6232px;
+  margin-top: 6265px;
 
 }
 
@@ -345,7 +345,7 @@ section {
 }
 
 #teoriap{
-  
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -365,7 +365,7 @@ section {
 }
 
 #pracp{
-  
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
@@ -385,7 +385,7 @@ section {
 }
 
 #gamep{
- 
+  float: left;
   height: 117px;
   width: 117px;
   border-radius: 50%;
